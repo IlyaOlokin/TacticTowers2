@@ -7,6 +7,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     [NonSerialized] public int upgradeCost = 10;
+	//
     
     public float shootAngle;
     public float shootDirection;
