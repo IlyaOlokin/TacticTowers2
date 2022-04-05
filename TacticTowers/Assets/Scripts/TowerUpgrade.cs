@@ -49,9 +49,11 @@ public class TowerUpgrade : MonoBehaviour
 
     public void OpenUpgradeWindow()
     {
-        if (tower.upgradeCost <= Money.GetMoney())
+        var cost = tower.upgradeCost + tower.upgradeIncrement * tower.upgradeLevel;
+        if (cost <= Money.GetMoney())
         {
-            Money.TakeMoney(tower.upgradeCost);
+            Money.TakeMoney(cost);
+            tower.upgradeLevel++;
             upgradeWindow.SetActive(true);
             upgradeWindow.GetComponent<UpgradeWindow>().InitializeUpgrade(tower);
         }

@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    [NonSerialized] public int upgradeCost = 10;
-	//
-    
+    [NonSerialized] public int upgradeCost = 5;
+    [NonSerialized] public int upgradeIncrement = 5;
+    [NonSerialized] public int upgradeLevel = 1;
+
     public float shootAngle;
     public float shootDirection;
     
