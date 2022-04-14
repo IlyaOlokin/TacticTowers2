@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootDelay : Upgrade
+public class AttackSpeed : Upgrade
 {
     [SerializeField] private float bonus;
     
