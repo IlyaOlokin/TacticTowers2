@@ -10,9 +10,9 @@ public class Minigun : Tower
     private float heatCount = 0;
     private float coolTimer;
 
-    [SerializeField] private int maxHeat;
-    [SerializeField] private float bonusAttackSpeedPerHeat;
-    [SerializeField] private float coolDelay;
+    [SerializeField] public int maxHeat;
+    [SerializeField] public float bonusAttackSpeedPerHeat;
+    [SerializeField] public float coolDelay;
 
     void Update()
     {
