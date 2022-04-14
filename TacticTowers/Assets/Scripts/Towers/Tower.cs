@@ -13,7 +13,8 @@ public class Tower : MonoBehaviour
     
     public float shootDistance;
     [SerializeField] public float Dmg;
-    [SerializeField] public float shootDelay;
+    [SerializeField] public float attackSpeed;
+    [SerializeField]protected float shootDelayTimer;
     [NonSerialized] public bool canShoot = true;
 
     public ShootZone shootZone;
@@ -23,6 +24,8 @@ public class Tower : MonoBehaviour
     protected void Update()
     {
         FindTarget();
+        
+        if (shootDelayTimer > 0) shootDelayTimer -= Time.deltaTime;
     }
 
     private void FindTarget()

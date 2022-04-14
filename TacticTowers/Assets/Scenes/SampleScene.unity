@@ -414,22 +414,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 97114168}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d83b75cf4d944e4185b7f544519ea4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 795b0205c5bd2c24694634702dd95346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shootAngle: 90
   shootDirection: 0
   shootDistance: 3
-  Dmg: 5
-  shootDelay: 0.5
+  Dmg: 4
+  attackSpeed: 1
+  shootDelayTimer: 0
   shootZone: {fileID: 1519266165}
-  upgrades:
-  - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
-  - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
-  - {fileID: -3873548290313896563, guid: 2971894abaf8fe24885a1236f80790dc, type: 3}
-  - {fileID: 5316641116981540922, guid: 0fa713690dec7c247b7483445fc5b194, type: 3}
+  upgrades: []
   bullet: {fileID: 1680028144157980390, guid: 174ab832ba4221e4c8b6b2f2c3689797, type: 3}
   bulletSpeed: 10
+  maxHeat: 15
+  bonusAttackSpeedPerHeat: 0.2
+  coolDelay: 3
 --- !u!212 &97114171
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -530,7 +530,8 @@ MonoBehaviour:
   shootDirection: 270
   shootDistance: 3
   Dmg: 5
-  shootDelay: 0.5
+  attackSpeed: 2
+  shootDelayTimer: 0
   shootZone: {fileID: 1370621384}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
@@ -1407,7 +1408,8 @@ MonoBehaviour:
   shootDirection: 90
   shootDistance: 3
   Dmg: 5
-  shootDelay: 0.5
+  attackSpeed: 2
+  shootDelayTimer: 0
   shootZone: {fileID: 660283920}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
@@ -3879,7 +3881,8 @@ MonoBehaviour:
   shootDirection: 180
   shootDistance: 3
   Dmg: 5
-  shootDelay: 0.5
+  attackSpeed: 2
+  shootDelayTimer: 0
   shootZone: {fileID: 575627921}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}

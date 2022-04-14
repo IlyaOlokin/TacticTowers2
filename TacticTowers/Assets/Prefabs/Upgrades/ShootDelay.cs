@@ -8,6 +8,6 @@ public class ShootDelay : Upgrade
     
     public override void Execute(Tower tower)
     {
-        tower.shootDelay -= bonus;
+        tower.attackSpeed += bonus;
     }
 }
