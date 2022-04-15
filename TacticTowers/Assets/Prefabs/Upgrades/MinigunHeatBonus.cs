@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootDelay : Upgrade
+public class MinigunHeatBonus : Upgrade
 {
     [SerializeField] private float bonus;
     
     public override void Execute(Tower tower)
     {
-        tower.shootDelay -= bonus;
+        tower.gameObject.GetComponent<Minigun>().bonusAttackSpeedPerHeat += bonus;
     }
 }
