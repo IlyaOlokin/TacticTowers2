@@ -6,7 +6,7 @@ public class Laser : Tower
 {
     [SerializeField] private GameObject laserBim;
 
-    [SerializeField]private float heatCount = 0;
+    private float heatCount = 0;
     private float coolTimer;
     private GameObject currentEnemy;
     private GameObject activeLaser;

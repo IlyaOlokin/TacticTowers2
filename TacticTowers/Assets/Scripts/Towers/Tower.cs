@@ -16,7 +16,7 @@ public class Tower : MonoBehaviour
     public float shootDistance;
     [SerializeField] public float Dmg;
     [SerializeField] public float attackSpeed;
-    [SerializeField]protected float shootDelayTimer;
+    protected float shootDelayTimer;
     [NonSerialized] public bool canShoot = true;
 
     public ShootZone shootZone;
