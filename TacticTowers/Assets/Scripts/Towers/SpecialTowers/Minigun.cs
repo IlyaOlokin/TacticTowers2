@@ -28,9 +28,10 @@ public class Minigun : Tower
     
     protected override void Shoot(GameObject enemy)
     {
-        Vector3 dir = transform.position - enemy.transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.eulerAngles = new Vector3(0, 0, angle + 90);
+        if (enemy == null) return;
+        
+        LootAtTarget(enemy);
+        
         if (shootDelayTimer <= 0)
         {
             heatCount = Mathf.Ceil(heatCount);
