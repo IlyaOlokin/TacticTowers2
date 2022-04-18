@@ -18,6 +18,10 @@ public class LaserBim : MonoBehaviour
     void Update()
     {
         if (target != null) lr.SetPosition(1, target.transform.position);
-        
+    }
+
+    public void IncreaseWidth(float heatCount)
+    {
+        lr.widthMultiplier = 1 + heatCount / 10;
     }
 }

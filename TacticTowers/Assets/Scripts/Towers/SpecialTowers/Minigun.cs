@@ -6,6 +6,7 @@ public class Minigun : Tower
 {
     [SerializeField] private GameObject bullet;
     [SerializeField] private float bulletSpeed;
+    [SerializeField] private SpriteRenderer heatIndicator;
     
     private float heatCount = 0;
     private float coolTimer;
@@ -24,8 +25,17 @@ public class Minigun : Tower
             else heatCount = 0;
         }
         else coolTimer -= Time.deltaTime;
+
+        BarrelHeat();
     }
-    
+
+    private void BarrelHeat()
+    {
+        var color = heatIndicator.color;
+        color = new Color(color.r, color.g, color.b, heatCount / maxHeat * 0.6f);
+        heatIndicator.color = color;
+    }
+
     protected override void Shoot(GameObject enemy)
     {
         if (enemy == null) return;
