@@ -16,7 +16,7 @@ public class Tower : MonoBehaviour
     public float shootDistance;
     [SerializeField] public float Dmg;
     [SerializeField] public float attackSpeed;
-    [SerializeField]protected float shootDelayTimer;
+    protected float shootDelayTimer;
     [NonSerialized] public bool canShoot = true;
 
     public ShootZone shootZone;
@@ -55,11 +55,19 @@ public class Tower : MonoBehaviour
             }
         }
         
-        if (target != null && canShoot) Shoot(target);
+        if (canShoot) Shoot(target);
+        else Shoot(null);
     }
 
     protected virtual void Shoot(GameObject enemy)
     {
         
+    }
+
+    protected void LootAtTarget(GameObject target)
+    {
+        Vector3 dir = transform.position - target.transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.eulerAngles = new Vector3(0, 0, angle + 90);
     }
 }
