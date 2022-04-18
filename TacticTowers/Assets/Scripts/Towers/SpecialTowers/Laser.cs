@@ -42,6 +42,7 @@ public class Laser : Tower
             Destroy(activeLaser);
         }
         if (heatCount < maxHeat) heatCount += Time.deltaTime;
+        if (activeLaser != null)  activeLaser.GetComponent<LaserBim>().IncreaseWidth(heatCount);
         if (shootDelayTimer <= 0)
         {
             if (enemy != currentEnemy)
