@@ -16,8 +16,8 @@ public class ShootZone : MonoBehaviour
 
     public void DrawShootZone()
     {
-        image.fillAmount = tower.shootAngle / 360f;
-        transform.eulerAngles = new Vector3(0, 0, tower.shootDirection - tower.shootAngle / 2f);
-        transform.localScale = new Vector3(tower.shootDistance * 2.2f, tower.shootDistance * 2.2f, 1);
+        image.fillAmount = tower.GetShootAngle() / 360f;
+        transform.eulerAngles = new Vector3(0, 0, tower.shootDirection - tower.GetShootAngle() / 2f);
+        transform.localScale = new Vector3(tower.GetShootDistance() * 2.2f, tower.GetShootDistance() * 2.2f, 1);
     }
 }

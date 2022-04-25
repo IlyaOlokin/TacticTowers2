@@ -54,10 +54,10 @@ public class Laser : Tower
             }
             
             
-            shootDelayTimer = 1f / attackSpeed;
+            shootDelayTimer = 1f / GetAttackSpeed();
             coolTimer = coolDelay;
             
-            enemy.GetComponent<Enemy>().TakeDamage(Dmg + Mathf.Floor(heatCount) * bonusDamagePerHeat);
+            enemy.GetComponent<Enemy>().TakeDamage(GetDmg() + Mathf.Floor(heatCount) * bonusDamagePerHeat);
         }
     }
 }

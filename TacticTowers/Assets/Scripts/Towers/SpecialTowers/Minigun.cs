@@ -45,11 +45,11 @@ public class Minigun : Tower
         if (shootDelayTimer <= 0)
         {
             heatCount = Mathf.Ceil(heatCount);
-            shootDelayTimer = 1f / (attackSpeed + heatCount * bonusAttackSpeedPerHeat);
+            shootDelayTimer = 1f / (GetAttackSpeed() + heatCount * bonusAttackSpeedPerHeat);
             if (heatCount < maxHeat) heatCount += 1;
             coolTimer = coolDelay;
             var newBullet =  Instantiate(bullet, transform.position, transform.rotation);
-            newBullet.GetComponent<Bullet>().Dmg = Dmg;
+            newBullet.GetComponent<Bullet>().Dmg = GetDmg();
             newBullet.GetComponent<Bullet>().Speed = bulletSpeed;
             newBullet.GetComponent<Bullet>().OnCreate();
         }

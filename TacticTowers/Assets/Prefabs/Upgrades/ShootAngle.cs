@@ -8,7 +8,7 @@ public class ShootAngle : Upgrade
     
     public override void Execute(Tower tower)
     {
-        tower.shootAngle += bonus;
+        tower.multiplierShootAngle += bonus;
         tower.shootZone.DrawShootZone();
     }
 }

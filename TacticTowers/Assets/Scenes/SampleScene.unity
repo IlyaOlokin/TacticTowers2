@@ -417,11 +417,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795b0205c5bd2c24694634702dd95346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootAngle: 90
   shootDirection: 0
+  shootAngle: 45
+  multiplierShootAngle: 1
   shootDistance: 3
+  multiplierShootDistance: 1
   Dmg: 4
-  attackSpeed: 1
+  multiplierDmg: 1
+  attackSpeed: 1.5
+  multiplierAttackSpeed: 1
   shootZone: {fileID: 1519266165}
   upgrades:
   - {fileID: 1137575584556741642, guid: fbb7796e4bc53ea4eaa4f46a99375347, type: 3}
@@ -534,11 +538,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d83b75cf4d944e4185b7f544519ea4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootAngle: 90
   shootDirection: 270
+  shootAngle: 45
+  multiplierShootAngle: 1
   shootDistance: 3
+  multiplierShootDistance: 1
   Dmg: 5
+  multiplierDmg: 1
   attackSpeed: 2
+  multiplierAttackSpeed: 1
   shootZone: {fileID: 1370621384}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
@@ -1411,11 +1419,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fb9ba6c687fdf64c8ee26ba1b2ca281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootAngle: 90
   shootDirection: 90
+  shootAngle: 45
+  multiplierShootAngle: 1
   shootDistance: 3
+  multiplierShootDistance: 1
   Dmg: 1
+  multiplierDmg: 1
   attackSpeed: 3
+  multiplierAttackSpeed: 1
   shootZone: {fileID: 660283920}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
@@ -3968,11 +3980,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d83b75cf4d944e4185b7f544519ea4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootAngle: 90
   shootDirection: 180
+  shootAngle: 45
+  multiplierShootAngle: 1
   shootDistance: 3
+  multiplierShootDistance: 1
   Dmg: 5
+  multiplierDmg: 1
   attackSpeed: 2
+  multiplierAttackSpeed: 1
   shootZone: {fileID: 575627921}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}

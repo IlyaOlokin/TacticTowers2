@@ -8,6 +8,6 @@ public class Damage : Upgrade
     
     public override void Execute(Tower tower)
     {
-        tower.Dmg += bonus;
+        tower.multiplierDmg += bonus;
     }
 }

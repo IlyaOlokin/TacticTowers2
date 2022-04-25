@@ -8,6 +8,6 @@ public class AttackSpeed : Upgrade
     
     public override void Execute(Tower tower)
     {
-        tower.attackSpeed += bonus;
+        tower.multiplierAttackSpeed += bonus;
     }
 }
