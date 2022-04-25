@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ShootZone : MonoBehaviour
 {
-    [SerializeField] private Tower tower;
+    public Tower tower;
     private Image image;
     void Start()
     {

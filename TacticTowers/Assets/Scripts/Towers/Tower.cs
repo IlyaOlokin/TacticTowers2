@@ -100,4 +100,22 @@ public class Tower : MonoBehaviour
     {
         return shootDistance * multiplierShootDistance;
     }
+
+    public void GetMultipliers(Tower tower)
+    {
+        multiplierDmg = tower.multiplierDmg;
+        multiplierAttackSpeed = tower.multiplierAttackSpeed;
+        multiplierShootAngle = tower.multiplierShootAngle;
+        multiplierShootDistance = tower.multiplierShootDistance;
+    }
+    
+    public void ReplaceTower(Tower tower)
+    {
+        transform.parent = tower.transform.parent;
+        shootDirection = tower.shootDirection;
+        transform.rotation = tower.transform.rotation;
+        shootZone = tower.shootZone;
+        shootZone.tower = this;
+        upgradeLevel = tower.upgradeLevel;
+    }
 }
