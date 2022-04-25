@@ -38,6 +38,6 @@ public class DamageNumberEffect : MonoBehaviour
 
     public void WriteDamage(float dmg)
     {
-        text.text = dmg.ToString();
+        text.text = (Math.Round(dmg)).ToString();
     }
 }
