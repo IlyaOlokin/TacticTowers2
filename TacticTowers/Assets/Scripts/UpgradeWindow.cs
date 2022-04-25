@@ -29,7 +29,7 @@ public class UpgradeWindow : MonoBehaviour
 
     public void UpgradeTower(Tower tower)
     {
-        if (tower.upgradeLevel - 1 == towerTypeUpgradeLevel) 
+        if (tower.upgradeLevel == towerTypeUpgradeLevel) 
             InitializeTypeUpgrade(tower);
         else 
             InitializeUpgrade(tower);
