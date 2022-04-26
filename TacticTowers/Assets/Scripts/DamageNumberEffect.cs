@@ -14,6 +14,7 @@ public class DamageNumberEffect : MonoBehaviour
     private float timer;
     private Vector3 targetScale;
     private Vector3 startScale;
+
     void Start()
     {
         GetComponent<Canvas>().worldCamera = Camera.main;
@@ -38,6 +39,12 @@ public class DamageNumberEffect : MonoBehaviour
 
     public void WriteDamage(float dmg)
     {
-        text.text = dmg.ToString();
+        if (dmg < 1)
+        {
+            text.text = "1";
+            return;
+        }
+
+        text.text = (Math.Round(dmg)).ToString();
     }
 }

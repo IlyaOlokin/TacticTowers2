@@ -9,13 +9,25 @@ public class Tower : MonoBehaviour
     [NonSerialized] public int upgradeCost = 5;
     [NonSerialized] public int upgradeIncrement = 5;
     [NonSerialized] public int upgradeLevel = 1;
-
-    public float shootAngle;
-    public float shootDirection;
     
-    public float shootDistance;
-    [SerializeField] public float Dmg;
-    [SerializeField] public float attackSpeed;
+    public float shootDirection;
+
+    public string towerName; 
+    [Multiline]public string towerDescription;
+
+    [SerializeField] private  float shootAngle;
+    public float multiplierShootAngle = 1;
+    
+    [SerializeField] private  float shootDistance;
+    public float multiplierShootDistance = 1;
+    
+    [SerializeField] private float Dmg;
+    public float multiplierDmg = 1;
+    
+    [SerializeField] private float attackSpeed;
+    public float multiplierAttackSpeed = 1;
+    
+    
     protected float shootDelayTimer;
     [NonSerialized] public bool canShoot = true;
 
@@ -34,19 +46,23 @@ public class Tower : MonoBehaviour
     {
         GameObject target = null;
         float distToTarget = float.MaxValue;
-        if (EnemySpawner.enemies.Count == 0) return;
+        if (EnemySpawner.enemies.Count == 0)
+        {
+            Shoot(null);
+            return;
+        }
         foreach (var enemy in EnemySpawner.enemies)
         {
             if (enemy == null) continue;
             var distToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
             Vector3 dir = transform.position - enemy.transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
-            if (distToEnemy <= shootDistance)
+            if (distToEnemy <= GetShootDistance())
             {
                 if (target == null || distToEnemy < distToTarget)
                 {
-                    if (Math.Abs(shootDirection - angle) <= shootAngle / 2f
-                    || shootDirection == 0 && Math.Abs(360 - angle) <= shootAngle / 2f) // костыль
+                    if (Math.Abs(shootDirection - angle) <= GetShootAngle() / 2f
+                    || shootDirection == 0 && Math.Abs(360 - angle) <= GetShootAngle() / 2f) // костыль
                     {
                         distToTarget = distToEnemy;
                         target = enemy;
@@ -69,5 +85,43 @@ public class Tower : MonoBehaviour
         Vector3 dir = transform.position - target.transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.eulerAngles = new Vector3(0, 0, angle + 90);
+    }
+
+    protected float GetDmg()
+    {
+        return Dmg * multiplierDmg;
+    }
+    
+    protected float GetAttackSpeed()
+    {
+        return attackSpeed * multiplierAttackSpeed;
+    }
+    
+    public float GetShootAngle()
+    {
+        return shootAngle * multiplierShootAngle;
+    }
+    
+    public float GetShootDistance()
+    {
+        return shootDistance * multiplierShootDistance;
+    }
+
+    public void GetMultipliers(Tower tower)
+    {
+        multiplierDmg = tower.multiplierDmg;
+        multiplierAttackSpeed = tower.multiplierAttackSpeed;
+        multiplierShootAngle = tower.multiplierShootAngle;
+        multiplierShootDistance = tower.multiplierShootDistance;
+    }
+    
+    public void ReplaceTower(Tower tower)
+    {
+        transform.parent = tower.transform.parent;
+        shootDirection = tower.shootDirection;
+        transform.rotation = tower.transform.rotation;
+        shootZone = tower.shootZone;
+        shootZone.tower = this;
+        upgradeLevel = tower.upgradeLevel;
     }
 }

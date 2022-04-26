@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerDrag : MonoBehaviour
 {
-    [SerializeField] private Tower tower;
+    public Tower tower;
     private Collider2D collider2D;
     private Vector2 mouseOffset;
 

@@ -21,9 +21,9 @@ public class DefaultTower : Tower
         
         if (shootDelayTimer <= 0)
         {
-            shootDelayTimer = 1f / attackSpeed;
+            shootDelayTimer = 1f / GetAttackSpeed();
             var newBullet =  Instantiate(bullet, transform.position, transform.rotation);
-            newBullet.GetComponent<Bullet>().Dmg = Dmg;
+            newBullet.GetComponent<Bullet>().Dmg = GetDmg();
             newBullet.GetComponent<Bullet>().Speed = bulletSpeed;
             newBullet.GetComponent<Bullet>().OnCreate();
         }
