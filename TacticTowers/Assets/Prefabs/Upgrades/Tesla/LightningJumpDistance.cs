@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackSpeed : Upgrade
+public class LightningJumpDistance : Upgrade
 {
     [SerializeField] private float bonus;
 
     public override void Execute(Tower tower)
     {
-        tower.multiplierAttackSpeed += bonus;
+        tower.transform.GetComponent<Tesla>().lightningJumpDistance += bonus;
     }
 }

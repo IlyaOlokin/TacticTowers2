@@ -7,7 +7,7 @@ public class Minigun : Tower
     [SerializeField] private GameObject bullet;
     [SerializeField] private float bulletSpeed;
     [SerializeField] private SpriteRenderer heatIndicator;
-    
+
     private float heatCount = 0;
     private float coolTimer;
 
@@ -39,16 +39,16 @@ public class Minigun : Tower
     protected override void Shoot(GameObject enemy)
     {
         if (enemy == null) return;
-        
+
         LootAtTarget(enemy);
-        
+
         if (shootDelayTimer <= 0)
         {
             heatCount = Mathf.Ceil(heatCount);
             shootDelayTimer = 1f / (GetAttackSpeed() + heatCount * bonusAttackSpeedPerHeat);
             if (heatCount < maxHeat) heatCount += 1;
             coolTimer = coolDelay;
-            var newBullet =  Instantiate(bullet, transform.position, transform.rotation);
+            var newBullet = Instantiate(bullet, transform.position, transform.rotation);
             newBullet.GetComponent<Bullet>().Dmg = GetDmg();
             newBullet.GetComponent<Bullet>().Speed = bulletSpeed;
             newBullet.GetComponent<Bullet>().OnCreate();
