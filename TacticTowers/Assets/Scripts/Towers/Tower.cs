@@ -12,6 +12,8 @@ public class Tower : MonoBehaviour
     
     public float shootDirection;
 
+    public string towerName; 
+    [Multiline]public string towerDescription;
 
     [SerializeField] private  float shootAngle;
     public float multiplierShootAngle = 1;
@@ -44,7 +46,11 @@ public class Tower : MonoBehaviour
     {
         GameObject target = null;
         float distToTarget = float.MaxValue;
-        if (EnemySpawner.enemies.Count == 0) return;
+        if (EnemySpawner.enemies.Count == 0)
+        {
+            Shoot(null);
+            return;
+        }
         foreach (var enemy in EnemySpawner.enemies)
         {
             if (enemy == null) continue;

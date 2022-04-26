@@ -88,12 +88,11 @@ public class UpgradeWindow : MonoBehaviour
         var Button = button.GetComponent<Button>();
         var upgradeButton = button.GetComponent<UpgradeButton>();
         //var upgrade = tower.upgrades[upgradeIndex];
-        var a = towerTypes[upgradeIndex];
-        
-        Button.onClick.AddListener(() => CreateNewTower(a, tower));
+
+        Button.onClick.AddListener(() => CreateNewTower(towerTypes[upgradeIndex], tower));
         Button.onClick.AddListener(() => gameObject.SetActive(false));
-        upgradeButton.upgradeLabel.text = "Label";
-        upgradeButton.upgradeText.text = "Description";
+        upgradeButton.upgradeLabel.text = towerTypes[upgradeIndex].GetComponent<Tower>().towerName;
+        upgradeButton.upgradeText.text =  towerTypes[upgradeIndex].GetComponent<Tower>().towerDescription;
     }
 
     private void CreateNewTower(GameObject towerType, Tower tower)

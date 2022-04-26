@@ -6,7 +6,6 @@ using UnityEngine;
 public class LaserBim : MonoBehaviour
 {
     private LineRenderer lr;
-    [NonSerialized] public float Dmg;
     [NonSerialized] public GameObject target;
     [NonSerialized] public Vector3 origin;
     void Start()

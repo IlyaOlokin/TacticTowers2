@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4434774992038405004}
   - component: {fileID: 4434774992038405006}
   m_Layer: 3
-  m_Name: Tower
+  m_Name: Minigun
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,6 +180,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDirection: 0
+  towerName: "\u041C\u0438\u043D\u0438\u0433\u0430\u043D"
+  towerDescription: "\u0421\u043E \u0432\u0440\u0435\u043C\u0435\u043D\u0435\u043C
+    \u0441\u0442\u0440\u0435\u043B\u044F\u0435\u0442 \u0431\u044B\u0441\u0442\u0440\u0435\u0435"
   shootAngle: 45
   multiplierShootAngle: 1
   shootDistance: 3
