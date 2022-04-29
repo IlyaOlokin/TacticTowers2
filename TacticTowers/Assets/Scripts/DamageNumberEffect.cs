@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class DamageNumberEffect : MonoBehaviour
 {
@@ -15,8 +16,11 @@ public class DamageNumberEffect : MonoBehaviour
     private Vector3 targetScale;
     private Vector3 startScale;
 
+    [SerializeField] private float posSpreading;
+    
     void Start()
     {
+        transform.position += new Vector3(Random.Range(-posSpreading, posSpreading), Random.Range(-posSpreading, posSpreading));
         GetComponent<Canvas>().worldCamera = Camera.main;
         Destroy(gameObject, effectDuration);
         startScale = transform.localScale;
