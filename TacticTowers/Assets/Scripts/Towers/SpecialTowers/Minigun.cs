@@ -51,7 +51,6 @@ public class Minigun : Tower
             var newBullet = Instantiate(bullet, transform.position, transform.rotation);
             newBullet.GetComponent<Bullet>().Dmg = GetDmg();
             newBullet.GetComponent<Bullet>().Speed = bulletSpeed;
-            newBullet.GetComponent<Bullet>().OnCreate();
         }
     }
 }
