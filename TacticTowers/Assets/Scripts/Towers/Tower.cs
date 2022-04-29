@@ -14,6 +14,7 @@ public class Tower : MonoBehaviour
 
     public string towerName; 
     [Multiline]public string towerDescription;
+    public Sprite towerSprite;
 
     [SerializeField] private  float shootAngle;
     public float multiplierShootAngle = 1;

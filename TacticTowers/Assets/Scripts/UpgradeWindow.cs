@@ -63,6 +63,7 @@ public class UpgradeWindow : MonoBehaviour
         Button.onClick.AddListener(() => gameObject.SetActive(false));
         upgradeButton.upgradeLabel.text = upgrade.upgradeLabel;
         upgradeButton.upgradeText.text = upgrade.upgradeText;
+        upgradeButton.upgradeImage.sprite = upgrade.UpgradeSprite;
     }
 
     private void InitializeTypeUpgrade(Tower tower)
@@ -93,6 +94,7 @@ public class UpgradeWindow : MonoBehaviour
         Button.onClick.AddListener(() => gameObject.SetActive(false));
         upgradeButton.upgradeLabel.text = towerTypes[upgradeIndex].GetComponent<Tower>().towerName;
         upgradeButton.upgradeText.text =  towerTypes[upgradeIndex].GetComponent<Tower>().towerDescription;
+        upgradeButton.upgradeImage.sprite = towerTypes[upgradeIndex].GetComponent<Tower>().towerSprite;
     }
 
     private void CreateNewTower(GameObject towerType, Tower tower)
