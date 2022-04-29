@@ -83,7 +83,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2377495859047789622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +117,7 @@ MonoBehaviour:
   effectDuration: 0.6
   upscaleDuration: 0.4
   scaleMultiplier: 1.5
+  posSpreading: 0.05
 --- !u!1 &4344544619200253739
 GameObject:
   m_ObjectHideFlags: 0
