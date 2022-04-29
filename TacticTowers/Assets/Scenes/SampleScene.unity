@@ -980,6 +980,7 @@ MonoBehaviour:
   - {fileID: 2944829047007807111, guid: 02f2b478d6f736d4a9c8580654fd5a58, type: 3}
   - {fileID: 6728170449799749952, guid: 128b2ee9661eb4a4d95c39ab6afa570e, type: 3}
   - {fileID: 6441085767404721125, guid: c27004013e6d1a24f83eae4cb08b53ad, type: 3}
+  - {fileID: 715245652648313394, guid: 012b5270e8e9b7248bc8cb2a5aff02ea, type: 3}
 --- !u!114 &323355770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5869,7 +5870,7 @@ MonoBehaviour:
   - seconds: 0
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountRight: 05000000
+    enemiesCountRight: c8000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountTop: 05000000

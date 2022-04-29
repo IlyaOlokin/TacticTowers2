@@ -37,8 +37,6 @@ public class Shotgun : Tower
                 var newBullet =  Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, bulletAngle + towerRot.z));
                 newBullet.GetComponent<Bullet>().Dmg = GetDmg();
                 newBullet.GetComponent<Bullet>().Speed = bulletSpeed;
-                newBullet.GetComponent<Bullet>().OnCreate();
-            
             }
             shootDelayTimer = 1f / GetAttackSpeed();
         }

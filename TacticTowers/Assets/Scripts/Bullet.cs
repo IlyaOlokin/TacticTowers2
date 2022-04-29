@@ -8,21 +8,14 @@ public class Bullet : MonoBehaviour
      [NonSerialized] public float Speed;
     
      private Rigidbody2D rb;
-    
-    [SerializeField] public Vector2 velocityDir;
 
-    private void Start()
+     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * Speed;
     }
 
-    public void OnCreate()
-    {
-       
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
+     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
