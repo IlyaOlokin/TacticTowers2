@@ -6,6 +6,8 @@ using UnityEngine;
 public class Railgun : Tower
 {
     [SerializeField] private GameObject bullet;
+    public float dmgMultiplier;
+    public float minDmg;
     
     
     void Update()
@@ -35,8 +37,9 @@ public class Railgun : Tower
 
                 if (newEnemy)
                 {
+                    if (multiplier < minDmg) multiplier = minDmg;
                     newEnemy.TakeDamage(GetDmg() * multiplier);
-                    multiplier -= 0.1f;
+                    multiplier *= dmgMultiplier;
                 }
             }
 
