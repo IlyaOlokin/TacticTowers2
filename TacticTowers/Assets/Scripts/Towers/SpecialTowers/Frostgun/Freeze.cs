@@ -6,9 +6,10 @@ using UnityEngine.AI;
 
 public class Freeze : MonoBehaviour
 {
-    private int freezeStacks;
+    private float freezeStacks;
     [NonSerialized] public int freezeStacksNeeded;
     [NonSerialized] public float freezeTime;
+    [NonSerialized] public float freezeStacksPerHt;
     [NonSerialized] public bool frozen;
 
     [NonSerialized] public GameObject freezeEffect;
@@ -41,13 +42,19 @@ public class Freeze : MonoBehaviour
 
     public void GetFreezeStack()
     {
-        freezeStacks += 1;
+        freezeStacks += freezeStacksPerHt;
         
         ColorEnemy();
+        SlowEnemy();
 
         StartCoroutine(LoseFreezeStack());
     }
-    
+
+    private void SlowEnemy()
+    {
+        enemy.GetComponent<NavMeshAgent>().speed = enemySpeed - freezeStacks / freezeStacksNeeded * enemySpeed * 0.5f;
+    }
+
     private void FreezeEnemy()
     {
         frozen = true;
@@ -59,8 +66,9 @@ public class Freeze : MonoBehaviour
     IEnumerator LoseFreezeStack()
     {
         yield return new WaitForSeconds(5f);
-        freezeStacks -= 1;
+        freezeStacks -= freezeStacksPerHt;
         ColorEnemy();
+        SlowEnemy();
     }
     IEnumerator Unfreeze()
     {
@@ -70,12 +78,13 @@ public class Freeze : MonoBehaviour
         StopAllCoroutines();
         freezeStacks = 0;
         ColorEnemy();
+        
     }
     
     private void ColorEnemy()
     {
         enemy.GetComponent<SpriteRenderer>().color = new Color(enemyColor.r,
                                                                 enemyColor.g,
-                                                                enemyColor.b + (freezeStacks / (float) freezeStacksNeeded) * 0.3f);
+                                                                enemyColor.b + (freezeStacks / freezeStacksNeeded) * 0.3f);
     }
 }

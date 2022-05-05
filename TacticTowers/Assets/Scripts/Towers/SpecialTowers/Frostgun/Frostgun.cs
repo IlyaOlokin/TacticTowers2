@@ -5,6 +5,8 @@ using UnityEngine;
 public class Frostgun : Tower
 {
     public float freezeTime;
+    [SerializeField] private float freezeStacksPerHit;
+    public float freezeStacksPerHitMultiplier;
     [SerializeField] private GameObject frostBox;
 
     [SerializeField] private int freezeStacksNeeded;
@@ -46,6 +48,7 @@ public class Frostgun : Tower
                 activeFrostBox.GetComponent<FrostBox>().dmg = GetDmg();
                 activeFrostBox.GetComponent<FrostBox>().attackSpeed = GetAttackSpeed();
                 activeFrostBox.GetComponent<FrostBox>().freezeTime = freezeTime;
+                activeFrostBox.GetComponent<FrostBox>().freezeStacksPerHit = GetFreezeStacksPerHit();
                 activeFrostBox.GetComponent<FrostBox>().freezeStacksNeeded = freezeStacksNeeded;
                 
                 activeFrostBox.GetComponent<FrostBox>().frostStartPos = transform.position;
@@ -59,7 +62,7 @@ public class Frostgun : Tower
 
         if (activeFrostBox != null)
         {
-            activeFrostBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
+            activeFrostBox.transform.position = (transform.up * GetShootDistance() + transform.position + transform.position) / 2f;
             activeFrostBox.transform.rotation = transform.rotation;
         }
     }
@@ -73,5 +76,10 @@ public class Frostgun : Tower
         }
 
         activeFrostBox = null;
+    }
+
+    private float GetFreezeStacksPerHit()
+    {
+        return freezeStacksPerHit * freezeStacksPerHitMultiplier;
     }
 }

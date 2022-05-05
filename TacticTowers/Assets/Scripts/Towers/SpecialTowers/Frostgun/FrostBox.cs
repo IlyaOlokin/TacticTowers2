@@ -18,6 +18,7 @@ public class FrostBox : MonoBehaviour
     [NonSerialized] public ParticleSystem ps;
     [NonSerialized] public Vector3 frostStartPos;
     [NonSerialized] public float freezeTime;
+    [NonSerialized] public float freezeStacksPerHit;
 
     [SerializeField] private GameObject freezeEffect;
 
@@ -58,6 +59,7 @@ public class FrostBox : MonoBehaviour
             enemy.GetComponent<Freeze>().freezeStacksNeeded = freezeStacksNeeded;
             enemy.GetComponent<Freeze>().freezeTime = freezeTime;
             enemy.GetComponent<Freeze>().freezeEffect = freezeEffect;
+            enemy.GetComponent<Freeze>().freezeStacksPerHt = freezeStacksPerHit;
             enemy.GetComponent<Freeze>().FindEnemy();
             enemy.GetComponent<Freeze>().GetFreezeStack();
         }
