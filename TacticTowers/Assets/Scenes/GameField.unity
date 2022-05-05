@@ -1480,7 +1480,7 @@ GameObject:
   - component: {fileID: 226132324}
   - component: {fileID: 226132326}
   - component: {fileID: 226132325}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Healing1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1936,6 +1936,7 @@ MonoBehaviour:
   - {fileID: 6728170449799749952, guid: 128b2ee9661eb4a4d95c39ab6afa570e, type: 3}
   - {fileID: 6441085767404721125, guid: c27004013e6d1a24f83eae4cb08b53ad, type: 3}
   - {fileID: 715245652648313394, guid: 012b5270e8e9b7248bc8cb2a5aff02ea, type: 3}
+  - {fileID: 5499871268351915362, guid: d88c2582efa0e5e408034f624bd1a7be, type: 3}
 --- !u!114 &323355770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5182,7 +5183,7 @@ GameObject:
   - component: {fileID: 737301167}
   - component: {fileID: 737301166}
   - component: {fileID: 737301165}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8863,7 +8864,7 @@ GameObject:
   - component: {fileID: 1268831529}
   - component: {fileID: 1268831531}
   - component: {fileID: 1268831530}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9884,7 +9885,7 @@ GameObject:
   - component: {fileID: 1426588755}
   - component: {fileID: 1426588757}
   - component: {fileID: 1426588756}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9959,7 +9960,7 @@ GameObject:
   - component: {fileID: 1432982404}
   - component: {fileID: 1432982406}
   - component: {fileID: 1432982405}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Healing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13536,7 +13537,7 @@ GameObject:
   - component: {fileID: 2031299822}
   - component: {fileID: 2031299825}
   - component: {fileID: 2031299826}
-  m_Layer: 8
+  m_Layer: 2
   m_Name: Base
   m_TagString: Base
   m_Icon: {fileID: 0}
