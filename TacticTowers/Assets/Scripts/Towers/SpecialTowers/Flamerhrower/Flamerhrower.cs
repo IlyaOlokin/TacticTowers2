@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class Flamerhrower : Tower
 {
+    [SerializeField] private float burnDmg;
+    [SerializeField] private float burnTime;
     [SerializeField] private GameObject flameBox;
+    
     
     private GameObject currentEnemy;
     private GameObject activeFlameBox;
@@ -45,6 +48,9 @@ public class Flamerhrower : Tower
                 activeFlameBox = Instantiate(flameBox, transform.position, transform.rotation);
                 activeFlameBox.GetComponent<FlameBox>().dmg = GetDmg();
                 activeFlameBox.GetComponent<FlameBox>().attackSpeed = GetAttackSpeed();
+                activeFlameBox.GetComponent<FlameBox>().burnDmg = burnDmg;
+                activeFlameBox.GetComponent<FlameBox>().burnTime = burnTime;
+                
                 activeFlameBox.GetComponent<FlameBox>().flameStartPos = transform.position;
                 activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, GetShootDistance());
                 activeFlameBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;

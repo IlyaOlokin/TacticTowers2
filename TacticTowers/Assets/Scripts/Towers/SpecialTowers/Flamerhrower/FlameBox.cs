@@ -8,10 +8,14 @@ public class FlameBox : MonoBehaviour
     private List<Enemy> enemiesInside = new List<Enemy>();
 
     [NonSerialized] public float dmg;
+    [NonSerialized] public float burnDmg;
+    [NonSerialized] public float burnTime;
     [NonSerialized] public float attackSpeed;
     [NonSerialized] public Vector3 flameStartPos;
     private float dmgDelayTimer;
     [NonSerialized] public ParticleSystem ps;
+
+    [SerializeField] private GameObject fire;
 
     private void Start()
     {
@@ -23,15 +27,9 @@ public class FlameBox : MonoBehaviour
 
     protected void Update()
     {
-        if (dmgDelayTimer > 0)
-        {
-            dmgDelayTimer -= Time.deltaTime;
-        }
-
-        if (dmgDelayTimer <= 0)
-        {
-            DealDamage();
-        }
+        if (dmgDelayTimer > 0) dmgDelayTimer -= Time.deltaTime;
+        
+        if (dmgDelayTimer <= 0) DealDamage();
     }
 
     private void DealDamage()
@@ -40,9 +38,26 @@ public class FlameBox : MonoBehaviour
         {
             var enemy = enemiesInside[index];
             enemy.TakeDamage(dmg);
+            SetOnFire(enemy.gameObject);
+            
         }
 
         dmgDelayTimer = 1f / attackSpeed;
+    }
+
+    private void SetOnFire(GameObject enemy)
+    {
+        if (!enemy.GetComponent<Fire>())
+        {
+            enemy.transform.gameObject.AddComponent<Fire>();
+            enemy.GetComponent<Fire>().burnDmg = burnDmg;
+            enemy.GetComponent<Fire>().burnTime = burnTime;
+            enemy.GetComponent<Fire>().fire = fire;
+        }
+        else
+        {
+            enemy.GetComponent<Fire>().burnTime = burnTime;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
