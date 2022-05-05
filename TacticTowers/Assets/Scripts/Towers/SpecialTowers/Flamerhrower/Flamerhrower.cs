@@ -18,8 +18,6 @@ public class Flamerhrower : Tower
     private void Start()
     { 
         ps = GetComponent<ParticleSystem>();
-        //var mainModule = ps.main;
-        //mainModule.startLifetime = 2;
     }
 
     void Update()
