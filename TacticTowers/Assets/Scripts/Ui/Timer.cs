@@ -18,7 +18,18 @@ public class Timer : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        text.text = (int)timer / 60 + ":" + (int)timer % 60;
+        var minutes = (int) timer / 60;
+        var seconds = (int) timer % 60;
+
+        var minutesText = minutes < 10
+            ? "0" + minutes.ToString()
+            : minutes.ToString();
+        
+        var secondsText = seconds < 10
+            ? "0" + seconds.ToString()
+            : seconds.ToString();
+        
+        text.text = minutesText + " : " + secondsText;
     }
 
     private static void SetTimer(int seconds)
