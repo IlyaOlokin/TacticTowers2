@@ -10,7 +10,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float dmg;
     [SerializeField] private float hp;
     
-    [SerializeField] private int cost;
+    [NonSerialized] public float cost;
+    public int weight;
     [SerializeField] private GameObject damageNumberEffect;
     void Start()
     {
