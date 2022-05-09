@@ -18,13 +18,14 @@ public class Money : MonoBehaviour
     public static void AddMoney(float income)
     {
         money += income;
-        text.text = money.ToString();
+        WriteMoney();
     }
     
     public static void TakeMoney(int cost)
     {
         money -= cost;
-        text.text = money.ToString();
+        WriteMoney();
+
     }
 
     public static float GetMoney()
@@ -35,6 +36,13 @@ public class Money : MonoBehaviour
     private static void SetMoney(int _money)
     {
         money = _money;
-        text.text = money.ToString();
+        WriteMoney();
+
     }
+    
+    private static void WriteMoney()
+    {
+        text.text = Mathf.Floor(money).ToString();
+    }
+
 }

@@ -21,15 +21,7 @@ public class Timer : MonoBehaviour
         var minutes = (int) timer / 60;
         var seconds = (int) timer % 60;
 
-        var minutesText = minutes < 10
-            ? "0" + minutes.ToString()
-            : minutes.ToString();
-        
-        var secondsText = seconds < 10
-            ? "0" + seconds.ToString()
-            : seconds.ToString();
-        
-        text.text = minutesText + " : " + secondsText;
+        text.text = $"{minutes:00}:{seconds:00}";
     }
 
     private static void SetTimer(int seconds)
