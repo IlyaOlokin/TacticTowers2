@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Money : MonoBehaviour
 {
-    private static int money;
+    private static float money;
     private static Text text;
 
     private void Start()
@@ -15,7 +15,7 @@ public class Money : MonoBehaviour
         SetMoney(0);
         
     }
-    public static void AddMoney(int income)
+    public static void AddMoney(float income)
     {
         money += income;
         text.text = money.ToString();
@@ -27,7 +27,7 @@ public class Money : MonoBehaviour
         text.text = money.ToString();
     }
 
-    public static int GetMoney()
+    public static float GetMoney()
     {
         return money;
     }
