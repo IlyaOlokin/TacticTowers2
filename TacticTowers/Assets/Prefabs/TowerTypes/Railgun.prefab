@@ -107,7 +107,7 @@ MonoBehaviour:
   multiplierShootDistance: 1
   Dmg: 10
   multiplierDmg: 1
-  attackSpeed: 0.5
+  attackSpeed: 0.6
   multiplierAttackSpeed: 1
   shootZone: {fileID: 0}
   upgrades:
@@ -118,7 +118,7 @@ MonoBehaviour:
   - {fileID: 3629801774165805403, guid: eedd47c33c850574e80b851d4df7e0a0, type: 3}
   - {fileID: 777154454748209544, guid: 9babc93666d666149890b19701e857fc, type: 3}
   bullet: {fileID: 6687795320453916105, guid: 61c5d802cd316fa4abe31543015e9e83, type: 3}
-  dmgMultiplier: 0.6
+  dmgMultiplier: 0.8
   minDmg: 0.1
 --- !u!1 &4761622033788793878
 GameObject:
