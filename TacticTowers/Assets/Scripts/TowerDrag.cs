@@ -2,15 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TowerDrag : MonoBehaviour
 {
     public Tower tower;
     private Collider2D collider2D;
+    private NavMeshObstacle navMeshObstacle;
     private Vector2 mouseOffset;
 
     private Vector3 pressStartPos;
-    private bool dragging;
+    [NonSerialized] public bool dragging;
     private bool triedToDrag;
 
     private int conflicts;
@@ -18,6 +20,7 @@ public class TowerDrag : MonoBehaviour
     private void Start()
     {
         collider2D = GetComponent<CircleCollider2D>();
+        navMeshObstacle = GetComponent<NavMeshObstacle>();
     }
 
     private void Update()
@@ -31,7 +34,7 @@ public class TowerDrag : MonoBehaviour
         if (!triedToDrag) return;
         if (!dragging)
         {
-            if (Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), pressStartPos) >= 0.2f)
+            if (Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), pressStartPos) >= 0.1f)
             {
                 StartDragging();
             }
@@ -60,6 +63,7 @@ public class TowerDrag : MonoBehaviour
         collider2D.isTrigger = false;
         dragging = false;
         triedToDrag = false;
+        navMeshObstacle.enabled = true;
     }
 
     private void StartDragging()
@@ -67,29 +71,44 @@ public class TowerDrag : MonoBehaviour
         dragging = true;
         tower.canShoot = false;
         triedToDrag = false;
-        Debug.Log("!");
+        navMeshObstacle.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!dragging) return;
         var otherGameObject = other.gameObject;
-        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base"))
+        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower"))
         {
             conflicts += 1;
-            otherGameObject.transform.FindChild("ConflictIndicator").gameObject.SetActive(false);
 
+            for (int i = 0; i < otherGameObject.transform.childCount; i++)
+            {
+                if (otherGameObject.transform.GetChild(i).gameObject.CompareTag("ConflictIndicator"))
+                {
+                    otherGameObject.transform.GetChild(i).gameObject.SetActive(true);
+                }
+            }
             
+
         }
     }
     
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (!dragging) return;
         var otherGameObject = other.gameObject;
-        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base"))
+        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower"))
         {
             conflicts -= 1;
-            otherGameObject.transform.FindChild("ConflictIndicator").gameObject.SetActive(false);
-
+            
+            for (int i = 0; i < otherGameObject.transform.childCount; i++)
+            {
+                if (otherGameObject.transform.GetChild(i).gameObject.CompareTag("ConflictIndicator"))
+                {
+                    otherGameObject.transform.GetChild(i).gameObject.SetActive(false);
+                }
+            }
         }
     }
 }
