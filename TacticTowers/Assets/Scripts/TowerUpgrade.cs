@@ -15,15 +15,18 @@ public class TowerUpgrade : MonoBehaviour
     [SerializeField] private GameObject upgradeMenu;
     public Tower tower;
     [SerializeField] private GameObject upgradeWindow;
+    private TowerDrag td;
 
     private void Start()
     {
         upgradeMenu.SetActive(false);
-        
+        td = GetComponent<TowerDrag>();
     }
 
     private void OnMouseDown()
     {
+        if (td.dragging) return;
+
         mouseOnPos = transform.position;
         pressTimer = 0;
     }
@@ -44,6 +47,7 @@ public class TowerUpgrade : MonoBehaviour
 
     private void OpenUpgradeMenu()
     {
+        if (td.dragging) return;
         upgradeMenu.SetActive(true);
     }
 
