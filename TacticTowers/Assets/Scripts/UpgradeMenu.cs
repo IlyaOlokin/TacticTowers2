@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class UpgradeMenu : MonoBehaviour
 {
-    private bool mouseOn;
+    public bool mouseOn;
     
     
     void Update()

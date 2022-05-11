@@ -59,6 +59,7 @@ public class TowerUpgrade : MonoBehaviour
             Money.TakeMoney(cost);
             tower.upgradeLevel++;
             upgradeWindow.SetActive(true);
+            upgradeMenu.SetActive(false);
             upgradeWindow.GetComponent<UpgradeWindow>().UpgradeTower(tower);
             upgradeWindow.GetComponent<UpgradeWindow>().td = GetComponent<TowerDrag>();
             upgradeWindow.GetComponent<UpgradeWindow>().tu = this;
