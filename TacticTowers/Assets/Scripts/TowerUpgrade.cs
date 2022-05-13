@@ -28,7 +28,8 @@ public class TowerUpgrade : MonoBehaviour
 
     private void Update()
     {
-        var cost = GetTowerUpgradePrice(tower);
+        var cost = GetTowerUpgradePrice();
+        if (cost == 0) return;
         upgradeArrow.SetActive(cost <= Money.GetMoney());
     }
 
@@ -62,12 +63,15 @@ public class TowerUpgrade : MonoBehaviour
 
     public void OpenUpgradeWindow()
     {
-        var cost = GetTowerUpgradePrice(tower);
+        if (IsTowerMaxLevel()) return;
+        var cost = GetTowerUpgradePrice();
+        
         if (cost <= Money.GetMoney())
         {
             Money.TakeMoney(cost);
             tower.upgradeLevel++;
             upgradeWindow.SetActive(true);
+            upgradeMenu.GetComponent<UpgradeMenu>().UpdateTexts(tower.upgradeLevel, GetTowerUpgradePrice());
             upgradeMenu.SetActive(false);
             upgradeWindow.GetComponent<UpgradeWindow>().UpgradeTower(tower);
             upgradeWindow.GetComponent<UpgradeWindow>().td = GetComponent<TowerDrag>();
@@ -75,8 +79,15 @@ public class TowerUpgrade : MonoBehaviour
         }
     }
 
-    private int GetTowerUpgradePrice(Tower tower)
+    private int GetTowerUpgradePrice()
     {
+        if (IsTowerMaxLevel())
+            return 0;
         return tower.upgradePrices[tower.upgradeLevel - 1];
+    }
+
+    private bool IsTowerMaxLevel()
+    {
+        return tower.upgradeLevel == tower.upgradePrices.Length + 1;
     }
 }

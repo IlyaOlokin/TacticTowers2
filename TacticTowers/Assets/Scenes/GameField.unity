@@ -3660,6 +3660,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseOn: 0
+  towerLevel: {fileID: 892784484}
+  nextUpgradeCost: {fileID: 1157107275}
 --- !u!114 &500180012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10023,6 +10025,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseOn: 0
+  towerLevel: {fileID: 1058072847}
+  nextUpgradeCost: {fileID: 1155184002}
 --- !u!114 &1394110501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13311,6 +13315,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseOn: 0
+  towerLevel: {fileID: 253390363}
+  nextUpgradeCost: {fileID: 1818089264}
 --- !u!114 &1835898739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13452,6 +13458,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseOn: 0
+  towerLevel: {fileID: 70417905}
+  nextUpgradeCost: {fileID: 16021443}
 --- !u!114 &1840621096
 MonoBehaviour:
   m_ObjectHideFlags: 0
