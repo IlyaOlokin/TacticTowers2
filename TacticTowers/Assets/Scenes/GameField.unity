@@ -1283,6 +1283,7 @@ MonoBehaviour:
   upgradeMenu: {fileID: 1394110498}
   tower: {fileID: 102102774}
   upgradeWindow: {fileID: 323355768}
+  upgradeArrow: {fileID: 1153088249}
 --- !u!58 &160588624
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3712,7 +3713,7 @@ RectTransform:
   - {fileID: 1157107274}
   - {fileID: 874960574}
   m_Father: {fileID: 1435318006}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3966,6 +3967,7 @@ GameObject:
   - component: {fileID: 551700156}
   - component: {fileID: 551700158}
   - component: {fileID: 551700157}
+  - component: {fileID: 551700159}
   m_Layer: 5
   m_Name: UpgradeArrow
   m_TagString: Untagged
@@ -3985,11 +3987,11 @@ RectTransform:
   m_LocalScale: {x: 0.9995973, y: 0.9995973, z: 0.9995973}
   m_Children: []
   m_Father: {fileID: 1645450957}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32.1, y: 33}
+  m_AnchoredPosition: {x: 31, y: 37}
   m_SizeDelta: {x: 18.19, y: 28.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &551700157
@@ -4030,6 +4032,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551700155}
   m_CullTransparentMesh: 1
+--- !u!111 &551700159
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551700155}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c95f9bd59f2bdab46a99b2c4895c0611, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c95f9bd59f2bdab46a99b2c4895c0611, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &556208737
 GameObject:
   m_ObjectHideFlags: 0
@@ -4449,8 +4467,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.009093662, y: 0.009093662, z: 0.009093662}
   m_Children:
-  - {fileID: 1394110503}
   - {fileID: 1153088250}
+  - {fileID: 1394110503}
   m_Father: {fileID: 160588626}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6965,6 +6983,7 @@ GameObject:
   - component: {fileID: 1049529899}
   - component: {fileID: 1049529901}
   - component: {fileID: 1049529900}
+  - component: {fileID: 1049529902}
   m_Layer: 5
   m_Name: UpgradeArrow
   m_TagString: Untagged
@@ -6984,11 +7003,11 @@ RectTransform:
   m_LocalScale: {x: 0.9995973, y: 0.9995973, z: 0.9995973}
   m_Children: []
   m_Father: {fileID: 1435318006}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31, y: 35}
+  m_AnchoredPosition: {x: 31, y: 37}
   m_SizeDelta: {x: 18.19, y: 28.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1049529900
@@ -7029,6 +7048,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049529898}
   m_CullTransparentMesh: 1
+--- !u!111 &1049529902
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049529898}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c95f9bd59f2bdab46a99b2c4895c0611, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c95f9bd59f2bdab46a99b2c4895c0611, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1056606796
 GameObject:
   m_ObjectHideFlags: 0
@@ -7822,6 +7857,7 @@ MonoBehaviour:
   upgradeMenu: {fileID: 1840621093}
   tower: {fileID: 287102744}
   upgradeWindow: {fileID: 323355768}
+  upgradeArrow: {fileID: 551700155}
 --- !u!58 &1152451192
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7917,13 +7953,14 @@ GameObject:
   - component: {fileID: 1153088250}
   - component: {fileID: 1153088252}
   - component: {fileID: 1153088251}
+  - component: {fileID: 1153088253}
   m_Layer: 5
   m_Name: UpgradeArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1153088250
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7936,11 +7973,11 @@ RectTransform:
   m_LocalScale: {x: 0.9995973, y: 0.9995973, z: 0.9995973}
   m_Children: []
   m_Father: {fileID: 577486327}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31, y: 34}
+  m_AnchoredPosition: {x: 31, y: 37}
   m_SizeDelta: {x: 18.19, y: 28.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1153088251
@@ -7981,6 +8018,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1153088249}
   m_CullTransparentMesh: 1
+--- !u!111 &1153088253
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153088249}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c95f9bd59f2bdab46a99b2c4895c0611, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c95f9bd59f2bdab46a99b2c4895c0611, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1154537360
 GameObject:
   m_ObjectHideFlags: 0
@@ -8951,6 +9004,7 @@ GameObject:
   - component: {fileID: 1238999741}
   - component: {fileID: 1238999743}
   - component: {fileID: 1238999742}
+  - component: {fileID: 1238999744}
   m_Layer: 5
   m_Name: UpgradeArrow
   m_TagString: Untagged
@@ -8970,11 +9024,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1535222658}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25.5, y: 37.2}
+  m_AnchoredPosition: {x: 31, y: 37}
   m_SizeDelta: {x: 18.19, y: 28.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1238999742
@@ -9015,6 +9069,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1238999740}
   m_CullTransparentMesh: 1
+--- !u!111 &1238999744
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238999740}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c95f9bd59f2bdab46a99b2c4895c0611, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c95f9bd59f2bdab46a99b2c4895c0611, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1239641126
 GameObject:
   m_ObjectHideFlags: 0
@@ -10006,7 +10076,7 @@ RectTransform:
   - {fileID: 1155184001}
   - {fileID: 468300096}
   m_Father: {fileID: 577486327}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10513,8 +10583,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.009093662, y: 0.009093662, z: 0.009093662}
   m_Children:
-  - {fileID: 500180014}
   - {fileID: 1049529899}
+  - {fileID: 500180014}
   m_Father: {fileID: 1713674344}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11273,8 +11343,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.009093662, y: 0.009093662, z: 0.009093662}
   m_Children:
-  - {fileID: 1835898741}
   - {fileID: 1238999741}
+  - {fileID: 1835898741}
   m_Father: {fileID: 1635791837}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12163,6 +12233,7 @@ MonoBehaviour:
   upgradeMenu: {fileID: 1835898736}
   tower: {fileID: 1242163671}
   upgradeWindow: {fileID: 323355768}
+  upgradeArrow: {fileID: 1238999740}
 --- !u!50 &1635791840
 Rigidbody2D:
   serializedVersion: 4
@@ -12230,8 +12301,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.009093662, y: 0.009093662, z: 0.009093662}
   m_Children:
-  - {fileID: 1840621098}
   - {fileID: 551700156}
+  - {fileID: 1840621098}
   m_Father: {fileID: 1152451194}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12574,6 +12645,7 @@ MonoBehaviour:
   upgradeMenu: {fileID: 500180009}
   tower: {fileID: 1783282216}
   upgradeWindow: {fileID: 323355768}
+  upgradeArrow: {fileID: 1049529898}
 --- !u!58 &1713674342
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13292,7 +13364,7 @@ RectTransform:
   - {fileID: 1818089263}
   - {fileID: 2094637270}
   m_Father: {fileID: 1535222658}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13433,7 +13505,7 @@ RectTransform:
   - {fileID: 16021442}
   - {fileID: 1614878242}
   m_Father: {fileID: 1645450957}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

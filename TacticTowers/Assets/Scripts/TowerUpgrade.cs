@@ -16,11 +16,20 @@ public class TowerUpgrade : MonoBehaviour
     public Tower tower;
     [SerializeField] private GameObject upgradeWindow;
     private TowerDrag td;
+    
+    [SerializeField] private GameObject upgradeArrow;
+
 
     private void Start()
     {
         upgradeMenu.SetActive(false);
         td = GetComponent<TowerDrag>();
+    }
+
+    private void Update()
+    {
+        var cost = GetTowerUpgradePrice(tower);
+        upgradeArrow.SetActive(cost <= Money.GetMoney());
     }
 
     private void OnMouseDown()
@@ -53,7 +62,7 @@ public class TowerUpgrade : MonoBehaviour
 
     public void OpenUpgradeWindow()
     {
-        var cost = tower.upgradeCost + tower.upgradeIncrement * tower.upgradeLevel;
+        var cost = GetTowerUpgradePrice(tower);
         if (cost <= Money.GetMoney())
         {
             Money.TakeMoney(cost);
@@ -64,5 +73,10 @@ public class TowerUpgrade : MonoBehaviour
             upgradeWindow.GetComponent<UpgradeWindow>().td = GetComponent<TowerDrag>();
             upgradeWindow.GetComponent<UpgradeWindow>().tu = this;
         }
+    }
+
+    private int GetTowerUpgradePrice(Tower tower)
+    {
+        return tower.upgradePrices[tower.upgradeLevel - 1];
     }
 }
