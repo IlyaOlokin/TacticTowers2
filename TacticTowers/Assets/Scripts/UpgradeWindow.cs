@@ -9,6 +9,16 @@ using Random = UnityEngine.Random;
 
 public class UpgradeWindow : MonoBehaviour
 {
+    [Header("Visual")] 
+    [SerializeField] private Color typeUpgradeColor;
+    [SerializeField] private Color upgradeColor;
+    [SerializeField] private Color typeUpgradeTextColor;
+    [SerializeField] private Color upgradeTextColor;
+    [SerializeField] private Text label;
+    [SerializeField] private String typeUpgradeText;
+    [SerializeField] private String upgradeText;
+    
+    [Header("Functionality")]
     [SerializeField] private List<GameObject> upgradeButtons;
 
     [SerializeField] private int towerTypeUpgradeLevel;
@@ -29,11 +39,16 @@ public class UpgradeWindow : MonoBehaviour
 
     public void UpgradeTower(Tower tower)
     {
-        if (tower.upgradeLevel == towerTypeUpgradeLevel) 
+        if (tower.upgradeLevel == towerTypeUpgradeLevel)
+        {
             InitializeTypeUpgrade(tower);
-        else 
+            ChangeVisualOnTowerTypeUpgrade();
+        }
+        else
+        {
             InitializeUpgrade(tower);
-        
+            ChangeVisualOnTowerUpgrade();
+        }
     }
 
     private void InitializeUpgrade(Tower tower)
@@ -108,5 +123,25 @@ public class UpgradeWindow : MonoBehaviour
         newTowerComp.shootZone.DrawShootZone();
 
         Destroy(tower.gameObject);
+    }
+
+    private void ChangeVisualOnTowerTypeUpgrade()
+    {
+        ChangeButtonsVisual(typeUpgradeColor, typeUpgradeTextColor, typeUpgradeText);
+    }
+    private void ChangeVisualOnTowerUpgrade()
+    {
+        ChangeButtonsVisual(upgradeColor, upgradeTextColor, upgradeText);
+    }
+
+    private void ChangeButtonsVisual(Color imageColor, Color textColor, string labelText)
+    {
+        foreach (var button in upgradeButtons)
+        {
+            button.GetComponent<Image>().color = imageColor;
+            button.GetComponent<UpgradeButton>().upgradeLabel.color = textColor;
+            button.GetComponent<UpgradeButton>().upgradeText.color = textColor;
+            label.text = labelText;
+        }
     }
 }
