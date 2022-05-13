@@ -1403,7 +1403,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0025787, y: -83.68}
+  m_AnchoredPosition: {x: -0.0025787354, y: -83.68}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &177365010
@@ -2087,6 +2087,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6454defbe0d7abe4483b5b0ec2d6ab3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typeUpgradeColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  upgradeColor: {r: 0.76862746, g: 0.76862746, b: 0.76862746, a: 1}
+  typeUpgradeTextColor: {r: 0.9490196, g: 0.9490196, b: 0.9490196, a: 1}
+  upgradeTextColor: {r: 0, g: 0, b: 0, a: 1}
+  label: {fileID: 1113557293}
+  typeUpgradeText: "\u0412\u044B\u0431\u0435\u0440\u0438 \u0442\u0438\u043F \u0431\u0430\u0448\u043D\u0438"
+  upgradeText: "\u0412\u044B\u0431\u0435\u0440\u0438 \u0443\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u0435"
   upgradeButtons:
   - {fileID: 1291601969}
   - {fileID: 1049344481}
@@ -5768,6 +5775,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6454defbe0d7abe4483b5b0ec2d6ab3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typeUpgradeColor: {r: 0, g: 0, b: 0, a: 0}
+  upgradeColor: {r: 0, g: 0, b: 0, a: 0}
+  typeUpgradeTextColor: {r: 0, g: 0, b: 0, a: 0}
+  upgradeTextColor: {r: 0, g: 0, b: 0, a: 0}
+  label: {fileID: 0}
+  typeUpgradeText: 
+  upgradeText: 
   upgradeButtons:
   - {fileID: 1471487407}
   - {fileID: 811312573}
@@ -9568,7 +9582,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
