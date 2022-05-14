@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [Header("Waves")]
     [SerializeField] private Transform enemiesObject;
     
     public static List<GameObject> enemies;
@@ -15,9 +17,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform spawnZoneTop;
     [SerializeField] private Transform spawnZoneLeft;
     [SerializeField] private Transform spawnZoneBot;
-    
-    
-    
+
+    [Header("UI")] 
+    [SerializeField] private Text waveCount;
+
     private void Start()
     {
         FindEnemies();
@@ -31,8 +34,12 @@ public class EnemySpawner : MonoBehaviour
     private void Update()
     {
         for (int i = 0; i < Waves.Count; i++)
-            if (!Waves[i].released && Timer.timer >= Waves[i].seconds)
+            if (!Waves[i].released && Timer.timer <= 0)
+            {
                 ReleaseWave(Waves[i]);
+                waveCount.text = (i + 1) + "/" + Waves.Count;
+                Timer.SetTimer(Waves[i + 1].seconds - Waves[i].seconds);
+            }
          
     }
 
