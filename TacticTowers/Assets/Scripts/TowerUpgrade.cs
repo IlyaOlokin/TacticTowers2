@@ -29,7 +29,11 @@ public class TowerUpgrade : MonoBehaviour
     private void Update()
     {
         var cost = GetTowerUpgradePrice();
-        if (cost == 0) return;
+        if (cost == 0)
+        {
+            upgradeArrow.SetActive(false);
+            return;
+        }
         upgradeArrow.SetActive(cost <= Money.GetMoney());
     }
 

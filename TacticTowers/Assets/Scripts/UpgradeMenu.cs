@@ -8,6 +8,7 @@ public class UpgradeMenu : MonoBehaviour
 {
     public bool mouseOn;
     [SerializeField] private Text towerLevel;
+    [SerializeField] private Text towerLevelConst;
     [SerializeField] private Text nextUpgradeCost;
     
     
@@ -32,6 +33,7 @@ public class UpgradeMenu : MonoBehaviour
     public void UpdateTexts(int level, int cost)
     {
         towerLevel.text = level.ToString();
+        towerLevelConst.text = level.ToString();
         if (cost == 0) 
             nextUpgradeCost.text = "MAX!";
         else
