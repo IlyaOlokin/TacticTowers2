@@ -17,14 +17,14 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        timer += Time.deltaTime;
+        timer -= Time.deltaTime;
         var minutes = (int) timer / 60;
-        var seconds = (int) timer % 60;
+        var seconds = Mathf.Ceil(timer % 60);
 
         text.text = $"{minutes:00}:{seconds:00}";
     }
 
-    private static void SetTimer(int seconds)
+    public static void SetTimer(int seconds)
     {
         timer = seconds;
     } 
