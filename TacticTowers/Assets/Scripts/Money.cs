@@ -7,18 +7,22 @@ public class Money : MonoBehaviour
 {
     private static float money;
     private static Text text;
+    private static Animation animation;
 
     private void Start()
     {
         text = GetComponent<Text>();
         text.text = money.ToString();
         SetMoney(0);
-        
+        animation = GetComponent<Animation>();
+
     }
     public static void AddMoney(float income)
     {
         money += income;
+        animation.Stop("MoneyAnimation");
         WriteMoney();
+        animation.Play("MoneyAnimation");
     }
     
     public static void TakeMoney(int cost)

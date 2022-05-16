@@ -15,7 +15,7 @@ public class TowerDrag : MonoBehaviour
     [NonSerialized] public bool dragging;
     private bool triedToDrag;
 
-    private int conflicts;
+    [SerializeField]private int conflicts;
 
     private void Start()
     {
@@ -45,13 +45,13 @@ public class TowerDrag : MonoBehaviour
     {
         pressStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         triedToDrag = true;
-        collider2D.isTrigger = true;
+        
         mouseOffset =  transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void OnMouseUp()
     {
-        if (conflicts == 0)
+        if (conflicts <= 0)
         {
             PlaceTower();
         }
@@ -59,11 +59,12 @@ public class TowerDrag : MonoBehaviour
 
     private void PlaceTower()
     {
-        tower.canShoot = true;
-        collider2D.isTrigger = false;
         dragging = false;
+        tower.canShoot = true;
         triedToDrag = false;
         navMeshObstacle.enabled = true;
+        collider2D.isTrigger = false;
+        conflicts = 0;
     }
 
     private void StartDragging()
@@ -72,6 +73,7 @@ public class TowerDrag : MonoBehaviour
         tower.canShoot = false;
         triedToDrag = false;
         navMeshObstacle.enabled = false;
+        collider2D.isTrigger = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
