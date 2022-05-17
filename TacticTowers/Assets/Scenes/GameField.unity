@@ -1388,6 +1388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 102102774}
+  smokeEffect: {fileID: 9203543088354587739, guid: 91232424a9245784dbe5e2f395c2e37f, type: 3}
 --- !u!4 &160588626
 Transform:
   m_ObjectHideFlags: 0
@@ -8078,6 +8079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 287102744}
+  smokeEffect: {fileID: 9203543088354587739, guid: 91232424a9245784dbe5e2f395c2e37f, type: 3}
 --- !u!4 &1152451194
 Transform:
   m_ObjectHideFlags: 0
@@ -12628,6 +12630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 1242163671}
+  smokeEffect: {fileID: 9203543088354587739, guid: 91232424a9245784dbe5e2f395c2e37f, type: 3}
 --- !u!4 &1635791837
 Transform:
   m_ObjectHideFlags: 0
@@ -13120,6 +13123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 1783282216}
+  smokeEffect: {fileID: 9203543088354587739, guid: 91232424a9245784dbe5e2f395c2e37f, type: 3}
 --- !u!4 &1713674344
 Transform:
   m_ObjectHideFlags: 0
