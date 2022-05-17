@@ -15,7 +15,8 @@ public class TowerDrag : MonoBehaviour
     [NonSerialized] public bool dragging;
     private bool triedToDrag;
 
-    [SerializeField]private int conflicts;
+    private int conflicts;
+    [SerializeField] private GameObject smokeEffect;
 
     private void Start()
     {
@@ -65,6 +66,7 @@ public class TowerDrag : MonoBehaviour
         navMeshObstacle.enabled = true;
         collider2D.isTrigger = false;
         conflicts = 0;
+        Instantiate(smokeEffect, transform.position, Quaternion.identity);
     }
 
     private void StartDragging()
