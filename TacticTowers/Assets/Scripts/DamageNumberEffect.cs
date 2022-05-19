@@ -18,7 +18,6 @@ public class DamageNumberEffect : MonoBehaviour
 
     [SerializeField] private float posSpreading;
     
-    [Header("Right Side")]
     [SerializeField] private List<InnerColor> colors = new List<InnerColor>();
 
     void Start()
