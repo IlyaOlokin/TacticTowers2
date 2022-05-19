@@ -18,6 +18,9 @@ public class DamageNumberEffect : MonoBehaviour
 
     [SerializeField] private float posSpreading;
     
+    [Header("Right Side")]
+    [SerializeField] private List<InnerColor> colors = new List<InnerColor>();
+
     void Start()
     {
         transform.position += new Vector3(Random.Range(-posSpreading, posSpreading), Random.Range(-posSpreading, posSpreading));
@@ -43,12 +46,35 @@ public class DamageNumberEffect : MonoBehaviour
 
     public void WriteDamage(float dmg)
     {
+        GetInnerColor(dmg);
         if (dmg < 1)
         {
             text.text = "1";
             return;
         }
-
+        
         text.text = (Math.Round(dmg)).ToString();
     }
+
+    private void GetInnerColor(float dmg)
+    {
+        for (int i = 0; i < colors.Count; i++)
+        {
+            if (dmg > colors[i].bottomBorder)
+            {
+                text.color = colors[i].color;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+}
+
+[Serializable]
+public class InnerColor
+{
+    public int bottomBorder;
+    public Color color;
 }
