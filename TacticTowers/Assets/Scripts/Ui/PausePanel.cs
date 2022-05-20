@@ -79,7 +79,7 @@ public class PausePanel : MonoBehaviour
             {
                 Resume();
             }
-            else
+            else if (Time.timeScale != 0)
             {
                 Pause();
             }
