@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
 {
     public static float timer;
     private Text text;
+    private static bool isStopped;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+        if (isStopped) return;
         timer -= Time.deltaTime;
         var minutes = (int) timer / 60;
         var seconds = Mathf.Ceil(timer % 60);
@@ -27,5 +29,10 @@ public class Timer : MonoBehaviour
     public static void SetTimer(int seconds)
     {
         timer = seconds;
-    } 
+    }
+
+    public static void Stop()
+    {
+        isStopped = true;
+    }
 }
