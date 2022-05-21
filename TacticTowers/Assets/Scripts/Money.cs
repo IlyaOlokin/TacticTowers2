@@ -5,29 +5,34 @@ using UnityEngine.UI;
 
 public class Money : MonoBehaviour
 {
-    private static int money;
+    private static float money;
     private static Text text;
+    private static Animation animation;
 
     private void Start()
     {
         text = GetComponent<Text>();
         text.text = money.ToString();
         SetMoney(0);
-        
+        animation = GetComponent<Animation>();
+
     }
-    public static void AddMoney(int income)
+    public static void AddMoney(float income)
     {
         money += income;
-        text.text = money.ToString();
+        animation.Stop("MoneyAnimation");
+        WriteMoney();
+        animation.Play("MoneyAnimation");
     }
     
     public static void TakeMoney(int cost)
     {
         money -= cost;
-        text.text = money.ToString();
+        WriteMoney();
+
     }
 
-    public static int GetMoney()
+    public static float GetMoney()
     {
         return money;
     }
@@ -35,6 +40,13 @@ public class Money : MonoBehaviour
     private static void SetMoney(int _money)
     {
         money = _money;
-        text.text = money.ToString();
+        WriteMoney();
+
     }
+    
+    private static void WriteMoney()
+    {
+        text.text = Mathf.Floor(money).ToString();
+    }
+
 }

@@ -2,11 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeMenu : MonoBehaviour
 {
-    private bool mouseOn;
-
+    public bool mouseOn;
+    [SerializeField] private Text towerLevel;
+    [SerializeField] private Text towerLevelConst;
+    [SerializeField] private Text nextUpgradeCost;
+    
     
     void Update()
     {
@@ -24,5 +28,16 @@ public class UpgradeMenu : MonoBehaviour
     private void OnMouseExit()
     {
         mouseOn = false;
+    }
+
+    public void UpdateTexts(int level, int cost)
+    {
+        towerLevel.text = level.ToString();
+        towerLevelConst.text = level.ToString();
+        if (cost == 0) 
+            nextUpgradeCost.text = "MAX!";
+        else
+            nextUpgradeCost.text = cost + "$";
+        
     }
 }

@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17267a443103248499b94ec29ff73f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeLabel: Damage
-  upgradeText: +2 Damage
-  bonus: 2
+  upgradeLabel: "\u0423\u0440\u043E\u043D"
+  upgradeText: "+20% \u043A \u0443\u0440\u043E\u043D\u0443"
+  UpgradeSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  bonus: 0.2

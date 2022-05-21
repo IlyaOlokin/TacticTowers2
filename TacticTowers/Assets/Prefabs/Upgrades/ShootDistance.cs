@@ -8,7 +8,7 @@ public class ShootDistance : Upgrade
     
     public override void Execute(Tower tower)
     {
-        tower.shootDistance += bonus;
+        tower.multiplierShootDistance += bonus;
         tower.shootZone.DrawShootZone();
     }
 }

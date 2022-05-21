@@ -8,4 +8,5 @@ public class UpgradeButton : MonoBehaviour
 {
     public Text upgradeLabel;
     public Text upgradeText;
+    public Image upgradeImage;
 }

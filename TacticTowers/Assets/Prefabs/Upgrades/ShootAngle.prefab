@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a8978b7b8949b4093d3cb671127078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeLabel: Shoot Angle
-  upgradeText: +10 shoot angle
-  bonus: 10
+  upgradeLabel: "\u0423\u0433\u043E\u043B \u043E\u0431\u0441\u0442\u0440\u0435\u043B\u0430"
+  upgradeText: "+10% \u043A \u0443\u0433\u043B\u0443 \u043E\u0431\u0441\u0442\u0440\u0435\u043B\u0430"
+  UpgradeSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  bonus: 0.1

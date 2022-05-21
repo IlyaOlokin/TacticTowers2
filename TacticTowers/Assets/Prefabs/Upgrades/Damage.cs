@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Damage : Upgrade
 {
-    [SerializeField] private int bonus;
+    [SerializeField] private float bonus;
     
     public override void Execute(Tower tower)
     {
-        tower.Dmg += bonus;
+        tower.multiplierDmg += bonus;
     }
 }

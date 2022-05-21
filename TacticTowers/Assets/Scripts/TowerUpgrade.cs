@@ -13,17 +13,34 @@ public class TowerUpgrade : MonoBehaviour
     private float dragDistanceLimit = 0.1f;
     
     [SerializeField] private GameObject upgradeMenu;
-    [SerializeField] private Tower tower;
+    public Tower tower;
     [SerializeField] private GameObject upgradeWindow;
+    private TowerDrag td;
+    
+    [SerializeField] private GameObject upgradeArrow;
+
 
     private void Start()
     {
         upgradeMenu.SetActive(false);
-        
+        td = GetComponent<TowerDrag>();
+    }
+
+    private void Update()
+    {
+        var cost = GetTowerUpgradePrice();
+        if (cost == 0)
+        {
+            upgradeArrow.SetActive(false);
+            return;
+        }
+        upgradeArrow.SetActive(cost <= Money.GetMoney());
     }
 
     private void OnMouseDown()
     {
+        if (td.dragging) return;
+
         mouseOnPos = transform.position;
         pressTimer = 0;
     }
@@ -44,18 +61,37 @@ public class TowerUpgrade : MonoBehaviour
 
     private void OpenUpgradeMenu()
     {
+        if (td.dragging) return;
         upgradeMenu.SetActive(true);
     }
 
     public void OpenUpgradeWindow()
     {
-        var cost = tower.upgradeCost + tower.upgradeIncrement * tower.upgradeLevel;
+        if (IsTowerMaxLevel()) return;
+        var cost = GetTowerUpgradePrice();
+        
         if (cost <= Money.GetMoney())
         {
             Money.TakeMoney(cost);
             tower.upgradeLevel++;
             upgradeWindow.SetActive(true);
-            upgradeWindow.GetComponent<UpgradeWindow>().InitializeUpgrade(tower);
+            upgradeMenu.GetComponent<UpgradeMenu>().UpdateTexts(tower.upgradeLevel, GetTowerUpgradePrice());
+            upgradeMenu.SetActive(false);
+            upgradeWindow.GetComponent<UpgradeWindow>().UpgradeTower(tower);
+            upgradeWindow.GetComponent<UpgradeWindow>().td = GetComponent<TowerDrag>();
+            upgradeWindow.GetComponent<UpgradeWindow>().tu = this;
         }
+    }
+
+    private int GetTowerUpgradePrice()
+    {
+        if (IsTowerMaxLevel())
+            return 0;
+        return tower.upgradePrices[tower.upgradeLevel - 1];
+    }
+
+    private bool IsTowerMaxLevel()
+    {
+        return tower.upgradeLevel == tower.upgradePrices.Length + 1;
     }
 }

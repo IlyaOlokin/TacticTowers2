@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06b5a2602c08e348bc2fbdb943c4186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeLabel: Attack Speed
-  upgradeText: +0.1 attack speed
+  upgradeLabel: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u0440\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C"
+  upgradeText: "+10% \u043A \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438 \u0430\u0442\u0430\u043A\u0438"
+  UpgradeSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   bonus: 0.1
