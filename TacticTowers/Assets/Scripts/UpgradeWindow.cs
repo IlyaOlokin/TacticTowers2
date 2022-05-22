@@ -17,6 +17,7 @@ public class UpgradeWindow : MonoBehaviour
     [SerializeField] private Text label;
     [SerializeField] private String typeUpgradeText;
     [SerializeField] private String upgradeText;
+    [SerializeField] private Image upgradingTowerImage;
     
     [Header("Functionality")]
     [SerializeField] private List<GameObject> upgradeButtons;
@@ -49,6 +50,13 @@ public class UpgradeWindow : MonoBehaviour
             InitializeUpgrade(tower);
             ChangeVisualOnTowerUpgrade();
         }
+        ShowUpgradingTower(tower.towerSprite, tower.transform.rotation);
+    }
+
+    private void ShowUpgradingTower(Sprite towerSprite, Quaternion direction)
+    {
+        upgradingTowerImage.sprite = towerSprite;
+        upgradingTowerImage.transform.rotation = direction;
     }
 
     private void InitializeUpgrade(Tower tower)

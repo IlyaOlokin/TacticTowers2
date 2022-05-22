@@ -36,14 +36,14 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < Waves.Count; i++)
             if (!Waves[i].released && Timer.timer <= 0)
             {
+                ReleaseWave(Waves[i]);
+                waveCount.text = (i + 1) + "/" + Waves.Count;
+               
                 if (i + 1 == Waves.Count)
                 {
                     Timer.Stop();
                     break;
                 }
-                
-                ReleaseWave(Waves[i]);
-                waveCount.text = (i + 1) + "/" + Waves.Count;
                 Timer.SetTimer(Waves[i + 1].seconds - Waves[i].seconds);
             }
          
