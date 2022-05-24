@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
     private void OnDeath()
     {
         EnemySpawner.enemies.Remove(gameObject);
-        Money.AddMoney(cost);
+        Money.AddMoney(cost * GlobalMultipliers.moneyMultiplier);
         Destroy(gameObject);
     }
 }

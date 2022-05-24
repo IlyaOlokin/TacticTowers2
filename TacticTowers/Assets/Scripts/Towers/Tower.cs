@@ -89,7 +89,7 @@ public class Tower : MonoBehaviour
 
     protected float GetDmg()
     {
-        return Dmg * multiplierDmg;
+        return Dmg * multiplierDmg * GlobalMultipliers.dmgMultiplier;
     }
     
     protected float GetAttackSpeed()
@@ -99,7 +99,7 @@ public class Tower : MonoBehaviour
     
     public float GetShootAngle()
     {
-        return shootAngle * multiplierShootAngle;
+        return shootAngle * multiplierShootAngle * GlobalMultipliers.shootAngleMultiplier;
     }
     
     public float GetShootDistance()
