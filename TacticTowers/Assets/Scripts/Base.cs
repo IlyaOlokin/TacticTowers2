@@ -27,4 +27,6 @@ public class Base : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public float GetHp() => hp;
 }

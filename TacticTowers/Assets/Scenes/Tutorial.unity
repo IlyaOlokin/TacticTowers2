@@ -2704,6 +2704,7 @@ MonoBehaviour:
   - {fileID: 5499871268351915362, guid: d88c2582efa0e5e408034f624bd1a7be, type: 3}
   - {fileID: 8293774306564319107, guid: eb666db790218b7469a22e140b29b34a, type: 3}
   - {fileID: 4761622032506297042, guid: dd67b35408f2ebe49bb04e088488f341, type: 3}
+  unlockableTowerTypes: []
 --- !u!114 &330440310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4032,8 +4033,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers:
-  - {fileID: 1712810654}
   - {fileID: 895159652}
+  - {fileID: 1712810654}
 --- !u!1 &464150724
 GameObject:
   m_ObjectHideFlags: 0
@@ -6881,7 +6882,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers:
-  - {fileID: 1712810654}
   - {fileID: 895159652}
 --- !u!1 &792216718
 GameObject:
@@ -8030,9 +8030,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1061189437}
-        m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
-        m_MethodName: OnButtonMenu
+      - m_Target: {fileID: 1450029621}
+        m_TargetAssemblyTypeName: TutorialPanel, Assembly-CSharp
+        m_MethodName: OnButtonPlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8273,7 +8273,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 445, y: -12}
+  m_AnchoredPosition: {x: 460, y: -14}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &937479529
@@ -8294,7 +8294,7 @@ MonoBehaviour:
   - {fileID: 460898155}
   - {fileID: 1450029619}
   enemies: {fileID: 1796467956}
-  waveCount: {fileID: 443903327}
+  waveText: {fileID: 443903327}
   rightTowerLevel: {fileID: 1595564446}
   upgradeWindow: {fileID: 330440308}
 --- !u!61 &937479530
@@ -8911,10 +8911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 405405046}
   towers:
-  - {fileID: 1712810654}
   - {fileID: 895159652}
-  - {fileID: 121594}
-  - {fileID: 39250423}
 --- !u!114 &1061189438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9198,7 +9195,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers:
-  - {fileID: 1712810654}
   - {fileID: 895159652}
 --- !u!1 &1107107790
 GameObject:
@@ -9465,6 +9461,7 @@ MonoBehaviour:
   - {fileID: 6728170449799749952, guid: 128b2ee9661eb4a4d95c39ab6afa570e, type: 3}
   - {fileID: 6441085767404721125, guid: c27004013e6d1a24f83eae4cb08b53ad, type: 3}
   - {fileID: 715245652648313394, guid: 012b5270e8e9b7248bc8cb2a5aff02ea, type: 3}
+  unlockableTowerTypes: []
 --- !u!114 &1182256564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11496,7 +11493,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers:
-  - {fileID: 1712810654}
   - {fileID: 895159652}
 --- !u!1 &1450897208
 GameObject:
@@ -12493,7 +12489,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towers:
-  - {fileID: 1712810654}
   - {fileID: 895159652}
 --- !u!1 &1575317868
 GameObject:
@@ -13926,7 +13921,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1712810654}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

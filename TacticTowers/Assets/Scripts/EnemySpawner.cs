@@ -37,7 +37,10 @@ public class EnemySpawner : MonoBehaviour
             if (!Waves[i].released && Timer.timer <= 0)
             {
                 ReleaseWave(Waves[i]);
-                waveCount.text = (i + 1) + "/" + Waves.Count;
+
+                var currentWave = i + 1;
+                var totalWaves = Waves.Count;
+                waveCount.text = $"{currentWave:00}/{totalWaves:00}";
                
                 if (i + 1 == Waves.Count)
                 {

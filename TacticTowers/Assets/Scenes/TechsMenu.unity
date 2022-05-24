@@ -1855,7 +1855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -480.91, y: 121}
+  m_AnchoredPosition: {x: -480.91, y: 116.3}
   m_SizeDelta: {x: 615.1, y: 153.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &301957470
@@ -3879,7 +3879,7 @@ GameObject:
   - component: {fileID: 733814959}
   - component: {fileID: 733814960}
   m_Layer: 5
-  m_Name: Upgrade6
+  m_Name: UpgradeFire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3906,7 +3906,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 455.8, y: 121.7}
+  m_AnchoredPosition: {x: 459.23013, y: 116.42645}
   m_SizeDelta: {x: 615.1, y: 153.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &733814960
@@ -6538,7 +6538,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u041D\u0430\u0437\u0430\u0434"
+  m_Text: "\u041C\u0415\u041D\u042E"
 --- !u!222 &1248320266
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7294,7 +7294,7 @@ GameObject:
   - component: {fileID: 1425371834}
   - component: {fileID: 1425371835}
   m_Layer: 5
-  m_Name: Upgrade5
+  m_Name: UpgradeFreeze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7321,7 +7321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 455.8, y: 324.71}
+  m_AnchoredPosition: {x: 458.63956, y: 313.55286}
   m_SizeDelta: {x: 615.1, y: 153.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1425371835
@@ -7697,7 +7697,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1483723064}
   m_Layer: 5
-  m_Name: Uppgrades
+  m_Name: Upgrades
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8721,7 +8721,7 @@ GameObject:
   - component: {fileID: 1730331017}
   - component: {fileID: 1730331016}
   m_Layer: 5
-  m_Name: BackButton
+  m_Name: MenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9121,7 +9121,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -480.91, y: -85.2}
+  m_AnchoredPosition: {x: -478.973, y: -74.71101}
   m_SizeDelta: {x: 615.1, y: 153.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1773880775
@@ -9447,7 +9447,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0413\u043B\u043E\u0431\u0430\u043B\u044C\u043D\u044B\u0435 \u0443\u0441\u0438\u043B\u0435\u043D\u0438\u044F"
+  m_Text: "\u0422\u0435\u0445\u043D\u043E\u043B\u043E\u0433\u0438\u0438"
 --- !u!222 &1843499475
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9804,7 +9804,7 @@ GameObject:
   - component: {fileID: 1985733737}
   - component: {fileID: 1985733738}
   m_Layer: 5
-  m_Name: Upgrade8
+  m_Name: UpgradeTesla
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9831,7 +9831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 455.8, y: -286.2}
+  m_AnchoredPosition: {x: 457.04855, y: -289.94574}
   m_SizeDelta: {x: 615.1, y: 153.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1985733738
@@ -9862,7 +9862,7 @@ GameObject:
   - component: {fileID: 2016382180}
   - component: {fileID: 2016382181}
   m_Layer: 5
-  m_Name: Upgrade7
+  m_Name: UpgradeRail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9889,7 +9889,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 455.8, y: -84.7}
+  m_AnchoredPosition: {x: 457.6915, y: -79.32729}
   m_SizeDelta: {x: 615.1, y: 153.88}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2016382181
@@ -10271,7 +10271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0b88063e529451d42b545b30cf5caa20, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8fed05c891e2efb4d9fe090e337cc2b0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

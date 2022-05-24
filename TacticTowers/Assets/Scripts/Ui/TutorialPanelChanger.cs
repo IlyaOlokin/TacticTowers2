@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,13 @@ public class TutorialPanelChanger : MonoBehaviour
 {
     private int counter = 0;
     private bool was4thOpen;
+    
     [SerializeField] private List<GameObject> panels;
     [SerializeField] private GameObject enemies;
-    [SerializeField] private Text waveCount;
+    [SerializeField] private Text waveText;
     [SerializeField] private Text rightTowerLevel;
     [SerializeField] private GameObject upgradeWindow;
+    
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Enemy"))
@@ -36,10 +39,15 @@ public class TutorialPanelChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemies.transform.childCount == 0 && int.Parse(waveCount.text[0].ToString()) == 2 && !was4thOpen)
+        if (enemies.transform.childCount == 0)
         {
-            panels[2].SetActive(true);
-            was4thOpen = true;
+            var waveCount = waveText.text.Split('/').Select(int.Parse).ToArray();
+
+            if (waveCount[0] == waveCount[1] && !was4thOpen)
+            {
+                panels[2].SetActive(true);
+                was4thOpen = true;
+            }
         }
         
         if (int.Parse(rightTowerLevel.text) == 2 && !upgradeWindow.activeInHierarchy)

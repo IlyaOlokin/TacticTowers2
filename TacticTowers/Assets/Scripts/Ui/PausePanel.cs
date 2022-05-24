@@ -2,26 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PausePanel : MonoBehaviour
 {
     [SerializeField] private GameObject pausePanel;
-    //[SerializeField] private GameObject soundCheckMark;
-    //[SerializeField] private Text levelNumberText;
+    [SerializeField] private GameObject confirmPanel;
     [SerializeField] private List<GameObject> towers;
+    [SerializeField] private Text creditsCount;
+    private bool isForRestart;
     
     public void OnButtonRestart()
     {
-        Resume();
-        //FindObjectOfType<AudioManager>().Play("ButtonClick");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        pausePanel.SetActive(false);
+        
+        isForRestart = true;
+        confirmPanel.transform.Find("CreditsCount").transform.Find("Count").GetComponent<Text>().text = creditsCount.text;
+        confirmPanel.SetActive(true);
     }
-
+    
     public void OnButtonMenu()
     {
-        Resume();
-        //FindObjectOfType<AudioManager>().Play("ButtonClick");
-        SceneManager.LoadScene("MainMenu");
+        pausePanel.SetActive(false);
+
+        isForRestart = false;
+        confirmPanel.transform.Find("CreditsCount").transform.Find("Count").GetComponent<Text>().text = creditsCount.text;
+        confirmPanel.SetActive(true);
     }
 
     public void OnButtonClose()
@@ -32,7 +38,6 @@ public class PausePanel : MonoBehaviour
 
     public void OnButtonSound()
     {
-        //soundCheckMark.SetActive(!soundCheckMark.activeInHierarchy);
         //FindObjectOfType<AudioManager>().Play("ButtonClick");
     }
 
@@ -40,8 +45,22 @@ public class PausePanel : MonoBehaviour
     {
         
     }
+
+    public void OnButtonCancel()
+    {
+        confirmPanel.SetActive(false);
+        pausePanel.SetActive(true);
+    }
+
+    public void OnButtonContinue()
+    {
+        Resume();
+        //FindObjectOfType<AudioManager>().Play("ButtonClick");
+
+        SceneManager.LoadScene(isForRestart ? SceneManager.GetActiveScene().name : "MainMenu");
+    }
     
-    public void Pause()
+    private void Pause()
     {
         Time.timeScale = 0;
         pausePanel.SetActive(true);
@@ -49,21 +68,16 @@ public class PausePanel : MonoBehaviour
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = false;
         
-        //var pi = FindObjectOfType<PlayerInput>();
-        //if (pi != null) pi.enabled = false;
         //FindObjectOfType<AudioManager>().Play("ButtonClick");
     }
 
-    public void Resume()
+    private void Resume()
     {
         Time.timeScale = 1;
         pausePanel.SetActive(false);
         
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = true;
-        
-        //var pi = FindObjectOfType<PlayerInput>();
-        //if (pi != null) pi.enabled = true;
     }
 
     private void Start()
@@ -79,7 +93,7 @@ public class PausePanel : MonoBehaviour
             {
                 Resume();
             }
-            else if (Time.timeScale != 0)
+            else
             {
                 Pause();
             }

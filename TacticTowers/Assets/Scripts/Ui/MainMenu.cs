@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,23 +18,13 @@ public class MainMenu : MonoBehaviour
 
     public void OnButtonPlay()
     {
-        SceneManager.LoadScene("GameField");
+        var isTutorialCompleted = Convert.ToBoolean(PlayerPrefs.GetInt("isTutorialCompleted", 0));
+
+        SceneManager.LoadScene(isTutorialCompleted ? "GameField" : "Tutorial");
     }
     
     public void OnButtonUpgrades()
     {
-        SceneManager.LoadScene("UpgradesMenu");
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SceneManager.LoadScene("TechsMenu");
     }
 }
