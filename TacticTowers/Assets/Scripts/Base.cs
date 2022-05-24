@@ -12,7 +12,7 @@ public class Base : MonoBehaviour
 
     private void Start()
     {
-        maxHp *= GlobalMultipliers.baseHpMultiplier;
+        maxHp *= GlobalUpgrades.BaseHpMultiplier;
         hpSlider.maxValue = maxHp;
         hpSlider.value = maxHp;
         hp = maxHp;

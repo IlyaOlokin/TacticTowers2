@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GlobalUpgrade : MonoBehaviour
+public class TechnologyUpgrade : MonoBehaviour
 {
     [SerializeField] private List<GameObject> upgradeFills;
     [SerializeField] private Text valueText;
@@ -33,20 +33,6 @@ public class GlobalUpgrade : MonoBehaviour
         UpdateTexts();
     }
 
-    
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            Credits.credits += 100;
-        }
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            PlayerPrefs.DeleteAll();
-        }
-    }
-
     public void Upgrade()
     {
         if (upgradeLevel == prices.Count) return;
@@ -60,24 +46,24 @@ public class GlobalUpgrade : MonoBehaviour
         switch (upgradeObject)
         {
             case UpgradeObject.BaseHp:
-                GlobalMultipliers.baseHpMultiplier = currentValue;
+                GlobalUpgrades.BaseHpMultiplier = currentValue;
                 PlayerPrefs.SetString("baseHpMultiplier", currentValue.ToString());
                 PlayerPrefs.SetString("baseHpMultiplierUpgradeLevel", upgradeLevel.ToString());
                 break;
             case UpgradeObject.Dmg :
-                GlobalMultipliers.dmgMultiplier = currentValue;
+                GlobalUpgrades.DmgMultiplier = currentValue;
                 PlayerPrefs.SetString("dmgMultiplier", currentValue.ToString());
                 PlayerPrefs.SetString("dmgMultiplierUpgradeLevel", upgradeLevel.ToString());
 
                 break;
             case UpgradeObject.ShootAngle :
-                GlobalMultipliers.shootAngleMultiplier = currentValue;
+                GlobalUpgrades.ShootAngleMultiplier = currentValue;
                 PlayerPrefs.SetString("shootAngleMultiplier", currentValue.ToString());
                 PlayerPrefs.SetString("shootAngleMultiplierUpgradeLevel", upgradeLevel.ToString());
 
                 break;
             case UpgradeObject.Money :
-                GlobalMultipliers.moneyMultiplier = currentValue;
+                GlobalUpgrades.MoneyMultiplier = currentValue;
                 PlayerPrefs.SetString("moneyMultiplier", currentValue.ToString());
                 PlayerPrefs.SetString("moneyMultiplierUpgradeLevel", upgradeLevel.ToString());
 
@@ -124,22 +110,18 @@ public class GlobalUpgrade : MonoBehaviour
             case UpgradeObject.BaseHp:
                 currentValue = float.Parse(PlayerPrefs.GetString("baseHpMultiplier", "1"));
                 upgradeLevel = int.Parse(PlayerPrefs.GetString("baseHpMultiplierUpgradeLevel", "0"));
-                GlobalMultipliers.baseHpMultiplier = currentValue;
                 break;
             case UpgradeObject.Dmg:
                 currentValue = float.Parse(PlayerPrefs.GetString("dmgMultiplier", "1"));
                 upgradeLevel = int.Parse(PlayerPrefs.GetString("dmgMultiplierUpgradeLevel", "0"));
-                GlobalMultipliers.dmgMultiplier = currentValue;
                 break;
             case UpgradeObject.ShootAngle:
                 currentValue = float.Parse(PlayerPrefs.GetString("shootAngleMultiplier", "1"));
                 upgradeLevel = int.Parse(PlayerPrefs.GetString("shootAngleMultiplierUpgradeLevel", "0"));
-                GlobalMultipliers.shootAngleMultiplier = currentValue;
                 break;
             case UpgradeObject.Money:
                 currentValue = float.Parse(PlayerPrefs.GetString("moneyMultiplier", "1"));
                 upgradeLevel = int.Parse(PlayerPrefs.GetString("moneyMultiplierUpgradeLevel", "0"));
-                GlobalMultipliers.moneyMultiplier = currentValue;
                 break;
         }
     }

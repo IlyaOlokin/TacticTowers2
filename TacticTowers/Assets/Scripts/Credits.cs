@@ -12,4 +12,9 @@ public static class Credits
         Credits.credits -= credits;
         PlayerPrefs.SetString("Credits", Credits.credits.ToString());
     }
+    public static void AddCredits(int credits)
+    {
+        Credits.credits += credits;
+        PlayerPrefs.SetString("Credits", Credits.credits.ToString());
+    }
 }
