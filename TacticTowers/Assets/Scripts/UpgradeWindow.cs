@@ -24,6 +24,7 @@ public class UpgradeWindow : MonoBehaviour
 
     [SerializeField] private int towerTypeUpgradeLevel;
     [SerializeField] private List<GameObject> towerTypes;
+    [SerializeField] private List<GameObject> unlockableTowerTypes;
 
     [NonSerialized] public TowerDrag td;
     [NonSerialized] public TowerUpgrade tu;
@@ -31,6 +32,19 @@ public class UpgradeWindow : MonoBehaviour
     private void OnEnable()
     {
         Time.timeScale = 0;
+        AddUnlockedTowerTypes();
+    }
+
+    private void AddUnlockedTowerTypes()
+    {
+        if (GlobalUpgrades.IsFrostGunUnlocked && !towerTypes.Contains(unlockableTowerTypes[0]))
+            towerTypes.Add(unlockableTowerTypes[0]);
+        if (GlobalUpgrades.IsFlamethrowerUnlocked && !towerTypes.Contains(unlockableTowerTypes[1]))
+            towerTypes.Add(unlockableTowerTypes[1]);
+        if (GlobalUpgrades.IsRailgunUnlocked && !towerTypes.Contains(unlockableTowerTypes[2]))
+            towerTypes.Add(unlockableTowerTypes[2]);
+        if (GlobalUpgrades.IsTeslaUnlocked && !towerTypes.Contains(unlockableTowerTypes[3]))
+            towerTypes.Add(unlockableTowerTypes[3]);
     }
 
     private void OnDisable()
