@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class GlobalUpgrades
+public static class Technologies
 {
     public static float BaseHpMultiplier = 1;
     public static float DmgMultiplier = 1;

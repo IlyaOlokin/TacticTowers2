@@ -46,24 +46,24 @@ public class TechnologyUpgrade : MonoBehaviour
         switch (upgradeObject)
         {
             case UpgradeObject.BaseHp:
-                GlobalUpgrades.BaseHpMultiplier = currentValue;
+                Technologies.BaseHpMultiplier = currentValue;
                 PlayerPrefs.SetString("baseHpMultiplier", currentValue.ToString());
                 PlayerPrefs.SetString("baseHpMultiplierUpgradeLevel", upgradeLevel.ToString());
                 break;
             case UpgradeObject.Dmg :
-                GlobalUpgrades.DmgMultiplier = currentValue;
+                Technologies.DmgMultiplier = currentValue;
                 PlayerPrefs.SetString("dmgMultiplier", currentValue.ToString());
                 PlayerPrefs.SetString("dmgMultiplierUpgradeLevel", upgradeLevel.ToString());
 
                 break;
             case UpgradeObject.ShootAngle :
-                GlobalUpgrades.ShootAngleMultiplier = currentValue;
+                Technologies.ShootAngleMultiplier = currentValue;
                 PlayerPrefs.SetString("shootAngleMultiplier", currentValue.ToString());
                 PlayerPrefs.SetString("shootAngleMultiplierUpgradeLevel", upgradeLevel.ToString());
 
                 break;
             case UpgradeObject.Money :
-                GlobalUpgrades.MoneyMultiplier = currentValue;
+                Technologies.MoneyMultiplier = currentValue;
                 PlayerPrefs.SetString("moneyMultiplier", currentValue.ToString());
                 PlayerPrefs.SetString("moneyMultiplierUpgradeLevel", upgradeLevel.ToString());
 

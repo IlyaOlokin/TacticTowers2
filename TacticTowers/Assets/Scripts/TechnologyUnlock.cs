@@ -39,19 +39,19 @@ public class TechnologyUnlock : MonoBehaviour
         switch (unlockableTower)
         {
             case UnlockableTowers.Frostgun:
-                GlobalUpgrades.IsFrostGunUnlocked = true;
+                Technologies.IsFrostGunUnlocked = true;
                 PlayerPrefs.SetString("isFrostGunUnlocked", isUnlocked.ToString());
                 break;
             case UnlockableTowers.Flamethrower :
-                GlobalUpgrades.IsFlamethrowerUnlocked = true;
+                Technologies.IsFlamethrowerUnlocked = true;
                 PlayerPrefs.SetString("isFlamethrowerUnlocked", isUnlocked.ToString());
                 break;
             case UnlockableTowers.Railgun :
-                GlobalUpgrades.IsRailgunUnlocked = true;
+                Technologies.IsRailgunUnlocked = true;
                 PlayerPrefs.SetString("isRailgunUnlocked", isUnlocked.ToString());
                 break;
             case UnlockableTowers.Tesla :
-                GlobalUpgrades.IsTeslaUnlocked = true;
+                Technologies.IsTeslaUnlocked = true;
                 PlayerPrefs.SetString("isTeslaUnlocked", isUnlocked.ToString());
                 break;
         }
@@ -81,16 +81,16 @@ public class TechnologyUnlock : MonoBehaviour
         switch (unlockableTower)
         {
             case UnlockableTowers.Frostgun:
-                isUnlocked = GlobalUpgrades.IsFrostGunUnlocked;
+                isUnlocked = Technologies.IsFrostGunUnlocked;
                 break;
             case UnlockableTowers.Flamethrower :
-                isUnlocked = GlobalUpgrades.IsFlamethrowerUnlocked;
+                isUnlocked = Technologies.IsFlamethrowerUnlocked;
                 break;
             case UnlockableTowers.Railgun :
-                isUnlocked = GlobalUpgrades.IsRailgunUnlocked;
+                isUnlocked = Technologies.IsRailgunUnlocked;
                 break;
             case UnlockableTowers.Tesla :
-                isUnlocked = GlobalUpgrades.IsTeslaUnlocked;
+                isUnlocked = Technologies.IsTeslaUnlocked;
                 break;
         }
     }

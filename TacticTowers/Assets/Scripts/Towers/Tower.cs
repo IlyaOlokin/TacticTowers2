@@ -89,7 +89,7 @@ public class Tower : MonoBehaviour
 
     protected float GetDmg()
     {
-        return Dmg * multiplierDmg * GlobalUpgrades.DmgMultiplier;
+        return Dmg * multiplierDmg * Technologies.DmgMultiplier;
     }
     
     protected float GetAttackSpeed()
@@ -99,7 +99,7 @@ public class Tower : MonoBehaviour
     
     public float GetShootAngle()
     {
-        return shootAngle * multiplierShootAngle * GlobalUpgrades.ShootAngleMultiplier;
+        return shootAngle * multiplierShootAngle * Technologies.ShootAngleMultiplier;
     }
     
     public float GetShootDistance()
