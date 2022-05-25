@@ -4880,7 +4880,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1233309684}
         m_TargetAssemblyTypeName: FinishPanel, Assembly-CSharp
-        m_MethodName: OnButtonTechnologies
+        m_MethodName: OnButtonTechs
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13141,7 +13141,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1597920753}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dffe1b07c9bc26a41a8b702041cd45e0, type: 3}
+  m_Script: {fileID: 11500000, guid: e2ec6f08d16d43448a50562342d947c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1602568795

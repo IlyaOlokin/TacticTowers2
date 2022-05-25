@@ -14,19 +14,21 @@ public class PausePanel : MonoBehaviour
     
     public void OnButtonRestart()
     {
-        pausePanel.SetActive(false);
-        
         isForRestart = true;
-        confirmPanel.transform.Find("CreditsCount").transform.Find("Count").GetComponent<Text>().text = creditsCount.text;
-        confirmPanel.SetActive(true);
+        ActivateConfirmPanel(isForRestart);
     }
     
     public void OnButtonMenu()
     {
-        pausePanel.SetActive(false);
-
         isForRestart = false;
+        ActivateConfirmPanel(isForRestart);
+    }
+
+    private void ActivateConfirmPanel(bool isForRestart)
+    {
+        pausePanel.SetActive(false);
         confirmPanel.transform.Find("CreditsCount").transform.Find("Count").GetComponent<Text>().text = creditsCount.text;
+        confirmPanel.transform.Find("Button").transform.Find("Text").GetComponent<Text>().text = isForRestart ? "ЗАНОВО" : "МЕНЮ";
         confirmPanel.SetActive(true);
     }
 
@@ -56,7 +58,7 @@ public class PausePanel : MonoBehaviour
     {
         Resume();
         //FindObjectOfType<AudioManager>().Play("ButtonClick");
-
+        Credits.LoseSessionCredits();
         SceneManager.LoadScene(isForRestart ? SceneManager.GetActiveScene().name : "MainMenu");
     }
     
