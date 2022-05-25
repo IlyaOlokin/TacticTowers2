@@ -16,6 +16,8 @@ public class FinishPanel : MonoBehaviour
     [SerializeField] private Base _base;
     
     [SerializeField] private Text creditsCount;
+
+    private bool isSessionEdnded;
     
     public void OnButtonRestart()
     {
@@ -43,17 +45,19 @@ public class FinishPanel : MonoBehaviour
     
     void Start()
     {
-        
+        Credits.LoseSessionCredits();
     }
 
     private void Update()
     {
+        if (isSessionEdnded) return;
         if (_base.GetHp() <= 0)
         {
             FillTexts(defeatPanel);
             defeatPanel.SetActive(true);
-
             Pause();
+            Credits.AcceptSessionCredits();
+            isSessionEdnded = true;
         }
         
         if (enemies.transform.childCount == 0)
@@ -64,8 +68,9 @@ public class FinishPanel : MonoBehaviour
             {
                 FillTexts(victoryPanel);
                 victoryPanel.SetActive(true);
-
                 Pause();
+                Credits.AcceptSessionCredits();
+                isSessionEdnded = true;
             }
         }
 

@@ -61,6 +61,6 @@ public class Enemy : MonoBehaviour
 
     private void DropCreditsByChance(int chance)
     {
-        if (Random.Range(0, 100) < chance) Credits.AddCredits(weight);
+        if (Random.Range(0, 100) < chance) Credits.AddSessionCredits(weight);
     }
 }

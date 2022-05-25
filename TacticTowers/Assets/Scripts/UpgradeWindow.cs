@@ -64,13 +64,13 @@ public class UpgradeWindow : MonoBehaviour
             InitializeUpgrade(tower);
             ChangeVisualOnTowerUpgrade();
         }
-        ShowUpgradingTower(tower.towerSprite, tower.transform.rotation);
+        ShowUpgradingTower(tower);
     }
 
-    private void ShowUpgradingTower(Sprite towerSprite, Quaternion direction)
+    private void ShowUpgradingTower(Tower tower)
     {
-        upgradingTowerImage.sprite = towerSprite;
-        upgradingTowerImage.transform.rotation = direction;
+        upgradingTowerImage.sprite = tower.towerSprite;
+        upgradingTowerImage.transform.rotation = Quaternion.Euler(0,0,tower.shootDirection - 90);
     }
 
     private void InitializeUpgrade(Tower tower)
