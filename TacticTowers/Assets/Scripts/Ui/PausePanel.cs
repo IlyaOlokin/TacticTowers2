@@ -11,6 +11,7 @@ public class PausePanel : MonoBehaviour
     [SerializeField] private List<GameObject> towers;
     [SerializeField] private Text creditsCount;
     private bool isForRestart;
+    private float startTimeScale = 1f;
     
     public void OnButtonRestart()
     {
@@ -64,6 +65,7 @@ public class PausePanel : MonoBehaviour
     
     private void Pause()
     {
+        startTimeScale = Time.timeScale;
         Time.timeScale = 0;
         pausePanel.SetActive(true);
         
@@ -75,7 +77,7 @@ public class PausePanel : MonoBehaviour
 
     private void Resume()
     {
-        Time.timeScale = 1;
+        Time.timeScale = startTimeScale;
         pausePanel.SetActive(false);
         
         foreach (var tower in towers)
