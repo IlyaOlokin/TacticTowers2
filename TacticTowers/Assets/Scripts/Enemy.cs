@@ -27,9 +27,14 @@ public class Enemy : MonoBehaviour
     
     void Update()
     {
-        
+        RotateByVelocity();
     }
 
+    private void RotateByVelocity()
+    {
+        var angle = Mathf.Atan2(agent.velocity.y, agent.velocity.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
