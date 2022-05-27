@@ -9,6 +9,7 @@ public class Flamerhrower : Tower
     public float burnDmgMultiplier;
     public float burnTime;
     [SerializeField] private GameObject flameBox;
+    [SerializeField] private Transform flameStartPos;
     
     
     private GameObject currentEnemy;
@@ -50,7 +51,7 @@ public class Flamerhrower : Tower
                 activeFlameBox.GetComponent<FlameBox>().burnDmg = GetBurnDmg();
                 activeFlameBox.GetComponent<FlameBox>().burnTime = burnTime;
                 
-                activeFlameBox.GetComponent<FlameBox>().flameStartPos = transform.position;
+                activeFlameBox.GetComponent<FlameBox>().flameStartPos = flameStartPos.position;
                 activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, GetShootDistance());
                 activeFlameBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
                 currentEnemy = enemy;

@@ -22,7 +22,7 @@ public class FlameBox : MonoBehaviour
         ps = transform.GetChild(0).GetComponent<ParticleSystem>();
         ps.transform.position = flameStartPos;
         var mainModule = ps.main;
-        mainModule.startLifetime =transform.localScale.y / 3f;
+        mainModule.startLifetime =transform.localScale.y / 3 * 0.85f;
     }
 
     protected void Update()

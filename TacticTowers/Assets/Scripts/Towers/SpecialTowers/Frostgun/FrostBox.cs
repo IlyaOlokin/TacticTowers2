@@ -27,7 +27,7 @@ public class FrostBox : MonoBehaviour
         ps = transform.GetChild(0).GetComponent<ParticleSystem>();
         ps.transform.position = frostStartPos;
         var mainModule = ps.main;
-        mainModule.startLifetime = transform.localScale.y / 3f;
+        mainModule.startLifetime = transform.localScale.y / 3f * 0.9f;
     }
 
 
