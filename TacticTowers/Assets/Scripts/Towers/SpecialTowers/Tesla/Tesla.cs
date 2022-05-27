@@ -42,7 +42,7 @@ public class Tesla : Tower
         var endPos = enemy.transform.position;
         pickedEnemy.Add(enemy);
 
-        var newLightning = Instantiate(lightning, transform.position, transform.rotation);
+        var newLightning = Instantiate(lightning, transform.position, towerCanon.transform.rotation);
         newLightning.GetComponent<LineRenderer>().SetPosition(0, startPos);
         newLightning.GetComponent<LineRenderer>().SetPosition(1, endPos);
 

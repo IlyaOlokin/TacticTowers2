@@ -25,7 +25,7 @@ public class Shotgun : Tower
         {
             for (var i = 1; i <= bulletCount; i++)
             {
-                var towerRot = transform.eulerAngles;
+                var towerRot = towerCanon.transform.eulerAngles;
                 var bulletAngle = 0f;
             
                 if (bulletCount % 2 == 1)

@@ -27,9 +27,9 @@ Transform:
   m_GameObject: {fileID: 715245652648313394}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.21329549, y: 0.21329549, z: 0.68805}
   m_Children:
-  - {fileID: 715245653363730423}
+  - {fileID: 7631030621158710253}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -7104512061128346052, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   towerDescription: "\u0411\u044C\u0435\u0442 \u043F\u043E \u0432\u0440\u0430\u0433\u0430\u043C
     \u0432 \u0431\u043E\u043B\u044C\u0448\u043E\u043C \u0440\u0430\u0434\u0438\u0443\u0441\u0435"
   towerSprite: {fileID: 21300000, guid: d607c3775ad01ae46921967cc31f1214, type: 3}
+  towerCanon: {fileID: 3475854050236517507}
   shootAngle: 45
   multiplierShootAngle: 1
   shootDistance: 3
@@ -119,7 +120,7 @@ MonoBehaviour:
   bullet: {fileID: 1680028144157980390, guid: 7f81e7ce6b482e5488e5f9452d0d39dc, type: 3}
   bulletSpeed: 4
   explosionRadius: 0.5
---- !u!1 &715245653363730420
+--- !u!1 &1266804234424866392
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,36 +128,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 715245653363730423}
-  - component: {fileID: 715245653363730422}
+  - component: {fileID: 1696822612535326274}
+  - component: {fileID: 4510603379544590461}
   m_Layer: 3
-  m_Name: Square
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &715245653363730423
+--- !u!4 &1696822612535326274
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 715245653363730420}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.439, z: 0}
-  m_LocalScale: {x: 0.36, y: 1, z: 1}
+  m_GameObject: {fileID: 1266804234424866392}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.62, z: 0}
+  m_LocalScale: {x: 0.861, y: 0.861, z: 0.8612}
   m_Children: []
-  m_Father: {fileID: 715245652648313399}
+  m_Father: {fileID: 7631030621158710253}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &715245653363730422
+--- !u!212 &4510603379544590461
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 715245653363730420}
+  m_GameObject: {fileID: 1266804234424866392}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -189,9 +190,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+  m_SortingOrder: 6
+  m_Sprite: {fileID: -381807920521745890, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -201,3 +202,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3475854050236517507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7631030621158710253}
+  m_Layer: 3
+  m_Name: TowerCanon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7631030621158710253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3475854050236517507}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1696822612535326274}
+  m_Father: {fileID: 715245652648313399}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

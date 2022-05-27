@@ -44,7 +44,7 @@ public class Flamerhrower : Tower
         {
             if (enemy != currentEnemy)
             {
-                activeFlameBox = Instantiate(flameBox, transform.position, transform.rotation);
+                activeFlameBox = Instantiate(flameBox, transform.position, towerCanon.transform.rotation);
                 activeFlameBox.GetComponent<FlameBox>().dmg = GetDmg();
                 activeFlameBox.GetComponent<FlameBox>().attackSpeed = GetAttackSpeed();
                 activeFlameBox.GetComponent<FlameBox>().burnDmg = GetBurnDmg();
@@ -61,8 +61,8 @@ public class Flamerhrower : Tower
 
         if (activeFlameBox != null)
         {
-            activeFlameBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
-            activeFlameBox.transform.rotation = transform.rotation;
+            activeFlameBox.transform.position = ((towerCanon.transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
+            activeFlameBox.transform.rotation = towerCanon.transform.rotation;
         }
     }
 

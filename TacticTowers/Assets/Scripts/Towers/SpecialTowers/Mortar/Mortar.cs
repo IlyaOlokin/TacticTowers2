@@ -22,7 +22,7 @@ public class Mortar : Tower
         
         if (shootDelayTimer <= 0)
         {
-            var newBullet =  Instantiate(bullet, transform.position, Quaternion.identity);
+            var newBullet =  Instantiate(bullet, transform.position, towerCanon.transform.rotation);
             newBullet.GetComponent<MortarProjectile>().Dmg = GetDmg();
             newBullet.GetComponent<MortarProjectile>().Speed = bulletSpeed;
             newBullet.GetComponent<MortarProjectile>().radius = explosionRadius;

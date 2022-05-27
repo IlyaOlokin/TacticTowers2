@@ -43,7 +43,7 @@ public class Frostgun : Tower
         {
             if (enemy != currentEnemy)
             {
-                activeFrostBox = Instantiate(frostBox, transform.position, transform.rotation);
+                activeFrostBox = Instantiate(frostBox, transform.position, towerCanon.transform.rotation);
                 
                 activeFrostBox.GetComponent<FrostBox>().dmg = GetDmg();
                 activeFrostBox.GetComponent<FrostBox>().attackSpeed = GetAttackSpeed();
@@ -62,8 +62,8 @@ public class Frostgun : Tower
 
         if (activeFrostBox != null)
         {
-            activeFrostBox.transform.position = (transform.up * GetShootDistance() + transform.position + transform.position) / 2f;
-            activeFrostBox.transform.rotation = transform.rotation;
+            activeFrostBox.transform.position = (towerCanon.transform.up * GetShootDistance() + transform.position + transform.position) / 2f;
+            activeFrostBox.transform.rotation = towerCanon.transform.rotation;
         }
     }
 
