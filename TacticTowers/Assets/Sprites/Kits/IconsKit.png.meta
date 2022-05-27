@@ -175,10 +175,10 @@ TextureImporter:
       name: RegDamage
       rect:
         serializedVersion: 2
-        x: 1041
-        y: 8128
-        width: 664
-        height: 736
+        x: 977
+        y: 8119
+        width: 750
+        height: 750
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,10 +196,10 @@ TextureImporter:
       name: RegFirerate
       rect:
         serializedVersion: 2
-        x: 1062
+        x: 1013
         y: 6769
-        width: 643
-        height: 702
+        width: 705
+        height: 705
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,10 +217,10 @@ TextureImporter:
       name: RegBallistic
       rect:
         serializedVersion: 2
-        x: 1104
-        y: 5379
-        width: 601
-        height: 717
+        x: 1009
+        y: 5378
+        width: 720
+        height: 720
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,9 +238,9 @@ TextureImporter:
       name: RegAngle
       rect:
         serializedVersion: 2
-        x: 1071
+        x: 1008
         y: 3979
-        width: 633
+        width: 725
         height: 725
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -280,9 +280,9 @@ TextureImporter:
       name: CreditsIcon
       rect:
         serializedVersion: 2
-        x: 2255
+        x: 2256
         y: 3136
-        width: 321
+        width: 320
         height: 320
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -301,9 +301,9 @@ TextureImporter:
       name: FlameBurnDuration
       rect:
         serializedVersion: 2
-        x: 6143
+        x: 5922
         y: 8272
-        width: 520
+        width: 800
         height: 800
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -322,10 +322,10 @@ TextureImporter:
       name: FlameBurnDamage
       rect:
         serializedVersion: 2
-        x: 7024
+        x: 6809
         y: 8271
-        width: 548
-        height: 801
+        width: 800
+        height: 800
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -343,10 +343,10 @@ TextureImporter:
       name: FrostFreezeDuration
       rect:
         serializedVersion: 2
-        x: 6147
-        y: 7117
-        width: 540
-        height: 741
+        x: 6001
+        y: 7115
+        width: 745
+        height: 745
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -364,9 +364,9 @@ TextureImporter:
       name: FrostFreezeSpeed
       rect:
         serializedVersion: 2
-        x: 7027
+        x: 6899
         y: 7116
-        width: 570
+        width: 740
         height: 740
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -385,10 +385,10 @@ TextureImporter:
       name: MiniCoolDelay
       rect:
         serializedVersion: 2
-        x: 6192
-        y: 5984
-        width: 484
-        height: 850
+        x: 5891
+        y: 5982
+        width: 850
+        height: 805
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -406,10 +406,10 @@ TextureImporter:
       name: MiniFirePerStack
       rect:
         serializedVersion: 2
-        x: 7071
-        y: 5983
-        width: 542
-        height: 802
+        x: 6869
+        y: 5982
+        width: 805
+        height: 805
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -427,10 +427,10 @@ TextureImporter:
       name: MiniStackAmount
       rect:
         serializedVersion: 2
-        x: 8047
-        y: 5984
-        width: 546
-        height: 801
+        x: 7829
+        y: 5982
+        width: 805
+        height: 805
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -448,9 +448,9 @@ TextureImporter:
       name: MortExplosRadius
       rect:
         serializedVersion: 2
-        x: 6063
-        y: 4927
-        width: 690
+        x: 6048
+        y: 4929
+        width: 705
         height: 705
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -469,10 +469,10 @@ TextureImporter:
       name: LazerStackAmount
       rect:
         serializedVersion: 2
-        x: 6239
+        x: 6057
         y: 3887
-        width: 514
-        height: 722
+        width: 725
+        height: 725
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -490,10 +490,10 @@ TextureImporter:
       name: LazerDmgPerStack
       rect:
         serializedVersion: 2
-        x: 7248
+        x: 7047
         y: 3887
-        width: 471
-        height: 721
+        width: 725
+        height: 725
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -511,10 +511,10 @@ TextureImporter:
       name: LazerCoolDelay
       rect:
         serializedVersion: 2
-        x: 8336
-        y: 3888
-        width: 487
-        height: 721
+        x: 8139
+        y: 3885
+        width: 725
+        height: 725
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -532,10 +532,10 @@ TextureImporter:
       name: ShotgBulletAmount
       rect:
         serializedVersion: 2
-        x: 6130
+        x: 6097
         y: 2849
-        width: 650
-        height: 671
+        width: 675
+        height: 675
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -553,10 +553,10 @@ TextureImporter:
       name: RailDmgDropoff
       rect:
         serializedVersion: 2
-        x: 6081
+        x: 6065
         y: 1789
-        width: 647
-        height: 723
+        width: 725
+        height: 725
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -574,10 +574,10 @@ TextureImporter:
       name: RailMinDmg
       rect:
         serializedVersion: 2
-        x: 7119
-        y: 1886
-        width: 634
-        height: 626
+        x: 7117
+        y: 1881
+        width: 635
+        height: 635
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -596,9 +596,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 6048
-        y: 681
+        y: 675
         width: 705
-        height: 695
+        height: 705
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -616,10 +616,10 @@ TextureImporter:
       name: TeslaBountRadius
       rect:
         serializedVersion: 2
-        x: 7104
-        y: 717
-        width: 632
-        height: 626
+        x: 7102
+        y: 710
+        width: 635
+        height: 635
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -637,9 +637,9 @@ TextureImporter:
       name: TeslaBoundAmount
       rect:
         serializedVersion: 2
-        x: 8064
-        y: 667
-        width: 704
+        x: 8052
+        y: 664
+        width: 725
         height: 725
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
