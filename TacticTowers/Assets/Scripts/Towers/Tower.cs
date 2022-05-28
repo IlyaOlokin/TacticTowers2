@@ -15,6 +15,8 @@ public class Tower : MonoBehaviour
     [Multiline]public string towerDescription;
     public Sprite towerSprite;
 
+    [SerializeField] protected GameObject towerCanon;
+
     [SerializeField] private  float shootAngle;
     public float multiplierShootAngle = 1;
     
@@ -84,7 +86,7 @@ public class Tower : MonoBehaviour
     {
         Vector3 dir = transform.position - target.transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.eulerAngles = new Vector3(0, 0, angle + 90);
+        towerCanon.transform.eulerAngles = new Vector3(0, 0, angle + 90);
     }
 
     protected float GetDmg()

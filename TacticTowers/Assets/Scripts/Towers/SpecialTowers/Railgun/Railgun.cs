@@ -6,6 +6,7 @@ using UnityEngine;
 public class Railgun : Tower
 {
     [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform railStartPos;
     public float dmgMultiplier;
     public float minDmg;
     
@@ -25,10 +26,10 @@ public class Railgun : Tower
         {
             
             RaycastHit2D[] hits;
-            hits = Physics2D.RaycastAll(transform.position, transform.up, Mathf.Infinity);
-            var newRail = Instantiate(bullet, transform.position, Quaternion.identity);
-            newRail.GetComponent<LineRenderer>().SetPosition(0, transform.position);
-            newRail.GetComponent<LineRenderer>().SetPosition(1, transform.position + transform.up * 50);
+            hits = Physics2D.RaycastAll(transform.position, towerCanon.transform.up, Mathf.Infinity);
+            var newRail = Instantiate(bullet, transform.position, towerCanon.transform.rotation);
+            newRail.GetComponent<LineRenderer>().SetPosition(0, railStartPos.position);
+            newRail.GetComponent<LineRenderer>().SetPosition(1, transform.position + towerCanon.transform.up * 50);
             float multiplier = 1f;
             for (int i = 0; i < hits.Length; i++)
             {
