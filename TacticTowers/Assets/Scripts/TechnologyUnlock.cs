@@ -43,19 +43,19 @@ public class TechnologyUnlock : MonoBehaviour
         {
             case UnlockableTowers.Frostgun:
                 Technologies.IsFrostGunUnlocked = true;
-                PlayerPrefs.SetString("isFrostGunUnlocked", isUnlocked.ToString());
+                PlayerPrefs.SetInt("isFrostGunUnlocked", Convert.ToInt16(isUnlocked));
                 break;
             case UnlockableTowers.Flamethrower :
                 Technologies.IsFlamethrowerUnlocked = true;
-                PlayerPrefs.SetString("isFlamethrowerUnlocked", isUnlocked.ToString());
+                PlayerPrefs.SetInt("isFlamethrowerUnlocked",  Convert.ToInt16(isUnlocked));
                 break;
             case UnlockableTowers.Railgun :
                 Technologies.IsRailgunUnlocked = true;
-                PlayerPrefs.SetString("isRailgunUnlocked", isUnlocked.ToString());
+                PlayerPrefs.SetInt("isRailgunUnlocked",  Convert.ToInt16(isUnlocked));
                 break;
             case UnlockableTowers.Tesla :
                 Technologies.IsTeslaUnlocked = true;
-                PlayerPrefs.SetString("isTeslaUnlocked", isUnlocked.ToString());
+                PlayerPrefs.SetInt("isTeslaUnlocked",  Convert.ToInt16(isUnlocked));
                 break;
         }
         
