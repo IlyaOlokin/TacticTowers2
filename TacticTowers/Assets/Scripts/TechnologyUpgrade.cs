@@ -11,6 +11,9 @@ public class TechnologyUpgrade : MonoBehaviour
     [SerializeField] private Text priceText;
     [SerializeField] private GameObject button;
 
+    [SerializeField] private Sprite enoughMoneyButton;
+    [SerializeField] private Sprite notEnoughMoneyButton;
+
     [SerializeField] private List<int> prices;
     [SerializeField] private float currentValue;
     [SerializeField] private float bonusValue;
@@ -35,9 +38,6 @@ public class TechnologyUpgrade : MonoBehaviour
 
     public void Upgrade()
     {
-        if (upgradeLevel == prices.Count) return;
-        if (!HaveEnoughMoney()) return;
-        
         Credits.TakeCredits(prices[upgradeLevel]);
         currentValue += bonusValue;
         upgradeLevel++;
@@ -123,6 +123,20 @@ public class TechnologyUpgrade : MonoBehaviour
                 currentValue = float.Parse(PlayerPrefs.GetString("moneyMultiplier", "1"));
                 upgradeLevel = int.Parse(PlayerPrefs.GetString("moneyMultiplierUpgradeLevel", "0"));
                 break;
+        }
+    }
+
+    private void Update()
+    {
+        if (upgradeLevel == prices.Count || !HaveEnoughMoney())
+        {
+            button.GetComponent<Image>().sprite = notEnoughMoneyButton;
+            button.GetComponent<Button>().enabled = false;
+        }
+        else
+        {
+            button.GetComponent<Image>().sprite = enoughMoneyButton;
+            button.GetComponent<Button>().enabled = true;
         }
     }
 }
