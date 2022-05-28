@@ -7,12 +7,13 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public static float timer;
-    private Text text;
+    [SerializeField] private Text text;
     private static bool isStopped;
 
     private void Start()
     {
         text = GetComponent<Text>();
+        isStopped = false;
         SetTimer(0);
     }
 
