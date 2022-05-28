@@ -12,12 +12,8 @@ public class Frostgun : Tower
     [SerializeField] private int freezeStacksNeeded;
     private GameObject currentEnemy;
     private GameObject activeFrostBox;
-    private ParticleSystem ps;
-
-    private void Start()
-    { 
-        ps = GetComponent<ParticleSystem>();
-    }
+    [SerializeField] private GameObject frostEffect;
+    
 
     void Update()
     {
@@ -30,6 +26,7 @@ public class Frostgun : Tower
         {
             DestroyFrostBox();
             currentEnemy = null;
+            frostEffect.SetActive(false);
             return;
         }
         LootAtTarget(enemy);
@@ -43,7 +40,7 @@ public class Frostgun : Tower
         {
             if (enemy != currentEnemy)
             {
-                activeFrostBox = Instantiate(frostBox, transform.position, transform.rotation);
+                activeFrostBox = Instantiate(frostBox, transform.position, towerCanon.transform.rotation);
                 
                 activeFrostBox.GetComponent<FrostBox>().dmg = GetDmg();
                 activeFrostBox.GetComponent<FrostBox>().attackSpeed = GetAttackSpeed();
@@ -55,6 +52,8 @@ public class Frostgun : Tower
                 activeFrostBox.transform.localScale = new Vector3(activeFrostBox.transform.localScale.x, GetShootDistance());
                 activeFrostBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
                 currentEnemy = enemy;
+                
+                frostEffect.SetActive(true);
             }
             
             shootDelayTimer = 1f / GetAttackSpeed();
@@ -62,8 +61,8 @@ public class Frostgun : Tower
 
         if (activeFrostBox != null)
         {
-            activeFrostBox.transform.position = (transform.up * GetShootDistance() + transform.position + transform.position) / 2f;
-            activeFrostBox.transform.rotation = transform.rotation;
+            activeFrostBox.transform.position = (towerCanon.transform.up * GetShootDistance() + transform.position + transform.position) / 2f;
+            activeFrostBox.transform.rotation = towerCanon.transform.rotation;
         }
     }
 

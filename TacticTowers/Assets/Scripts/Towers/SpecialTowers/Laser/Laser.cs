@@ -47,7 +47,7 @@ public class Laser : Tower
         {
             if (enemy != currentEnemy)
             {
-                activeLaser = Instantiate(laserBim, transform.position, transform.rotation);
+                activeLaser = Instantiate(laserBim, transform.position, towerCanon.transform.rotation);
                 activeLaser.GetComponent<LaserBim>().target = enemy;
                 activeLaser.GetComponent<LaserBim>().origin = transform.position;
                 currentEnemy = enemy;
