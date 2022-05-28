@@ -9,11 +9,7 @@ using Random = UnityEngine.Random;
 
 public class UpgradeWindow : MonoBehaviour
 {
-    [Header("Visual")] 
-    [SerializeField] private Color typeUpgradeColor;
-    [SerializeField] private Color upgradeColor;
-    [SerializeField] private Color typeUpgradeTextColor;
-    [SerializeField] private Color upgradeTextColor;
+    [Header("Visual")]
     [SerializeField] private Text label;
     [SerializeField] private String typeUpgradeText;
     [SerializeField] private String upgradeText;
@@ -152,20 +148,18 @@ public class UpgradeWindow : MonoBehaviour
 
     private void ChangeVisualOnTowerTypeUpgrade()
     {
-        ChangeButtonsVisual(typeUpgradeSprite, typeUpgradeTextColor, typeUpgradeText);
+        ChangeButtonsVisual(typeUpgradeSprite, typeUpgradeText);
     }
     private void ChangeVisualOnTowerUpgrade()
     {
-        ChangeButtonsVisual(upgradeSprite, upgradeTextColor, upgradeText);
+        ChangeButtonsVisual(upgradeSprite, upgradeText);
     }
 
-    private void ChangeButtonsVisual(Sprite imageSprite, Color textColor, string labelText)
+    private void ChangeButtonsVisual(Sprite imageSprite, string labelText)
     {
         foreach (var button in upgradeButtons)
         {
             button.GetComponent<Image>().sprite = imageSprite;
-            button.GetComponent<UpgradeButton>().upgradeLabel.color = textColor;
-            button.GetComponent<UpgradeButton>().upgradeText.color = textColor;
             label.text = labelText;
         }
     }
