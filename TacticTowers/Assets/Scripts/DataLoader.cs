@@ -13,10 +13,10 @@ public class DataLoader : MonoBehaviour
         Technologies.ShootAngleMultiplier = float.Parse(PlayerPrefs.GetString("shootAngleMultiplier", "1"));
         Technologies.MoneyMultiplier = float.Parse(PlayerPrefs.GetString("moneyMultiplier", "1"));
         
-        Technologies.IsFrostGunUnlocked = bool.Parse(PlayerPrefs.GetString("isFrostGunUnlocked", "false"));
-        Technologies.IsFlamethrowerUnlocked = bool.Parse(PlayerPrefs.GetString("isFlamethrowerUnlocked", "false"));
-        Technologies.IsRailgunUnlocked = bool.Parse(PlayerPrefs.GetString("isRailgunUnlocked", "false"));
-        Technologies.IsTeslaUnlocked = bool.Parse(PlayerPrefs.GetString("isTeslaUnlocked", "false"));
+        Technologies.IsFrostGunUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("isFrostGunUnlocked", 0));
+        Technologies.IsFlamethrowerUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("isFlamethrowerUnlocked", 0));
+        Technologies.IsRailgunUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("isRailgunUnlocked", 0));
+        Technologies.IsTeslaUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("isTeslaUnlocked", 0));
 
         Credits.credits = int.Parse(PlayerPrefs.GetString("Credits", "0"));
     }
