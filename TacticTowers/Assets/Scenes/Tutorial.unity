@@ -8009,8 +8009,10 @@ MonoBehaviour:
   - {fileID: 1450029619}
   enemies: {fileID: 1796467956}
   waveText: {fileID: 1962809293}
-  rightTowerLevel: {fileID: 563251931}
   upgradeWindow: {fileID: 761139185}
+  towerLevels:
+  - {fileID: 563251931}
+  - {fileID: 1924722705}
 --- !u!61 &937479530
 BoxCollider2D:
   m_ObjectHideFlags: 0

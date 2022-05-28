@@ -10,7 +10,11 @@ public class TutorialPanel : MonoBehaviour
     public void OnButtonNext(int panelNum)
     {
         gameObject.SetActive(false);
-        Time.timeScale = 1;
+        
+        if (panelNum == 1)
+            Time.timeScale = 3;
+        else
+            Time.timeScale = 1;
 
         if (panelNum > 2)
             foreach (var tower in towers)
