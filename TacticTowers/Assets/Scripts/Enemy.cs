@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float hp;
     
     [NonSerialized] public float cost;
+    [SerializeField] private int creditsDropChance;
     public int weight;
     [SerializeField] private GameObject damageNumberEffect;
     void Start()
@@ -24,9 +27,14 @@ public class Enemy : MonoBehaviour
     
     void Update()
     {
-        
+        RotateByVelocity();
     }
 
+    private void RotateByVelocity()
+    {
+        var angle = Mathf.Atan2(agent.velocity.y, agent.velocity.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -51,7 +59,13 @@ public class Enemy : MonoBehaviour
     private void OnDeath()
     {
         EnemySpawner.enemies.Remove(gameObject);
-        Money.AddMoney(cost);
+        Money.AddMoney(cost * Technologies.MoneyMultiplier);
+        DropCreditsByChance(creditsDropChance);
         Destroy(gameObject);
+    }
+
+    private void DropCreditsByChance(int chance)
+    {
+        if (Random.Range(0, 100) < chance) Credits.AddSessionCredits(weight);
     }
 }

@@ -46,8 +46,8 @@ public class Freeze : MonoBehaviour
         
         ColorEnemy();
         SlowEnemy();
-
-        StartCoroutine(LoseFreezeStack());
+        
+        if (!frozen) StartCoroutine(LoseFreezeStack());
     }
 
     private void SlowEnemy()
@@ -58,6 +58,7 @@ public class Freeze : MonoBehaviour
     private void FreezeEnemy()
     {
         frozen = true;
+        StopAllCoroutines();
         enemy.GetComponent<NavMeshAgent>().speed = 0;
         newFreezeEffect = Instantiate(freezeEffect, transform.position, Quaternion.identity, enemy.transform);
         StartCoroutine(Unfreeze());

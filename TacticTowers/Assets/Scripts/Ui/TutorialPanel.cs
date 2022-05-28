@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialPanel : MonoBehaviour
 {
@@ -9,16 +10,21 @@ public class TutorialPanel : MonoBehaviour
     public void OnButtonNext(int panelNum)
     {
         gameObject.SetActive(false);
-        Time.timeScale = 1;
         
+        if (panelNum == 1)
+            Time.timeScale = 3;
+        else
+            Time.timeScale = 1;
+
         if (panelNum > 2)
             foreach (var tower in towers)
                 tower.GetComponent<CircleCollider2D>().enabled = true;
     }
-    
-    private void Start()
+
+    public void OnButtonPlay()
     {
-        
+        SceneManager.LoadScene("GameField");
+        PlayerPrefs.SetInt("isTutorialCompleted", 1);
     }
     
     private void Update()

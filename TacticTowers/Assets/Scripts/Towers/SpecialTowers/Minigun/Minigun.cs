@@ -32,7 +32,7 @@ public class Minigun : Tower
     private void BarrelHeat()
     {
         var color = heatIndicator.color;
-        color = new Color(color.r, color.g, color.b, heatCount / maxHeat * 0.6f);
+        color = Color.HSVToRGB(0, heatCount / maxHeat * 0.6f , 1);
         heatIndicator.color = color;
     }
 
@@ -48,7 +48,7 @@ public class Minigun : Tower
             shootDelayTimer = 1f / (GetAttackSpeed() + heatCount * bonusAttackSpeedPerHeat);
             if (heatCount < maxHeat) heatCount += 1;
             coolTimer = coolDelay;
-            var newBullet = Instantiate(bullet, transform.position, transform.rotation);
+            var newBullet = Instantiate(bullet, transform.position, towerCanon.transform.rotation);
             newBullet.GetComponent<Bullet>().Dmg = GetDmg();
             newBullet.GetComponent<Bullet>().Speed = bulletSpeed;
         }

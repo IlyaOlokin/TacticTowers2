@@ -12,6 +12,7 @@ public class Base : MonoBehaviour
 
     private void Start()
     {
+        maxHp *= Technologies.BaseHpMultiplier;
         hpSlider.maxValue = maxHp;
         hpSlider.value = maxHp;
         hp = maxHp;
@@ -26,4 +27,6 @@ public class Base : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public float GetHp() => hp;
 }

@@ -9,20 +9,21 @@ using Random = UnityEngine.Random;
 
 public class UpgradeWindow : MonoBehaviour
 {
-    [Header("Visual")] 
-    [SerializeField] private Color typeUpgradeColor;
-    [SerializeField] private Color upgradeColor;
-    [SerializeField] private Color typeUpgradeTextColor;
-    [SerializeField] private Color upgradeTextColor;
+    [Header("Visual")]
     [SerializeField] private Text label;
     [SerializeField] private String typeUpgradeText;
     [SerializeField] private String upgradeText;
+    [SerializeField] private Image upgradingTowerImage;
+
+    [SerializeField] private Sprite typeUpgradeSprite;
+    [SerializeField] private Sprite upgradeSprite;
     
     [Header("Functionality")]
     [SerializeField] private List<GameObject> upgradeButtons;
 
     [SerializeField] private int towerTypeUpgradeLevel;
     [SerializeField] private List<GameObject> towerTypes;
+    [SerializeField] private List<GameObject> unlockableTowerTypes;
 
     [NonSerialized] public TowerDrag td;
     [NonSerialized] public TowerUpgrade tu;
@@ -30,6 +31,19 @@ public class UpgradeWindow : MonoBehaviour
     private void OnEnable()
     {
         Time.timeScale = 0;
+        AddUnlockedTowerTypes();
+    }
+
+    private void AddUnlockedTowerTypes()
+    {
+        if (Technologies.IsFrostGunUnlocked && !towerTypes.Contains(unlockableTowerTypes[0]))
+            towerTypes.Add(unlockableTowerTypes[0]);
+        if (Technologies.IsFlamethrowerUnlocked && !towerTypes.Contains(unlockableTowerTypes[1]))
+            towerTypes.Add(unlockableTowerTypes[1]);
+        if (Technologies.IsRailgunUnlocked && !towerTypes.Contains(unlockableTowerTypes[2]))
+            towerTypes.Add(unlockableTowerTypes[2]);
+        if (Technologies.IsTeslaUnlocked && !towerTypes.Contains(unlockableTowerTypes[3]))
+            towerTypes.Add(unlockableTowerTypes[3]);
     }
 
     private void OnDisable()
@@ -49,6 +63,13 @@ public class UpgradeWindow : MonoBehaviour
             InitializeUpgrade(tower);
             ChangeVisualOnTowerUpgrade();
         }
+        ShowUpgradingTower(tower);
+    }
+
+    private void ShowUpgradingTower(Tower tower)
+    {
+        upgradingTowerImage.sprite = tower.towerSprite;
+        upgradingTowerImage.transform.rotation = Quaternion.Euler(0,0,tower.shootDirection - 90);
     }
 
     private void InitializeUpgrade(Tower tower)
@@ -127,20 +148,18 @@ public class UpgradeWindow : MonoBehaviour
 
     private void ChangeVisualOnTowerTypeUpgrade()
     {
-        ChangeButtonsVisual(typeUpgradeColor, typeUpgradeTextColor, typeUpgradeText);
+        ChangeButtonsVisual(typeUpgradeSprite, typeUpgradeText);
     }
     private void ChangeVisualOnTowerUpgrade()
     {
-        ChangeButtonsVisual(upgradeColor, upgradeTextColor, upgradeText);
+        ChangeButtonsVisual(upgradeSprite, upgradeText);
     }
 
-    private void ChangeButtonsVisual(Color imageColor, Color textColor, string labelText)
+    private void ChangeButtonsVisual(Sprite imageSprite, string labelText)
     {
         foreach (var button in upgradeButtons)
         {
-            button.GetComponent<Image>().color = imageColor;
-            button.GetComponent<UpgradeButton>().upgradeLabel.color = textColor;
-            button.GetComponent<UpgradeButton>().upgradeText.color = textColor;
+            button.GetComponent<Image>().sprite = imageSprite;
             label.text = labelText;
         }
     }

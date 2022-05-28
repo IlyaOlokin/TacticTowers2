@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5499871266680167278}
   - component: {fileID: 5499871266680167279}
   m_Layer: 3
-  m_Name: Square
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,11 +24,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5499871266680167273}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.439, z: 0}
-  m_LocalScale: {x: 0.36, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.48, y: 1.76, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 5499871268351915361}
+  m_Father: {fileID: 5295865030577654139}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5499871266680167279
@@ -70,9 +70,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+  m_SortingOrder: 6
+  m_Sprite: {fileID: 5278338659819153957, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -109,9 +109,9 @@ Transform:
   m_GameObject: {fileID: 5499871268351915362}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.155, y: 0.155, z: 0.155}
   m_Children:
-  - {fileID: 5499871266680167278}
+  - {fileID: 5295865030577654139}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
@@ -155,8 +155,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.8113208, g: 0.24273704, b: 0.095674604, a: 1}
+  m_Sprite: {fileID: -4491756229553399498, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -181,7 +181,8 @@ MonoBehaviour:
   shootDirection: 0
   towerName: "\u041E\u0433\u043D\u0435\u043C\u0451\u0442"
   towerDescription: "\u041F\u043E\u0434\u0436\u0438\u0433\u0430\u0435\u0442 \u0432\u0440\u0430\u0433\u043E\u0432"
-  towerSprite: {fileID: 21300000, guid: 59a7f42b02e257c41a6ff695e5fbd82a, type: 3}
+  towerSprite: {fileID: 4212499518175065928, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  towerCanon: {fileID: 5594251201364017430}
   shootAngle: 45
   multiplierShootAngle: 1
   shootDistance: 3
@@ -202,3 +203,66 @@ MonoBehaviour:
   burnDmgMultiplier: 1
   burnTime: 3
   flameBox: {fileID: 6922442246336718825, guid: 8d138289a6cae1c4fb5641602e7364bd, type: 3}
+  flameStartPos: {fileID: 7384725582850842073}
+--- !u!1 &5594251201364017430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5295865030577654139}
+  m_Layer: 3
+  m_Name: TowerCanon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5295865030577654139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594251201364017430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5499871266680167278}
+  - {fileID: 7384725582850842073}
+  m_Father: {fileID: 5499871268351915361}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7631691816076883742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7384725582850842073}
+  m_Layer: 3
+  m_Name: FlameStartPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7384725582850842073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7631691816076883742}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5295865030577654139}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
