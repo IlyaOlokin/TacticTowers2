@@ -10,6 +10,9 @@ public class TechnologyUnlock : MonoBehaviour
     [SerializeField] private int price;
     [SerializeField] private Text priceText;
     [SerializeField] private GameObject button;
+    [SerializeField] private Sprite enoughMoneyButton;
+    [SerializeField] private Sprite notEnoughMoneyButton;
+    
     [SerializeField] private UnlockableTowers unlockableTower;
     private bool isUnlocked;
 
@@ -92,6 +95,20 @@ public class TechnologyUnlock : MonoBehaviour
             case UnlockableTowers.Tesla :
                 isUnlocked = Technologies.IsTeslaUnlocked;
                 break;
+        }
+    }
+    
+    private void Update()
+    {
+        if (!HaveEnoughMoney() || isUnlocked)
+        {
+            button.GetComponent<Image>().sprite = notEnoughMoneyButton;
+            button.GetComponent<Button>().enabled = false;
+        }
+        else
+        {
+            button.GetComponent<Image>().sprite = enoughMoneyButton;
+            button.GetComponent<Button>().enabled = true;
         }
     }
 }

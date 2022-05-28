@@ -27,4 +27,12 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("TechsMenu");
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Credits.AddCredits(100);
+        }
+    }
 }

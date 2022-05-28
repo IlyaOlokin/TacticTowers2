@@ -18,6 +18,9 @@ public class UpgradeWindow : MonoBehaviour
     [SerializeField] private String typeUpgradeText;
     [SerializeField] private String upgradeText;
     [SerializeField] private Image upgradingTowerImage;
+
+    [SerializeField] private Sprite typeUpgradeSprite;
+    [SerializeField] private Sprite upgradeSprite;
     
     [Header("Functionality")]
     [SerializeField] private List<GameObject> upgradeButtons;
@@ -149,18 +152,18 @@ public class UpgradeWindow : MonoBehaviour
 
     private void ChangeVisualOnTowerTypeUpgrade()
     {
-        ChangeButtonsVisual(typeUpgradeColor, typeUpgradeTextColor, typeUpgradeText);
+        ChangeButtonsVisual(typeUpgradeSprite, typeUpgradeTextColor, typeUpgradeText);
     }
     private void ChangeVisualOnTowerUpgrade()
     {
-        ChangeButtonsVisual(upgradeColor, upgradeTextColor, upgradeText);
+        ChangeButtonsVisual(upgradeSprite, upgradeTextColor, upgradeText);
     }
 
-    private void ChangeButtonsVisual(Color imageColor, Color textColor, string labelText)
+    private void ChangeButtonsVisual(Sprite imageSprite, Color textColor, string labelText)
     {
         foreach (var button in upgradeButtons)
         {
-            button.GetComponent<Image>().color = imageColor;
+            button.GetComponent<Image>().sprite = imageSprite;
             button.GetComponent<UpgradeButton>().upgradeLabel.color = textColor;
             button.GetComponent<UpgradeButton>().upgradeText.color = textColor;
             label.text = labelText;

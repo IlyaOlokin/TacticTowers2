@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
         {
             Money.AddMoney(100);
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            Time.timeScale = 3;
+        }
         
     }
 }
