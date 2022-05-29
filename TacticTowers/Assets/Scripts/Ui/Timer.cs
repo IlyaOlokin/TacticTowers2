@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     public static float timer;
-    [SerializeField] private Text text;
+    private Text text;
     private static bool isStopped;
 
     private void Start()
