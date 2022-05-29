@@ -91,8 +91,8 @@ public class FinishPanel : MonoBehaviour
     
     private void Resume()
     {
-        victoryPanel.SetActive(false);
-        defeatPanel.SetActive(false);
+        //victoryPanel.SetActive(false);
+        //defeatPanel.SetActive(false);
         Time.timeScale = 1;
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = true;

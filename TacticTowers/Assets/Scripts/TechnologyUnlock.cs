@@ -6,8 +6,10 @@ using UnityEngine.UI;
 
 public class TechnologyUnlock : MonoBehaviour
 {
+    [SerializeField] private MinUpgradePriceFinder minUpgradePriceFinder;
+    
     [SerializeField] private GameObject unlockFill;
-    [SerializeField] private int price;
+    public int price;
     [SerializeField] private Text priceText;
     [SerializeField] private GameObject button;
     [SerializeField] private Sprite enoughMoneyButton;
@@ -58,7 +60,7 @@ public class TechnologyUnlock : MonoBehaviour
                 PlayerPrefs.SetInt("isTeslaUnlocked",  Convert.ToInt16(isUnlocked));
                 break;
         }
-        
+        minUpgradePriceFinder.FindMinPrice();
         SetUpgradeVisuals(isUnlocked);
     }
     

@@ -2404,6 +2404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650338051605c744f9c78685019fed39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minUpgradePriceFinder: {fileID: 1483723065}
   unlockFill: {fileID: 589437764}
   price: 500
   priceText: {fileID: 702601090}
@@ -2742,6 +2743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650338051605c744f9c78685019fed39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minUpgradePriceFinder: {fileID: 1483723065}
   unlockFill: {fileID: 1973284553}
   price: 500
   priceText: {fileID: 1616070887}
@@ -3671,6 +3673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ad90968917de9449ef9b36ba4ad6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minUpgradePriceFinder: {fileID: 1483723065}
   upgradeFills:
   - {fileID: 834500964}
   - {fileID: 1127793835}
@@ -4276,6 +4279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ad90968917de9449ef9b36ba4ad6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minUpgradePriceFinder: {fileID: 1483723065}
   upgradeFills:
   - {fileID: 890356342}
   - {fileID: 851376608}
@@ -5436,7 +5440,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -7, y: 6.23}
-  m_SizeDelta: {x: 83.59, y: 104.49}
+  m_SizeDelta: {x: 104.49, y: 104.49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &923225811
 MonoBehaviour:
@@ -5874,6 +5878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ad90968917de9449ef9b36ba4ad6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minUpgradePriceFinder: {fileID: 1483723065}
   upgradeFills:
   - {fileID: 696005367}
   - {fileID: 42250758}
@@ -6930,7 +6935,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -2.1, y: 0.0000023246}
-  m_SizeDelta: {x: 91.43, y: 114.29}
+  m_SizeDelta: {x: 114.29, y: 114.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1278603126
 MonoBehaviour:
@@ -7541,6 +7546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650338051605c744f9c78685019fed39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minUpgradePriceFinder: {fileID: 1483723065}
   unlockFill: {fileID: 346733092}
   price: 150
   priceText: {fileID: 913922129}
@@ -7765,6 +7771,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1483723064}
+  - component: {fileID: 1483723065}
   m_Layer: 5
   m_Name: Upgrades
   m_TagString: Untagged
@@ -7799,6 +7806,28 @@ RectTransform:
   m_AnchoredPosition: {x: 3.9101, y: -40.555}
   m_SizeDelta: {x: 1659, y: 838.6}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1483723065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483723063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc58900794238c243922e1e1a2569f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  technologyUpgrades:
+  - {fileID: 1678968719}
+  - {fileID: 586260730}
+  - {fileID: 1024973459}
+  - {fileID: 692355982}
+  technologyUnlocks:
+  - {fileID: 1425371835}
+  - {fileID: 1789845448}
+  - {fileID: 466403608}
+  - {fileID: 424665031}
 --- !u!1 &1514364863
 GameObject:
   m_ObjectHideFlags: 0
@@ -8333,7 +8362,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -2.1, y: 0.0000023246}
-  m_SizeDelta: {x: 91.43, y: 114.29}
+  m_SizeDelta: {x: 114.29, y: 114.29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1639101509
 MonoBehaviour:
@@ -8634,6 +8663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ad90968917de9449ef9b36ba4ad6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minUpgradePriceFinder: {fileID: 1483723065}
   upgradeFills:
   - {fileID: 1001446200}
   - {fileID: 1567724749}
@@ -9046,6 +9076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650338051605c744f9c78685019fed39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minUpgradePriceFinder: {fileID: 1483723065}
   unlockFill: {fileID: 1214957679}
   price: 150
   priceText: {fileID: 1965796223}
