@@ -25,6 +25,7 @@ public class TutorialPanel : MonoBehaviour
     public void OnButtonPlay()
     {
         PlayerPrefs.SetInt("isTutorialCompleted", 1);
+        FindObjectOfType<AudioManager>().Play("ButtonClick2");
         SceneManager.LoadScene("GameField");
     }
     

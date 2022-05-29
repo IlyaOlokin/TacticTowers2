@@ -224,6 +224,7 @@ MonoBehaviour:
   creditsDropChance: 30
   weight: 1
   damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
+  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
 --- !u!95 &888107825920299324
 Animator:
   serializedVersion: 3
