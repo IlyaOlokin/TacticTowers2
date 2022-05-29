@@ -18,7 +18,7 @@ public static class Technologies
 
     public static bool TryChangeMinUpgradePrice(int price)
     {
-        if (price < MinUpgradePrice)
+        if (price > MinUpgradePrice)
         {
             MinUpgradePrice = price;
             return true;

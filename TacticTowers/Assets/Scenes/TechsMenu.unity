@@ -2404,7 +2404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650338051605c744f9c78685019fed39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minUpgradePriceFinder: {fileID: 0}
+  minUpgradePriceFinder: {fileID: 1483723065}
   unlockFill: {fileID: 589437764}
   price: 500
   priceText: {fileID: 702601090}
@@ -2743,7 +2743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650338051605c744f9c78685019fed39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minUpgradePriceFinder: {fileID: 0}
+  minUpgradePriceFinder: {fileID: 1483723065}
   unlockFill: {fileID: 1973284553}
   price: 500
   priceText: {fileID: 1616070887}
@@ -3673,7 +3673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ad90968917de9449ef9b36ba4ad6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minUpgradePriceFinder: {fileID: 0}
+  minUpgradePriceFinder: {fileID: 1483723065}
   upgradeFills:
   - {fileID: 834500964}
   - {fileID: 1127793835}
@@ -4279,7 +4279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ad90968917de9449ef9b36ba4ad6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minUpgradePriceFinder: {fileID: 0}
+  minUpgradePriceFinder: {fileID: 1483723065}
   upgradeFills:
   - {fileID: 890356342}
   - {fileID: 851376608}
@@ -5878,7 +5878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ad90968917de9449ef9b36ba4ad6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minUpgradePriceFinder: {fileID: 0}
+  minUpgradePriceFinder: {fileID: 1483723065}
   upgradeFills:
   - {fileID: 696005367}
   - {fileID: 42250758}
@@ -7546,7 +7546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650338051605c744f9c78685019fed39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minUpgradePriceFinder: {fileID: 0}
+  minUpgradePriceFinder: {fileID: 1483723065}
   unlockFill: {fileID: 346733092}
   price: 150
   priceText: {fileID: 913922129}
@@ -7818,8 +7818,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc58900794238c243922e1e1a2569f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  technologyUpgrades: []
-  technologyUnlocks: []
+  technologyUpgrades:
+  - {fileID: 1678968719}
+  - {fileID: 586260730}
+  - {fileID: 1024973459}
+  - {fileID: 692355982}
+  technologyUnlocks:
+  - {fileID: 1425371835}
+  - {fileID: 1789845448}
+  - {fileID: 466403608}
+  - {fileID: 424665031}
 --- !u!1 &1514364863
 GameObject:
   m_ObjectHideFlags: 0
@@ -8655,7 +8663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ad90968917de9449ef9b36ba4ad6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minUpgradePriceFinder: {fileID: 0}
+  minUpgradePriceFinder: {fileID: 1483723065}
   upgradeFills:
   - {fileID: 1001446200}
   - {fileID: 1567724749}
@@ -9068,7 +9076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650338051605c744f9c78685019fed39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minUpgradePriceFinder: {fileID: 0}
+  minUpgradePriceFinder: {fileID: 1483723065}
   unlockFill: {fileID: 1214957679}
   price: 150
   priceText: {fileID: 1965796223}
