@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class TechnologyUpgrade : MonoBehaviour
 {
+    [SerializeField] private MinUpgradePriceFinder minUpgradePriceFinder;
+    
     [SerializeField] private List<GameObject> upgradeFills;
     [SerializeField] private Text valueText;
     [SerializeField] private Text priceText;
@@ -14,11 +16,11 @@ public class TechnologyUpgrade : MonoBehaviour
     [SerializeField] private Sprite enoughMoneyButton;
     [SerializeField] private Sprite notEnoughMoneyButton;
 
-    [SerializeField] private List<int> prices;
+    public List<int> prices;
     [SerializeField] private float currentValue;
     [SerializeField] private float bonusValue;
     [SerializeField] private UpgradeObject upgradeObject;
-    private int upgradeLevel = 0;
+    [NonSerialized] public int upgradeLevel = 0;
     
     enum UpgradeObject
     {
@@ -68,7 +70,10 @@ public class TechnologyUpgrade : MonoBehaviour
                 PlayerPrefs.SetString("moneyMultiplierUpgradeLevel", upgradeLevel.ToString());
 
                 break;
+
         }
+        minUpgradePriceFinder.FindMinPrice();
+
     }
 
     private void UpdateTexts()

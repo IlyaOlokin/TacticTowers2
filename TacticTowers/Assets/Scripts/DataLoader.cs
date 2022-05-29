@@ -19,6 +19,8 @@ public class DataLoader : MonoBehaviour
         Technologies.IsTeslaUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("isTeslaUnlocked", 0));
 
         Credits.credits = int.Parse(PlayerPrefs.GetString("Credits", "0"));
+
+        Technologies.MinUpgradePrice = PlayerPrefs.GetInt("minUpgradePrice", 10);
     }
 
     private void Update()
