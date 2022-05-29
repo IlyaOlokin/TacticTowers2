@@ -32,6 +32,8 @@ public class Flamerhrower : Tower
         {
             DestroyFlameBox();
             currentEnemy = null;
+            FindObjectOfType<AudioManager>().Stop("FlamethrowerShot");
+
             return;
         }
         LootAtTarget(enemy);
@@ -39,6 +41,8 @@ public class Flamerhrower : Tower
         if (enemy != currentEnemy)
         {
             DestroyFlameBox();
+            FindObjectOfType<AudioManager>().Stop("FlamethrowerShot");
+
         }
         
         if (shootDelayTimer <= 0)
@@ -55,6 +59,9 @@ public class Flamerhrower : Tower
                 activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, GetShootDistance());
                 activeFlameBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
                 currentEnemy = enemy;
+                
+                FindObjectOfType<AudioManager>().Play("FlamethrowerShot");
+
             }
             
             shootDelayTimer = 1f / GetAttackSpeed();
