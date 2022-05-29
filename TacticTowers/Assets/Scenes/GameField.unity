@@ -13877,7 +13877,7 @@ MonoBehaviour:
     enemiesCountLeft: 0e000000
     enemiesBot: []
     enemiesCountBot: 
-  - moneyForWave: 15
+  - moneyForWave: 10
     seconds: 190
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -13891,7 +13891,7 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountBot: 05000000
-  - moneyForWave: 15
+  - moneyForWave: 10
     seconds: 215
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -13905,7 +13905,7 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountBot: 05000000
-  - moneyForWave: 20
+  - moneyForWave: 15
     seconds: 240
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -13919,7 +13919,7 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountBot: 04000000
-  - moneyForWave: 20
+  - moneyForWave: 15
     seconds: 265
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -13933,7 +13933,7 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountBot: 06000000
-  - moneyForWave: 20
+  - moneyForWave: 15
     seconds: 290
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -13978,7 +13978,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     enemiesCountBot: 0500000002000000
-  - moneyForWave: 25
+  - moneyForWave: 20
     seconds: 365
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -14024,7 +14024,7 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountBot: 09000000
-  - moneyForWave: 30
+  - moneyForWave: 25
     seconds: 440
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -14160,7 +14160,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     enemiesCountBot: 0400000003000000
-  - moneyForWave: 45
+  - moneyForWave: 40
     seconds: 640
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -14178,7 +14178,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     enemiesCountBot: 0400000003000000
-  - moneyForWave: 45
+  - moneyForWave: 40
     seconds: 665
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -14197,7 +14197,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     enemiesCountBot: 0500000006000000
-  - moneyForWave: 50
+  - moneyForWave: 45
     seconds: 690
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -14216,7 +14216,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     enemiesCountBot: 0300000004000000
-  - moneyForWave: 50
+  - moneyForWave: 45
     seconds: 715
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -14235,7 +14235,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 040000000500000004000000
-  - moneyForWave: 55
+  - moneyForWave: 45
     seconds: 740
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -14254,7 +14254,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     enemiesCountBot: 0500000004000000
-  - moneyForWave: 55
+  - moneyForWave: 50
     seconds: 765
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -14273,7 +14273,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     enemiesCountBot: 0500000003000000
-  - moneyForWave: 60
+  - moneyForWave: 50
     seconds: 790
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -14293,7 +14293,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 030000000300000001000000
-  - moneyForWave: 60
+  - moneyForWave: 50
     seconds: 815
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -14313,7 +14313,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     enemiesCountBot: 0200000005000000
-  - moneyForWave: 65
+  - moneyForWave: 50
     seconds: 840
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -14332,7 +14332,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 020000000400000005000000
-  - moneyForWave: 65
+  - moneyForWave: 55
     seconds: 865
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
@@ -14350,7 +14350,7 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     enemiesCountBot: 05000000
-  - moneyForWave: 70
+  - moneyForWave: 55
     seconds: 890
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
@@ -14367,7 +14367,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 0600000002000000
-  - moneyForWave: 70
+  - moneyForWave: 55
     seconds: 915
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
@@ -14384,7 +14384,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 0400000003000000
-  - moneyForWave: 75
+  - moneyForWave: 60
     seconds: 940
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
@@ -14402,7 +14402,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 0600000002000000
-  - moneyForWave: 75
+  - moneyForWave: 60
     seconds: 965
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
@@ -14420,7 +14420,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 0500000004000000
-  - moneyForWave: 80
+  - moneyForWave: 60
     seconds: 990
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
@@ -14438,7 +14438,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 0300000005000000
-  - moneyForWave: 80
+  - moneyForWave: 65
     seconds: 1015
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
@@ -14456,7 +14456,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 0200000003000000
-  - moneyForWave: 85
+  - moneyForWave: 65
     seconds: 1040
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
@@ -14474,7 +14474,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 0400000001000000
-  - moneyForWave: 85
+  - moneyForWave: 65
     seconds: 1065
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
@@ -14491,7 +14491,7 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 05000000
-  - moneyForWave: 85
+  - moneyForWave: 70
     seconds: 1090
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
@@ -14508,7 +14508,7 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 03000000
-  - moneyForWave: 90
+  - moneyForWave: 70
     seconds: 1115
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
@@ -14525,7 +14525,7 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 02000000
-  - moneyForWave: 90
+  - moneyForWave: 70
     seconds: 1140
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
@@ -14541,7 +14541,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 0900000005000000
-  - moneyForWave: 95
+  - moneyForWave: 75
     seconds: 1165
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
@@ -14555,7 +14555,7 @@ MonoBehaviour:
     enemiesCountLeft: 0a00000007000000
     enemiesBot: []
     enemiesCountBot: 
-  - moneyForWave: 95
+  - moneyForWave: 75
     seconds: 1190
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
@@ -14570,7 +14570,7 @@ MonoBehaviour:
     enemiesCountLeft: 0c00000009000000
     enemiesBot: []
     enemiesCountBot: 
-  - moneyForWave: 100
+  - moneyForWave: 75
     seconds: 1215
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
@@ -14585,7 +14585,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 0800000006000000
-  - moneyForWave: 100
+  - moneyForWave: 80
     seconds: 1240
     enemiesRight: []
     enemiesCountRight: 
@@ -14599,7 +14599,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 0800000007000000
-  - moneyForWave: 100
+  - moneyForWave: 80
     seconds: 1265
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
@@ -14613,7 +14613,7 @@ MonoBehaviour:
     enemiesCountLeft: 
     enemiesBot: []
     enemiesCountBot: 
-  - moneyForWave: 105
+  - moneyForWave: 80
     seconds: 1290
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
@@ -14629,7 +14629,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 0300000007000000
-  - moneyForWave: 105
+  - moneyForWave: 85
     seconds: 1315
     enemiesRight: []
     enemiesCountRight: 
@@ -14645,7 +14645,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 0400000006000000
-  - moneyForWave: 105
+  - moneyForWave: 85
     seconds: 1340
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
@@ -14660,7 +14660,7 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 06000000
-  - moneyForWave: 105
+  - moneyForWave: 85
     seconds: 1365
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
@@ -14678,7 +14678,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 070000000b000000
-  - moneyForWave: 110
+  - moneyForWave: 90
     seconds: 1390
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
@@ -14696,7 +14696,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 0300000005000000
-  - moneyForWave: 110
+  - moneyForWave: 90
     seconds: 1415
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14712,7 +14712,7 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 05000000
-  - moneyForWave: 115
+  - moneyForWave: 90
     seconds: 1440
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14727,7 +14727,7 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 03000000
-  - moneyForWave: 115
+  - moneyForWave: 95
     seconds: 1465
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14742,7 +14742,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 0700000009000000
-  - moneyForWave: 115
+  - moneyForWave: 95
     seconds: 1490
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14755,7 +14755,7 @@ MonoBehaviour:
     enemiesCountLeft: 0b0000000e000000
     enemiesBot: []
     enemiesCountBot: 
-  - moneyForWave: 120
+  - moneyForWave: 100
     seconds: 1515
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14771,7 +14771,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 0300000007000000
-  - moneyForWave: 120
+  - moneyForWave: 100
     seconds: 1540
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14785,7 +14785,7 @@ MonoBehaviour:
     enemiesCountLeft: 040000000b000000
     enemiesBot: []
     enemiesCountBot: 
-  - moneyForWave: 120
+  - moneyForWave: 105
     seconds: 1565
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14801,7 +14801,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 0300000008000000
-  - moneyForWave: 125
+  - moneyForWave: 105
     seconds: 1590
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14817,7 +14817,7 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 02000000
-  - moneyForWave: 125
+  - moneyForWave: 110
     seconds: 1615
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14833,7 +14833,7 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 06000000
-  - moneyForWave: 125
+  - moneyForWave: 110
     seconds: 1640
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14849,7 +14849,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 0500000009000000
-  - moneyForWave: 125
+  - moneyForWave: 110
     seconds: 1665
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14866,7 +14866,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 0400000005000000
-  - moneyForWave: 125
+  - moneyForWave: 115
     seconds: 1690
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14883,7 +14883,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 0600000004000000
-  - moneyForWave: 125
+  - moneyForWave: 115
     seconds: 1715
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14899,7 +14899,7 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 05000000
-  - moneyForWave: 125
+  - moneyForWave: 115
     seconds: 1740
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14917,7 +14917,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 0400000005000000
-  - moneyForWave: 125
+  - moneyForWave: 120
     seconds: 1765
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14935,7 +14935,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 070000000b000000
-  - moneyForWave: 125
+  - moneyForWave: 120
     seconds: 1790
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
