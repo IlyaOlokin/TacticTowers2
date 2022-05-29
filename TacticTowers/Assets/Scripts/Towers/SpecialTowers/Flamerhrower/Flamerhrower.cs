@@ -9,6 +9,7 @@ public class Flamerhrower : Tower
     public float burnDmgMultiplier;
     public float burnTime;
     [SerializeField] private GameObject flameBox;
+    [SerializeField] private Transform flameStartPos;
     
     
     private GameObject currentEnemy;
@@ -44,13 +45,13 @@ public class Flamerhrower : Tower
         {
             if (enemy != currentEnemy)
             {
-                activeFlameBox = Instantiate(flameBox, transform.position, transform.rotation);
+                activeFlameBox = Instantiate(flameBox, transform.position, towerCanon.transform.rotation);
                 activeFlameBox.GetComponent<FlameBox>().dmg = GetDmg();
                 activeFlameBox.GetComponent<FlameBox>().attackSpeed = GetAttackSpeed();
                 activeFlameBox.GetComponent<FlameBox>().burnDmg = GetBurnDmg();
                 activeFlameBox.GetComponent<FlameBox>().burnTime = burnTime;
                 
-                activeFlameBox.GetComponent<FlameBox>().flameStartPos = transform.position;
+                activeFlameBox.GetComponent<FlameBox>().flameStartPos = flameStartPos.position;
                 activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, GetShootDistance());
                 activeFlameBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
                 currentEnemy = enemy;
@@ -61,8 +62,8 @@ public class Flamerhrower : Tower
 
         if (activeFlameBox != null)
         {
-            activeFlameBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
-            activeFlameBox.transform.rotation = transform.rotation;
+            activeFlameBox.transform.position = ((towerCanon.transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
+            activeFlameBox.transform.rotation = towerCanon.transform.rotation;
         }
     }
 

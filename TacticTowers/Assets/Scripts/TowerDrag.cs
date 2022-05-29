@@ -17,6 +17,7 @@ public class TowerDrag : MonoBehaviour
 
     private int conflicts;
     [SerializeField] private GameObject smokeEffect;
+    private int edgeSize = 20;
 
     private void Start()
     {
@@ -28,7 +29,7 @@ public class TowerDrag : MonoBehaviour
     {
         if (dragging)
         {
-            var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var mousePos = Camera.main.ScreenToWorldPoint(ControledMousePosition());
             transform.position = new Vector3(mousePos.x + mouseOffset.x, mousePos.y + mouseOffset.y);
         }
         
@@ -40,6 +41,31 @@ public class TowerDrag : MonoBehaviour
                 StartDragging();
             }
         }
+    }
+
+    private Vector3 ControledMousePosition()
+    {
+        var mousePos = Input.mousePosition;
+
+        if (mousePos.x > Screen.width - edgeSize)
+        {
+            mousePos.x = Screen.width - edgeSize;
+        }
+        else if (mousePos.x < edgeSize)
+        {
+            mousePos.x = edgeSize;
+        }
+
+        if (mousePos.y > Screen.height - edgeSize)
+        {
+            mousePos.y = Screen.height - edgeSize;
+        }
+        else if (mousePos.y < edgeSize)
+        {
+            mousePos.y = edgeSize;
+        }
+
+        return mousePos;
     }
 
     private void OnMouseDown()

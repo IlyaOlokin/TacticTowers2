@@ -22,7 +22,7 @@ public class DefaultTower : Tower
         if (shootDelayTimer <= 0)
         {
             shootDelayTimer = 1f / GetAttackSpeed();
-            var newBullet =  Instantiate(bullet, transform.position, transform.rotation);
+            var newBullet =  Instantiate(bullet, transform.position, towerCanon.transform.rotation);
             newBullet.GetComponent<Bullet>().Dmg = GetDmg();
             newBullet.GetComponent<Bullet>().Speed = bulletSpeed;
         }

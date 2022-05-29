@@ -13,8 +13,8 @@ public class TutorialPanelChanger : MonoBehaviour
     [SerializeField] private List<GameObject> panels;
     [SerializeField] private GameObject enemies;
     [SerializeField] private Text waveText;
-    [SerializeField] private Text rightTowerLevel;
     [SerializeField] private GameObject upgradeWindow;
+    [SerializeField] private List<Text> towerLevels;
     
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -50,7 +50,7 @@ public class TutorialPanelChanger : MonoBehaviour
             }
         }
         
-        if (int.Parse(rightTowerLevel.text) == 2 && !upgradeWindow.activeInHierarchy)
+        if (towerLevels.Select(t => t.text).Select(int.Parse).Any(l => l > 1) && !upgradeWindow.activeInHierarchy)
             panels[3].SetActive(true);
     }
 }

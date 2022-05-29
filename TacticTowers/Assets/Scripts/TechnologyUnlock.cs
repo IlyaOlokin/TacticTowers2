@@ -6,10 +6,15 @@ using UnityEngine.UI;
 
 public class TechnologyUnlock : MonoBehaviour
 {
+    [SerializeField] private MinUpgradePriceFinder minUpgradePriceFinder;
+    
     [SerializeField] private GameObject unlockFill;
-    [SerializeField] private int price;
+    public int price;
     [SerializeField] private Text priceText;
     [SerializeField] private GameObject button;
+    [SerializeField] private Sprite enoughMoneyButton;
+    [SerializeField] private Sprite notEnoughMoneyButton;
+    
     [SerializeField] private UnlockableTowers unlockableTower;
     private bool isUnlocked;
 
@@ -40,22 +45,22 @@ public class TechnologyUnlock : MonoBehaviour
         {
             case UnlockableTowers.Frostgun:
                 Technologies.IsFrostGunUnlocked = true;
-                PlayerPrefs.SetString("isFrostGunUnlocked", isUnlocked.ToString());
+                PlayerPrefs.SetInt("isFrostGunUnlocked", Convert.ToInt16(isUnlocked));
                 break;
             case UnlockableTowers.Flamethrower :
                 Technologies.IsFlamethrowerUnlocked = true;
-                PlayerPrefs.SetString("isFlamethrowerUnlocked", isUnlocked.ToString());
+                PlayerPrefs.SetInt("isFlamethrowerUnlocked",  Convert.ToInt16(isUnlocked));
                 break;
             case UnlockableTowers.Railgun :
                 Technologies.IsRailgunUnlocked = true;
-                PlayerPrefs.SetString("isRailgunUnlocked", isUnlocked.ToString());
+                PlayerPrefs.SetInt("isRailgunUnlocked",  Convert.ToInt16(isUnlocked));
                 break;
             case UnlockableTowers.Tesla :
                 Technologies.IsTeslaUnlocked = true;
-                PlayerPrefs.SetString("isTeslaUnlocked", isUnlocked.ToString());
+                PlayerPrefs.SetInt("isTeslaUnlocked",  Convert.ToInt16(isUnlocked));
                 break;
         }
-        
+        minUpgradePriceFinder.FindMinPrice();
         SetUpgradeVisuals(isUnlocked);
     }
     
@@ -92,6 +97,20 @@ public class TechnologyUnlock : MonoBehaviour
             case UnlockableTowers.Tesla :
                 isUnlocked = Technologies.IsTeslaUnlocked;
                 break;
+        }
+    }
+    
+    private void Update()
+    {
+        if (!HaveEnoughMoney() || isUnlocked)
+        {
+            button.GetComponent<Image>().sprite = notEnoughMoneyButton;
+            button.GetComponent<Button>().enabled = false;
+        }
+        else
+        {
+            button.GetComponent<Image>().sprite = enoughMoneyButton;
+            button.GetComponent<Button>().enabled = true;
         }
     }
 }

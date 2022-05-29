@@ -10,7 +10,11 @@ public class TutorialPanel : MonoBehaviour
     public void OnButtonNext(int panelNum)
     {
         gameObject.SetActive(false);
-        Time.timeScale = 1;
+        
+        if (panelNum == 1)
+            Time.timeScale = 3;
+        else
+            Time.timeScale = 1;
 
         if (panelNum > 2)
             foreach (var tower in towers)
@@ -19,8 +23,8 @@ public class TutorialPanel : MonoBehaviour
 
     public void OnButtonPlay()
     {
-        SceneManager.LoadScene("GameField");
         PlayerPrefs.SetInt("isTutorialCompleted", 1);
+        SceneManager.LoadScene("GameField");
     }
     
     private void Update()
