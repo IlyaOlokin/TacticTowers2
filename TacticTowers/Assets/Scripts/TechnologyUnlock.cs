@@ -16,7 +16,7 @@ public class TechnologyUnlock : MonoBehaviour
     [SerializeField] private Sprite notEnoughMoneyButton;
     
     [SerializeField] private UnlockableTowers unlockableTower;
-    private bool isUnlocked;
+    [NonSerialized] public bool isUnlocked;
 
     enum UnlockableTowers
     {
@@ -62,6 +62,7 @@ public class TechnologyUnlock : MonoBehaviour
         }
         minUpgradePriceFinder.FindMinPrice();
         SetUpgradeVisuals(isUnlocked);
+        FindObjectOfType<AudioManager>().Play("ButtonClick2");
     }
     
     private void UpdateTexts()

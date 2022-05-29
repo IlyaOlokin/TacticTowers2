@@ -10,7 +10,8 @@ public class TutorialPanel : MonoBehaviour
     public void OnButtonNext(int panelNum)
     {
         gameObject.SetActive(false);
-        
+        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+
         if (panelNum == 1)
             Time.timeScale = 3;
         else

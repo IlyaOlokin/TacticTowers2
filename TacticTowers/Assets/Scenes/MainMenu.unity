@@ -1143,6 +1143,135 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1640472939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1640472941}
+  - component: {fileID: 1640472940}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1640472940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640472939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3953484d3c26842ab472927204b154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - name: MainTheme
+    clip: {fileID: 8300000, guid: 9adf123e4d0292443b43cc94425f2350, type: 3}
+    volume: 0.101
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: DefaultTowerShot
+    clip: {fileID: 8300000, guid: cbc5b630183ef7d4daee39830bf2a6c4, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinigunShot
+    clip: {fileID: 8300000, guid: b1011ac093acda3489cfc0fc8567e6c9, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LaserShot
+    clip: {fileID: 8300000, guid: be99013ee6b5dbc48b315c241b0b3b27, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: MortarShot
+    clip: {fileID: 8300000, guid: ccf9e3ce3c21e4742889188c2729eb38, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MortarExplosion
+    clip: {fileID: 8300000, guid: 606a28581f84eb942a436dce42bee639, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ShotgunShot
+    clip: {fileID: 8300000, guid: 0199e15df2b8caf4eb1862df3dbf031f, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TeslaShot
+    clip: {fileID: 8300000, guid: 56592937930591b409a60e8649fc114b, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RailgunShot
+    clip: {fileID: 8300000, guid: e17fe966545e75845997da559127b19b, type: 3}
+    volume: 0.045
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FrostgunShot
+    clip: {fileID: 8300000, guid: 575e5a8cc39e3e045b6734e8416bb03c, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: FlamethrowerShot
+    clip: {fileID: 8300000, guid: f577352e7e3ecd5439cac35a050ab421, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: ButtonClick1
+    clip: {fileID: 8300000, guid: 57cf47e992273e243ad9f992fde83a0e, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ButtonClick2
+    clip: {fileID: 8300000, guid: 30d9f96aeeb64aa48a7125115ac87f0e, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Landing
+    clip: {fileID: 8300000, guid: 1f07c1c283a21044d8a04b2fe71c6df9, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  soundEnabled: 1
+--- !u!4 &1640472941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640472939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1899954, y: -0.06828351, z: -1.6567944}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703905696
 GameObject:
   m_ObjectHideFlags: 0

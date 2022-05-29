@@ -27,6 +27,8 @@ public class Frostgun : Tower
             DestroyFrostBox();
             currentEnemy = null;
             frostEffect.SetActive(false);
+            FindObjectOfType<AudioManager>().Stop("FrostgunShot");
+
             return;
         }
         LootAtTarget(enemy);
@@ -34,6 +36,7 @@ public class Frostgun : Tower
         if (enemy != currentEnemy)
         {
             DestroyFrostBox();
+            FindObjectOfType<AudioManager>().Stop("FrostgunShot");
         }
         
         if (shootDelayTimer <= 0)
@@ -52,6 +55,9 @@ public class Frostgun : Tower
                 activeFrostBox.transform.localScale = new Vector3(activeFrostBox.transform.localScale.x, GetShootDistance());
                 activeFrostBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
                 currentEnemy = enemy;
+                
+                FindObjectOfType<AudioManager>().Play("FrostgunShot");
+
                 
                 frostEffect.SetActive(true);
             }
