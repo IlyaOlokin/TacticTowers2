@@ -93,7 +93,7 @@ public class TowerDrag : MonoBehaviour
         navMeshObstacle.enabled = true;
         collider2D.isTrigger = false;
         conflicts = 0;
-        
+        FindObjectOfType<AudioManager>().Play("Landing");
     }
 
     private void StartDragging()

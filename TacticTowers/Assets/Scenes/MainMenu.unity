@@ -1251,6 +1251,12 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Landing
+    clip: {fileID: 8300000, guid: 1f07c1c283a21044d8a04b2fe71c6df9, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   soundEnabled: 1
 --- !u!4 &1640472941
 Transform:
