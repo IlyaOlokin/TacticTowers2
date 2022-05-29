@@ -17,12 +17,16 @@ public class PausePanel : MonoBehaviour
     {
         isForRestart = true;
         ActivateConfirmPanel(isForRestart);
+        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+
     }
     
     public void OnButtonMenu()
     {
         isForRestart = false;
         ActivateConfirmPanel(isForRestart);
+        FindObjectOfType<AudioManager>().Play("ButtonClick2");
+
     }
 
     private void ActivateConfirmPanel(bool isForRestart)
@@ -36,29 +40,32 @@ public class PausePanel : MonoBehaviour
     public void OnButtonClose()
     {
         Resume();
-        //FindObjectOfType<AudioManager>().Play("ButtonClick");
+        FindObjectOfType<AudioManager>().Play("ButtonClick1");
     }
 
     public void OnButtonSound()
     {
-        //FindObjectOfType<AudioManager>().Play("ButtonClick");
+        FindObjectOfType<AudioManager>().Play("ButtonClick1");
     }
 
     public void OnButtonMusic()
     {
-        
+        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+
     }
 
     public void OnButtonCancel()
     {
         confirmPanel.SetActive(false);
         pausePanel.SetActive(true);
+        FindObjectOfType<AudioManager>().Play("ButtonClick2");
+
     }
 
     public void OnButtonContinue()
     {
         Resume();
-        //FindObjectOfType<AudioManager>().Play("ButtonClick");
+        FindObjectOfType<AudioManager>().Play("ButtonClick1");
         Credits.LoseSessionCredits();
         SceneManager.LoadScene(isForRestart ? SceneManager.GetActiveScene().name : "MainMenu");
     }
@@ -72,7 +79,7 @@ public class PausePanel : MonoBehaviour
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = false;
         
-        //FindObjectOfType<AudioManager>().Play("ButtonClick");
+        FindObjectOfType<AudioManager>().Play("ButtonClick2");
     }
 
     private void Resume()

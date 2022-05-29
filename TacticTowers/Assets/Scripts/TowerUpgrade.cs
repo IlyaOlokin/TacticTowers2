@@ -80,6 +80,8 @@ public class TowerUpgrade : MonoBehaviour
             upgradeWindow.GetComponent<UpgradeWindow>().UpgradeTower(tower);
             upgradeWindow.GetComponent<UpgradeWindow>().td = GetComponent<TowerDrag>();
             upgradeWindow.GetComponent<UpgradeWindow>().tu = this;
+            
+            FindObjectOfType<AudioManager>().Play("ButtonClick1");
         }
     }
 

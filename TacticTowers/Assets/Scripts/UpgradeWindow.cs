@@ -97,6 +97,7 @@ public class UpgradeWindow : MonoBehaviour
         
         Button.onClick.AddListener(() => upgrade.Execute(tower));
         Button.onClick.AddListener(() => gameObject.SetActive(false));
+        Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
         upgradeButton.upgradeLabel.text = upgrade.upgradeLabel;
         upgradeButton.upgradeText.text = upgrade.upgradeText;
         upgradeButton.upgradeImage.sprite = upgrade.UpgradeSprite;
@@ -124,10 +125,11 @@ public class UpgradeWindow : MonoBehaviour
     {
         var Button = button.GetComponent<Button>();
         var upgradeButton = button.GetComponent<UpgradeButton>();
-        //var upgrade = tower.upgrades[upgradeIndex];
 
         Button.onClick.AddListener(() => CreateNewTower(towerTypes[upgradeIndex], tower));
         Button.onClick.AddListener(() => gameObject.SetActive(false));
+        Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
+
         upgradeButton.upgradeLabel.text = towerTypes[upgradeIndex].GetComponent<Tower>().towerName;
         upgradeButton.upgradeText.text =  towerTypes[upgradeIndex].GetComponent<Tower>().towerDescription;
         upgradeButton.upgradeImage.sprite = towerTypes[upgradeIndex].GetComponent<Tower>().towerSprite;

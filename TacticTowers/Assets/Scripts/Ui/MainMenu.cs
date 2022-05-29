@@ -8,23 +8,27 @@ public class MainMenu : MonoBehaviour
 {
     public void OnButtonMusic()
     {
-        
+        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+
     }
 
     public void OnButtonSound()
     {
-        
+        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+
     }
 
     public void OnButtonPlay()
     {
         var isTutorialCompleted = Convert.ToBoolean(PlayerPrefs.GetInt("isTutorialCompleted", 0));
+        FindObjectOfType<AudioManager>().Play("ButtonClick2");
 
         SceneManager.LoadScene(isTutorialCompleted ? "GameField" : "Tutorial");
     }
     
     public void OnButtonUpgrades()
     {
+        FindObjectOfType<AudioManager>().Play("ButtonClick1");
         SceneManager.LoadScene("TechsMenu");
     }
 

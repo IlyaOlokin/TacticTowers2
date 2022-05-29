@@ -1239,6 +1239,18 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: ButtonClick1
+    clip: {fileID: 8300000, guid: 57cf47e992273e243ad9f992fde83a0e, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ButtonClick2
+    clip: {fileID: 8300000, guid: 30d9f96aeeb64aa48a7125115ac87f0e, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   soundEnabled: 1
 --- !u!4 &1640472941
 Transform:

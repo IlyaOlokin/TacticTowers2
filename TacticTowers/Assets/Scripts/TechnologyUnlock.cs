@@ -62,6 +62,7 @@ public class TechnologyUnlock : MonoBehaviour
         }
         minUpgradePriceFinder.FindMinPrice();
         SetUpgradeVisuals(isUnlocked);
+        FindObjectOfType<AudioManager>().Play("ButtonClick2");
     }
     
     private void UpdateTexts()
