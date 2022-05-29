@@ -7,6 +7,7 @@ public class MenuChangeButton : MonoBehaviour
 {
     public void LoadMenu(string menuName)
     {
+        FindObjectOfType<AudioManager>().Play("ButtonClick1");
         SceneManager.LoadScene(menuName);
     }
 }

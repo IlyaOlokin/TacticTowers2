@@ -32,6 +32,7 @@ public class Laser : Tower
         if (enemy == null)
         {
             Destroy(activeLaser);
+            FindObjectOfType<AudioManager>().Stop("LaserShot");
             currentEnemy = null;
             return;
         }
@@ -40,6 +41,7 @@ public class Laser : Tower
         if (enemy != currentEnemy)
         {
             Destroy(activeLaser);
+            FindObjectOfType<AudioManager>().Stop("LaserShot");
         }
         if (heatCount < maxHeat) heatCount += Time.deltaTime;
         if (activeLaser != null)  activeLaser.GetComponent<LaserBim>().IncreaseWidth(heatCount);
@@ -51,6 +53,7 @@ public class Laser : Tower
                 activeLaser.GetComponent<LaserBim>().target = enemy;
                 activeLaser.GetComponent<LaserBim>().origin = transform.position;
                 currentEnemy = enemy;
+                FindObjectOfType<AudioManager>().Play("LaserShot");
             }
             
             

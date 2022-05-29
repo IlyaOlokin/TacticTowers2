@@ -13,6 +13,7 @@ public class MinUpgradePriceFinder : MonoBehaviour
         int minPrice = Int32.MaxValue;
         foreach (var technology in technologyUpgrades)
         {
+            if (technology.upgradeLevel == technology.prices.Count) continue;
             int price = technology.prices[technology.upgradeLevel];
             if (price < minPrice)
             {
@@ -21,6 +22,7 @@ public class MinUpgradePriceFinder : MonoBehaviour
         }
         foreach (var technology in technologyUnlocks)
         {
+            if (technology.isUnlocked) continue;
             int price = technology.price;
             if (price < minPrice)
             {
