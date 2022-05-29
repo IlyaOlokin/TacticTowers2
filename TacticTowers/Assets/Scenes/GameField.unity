@@ -3645,6 +3645,7 @@ GameObject:
   - component: {fileID: 551700158}
   - component: {fileID: 551700157}
   - component: {fileID: 551700159}
+  - component: {fileID: 551700160}
   m_Layer: 5
   m_Name: UpgradeArrow
   m_TagString: Untagged
@@ -3725,6 +3726,32 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &551700160
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551700155}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.19318104, y: -0.9510989}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.683794, y: 32.34072}
+  m_EdgeRadius: 0
 --- !u!1 &556208737
 GameObject:
   m_ObjectHideFlags: 0
@@ -6256,6 +6283,7 @@ GameObject:
   - component: {fileID: 1049529901}
   - component: {fileID: 1049529900}
   - component: {fileID: 1049529902}
+  - component: {fileID: 1049529903}
   m_Layer: 5
   m_Name: UpgradeArrow
   m_TagString: Untagged
@@ -6336,6 +6364,32 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &1049529903
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049529898}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.19318104, y: -0.9510989}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.683794, y: 32.34072}
+  m_EdgeRadius: 0
 --- !u!1 &1056606796
 GameObject:
   m_ObjectHideFlags: 0
@@ -7239,6 +7293,7 @@ GameObject:
   - component: {fileID: 1153088252}
   - component: {fileID: 1153088251}
   - component: {fileID: 1153088253}
+  - component: {fileID: 1153088254}
   m_Layer: 5
   m_Name: UpgradeArrow
   m_TagString: Untagged
@@ -7319,6 +7374,32 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &1153088254
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153088249}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.19318104, y: -0.9510989}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.683794, y: 32.34072}
+  m_EdgeRadius: 0
 --- !u!1 &1155184000
 GameObject:
   m_ObjectHideFlags: 0
@@ -8309,6 +8390,7 @@ GameObject:
   - component: {fileID: 1238999743}
   - component: {fileID: 1238999742}
   - component: {fileID: 1238999744}
+  - component: {fileID: 1238999745}
   m_Layer: 5
   m_Name: UpgradeArrow
   m_TagString: Untagged
@@ -8389,6 +8471,32 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &1238999745
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238999740}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.19318104, y: -0.9510989}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.683794, y: 32.34072}
+  m_EdgeRadius: 0
 --- !u!114 &1242163671 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2888170260789091271, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
