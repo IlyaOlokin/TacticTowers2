@@ -8,6 +8,6 @@ public class BurnDamage : Upgrade
 
     public override void Execute(Tower tower)
     {
-        tower.transform.GetComponent<Flamerhrower>().burnDmgMultiplier += bonus;
+        tower.transform.GetComponent<Flamethrower>().burnDmgMultiplier += bonus;
     }
 }

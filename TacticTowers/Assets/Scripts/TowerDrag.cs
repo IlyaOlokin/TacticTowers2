@@ -98,11 +98,23 @@ public class TowerDrag : MonoBehaviour
 
     private void StartDragging()
     {
+        if (IsAnyOtherTowerDragging()) return;
         dragging = true;
         tower.canShoot = false;
         triedToDrag = false;
         navMeshObstacle.enabled = false;
         collider2D.isTrigger = true;
+    }
+
+    private bool IsAnyOtherTowerDragging()
+    {
+        var towers = FindObjectsOfType<TowerDrag>();
+        foreach (var tower in towers)
+        {
+            if (tower.dragging) return true;
+        }
+
+        return false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

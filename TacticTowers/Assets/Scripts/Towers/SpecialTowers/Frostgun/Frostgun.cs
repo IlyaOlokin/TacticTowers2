@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,14 @@ public class Frostgun : Tower
     private GameObject activeFrostBox;
     [SerializeField] private GameObject frostEffect;
     
+    [NonSerialized] public bool shooting;
+
+
+    private void Start()
+    {
+        FindObjectOfType<AudioManager>().frostguns.Add(this);
+
+    }
 
     void Update()
     {
@@ -27,8 +36,8 @@ public class Frostgun : Tower
             DestroyFrostBox();
             currentEnemy = null;
             frostEffect.SetActive(false);
-            FindObjectOfType<AudioManager>().Stop("FrostgunShot");
-
+            shooting = false;
+            
             return;
         }
         LootAtTarget(enemy);
@@ -36,7 +45,8 @@ public class Frostgun : Tower
         if (enemy != currentEnemy)
         {
             DestroyFrostBox();
-            FindObjectOfType<AudioManager>().Stop("FrostgunShot");
+            shooting = false;
+
         }
         
         if (shootDelayTimer <= 0)
@@ -56,8 +66,7 @@ public class Frostgun : Tower
                 activeFrostBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
                 currentEnemy = enemy;
                 
-                FindObjectOfType<AudioManager>().Play("FrostgunShot");
-
+                shooting = true;
                 
                 frostEffect.SetActive(true);
             }

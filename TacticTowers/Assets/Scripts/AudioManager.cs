@@ -10,6 +10,10 @@ public class AudioManager : MonoBehaviour
     public bool soundEnabled = true;
 
     private List<float> savedSoundsVolume = new List<float>();
+
+    public List<Laser> lasers;
+    public List<Flamethrower> flamethrowers;
+    public List<Frostgun> frostguns;
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -29,7 +33,73 @@ public class AudioManager : MonoBehaviour
     {
         Play("MainTheme");
     }
+
+    private void Update()
+    {
+        ControlLoopSound("LaserShot", IsAnyLaserShooting());
+        ControlLoopSound("FrostgunShot", IsAnyFrostgunShooting());
+        ControlLoopSound("FlamethrowerShot", IsAnyFlamethrowerShooting());
+    }
+
+    private void ControlLoopSound(string name, bool isAnyShooting)
+    {
+        if (Time.timeScale == 0)
+        {
+            Stop(name);
+            return;
+        }
+        bool isPlaying = Array.Find(Sounds, sound => sound.name == name).source.isPlaying;
+        if (isAnyShooting && !isPlaying)
+            Play(name);
+        else if (!isAnyShooting)
+            Stop(name);
+    }
+
+    private bool IsAnyLaserShooting()
+    {
+        foreach (var laser in lasers)
+        {
+            if (laser == null)
+            {
+                lasers.Remove(laser);
+                return false;
+            }
+            if (laser.shooting) return true;
+        }
+
+        return false;
+    }
     
+    private bool IsAnyFrostgunShooting()
+    {
+        foreach (var frostgun in frostguns)
+        {
+            if (frostgun == null)
+            {
+                frostguns.Remove(frostgun);
+                return false;
+            }
+            if (frostgun.shooting) return true;
+        }
+
+        return false;
+    }
+    
+    private bool IsAnyFlamethrowerShooting()
+    {
+        foreach (var flamethrower in flamethrowers)
+        {
+            if (flamethrower == null)
+            {
+                flamethrowers.Remove(flamethrower);
+                return false;
+            }
+            if (flamethrower.shooting) return true;
+        }
+
+        return false;
+    }
+
     public void Play(string name)
     {
         Sound s = Array.Find(Sounds, sound => sound.name == name);
