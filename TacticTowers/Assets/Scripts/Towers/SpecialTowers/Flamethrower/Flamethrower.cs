@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flamerhrower : Tower
+public class Flamethrower : Tower
 {
     [SerializeField] private float burnDmg;
     public float burnDmgMultiplier;
@@ -15,10 +15,12 @@ public class Flamerhrower : Tower
     private GameObject currentEnemy;
     private GameObject activeFlameBox;
     private ParticleSystem ps;
+    [NonSerialized] public bool shooting;
 
     private void Start()
     { 
         ps = GetComponent<ParticleSystem>();
+        FindObjectOfType<AudioManager>().flamethrowers.Add(this);
     }
 
     void Update()
@@ -32,7 +34,8 @@ public class Flamerhrower : Tower
         {
             DestroyFlameBox();
             currentEnemy = null;
-            FindObjectOfType<AudioManager>().Stop("FlamethrowerShot");
+            shooting = false;
+
 
             return;
         }
@@ -41,7 +44,8 @@ public class Flamerhrower : Tower
         if (enemy != currentEnemy)
         {
             DestroyFlameBox();
-            FindObjectOfType<AudioManager>().Stop("FlamethrowerShot");
+            shooting = false;
+
 
         }
         
@@ -60,7 +64,7 @@ public class Flamerhrower : Tower
                 activeFlameBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
                 currentEnemy = enemy;
                 
-                FindObjectOfType<AudioManager>().Play("FlamethrowerShot");
+                shooting = true;
 
             }
             

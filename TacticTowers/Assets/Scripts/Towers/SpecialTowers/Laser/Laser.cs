@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,13 @@ public class Laser : Tower
     [SerializeField] public int maxHeat;
     [SerializeField] public float bonusDamagePerHeat;
     [SerializeField] public float coolDelay;
+
+    [NonSerialized] public bool shooting;
+
+    private void Start()
+    {
+        FindObjectOfType<AudioManager>().lasers.Add(this);
+    }
 
     void Update()
     {
@@ -32,7 +40,8 @@ public class Laser : Tower
         if (enemy == null)
         {
             Destroy(activeLaser);
-            FindObjectOfType<AudioManager>().Stop("LaserShot");
+            //FindObjectOfType<AudioManager>().Stop("LaserShot");
+            shooting = false;
             currentEnemy = null;
             return;
         }
@@ -41,7 +50,9 @@ public class Laser : Tower
         if (enemy != currentEnemy)
         {
             Destroy(activeLaser);
-            FindObjectOfType<AudioManager>().Stop("LaserShot");
+            //FindObjectOfType<AudioManager>().Stop("LaserShot");
+            shooting = false;
+
         }
         if (heatCount < maxHeat) heatCount += Time.deltaTime;
         if (activeLaser != null)  activeLaser.GetComponent<LaserBim>().IncreaseWidth(heatCount);
@@ -53,7 +64,8 @@ public class Laser : Tower
                 activeLaser.GetComponent<LaserBim>().target = enemy;
                 activeLaser.GetComponent<LaserBim>().origin = transform.position;
                 currentEnemy = enemy;
-                FindObjectOfType<AudioManager>().Play("LaserShot");
+                //FindObjectOfType<AudioManager>().Play("LaserShot");
+                shooting = true;
             }
             
             
