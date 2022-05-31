@@ -10,6 +10,8 @@ public class PausePanel : MonoBehaviour
     [SerializeField] private GameObject confirmPanel;
     [SerializeField] private List<GameObject> towers;
     [SerializeField] private Text creditsCount;
+    [SerializeField] private GameObject soundButton;
+    [SerializeField] private GameObject musicButton;
     private bool isForRestart;
     private float startTimeScale = 1f;
     
@@ -46,12 +48,13 @@ public class PausePanel : MonoBehaviour
     public void OnButtonSound()
     {
         FindObjectOfType<AudioManager>().Play("ButtonClick1");
+        soundButton.GetComponent<SoundButton>().Switch();
     }
 
     public void OnButtonMusic()
     {
         FindObjectOfType<AudioManager>().Play("ButtonClick1");
-
+        musicButton.GetComponent<MusicButton>().Switch();
     }
 
     public void OnButtonCancel()
@@ -60,6 +63,11 @@ public class PausePanel : MonoBehaviour
         pausePanel.SetActive(true);
         FindObjectOfType<AudioManager>().Play("ButtonClick2");
 
+    }
+
+    public void OnButtonPause()
+    {
+        Pause();
     }
 
     public void OnButtonContinue()
