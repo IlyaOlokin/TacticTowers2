@@ -303,9 +303,9 @@ MonoBehaviour:
   multiplierShootAngle: 1
   shootDistance: 3
   multiplierShootDistance: 1
-  Dmg: 1.5
+  Dmg: 2
   multiplierDmg: 1
-  attackSpeed: 2
+  attackSpeed: 1.5
   multiplierAttackSpeed: 1
   shootZone: {fileID: 0}
   upgrades:
@@ -319,5 +319,5 @@ MonoBehaviour:
   freezeStacksPerHit: 1
   freezeStacksPerHitMultiplier: 1
   frostBox: {fileID: 6922442246336718825, guid: cf689a042e8baad46b08eb37dfdb02b1, type: 3}
-  freezeStacksNeeded: 10
+  freezeStacksNeeded: 7
   frostEffect: {fileID: 5000610879543921375}
