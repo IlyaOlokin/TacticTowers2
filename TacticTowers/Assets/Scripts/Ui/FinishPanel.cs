@@ -55,6 +55,7 @@ public class FinishPanel : MonoBehaviour
     private void OnButtonRewardedAd()
     {
         Credits.AcceptSessionCredits();
+        TechButtonHighlight.TryHighlight();
         FillTexts(currentPanel, true);
         foreach (var button in adButtons)
         {
