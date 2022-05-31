@@ -2406,7 +2406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minUpgradePriceFinder: {fileID: 1483723065}
   unlockFill: {fileID: 589437764}
-  price: 500
+  price: 1245
   priceText: {fileID: 702601090}
   button: {fileID: 1912018673}
   enoughMoneyButton: {fileID: -3722597287681707490, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
@@ -2745,7 +2745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minUpgradePriceFinder: {fileID: 1483723065}
   unlockFill: {fileID: 1973284553}
-  price: 500
+  price: 1245
   priceText: {fileID: 1616070887}
   button: {fileID: 1644836814}
   enoughMoneyButton: {fileID: -3722597287681707490, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
@@ -3688,7 +3688,7 @@ MonoBehaviour:
   button: {fileID: 1435389346}
   enoughMoneyButton: {fileID: 8008574969191610349, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
   notEnoughMoneyButton: {fileID: 4673862727404753516, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
-  prices: 0a000000140000002800000050000000a0000000400100008002000000050000
+  prices: 0f0000001e0000002d0000003c0000004b0000005a0000006900000078000000
   currentValue: 1
   bonusValue: 0.05
   upgradeObject: 1
@@ -4294,7 +4294,7 @@ MonoBehaviour:
   button: {fileID: 116215062}
   enoughMoneyButton: {fileID: 8008574969191610349, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
   notEnoughMoneyButton: {fileID: 4673862727404753516, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
-  prices: 0a000000140000002800000050000000a0000000400100008002000000050000
+  prices: 19000000320000004b000000640000007d00000096000000af000000c8000000
   currentValue: 1
   bonusValue: 0.05
   upgradeObject: 3
@@ -5893,7 +5893,7 @@ MonoBehaviour:
   button: {fileID: 524611263}
   enoughMoneyButton: {fileID: 8008574969191610349, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
   notEnoughMoneyButton: {fileID: 4673862727404753516, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
-  prices: 0a000000140000002800000050000000a0000000400100008002000000050000
+  prices: 0a000000140000001e00000028000000320000003c0000004600000050000000
   currentValue: 1
   bonusValue: 0.025
   upgradeObject: 2
@@ -7548,7 +7548,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minUpgradePriceFinder: {fileID: 1483723065}
   unlockFill: {fileID: 346733092}
-  price: 150
+  price: 315
   priceText: {fileID: 913922129}
   button: {fileID: 1322677809}
   enoughMoneyButton: {fileID: -3722597287681707490, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
@@ -8678,7 +8678,7 @@ MonoBehaviour:
   button: {fileID: 723984149}
   enoughMoneyButton: {fileID: 8008574969191610349, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
   notEnoughMoneyButton: {fileID: 4673862727404753516, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
-  prices: 0a000000140000002800000050000000a0000000400100008002000000050000
+  prices: 320000006400000096000000c8000000fa0000002c0100005e01000090010000
   currentValue: 1
   bonusValue: 0.1
   upgradeObject: 0
@@ -9078,7 +9078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minUpgradePriceFinder: {fileID: 1483723065}
   unlockFill: {fileID: 1214957679}
-  price: 150
+  price: 315
   priceText: {fileID: 1965796223}
   button: {fileID: 485624803}
   enoughMoneyButton: {fileID: -3722597287681707490, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
