@@ -5,17 +5,27 @@ using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] Sounds;
-
-    public bool soundEnabled = true;
-
     private List<float> savedSoundsVolume = new List<float>();
-
+    public Sound[] Sounds;
+    public bool soundEnabled = true;
+    
+    public static AudioManager Instance;
     public List<Laser> lasers;
     public List<Flamethrower> flamethrowers;
     public List<Frostgun> frostguns;
+    
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
         DontDestroyOnLoad(gameObject);
 
         for (int i = 0; i < Sounds.Length; i++)

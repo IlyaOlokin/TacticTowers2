@@ -20,7 +20,7 @@ public class Laser : Tower
 
     private void Start()
     {
-        FindObjectOfType<AudioManager>().lasers.Add(this);
+        AudioManager.Instance.lasers.Add(this);
     }
 
     void Update()

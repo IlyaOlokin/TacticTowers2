@@ -11,35 +11,27 @@ public class MainMenu : MonoBehaviour
     
     public void OnButtonMusic()
     {
-        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+        AudioManager.Instance.Play("ButtonClick1");
         musicButton.GetComponent<MusicButton>().Switch();
     }
 
     public void OnButtonSound()
     {
-        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+        AudioManager.Instance.Play("ButtonClick1");
         soundButton.GetComponent<SoundButton>().Switch();
     }
 
     public void OnButtonPlay()
     {
         var isTutorialCompleted = Convert.ToBoolean(PlayerPrefs.GetInt("isTutorialCompleted", 0));
-        FindObjectOfType<AudioManager>().Play("ButtonClick2");
+        AudioManager.Instance.Play("ButtonClick2");
 
         SceneManager.LoadScene(isTutorialCompleted ? "GameField" : "Tutorial");
     }
     
     public void OnButtonUpgrades()
     {
-        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+        AudioManager.Instance.Play("ButtonClick1");
         SceneManager.LoadScene("TechsMenu");
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Credits.AddCredits(100);
-        }
     }
 }

@@ -30,18 +30,16 @@ public class FinishPanel : MonoBehaviour
     }
     public void OnButtonRestart()
     {
-        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+        AudioManager.Instance.Play("ButtonClick1");
         ShowCommonAd();
         Resume();
         
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-   
-
     public void OnButtonMenu()
     {
-        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+        AudioManager.Instance.Play("ButtonClick1");
         ShowCommonAd();
         Resume();
         
@@ -51,7 +49,7 @@ public class FinishPanel : MonoBehaviour
     
     public void OnButtonTechs()
     {
-        FindObjectOfType<AudioManager>().Play("ButtonClick2");
+        AudioManager.Instance.Play("ButtonClick2");
         ShowCommonAd();
         Resume();
         

@@ -40,7 +40,7 @@ public class Shotgun : Tower
             }
             shootDelayTimer = 1f / GetAttackSpeed();
             
-            FindObjectOfType<AudioManager>().Play("ShotgunShot");
+            AudioManager.Instance.Play("ShotgunShot");
         }
     }
 }

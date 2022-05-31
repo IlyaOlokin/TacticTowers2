@@ -52,7 +52,7 @@ public class Minigun : Tower
             newBullet.GetComponent<Bullet>().Dmg = GetDmg();
             newBullet.GetComponent<Bullet>().Speed = bulletSpeed;
             
-            FindObjectOfType<AudioManager>().Play("MinigunShot");
+            AudioManager.Instance.Play("MinigunShot");
         }
     }
 }

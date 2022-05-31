@@ -20,7 +20,7 @@ public class Frostgun : Tower
 
     private void Start()
     {
-        FindObjectOfType<AudioManager>().frostguns.Add(this);
+        AudioManager.Instance.frostguns.Add(this);
 
     }
 

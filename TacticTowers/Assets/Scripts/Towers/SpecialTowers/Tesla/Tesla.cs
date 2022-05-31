@@ -46,7 +46,7 @@ public class Tesla : Tower
         newLightning.GetComponent<LineRenderer>().SetPosition(0, startPos);
         newLightning.GetComponent<LineRenderer>().SetPosition(1, endPos);
         
-        FindObjectOfType<AudioManager>().Play("TeslaShot");
+        AudioManager.Instance.Play("TeslaShot");
 
         enemy.GetComponent<Enemy>().TakeDamage(dmg);
         yield return new WaitForSeconds(0.2f);

@@ -7,21 +7,21 @@ using UnityEngine;
 public class YandexSDK : MonoBehaviour
 {
     // Создание SINGLETON
-    private static YandexSDK _instance;
-    public static YandexSDK Instance
-    {
-        get
-        {
-            if (_instance == null)
-                _instance = GameObject.FindObjectOfType<YandexSDK>();
-            
-            return _instance;
-        }
-    }
+    public static YandexSDK Instance;
+    
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+        
         DontDestroyOnLoad(gameObject);
-       
     }
 
     //

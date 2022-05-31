@@ -15,7 +15,7 @@ public class Explosion : MonoBehaviour
         Destroy(gameObject, explosionDuration);
         scaleSpeed = radius.x ;
         timer = explosionDuration;
-        FindObjectOfType<AudioManager>().Play("MortarExplosion");
+        AudioManager.Instance.Play("MortarExplosion");
     }
 
     

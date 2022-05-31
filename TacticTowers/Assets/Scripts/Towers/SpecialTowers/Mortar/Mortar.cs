@@ -30,7 +30,7 @@ public class Mortar : Tower
             
             shootDelayTimer = 1f / GetAttackSpeed();
             
-            FindObjectOfType<AudioManager>().Play("MortarShot");
+            AudioManager.Instance.Play("MortarShot");
         }
     }
 }

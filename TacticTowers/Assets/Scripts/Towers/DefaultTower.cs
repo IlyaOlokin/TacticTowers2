@@ -26,7 +26,7 @@ public class DefaultTower : Tower
             newBullet.GetComponent<Bullet>().Dmg = GetDmg();
             newBullet.GetComponent<Bullet>().Speed = bulletSpeed;
             
-            FindObjectOfType<AudioManager>().Play("DefaultTowerShot");
+            AudioManager.Instance.Play("DefaultTowerShot");
         }
     }
 }

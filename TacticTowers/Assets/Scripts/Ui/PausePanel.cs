@@ -19,7 +19,7 @@ public class PausePanel : MonoBehaviour
     {
         isForRestart = true;
         ActivateConfirmPanel(isForRestart);
-        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+        AudioManager.Instance.Play("ButtonClick1");
 
     }
     
@@ -27,7 +27,7 @@ public class PausePanel : MonoBehaviour
     {
         isForRestart = false;
         ActivateConfirmPanel(isForRestart);
-        FindObjectOfType<AudioManager>().Play("ButtonClick2");
+        AudioManager.Instance.Play("ButtonClick2");
 
     }
 
@@ -42,18 +42,18 @@ public class PausePanel : MonoBehaviour
     public void OnButtonClose()
     {
         Resume();
-        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+        AudioManager.Instance.Play("ButtonClick1");
     }
 
     public void OnButtonSound()
     {
-        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+        AudioManager.Instance.Play("ButtonClick1");
         soundButton.GetComponent<SoundButton>().Switch();
     }
 
     public void OnButtonMusic()
     {
-        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+        AudioManager.Instance.Play("ButtonClick1");
         musicButton.GetComponent<MusicButton>().Switch();
     }
 
@@ -61,7 +61,7 @@ public class PausePanel : MonoBehaviour
     {
         confirmPanel.SetActive(false);
         pausePanel.SetActive(true);
-        FindObjectOfType<AudioManager>().Play("ButtonClick2");
+        AudioManager.Instance.Play("ButtonClick2");
 
     }
 
@@ -73,7 +73,7 @@ public class PausePanel : MonoBehaviour
     public void OnButtonContinue()
     {
         Resume();
-        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+        AudioManager.Instance.Play("ButtonClick1");
         Credits.LoseSessionCredits();
         SceneManager.LoadScene(isForRestart ? SceneManager.GetActiveScene().name : "MainMenu");
     }
@@ -87,7 +87,7 @@ public class PausePanel : MonoBehaviour
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = false;
         
-        FindObjectOfType<AudioManager>().Play("ButtonClick2");
+        AudioManager.Instance.Play("ButtonClick2");
     }
 
     private void Resume()
@@ -112,7 +112,7 @@ public class PausePanel : MonoBehaviour
             {
                 Resume();
             }
-            else
+            else if (!confirmPanel.activeInHierarchy)
             {
                 Pause();
             }

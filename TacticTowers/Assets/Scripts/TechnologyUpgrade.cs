@@ -73,7 +73,7 @@ public class TechnologyUpgrade : MonoBehaviour
 
         }
         minUpgradePriceFinder.FindMinPrice();
-        FindObjectOfType<AudioManager>().Play("ButtonClick2");
+        AudioManager.Instance.Play("ButtonClick2");
 
     }
 

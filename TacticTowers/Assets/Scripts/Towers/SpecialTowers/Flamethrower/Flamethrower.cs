@@ -20,7 +20,7 @@ public class Flamethrower : Tower
     private void Start()
     { 
         ps = GetComponent<ParticleSystem>();
-        FindObjectOfType<AudioManager>().flamethrowers.Add(this);
+        AudioManager.Instance.flamethrowers.Add(this);
     }
 
     void Update()
