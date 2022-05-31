@@ -1806,6 +1806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryPanel: {fileID: 0}
   defeatPanel: {fileID: 0}
+  adButtons: []
   towers:
   - {fileID: 1635791835}
   - {fileID: 1152451190}
@@ -8343,6 +8344,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryPanel: {fileID: 1938888410}
   defeatPanel: {fileID: 1553057717}
+  adButtons:
+  - {fileID: 1261925010}
+  - {fileID: 1977945729}
   towers:
   - {fileID: 1635791835}
   - {fileID: 1152451190}
@@ -8657,6 +8661,7 @@ GameObject:
   - component: {fileID: 1261925014}
   - component: {fileID: 1261925013}
   - component: {fileID: 1261925012}
+  - component: {fileID: 1261925016}
   - component: {fileID: 1261925015}
   m_Layer: 5
   m_Name: AdButton
@@ -8785,6 +8790,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1261925016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261925010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72bdd6085127824eb01854779af1433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1265924756
 GameObject:
   m_ObjectHideFlags: 0
@@ -15559,6 +15576,7 @@ GameObject:
   - component: {fileID: 1977945733}
   - component: {fileID: 1977945732}
   - component: {fileID: 1977945731}
+  - component: {fileID: 1977945735}
   - component: {fileID: 1977945734}
   m_Layer: 5
   m_Name: AdButton
@@ -15687,6 +15705,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1977945735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977945729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72bdd6085127824eb01854779af1433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1988608886 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2888170260789091271, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
