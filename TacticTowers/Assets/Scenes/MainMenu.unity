@@ -514,6 +514,7 @@ GameObject:
   - component: {fileID: 423226806}
   - component: {fileID: 423226805}
   - component: {fileID: 423226804}
+  - component: {fileID: 423226808}
   m_Layer: 5
   m_Name: SoundButton
   m_TagString: Untagged
@@ -559,7 +560,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -572,7 +573,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 8657532418779330660, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
+    m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -634,6 +635,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423226802}
   m_CullTransparentMesh: 1
+--- !u!114 &423226808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423226802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118ff5ff1dab2f545876c7b6dda4d3b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSprite: {fileID: 423226805}
+  spriteActive: {fileID: -457555882396643226, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
+  spriteDeactive: {fileID: 8657532418779330660, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
 --- !u!1 &1024520406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,6 +1303,7 @@ GameObject:
   - component: {fileID: 1703905700}
   - component: {fileID: 1703905699}
   - component: {fileID: 1703905698}
+  - component: {fileID: 1703905702}
   m_Layer: 5
   m_Name: MusicButton
   m_TagString: Untagged
@@ -1332,7 +1349,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1407,6 +1424,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703905696}
   m_CullTransparentMesh: 1
+--- !u!114 &1703905702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703905696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54c8f89fdefcca4a802a63b1de0859b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSprite: {fileID: 1703905699}
+  spriteActive: {fileID: -2731042161240315999, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
+  spriteDeactive: {fileID: -1959075992214118461, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
 --- !u!1 &1775811668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,6 +1602,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3946430778e6f4582b395733c001b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundButton: {fileID: 423226802}
+  musicButton: {fileID: 1703905696}
 --- !u!1 &1870064118
 GameObject:
   m_ObjectHideFlags: 0

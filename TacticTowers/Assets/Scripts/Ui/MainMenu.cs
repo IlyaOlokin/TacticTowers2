@@ -6,16 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject soundButton;
+    [SerializeField] private GameObject musicButton;
+    
     public void OnButtonMusic()
     {
         FindObjectOfType<AudioManager>().Play("ButtonClick1");
-
+        musicButton.GetComponent<MusicButton>().Switch();
     }
 
     public void OnButtonSound()
     {
         FindObjectOfType<AudioManager>().Play("ButtonClick1");
-
+        soundButton.GetComponent<SoundButton>().Switch();
     }
 
     public void OnButtonPlay()

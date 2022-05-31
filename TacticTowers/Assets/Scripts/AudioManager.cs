@@ -31,7 +31,8 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("MainTheme");
+        if (Convert.ToBoolean(PlayerPrefs.GetInt("isMusicOn", 1)))
+            Play("MainTheme");
     }
 
     private void Update()
@@ -116,6 +117,9 @@ public class AudioManager : MonoBehaviour
     {
         for (int i = 0; i < Sounds.Length; i++)
         {
+            if (Sounds[i].name == "MainTheme")
+                continue;
+            
             Sounds[i].source.volume = savedSoundsVolume[i];
         }
 
@@ -126,6 +130,9 @@ public class AudioManager : MonoBehaviour
     {
         for (int i = 0; i < Sounds.Length; i++)
         {
+            if (Sounds[i].name == "MainTheme")
+                continue;
+            
             Sounds[i].source.volume = 0;
         }
 
