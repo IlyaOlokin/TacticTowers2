@@ -179,7 +179,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49999997
-  m_Speed: 0.25
+  m_Speed: 0.28
   m_Acceleration: 2
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: 10
   hp: 35
-  creditsDropChance: 30
+  creditsDropChance: 20
   weight: 2
   damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
   deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
