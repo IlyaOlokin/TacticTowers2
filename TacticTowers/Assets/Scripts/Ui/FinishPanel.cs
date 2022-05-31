@@ -31,15 +31,20 @@ public class FinishPanel : MonoBehaviour
     public void OnButtonRestart()
     {
         FindObjectOfType<AudioManager>().Play("ButtonClick1");
+        ShowCommonAd();
         Resume();
         
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+   
+
     public void OnButtonMenu()
     {
         FindObjectOfType<AudioManager>().Play("ButtonClick1");
+        ShowCommonAd();
         Resume();
+        
         
         SceneManager.LoadScene("MainMenu");
     }
@@ -47,6 +52,7 @@ public class FinishPanel : MonoBehaviour
     public void OnButtonTechs()
     {
         FindObjectOfType<AudioManager>().Play("ButtonClick2");
+        ShowCommonAd();
         Resume();
         
         SceneManager.LoadScene("TechsMenu");
@@ -120,5 +126,18 @@ public class FinishPanel : MonoBehaviour
         Time.timeScale = 1;
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = true;
+    }
+    
+    private void ShowCommonAd()
+    {
+        YandexSDK SDK = FindObjectOfType<YandexSDK>();
+        try
+        {
+            SDK.ShowCommonAdvertisment();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("add");
+        }
     }
 }

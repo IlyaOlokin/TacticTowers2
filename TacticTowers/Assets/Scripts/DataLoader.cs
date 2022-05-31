@@ -21,16 +21,6 @@ public class DataLoader : MonoBehaviour
         Credits.credits = int.Parse(PlayerPrefs.GetString("Credits", "0"));
 
         Technologies.MinUpgradePrice = PlayerPrefs.GetInt("minUpgradePrice", 10);
-        
-        YandexSDK SDK = FindObjectOfType<YandexSDK>();
-        try
-        {
-            SDK.ShowCommonAdvertisment();
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("add");
-        }
     }
 
     private void Update()
