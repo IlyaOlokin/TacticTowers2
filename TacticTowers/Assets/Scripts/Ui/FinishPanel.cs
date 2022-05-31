@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ public class FinishPanel : MonoBehaviour
 {
     [SerializeField] private GameObject victoryPanel;
     [SerializeField] private GameObject defeatPanel;
+    private GameObject currentPanel;
+    [SerializeField] private List<GameObject> adButtons;
     [SerializeField] private List<GameObject> towers;
     
     [SerializeField] private GameObject enemies;
@@ -18,43 +21,64 @@ public class FinishPanel : MonoBehaviour
     [SerializeField] private Text creditsCount;
 
     private bool isSessionEdnded;
-    
+
+    void Start()
+    {
+        Credits.LoseSessionCredits();
+        YandexSDK.Instance.ResetSubscriptions();
+        YandexSDK.Instance.RewardGet += OnButtonRewardedAd;
+    }
     public void OnButtonRestart()
     {
-        //FindObjectOfType<AudioManager>().Play("ButtonClick");
+        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+        ShowCommonAd();
         Resume();
         
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+   
+
     public void OnButtonMenu()
     {
-        //FindObjectOfType<AudioManager>().Play("ButtonClick");
+        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+        ShowCommonAd();
         Resume();
+        
         
         SceneManager.LoadScene("MainMenu");
     }
     
     public void OnButtonTechs()
     {
-        //FindObjectOfType<AudioManager>().Play("ButtonClick");
+        FindObjectOfType<AudioManager>().Play("ButtonClick2");
+        ShowCommonAd();
         Resume();
         
         SceneManager.LoadScene("TechsMenu");
     }
-    
-    void Start()
+
+    private void OnButtonRewardedAd()
     {
-        Credits.LoseSessionCredits();
+        Credits.AcceptSessionCredits();
+        TechButtonHighlight.TryHighlight();
+        FillTexts(currentPanel, true);
+        foreach (var button in adButtons)
+        {
+            button.SetActive(false);
+        }
     }
+    
 
     private void Update()
     {
         if (isSessionEdnded) return;
         if (_base.GetHp() <= 0)
         {
-            FillTexts(defeatPanel);
-            defeatPanel.SetActive(true);
+            currentPanel = defeatPanel;
+            adButtons[0].SetActive(true);
+            FillTexts(currentPanel, false);
+            currentPanel.SetActive(true);
             Pause();
             Credits.AcceptSessionCredits();
             isSessionEdnded = true;
@@ -66,8 +90,10 @@ public class FinishPanel : MonoBehaviour
 
             if (waveCount[0] == waveCount[1])
             {
-                FillTexts(victoryPanel);
-                victoryPanel.SetActive(true);
+                currentPanel = victoryPanel;
+                adButtons[1].SetActive(true);
+                FillTexts(currentPanel, false);
+                currentPanel.SetActive(true);
                 Pause();
                 Credits.AcceptSessionCredits();
                 isSessionEdnded = true;
@@ -76,10 +102,14 @@ public class FinishPanel : MonoBehaviour
 
     }
 
-    private void FillTexts(GameObject panel)
+    private void FillTexts(GameObject panel, bool isCreditsDoubled)
     {
         panel.transform.Find("WaveCount").transform.Find("Count").GetComponent<Text>().text = waveText.text;
-        panel.transform.Find("CreditsCount").transform.Find("Count").GetComponent<Text>().text = creditsCount.text;
+        if (isCreditsDoubled)
+            panel.transform.Find("CreditsCount").transform.Find("Count").GetComponent<Text>().text = (Credits.creditsDuringSession * 2).ToString();
+        else
+            panel.transform.Find("CreditsCount").transform.Find("Count").GetComponent<Text>().text = Credits.creditsDuringSession.ToString();
+        
     }
     
     private void Pause()
@@ -96,5 +126,18 @@ public class FinishPanel : MonoBehaviour
         Time.timeScale = 1;
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = true;
+    }
+    
+    private void ShowCommonAd()
+    {
+        YandexSDK SDK = FindObjectOfType<YandexSDK>();
+        try
+        {
+            SDK.ShowCommonAdvertisment();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("add");
+        }
     }
 }
