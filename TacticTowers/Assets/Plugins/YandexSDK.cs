@@ -65,7 +65,10 @@ public class YandexSDK : MonoBehaviour
     public void ShowRewardedAdvertisment()
     {
         ShowRewardADV();
+        RewardGet?.Invoke();
     }
+    
+    public void ResetSubscriptions() => RewardGet = null; 
 }
 
 

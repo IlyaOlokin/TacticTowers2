@@ -6,11 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private void Start()
-    {
-        throw new NotImplementedException();
-    }
-
     public void OnButtonMusic()
     {
         FindObjectOfType<AudioManager>().Play("ButtonClick1");
