@@ -83,7 +83,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2377495859047789622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,11 +121,11 @@ MonoBehaviour:
   colors:
   - bottomBorder: 0
     color: {r: 1, g: 1, b: 1, a: 1}
-  - bottomBorder: 5
+  - bottomBorder: 25
     color: {r: 0.8396226, g: 0.6938086, b: 0.14653791, a: 1}
-  - bottomBorder: 7
+  - bottomBorder: 35
     color: {r: 0.8396226, g: 0.42235702, b: 0.059407253, a: 1}
-  - bottomBorder: 10
+  - bottomBorder: 50
     color: {r: 0.8679245, g: 0.16785331, b: 0.16785331, a: 1}
 --- !u!1 &4344544619200253739
 GameObject:

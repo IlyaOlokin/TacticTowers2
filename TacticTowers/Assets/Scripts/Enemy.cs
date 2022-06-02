@@ -51,7 +51,7 @@ public class Enemy : MonoBehaviour
     {
         hp -= dmg;
         var newEffect = Instantiate(damageNumberEffect, transform.position, Quaternion.identity);
-        newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
+        newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg * 5);
         if (hp <= 0)
         {
             OnDeath();
