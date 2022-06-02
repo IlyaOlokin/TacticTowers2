@@ -62,6 +62,7 @@ public class TowerUpgrade : MonoBehaviour
     private void OpenUpgradeMenu()
     {
         if (td.dragging) return;
+        upgradeMenu.GetComponent<UpgradeMenu>().mouseOn = false;
         upgradeMenu.SetActive(true);
     }
 
