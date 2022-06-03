@@ -51,6 +51,8 @@ public class Minigun : Tower
             var newBullet = Instantiate(bullet, transform.position, towerCanon.transform.rotation);
             newBullet.GetComponent<Bullet>().Dmg = GetDmg();
             newBullet.GetComponent<Bullet>().Speed = bulletSpeed;
+            
+            AudioManager.Instance.Play("MinigunShot");
         }
     }
 }

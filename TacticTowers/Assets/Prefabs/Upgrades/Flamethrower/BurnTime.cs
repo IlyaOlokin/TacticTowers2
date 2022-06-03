@@ -8,6 +8,6 @@ public class BurnTime : Upgrade
 
     public override void Execute(Tower tower)
     {
-        tower.transform.GetComponent<Flamerhrower>().burnTime += bonus;
+        tower.transform.GetComponent<Flamethrower>().burnTime += bonus;
     }
 }

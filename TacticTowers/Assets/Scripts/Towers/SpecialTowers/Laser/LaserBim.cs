@@ -12,6 +12,7 @@ public class LaserBim : MonoBehaviour
     {
         lr = GetComponent<LineRenderer>();
         lr.SetPosition(0, origin);
+        lr.SetPosition(1, target.transform.position);
     }
     
     void Update()

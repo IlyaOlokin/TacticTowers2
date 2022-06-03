@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int creditsDropChance;
     public int weight;
     [SerializeField] private GameObject damageNumberEffect;
+    [SerializeField] private GameObject deathParticles;
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -50,7 +51,7 @@ public class Enemy : MonoBehaviour
     {
         hp -= dmg;
         var newEffect = Instantiate(damageNumberEffect, transform.position, Quaternion.identity);
-        newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
+        newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg * 5);
         if (hp <= 0)
         {
             OnDeath();
@@ -61,6 +62,7 @@ public class Enemy : MonoBehaviour
         EnemySpawner.enemies.Remove(gameObject);
         Money.AddMoney(cost * Technologies.MoneyMultiplier);
         DropCreditsByChance(creditsDropChance);
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

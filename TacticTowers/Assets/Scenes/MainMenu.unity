@@ -514,6 +514,7 @@ GameObject:
   - component: {fileID: 423226806}
   - component: {fileID: 423226805}
   - component: {fileID: 423226804}
+  - component: {fileID: 423226808}
   m_Layer: 5
   m_Name: SoundButton
   m_TagString: Untagged
@@ -559,7 +560,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -572,7 +573,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 8657532418779330660, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
+    m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -634,6 +635,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423226802}
   m_CullTransparentMesh: 1
+--- !u!114 &423226808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423226802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118ff5ff1dab2f545876c7b6dda4d3b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSprite: {fileID: 423226805}
+  spriteActive: {fileID: -457555882396643226, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
+  spriteDeactive: {fileID: 8657532418779330660, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
 --- !u!1 &1024520406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1159,138 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1640472939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1640472941}
+  - component: {fileID: 1640472940}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1640472940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640472939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3953484d3c26842ab472927204b154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sounds:
+  - name: MainTheme
+    clip: {fileID: 8300000, guid: 9adf123e4d0292443b43cc94425f2350, type: 3}
+    volume: 0.101
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: DefaultTowerShot
+    clip: {fileID: 8300000, guid: cbc5b630183ef7d4daee39830bf2a6c4, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MinigunShot
+    clip: {fileID: 8300000, guid: b1011ac093acda3489cfc0fc8567e6c9, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LaserShot
+    clip: {fileID: 8300000, guid: be99013ee6b5dbc48b315c241b0b3b27, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: MortarShot
+    clip: {fileID: 8300000, guid: ccf9e3ce3c21e4742889188c2729eb38, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MortarExplosion
+    clip: {fileID: 8300000, guid: 606a28581f84eb942a436dce42bee639, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ShotgunShot
+    clip: {fileID: 8300000, guid: 0199e15df2b8caf4eb1862df3dbf031f, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TeslaShot
+    clip: {fileID: 8300000, guid: 56592937930591b409a60e8649fc114b, type: 3}
+    volume: 0.04
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RailgunShot
+    clip: {fileID: 8300000, guid: e17fe966545e75845997da559127b19b, type: 3}
+    volume: 0.045
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FrostgunShot
+    clip: {fileID: 8300000, guid: 575e5a8cc39e3e045b6734e8416bb03c, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: FlamethrowerShot
+    clip: {fileID: 8300000, guid: f577352e7e3ecd5439cac35a050ab421, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: ButtonClick1
+    clip: {fileID: 8300000, guid: 57cf47e992273e243ad9f992fde83a0e, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ButtonClick2
+    clip: {fileID: 8300000, guid: 30d9f96aeeb64aa48a7125115ac87f0e, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Landing
+    clip: {fileID: 8300000, guid: 1f07c1c283a21044d8a04b2fe71c6df9, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  soundEnabled: 1
+  lasers: []
+  flamethrowers: []
+  frostguns: []
+--- !u!4 &1640472941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640472939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1899954, y: -0.06828351, z: -1.6567944}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703905696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,6 +1303,7 @@ GameObject:
   - component: {fileID: 1703905700}
   - component: {fileID: 1703905699}
   - component: {fileID: 1703905698}
+  - component: {fileID: 1703905702}
   m_Layer: 5
   m_Name: MusicButton
   m_TagString: Untagged
@@ -1200,7 +1349,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1275,6 +1424,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703905696}
   m_CullTransparentMesh: 1
+--- !u!114 &1703905702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703905696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54c8f89fdefcca4a802a63b1de0859b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSprite: {fileID: 1703905699}
+  spriteActive: {fileID: -2731042161240315999, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
+  spriteDeactive: {fileID: -1959075992214118461, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
+--- !u!1 &1775811668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1775811670}
+  - component: {fileID: 1775811669}
+  m_Layer: 0
+  m_Name: YandexSDK
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1775811669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775811668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b89e1282d62df40a7c5bf30e207817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1775811670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775811668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1589061, y: 0.6841014, z: 774.76404}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1788173288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,6 +1602,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3946430778e6f4582b395733c001b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundButton: {fileID: 423226802}
+  musicButton: {fileID: 1703905696}
 --- !u!1 &1870064118
 GameObject:
   m_ObjectHideFlags: 0

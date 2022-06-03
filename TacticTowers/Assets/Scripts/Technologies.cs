@@ -13,4 +13,17 @@ public static class Technologies
     public static bool IsFlamethrowerUnlocked = false;
     public static bool IsRailgunUnlocked = false;
     public static bool IsTeslaUnlocked = false;
+
+    public static int MinUpgradePrice = 10;
+
+    public static bool TryChangeMinUpgradePrice(int price)
+    {
+        if (price > MinUpgradePrice)
+        {
+            MinUpgradePrice = price;
+            return true;
+        }
+
+        return false;
+    }
 }

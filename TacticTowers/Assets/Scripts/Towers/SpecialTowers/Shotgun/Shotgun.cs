@@ -39,6 +39,8 @@ public class Shotgun : Tower
                 newBullet.GetComponent<Bullet>().Speed = bulletSpeed;
             }
             shootDelayTimer = 1f / GetAttackSpeed();
+            
+            AudioManager.Instance.Play("ShotgunShot");
         }
     }
 }

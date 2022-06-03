@@ -45,6 +45,8 @@ public class Tesla : Tower
         var newLightning = Instantiate(lightning, transform.position, towerCanon.transform.rotation);
         newLightning.GetComponent<LineRenderer>().SetPosition(0, startPos);
         newLightning.GetComponent<LineRenderer>().SetPosition(1, endPos);
+        
+        AudioManager.Instance.Play("TeslaShot");
 
         enemy.GetComponent<Enemy>().TakeDamage(dmg);
         yield return new WaitForSeconds(0.2f);
@@ -62,6 +64,8 @@ public class Tesla : Tower
 
         if (newEnemy == null) yield break;
         parms = new object[] {dmg * dmgDecrease, endPos, newEnemy, lightningLeft - 1, pickedEnemy};
+        
+
         StartCoroutine("ShootLightning", parms);
     }
 }

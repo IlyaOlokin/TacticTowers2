@@ -19,11 +19,13 @@ public class DataLoader : MonoBehaviour
         Technologies.IsTeslaUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("isTeslaUnlocked", 0));
 
         Credits.credits = int.Parse(PlayerPrefs.GetString("Credits", "0"));
+
+        Technologies.MinUpgradePrice = PlayerPrefs.GetInt("minUpgradePrice", 10);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
+        /*if (Input.GetKeyDown(KeyCode.N))
         {
             Credits.AddCredits(100);
         }
@@ -31,6 +33,6 @@ public class DataLoader : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             PlayerPrefs.DeleteAll();
-        }
+        }*/
     }
 }

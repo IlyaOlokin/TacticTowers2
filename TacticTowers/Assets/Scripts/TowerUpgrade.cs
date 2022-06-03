@@ -62,6 +62,7 @@ public class TowerUpgrade : MonoBehaviour
     private void OpenUpgradeMenu()
     {
         if (td.dragging) return;
+        upgradeMenu.GetComponent<UpgradeMenu>().mouseOn = false;
         upgradeMenu.SetActive(true);
     }
 
@@ -80,6 +81,8 @@ public class TowerUpgrade : MonoBehaviour
             upgradeWindow.GetComponent<UpgradeWindow>().UpgradeTower(tower);
             upgradeWindow.GetComponent<UpgradeWindow>().td = GetComponent<TowerDrag>();
             upgradeWindow.GetComponent<UpgradeWindow>().tu = this;
+            
+            FindObjectOfType<AudioManager>().Play("ButtonClick1");
         }
     }
 

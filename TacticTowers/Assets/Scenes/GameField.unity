@@ -221,7 +221,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_TargetDisplay: 0
 --- !u!1 &16021441
 GameObject:
@@ -477,7 +477,7 @@ Transform:
   m_GameObject: {fileID: 49719855}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 8, z: 1}
+  m_LocalScale: {x: 3, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 1852934400}
   m_RootOrder: 0
@@ -1486,6 +1486,7 @@ GameObject:
   - component: {fileID: 310804379}
   - component: {fileID: 310804378}
   - component: {fileID: 310804377}
+  - component: {fileID: 310804382}
   m_Layer: 5
   m_Name: MidButton
   m_TagString: Untagged
@@ -1527,7 +1528,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1612,6 +1613,25 @@ RectTransform:
   m_AnchoredPosition: {x: 3.7324364, y: -100.34}
   m_SizeDelta: {x: 270.7, y: 416.35}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &310804382
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310804376}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce29152b8c8d3c6418ebbfaf876f7ab2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &323355768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1740,7 +1760,6 @@ GameObject:
   - component: {fileID: 324751680}
   - component: {fileID: 324751679}
   - component: {fileID: 324751678}
-  - component: {fileID: 324751677}
   m_Layer: 5
   m_Name: UI Const
   m_TagString: Untagged
@@ -1772,29 +1791,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &324751677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324751675}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab1c4abb1136fb4419ad535c114c5e67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  victoryPanel: {fileID: 0}
-  defeatPanel: {fileID: 0}
-  towers:
-  - {fileID: 1635791835}
-  - {fileID: 1152451190}
-  - {fileID: 1713674340}
-  - {fileID: 160588622}
-  enemies: {fileID: 1854380828}
-  waveText: {fileID: 0}
-  _base: {fileID: 2031299825}
-  creditsCount: {fileID: 0}
 --- !u!114 &324751678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1815,6 +1811,8 @@ MonoBehaviour:
   - {fileID: 1713674340}
   - {fileID: 160588622}
   creditsCount: {fileID: 1597920755}
+  soundButton: {fileID: 360847120}
+  musicButton: {fileID: 1630707668}
 --- !u!114 &324751679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2108,7 +2106,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1233309683}
+      - m_Target: {fileID: 324751678}
         m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
         m_MethodName: OnButtonRestart
         m_Mode: 1
@@ -2170,6 +2168,7 @@ GameObject:
   - component: {fileID: 360847124}
   - component: {fileID: 360847123}
   - component: {fileID: 360847122}
+  - component: {fileID: 360847125}
   m_Layer: 5
   m_Name: SoundButton
   m_TagString: Untagged
@@ -2240,7 +2239,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1233309683}
+      - m_Target: {fileID: 324751678}
         m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
         m_MethodName: OnButtonSound
         m_Mode: 1
@@ -2290,6 +2289,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360847120}
   m_CullTransparentMesh: 1
+--- !u!114 &360847125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360847120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118ff5ff1dab2f545876c7b6dda4d3b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSprite: {fileID: 360847123}
+  spriteActive: {fileID: -457555882396643226, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
+  spriteDeactive: {fileID: 8657532418779330660, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
 --- !u!1 &363942887
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,7 +2339,7 @@ MonoBehaviour:
     seconds: 0
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountRight: 1e000000
+    enemiesCountRight: 3c000000
     enemiesTop: []
     enemiesCountTop: 
     enemiesLeft: []
@@ -2390,7 +2404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0078125, y: 0.9256301}
   m_AnchorMax: {x: 0.09354168, y: 0.9888852}
-  m_AnchoredPosition: {x: 199.50998, y: -58.80005}
+  m_AnchoredPosition: {x: 199.51025, y: -58.80005}
   m_SizeDelta: {x: 132.91, y: -20.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371763077
@@ -2624,7 +2638,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_TargetDisplay: 0
 --- !u!1 &384539209
 GameObject:
@@ -3583,9 +3597,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1233309683}
+      - m_Target: {fileID: 324751678}
         m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
-        m_MethodName: Pause
+        m_MethodName: OnButtonPause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3645,6 +3659,7 @@ GameObject:
   - component: {fileID: 551700158}
   - component: {fileID: 551700157}
   - component: {fileID: 551700159}
+  - component: {fileID: 551700160}
   m_Layer: 5
   m_Name: UpgradeArrow
   m_TagString: Untagged
@@ -3725,6 +3740,32 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &551700160
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551700155}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.19318104, y: -0.9510989}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.683794, y: 32.34072}
+  m_EdgeRadius: 0
 --- !u!1 &556208737
 GameObject:
   m_ObjectHideFlags: 0
@@ -3808,7 +3849,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1233309683}
+      - m_Target: {fileID: 324751678}
         m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
         m_MethodName: OnButtonMenu
         m_Mode: 1
@@ -4087,7 +4128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09838911, g: 0.6320754, b: 0.13330588, a: 0.13333334}
+  m_Color: {r: 0.003921569, g: 0.7294118, b: 0.4627451, a: 0.19607843}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4331,7 +4372,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_TargetDisplay: 0
 --- !u!1 &608062693
 GameObject:
@@ -4345,6 +4386,8 @@ GameObject:
   - component: {fileID: 608062697}
   - component: {fileID: 608062696}
   - component: {fileID: 608062695}
+  - component: {fileID: 608062699}
+  - component: {fileID: 608062698}
   m_Layer: 5
   m_Name: TechsButton
   m_TagString: Untagged
@@ -4361,7 +4404,7 @@ RectTransform:
   m_GameObject: {fileID: 608062693}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000799, y: 1.0000799, z: 1.0000799}
+  m_LocalScale: {x: 1.0000799, y: 1.00008, z: 1.00008}
   m_Children:
   - {fileID: 501343834}
   m_Father: {fileID: 1553057718}
@@ -4466,6 +4509,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608062693}
   m_CullTransparentMesh: 1
+--- !u!95 &608062698
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608062693}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 716e645d49a28624f911c40728c60fbd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &608062699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608062693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f4725cfd66d0742a98b6019d374658, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &632045975
 GameObject:
   m_ObjectHideFlags: 0
@@ -4744,7 +4818,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09838911, g: 0.6320754, b: 0.13330588, a: 0.13333334}
+  m_Color: {r: 0.003921569, g: 0.7294118, b: 0.4627451, a: 0.19607843}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5369,7 +5443,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1233309683}
+      - m_Target: {fileID: 324751678}
         m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
         m_MethodName: OnButtonClose
         m_Mode: 1
@@ -6256,6 +6330,7 @@ GameObject:
   - component: {fileID: 1049529901}
   - component: {fileID: 1049529900}
   - component: {fileID: 1049529902}
+  - component: {fileID: 1049529903}
   m_Layer: 5
   m_Name: UpgradeArrow
   m_TagString: Untagged
@@ -6336,6 +6411,32 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &1049529903
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049529898}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.19318104, y: -0.9510989}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.683794, y: 32.34072}
+  m_EdgeRadius: 0
 --- !u!1 &1056606796
 GameObject:
   m_ObjectHideFlags: 0
@@ -6717,7 +6818,7 @@ Transform:
   m_GameObject: {fileID: 1109646515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 8, z: 1}
+  m_LocalScale: {x: 3, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 1852934400}
   m_RootOrder: 2
@@ -7239,6 +7340,7 @@ GameObject:
   - component: {fileID: 1153088252}
   - component: {fileID: 1153088251}
   - component: {fileID: 1153088253}
+  - component: {fileID: 1153088254}
   m_Layer: 5
   m_Name: UpgradeArrow
   m_TagString: Untagged
@@ -7319,6 +7421,32 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &1153088254
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153088249}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.19318104, y: -0.9510989}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.683794, y: 32.34072}
+  m_EdgeRadius: 0
 --- !u!1 &1155184000
 GameObject:
   m_ObjectHideFlags: 0
@@ -7719,7 +7847,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.6575001, y: -1.86}
+  m_AnchoredPosition: {x: 2.3, y: -44.9}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1182856260
@@ -8080,7 +8208,6 @@ GameObject:
   - component: {fileID: 1233309681}
   - component: {fileID: 1233309680}
   - component: {fileID: 1233309679}
-  - component: {fileID: 1233309683}
   - component: {fileID: 1233309684}
   m_Layer: 5
   m_Name: UI Appear
@@ -8175,26 +8302,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1233309683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233309678}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3c0d8b87f2fa9541be606bf7a864062, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pausePanel: {fileID: 2041553452}
-  confirmPanel: {fileID: 1248880564}
-  towers:
-  - {fileID: 1635791835}
-  - {fileID: 1152451190}
-  - {fileID: 1713674340}
-  - {fileID: 160588622}
-  creditsCount: {fileID: 1597920755}
 --- !u!114 &1233309684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8209,6 +8316,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryPanel: {fileID: 1938888410}
   defeatPanel: {fileID: 1553057717}
+  adButtons:
+  - {fileID: 1261925010}
+  - {fileID: 1977945729}
   towers:
   - {fileID: 1635791835}
   - {fileID: 1152451190}
@@ -8309,6 +8419,7 @@ GameObject:
   - component: {fileID: 1238999743}
   - component: {fileID: 1238999742}
   - component: {fileID: 1238999744}
+  - component: {fileID: 1238999745}
   m_Layer: 5
   m_Name: UpgradeArrow
   m_TagString: Untagged
@@ -8389,6 +8500,32 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!61 &1238999745
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238999740}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.19318104, y: -0.9510989}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.683794, y: 32.34072}
+  m_EdgeRadius: 0
 --- !u!114 &1242163671 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2888170260789091271, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
@@ -8443,7 +8580,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.6575, y: 1.86}
+  m_AnchoredPosition: {x: -2.1, y: 45}
   m_SizeDelta: {x: 536.91, y: 341.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1252099329
@@ -8496,6 +8633,8 @@ GameObject:
   - component: {fileID: 1261925014}
   - component: {fileID: 1261925013}
   - component: {fileID: 1261925012}
+  - component: {fileID: 1261925016}
+  - component: {fileID: 1261925015}
   m_Layer: 5
   m_Name: AdButton
   m_TagString: Untagged
@@ -8512,7 +8651,7 @@ RectTransform:
   m_GameObject: {fileID: 1261925010}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000799, y: 1.0000799, z: 1.0000799}
+  m_LocalScale: {x: 1.0000799, y: 1.00008, z: 1.00008}
   m_Children: []
   m_Father: {fileID: 1553057718}
   m_RootOrder: 7
@@ -8541,7 +8680,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -8604,6 +8743,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1261925010}
   m_CullTransparentMesh: 1
+--- !u!95 &1261925015
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261925010}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ecae06ac851d3a14f883c8d5c5094708, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1261925016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261925010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72bdd6085127824eb01854779af1433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1265924756
 GameObject:
   m_ObjectHideFlags: 0
@@ -8696,6 +8866,7 @@ GameObject:
   - component: {fileID: 1291601971}
   - component: {fileID: 1291601975}
   - component: {fileID: 1291601970}
+  - component: {fileID: 1291601974}
   m_Layer: 5
   m_Name: LeftButton
   m_TagString: Untagged
@@ -8778,6 +8949,25 @@ RectTransform:
   m_AnchoredPosition: {x: -344.62, y: -100.34}
   m_SizeDelta: {x: 270.7, y: 416.35}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1291601974
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291601969}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce29152b8c8d3c6418ebbfaf876f7ab2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1291601975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8797,7 +8987,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -9131,7 +9321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09838911, g: 0.6320754, b: 0.13330588, a: 0.13333334}
+  m_Color: {r: 0.003921569, g: 0.7294118, b: 0.4627451, a: 0.19607843}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9721,6 +9911,7 @@ GameObject:
   - component: {fileID: 1424173970}
   - component: {fileID: 1424173969}
   - component: {fileID: 1424173968}
+  - component: {fileID: 1424173973}
   m_Layer: 5
   m_Name: RightButton
   m_TagString: Untagged
@@ -9762,7 +9953,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -9847,6 +10038,25 @@ RectTransform:
   m_AnchoredPosition: {x: 351.3, y: -100.34}
   m_SizeDelta: {x: 270.7, y: 416.35}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1424173973
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424173967}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce29152b8c8d3c6418ebbfaf876f7ab2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1426588754
 GameObject:
   m_ObjectHideFlags: 0
@@ -10257,7 +10467,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1233309683}
+      - m_Target: {fileID: 324751678}
         m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
         m_MethodName: OnButtonContinue
         m_Mode: 1
@@ -10793,7 +11003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.09838911, g: 0.6320754, b: 0.13330588, a: 0.13333334}
+  m_Color: {r: 0.003921569, g: 0.7294118, b: 0.4627451, a: 0.19607843}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11453,7 +11663,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -40.9, y: -5.0811}
-  m_SizeDelta: {x: 160, y: 42.68}
+  m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1597920755
 MonoBehaviour:
@@ -11799,6 +12009,7 @@ GameObject:
   - component: {fileID: 1630707672}
   - component: {fileID: 1630707671}
   - component: {fileID: 1630707670}
+  - component: {fileID: 1630707673}
   m_Layer: 5
   m_Name: MusicButton
   m_TagString: Untagged
@@ -11869,7 +12080,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1233309683}
+      - m_Target: {fileID: 324751678}
         m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
         m_MethodName: OnButtonMusic
         m_Mode: 1
@@ -11919,6 +12130,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1630707668}
   m_CullTransparentMesh: 1
+--- !u!114 &1630707673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630707668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54c8f89fdefcca4a802a63b1de0859b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonSprite: {fileID: 1630707671}
+  spriteActive: {fileID: -2731042161240315999, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
+  spriteDeactive: {fileID: -1959075992214118461, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
 --- !u!1 &1635791835
 GameObject:
   m_ObjectHideFlags: 0
@@ -12997,7 +13223,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1233309683}
+      - m_Target: {fileID: 324751678}
         m_TargetAssemblyTypeName: PausePanel, Assembly-CSharp
         m_MethodName: OnButtonCancel
         m_Mode: 1
@@ -13581,14 +13807,14 @@ MonoBehaviour:
     enemiesCountLeft: 
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountBot: 07000000
+    enemiesCountBot: 08000000
   - moneyForWave: 5
     seconds: 60
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountRight: 09000000
     enemiesTop:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     enemiesCountTop: 01000000
     enemiesLeft: []
     enemiesCountLeft: 
@@ -13602,7 +13828,7 @@ MonoBehaviour:
     enemiesCountTop: 
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountLeft: 0a000000
+    enemiesCountLeft: 0b000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountBot: 02000000
@@ -13617,7 +13843,8 @@ MonoBehaviour:
     enemiesCountLeft: 
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountBot: 03000000
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemiesCountBot: 0200000001000000
   - moneyForWave: 5
     seconds: 120
     enemiesRight: []
@@ -13627,19 +13854,20 @@ MonoBehaviour:
     enemiesCountTop: 05000000
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountLeft: 0b000000
+    enemiesCountLeft: 0d000000
     enemiesBot: []
     enemiesCountBot: 
   - moneyForWave: 10
     seconds: 140
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountRight: 0a000000
+    enemiesCountRight: 0b000000
     enemiesTop: []
     enemiesCountTop: 
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountLeft: 05000000
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemiesCountLeft: 0500000001000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountBot: 03000000
@@ -13647,7 +13875,7 @@ MonoBehaviour:
     seconds: 165
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountRight: 04000000
+    enemiesCountRight: 06000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountTop: 03000000
@@ -13656,11 +13884,11 @@ MonoBehaviour:
     enemiesCountLeft: 0e000000
     enemiesBot: []
     enemiesCountBot: 
-  - moneyForWave: 15
+  - moneyForWave: 10
     seconds: 190
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountRight: 0c000000
+    enemiesCountRight: 0e000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountTop: 02000000
@@ -13670,50 +13898,40 @@ MonoBehaviour:
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountBot: 05000000
-  - moneyForWave: 15
+  - moneyForWave: 10
     seconds: 215
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountRight: 06000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountTop: 04000000
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemiesCountTop: 0400000001000000
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountLeft: 0a000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountBot: 05000000
-  - moneyForWave: 20
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemiesCountBot: 0500000001000000
+  - moneyForWave: 15
     seconds: 240
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountRight: 0b000000
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemiesCountRight: 0b00000002000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountTop: 05000000
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountLeft: 06000000
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemiesCountLeft: 0600000001000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountBot: 04000000
-  - moneyForWave: 20
+  - moneyForWave: 15
     seconds: 265
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountRight: 05000000
-    enemiesTop:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountTop: 05000000
-    enemiesLeft:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountLeft: 0c000000
-    enemiesBot:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountBot: 06000000
-  - moneyForWave: 20
-    seconds: 290
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
@@ -13723,7 +13941,23 @@ MonoBehaviour:
     enemiesCountTop: 05000000
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountLeft: 0b000000
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemiesCountLeft: 0c00000002000000
+    enemiesBot:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    enemiesCountBot: 05000000
+  - moneyForWave: 15
+    seconds: 290
+    enemiesRight:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemiesCountRight: 0900000003000000
+    enemiesTop:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    enemiesCountTop: 05000000
+    enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    enemiesCountLeft: 0c000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountBot: 06000000
@@ -13738,51 +13972,47 @@ MonoBehaviour:
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 0400000002000000
+    enemiesCountLeft: 0300000007000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountBot: 05000000
   - moneyForWave: 20
     seconds: 340
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountRight: 08000000
-    enemiesTop:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountTop: 05000000
+    enemiesRight: []
+    enemiesCountRight: 
+    enemiesTop: []
+    enemiesCountTop: 
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountLeft: 0b000000
+    enemiesCountLeft: 1e000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountBot: 0500000002000000
-  - moneyForWave: 25
+    enemiesCountBot: 0500000004000000
+  - moneyForWave: 20
     seconds: 365
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountRight: 0c000000
+    enemiesCountRight: 15000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountTop: 0400000003000000
+    enemiesCountTop: 0500000006000000
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountLeft: 08000000
-    enemiesBot:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountBot: 06000000
+    enemiesBot: []
+    enemiesCountBot: 
   - moneyForWave: 25
     seconds: 390
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountRight: 06000000
-    enemiesTop:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountTop: 07000000
+    enemiesRight: []
+    enemiesCountRight: 
+    enemiesTop: []
+    enemiesCountTop: 
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountLeft: 0f000000
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemiesCountLeft: 1e00000005000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
@@ -13792,141 +14022,50 @@ MonoBehaviour:
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountRight: 0800000005000000
+    enemiesCountRight: 1700000005000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountTop: 0400000001000000
-    enemiesLeft:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountLeft: 08000000
+    enemiesCountTop: 0800000004000000
+    enemiesLeft: []
+    enemiesCountLeft: 
     enemiesBot:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountBot: 09000000
-  - moneyForWave: 30
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountBot: 01000000
+  - moneyForWave: 25
     seconds: 440
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountRight: 07000000
-    enemiesTop:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountTop: 05000000
+    enemiesRight: []
+    enemiesCountRight: 
+    enemiesTop: []
+    enemiesCountTop: 
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 0800000006000000
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountLeft: 0e0000000800000004000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountBot: 0400000004000000
+    enemiesCountBot: 0600000004000000
   - moneyForWave: 30
     seconds: 465
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountRight: 0500000008000000
-    enemiesTop:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountTop: 05000000
-    enemiesLeft:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 0400000006000000
-    enemiesBot:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountBot: 04000000
-  - moneyForWave: 30
-    seconds: 490
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountRight: 09000000
-    enemiesTop:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountTop: 0300000006000000
-    enemiesLeft:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountLeft: 08000000
-    enemiesBot:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountBot: 0400000005000000
-  - moneyForWave: 30
-    seconds: 515
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountRight: 030000000c000000
-    enemiesTop:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountTop: 0200000002000000
-    enemiesLeft:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 0400000003000000
-    enemiesBot:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountBot: 05000000
-  - moneyForWave: 35
-    seconds: 540
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountRight: 0300000004000000
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountRight: 100000000b00000003000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemiesCountTop: 04000000
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 030000000c000000
-    enemiesBot:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountBot: 0200000003000000
-  - moneyForWave: 35
-    seconds: 565
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountRight: 0300000003000000
-    enemiesTop:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountTop: 0300000002000000
-    enemiesLeft:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 0300000004000000
-    enemiesBot:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountBot: 020000000b000000
-  - moneyForWave: 35
-    seconds: 590
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountRight: 0400000005000000
-    enemiesTop:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountTop: 020000000a000000
-    enemiesLeft:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 0200000004000000
-    enemiesBot:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountBot: 0300000002000000
-  - moneyForWave: 40
-    seconds: 615
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountRight: 030000000c000000
+    enemiesCountLeft: 08000000
+    enemiesBot: []
+    enemiesCountBot: 
+  - moneyForWave: 30
+    seconds: 495
+    enemiesRight: []
+    enemiesCountRight: 
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
@@ -13934,295 +14073,345 @@ MonoBehaviour:
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 0500000004000000
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountLeft: 0f0000000a00000003000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     enemiesCountBot: 0400000003000000
-  - moneyForWave: 45
-    seconds: 640
+  - moneyForWave: 30
+    seconds: 520
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountRight: 0100000006000000
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountRight: 140000000c00000005000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountTop: 0200000004000000
+    enemiesCountTop: 0300000002000000
+    enemiesLeft: []
+    enemiesCountLeft: 
+    enemiesBot: []
+    enemiesCountBot: 
+  - moneyForWave: 35
+    seconds: 545
+    enemiesRight: []
+    enemiesCountRight: 
+    enemiesTop: []
+    enemiesCountTop: 
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 030000000e000000
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountLeft: 120000000a00000005000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountBot: 0400000003000000
-  - moneyForWave: 45
+    enemiesCountBot: 0600000005000000
+  - moneyForWave: 35
+    seconds: 570
+    enemiesRight:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountRight: 110000000600000005000000
+    enemiesTop:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemiesCountTop: 0300000002000000
+    enemiesLeft: []
+    enemiesCountLeft: 
+    enemiesBot:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemiesCountBot: 0b000000
+  - moneyForWave: 35
+    seconds: 595
+    enemiesRight: []
+    enemiesCountRight: 
+    enemiesTop:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemiesCountTop: 0700000005000000
+    enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountLeft: 160000000b00000005000000
+    enemiesBot: []
+    enemiesCountBot: 
+  - moneyForWave: 40
+    seconds: 615
+    enemiesRight:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountRight: 110000000c00000006000000
+    enemiesTop: []
+    enemiesCountTop: 
+    enemiesLeft: []
+    enemiesCountLeft: 
+    enemiesBot:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountBot: 020000000300000004000000
+  - moneyForWave: 40
+    seconds: 640
+    enemiesRight: []
+    enemiesCountRight: 
+    enemiesTop:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountTop: 020000000400000003000000
+    enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountLeft: 150000000e00000005000000
+    enemiesBot: []
+    enemiesCountBot: 
+  - moneyForWave: 40
     seconds: 665
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountRight: 0300000005000000
-    enemiesTop:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountTop: 0400000003000000
-    enemiesLeft:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountLeft: 040000000300000004000000
+    enemiesCountRight: 190000000900000005000000
+    enemiesTop:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemiesCountTop: 03000000
+    enemiesLeft: []
+    enemiesCountLeft: 
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountBot: 0500000006000000
-  - moneyForWave: 50
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountBot: 040000000600000002000000
+  - moneyForWave: 45
     seconds: 690
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountRight: 010000000500000006000000
+    enemiesRight: []
+    enemiesCountRight: 
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountTop: 0300000004000000
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountTop: 030000000400000002000000
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 0400000006000000
-    enemiesBot:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountBot: 0300000004000000
-  - moneyForWave: 50
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountLeft: 200000000900000007000000
+    enemiesBot: []
+    enemiesCountBot: 
+  - moneyForWave: 45
     seconds: 715
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountRight: 0400000006000000
-    enemiesTop:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountTop: 0400000004000000
-    enemiesLeft:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 0200000006000000
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountRight: 11000000060000000c000000
+    enemiesTop: []
+    enemiesCountTop: 
+    enemiesLeft: []
+    enemiesCountLeft: 
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 040000000500000004000000
-  - moneyForWave: 55
+  - moneyForWave: 45
     seconds: 740
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountRight: 0400000005000000
+    enemiesRight: []
+    enemiesCountRight: 
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountTop: 030000000400000005000000
+    enemiesCountTop: 030000000400000002000000
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 0400000006000000
-    enemiesBot:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountBot: 0500000004000000
-  - moneyForWave: 55
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountLeft: 210000000c00000007000000
+    enemiesBot: []
+    enemiesCountBot: 
+  - moneyForWave: 50
     seconds: 765
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountRight: 020000000500000006000000
-    enemiesTop:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountTop: 0400000004000000
-    enemiesLeft:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 0500000006000000
+    enemiesCountRight: 1c0000000c00000008000000
+    enemiesTop: []
+    enemiesCountTop: 
+    enemiesLeft: []
+    enemiesCountLeft: 
     enemiesBot:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountBot: 0500000003000000
-  - moneyForWave: 60
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
+    enemiesCountBot: 040000000300000001000000
+  - moneyForWave: 50
     seconds: 790
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountRight: 0300000007000000
-    enemiesTop:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountTop: 0400000005000000
+    enemiesRight: []
+    enemiesCountRight: 
+    enemiesTop: []
+    enemiesCountTop: 
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountLeft: 030000000400000006000000
+    enemiesCountLeft: 220000000f00000009000000
     enemiesBot:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountBot: 030000000300000001000000
-  - moneyForWave: 60
+    - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
+    enemiesCountBot: 02000000
+  - moneyForWave: 50
     seconds: 815
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountRight: 010000000400000003000000
+    enemiesCountRight: 160000000c0000000a000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountTop: 040000000300000005000000
-    enemiesLeft:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 0200000008000000
-    enemiesBot:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountBot: 0200000005000000
-  - moneyForWave: 65
+    - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
+    enemiesCountTop: 04000000030000000500000001000000
+    enemiesLeft: []
+    enemiesCountLeft: 
+    enemiesBot: []
+    enemiesCountBot: 
+  - moneyForWave: 50
     seconds: 840
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountRight: 0400000006000000
-    enemiesTop:
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountTop: 0300000002000000
+    enemiesRight: []
+    enemiesCountRight: 
+    enemiesTop: []
+    enemiesCountTop: 
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 0500000008000000
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountLeft: 1f0000000e00000009000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 020000000400000005000000
-  - moneyForWave: 65
+  - moneyForWave: 55
     seconds: 865
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountRight: 010000000300000008000000
+    enemiesCountRight: 170000000a00000009000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountTop: 06000000
+    enemiesCountTop: 07000000
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountLeft: 020000000400000004000000
+    enemiesCountLeft: 030000000400000004000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     enemiesCountBot: 05000000
-  - moneyForWave: 70
+  - moneyForWave: 55
     seconds: 890
     enemiesRight:
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountRight: 0400000005000000
+    - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
+    enemiesCountRight: 0500000001000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     enemiesCountTop: 07000000
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountLeft: 0300000005000000
+    enemiesCountLeft: 160000000a000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountBot: 0600000002000000
-  - moneyForWave: 70
+    enemiesCountBot: 0500000002000000
+  - moneyForWave: 55
     seconds: 915
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountRight: 0500000005000000
+    enemiesCountRight: 190000000c000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountTop: 0300000004000000
+    enemiesCountTop: 0300000005000000
     enemiesLeft:
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemiesCountLeft: 09000000
-    enemiesBot:
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountBot: 0400000003000000
-  - moneyForWave: 75
+    - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
+    enemiesCountLeft: 04000000
+    enemiesBot: []
+    enemiesCountBot: 
+  - moneyForWave: 60
     seconds: 940
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountRight: 0400000005000000
+    enemiesRight: []
+    enemiesCountRight: 
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountTop: 0500000003000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountLeft: 0400000006000000
+    - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
+    enemiesCountLeft: 0e000000090000000c00000005000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 0600000002000000
-  - moneyForWave: 75
+  - moneyForWave: 60
     seconds: 965
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountRight: 0500000006000000
+    - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
+    enemiesCountRight: 0c0000000c00000008000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountTop: 0400000002000000
-    enemiesLeft:
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountLeft: 0600000005000000
+    enemiesLeft: []
+    enemiesCountLeft: 
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 0500000004000000
-  - moneyForWave: 80
+  - moneyForWave: 60
     seconds: 990
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountRight: 0600000004000000
+    enemiesCountRight: 0200000004000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountTop: 0400000006000000
+    enemiesCountTop: 0400000005000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountLeft: 0700000004000000
+    - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
+    enemiesCountLeft: 0f000000100000000700000003000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 0300000005000000
-  - moneyForWave: 80
+  - moneyForWave: 65
     seconds: 1015
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountRight: 0700000009000000
+    - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
+    enemiesCountRight: 0f0000000c00000005000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
@@ -14230,115 +14419,124 @@ MonoBehaviour:
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountLeft: 0800000007000000
+    enemiesCountLeft: 0600000007000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 0200000003000000
-  - moneyForWave: 85
+  - moneyForWave: 65
     seconds: 1040
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountRight: 0500000006000000
+    enemiesCountRight: 0400000006000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountTop: 0500000005000000
+    enemiesCountTop: 0500000004000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountLeft: 0600000007000000
+    - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
+    enemiesCountLeft: 150000000c0000000800000004000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 0400000001000000
-  - moneyForWave: 85
+  - moneyForWave: 65
     seconds: 1065
     enemiesRight:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountRight: 0700000006000000
+    enemiesCountRight: 140000000800000006000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountTop: 0700000002000000
+    enemiesCountTop: 0600000002000000
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountLeft: 0500000006000000
+    - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
+    enemiesCountLeft: 070000000800000005000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 05000000
-  - moneyForWave: 85
+  - moneyForWave: 70
     seconds: 1090
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountRight: 060000000800000005000000
-    enemiesTop:
-    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountTop: 03000000
-    enemiesLeft:
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountLeft: 0500000007000000
-    enemiesBot:
-    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountBot: 03000000
-  - moneyForWave: 90
-    seconds: 1115
-    enemiesRight:
-    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountRight: 0600000004000000
+    enemiesCountRight: 0f0000000700000006000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountTop: 02000000
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountLeft: 150000000b000000
+    enemiesBot:
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountBot: 03000000
+  - moneyForWave: 70
+    seconds: 1115
+    enemiesRight:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountLeft: 070000000a00000007000000
+    enemiesCountRight: 090000000800000007000000
+    enemiesTop:
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountTop: 04000000
+    enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
+    enemiesCountLeft: 080000000b00000006000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemiesCountBot: 02000000
-  - moneyForWave: 90
+  - moneyForWave: 70
     seconds: 1140
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountRight: 05000000
+    enemiesCountRight: 08000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountTop: 0600000004000000
+    enemiesCountTop: 0500000004000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountLeft: 04000000
+    enemiesCountLeft: 1c0000001000000004000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 0900000005000000
-  - moneyForWave: 95
+  - moneyForWave: 75
     seconds: 1165
     enemiesRight:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountRight: 0b00000008000000
+    enemiesCountRight: 0e0000000f00000008000000
     enemiesTop: []
     enemiesCountTop: 
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountLeft: 0a00000007000000
+    enemiesCountLeft: 080000000a00000007000000
     enemiesBot: []
     enemiesCountBot: 
-  - moneyForWave: 95
+  - moneyForWave: 75
     seconds: 1190
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCountRight: 06000000
+    enemiesCountRight: 05000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14346,16 +14544,18 @@ MonoBehaviour:
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountLeft: 0c00000009000000
+    - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
+    enemiesCountLeft: 0b0000000a00000006000000
     enemiesBot: []
     enemiesCountBot: 
-  - moneyForWave: 100
+  - moneyForWave: 75
     seconds: 1215
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountRight: 080000000c0000000a000000
+    - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
+    enemiesCountRight: 160000000c0000000a00000003000000
     enemiesTop: []
     enemiesCountTop: 
     enemiesLeft: []
@@ -14364,7 +14564,7 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 0800000006000000
-  - moneyForWave: 100
+  - moneyForWave: 80
     seconds: 1240
     enemiesRight: []
     enemiesCountRight: 
@@ -14373,17 +14573,19 @@ MonoBehaviour:
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountLeft: 0f0000000b000000
+    - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
+    enemiesCountLeft: 0f0000000b00000006000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 0800000007000000
-  - moneyForWave: 100
+  - moneyForWave: 80
     seconds: 1265
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountRight: 0e0000000c000000
+    - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
+    enemiesCountRight: 0e0000000c00000006000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14392,7 +14594,7 @@ MonoBehaviour:
     enemiesCountLeft: 
     enemiesBot: []
     enemiesCountBot: 
-  - moneyForWave: 105
+  - moneyForWave: 80
     seconds: 1290
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
@@ -14401,45 +14603,50 @@ MonoBehaviour:
     enemiesTop: []
     enemiesCountTop: 
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountLeft: 0500000009000000
+    - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
+    enemiesCountLeft: 03000000070000000900000005000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 0300000007000000
-  - moneyForWave: 105
+  - moneyForWave: 85
     seconds: 1315
-    enemiesRight: []
-    enemiesCountRight: 
+    enemiesRight:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemiesCountRight: 1500000012000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountTop: 0700000008000000
     enemiesLeft:
-    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountLeft: 0b0000000a000000
+    enemiesCountLeft: 0a000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 0400000006000000
-  - moneyForWave: 105
+  - moneyForWave: 85
     seconds: 1340
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountRight: 090000000c000000
+    - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
+    enemiesCountRight: 0a0000000c00000007000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountTop: 07000000
+    enemiesCountTop: 05000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountLeft: 08000000
+    enemiesCountLeft: 0200000008000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 06000000
-  - moneyForWave: 105
+  - moneyForWave: 85
     seconds: 1365
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
@@ -14450,19 +14657,22 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountTop: 0200000004000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountLeft: 0400000006000000
+    - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
+    enemiesCountLeft: 04000000060000000800000005000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 070000000b000000
-  - moneyForWave: 110
+  - moneyForWave: 90
     seconds: 1390
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountRight: 0200000006000000
+    - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
+    enemiesCountRight: 070000000700000006000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14475,38 +14685,44 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 0300000005000000
-  - moneyForWave: 110
+  - moneyForWave: 90
     seconds: 1415
     enemiesRight:
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountRight: 0b000000
+    enemiesCountRight: 080000000e000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountTop: 0200000007000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountLeft: 0600000008000000
+    enemiesCountLeft: 0d0000000c0000000600000008000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 05000000
-  - moneyForWave: 115
+  - moneyForWave: 90
     seconds: 1440
     enemiesRight:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountRight: 0a0000000c000000
+    enemiesCountRight: 0b000000080000000a0000000c000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountTop: 02000000
+    enemiesCountTop: 04000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountLeft: 07000000
+    enemiesCountLeft: 0500000008000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountBot: 03000000
-  - moneyForWave: 115
+    enemiesCountBot: 04000000
+  - moneyForWave: 95
     seconds: 1465
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14515,17 +14731,20 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountTop: 05000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountLeft: 0a000000
+    enemiesCountLeft: 100000000f000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 0700000009000000
-  - moneyForWave: 115
+  - moneyForWave: 95
     seconds: 1490
     enemiesRight:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountRight: 0c000000
+    enemiesCountRight: 26000000150000000c000000
     enemiesTop: []
     enemiesCountTop: 
     enemiesLeft:
@@ -14534,41 +14753,47 @@ MonoBehaviour:
     enemiesCountLeft: 0b0000000e000000
     enemiesBot: []
     enemiesCountBot: 
-  - moneyForWave: 120
+  - moneyForWave: 100
     seconds: 1515
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountRight: 05000000
+    enemiesCountRight: 08000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountTop: 070000000a000000
+    enemiesCountTop: 060000000a000000
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountLeft: 05000000
+    enemiesCountLeft: 07000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountBot: 0300000007000000
-  - moneyForWave: 120
+    enemiesCountBot: 070000000b000000
+  - moneyForWave: 100
     seconds: 1540
     enemiesRight:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountRight: 060000000c000000
+    enemiesCountRight: 0700000008000000080000000c000000
     enemiesTop: []
     enemiesCountTop: 
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountLeft: 040000000b000000
+    enemiesCountLeft: 0500000009000000060000000b000000
     enemiesBot: []
     enemiesCountBot: 
-  - moneyForWave: 120
+  - moneyForWave: 105
     seconds: 1565
     enemiesRight:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountRight: 08000000
+    enemiesCountRight: 170000000a00000008000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountTop: 04000000
@@ -14580,89 +14805,111 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 0300000008000000
-  - moneyForWave: 125
+  - moneyForWave: 105
     seconds: 1590
     enemiesRight:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountRight: 070000000c000000
+    enemiesCountRight: 0400000001000000070000000c000000
     enemiesTop:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountTop: 0500000009000000
+    enemiesCountTop: 06000000020000000500000009000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountLeft: 04000000
+    enemiesCountLeft: 080000001000000004000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 02000000
-  - moneyForWave: 125
+  - moneyForWave: 110
     seconds: 1615
     enemiesRight:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountRight: 07000000
+    enemiesCountRight: 070000000600000007000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountTop: 0500000007000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountLeft: 080000000b000000
+    enemiesCountLeft: 0b0000000a00000007000000080000000b000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountBot: 06000000
-  - moneyForWave: 125
+  - moneyForWave: 110
     seconds: 1640
     enemiesRight:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountRight: 070000000c000000
+    enemiesCountRight: 0800000007000000060000000c000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountTop: 04000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountLeft: 08000000
+    enemiesCountLeft: 12000000090000000500000008000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 0500000009000000
-  - moneyForWave: 125
+  - moneyForWave: 110
     seconds: 1665
     enemiesRight:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemiesCountRight: 06000000
+    enemiesCountRight: 2200000006000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountTop: 0500000005000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountLeft: 070000000e000000
+    enemiesCountLeft: 080000000700000006000000070000000e000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 0400000005000000
-  - moneyForWave: 125
+  - moneyForWave: 115
     seconds: 1690
     enemiesRight:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountRight: 090000000f000000
+    enemiesCountRight: 1000000007000000090000000f000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountTop: 0500000003000000
+    enemiesCountTop: 0700000003000000
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemiesCountLeft: 08000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountBot: 0600000004000000
-  - moneyForWave: 125
+    enemiesCountBot: 0600000005000000
+  - moneyForWave: 115
     seconds: 1715
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14672,18 +14919,23 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountTop: 05000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountLeft: 0a0000000c000000
+    enemiesCountLeft: 0f0000000c0000000a0000000c000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 05000000
-  - moneyForWave: 125
+  - moneyForWave: 115
     seconds: 1740
     enemiesRight:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountRight: 0900000008000000
+    enemiesCountRight: 0a00000006000000070000000800000008000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
@@ -14691,12 +14943,12 @@ MonoBehaviour:
     enemiesLeft:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountLeft: 0400000006000000
+    enemiesCountLeft: 0800000006000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 0400000005000000
-  - moneyForWave: 125
+  - moneyForWave: 120
     seconds: 1765
     enemiesRight:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
@@ -14707,27 +14959,36 @@ MonoBehaviour:
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountTop: 0500000004000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountLeft: 0600000007000000
+    enemiesCountLeft: 110000000c000000080000000600000007000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountBot: 070000000b000000
-  - moneyForWave: 125
+  - moneyForWave: 120
     seconds: 1790
     enemiesRight:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountRight: 080000000e000000
+    enemiesCountRight: 0a0000000400000002000000080000000e000000
     enemiesTop:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
     enemiesCountTop: 0600000005000000
     enemiesLeft:
+    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    - {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
-    enemiesCountLeft: 0800000007000000
+    enemiesCountLeft: 0900000003000000010000000800000007000000
     enemiesBot:
     - {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     - {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
@@ -14963,7 +15224,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_TargetDisplay: 0
 --- !u!1 &1903690656
 GameObject:
@@ -15338,6 +15599,8 @@ GameObject:
   - component: {fileID: 1977945733}
   - component: {fileID: 1977945732}
   - component: {fileID: 1977945731}
+  - component: {fileID: 1977945735}
+  - component: {fileID: 1977945734}
   m_Layer: 5
   m_Name: AdButton
   m_TagString: Untagged
@@ -15383,7 +15646,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -15446,6 +15709,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977945729}
   m_CullTransparentMesh: 1
+--- !u!95 &1977945734
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977945729}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ecae06ac851d3a14f883c8d5c5094708, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1977945735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977945729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72bdd6085127824eb01854779af1433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1988608886 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2888170260789091271, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}

@@ -29,6 +29,8 @@ public class Mortar : Tower
             newBullet.GetComponent<MortarProjectile>().targetPos = enemy.transform.position;
             
             shootDelayTimer = 1f / GetAttackSpeed();
+            
+            AudioManager.Instance.Play("MortarShot");
         }
     }
 }

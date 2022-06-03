@@ -10,7 +10,8 @@ public class TutorialPanel : MonoBehaviour
     public void OnButtonNext(int panelNum)
     {
         gameObject.SetActive(false);
-        
+        AudioManager.Instance.Play("ButtonClick1");
+
         if (panelNum == 1)
             Time.timeScale = 3;
         else
@@ -23,8 +24,9 @@ public class TutorialPanel : MonoBehaviour
 
     public void OnButtonPlay()
     {
-        SceneManager.LoadScene("GameField");
         PlayerPrefs.SetInt("isTutorialCompleted", 1);
+        AudioManager.Instance.Play("ButtonClick2");
+        SceneManager.LoadScene("GameField");
     }
     
     private void Update()

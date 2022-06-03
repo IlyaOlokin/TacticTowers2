@@ -13,6 +13,7 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         text = GetComponent<Text>();
+        isStopped = false;
         SetTimer(0);
     }
 

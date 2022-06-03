@@ -45,6 +45,8 @@ public class Railgun : Tower
             }
 
             shootDelayTimer = 1f / GetAttackSpeed();
+            
+            AudioManager.Instance.Play("RailgunShot");
         }
     }
 }
