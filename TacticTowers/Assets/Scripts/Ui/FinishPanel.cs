@@ -21,6 +21,7 @@ public class FinishPanel : MonoBehaviour
     [SerializeField] private Text creditsCount;
 
     private bool isSessionEdnded;
+    private bool wasMusicStopped;
 
     void Start()
     {
@@ -33,7 +34,7 @@ public class FinishPanel : MonoBehaviour
         AudioManager.Instance.Play("ButtonClick1");
         ShowCommonAd();
         Resume();
-        
+        ResumeMusic();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -43,7 +44,7 @@ public class FinishPanel : MonoBehaviour
         ShowCommonAd();
         Resume();
         
-        
+        ResumeMusic();
         SceneManager.LoadScene("MainMenu");
     }
     
@@ -52,7 +53,7 @@ public class FinishPanel : MonoBehaviour
         AudioManager.Instance.Play("ButtonClick2");
         ShowCommonAd();
         Resume();
-        
+        ResumeMusic();
         SceneManager.LoadScene("TechsMenu");
     }
 
@@ -60,11 +61,27 @@ public class FinishPanel : MonoBehaviour
     {
         Credits.AcceptSessionCredits();
         TechButtonHighlight.TryHighlight();
+        
+        
+        var audioManager = FindObjectOfType<AudioManager>();
+        var music = Array.Find(audioManager.Sounds, sound => sound.name == "MainTheme");
+
+        if (music.source.isPlaying)
+        {
+            audioManager.Stop("MainTheme");
+            wasMusicStopped = true;
+        }
+        
         FillTexts(currentPanel, true);
         foreach (var button in adButtons)
         {
             button.SetActive(false);
         }
+    }
+
+    private void ResumeMusic()
+    {
+        if (wasMusicStopped) AudioManager.Instance.Play("MainTheme");
     }
     
 
