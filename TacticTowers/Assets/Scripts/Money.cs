@@ -29,7 +29,6 @@ public class Money : MonoBehaviour
     {
         money -= cost;
         WriteMoney();
-
     }
 
     public static float GetMoney()

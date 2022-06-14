@@ -36,6 +36,8 @@ public class YandexSDK : MonoBehaviour
     private static extern void SetData(string data);    // Отправка данных - внешняя функция для связи с плагином
     [DllImport("__Internal")]
     private static extern void ShowRewardADV();    // Показ рекламы с наградой - внешняя функция для связи с плагином
+    [DllImport("__Internal")]
+    private static extern void SetLeaderBoard(int score);
     
     public event Action AuthSuccess;    //События
     public event Action DataGet;    //События
@@ -66,6 +68,11 @@ public class YandexSDK : MonoBehaviour
     {
         ShowRewardADV();
         RewardGet?.Invoke();
+    }
+
+    public void SetLeaderScore(int score)
+    {
+        SetLeaderBoard(score);
     }
     
     public void ResetSubscriptions() => RewardGet = null; 

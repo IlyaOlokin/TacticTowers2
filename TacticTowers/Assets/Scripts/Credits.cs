@@ -7,6 +7,8 @@ public static class Credits
     public static int credits;
     public static int creditsDuringSession;
 
+    public static int CreditsInTotal;
+
 
     public static void TakeCredits(int credits)
     {
@@ -16,7 +18,10 @@ public static class Credits
     public static void AddCredits(int credits)
     {
         Credits.credits += credits;
+        CreditsInTotal += credits;
         PlayerPrefs.SetString("Credits", Credits.credits.ToString());
+        PlayerPrefs.SetString("CreditsInTotal", CreditsInTotal.ToString());
+        YandexSDK.Instance.SetLeaderScore(CreditsInTotal);
     }
 
     public static void AddSessionCredits(int credits)
