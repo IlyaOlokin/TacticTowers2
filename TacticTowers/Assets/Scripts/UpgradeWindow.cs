@@ -27,10 +27,14 @@ public class UpgradeWindow : MonoBehaviour
 
     [NonSerialized] public TowerDrag td;
     [NonSerialized] public TowerUpgrade tu;
+    
+    private float startTimeScale = 1f;
 
     private void OnEnable()
     {
+        startTimeScale = Time.timeScale;
         Time.timeScale = 0;
+        
         AddUnlockedTowerTypes();
     }
 
@@ -48,7 +52,7 @@ public class UpgradeWindow : MonoBehaviour
 
     private void OnDisable()
     {
-        Time.timeScale = 1;
+        Time.timeScale = startTimeScale;
     }
 
     public void UpgradeTower(Tower tower)

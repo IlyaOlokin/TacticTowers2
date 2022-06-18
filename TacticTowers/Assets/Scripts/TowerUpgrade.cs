@@ -47,7 +47,7 @@ public class TowerUpgrade : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        pressTimer += Time.deltaTime;
+        pressTimer += Time.deltaTime / Time.timeScale;
     }
 
     private void OnMouseUp()
