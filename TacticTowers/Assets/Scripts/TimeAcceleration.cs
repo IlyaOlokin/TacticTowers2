@@ -38,5 +38,6 @@ public class TimeAcceleration : MonoBehaviour
         int newTimeScale = timeScales[currentTimeScaleIndex];
         Time.timeScale = newTimeScale;
         text.text = newTimeScale + "X";
+        AudioManager.Instance.Play("ButtonClick1");
     }
 }
