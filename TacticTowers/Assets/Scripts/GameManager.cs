@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
@@ -15,14 +15,5 @@ public class GameManager : MonoBehaviour
         {
             Money.AddMoney(100);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            Time.timeScale = 3;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Time.timeScale = 1;
-        }*/
-        
     }
 }
