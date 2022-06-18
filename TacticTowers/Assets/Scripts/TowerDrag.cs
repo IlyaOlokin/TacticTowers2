@@ -86,14 +86,18 @@ public class TowerDrag : MonoBehaviour
 
     private void PlaceTower()
     {
-        if (dragging) Instantiate(smokeEffect, transform.position, Quaternion.identity);
+        if (dragging)
+        {
+            Instantiate(smokeEffect, transform.position, Quaternion.identity);
+            FindObjectOfType<AudioManager>().Play("Landing");
+        }
         dragging = false;
         tower.canShoot = true;
         triedToDrag = false;
         navMeshObstacle.enabled = true;
         collider2D.isTrigger = false;
         conflicts = 0;
-        FindObjectOfType<AudioManager>().Play("Landing");
+        
     }
 
     private void StartDragging()

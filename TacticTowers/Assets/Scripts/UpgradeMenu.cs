@@ -10,13 +10,18 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] private Text towerLevel;
     [SerializeField] private Text towerLevelConst;
     [SerializeField] private Text nextUpgradeCost;
+    [SerializeField] private Animation animation;
     
-    
+    private void OnEnable()
+    {
+        animation = GetComponent<Animation>();
+    }
+
     void Update()
     {
         if (Input.GetMouseButton(0) && !mouseOn)
         {
-            gameObject.SetActive(false);
+            DeactivateMenu();
         }
     }
 
@@ -39,5 +44,16 @@ public class UpgradeMenu : MonoBehaviour
         else
             nextUpgradeCost.text = cost + "$";
         
+    }
+
+    public void ActivateMenu()
+    {
+        animation.Stop("UpgradeMenuAnimation");
+        animation.Play("UpgradeMenuAnimation");
+    }
+    
+    private void DeactivateMenu()
+    {
+        gameObject.SetActive(false);
     }
 }
