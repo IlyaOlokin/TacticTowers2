@@ -121,9 +121,9 @@ public class FinishPanel : MonoBehaviour
     {
         panel.transform.Find("WaveCount").transform.Find("Count").GetComponent<Text>().text = waveText.text;
         if (isCreditsDoubled)
-            panel.transform.Find("CreditsCount").transform.Find("Count").GetComponent<Text>().text = (Credits.creditsDuringSession * 2).ToString();
+            panel.transform.Find("CreditsCount").transform.Find("Count").GetComponent<Text>().text = "+" + (Credits.creditsDuringSession * 2).ToString();
         else
-            panel.transform.Find("CreditsCount").transform.Find("Count").GetComponent<Text>().text = Credits.creditsDuringSession.ToString();
+            panel.transform.Find("CreditsCount").transform.Find("Count").GetComponent<Text>().text = "+" + Credits.creditsDuringSession.ToString();
         
     }
     
