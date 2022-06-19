@@ -487,6 +487,7 @@ GameObject:
   - component: {fileID: 33801872}
   - component: {fileID: 33801871}
   - component: {fileID: 33801870}
+  - component: {fileID: 33801875}
   m_Layer: 5
   m_Name: UpgradeMenu
   m_TagString: Untagged
@@ -579,6 +580,7 @@ MonoBehaviour:
   towerLevel: {fileID: 2076212351}
   towerLevelConst: {fileID: 1924722705}
   nextUpgradeCost: {fileID: 933868638}
+  animation: {fileID: 0}
 --- !u!114 &33801873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,6 +619,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33801868}
   m_CullTransparentMesh: 1
+--- !u!111 &33801875
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33801868}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 54f4fb69183703443850dd06922451c1, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &35532570
 GameObject:
   m_ObjectHideFlags: 0
@@ -8212,6 +8230,7 @@ GameObject:
   - component: {fileID: 1006881107}
   - component: {fileID: 1006881106}
   - component: {fileID: 1006881105}
+  - component: {fileID: 1006881110}
   m_Layer: 5
   m_Name: UpgradeMenu
   m_TagString: Untagged
@@ -8304,6 +8323,7 @@ MonoBehaviour:
   towerLevel: {fileID: 1999088102}
   towerLevelConst: {fileID: 563251931}
   nextUpgradeCost: {fileID: 164157584}
+  animation: {fileID: 0}
 --- !u!114 &1006881108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8342,6 +8362,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1006881103}
   m_CullTransparentMesh: 1
+--- !u!111 &1006881110
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006881103}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 54f4fb69183703443850dd06922451c1, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1078498672
 GameObject:
   m_ObjectHideFlags: 0
@@ -11317,7 +11353,7 @@ Animation:
   serializedVersion: 3
   m_Animation: {fileID: 0}
   m_Animations:
-  - {fileID: 7400000, guid: 54f4fb69183703443850dd06922451c1, type: 2}
+  - {fileID: 7400000, guid: 10ae08ef5d0389e4c99c8a0a16a400b2, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -13335,6 +13371,7 @@ MonoBehaviour:
   towerLevel: {fileID: 2107474054}
   towerLevelConst: {fileID: 652107023}
   nextUpgradeCost: {fileID: 1381167752}
+  animation: {fileID: 0}
 --- !u!114 &1797688495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14410,6 +14447,7 @@ MonoBehaviour:
   towerLevel: {fileID: 2008478788}
   towerLevelConst: {fileID: 1078498674}
   nextUpgradeCost: {fileID: 2056844123}
+  animation: {fileID: 0}
 --- !u!114 &1954201313
 MonoBehaviour:
   m_ObjectHideFlags: 0

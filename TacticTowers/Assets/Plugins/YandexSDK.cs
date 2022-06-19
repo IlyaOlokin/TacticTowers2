@@ -61,7 +61,7 @@ public class YandexSDK : MonoBehaviour
 
     public void ShowCommonAdvertisment()    // Показ обычной рекламы
     {
-        ShowCommonADV();
+        //ShowCommonADV();
     }
 
     public void ShowRewardedAdvertisment()
@@ -72,7 +72,7 @@ public class YandexSDK : MonoBehaviour
 
     public void SetLeaderScore(int score)
     {
-        SetLeaderBoard(score);
+        //SetLeaderBoard(score);
     }
     
     public void ResetSubscriptions() => RewardGet = null; 

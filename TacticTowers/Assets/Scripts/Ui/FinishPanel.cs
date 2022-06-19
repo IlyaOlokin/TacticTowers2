@@ -91,7 +91,7 @@ public class FinishPanel : MonoBehaviour
         if (_base.GetHp() <= 0)
         {
             currentPanel = defeatPanel;
-            adButtons[0].SetActive(true);
+            //adButtons[0].SetActive(true);
             FillTexts(currentPanel, false);
             currentPanel.SetActive(true);
             Pause();
@@ -106,7 +106,7 @@ public class FinishPanel : MonoBehaviour
             if (waveCount[0] == waveCount[1])
             {
                 currentPanel = victoryPanel;
-                adButtons[1].SetActive(true);
+                //adButtons[1].SetActive(true);
                 FillTexts(currentPanel, false);
                 currentPanel.SetActive(true);
                 Pause();
