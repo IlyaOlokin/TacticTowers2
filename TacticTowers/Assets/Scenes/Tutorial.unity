@@ -9524,6 +9524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpSlider: {fileID: 1419158722}
   maxHp: 100
+  canvas: {fileID: 1709861267}
 --- !u!58 &1297219495
 CircleCollider2D:
   m_ObjectHideFlags: 0

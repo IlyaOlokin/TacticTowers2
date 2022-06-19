@@ -159,6 +159,7 @@ public class FinishPanel : MonoBehaviour
         isSessionEnded = false;
         Resume(true);
         wasResurrectionUsed = true;
+        AudioManager.Instance.Play("ButtonClick2");
         var tempEnemies = new List<Enemy>();
         foreach (var e in EnemySpawner.enemies)
         {
@@ -173,6 +174,7 @@ public class FinishPanel : MonoBehaviour
     private void ShowDefeatPanel()
     {
         currentPanel = defeatPanel;
+        wasResurrectionUsed = true;
         //adButtons[0].SetActive(true);
         FillTexts(currentPanel, false);
         currentPanel.SetActive(true);
