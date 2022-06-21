@@ -8,10 +8,12 @@ public class Base : MonoBehaviour
 {
     [SerializeField] private Slider hpSlider;
     [SerializeField] private float maxHp;
+    [SerializeField] private Canvas canvas;
     private float hp;
 
-    private void Start()
+    private void Awake()
     {
+        canvas.worldCamera = Camera.main;
         maxHp *= Technologies.BaseHpMultiplier;
         hpSlider.maxValue = maxHp;
         hpSlider.value = maxHp;
@@ -29,4 +31,5 @@ public class Base : MonoBehaviour
     }
 
     public float GetHp() => hp;
+    public float GetMaxHp() => maxHp;
 }

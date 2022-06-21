@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
             OnDeath();
         }
     }
-    private void OnDeath()
+    public void OnDeath()
     {
         EnemySpawner.enemies.Remove(gameObject);
         Money.AddMoney(cost * Technologies.MoneyMultiplier);
