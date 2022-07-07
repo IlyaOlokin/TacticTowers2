@@ -16450,7 +16450,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1233309684}
         m_TargetAssemblyTypeName: FinishPanel, Assembly-CSharp
-        m_MethodName: Resurrection
+        m_MethodName: OnButtonResurrectionAd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

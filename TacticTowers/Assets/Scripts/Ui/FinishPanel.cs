@@ -39,8 +39,6 @@ public class FinishPanel : MonoBehaviour
     {
         baseTransform = _base.gameObject.transform.position;
         Credits.LoseSessionCredits();
-        YandexSDK.Instance.ResetSubscriptions();
-        YandexSDK.Instance.RewardGet += OnButtonRewardedAd;
     }
     public void OnButtonRestart()
     {
@@ -92,6 +90,11 @@ public class FinishPanel : MonoBehaviour
         }
     }
 
+    public void OnButtonResurrectionAd()
+    {
+        YandexSDK.Instance.ShowRewardedAdvertisment();
+    }
+
     private void ResumeMusic()
     {
         if (wasMusicStopped) AudioManager.Instance.Play("MainTheme");
@@ -119,16 +122,23 @@ public class FinishPanel : MonoBehaviour
 
             if (waveCount[0] == waveCount[1])
             {
-                currentPanel = victoryPanel;
-                //adButtons[1].SetActive(true);
-                FillTexts(currentPanel, false);
-                currentPanel.SetActive(true);
-                Pause();
-                Credits.AcceptSessionCredits();
-                isSessionEnded = true;
+                ShowVictoryPanel();
             }
         }
 
+    }
+
+    private void ShowVictoryPanel()
+    {
+        YandexSDK.Instance.ResetSubscriptions();
+        YandexSDK.Instance.RewardGet += OnButtonRewardedAd;
+        currentPanel = victoryPanel;
+        adButtons[1].SetActive(true);
+        FillTexts(currentPanel, false);
+        currentPanel.SetActive(true);
+        Pause();
+        Credits.AcceptSessionCredits();
+        isSessionEnded = true;
     }
 
     private void UpdateResurrectionPanel()
@@ -145,12 +155,14 @@ public class FinishPanel : MonoBehaviour
 
     private void ShowResurrectionPanel()
     {
+        YandexSDK.Instance.ResetSubscriptions();
+        YandexSDK.Instance.RewardGet += Resurrection;
         isSessionEnded = true;
         ResurrectionPanel.SetActive(true);
         timer = timeToReact;
     }
 
-    public void Resurrection()
+    private void Resurrection()
     {
         var newBase = Instantiate(basePrefab, baseTransform, Quaternion.identity);
         _base = newBase.GetComponent<Base>();
@@ -173,9 +185,11 @@ public class FinishPanel : MonoBehaviour
 
     private void ShowDefeatPanel()
     {
+        YandexSDK.Instance.ResetSubscriptions();
+        YandexSDK.Instance.RewardGet += OnButtonRewardedAd;
         currentPanel = defeatPanel;
         wasResurrectionUsed = true;
-        //adButtons[0].SetActive(true);
+        adButtons[0].SetActive(true);
         FillTexts(currentPanel, false);
         currentPanel.SetActive(true);
         Credits.AcceptSessionCredits();
