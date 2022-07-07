@@ -215,10 +215,9 @@ public class FinishPanel : MonoBehaviour
     
     private void ShowCommonAd()
     {
-        YandexSDK SDK = FindObjectOfType<YandexSDK>();
         try
         {
-            SDK.ShowCommonAdvertisment();
+            YandexSDK.Instance.ShowCommonAdvertisment();
         }
         catch (Exception e)
         {

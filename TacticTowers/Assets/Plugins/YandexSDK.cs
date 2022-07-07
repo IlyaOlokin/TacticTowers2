@@ -2,12 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Timers;
 using UnityEngine;
+using Timer = System.Threading.Timer;
 
 public class YandexSDK : MonoBehaviour
 {
     // Создание SINGLETON
     public static YandexSDK Instance;
+    
+    private float adTimer;
+    private float adCodldown = 300f;
+    private bool adAvailable;
     
     private void Awake()
     {
@@ -43,6 +49,12 @@ public class YandexSDK : MonoBehaviour
     public event Action DataGet;    //События
     public event Action RewardGet;  //События
 
+    void Update()
+    {
+        adTimer += Time.deltaTime / Time.timeScale;
+        adAvailable = adTimer >= adCodldown;
+    }
+
 
     public void Authenticate()    //    Авторизация
     {
@@ -61,7 +73,9 @@ public class YandexSDK : MonoBehaviour
 
     public void ShowCommonAdvertisment()    // Показ обычной рекламы
     {
-        //ShowCommonADV();
+        if (!adAvailable) return;
+        ShowCommonADV();
+        adTimer -= adCodldown;
     }
 
     public void ShowRewardedAdvertisment()
@@ -72,7 +86,7 @@ public class YandexSDK : MonoBehaviour
 
     public void SetLeaderScore(int score)
     {
-        //SetLeaderBoard(score);
+        SetLeaderBoard(score);
     }
     
     public void ResetSubscriptions() => RewardGet = null; 
