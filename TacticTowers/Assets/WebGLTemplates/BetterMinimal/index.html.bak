@@ -46,6 +46,7 @@
 		<script src="Build/{{{ LOADER_FILENAME }}}"></script>
 		<script>
 			var canvas = document.querySelector("#unity-canvas");
+			var unityI = null;
 			var config = {
 				dataUrl: "Build/{{{ DATA_FILENAME }}}",
 				frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
@@ -78,8 +79,8 @@
 				var h;
 
 				if (scaleToFit) {
-					w = window.innerWidth - 96;
-					h = window.innerHeight - 54;
+					w = window.innerWidth - 19;
+					h = window.innerHeight - 11;
 
 					var r = {{{ HEIGHT }}} / {{{ WIDTH }}};
 
@@ -98,6 +99,7 @@
 				container.style.left = Math.floor((window.innerWidth - w) / 2) + "px";
 			}
 			createUnityInstance(canvas, config, progressHandler).then(function (instance) {
+				unityI = instance;
 				canvas = instance.Module.canvas;
 				onResize();
 			});
@@ -105,6 +107,28 @@
 			onResize();
 		</script>
 	</div>
+	
+	<script>
+	var buildUrl = "Build";
+     var loaderUrl = buildUrl + "/v1.1.loader.js";
+	
+	var script = document.createElement("script");
+      var unityI = null;
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance().then((unityInstance) => {
+          unityI = unityInstance;
+		  console.info('unity?????????????')
+          loadingBar.style.display = "none";
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
 	
 	<script src="https://yandex.ru/games/sdk/v2"></script>
     <script>
@@ -207,7 +231,9 @@
             onRewarded: () => {
                 unityI.SendMessage('YandexSDK', 'RewardGetting');
                 console.log('Rewarded! Id: ' + id);},
-            onClose: () => {},
+            onClose: () => {
+				unityI.SendMessage('YandexSDK', 'RewardClose');
+                console.log('Rewarded! Id: ' + id);},},
             onError: (e) => {
                 var data = {"id" : id, "error" : error};
                 console.log('Error while open video ad:', e);

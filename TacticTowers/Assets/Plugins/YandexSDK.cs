@@ -11,7 +11,7 @@ public class YandexSDK : MonoBehaviour
     // Создание SINGLETON
     public static YandexSDK Instance;
     
-    private float adTimer;
+    private float adTimer = 0;
     private float adCodldown = 300f;
     private bool adAvailable;
     
@@ -26,7 +26,6 @@ public class YandexSDK : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        
         DontDestroyOnLoad(gameObject);
     }
 
@@ -51,8 +50,8 @@ public class YandexSDK : MonoBehaviour
 
     void Update()
     {
-        adTimer += Time.deltaTime / Time.timeScale;
-        adAvailable = adTimer >= adCodldown;
+        adTimer -= Time.fixedDeltaTime;
+        adAvailable = adTimer <= 0;
     }
 
 
@@ -74,8 +73,8 @@ public class YandexSDK : MonoBehaviour
     public void ShowCommonAdvertisment()    // Показ обычной рекламы
     {
         if (!adAvailable) return;
+        adTimer = adCodldown;
         ShowCommonADV();
-        adTimer -= adCodldown;
     }
 
     public void ShowRewardedAdvertisment()
@@ -84,6 +83,11 @@ public class YandexSDK : MonoBehaviour
     }
 
     public void RewardGetting()
+    {
+        //RewardGet?.Invoke();
+    }
+    
+    public void RewardClose()
     {
         RewardGet?.Invoke();
     }

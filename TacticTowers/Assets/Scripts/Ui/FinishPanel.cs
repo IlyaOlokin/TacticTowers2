@@ -32,6 +32,7 @@ public class FinishPanel : MonoBehaviour
     [SerializeField] private Text textTimer;
     [SerializeField] private float timeToReact;
     private float timer;
+    private bool isRewarding;
 
     
 
@@ -73,15 +74,7 @@ public class FinishPanel : MonoBehaviour
         Credits.AcceptSessionCredits();
         TechButtonHighlight.TryHighlight();
         
-        
-        var audioManager = FindObjectOfType<AudioManager>();
-        var music = Array.Find(audioManager.Sounds, sound => sound.name == "MainTheme");
-
-        if (music.source.isPlaying)
-        {
-            audioManager.Stop("MainTheme");
-            wasMusicStopped = true;
-        }
+        ResumeMusic();
         
         FillTexts(currentPanel, true);
         foreach (var button in adButtons)
@@ -92,7 +85,21 @@ public class FinishPanel : MonoBehaviour
 
     public void OnButtonResurrectionAd()
     {
+        isRewarding = true;
+        PauseMusik();
         YandexSDK.Instance.ShowRewardedAdvertisment();
+    }
+
+    public void PauseMusik()
+    {
+        var audioManager = FindObjectOfType<AudioManager>();
+        var music = Array.Find(audioManager.Sounds, sound => sound.name == "MainTheme");
+
+        if (music.source.isPlaying)
+        {
+            audioManager.Stop("MainTheme");
+            wasMusicStopped = true;
+        }
     }
 
     private void ResumeMusic()
@@ -100,7 +107,6 @@ public class FinishPanel : MonoBehaviour
         if (wasMusicStopped) AudioManager.Instance.Play("MainTheme");
     }
     
-
     private void Update()
     {
         if (isSessionEnded)
@@ -125,25 +131,42 @@ public class FinishPanel : MonoBehaviour
                 ShowVictoryPanel();
             }
         }
-
     }
 
     private void ShowVictoryPanel()
     {
         YandexSDK.Instance.ResetSubscriptions();
         YandexSDK.Instance.RewardGet += OnButtonRewardedAd;
+        YandexSDK.Instance.RewardGet += ResumeMusic;
         currentPanel = victoryPanel;
         adButtons[1].SetActive(true);
+        //adButtons[1].GetComponent<Button>().onClick.AddListener(PauseMusik);
         FillTexts(currentPanel, false);
         currentPanel.SetActive(true);
         Pause();
         Credits.AcceptSessionCredits();
         isSessionEnded = true;
     }
+    
+    private void ShowDefeatPanel()
+    {
+        YandexSDK.Instance.ResetSubscriptions();
+        YandexSDK.Instance.RewardGet += OnButtonRewardedAd;
+        YandexSDK.Instance.RewardGet += ResumeMusic;
+        currentPanel = defeatPanel;
+        wasResurrectionUsed = true;
+        adButtons[0].SetActive(true);
+        //adButtons[1].GetComponent<Button>().onClick.AddListener(PauseMusik);
+        FillTexts(currentPanel, false);
+        currentPanel.SetActive(true);
+        Credits.AcceptSessionCredits();
+        isSessionEnded = true;
+    }
 
     private void UpdateResurrectionPanel()
     {
-        timer -= Time.unscaledDeltaTime ;
+        if (isRewarding) return;
+        timer -= Time.unscaledDeltaTime;
         circleTimer.fillAmount = timer / timeToReact;
         textTimer.text = Math.Ceiling(timer).ToString();
         if (timer <= 0)
@@ -152,11 +175,12 @@ public class FinishPanel : MonoBehaviour
             ShowDefeatPanel();
         }
     }
-
+    
     private void ShowResurrectionPanel()
     {
         YandexSDK.Instance.ResetSubscriptions();
         YandexSDK.Instance.RewardGet += Resurrection;
+        YandexSDK.Instance.RewardGet += ResumeMusic;
         isSessionEnded = true;
         ResurrectionPanel.SetActive(true);
         timer = timeToReact;
@@ -164,6 +188,7 @@ public class FinishPanel : MonoBehaviour
 
     private void Resurrection()
     {
+        isRewarding = false;
         var newBase = Instantiate(basePrefab, baseTransform, Quaternion.identity);
         _base = newBase.GetComponent<Base>();
         _base.TakeDamage(_base.GetMaxHp() / 2f);
@@ -183,18 +208,7 @@ public class FinishPanel : MonoBehaviour
         }
     }
 
-    private void ShowDefeatPanel()
-    {
-        YandexSDK.Instance.ResetSubscriptions();
-        YandexSDK.Instance.RewardGet += OnButtonRewardedAd;
-        currentPanel = defeatPanel;
-        wasResurrectionUsed = true;
-        adButtons[0].SetActive(true);
-        FillTexts(currentPanel, false);
-        currentPanel.SetActive(true);
-        Credits.AcceptSessionCredits();
-        isSessionEnded = true;
-    }
+   
 
     private void FillTexts(GameObject panel, bool isCreditsDoubled)
     {

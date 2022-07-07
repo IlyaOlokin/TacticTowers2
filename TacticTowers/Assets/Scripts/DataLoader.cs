@@ -22,11 +22,13 @@ public class DataLoader : MonoBehaviour
         Credits.CreditsInTotal = int.Parse(PlayerPrefs.GetString("CreditsInTotal",  Credits.credits.ToString()));
 
         Technologies.MinUpgradePrice = PlayerPrefs.GetInt("minUpgradePrice", 10);
+        
+        YandexSDK.Instance.Authenticate();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
+        /*if (Input.GetKeyDown(KeyCode.N))
         {
             Credits.AddCredits(100);
         }
@@ -34,6 +36,6 @@ public class DataLoader : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             PlayerPrefs.DeleteAll();
-        }
+        }*/
     }
 }
