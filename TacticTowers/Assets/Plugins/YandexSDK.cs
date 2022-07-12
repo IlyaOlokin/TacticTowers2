@@ -26,6 +26,7 @@ public class YandexSDK : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        adTimer = adCodldown;
         DontDestroyOnLoad(gameObject);
     }
 
