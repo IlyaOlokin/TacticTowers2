@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -72,6 +73,7 @@ public class PausePanel : MonoBehaviour
 
     public void OnButtonContinue()
     {
+        ShowCommonAd();
         Resume();
         AudioManager.Instance.Play("ButtonClick1");
         Credits.LoseSessionCredits();
@@ -116,6 +118,18 @@ public class PausePanel : MonoBehaviour
             {
                 Pause();
             }
+        }
+    }
+    
+    private void ShowCommonAd()
+    {
+        try
+        {
+            YandexSDK.Instance.ShowCommonAdvertisment();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("add");
         }
     }
 }
