@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -87,7 +88,7 @@ public class PausePanel : MonoBehaviour
         pausePanel.SetActive(true);
         
         foreach (var tower in towers)
-            tower.GetComponent<CircleCollider2D>().enabled = false;
+            //tower.GetComponent<CircleCollider2D>().enabled = false;
         
         AudioManager.Instance.Play("ButtonClick2");
     }
@@ -116,6 +117,7 @@ public class PausePanel : MonoBehaviour
             }
             else if (!confirmPanel.activeInHierarchy)
             {
+                if (towers.Any(tower =>  tower.GetComponent<TowerDrag>().needToDrop)) return;
                 Pause();
             }
         }
