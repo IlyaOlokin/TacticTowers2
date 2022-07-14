@@ -14,6 +14,7 @@ public class TowerDrag : MonoBehaviour
     private Vector3 pressStartPos;
     [NonSerialized] public bool dragging;
     private bool triedToDrag;
+    [NonSerialized] public bool needToDrop;
 
     private int conflicts;
     [SerializeField] private GameObject smokeEffect;
@@ -24,12 +25,22 @@ public class TowerDrag : MonoBehaviour
         collider2D = GetComponent<CircleCollider2D>();
         navMeshObstacle = GetComponent<NavMeshObstacle>();
     }
-
+    
     private void Update()
     {
+        if (Time.timeScale == 0)
+        {
+            var a = 0;
+        }
+        
+        if (needToDrop || Time.deltaTime == 0)
+        {
+            TryToDrop();
+        }
+        
         if (dragging)
         {
-            var mousePos = Camera.main.ScreenToWorldPoint(ControledMousePosition());
+            var mousePos = Camera.main.ScreenToWorldPoint(ControlledMousePosition());
             transform.position = new Vector3(mousePos.x + mouseOffset.x, mousePos.y + mouseOffset.y);
         }
         
@@ -43,7 +54,7 @@ public class TowerDrag : MonoBehaviour
         }
     }
 
-    private Vector3 ControledMousePosition()
+    private Vector3 ControlledMousePosition()
     {
         var mousePos = Input.mousePosition;
 
@@ -78,9 +89,19 @@ public class TowerDrag : MonoBehaviour
 
     private void OnMouseUp()
     {
+        TryToDrop();
+    }
+
+    private void TryToDrop()
+    {
         if (conflicts <= 0)
         {
             PlaceTower();
+            needToDrop = false;
+        }
+        else
+        {
+            needToDrop = true;
         }
     }
 

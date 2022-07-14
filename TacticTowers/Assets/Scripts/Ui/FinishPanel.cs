@@ -19,21 +19,33 @@ public class FinishPanel : MonoBehaviour
     [SerializeField] private Base _base;
     
     [SerializeField] private Text creditsCount;
-
-    private bool isSessionEdnded;
+    private float savedTimeScale;
+    private bool isSessionEnded;
+    private bool wasResurrectionUsed;
     private bool wasMusicStopped;
+
+    [Header("Resurrection Panel")] 
+    [SerializeField] private GameObject basePrefab;
+    private Vector3 baseTransform;
+    [SerializeField] private GameObject ResurrectionPanel;
+    [SerializeField] private Image circleTimer;
+    [SerializeField] private Text textTimer;
+    [SerializeField] private float timeToReact;
+    private float timer;
+    private bool isRewarding;
+
+    
 
     void Start()
     {
+        baseTransform = _base.gameObject.transform.position;
         Credits.LoseSessionCredits();
-        YandexSDK.Instance.ResetSubscriptions();
-        YandexSDK.Instance.RewardGet += OnButtonRewardedAd;
     }
     public void OnButtonRestart()
     {
         AudioManager.Instance.Play("ButtonClick1");
         ShowCommonAd();
-        Resume();
+        Resume(false);
         ResumeMusic();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -42,7 +54,7 @@ public class FinishPanel : MonoBehaviour
     {
         AudioManager.Instance.Play("ButtonClick1");
         ShowCommonAd();
-        Resume();
+        Resume(false);
         
         ResumeMusic();
         SceneManager.LoadScene("MainMenu");
@@ -52,7 +64,7 @@ public class FinishPanel : MonoBehaviour
     {
         AudioManager.Instance.Play("ButtonClick2");
         ShowCommonAd();
-        Resume();
+        Resume(false);
         ResumeMusic();
         SceneManager.LoadScene("TechsMenu");
     }
@@ -62,15 +74,7 @@ public class FinishPanel : MonoBehaviour
         Credits.AcceptSessionCredits();
         TechButtonHighlight.TryHighlight();
         
-        
-        var audioManager = FindObjectOfType<AudioManager>();
-        var music = Array.Find(audioManager.Sounds, sound => sound.name == "MainTheme");
-
-        if (music.source.isPlaying)
-        {
-            audioManager.Stop("MainTheme");
-            wasMusicStopped = true;
-        }
+        ResumeMusic();
         
         FillTexts(currentPanel, true);
         foreach (var button in adButtons)
@@ -79,24 +83,43 @@ public class FinishPanel : MonoBehaviour
         }
     }
 
+    public void OnButtonResurrectionAd()
+    {
+        isRewarding = true;
+        PauseMusik();
+        YandexSDK.Instance.ShowRewardedAdvertisment();
+    }
+
+    public void PauseMusik()
+    {
+        var audioManager = FindObjectOfType<AudioManager>();
+        var music = Array.Find(audioManager.Sounds, sound => sound.name == "MainTheme");
+
+        if (music.source.isPlaying)
+        {
+            audioManager.Stop("MainTheme");
+            wasMusicStopped = true;
+        }
+    }
+
     private void ResumeMusic()
     {
         if (wasMusicStopped) AudioManager.Instance.Play("MainTheme");
     }
     
-
     private void Update()
     {
-        if (isSessionEdnded) return;
+        if (isSessionEnded)
+        {
+            if (!wasResurrectionUsed) UpdateResurrectionPanel();
+            return;
+        }
         if (_base.GetHp() <= 0)
         {
-            currentPanel = defeatPanel;
-            adButtons[0].SetActive(true);
-            FillTexts(currentPanel, false);
-            currentPanel.SetActive(true);
             Pause();
-            Credits.AcceptSessionCredits();
-            isSessionEdnded = true;
+            
+            if(!wasResurrectionUsed) ShowResurrectionPanel();
+            else ShowDefeatPanel();
         }
         
         if (enemies.transform.childCount == 0)
@@ -105,17 +128,87 @@ public class FinishPanel : MonoBehaviour
 
             if (waveCount[0] == waveCount[1])
             {
-                currentPanel = victoryPanel;
-                adButtons[1].SetActive(true);
-                FillTexts(currentPanel, false);
-                currentPanel.SetActive(true);
-                Pause();
-                Credits.AcceptSessionCredits();
-                isSessionEdnded = true;
+                ShowVictoryPanel();
             }
         }
-
     }
+
+    private void ShowVictoryPanel()
+    {
+        YandexSDK.Instance.ResetSubscriptions();
+        YandexSDK.Instance.RewardGet += OnButtonRewardedAd;
+        YandexSDK.Instance.RewardGet += ResumeMusic;
+        currentPanel = victoryPanel;
+        adButtons[1].SetActive(true);
+        //adButtons[1].GetComponent<Button>().onClick.AddListener(PauseMusik);
+        FillTexts(currentPanel, false);
+        currentPanel.SetActive(true);
+        Pause();
+        Credits.AcceptSessionCredits();
+        isSessionEnded = true;
+    }
+    
+    private void ShowDefeatPanel()
+    {
+        YandexSDK.Instance.ResetSubscriptions();
+        YandexSDK.Instance.RewardGet += OnButtonRewardedAd;
+        YandexSDK.Instance.RewardGet += ResumeMusic;
+        currentPanel = defeatPanel;
+        wasResurrectionUsed = true;
+        adButtons[0].SetActive(true);
+        //adButtons[1].GetComponent<Button>().onClick.AddListener(PauseMusik);
+        FillTexts(currentPanel, false);
+        currentPanel.SetActive(true);
+        Credits.AcceptSessionCredits();
+        isSessionEnded = true;
+    }
+
+    private void UpdateResurrectionPanel()
+    {
+        if (isRewarding) return;
+        timer -= Time.unscaledDeltaTime;
+        circleTimer.fillAmount = timer / timeToReact;
+        textTimer.text = Math.Ceiling(timer).ToString();
+        if (timer <= 0)
+        {
+            ResurrectionPanel.SetActive(false);
+            ShowDefeatPanel();
+        }
+    }
+    
+    private void ShowResurrectionPanel()
+    {
+        YandexSDK.Instance.ResetSubscriptions();
+        YandexSDK.Instance.RewardGet += Resurrection;
+        YandexSDK.Instance.RewardGet += ResumeMusic;
+        isSessionEnded = true;
+        ResurrectionPanel.SetActive(true);
+        timer = timeToReact;
+    }
+
+    private void Resurrection()
+    {
+        isRewarding = false;
+        var newBase = Instantiate(basePrefab, baseTransform, Quaternion.identity);
+        _base = newBase.GetComponent<Base>();
+        _base.TakeDamage(_base.GetMaxHp() / 2f);
+        ResurrectionPanel.SetActive(false);
+        isSessionEnded = false;
+        Resume(true);
+        wasResurrectionUsed = true;
+        AudioManager.Instance.Play("ButtonClick2");
+        var tempEnemies = new List<Enemy>();
+        foreach (var e in EnemySpawner.enemies)
+        {
+            tempEnemies.Add(e.GetComponent<Enemy>());
+        }
+        foreach (var e in tempEnemies)
+        {
+            e.OnDeath();
+        }
+    }
+
+   
 
     private void FillTexts(GameObject panel, bool isCreditsDoubled)
     {
@@ -129,26 +222,30 @@ public class FinishPanel : MonoBehaviour
     
     private void Pause()
     {
+        savedTimeScale = Time.timeScale;
         Time.timeScale = 0;
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = false;
     }
     
-    private void Resume()
+    private void Resume(bool savePreviousTimeScale)
     {
         //victoryPanel.SetActive(false);
         //defeatPanel.SetActive(false);
-        Time.timeScale = 1;
+        if (savePreviousTimeScale)
+            Time.timeScale = savedTimeScale;
+        else
+            Time.timeScale = 1;
+        
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = true;
     }
     
     private void ShowCommonAd()
     {
-        YandexSDK SDK = FindObjectOfType<YandexSDK>();
         try
         {
-            SDK.ShowCommonAdvertisment();
+            YandexSDK.Instance.ShowCommonAdvertisment();
         }
         catch (Exception e)
         {

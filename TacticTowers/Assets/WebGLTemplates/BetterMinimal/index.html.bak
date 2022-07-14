@@ -46,6 +46,7 @@
 		<script src="Build/{{{ LOADER_FILENAME }}}"></script>
 		<script>
 			var canvas = document.querySelector("#unity-canvas");
+			var unityI = null;
 			var config = {
 				dataUrl: "Build/{{{ DATA_FILENAME }}}",
 				frameworkUrl: "Build/{{{ FRAMEWORK_FILENAME }}}",
@@ -78,8 +79,8 @@
 				var h;
 
 				if (scaleToFit) {
-					w = window.innerWidth;
-					h = window.innerHeight;
+					w = window.innerWidth - 19;
+					h = window.innerHeight - 11;
 
 					var r = {{{ HEIGHT }}} / {{{ WIDTH }}};
 
@@ -98,6 +99,7 @@
 				container.style.left = Math.floor((window.innerWidth - w) / 2) + "px";
 			}
 			createUnityInstance(canvas, config, progressHandler).then(function (instance) {
+				unityI = instance;
 				canvas = instance.Module.canvas;
 				onResize();
 			});
@@ -105,6 +107,141 @@
 			onResize();
 		</script>
 	</div>
+	
+	<script>
+	var buildUrl = "Build";
+     var loaderUrl = buildUrl + "/v1.1.loader.js";
+	
+	var script = document.createElement("script");
+      var unityI = null;
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance().then((unityInstance) => {
+          unityI = unityInstance;
+		  console.info('unity?????????????')
+          loadingBar.style.display = "none";
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+	
+	<script src="https://yandex.ru/games/sdk/v2"></script>
+    <script>
+      var player;
+      var sdk;
+      var payments = null;
+
+      YaGames.init({
+        adv:{
+          onAdvClose: wasShown =>{console.info('adv closed!');
+        }
+      }
+      })
+        .then(ysdk => {
+            sdk = ysdk;
+            sdk.adv.showFullscreenAdv({callbacks:{}});
+      });
+
+      var lb;
+
+    function GetLeaderBoard(){
+      sdk.getLeaderboards().then(_lb => lb = _lb);
+            }
+
+    function SetLeaderBoard(score){
+      sdk.getLeaderboards()
+          .then(lb => {
+            console.log(score);
+            lb.setLeaderboardScore('LeaderBoard', score);});
+        }
+
+    function GetLeaderBoardEntries(){
+      sdk.getLeaderboards()
+          .then(lb => {lb.getLeaderboardEntries('LeaderBoard', { quantityTop: 10, includeUser: true, quantityAround: 3 }).then(res =>
+            {
+              console.log(res);
+              unityI.SendMessage('YandexSDK', 'BoardEntriesReady', JSON.stringify(res));});
+            });
+      }
+
+
+
+      function auth(){
+        initPlayer().then(() =>{
+                getUser();
+            }).catch(err => {
+             sdk.auth.openAuthDialog().then(() => {
+              initPlayer();
+              getUser();
+          });
+          });
+        }
+
+
+      function initPlayer(){
+        console.log('InitPlayerTry')
+        return sdk.getPlayer().then(_player => {
+                console.log('InitPlayer2');
+                player = _player;
+            });}
+
+      function getUser(){
+          console.log('try to get Name');
+          var data = player.getName();
+          unityI.SendMessage('YandexSDK', 'AuthenticateSuccess', data);
+          console.log('getName done');
+
+      }
+
+  function getUserData(){
+            player.getData().then(stats =>{
+              console.log('Data is getting');
+              console.log(JSON.stringify(stats));
+              GetLeaderBoard();
+              unityI.SendMessage('YandexSDK', 'DataGetting', JSON.stringify(stats));
+           });
+      }
+
+  function setUserData(_data){
+      console.log('Try Save');
+      console.log(_data);
+      player.setData({data : _data}).then(()=>{
+        console.log('saved');
+      }).catch(()=>{console.log('unsaved')});
+    }
+
+      function showFullscrenAd(){
+        sdk.adv.showFullscreenAdv({
+          callbacks: {
+            onClose: function(wasShown) {},
+            onError: function(error) {}
+          }
+        })
+      }
+
+     function showRewardedAd(id){
+        sdk.adv.showRewardedVideo({
+        callbacks: {
+            onOpen: () => {},
+            onRewarded: () => {
+                unityI.SendMessage('YandexSDK', 'RewardGetting');
+                console.log('Rewarded! Id: ' + id);},
+            onClose: () => {
+				unityI.SendMessage('YandexSDK', 'RewardClose');
+                console.log('Rewarded! Id: ' + id);},},
+            onError: (e) => {
+                var data = {"id" : id, "error" : error};
+                console.log('Error while open video ad:', e);
+            }
+          }
+        })
+      }
+    </script>
 </body>
 
 </html>

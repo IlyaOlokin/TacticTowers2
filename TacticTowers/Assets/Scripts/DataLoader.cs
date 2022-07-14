@@ -22,6 +22,8 @@ public class DataLoader : MonoBehaviour
         Credits.CreditsInTotal = int.Parse(PlayerPrefs.GetString("CreditsInTotal",  Credits.credits.ToString()));
 
         Technologies.MinUpgradePrice = PlayerPrefs.GetInt("minUpgradePrice", 10);
+        
+        YandexSDK.Instance.Authenticate();
     }
 
     private void Update()
