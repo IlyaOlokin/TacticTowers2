@@ -2246,7 +2246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &363942888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2261,11 +2261,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesObject: {fileID: 1854380829}
   Waves:
-  - moneyForWave: 2
+  - moneyForWave: 5
     seconds: 0
     enemiesRight:
-    - {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemiesCountRight: 3c000000
+    - {fileID: 5937050097135992818, guid: 870e3dddbc5d5f4439fc98de96b8efd4, type: 3}
+    enemiesCountRight: 01000000
     enemiesTop: []
     enemiesCountTop: 
     enemiesLeft: []
@@ -14145,7 +14145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1852934399
 MonoBehaviour:
   m_ObjectHideFlags: 0
