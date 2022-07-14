@@ -16,7 +16,7 @@ public class FinishPanel : MonoBehaviour
     
     [SerializeField] private GameObject enemies;
     [SerializeField] private Text waveText;
-    [SerializeField] private Base _base;
+    public Base _base;
     
     [SerializeField] private Text creditsCount;
     private float savedTimeScale;

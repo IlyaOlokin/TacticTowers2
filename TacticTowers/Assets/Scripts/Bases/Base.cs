@@ -11,6 +11,10 @@ public class Base : MonoBehaviour
     [SerializeField] private Canvas canvas;
     private float hp;
 
+    public string activeDescription;
+    public string passiveDescription;
+    public Sprite baseImage;
+
     private void Awake()
     {
         canvas.worldCamera = Camera.main;
@@ -28,6 +32,11 @@ public class Base : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public virtual void ExecuteBaseEffects()
+    {
+        
     }
 
     public float GetHp() => hp;
