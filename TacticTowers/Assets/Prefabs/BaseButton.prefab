@@ -90,9 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc64c987c3c31c49a9d789007ea9ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectIndicator: {fileID: 0}
-  Base: {fileID: 7883339769755823028, guid: 6a6af31d501c34c4e8a23bb1c1feed9d, type: 3}
-  baseDescription: {fileID: 0}
   baseImage: {fileID: 849890560847718270}
 --- !u!114 &6561455064530071129
 MonoBehaviour:
@@ -140,7 +137,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7280031285186680087}
         m_TargetAssemblyTypeName: BaseSelectButton, Assembly-CSharp
-        m_MethodName: SelectBase
+        m_MethodName: OnSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -6,14 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameObject SelectedBase;
+    
+    
     [SerializeField] private Transform BasePosition;
     [SerializeField] private FinishPanel finishPanel;
 
     private void Awake()
     {
-        var newBase = Instantiate(SelectedBase, BasePosition.position, Quaternion.identity);
-        newBase.GetComponent<Base>().ExecuteBaseEffects();
+        var newBase = Instantiate(BaseSelectManager.SelectedBase, BasePosition.position, Quaternion.identity);
+        newBase.GetComponent<Base>().ExecuteBasePassiveEffect();
         finishPanel._base = newBase.GetComponent<Base>();
     }
 

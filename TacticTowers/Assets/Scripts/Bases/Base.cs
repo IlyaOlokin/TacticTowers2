@@ -7,21 +7,23 @@ using UnityEngine.UI;
 public class Base : MonoBehaviour
 {
     [SerializeField] private Slider hpSlider;
-    [SerializeField] private float maxHp;
+    public float maxHp;
     [SerializeField] private Canvas canvas;
-    private float hp;
-
-    public string activeDescription;
-    public string passiveDescription;
+    [NonSerialized] public float hp;
+    
     public Sprite baseImage;
 
     private void Awake()
     {
-        canvas.worldCamera = Camera.main;
         maxHp *= Technologies.BaseHpMultiplier;
         hpSlider.maxValue = maxHp;
         hpSlider.value = maxHp;
         hp = maxHp;
+    }
+
+    private void Start()
+    {
+        canvas.worldCamera = Camera.main;
     }
 
     public void TakeDamage(float dmg)
@@ -34,7 +36,12 @@ public class Base : MonoBehaviour
         }
     }
 
-    public virtual void ExecuteBaseEffects()
+    public void ExecuteBasePassiveEffect()
+    {
+        GetComponent<BasePassive>().ExecutePassiveEffect();
+    }
+
+    public void ExecuteBaseActiveAbility()
     {
         
     }

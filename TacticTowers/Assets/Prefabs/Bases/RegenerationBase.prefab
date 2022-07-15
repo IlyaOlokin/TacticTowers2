@@ -526,7 +526,9 @@ GameObject:
   - component: {fileID: 7883339769755823017}
   - component: {fileID: 7883339769755823030}
   - component: {fileID: 7883339769755823031}
-  - component: {fileID: 3671001759734904462}
+  - component: {fileID: 7266394176999171309}
+  - component: {fileID: -542226458175794027}
+  - component: {fileID: -673829969627735174}
   - component: {fileID: 7883339769755823019}
   m_Layer: 2
   m_Name: RegenerationBase
@@ -619,7 +621,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &3671001759734904462
+--- !u!114 &7266394176999171309
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -628,15 +630,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 7883339769755823028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27e45fb38cb5c5f47b5d8de90c5872f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8039300d21e278a4987b62a650c63f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hpSlider: {fileID: 7883339769136606293}
   maxHp: 100
   canvas: {fileID: 7883339770609276406}
-  activeDescription: "\u041F\u043E\u043A\u0430 \u043D\u0435 \u0437\u043D\u0430\u0435\u043C"
-  passiveDescription: "\u0420\u0435\u0433\u0435\u043D\u0435\u0440\u0438\u0440\u0443\u0435\u0442"
   baseImage: {fileID: -5040041125698078803, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+--- !u!114 &-542226458175794027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7883339769755823028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad77da2e17eaa8408b1690588e32a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: active
+--- !u!114 &-673829969627735174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7883339769755823028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f13489afb5091342b45f6deef7b604d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: "\u0420\u0435\u0433\u0435\u043D\u0435\u0440\u0438\u0440\u0443\u0435\u0442"
+  regenAmount: 1
 --- !u!50 &7883339769755823019
 Rigidbody2D:
   serializedVersion: 4

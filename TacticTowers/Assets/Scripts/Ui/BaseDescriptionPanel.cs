@@ -13,15 +13,15 @@ public class BaseDescriptionPanel : MonoBehaviour
 
     private void Start()
     {
-        GetBaseInfo(GameManager.SelectedBase == null 
+        GetBaseInfo(BaseSelectManager.SelectedBase == null 
             ? defaultBase 
-            : GameManager.SelectedBase.GetComponent<Base>());
+            : BaseSelectManager.SelectedBase.GetComponent<Base>());
     }
 
     public void GetBaseInfo(Base _base)
     {
-        activeDescription.text = "Активная способнсть: " + _base.activeDescription;
-        passiveDescription.text = "Пассивная способность: " + _base.passiveDescription;
+        activeDescription.text = "Активная способнсть: " + _base.gameObject.GetComponent<BaseActive>().description;
+        passiveDescription.text = "Пассивная способность: " + _base.gameObject.GetComponent<BasePassive>().description;
         baseImage.sprite = _base.baseImage;
     }
 }

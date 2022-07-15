@@ -309,9 +309,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -527,6 +527,8 @@ GameObject:
   - component: {fileID: 7883339769755823030}
   - component: {fileID: 7883339769755823031}
   - component: {fileID: 6912281927267205136}
+  - component: {fileID: 235331302930193567}
+  - component: {fileID: 8303975470396268999}
   - component: {fileID: 7883339769755823019}
   m_Layer: 2
   m_Name: DefaultBase
@@ -628,17 +630,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 7883339769755823028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b374f49db43d28244a60f75346aff19e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8039300d21e278a4987b62a650c63f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hpSlider: {fileID: 7883339769136606293}
   maxHp: 100
   canvas: {fileID: 7883339770609276406}
-  activeDescription: "\u041F\u043E\u043A\u0430 \u0432\u043E\u043E\u0431\u0449\u0435
-    \u043D\u0435 \u0437\u043D\u0430\u0435\u043C"
-  passiveDescription: "\u041F\u043E \u043A\u0440\u0430\u0439\u043D\u0435\u0439 \u043C\u0435\u0440\u0435
-    \u043D\u0435 \u0440\u0435\u0433\u0435\u043D\u0435\u0440\u0438\u0440\u0443\u0435\u0442"
   baseImage: {fileID: -5040041125698078803, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+--- !u!114 &235331302930193567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7883339769755823028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad77da2e17eaa8408b1690588e32a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: active
+--- !u!114 &8303975470396268999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7883339769755823028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f13489afb5091342b45f6deef7b604d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: regen
+  regenAmount: 1
 --- !u!50 &7883339769755823019
 Rigidbody2D:
   serializedVersion: 4

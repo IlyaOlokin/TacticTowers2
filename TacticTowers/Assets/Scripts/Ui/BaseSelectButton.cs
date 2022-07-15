@@ -6,21 +6,20 @@ using UnityEngine.UI;
 
 public class BaseSelectButton : MonoBehaviour
 {
-    [SerializeField] private SelectIndicator selectIndicator;
-    [SerializeField] private GameObject Base;
-    [SerializeField] private BaseDescriptionPanel baseDescription;
     [SerializeField] private Image baseImage;
+    [NonSerialized] public Sprite baseSprite;
+    
+
+    [NonSerialized] public int index;
+    [NonSerialized] public BaseSelectManager BaseSelectManager;
 
     private void Start()
     {
-        baseImage.sprite = Base.GetComponent<Base>().baseImage;
+        baseImage.sprite = baseSprite;
     }
 
-    public void SelectBase()
+    public void OnSelect()
     {
-        GameManager.SelectedBase = Base;
-        var _base = Base.GetComponent<Base>();
-        baseDescription.GetBaseInfo(_base);
-        selectIndicator.GetNewDestination(transform.position);
-    } 
+        BaseSelectManager.SelectBase(index);
+    }
 }
