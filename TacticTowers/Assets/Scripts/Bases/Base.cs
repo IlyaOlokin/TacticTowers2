@@ -25,6 +25,15 @@ public class Base : MonoBehaviour
     {
         canvas.worldCamera = Camera.main;
     }
+    
+    //Temp
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ExecuteBaseActiveAbility();
+        }
+    }
 
     public void TakeDamage(float dmg)
     {
@@ -48,7 +57,7 @@ public class Base : MonoBehaviour
 
     public void ExecuteBaseActiveAbility()
     {
-        
+        GetComponent<BaseActive>().ExecuteActiveAbility();
     }
 
     public float GetHp() => hp;

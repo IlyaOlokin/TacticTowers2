@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 7883339769755823030}
   - component: {fileID: 7883339769755823031}
   - component: {fileID: 7266394176999171309}
-  - component: {fileID: -542226458175794027}
+  - component: {fileID: 4865109854965181385}
   - component: {fileID: -673829969627735174}
   - component: {fileID: 7883339769755823019}
   m_Layer: 2
@@ -637,7 +637,7 @@ MonoBehaviour:
   maxHp: 100
   canvas: {fileID: 7883339770609276406}
   baseImage: {fileID: -5040041125698078803, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
---- !u!114 &-542226458175794027
+--- !u!114 &4865109854965181385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -646,10 +646,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7883339769755823028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ad77da2e17eaa8408b1690588e32a05, type: 3}
+  m_Script: {fileID: 11500000, guid: 72811140c36ecf745b372fea97df6acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: active
+  description: "\u0443\u0441\u0438\u043B\u0438\u0432\u0430\u0435\u0442 \u0443\u0440\u043E\u043D
+    \u0432\u0441\u0435\u0445 \u0431\u0430\u0448\u0435\u043D \u043D\u0430 20% \u043D\u0430
+    5 \u0441\u0435\u043A\u0443\u043D\u0434"
+  dmgMultiplier: 1.2
+  attackSpeedMultiplier: 1
+  shootAngleMultiplier: 1
+  shootDistanceMultiplier: 1
+  duration: 5
 --- !u!114 &-673829969627735174
 MonoBehaviour:
   m_ObjectHideFlags: 0
