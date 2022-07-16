@@ -29,11 +29,16 @@ public class Base : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         hp -= dmg;
-        hpSlider.value = hp;
+        UpdateHpBar();
         if (hp <= 0)
         {
             Destroy(gameObject);
         }
+    }
+
+    public void UpdateHpBar()
+    {
+        hpSlider.value = hp;
     }
 
     public void ExecuteBasePassiveEffect()

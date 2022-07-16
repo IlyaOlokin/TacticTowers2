@@ -21,6 +21,7 @@ public class BaseRegeneration : BasePassive
         }
 
         _base.hp += regenAmount * Time.deltaTime;
+        _base.UpdateHpBar();
     }
 
     public override void ExecutePassiveEffect()

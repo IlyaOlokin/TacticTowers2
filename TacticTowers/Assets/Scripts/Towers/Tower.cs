@@ -94,22 +94,22 @@ public class Tower : MonoBehaviour
 
     protected float GetDmg()
     {
-        return Dmg * multiplierDmg * Technologies.DmgMultiplier;
+        return Dmg * multiplierDmg * Technologies.DmgMultiplier * GlobalBaseEffects.GetGlobalBaseDmgMultiplier(shootDirection);
     }
     
     protected float GetAttackSpeed()
     {
-        return attackSpeed * multiplierAttackSpeed;
+        return attackSpeed * multiplierAttackSpeed * GlobalBaseEffects.GetGlobalBaseAttackSpeedMultiplier(shootDirection);
     }
     
     public float GetShootAngle()
     {
-        return shootAngle * multiplierShootAngle * Technologies.ShootAngleMultiplier;
+        return shootAngle * multiplierShootAngle * Technologies.ShootAngleMultiplier * GlobalBaseEffects.GetGlobalBaseShootAngleMultiplier(shootDirection);
     }
     
     public float GetShootDistance()
     {
-        return shootDistance * multiplierShootDistance;
+        return shootDistance * multiplierShootDistance * GlobalBaseEffects.GetGlobalBaseShootDistanceMultiplier(shootDirection);
     }
 
     public void GetMultipliers(Tower tower)
