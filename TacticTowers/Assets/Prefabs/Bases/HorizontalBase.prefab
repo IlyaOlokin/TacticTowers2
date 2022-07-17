@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7883339768930066147}
   - component: {fileID: 7883339768930066149}
   - component: {fileID: 7883339768930066146}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 7883339769019253514}
   - component: {fileID: 7883339769019253516}
   - component: {fileID: 7883339769019253517}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 7883339769048979318}
   - component: {fileID: 7883339769048979304}
   - component: {fileID: 7883339769048979305}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7883339769136606292}
   - component: {fileID: 7883339769136606293}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,9 +309,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 0.5
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -406,7 +406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7883339769341338125}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,10 +526,12 @@ GameObject:
   - component: {fileID: 7883339769755823017}
   - component: {fileID: 7883339769755823030}
   - component: {fileID: 7883339769755823031}
-  - component: {fileID: 7883339769755823016}
+  - component: {fileID: 6912281927267205136}
+  - component: {fileID: 8942930605158695238}
+  - component: {fileID: 1681828360377297007}
   - component: {fileID: 7883339769755823019}
-  m_Layer: 2
-  m_Name: Base
+  m_Layer: 0
+  m_Name: HorizontalBase
   m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -619,7 +621,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &7883339769755823016
+--- !u!114 &6912281927267205136
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -634,6 +636,52 @@ MonoBehaviour:
   hpSlider: {fileID: 7883339769136606293}
   maxHp: 100
   canvas: {fileID: 7883339770609276406}
+  baseImage: {fileID: -5040041125698078803, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+--- !u!114 &8942930605158695238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7883339769755823028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72811140c36ecf745b372fea97df6acf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: "\u0443\u0441\u0438\u043B\u0438\u0432\u0430\u0435\u0442 \u0443\u0440\u043E\u043D
+    \u0432\u0441\u0435\u0445 \u0431\u0430\u0448\u0435\u043D \u043D\u0430 20% \u043D\u0430
+    5 \u0441\u0435\u043A\u0443\u043D\u0434"
+  coolDown: 60
+  dmgMultiplier: 3
+  attackSpeedMultiplier: 1
+  shootAngleMultiplier: 1
+  shootDistanceMultiplier: 1
+  duration: 5
+--- !u!114 &1681828360377297007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7883339769755823028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23d2df6827d775438db1187d248b685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: "\u0414\u0435\u043B\u0430\u0435\u0442  \u043F\u0440\u0430\u0432\u0443\u044E
+    \u0438 \u043B\u0435\u0432\u0443\u044E \u043D\u0443 \u043E\u0447 \u0441\u0438\u043B\u044C\u043D\u044B\u043C\u0438,
+    \u0430 \u043E\u0442\u0441\u0430\u043B\u044C\u043D\u044B\u0435 \u043D\u0435 \u043E\u0447
+    \u0441\u0438\u043B\u044C\u043D\u044B\u043C\u0438"
+  horizontalDmgMultiplier: 1.5
+  horizontalAttackSpeedMultiplier: 1.5
+  horizontalShootAngleMultiplier: 1.1
+  horizontalShootDistanceMultiplier: 1.1
+  verticalDmgMultiplier: 0.75
+  verticalAttackSpeedMultiplier: 0.75
+  verticalShootAngleMultiplier: 0.9
+  verticalShootDistanceMultiplier: 0.9
 --- !u!50 &7883339769755823019
 Rigidbody2D:
   serializedVersion: 4
@@ -666,7 +714,7 @@ GameObject:
   - component: {fileID: 7883339769847320195}
   - component: {fileID: 7883339769847320197}
   - component: {fileID: 7883339769847320194}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,7 +790,7 @@ GameObject:
   - component: {fileID: 7883339770609276406}
   - component: {fileID: 7883339770609276407}
   - component: {fileID: 7883339770609276404}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
