@@ -28,7 +28,7 @@ public class DataLoader : MonoBehaviour
 
     private void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.N))
         {
             Credits.AddCredits(100);
         }
@@ -36,6 +36,6 @@ public class DataLoader : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             PlayerPrefs.DeleteAll();
-        }*/
+        }
     }
 }
