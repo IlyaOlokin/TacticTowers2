@@ -1,16 +1,12 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpgradeMenu : MonoBehaviour
+public class BaseAbilityMenu : MonoBehaviour
 {
-    public bool mouseOn;
-    [SerializeField] private Text towerLevel;
-    [SerializeField] private Text towerLevelConst;
-    [SerializeField] private Text nextUpgradeCost;
     private Animation animation;
+    public bool mouseOn;
     
     private void OnEnable()
     {
@@ -18,7 +14,7 @@ public class UpgradeMenu : MonoBehaviour
         animation.Stop("UpgradeMenuAnimation");
         animation.Play("UpgradeMenuAnimation");
     }
-
+    
     void Update()
     {
         if (Input.GetMouseButton(0) && !mouseOn)
@@ -26,7 +22,7 @@ public class UpgradeMenu : MonoBehaviour
             DeactivateMenu();
         }
     }
-
+    
     private void OnMouseEnter()
     {
         mouseOn = true;
@@ -37,23 +33,6 @@ public class UpgradeMenu : MonoBehaviour
         mouseOn = false;
     }
 
-    public void UpdateTexts(int level, int cost)
-    {
-        towerLevel.text = level.ToString();
-        towerLevelConst.text = level.ToString();
-        if (cost == 0) 
-            nextUpgradeCost.text = "MAX!";
-        else
-            nextUpgradeCost.text = cost + "$";
-        
-    }
-
-    /*public void ActivateMenu()
-    {
-        animation.Stop("UpgradeMenuAnimation");
-        animation.Play("UpgradeMenuAnimation");
-    }*/
-    
     private void DeactivateMenu()
     {
         gameObject.SetActive(false);

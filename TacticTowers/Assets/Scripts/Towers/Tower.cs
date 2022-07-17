@@ -33,6 +33,9 @@ public class Tower : MonoBehaviour
     protected float shootDelayTimer;
     [NonSerialized] public bool canShoot = true;
 
+    private int disarmStacks = 0;
+    private int disarmStacksNeed = 3;
+
     public ShootZone shootZone;
 
     public List<Upgrade> upgrades;
@@ -91,22 +94,22 @@ public class Tower : MonoBehaviour
 
     protected float GetDmg()
     {
-        return Dmg * multiplierDmg * Technologies.DmgMultiplier;
+        return Dmg * multiplierDmg * Technologies.DmgMultiplier * GlobalBaseEffects.GetGlobalBaseDmgMultiplier(shootDirection);
     }
     
     protected float GetAttackSpeed()
     {
-        return attackSpeed * multiplierAttackSpeed;
+        return attackSpeed * multiplierAttackSpeed * GlobalBaseEffects.GetGlobalBaseAttackSpeedMultiplier(shootDirection);
     }
     
     public float GetShootAngle()
     {
-        return shootAngle * multiplierShootAngle * Technologies.ShootAngleMultiplier;
+        return shootAngle * multiplierShootAngle * Technologies.ShootAngleMultiplier * GlobalBaseEffects.GetGlobalBaseShootAngleMultiplier(shootDirection);
     }
     
     public float GetShootDistance()
     {
-        return shootDistance * multiplierShootDistance;
+        return shootDistance * multiplierShootDistance * GlobalBaseEffects.GetGlobalBaseShootDistanceMultiplier(shootDirection);
     }
 
     public void GetMultipliers(Tower tower)
@@ -125,5 +128,26 @@ public class Tower : MonoBehaviour
         shootZone = tower.shootZone;
         shootZone.tower = this;
         upgradeLevel = tower.upgradeLevel;
+    }
+
+    protected void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Web")
+        {
+            disarmStacks++;
+            if(disarmStacks >= disarmStacksNeed)
+            {
+                StartCoroutine(Disarm());
+                disarmStacks = 0;
+            }
+            Destroy(other.gameObject);
+        }
+    }
+
+    IEnumerator Disarm()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(3.5f);
+        canShoot = true;
     }
 }
