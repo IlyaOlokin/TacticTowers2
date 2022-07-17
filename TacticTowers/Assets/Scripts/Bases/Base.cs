@@ -10,6 +10,13 @@ public class Base : MonoBehaviour
     public float maxHp;
     [SerializeField] private Canvas canvas;
     [NonSerialized] public float hp;
+    [NonSerialized] public GameObject baseAbilityMenu;
+    [NonSerialized] public Button abilityButton;
+    [NonSerialized] public Image coolDownImage;
+    
+    private float abilityTimer = 0;
+    private BaseActive ability;
+
     
     public Sprite baseImage;
 
@@ -24,15 +31,15 @@ public class Base : MonoBehaviour
     private void Start()
     {
         canvas.worldCamera = Camera.main;
+        abilityButton.onClick.AddListener(ExecuteBaseActiveAbility);
+        ability = GetComponent<BaseActive>();
     }
-    
-    //Temp
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ExecuteBaseActiveAbility();
-        }
+        UpdateCoolDownImage();
+        if (abilityTimer > 0)
+            abilityTimer -= Time.deltaTime;
     }
 
     public void TakeDamage(float dmg)
@@ -55,9 +62,27 @@ public class Base : MonoBehaviour
         GetComponent<BasePassive>().ExecutePassiveEffect();
     }
 
-    public void ExecuteBaseActiveAbility()
+    private void ExecuteBaseActiveAbility()
     {
-        GetComponent<BaseActive>().ExecuteActiveAbility();
+        if (abilityTimer > 0) return;
+        
+        abilityTimer = ability.coolDown;
+        ability.ExecuteActiveAbility();
+    }
+
+    private void UpdateCoolDownImage()
+    {
+        coolDownImage.fillAmount = 1 - (ability.coolDown - abilityTimer) / ability.coolDown;
+    }
+    
+    private void OnMouseUp()
+    {
+        OpenAbilityMenu();
+    }
+
+    private void OpenAbilityMenu()
+    {
+        baseAbilityMenu.SetActive(true);
     }
 
     public float GetHp() => hp;

@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class BaseActive : MonoBehaviour
 {
-    protected Base _base;
-    public string description;
     
-    private void Start()
-    {
-        _base = GetComponent<Base>();
-    }
+    public string description;
+    public float coolDown;
+    
 
     public virtual void ExecuteActiveAbility()
     {

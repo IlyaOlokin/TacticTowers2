@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7883339768930066147}
   - component: {fileID: 7883339768930066149}
   - component: {fileID: 7883339768930066146}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 7883339769019253514}
   - component: {fileID: 7883339769019253516}
   - component: {fileID: 7883339769019253517}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 7883339769048979318}
   - component: {fileID: 7883339769048979304}
   - component: {fileID: 7883339769048979305}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7883339769136606292}
   - component: {fileID: 7883339769136606293}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7883339769341338125}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 240343176826953358}
   - component: {fileID: 8303975470396268999}
   - component: {fileID: 7883339769755823019}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: DefaultBase
   m_TagString: Base
   m_Icon: {fileID: 0}
@@ -652,7 +652,8 @@ MonoBehaviour:
   description: "\u0443\u0441\u0438\u043B\u0438\u0432\u0430\u0435\u0442 \u0443\u0440\u043E\u043D
     \u0432\u0441\u0435\u0445 \u0431\u0430\u0448\u0435\u043D \u043D\u0430 20% \u043D\u0430
     5 \u0441\u0435\u043A\u0443\u043D\u0434"
-  dmgMultiplier: 1.2
+  coolDown: 60
+  dmgMultiplier: 3
   attackSpeedMultiplier: 1
   shootAngleMultiplier: 1
   shootDistanceMultiplier: 1
@@ -703,7 +704,7 @@ GameObject:
   - component: {fileID: 7883339769847320195}
   - component: {fileID: 7883339769847320197}
   - component: {fileID: 7883339769847320194}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,7 +780,7 @@ GameObject:
   - component: {fileID: 7883339770609276406}
   - component: {fileID: 7883339770609276407}
   - component: {fileID: 7883339770609276404}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
