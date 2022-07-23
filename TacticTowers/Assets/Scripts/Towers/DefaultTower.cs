@@ -29,9 +29,4 @@ public class DefaultTower : Tower
             AudioManager.Instance.Play("DefaultTowerShot");
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        base.OnCollisionEnter2D(collision);
-    }
 }

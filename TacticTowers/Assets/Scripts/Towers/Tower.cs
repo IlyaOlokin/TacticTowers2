@@ -132,7 +132,7 @@ public class Tower : MonoBehaviour
 
     protected void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Web")
+        if(other.gameObject.CompareTag("Web"))
         {
             disarmStacks++;
             if(disarmStacks >= disarmStacksNeed)
