@@ -58,7 +58,7 @@ public class YandexSDK : MonoBehaviour
 
     public void Authenticate()    //    Авторизация
     {
-        Auth();
+        //Auth();
     }
 
     public void GettingData()    // Получение данных
@@ -73,9 +73,9 @@ public class YandexSDK : MonoBehaviour
 
     public void ShowCommonAdvertisment()    // Показ обычной рекламы
     {
-        if (!adAvailable) return;
+        /*if (!adAvailable) return;
         adTimer = adCodldown;
-        ShowCommonADV();
+        ShowCommonADV();*/
     }
 
     public void ShowRewardedAdvertisment()
