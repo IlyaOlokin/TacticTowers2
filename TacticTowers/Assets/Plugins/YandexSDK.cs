@@ -95,7 +95,7 @@ public class YandexSDK : MonoBehaviour
 
     public void SetLeaderScore(int score)
     {
-        SetLeaderBoard(score);
+        //SetLeaderBoard(score);
     }
     
     public void ResetSubscriptions() => RewardGet = null; 
