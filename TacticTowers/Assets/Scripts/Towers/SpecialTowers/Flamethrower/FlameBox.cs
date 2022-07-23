@@ -11,7 +11,6 @@ public class FlameBox : MonoBehaviour
     [NonSerialized] public float burnDmg;
     [NonSerialized] public float burnTime;
     [NonSerialized] public float attackSpeed;
-    [NonSerialized] public Vector3 flameStartPos;
     private float dmgDelayTimer;
     private Material myMaterial;
     

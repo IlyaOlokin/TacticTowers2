@@ -13,6 +13,15 @@ public class FrostBox : MonoBehaviour
     [NonSerialized] public int freezeStacksNeeded;
 
     private float dmgDelayTimer;
+    private Material myMaterial;
+
+    private float appearTimer;
+    private float appearDelay = 2f;
+
+    private float destroyTimer;
+    private float destroyDelay;
+    
+    private bool needToBeDestroyed;
 
 
     [NonSerialized] public ParticleSystem ps;
@@ -21,21 +30,31 @@ public class FrostBox : MonoBehaviour
     [NonSerialized] public float freezeStacksPerHit;
 
     [SerializeField] private GameObject freezeEffect;
+    private static readonly int StartFlame = Shader.PropertyToID("_StartFlame");
+    private static readonly int EndFlame = Shader.PropertyToID("_EndFlame");
 
     private void Start()
     {
-        ps = transform.GetChild(0).GetComponent<ParticleSystem>();
-        ps.transform.position = frostStartPos;
-        var mainModule = ps.main;
-        mainModule.startLifetime = transform.localScale.y / 3f * 0.9f;
+        myMaterial = GetComponent<SpriteRenderer>().material;
+        myMaterial.SetFloat(StartFlame, 0);
     }
-
-
+    
     protected void Update()
     {
         if (dmgDelayTimer > 0) dmgDelayTimer -= Time.deltaTime;
 
         if (dmgDelayTimer <= 0) DealDamage();
+        if (needToBeDestroyed)
+        {
+            destroyTimer += Time.deltaTime;
+            myMaterial.SetFloat(EndFlame, destroyTimer / destroyDelay);
+        }
+
+        if (appearTimer < appearDelay)
+        {
+            appearTimer += Time.deltaTime;
+            myMaterial.SetFloat(StartFlame, appearTimer / appearDelay);
+        }
     }
     
     private void DealDamage()
@@ -49,6 +68,13 @@ public class FrostBox : MonoBehaviour
         }
 
         dmgDelayTimer = 1f / attackSpeed;
+    }
+    
+    public void DestroySelf(float delay)
+    {
+        Destroy(gameObject, delay);
+        destroyDelay = delay;
+        needToBeDestroyed = true; 
     }
 
     private void Freeze(GameObject enemy)

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Flame
+  m_Name: Frost
   m_Shader: {fileID: -6465566751694194690, guid: e5930edf57f6f5f4c830cfd9e9f1ada1, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -48,17 +48,16 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_29cdc8459a0248bfb946603ace2c4e1f: 0
     - Vector1_31d63c36c296461e94c55198336a8c54: 0.1
     - _DissolveAmount: -0.5
-    - _DissolveScale: 0.75
-    - _DistortionScale: 10
+    - _DissolveScale: 12
+    - _DistortionScale: 0
     - _EnableExternalAlpha: 0
     - _EndFlame: 0
     - _StartFlame: 1
     m_Colors:
-    - Color_cab471edd87e480fb18ac11a57f2d40d: {r: 6.943517, g: 0.8726825, b: 0, a: 1}
-    - Vector2_25eb091fec084ae8aaa34358b2380826: {r: -0.1, g: -3, b: 0, a: 0}
+    - Color_cab471edd87e480fb18ac11a57f2d40d: {r: 0, g: 1.9267352, b: 6.943517, a: 1}
+    - Vector2_25eb091fec084ae8aaa34358b2380826: {r: 0, g: -0.5, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DistortionSpeed: {r: 0, g: -0.8, b: 0, a: 0}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
