@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 5499871268351915361}
   - component: {fileID: 5499871268351915360}
   - component: {fileID: 5499871268351915363}
+  - component: {fileID: 2817206476181409082}
   m_Layer: 3
   m_Name: Flamethrower
   m_TagString: Tower
@@ -204,6 +205,22 @@ MonoBehaviour:
   burnTime: 3
   flameBox: {fileID: 6922442246336718825, guid: 8d138289a6cae1c4fb5641602e7364bd, type: 3}
   flameStartPos: {fileID: 7384725582850842073}
+--- !u!58 &2817206476181409082
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499871268351915362}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.0125008
 --- !u!1 &5594251201364017430
 GameObject:
   m_ObjectHideFlags: 0
