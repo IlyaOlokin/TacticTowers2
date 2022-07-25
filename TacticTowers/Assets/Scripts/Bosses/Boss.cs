@@ -2,20 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Boss : MonoBehaviour
 {
     [SerializeField] private float shootDelay = 2.5f;
-    [SerializeField] private float searchDelay = 3f;
+    [SerializeField] private float shootTime = 3f;
     private bool canShoot = true;
     [SerializeField] private GameObject web;
     private Transform shootZone;
+    private Vector3 basePos;
     private GameObject[] towers;
 
     void Start()
     {
         shootZone = transform.GetChild(1);
         towers = GameObject.FindGameObjectsWithTag("Tower");
+        basePos = GameObject.FindGameObjectWithTag("Base").transform.position;
     }
 
     void Update()
@@ -31,9 +34,7 @@ public class Boss : MonoBehaviour
         {
             if (tower == null) continue;
             var distToTower = Vector2.Distance(transform.position, tower.transform.position);
-            Vector3 dir = transform.position - tower.transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
-            if (distToTower <= shootZone.localScale.x)
+            if (distToTower <= shootZone.localScale.x * 5 && Math.Abs(tower.transform.position.x - shootZone.position.x) < 1.5)
             {
                 if (target == null || distToTower < distToTarget)
                 {
@@ -53,6 +54,7 @@ public class Boss : MonoBehaviour
         if(canShoot)
         {
             LootAtTarget(obj);
+            StartCoroutine(Shooting(obj));
             Instantiate(web, transform.position, transform.rotation);
             StartCoroutine(Reload());
         }   
@@ -70,5 +72,12 @@ public class Boss : MonoBehaviour
         canShoot = false;
         yield return new WaitForSeconds(shootDelay);
         canShoot = true;
+    }
+
+    IEnumerator Shooting(GameObject target)
+    {
+        GetComponent<NavMeshAgent>().SetDestination(target.transform.position);
+        yield return new WaitForSeconds(shootTime);
+        GetComponent<NavMeshAgent>().SetDestination(basePos);
     }
 }
