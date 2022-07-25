@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDelay: 2.5
+  shootTime: 3
   web: {fileID: 1680028144157980390, guid: 5583ead9fa595934dbd9cdc811d3a5e5, type: 3}
 --- !u!95 &8882519611899874958
 Animator:
@@ -271,7 +272,6 @@ GameObject:
   - component: {fileID: 8592448849065069840}
   - component: {fileID: 8861966016631017829}
   - component: {fileID: 3731248712050868683}
-  - component: {fileID: 8380057782036620439}
   m_Layer: 7
   m_Name: ShootZone
   m_TagString: Untagged
@@ -336,15 +336,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8380057782036620439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6328847439207760454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54e95191f175186499b22caeeb6fb9d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
