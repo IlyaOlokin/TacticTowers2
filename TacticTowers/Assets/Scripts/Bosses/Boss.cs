@@ -34,7 +34,7 @@ public class Boss : MonoBehaviour
         {
             if (tower == null) continue;
             var distToTower = Vector2.Distance(transform.position, tower.transform.position);
-            if (distToTower <= shootZone.localScale.x * 5 && Math.Abs(tower.transform.position.x - shootZone.position.x) < 1.5)
+            if (distToTower <= shootZone.localScale.x * 5 && Math.Abs(tower.transform.position.x - shootZone.position.x) < 2.5)
             {
                 if (target == null || distToTower < distToTarget)
                 {
