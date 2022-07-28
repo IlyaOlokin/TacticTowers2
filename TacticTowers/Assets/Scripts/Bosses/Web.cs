@@ -6,7 +6,7 @@ using UnityEngine;
 public class Web : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
-    public Vector2 endPos;
+    [NonSerialized] public Vector2 endPos;
 
     void Update()
     {
