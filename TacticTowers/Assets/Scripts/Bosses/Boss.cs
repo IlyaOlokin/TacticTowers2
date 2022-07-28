@@ -55,6 +55,7 @@ public class Boss : MonoBehaviour
         {
             LootAtTarget(obj);
             StartCoroutine(Shooting(obj));
+            web.GetComponent<Web>().endPos = obj.transform.position;
             Instantiate(web, transform.position, transform.rotation);
             StartCoroutine(Reload());
         }   
