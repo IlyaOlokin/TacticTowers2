@@ -11,7 +11,7 @@ public class TutorialSkipPanel : MonoBehaviour
     {
         PlayerPrefs.SetInt("isTutorialCompleted", 1);
         AudioManager.Instance.Play("ButtonClick1");
-        SceneManager.LoadScene("GameField");
+        SceneManager.LoadScene("BaseChooseMenu");
     }
 
     public void OnButtonCancel()
