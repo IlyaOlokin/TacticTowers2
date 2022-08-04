@@ -179,4 +179,20 @@ public class TowerDrag : MonoBehaviour
             }
         }
     }
+
+    protected void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Web"))
+        {
+            StartCoroutine(Disarm());
+            Destroy(other.gameObject);
+        }
+    }
+
+    IEnumerator Disarm()
+    {
+        tower.canShoot = false;
+        yield return new WaitForSeconds(3.5f);
+        tower.canShoot = true;
+    }
 }

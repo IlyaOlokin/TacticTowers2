@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,18 +6,12 @@ using UnityEngine;
 public class Web : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
-    private Rigidbody2D rb;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.up * speed;
-    }
+    [NonSerialized] public Vector2 endPos;
 
     void Update()
     {
-        Vector2 directon = rb.velocity;
-        var angle = Mathf.Atan2(directon.y, directon.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.position = Vector2.MoveTowards(transform.position, endPos, speed * Time.deltaTime);
+        if (transform.position.Equals(endPos))
+            Destroy(gameObject, 1);
     }
 }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 715245652648313399}
   - component: {fileID: 715245652648313396}
   - component: {fileID: 715245652648313397}
-  - component: {fileID: 1595598125131994533}
   m_Layer: 3
   m_Name: Mortar
   m_TagString: Tower
@@ -121,22 +120,6 @@ MonoBehaviour:
   bullet: {fileID: 1680028144157980390, guid: 7f81e7ce6b482e5488e5f9452d0d39dc, type: 3}
   bulletSpeed: 4
   explosionRadius: 0.5
---- !u!58 &1595598125131994533
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 715245652648313394}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.612566
 --- !u!1 &1266804234424866392
 GameObject:
   m_ObjectHideFlags: 0
