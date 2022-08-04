@@ -8,6 +8,7 @@ public class BossWithShields : MonoBehaviour
 {
     [SerializeField] private List<GameObject> shieldPoints;
     [SerializeField] private List<GameObject> shields;
+    [SerializeField] private List<ShieldSide> shieldSides;
     [SerializeField] private float floatingSpeed;
     [SerializeField] private float floatingSpread;
     private List<Vector3> floatingDestinations = new List<Vector3>();
@@ -15,7 +16,7 @@ public class BossWithShields : MonoBehaviour
     
     [SerializeField] private float moveSpeed;
     [SerializeField] private float turnSpeed;
-    [SerializeField] private List<ShieldSide> shieldSides;
+    
 
     void Start()
     {
@@ -47,9 +48,22 @@ public class BossWithShields : MonoBehaviour
 
     private void SetNewShieldPositions(int sideIndex)
     {
-        moveDestinationTransforms[0] = shieldSides[sideIndex].middlePoint.transform;
-        moveDestinationTransforms[1] = shieldSides[sideIndex].rightPoint.transform;
-        moveDestinationTransforms[2] = shieldSides[sideIndex].leftPoint.transform;
+        List<int> pickedIndexes = new List<int>();
+        
+        SetRandomMoveDestination(pickedIndexes, shieldSides[sideIndex].middlePoint.transform);
+        SetRandomMoveDestination(pickedIndexes, shieldSides[sideIndex].rightPoint.transform);
+        SetRandomMoveDestination(pickedIndexes, shieldSides[sideIndex].leftPoint.transform);
+    }
+
+    private void SetRandomMoveDestination( List<int> pickedIndexes, Transform point)
+    {
+        int destIndex = Random.Range(0, 3);
+        while (pickedIndexes.Contains(destIndex))
+        {
+            destIndex = Random.Range(0, 3);
+        }
+        pickedIndexes.Add(destIndex);
+        moveDestinationTransforms[destIndex] = point;
     }
 
     private void MoveShields(int shieldIndex)
@@ -65,7 +79,7 @@ public class BossWithShields : MonoBehaviour
     {
         if (!NeedToRotateShield(shieldIndex)) return;
         
-        shieldPoints[shieldIndex].transform.rotation = Quaternion.RotateTowards(shieldPoints[shieldIndex].transform.rotation,
+        shields[shieldIndex].transform.rotation = Quaternion.RotateTowards(shields[shieldIndex].transform.rotation,
             moveDestinationTransforms[shieldIndex].rotation, turnSpeed * Time.deltaTime);
     }
 
@@ -94,8 +108,8 @@ public class BossWithShields : MonoBehaviour
     
     private bool NeedToRotateShield(int shieldIndex)
     {
-        bool areEqualish = Quaternion.Angle(shieldPoints[shieldIndex].transform.rotation,
-            moveDestinationTransforms[shieldIndex].transform.rotation) < 0.0001f;
+        bool areEqualish = Quaternion.Angle(shields[shieldIndex].transform.rotation,
+            moveDestinationTransforms[shieldIndex].transform.rotation) < 0.001f;
         return !areEqualish;
     }
 }
