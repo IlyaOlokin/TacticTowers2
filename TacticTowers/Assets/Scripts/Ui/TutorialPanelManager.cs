@@ -13,10 +13,17 @@ public class TutorialPanelManager : MonoBehaviour
     [SerializeField] private Text waveText;
     [SerializeField] private GameObject upgradeWindow;
     [SerializeField] private List<Text> towerLevels;
-    private int colpan;
-    public void col(int num)
+    
+    [SerializeField] private Base _base;
+    [SerializeField] private GameObject baseAbilityMenu;
+    [SerializeField] private Button abilityButton;
+    [SerializeField] private Image baseAbilityCoolDownImage;
+    
+    private int collidedPanelNum;
+    
+    public void SetCollidedPanelNum(int panelNum)
     {
-        colpan = num;
+        collidedPanelNum = panelNum;
     }
     
     private void Update()
@@ -36,49 +43,37 @@ public class TutorialPanelManager : MonoBehaviour
             case 4:
                 panels[3].SetActive(true);
                 break;
-            case 5 when colpan == 5:
+            case 5 when collidedPanelNum == 5:
                 panels[4].SetActive(true);
-                colpan = 0;
-                //collided = false;
+                collidedPanelNum = 0;
                 break;
-            case 6 when colpan == 6:
+            case 6 when collidedPanelNum == 6:
                 panels[5].SetActive(true);
-                // = false;
-                colpan = 0;
+                collidedPanelNum = 0;
                 break;
-            case 7 when colpan == 7:
+            case 7 when collidedPanelNum == 7:
                 if (waveCount[0] == waveCount[1])
                     panels[6].SetActive(true);
-                //collided = false;
-                colpan = 0;
+                collidedPanelNum = 0;
                 break;
             case 8 when enemies.transform.childCount == 0:
                 panels[7].SetActive(true);
                 break;
             case 9 when enemies.transform.childCount == 0:
-                //ar waveCount = waveText.text.Split('/').Select(int.Parse).ToArray();
-//
-                //if (waveCount[0] == waveCount[1])
-                    panels[8].SetActive(true);
-                
+                panels[8].SetActive(true);
                 break;
             case 10:
                 if (towerLevels.Select(t => t.text).Select(int.Parse).Any(l => l > 1) && !upgradeWindow.activeInHierarchy)
                     panels[9].SetActive(true);
                 break;
         }
-        //if (enemies.transform.childCount == 0)
-        //{
-        //    var waveCount = waveText.text.Split('/').Select(int.Parse).ToArray();
-//
-        //    if (waveCount[0] == waveCount[1] && !was4thOpen)
-        //    {
-        //        panels[2].SetActive(true);
-        //        was4thOpen = true;
-        //    }
-        //}
-        //
-        //if (towerLevels.Select(t => t.text).Select(int.Parse).Any(l => l > 1) && !upgradeWindow.activeInHierarchy)
-        //    panels[3].SetActive(true);
+    }
+
+    private void Awake()
+    {
+        _base.ExecuteBasePassiveEffect();
+        _base.baseAbilityMenu = baseAbilityMenu;
+        _base.abilityButton = abilityButton;
+        _base.coolDownImage = baseAbilityCoolDownImage;
     }
 }

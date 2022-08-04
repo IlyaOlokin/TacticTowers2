@@ -9,18 +9,12 @@ public class TutorialPanelChanger : MonoBehaviour
 {
     [SerializeField] private int panelNum;
     [SerializeField] private TutorialPanelManager tpm;
-    private bool collided = false;
     
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Enemy"))
         {
-            tpm.col(panelNum);
+            tpm.SetCollidedPanelNum(panelNum);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }
