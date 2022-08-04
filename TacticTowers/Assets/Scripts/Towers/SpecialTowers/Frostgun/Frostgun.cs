@@ -16,6 +16,8 @@ public class Frostgun : Tower
     [SerializeField] private GameObject frostEffect;
     
     [NonSerialized] public bool shooting;
+    [SerializeField] private Transform frostStartPos;
+
 
 
     private void Start()
@@ -61,9 +63,11 @@ public class Frostgun : Tower
                 activeFrostBox.GetComponent<FrostBox>().freezeStacksPerHit = GetFreezeStacksPerHit();
                 activeFrostBox.GetComponent<FrostBox>().freezeStacksNeeded = freezeStacksNeeded;
                 
-                activeFrostBox.GetComponent<FrostBox>().frostStartPos = transform.position;
-                activeFrostBox.transform.localScale = new Vector3(activeFrostBox.transform.localScale.x, GetShootDistance());
-                activeFrostBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
+                //activeFrostBox.GetComponent<FrostBox>().frostStartPos = transform.position;
+                //activeFrostBox.transform.localScale = new Vector3(activeFrostBox.transform.localScale.x, GetShootDistance());
+                activeFrostBox.transform.localScale = new Vector3(activeFrostBox.transform.localScale.x, activeFrostBox.transform.localScale.x * 2.5f * GetShootDistance() / 3f);
+
+                activeFrostBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + frostStartPos.position) / 2f;
                 currentEnemy = enemy;
                 
                 shooting = true;
@@ -76,19 +80,14 @@ public class Frostgun : Tower
 
         if (activeFrostBox != null)
         {
-            activeFrostBox.transform.position = (towerCanon.transform.up * GetShootDistance() + transform.position + transform.position) / 2f;
+            activeFrostBox.transform.position = (towerCanon.transform.up * GetShootDistance() + frostStartPos.position + transform.position) / 2f;
             activeFrostBox.transform.rotation = towerCanon.transform.rotation;
         }
     }
 
     private void DestroyFrostBox()
     {
-        Destroy(activeFrostBox, GetShootDistance() / 3f);
-        if (activeFrostBox != null && activeFrostBox.GetComponent<FrostBox>() != null)
-        {
-            activeFrostBox.GetComponent<FrostBox>().ps.Stop();
-        }
-
+        if (activeFrostBox != null) activeFrostBox.GetComponent<FrostBox>().DestroySelf(1f);
         activeFrostBox = null;
     }
 

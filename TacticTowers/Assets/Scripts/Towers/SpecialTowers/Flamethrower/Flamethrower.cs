@@ -59,9 +59,10 @@ public class Flamethrower : Tower
                 activeFlameBox.GetComponent<FlameBox>().burnDmg = GetBurnDmg();
                 activeFlameBox.GetComponent<FlameBox>().burnTime = burnTime;
                 
-                activeFlameBox.GetComponent<FlameBox>().flameStartPos = flameStartPos.position;
-                activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, GetShootDistance());
-                activeFlameBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
+                //activeFlameBox.GetComponent<FlameBox>().flameStartPos = flameStartPos.position;
+                //activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, GetShootDistance());
+                activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, activeFlameBox.transform.localScale.x * 2.5f * GetShootDistance() / 3f);
+                activeFlameBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + flameStartPos.position) / 2f;
                 currentEnemy = enemy;
                 
                 shooting = true;
@@ -73,19 +74,14 @@ public class Flamethrower : Tower
 
         if (activeFlameBox != null)
         {
-            activeFlameBox.transform.position = ((towerCanon.transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
+            activeFlameBox.transform.position = ((towerCanon.transform.up * GetShootDistance() + flameStartPos.position) + transform.position) / 2f;
             activeFlameBox.transform.rotation = towerCanon.transform.rotation;
         }
     }
 
     private void DestroyFlameBox()
     {
-        Destroy(activeFlameBox, GetShootDistance() / 3f);
-        if (activeFlameBox != null && activeFlameBox.GetComponent<FlameBox>() != null)
-        {
-            activeFlameBox.GetComponent<FlameBox>().ps.Stop();
-        }
-
+        if (activeFlameBox != null) activeFlameBox.GetComponent<FlameBox>().DestroySelf(1f);
         activeFlameBox = null;
     }
 

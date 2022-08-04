@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,12 @@ using UnityEngine;
 public class Web : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
-    private Rigidbody2D rb;
+    [NonSerialized] public Vector2 endPos;
 
-    void Start()
+    void Update()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.up * speed;
+        transform.position = Vector2.MoveTowards(transform.position, endPos, speed * Time.deltaTime);
+        if (transform.position.Equals(endPos))
+            Destroy(gameObject, 1);
     }
 }
