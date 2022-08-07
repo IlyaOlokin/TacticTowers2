@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LaserMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: fb29b5e67b47c6542b14e2020e685adf, type: 3}
+  m_Name: LaserImpactTrail
+  m_Shader: {fileID: -6465566751694194690, guid: c3546b98f67e88f4db1c03813c8e621f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c6fd452f2f925834fbf80d4c497d1f38, type: 3}
+        m_Texture: {fileID: 2800000, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -49,9 +49,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _EnableExternalAlpha: 0
-    - _GlowDensity: 2
     m_Colors:
-    - _Color: {r: 10.0452, g: 0.21037069, b: 0, a: 1}
+    - Color_8f732d3971f84864ae570f81bb078dab: {r: 191.74902, g: 2.0078433, b: 2.0078433, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
