@@ -8,6 +8,7 @@ public class LaserBim : MonoBehaviour
     private LineRenderer lr;
     [NonSerialized] public GameObject target;
     [NonSerialized] public Vector3 origin;
+    [SerializeField] private GameObject impactEffect;
     void Start()
     {
         lr = GetComponent<LineRenderer>();
@@ -18,6 +19,7 @@ public class LaserBim : MonoBehaviour
     void Update()
     {
         if (target != null) lr.SetPosition(1, target.transform.position);
+        impactEffect.transform.position = lr.GetPosition(1);
     }
 
     public void IncreaseWidth(float heatCount)

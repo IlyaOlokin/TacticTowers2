@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LaserMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: fb29b5e67b47c6542b14e2020e685adf, type: 3}
+  m_Name: LaserAdvanced
+  m_Shader: {fileID: -6465566751694194690, guid: 2162084ff8d9b3942b7c2681adfb8409, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: c6fd452f2f925834fbf80d4c497d1f38, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -48,10 +48,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_35065540848245e58e8c9a333227fa20: 8.79
+    - Vector1_6bdd64d284d5450b957acec51eb62048: 3
     - _EnableExternalAlpha: 0
-    - _GlowDensity: 2
     m_Colors:
-    - _Color: {r: 10.0452, g: 0.21037069, b: 0, a: 1}
+    - Color_233a3373aa474441910d408bb7967d7f: {r: 9.734288, g: 0.09734279, b: 0.09734279, a: 1}
+    - Vector2_7354f14b7664424685452afff2498d57: {r: -1.5, g: 0, b: 0, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
