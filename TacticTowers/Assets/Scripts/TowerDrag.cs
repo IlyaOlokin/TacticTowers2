@@ -27,12 +27,7 @@ public class TowerDrag : MonoBehaviour
     }
     
     private void Update()
-    {
-        if (Time.timeScale == 0)
-        {
-            var a = 0;
-        }
-        
+    { 
         if (needToDrop || Time.deltaTime == 0)
         {
             TryToDrop();

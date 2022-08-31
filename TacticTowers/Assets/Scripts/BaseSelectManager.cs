@@ -13,8 +13,7 @@ public class BaseSelectManager : MonoBehaviour
     
     [SerializeField] private SelectIndicator selectIndicator;
     [SerializeField] private BaseDescriptionPanel baseDescription;
-
-    // Start is called before the first frame update
+    
     void Awake()
     {
         InitializeButtons();

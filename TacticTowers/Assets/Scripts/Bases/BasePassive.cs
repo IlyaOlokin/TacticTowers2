@@ -4,14 +4,7 @@ using UnityEngine;
 
 public class BasePassive : MonoBehaviour
 {
-    protected Base _base;
     public string description;
-    
-    private void Start()
-    {
-        _base = GetComponent<Base>();
-    }
-
     
     public virtual void ExecutePassiveEffect()
     {
