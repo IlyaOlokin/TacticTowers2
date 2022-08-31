@@ -32,7 +32,7 @@ public class MinUpgradePriceFinder : MonoBehaviour
 
         if (Technologies.TryChangeMinUpgradePrice(minPrice))
         {
-            PlayerPrefs.SetInt("minUpgradePrice", minPrice);
+            DataLoader.SaveInt("minUpgradePrice", minPrice);
         }
         
     }

@@ -23,7 +23,7 @@ public class TutorialPanel : MonoBehaviour
 
     public void OnButtonPlay()
     {
-        PlayerPrefs.SetInt("isTutorialCompleted", 1);
+        DataLoader.SaveInt("isTutorialCompleted", 1);
         AudioManager.Instance.Play("ButtonClick2");
         SceneManager.LoadScene("GameField");
     }

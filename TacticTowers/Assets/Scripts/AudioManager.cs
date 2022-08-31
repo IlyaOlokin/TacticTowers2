@@ -41,7 +41,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        if (Convert.ToBoolean(PlayerPrefs.GetInt("isMusicOn", 1)))
+        if (Convert.ToBoolean(DataLoader.LoadInt("isMusicOn", 1)))
             Play("MainTheme");
     }
 

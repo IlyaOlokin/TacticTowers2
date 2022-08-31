@@ -35,7 +35,7 @@ public class BaseSelectManager : MonoBehaviour
     {
         SelectedBase = bases[index];
         SelectedBaseIndex = index;
-        PlayerPrefs.SetInt("selectedBaseIndex", SelectedBaseIndex);
+        DataLoader.SaveInt("selectedBaseIndex", SelectedBaseIndex);
         baseDescription.GetBaseInfo(bases[index].GetComponent<Base>());
         selectIndicator.GetNewDestination(buttons[index].transform.position);
     }

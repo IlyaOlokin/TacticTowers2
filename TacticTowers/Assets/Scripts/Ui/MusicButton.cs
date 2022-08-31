@@ -17,12 +17,12 @@ public class MusicButton : MonoBehaviour
 
         if (music.source.isPlaying)
         {
-            PlayerPrefs.SetInt("isMusicOn", 0);
+            DataLoader.SaveInt("isMusicOn", 0);
             audioManager.Stop("MainTheme");
         }
         else
         {
-            PlayerPrefs.SetInt("isMusicOn", 1);
+            DataLoader.SaveInt("isMusicOn", 1);
             audioManager.Play("MainTheme");
         }
         
@@ -31,7 +31,7 @@ public class MusicButton : MonoBehaviour
 
     private void Start()
     {
-        var isMusicOn = Convert.ToBoolean(PlayerPrefs.GetInt("isMusicOn", 1));
+        var isMusicOn = Convert.ToBoolean(DataLoader.LoadInt("isMusicOn", 1));
 
         buttonSprite.sprite = isMusicOn ? spriteActive : spriteDeactive;
     }

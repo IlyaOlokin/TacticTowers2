@@ -9,7 +9,7 @@ public class TutorialSkipPanel : MonoBehaviour
 
     public void OnButtonSkip()
     {
-        PlayerPrefs.SetInt("isTutorialCompleted", 1);
+        DataLoader.SaveInt("isTutorialCompleted", 1);
         AudioManager.Instance.Play("ButtonClick1");
         SceneManager.LoadScene("BaseChooseMenu");
     }

@@ -16,12 +16,12 @@ public class SoundButton : MonoBehaviour
 
         if (audioManager.soundEnabled)
         {
-            PlayerPrefs.SetInt("isSoundOn", 0);
+            DataLoader.SaveInt("isSoundOn", 0);
             audioManager.SoundOff();
         }
         else
         {
-            PlayerPrefs.SetInt("isSoundOn", 1);
+            DataLoader.SaveInt("isSoundOn", 1);
             audioManager.SoundOn();
         }
         
@@ -30,7 +30,7 @@ public class SoundButton : MonoBehaviour
 
     private void Start()
     {
-        var isMusicOn = Convert.ToBoolean(PlayerPrefs.GetInt("isSoundOn", 1));
+        var isMusicOn = Convert.ToBoolean(DataLoader.LoadInt("isSoundOn", 1));
         var audioManager = FindObjectOfType<AudioManager>();
         
         buttonSprite.sprite = isMusicOn ? spriteActive : spriteDeactive;
