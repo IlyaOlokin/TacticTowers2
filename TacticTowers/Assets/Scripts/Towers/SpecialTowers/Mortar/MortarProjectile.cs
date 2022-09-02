@@ -12,6 +12,8 @@ public class MortarProjectile : MonoBehaviour
     
     private Rigidbody2D rb;
     [SerializeField] private GameObject explosionEffect;
+    private DamageType damageType = DamageType.Fire;
+
     
     private void Update()
     {
@@ -42,7 +44,7 @@ public class MortarProjectile : MonoBehaviour
 
         for (int i = 0; i < enemiesInRadius.Count; i++)
         {
-            enemiesInRadius[i].TakeDamage(Dmg);
+            enemiesInRadius[i].TakeDamage(Dmg, damageType);
         }
             
     }

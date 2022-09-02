@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        GlobalBaseEffects.SetAllToDefault();
         var newBaseGameObject = Instantiate(BaseSelectManager.SelectedBase, baseTransform.position, Quaternion.identity, baseTransform);
         var newBase = newBaseGameObject.GetComponent<Base>();
         newBase.ExecuteBasePassiveEffect();
