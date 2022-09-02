@@ -17,6 +17,7 @@ public class Laser : Tower
     [SerializeField] public float coolDelay;
 
     [NonSerialized] public bool shooting;
+    private DamageType damageType = DamageType.Fire;
 
     private void Start()
     {
@@ -72,7 +73,7 @@ public class Laser : Tower
             shootDelayTimer = 1f / GetAttackSpeed();
             coolTimer = coolDelay;
             
-            enemy.GetComponent<Enemy>().TakeDamage(GetDmg() + Mathf.Floor(heatCount) * bonusDamagePerHeat);
+            enemy.GetComponent<Enemy>().TakeDamage(GetDmg() + Mathf.Floor(heatCount) * bonusDamagePerHeat, damageType);
         }
     }
 }

@@ -8,6 +8,7 @@ public class Tesla : Tower
     [SerializeField] public int lightningCount;
     [SerializeField] public float dmgDecrease;
     [SerializeField] public float lightningJumpDistance;
+    private DamageType damageType = DamageType.Fire;
 
     void Update()
     {
@@ -48,7 +49,7 @@ public class Tesla : Tower
         
         AudioManager.Instance.Play("TeslaShot");
 
-        enemy.GetComponent<Enemy>().TakeDamage(dmg);
+        enemy.GetComponent<Enemy>().TakeDamage(dmg, damageType);
         yield return new WaitForSeconds(0.2f);
         GameObject newEnemy = null;
         var minDist = float.MaxValue;

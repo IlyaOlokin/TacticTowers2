@@ -21,6 +21,7 @@ public class FlameBox : MonoBehaviour
     private float destroyDelay;
     
     private bool needToBeDestroyed;
+    private DamageType damageType = DamageType.Fire;
 
     [SerializeField] private GameObject fire;
     private static readonly int EndFlame = Shader.PropertyToID("_EndFlame");
@@ -55,7 +56,7 @@ public class FlameBox : MonoBehaviour
         for (var index = 0; index < enemiesInside.Count; index++)
         {
             var enemy = enemiesInside[index];
-            enemy.TakeDamage(dmg);
+            enemy.TakeDamage(dmg, damageType);
             SetOnFire(enemy.gameObject);
             
         }

@@ -9,8 +9,8 @@ public class Railgun : Tower
     [SerializeField] private Transform railStartPos;
     public float dmgMultiplier;
     public float minDmg;
-    
-    
+    private DamageType damageType = DamageType.Normal;
+
     void Update()
     {
         base.Update();
@@ -39,7 +39,7 @@ public class Railgun : Tower
                 if (newEnemy)
                 {
                     if (multiplier < minDmg) multiplier = minDmg;
-                    newEnemy.TakeDamage(GetDmg() * multiplier);
+                    newEnemy.TakeDamage(GetDmg() * multiplier, damageType);
                     multiplier *= dmgMultiplier;
                 }
             }

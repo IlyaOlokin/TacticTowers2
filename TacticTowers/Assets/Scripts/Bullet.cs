@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
      [NonSerialized] public float Dmg;
      [NonSerialized] public float Speed;
+     private DamageType damageType = DamageType.Normal;
     
      private Rigidbody2D rb;
 
@@ -19,7 +20,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<Enemy>().TakeDamage(Dmg);
+            other.gameObject.GetComponent<Enemy>().TakeDamage(Dmg, damageType);
         }
         Destroy(gameObject);
     }
