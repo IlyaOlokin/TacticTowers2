@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
 
     public void OnButtonPlay()
     {
-        var isTutorialCompleted = Convert.ToBoolean(PlayerPrefs.GetInt("isTutorialCompleted", 0));
+        var isTutorialCompleted = Convert.ToBoolean(DataLoader.LoadInt("isTutorialCompleted", 0));
         AudioManager.Instance.Play("ButtonClick2");
 
         SceneManager.LoadScene(isTutorialCompleted ? "BaseChooseMenu" : "Tutorial");

@@ -115,7 +115,7 @@ public class PausePanel : MonoBehaviour
             {
                 Resume();
             }
-            else if (!confirmPanel.activeInHierarchy)
+            else if (!pausePanel.activeInHierarchy)
             {
                 if (towers.Any(tower =>  tower.GetComponent<TowerDrag>().needToDrop)) return;
                 Pause();

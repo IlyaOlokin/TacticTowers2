@@ -6,6 +6,12 @@ using UnityEngine;
 public class BaseRegeneration : BasePassive
 {
     [SerializeField] private float regenAmount; // hp per sec
+    private Base _base;
+    
+    private void Start()
+    {
+        _base = GetComponent<Base>();
+    }
     
     void Update()
     {

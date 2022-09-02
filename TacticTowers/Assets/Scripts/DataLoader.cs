@@ -8,22 +8,22 @@ public class DataLoader : MonoBehaviour
 
     void Start()
     {
-        Technologies.BaseHpMultiplier = float.Parse(PlayerPrefs.GetString("baseHpMultiplier", "1"));
-        Technologies.DmgMultiplier = float.Parse(PlayerPrefs.GetString("dmgMultiplier", "1"));
-        Technologies.ShootAngleMultiplier = float.Parse(PlayerPrefs.GetString("shootAngleMultiplier", "1"));
-        Technologies.MoneyMultiplier = float.Parse(PlayerPrefs.GetString("moneyMultiplier", "1"));
+        Technologies.BaseHpMultiplier = float.Parse(LoadString("baseHpMultiplier", "1"));
+        Technologies.DmgMultiplier = float.Parse(LoadString("dmgMultiplier", "1"));
+        Technologies.ShootAngleMultiplier = float.Parse(LoadString("shootAngleMultiplier", "1"));
+        Technologies.MoneyMultiplier = float.Parse(LoadString("moneyMultiplier", "1"));
         
-        Technologies.IsFrostGunUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("isFrostGunUnlocked", 0));
-        Technologies.IsFlamethrowerUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("isFlamethrowerUnlocked", 0));
-        Technologies.IsRailgunUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("isRailgunUnlocked", 0));
-        Technologies.IsTeslaUnlocked = Convert.ToBoolean(PlayerPrefs.GetInt("isTeslaUnlocked", 0));
+        Technologies.IsFrostGunUnlocked = Convert.ToBoolean(LoadInt("isFrostGunUnlocked", 0));
+        Technologies.IsFlamethrowerUnlocked = Convert.ToBoolean(LoadInt("isFlamethrowerUnlocked", 0));
+        Technologies.IsRailgunUnlocked = Convert.ToBoolean(LoadInt("isRailgunUnlocked", 0));
+        Technologies.IsTeslaUnlocked = Convert.ToBoolean(LoadInt("isTeslaUnlocked", 0));
 
-        Credits.credits = int.Parse(PlayerPrefs.GetString("Credits", "0"));
-        Credits.CreditsInTotal = int.Parse(PlayerPrefs.GetString("CreditsInTotal",  Credits.credits.ToString()));
+        Credits.credits = int.Parse(LoadString("Credits", "0"));
+        Credits.CreditsInTotal = int.Parse(LoadString("CreditsInTotal",  Credits.credits.ToString()));
 
-        Technologies.MinUpgradePrice = PlayerPrefs.GetInt("minUpgradePrice", 10);
+        Technologies.MinUpgradePrice = LoadInt("minUpgradePrice", 10);
 
-        BaseSelectManager.SelectedBaseIndex = PlayerPrefs.GetInt("selectedBaseIndex", 0);
+        BaseSelectManager.SelectedBaseIndex = LoadInt("selectedBaseIndex", 0);
         
         
         YandexSDK.Instance.Authenticate();
@@ -40,5 +40,30 @@ public class DataLoader : MonoBehaviour
         {
             PlayerPrefs.DeleteAll();
         }
+    }
+
+    public static void SaveInt(string variableName, int isUnlocked)
+    {
+        PlayerPrefs.SetInt(variableName, Convert.ToInt16(isUnlocked));
+    }
+
+    public static void SaveInt(string variableName, bool isUnlocked)
+    {
+        PlayerPrefs.SetInt(variableName, Convert.ToInt16(isUnlocked));
+    }
+
+    public static void SaveString(string variableName, string value)
+    {
+        PlayerPrefs.SetString(variableName, value);
+    }
+
+    public static string LoadString(string variableName, string defaultValue)
+    {
+        return PlayerPrefs.GetString(variableName, defaultValue);
+    }
+    
+    public static int LoadInt(string variableName, int defaultValue)
+    {
+        return PlayerPrefs.GetInt(variableName, defaultValue);
     }
 }

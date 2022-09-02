@@ -13,14 +13,15 @@ public static class Credits
     public static void TakeCredits(int credits)
     {
         Credits.credits -= credits;
-        PlayerPrefs.SetString("Credits", Credits.credits.ToString());
+        DataLoader.SaveString("Credits", Credits.credits.ToString());
+
     }
     public static void AddCredits(int credits)
     {
         Credits.credits += credits;
         CreditsInTotal += credits;
-        PlayerPrefs.SetString("Credits", Credits.credits.ToString());
-        PlayerPrefs.SetString("CreditsInTotal", CreditsInTotal.ToString());
+        DataLoader.SaveString("Credits", Credits.credits.ToString());
+        DataLoader.SaveString("CreditsInTotal", CreditsInTotal.ToString());
         YandexSDK.Instance.SetLeaderScore(CreditsInTotal);
     }
 
