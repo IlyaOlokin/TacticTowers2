@@ -44,6 +44,49 @@ public class GlobalBaseEffects : MonoBehaviour
     private static float TempShootDistanceMultiplierLeft = 1;
     private static float TempShootDistanceMultiplierDown = 1;
 
+    public static void SetAllToDefault()
+    {
+         DmgMultiplierRight = 1;
+         DmgMultiplierUp = 1;
+         DmgMultiplierLeft = 1;
+         DmgMultiplierDown = 1;
+
+         AttackSpeedMultiplierRight = 1;
+         AttackSpeedMultiplierUp = 1;
+         AttackSpeedMultiplierLeft = 1;
+         AttackSpeedMultiplierDown = 1;
+
+         ShootAngleMultiplierRight = 1;
+         ShootAngleMultiplierUp = 1;
+         ShootAngleMultiplierLeft = 1;
+         ShootAngleMultiplierDown = 1;
+
+         ShootDistanceMultiplierRight = 1;
+         ShootDistanceMultiplierUp = 1;
+         ShootDistanceMultiplierLeft = 1;
+         ShootDistanceMultiplierDown = 1;
+        
+         TempDmgMultiplierRight = 1;
+         TempDmgMultiplierUp = 1;
+         TempDmgMultiplierLeft = 1;
+         TempDmgMultiplierDown = 1;
+
+         TempAttackSpeedMultiplierRight = 1;
+         TempAttackSpeedMultiplierUp = 1;
+         TempAttackSpeedMultiplierLeft = 1;
+         TempAttackSpeedMultiplierDown = 1;
+
+         TempShootAngleMultiplierRight = 1;
+         TempShootAngleMultiplierUp = 1;
+         TempShootAngleMultiplierLeft = 1;
+         TempShootAngleMultiplierDown = 1;
+
+         TempShootDistanceMultiplierRight = 1;
+         TempShootDistanceMultiplierUp = 1;
+         TempShootDistanceMultiplierLeft = 1;
+         TempShootDistanceMultiplierDown = 1;
+    }
+    
     public static float GetGlobalBaseDmgMultiplier(float angle)
     {
         switch (angle)

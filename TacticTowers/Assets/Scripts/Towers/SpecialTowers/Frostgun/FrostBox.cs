@@ -22,7 +22,8 @@ public class FrostBox : MonoBehaviour
     private float destroyDelay;
     
     private bool needToBeDestroyed;
-
+    
+    private DamageType damageType = DamageType.Normal;
 
     [NonSerialized] public ParticleSystem ps;
     [NonSerialized] public Vector3 frostStartPos;
@@ -62,7 +63,7 @@ public class FrostBox : MonoBehaviour
         for (var index = 0; index < enemiesInside.Count; index++)
         {
             var enemy = enemiesInside[index];
-            enemy.TakeDamage(dmg);
+            enemy.TakeDamage(dmg, damageType);
             Freeze(enemy.gameObject);
             
         }

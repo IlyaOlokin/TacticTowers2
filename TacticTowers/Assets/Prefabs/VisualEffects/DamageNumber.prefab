@@ -29,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 815261751823753823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalScale: {x: 0.006, y: 0.006, z: 0.006}
   m_Children:
   - {fileID: 3708356544447333687}
   m_Father: {fileID: 0}
@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 6.682678, y: 0.9482422}
+  m_AnchoredPosition: {x: 6.682617, y: 0.9482422}
   m_SizeDelta: {x: 19.4956, y: 28.2593}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &4166823822178188623
@@ -114,9 +114,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 8876164603866706946}
-  effectDuration: 0.6
-  upscaleDuration: 0.4
+  lifeTime: 0.6
+  effectDuration: 0.4
   scaleMultiplier: 1.5
+  moveUpDistance: 0.3
   posSpreading: 0.05
   colors:
   - bottomBorder: 0

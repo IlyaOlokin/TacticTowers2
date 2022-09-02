@@ -204,7 +204,7 @@ public class FinishPanel : MonoBehaviour
         }
         foreach (var e in tempEnemies)
         {
-            e.OnDeath();
+            e.OnDeath(DamageType.Normal);
         }
     }
 
