@@ -126,4 +126,23 @@ public class Tower : MonoBehaviour
         shootZone.tower = this;
         upgradeLevel = tower.upgradeLevel;
     }
+    
+    public static Vector3? CheckWallCollision(Vector3 origin, Vector3 target)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, 100f, LayerMask.GetMask("Enemy"));
+        if (hit.collider != null && hit.collider.CompareTag("Wall"))
+            return hit.point;
+        
+        return null;
+        
+    }
+
+    public static Vector3 GetLaserImpactPoint(Vector3 origin, Vector3 target)
+    {
+        var wallCollision = CheckWallCollision(origin, target);
+        if (wallCollision != null)
+            return (Vector3) wallCollision;
+
+        return target;
+    }
 }

@@ -15,6 +15,7 @@ public class Laser : Tower
     [SerializeField] public int maxHeat;
     [SerializeField] public float bonusDamagePerHeat;
     [SerializeField] public float coolDelay;
+    [SerializeField] private ContactFilter2D contactFilter;
 
     [NonSerialized] public bool shooting;
     private DamageType damageType = DamageType.Fire;
@@ -47,7 +48,7 @@ public class Laser : Tower
             return;
         }
         LootAtTarget(enemy);
-
+        
         if (enemy != currentEnemy)
         {
             Destroy(activeLaser);
@@ -73,7 +74,8 @@ public class Laser : Tower
             shootDelayTimer = 1f / GetAttackSpeed();
             coolTimer = coolDelay;
             
-            enemy.GetComponent<Enemy>().TakeDamage(GetDmg() + Mathf.Floor(heatCount) * bonusDamagePerHeat, damageType);
+            if (CheckWallCollision(transform.position, enemy.transform.position) is null)
+                enemy.GetComponent<Enemy>().TakeDamage(GetDmg() + Mathf.Floor(heatCount) * bonusDamagePerHeat, damageType);
         }
     }
 }

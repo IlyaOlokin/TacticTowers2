@@ -13,12 +13,12 @@ public class LaserBim : MonoBehaviour
     {
         lr = GetComponent<LineRenderer>();
         lr.SetPosition(0, origin);
-        lr.SetPosition(1, target.transform.position);
+        lr.SetPosition(1, Tower.GetLaserImpactPoint(origin,target.transform.position));
     }
     
     void Update()
     {
-        if (target != null) lr.SetPosition(1, target.transform.position);
+        if (target != null) lr.SetPosition(1, Tower.GetLaserImpactPoint(origin, target.transform.position));
         impactEffect.transform.position = lr.GetPosition(1);
     }
 
