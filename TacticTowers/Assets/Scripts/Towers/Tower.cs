@@ -129,12 +129,11 @@ public class Tower : MonoBehaviour
     
     public static Vector3? CheckWallCollision(Vector3 origin, Vector3 target)
     {
-        RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, 100f, LayerMask.GetMask("Enemy"));
-        if (hit.collider != null && hit.collider.CompareTag("Wall"))
+        RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, 100f, LayerMask.GetMask("Wall"));
+        if (hit.collider != null && hit.distance < Vector3.Distance(origin, target))
             return hit.point;
         
         return null;
-        
     }
 
     public static Vector3 GetLaserImpactPoint(Vector3 origin, Vector3 target)
