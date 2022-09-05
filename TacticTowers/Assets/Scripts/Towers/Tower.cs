@@ -127,18 +127,18 @@ public class Tower : MonoBehaviour
         upgradeLevel = tower.upgradeLevel;
     }
     
-    public static Vector3? CheckWallCollision(Vector3 origin, Vector3 target)
+    public static Vector3? CheckWallCollision(Vector3 origin, Vector3 target, bool shouldPenetrate)
     {
         RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, 100f, LayerMask.GetMask("Wall"));
-        if (hit.collider != null && hit.distance < Vector3.Distance(origin, target))
+        if (hit.collider != null && (hit.distance < Vector3.Distance(origin, target) || shouldPenetrate))
             return hit.point;
         
         return null;
     }
 
-    public static Vector3 GetLaserImpactPoint(Vector3 origin, Vector3 target)
+    public static Vector3 GetRayImpactPoint(Vector3 origin, Vector3 target, bool shouldPenetrate)
     {
-        var wallCollision = CheckWallCollision(origin, target);
+        var wallCollision = CheckWallCollision(origin, target, shouldPenetrate);
         if (wallCollision != null)
             return (Vector3) wallCollision;
 
