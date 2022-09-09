@@ -83,8 +83,7 @@ public class PausePanel : MonoBehaviour
     
     private void Pause()
     {
-        startTimeScale = Time.timeScale;
-        Time.timeScale = 0;
+        TimeManager.Pause();
         pausePanel.SetActive(true);
         
         foreach (var tower in towers)
@@ -95,7 +94,7 @@ public class PausePanel : MonoBehaviour
 
     private void Resume()
     {
-        Time.timeScale = startTimeScale;
+        TimeManager.Resume();
         pausePanel.SetActive(false);
         
         foreach (var tower in towers)

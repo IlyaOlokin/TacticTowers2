@@ -14,7 +14,7 @@ public class TutorialPanel : MonoBehaviour
         gameObject.SetActive(false);
         AudioManager.Instance.Play("ButtonClick1");
         TutorialPanelManager.CurrentPanel++;
-        Time.timeScale = prevTimescale;
+        TimeManager.Resume();
         
         if (TutorialPanelManager.CurrentPanel > 6)
             foreach (var tower in towers)
@@ -34,16 +34,10 @@ public class TutorialPanel : MonoBehaviour
         AudioManager.Instance.Play("ButtonClick2");
     }
     
-    private void Update()
+    private void OnEnable()
     {
-        if (gameObject.activeInHierarchy)
-        {
-            if (Time.timeScale != 0)
-                prevTimescale = Time.timeScale;
-            
-            Time.timeScale = 0;
-            foreach (var tower in towers)
-                tower.GetComponent<CircleCollider2D>().enabled = false;
-        }
+        TimeManager.Pause();
+        foreach (var tower in towers)
+            tower.GetComponent<CircleCollider2D>().enabled = false;
     }
 }
