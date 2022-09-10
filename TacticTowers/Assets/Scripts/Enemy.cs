@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour
 
     private void RotateByVelocity()
     {
-        if (!agent.enabled) return;
+        if (!agent.enabled || agent.speed == 0) return;
         var angle = Mathf.Atan2(agent.velocity.y, agent.velocity.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
     }

@@ -43,7 +43,7 @@ public class TimeAcceleration : MonoBehaviour
     {
         currentTimeScaleIndex = timeScaleIndex % timeScales.Count;
         int newTimeScale = timeScales[currentTimeScaleIndex];
-        Time.timeScale = newTimeScale;
+        TimeManager.SetTimeScale(newTimeScale);
         ColorArrows(currentTimeScaleIndex);
         AudioManager.Instance.Play("ButtonClick1");
     }

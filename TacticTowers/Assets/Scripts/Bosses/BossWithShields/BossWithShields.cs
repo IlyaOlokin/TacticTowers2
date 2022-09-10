@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,6 +12,8 @@ public class BossWithShields : MonoBehaviour
     [SerializeField] private List<ShieldSide> shieldSides;
     [SerializeField] private float floatingSpeed;
     [SerializeField] private float floatingSpread;
+    [SerializeField] private float rotationDelay;
+    private int currentShieldPositionIndex = -1;
     private List<Vector3> floatingDestinations = new List<Vector3>();
     private Transform[] moveDestinationTransforms = new Transform[3];
     
@@ -24,7 +27,7 @@ public class BossWithShields : MonoBehaviour
         {
             floatingDestinations.Add(SelectRandomFloatingPosition());
         }
-        SetNewShieldPositions(0);
+        StartCoroutine(RotateShields());
     }
     
     void Update()
@@ -36,14 +39,14 @@ public class BossWithShields : MonoBehaviour
             RotateShields(i);
         }
         
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        /*if (Input.GetKeyDown(KeyCode.Alpha4))
             SetNewShieldPositions(0);
         if (Input.GetKeyDown(KeyCode.Alpha5))
             SetNewShieldPositions(1);
         if (Input.GetKeyDown(KeyCode.Alpha6))
             SetNewShieldPositions(2);
         if (Input.GetKeyDown(KeyCode.Alpha7))
-            SetNewShieldPositions(3);
+            SetNewShieldPositions(3);*/
     }
 
     private void SetNewShieldPositions(int sideIndex)
@@ -111,5 +114,22 @@ public class BossWithShields : MonoBehaviour
         bool areEqualish = Quaternion.Angle(shields[shieldIndex].transform.rotation,
             moveDestinationTransforms[shieldIndex].transform.rotation) < 0.001f;
         return !areEqualish;
+    }
+
+    private int PickNewShieldPosition()
+    {
+        var range = Enumerable.Range(0, shieldSides.Count).Where(i => i != currentShieldPositionIndex);
+        var rand = new System.Random();
+        int index = rand.Next(0, shieldSides.Count - 1);
+        return range.ElementAt(index);
+    }
+
+    private IEnumerator RotateShields()
+    {
+        int newIndex = PickNewShieldPosition();
+        SetNewShieldPositions(newIndex);
+        currentShieldPositionIndex = newIndex;
+        yield return new WaitForSeconds(rotationDelay);
+        StartCoroutine(RotateShields());
     }
 }

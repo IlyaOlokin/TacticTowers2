@@ -65,9 +65,9 @@ public class Frostgun : Tower
                 
                 //activeFrostBox.GetComponent<FrostBox>().frostStartPos = transform.position;
                 //activeFrostBox.transform.localScale = new Vector3(activeFrostBox.transform.localScale.x, GetShootDistance());
-                activeFrostBox.transform.localScale = new Vector3(activeFrostBox.transform.localScale.x, activeFrostBox.transform.localScale.x * 2.5f * GetShootDistance() / 3f);
-
-                activeFrostBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + frostStartPos.position) / 2f;
+                var frostDistance = GetFrostDistance(enemy);
+                activeFrostBox.transform.localScale = new Vector3(activeFrostBox.transform.localScale.x, activeFrostBox.transform.localScale.x * 2.5f * frostDistance / 3f);
+                activeFrostBox.transform.position = ((transform.up * frostDistance + transform.position) + frostStartPos.position) / 2f;
                 currentEnemy = enemy;
                 
                 shooting = true;
@@ -80,8 +80,25 @@ public class Frostgun : Tower
 
         if (activeFrostBox != null)
         {
-            activeFrostBox.transform.position = (towerCanon.transform.up * GetShootDistance() + frostStartPos.position + transform.position) / 2f;
+            var frostDistance = GetFrostDistance(enemy);
+            activeFrostBox.transform.position = (towerCanon.transform.up * frostDistance + frostStartPos.position + transform.position) / 2f;
+            activeFrostBox.transform.localScale = new Vector3(activeFrostBox.transform.localScale.x, activeFrostBox.transform.localScale.x * 2.5f * frostDistance / 3f);
+
             activeFrostBox.transform.rotation = towerCanon.transform.rotation;
+        }
+    }
+    
+    private float GetFrostDistance(GameObject enemy)
+    {
+        if(CheckWallCollision(transform.position, enemy.transform.position, true) != null)
+        {
+            var fireDistance = Vector2.Distance(transform.position,
+                GetRayImpactPoint(transform.position, enemy.transform.position, true));
+            return fireDistance;
+        }
+        else
+        {
+            return GetShootDistance();
         }
     }
 

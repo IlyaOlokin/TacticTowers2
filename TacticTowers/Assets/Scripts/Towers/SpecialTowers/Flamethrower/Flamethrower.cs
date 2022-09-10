@@ -61,8 +61,9 @@ public class Flamethrower : Tower
                 
                 //activeFlameBox.GetComponent<FlameBox>().flameStartPos = flameStartPos.position;
                 //activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, GetShootDistance());
-                activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, activeFlameBox.transform.localScale.x * 2.5f * GetShootDistance() / 3f);
-                activeFlameBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + flameStartPos.position) / 2f;
+                var fireDistance = GetFireDistance(enemy);
+                activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, activeFlameBox.transform.localScale.x * 2.5f * fireDistance / 3f);
+                activeFlameBox.transform.position = ((transform.up * fireDistance + transform.position) + flameStartPos.position) / 2f;
                 currentEnemy = enemy;
                 
                 shooting = true;
@@ -74,8 +75,25 @@ public class Flamethrower : Tower
 
         if (activeFlameBox != null)
         {
-            activeFlameBox.transform.position = ((towerCanon.transform.up * GetShootDistance() + flameStartPos.position) + transform.position) / 2f;
+            var fireDistance = GetFireDistance(enemy);
+            activeFlameBox.transform.position = ((towerCanon.transform.up * fireDistance + flameStartPos.position) + transform.position) / 2f;
+            activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, activeFlameBox.transform.localScale.x * 2.5f * fireDistance / 3f);
+
             activeFlameBox.transform.rotation = towerCanon.transform.rotation;
+        }
+    }
+
+    private float GetFireDistance(GameObject enemy)
+    {
+        if(CheckWallCollision(transform.position, enemy.transform.position, true) != null)
+        {
+            var fireDistance = Vector2.Distance(transform.position,
+                GetRayImpactPoint(transform.position, enemy.transform.position, true));
+            return fireDistance;
+        }
+        else
+        {
+            return GetShootDistance();
         }
     }
 

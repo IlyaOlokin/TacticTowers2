@@ -223,7 +223,7 @@ public class FinishPanel : MonoBehaviour
     private void Pause()
     {
         savedTimeScale = Time.timeScale;
-        Time.timeScale = 0;
+        TimeManager.Pause();
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = false;
     }
@@ -233,9 +233,9 @@ public class FinishPanel : MonoBehaviour
         //victoryPanel.SetActive(false);
         //defeatPanel.SetActive(false);
         if (savePreviousTimeScale)
-            Time.timeScale = savedTimeScale;
+            TimeManager.Resume();
         else
-            Time.timeScale = 1;
+            TimeManager.SetTimeScale(1f);
         
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = true;
