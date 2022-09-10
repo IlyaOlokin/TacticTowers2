@@ -1385,9 +1385,10 @@ MonoBehaviour:
   - {fileID: 5640648011915053651}
   - {fileID: 8536153604697440023}
   - {fileID: 7946570388911410019}
-  floatingSpeed: 0.04
-  floatingSpread: 0.1
-  moveSpeed: 0.3
+  floatingSpeed: 0.03
+  floatingSpread: 0.08
+  rotationDelay: 12
+  moveSpeed: 0.4
   turnSpeed: 40
 --- !u!114 &5937050097135992821
 MonoBehaviour:
