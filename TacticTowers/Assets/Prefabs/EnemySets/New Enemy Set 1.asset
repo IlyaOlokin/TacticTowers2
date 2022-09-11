@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04553e0e1fa40bb4db93fb9c70797975, type: 3}
-  m_Name: New Enemy Set
+  m_Name: New Enemy Set 1
   m_EditorClassIdentifier: 
-  Right:
-  - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemyCount: 5
-  Top: []
+  Right: []
+  Top:
+  - enemy: {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemyCount: 10
   Left: []
   Bot: []

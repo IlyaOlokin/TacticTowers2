@@ -2362,10 +2362,11 @@ MonoBehaviour:
   Waves:
   - moneyForWave: 5
     seconds: 0
-    enemySet: {fileID: 11400000, guid: 72d41a649a6ea964ba2621cfa772e1a0, type: 2}
   - moneyForWave: 5
-    seconds: 0
-    enemySet: {fileID: 11400000, guid: 72d41a649a6ea964ba2621cfa772e1a0, type: 2}
+    seconds: 5
+  enemySets:
+  - {fileID: 11400000, guid: 72d41a649a6ea964ba2621cfa772e1a0, type: 2}
+  - {fileID: 11400000, guid: 2be57a388dcff6f4a817f64a023b89fb, type: 2}
   spawnZoneRight: {fileID: 1659689777}
   spawnZoneTop: {fileID: 12349081}
   spawnZoneLeft: {fileID: 951636402}
@@ -2782,7 +2783,7 @@ MonoBehaviour:
   Waves:
   - moneyForWave: 5
     seconds: 0
-    enemySet: {fileID: 0}
+  enemySets: []
   spawnZoneRight: {fileID: 1064235504}
   spawnZoneTop: {fileID: 709855207}
   spawnZoneLeft: {fileID: 920033258}
@@ -2841,7 +2842,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0078125, y: 0.9256301}
   m_AnchorMax: {x: 0.09354168, y: 0.9888852}
-  m_AnchoredPosition: {x: 295.9103, y: -58.80005}
+  m_AnchoredPosition: {x: 295.91043, y: -58.80005}
   m_SizeDelta: {x: 132.91, y: -20.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371763077
@@ -15113,229 +15114,155 @@ MonoBehaviour:
   Waves:
   - moneyForWave: 2
     seconds: 0
-    enemySet: {fileID: 0}
   - moneyForWave: 3
     seconds: 15
-    enemySet: {fileID: 0}
   - moneyForWave: 2
     seconds: 30
-    enemySet: {fileID: 0}
   - moneyForWave: 3
     seconds: 45
-    enemySet: {fileID: 0}
   - moneyForWave: 5
     seconds: 60
-    enemySet: {fileID: 0}
   - moneyForWave: 5
     seconds: 80
-    enemySet: {fileID: 0}
   - moneyForWave: 5
     seconds: 100
-    enemySet: {fileID: 0}
   - moneyForWave: 5
     seconds: 120
-    enemySet: {fileID: 0}
   - moneyForWave: 10
     seconds: 140
-    enemySet: {fileID: 0}
   - moneyForWave: 10
     seconds: 165
-    enemySet: {fileID: 0}
   - moneyForWave: 10
     seconds: 190
-    enemySet: {fileID: 0}
   - moneyForWave: 10
     seconds: 215
-    enemySet: {fileID: 0}
   - moneyForWave: 15
     seconds: 240
-    enemySet: {fileID: 0}
   - moneyForWave: 15
     seconds: 265
-    enemySet: {fileID: 0}
   - moneyForWave: 15
     seconds: 290
-    enemySet: {fileID: 0}
   - moneyForWave: 20
     seconds: 315
-    enemySet: {fileID: 0}
   - moneyForWave: 20
     seconds: 340
-    enemySet: {fileID: 0}
   - moneyForWave: 20
     seconds: 365
-    enemySet: {fileID: 0}
   - moneyForWave: 25
     seconds: 390
-    enemySet: {fileID: 0}
   - moneyForWave: 25
     seconds: 415
-    enemySet: {fileID: 0}
   - moneyForWave: 25
     seconds: 440
-    enemySet: {fileID: 0}
   - moneyForWave: 30
     seconds: 465
-    enemySet: {fileID: 0}
   - moneyForWave: 30
     seconds: 490
-    enemySet: {fileID: 0}
   - moneyForWave: 30
     seconds: 520
-    enemySet: {fileID: 0}
   - moneyForWave: 35
     seconds: 550
-    enemySet: {fileID: 0}
   - moneyForWave: 35
     seconds: 580
-    enemySet: {fileID: 0}
   - moneyForWave: 35
     seconds: 610
-    enemySet: {fileID: 0}
   - moneyForWave: 40
     seconds: 640
-    enemySet: {fileID: 0}
   - moneyForWave: 40
     seconds: 670
-    enemySet: {fileID: 0}
   - moneyForWave: 40
     seconds: 700
-    enemySet: {fileID: 0}
   - moneyForWave: 45
     seconds: 730
-    enemySet: {fileID: 0}
   - moneyForWave: 45
     seconds: 760
-    enemySet: {fileID: 0}
   - moneyForWave: 45
     seconds: 790
-    enemySet: {fileID: 0}
   - moneyForWave: 50
     seconds: 820
-    enemySet: {fileID: 0}
   - moneyForWave: 50
     seconds: 850
-    enemySet: {fileID: 0}
   - moneyForWave: 50
     seconds: 880
-    enemySet: {fileID: 0}
   - moneyForWave: 50
     seconds: 910
-    enemySet: {fileID: 0}
   - moneyForWave: 55
     seconds: 940
-    enemySet: {fileID: 0}
   - moneyForWave: 55
     seconds: 970
-    enemySet: {fileID: 0}
   - moneyForWave: 55
     seconds: 1000
-    enemySet: {fileID: 0}
   - moneyForWave: 60
     seconds: 1030
-    enemySet: {fileID: 0}
   - moneyForWave: 60
     seconds: 1060
-    enemySet: {fileID: 0}
   - moneyForWave: 60
     seconds: 1090
-    enemySet: {fileID: 0}
   - moneyForWave: 65
     seconds: 1120
-    enemySet: {fileID: 0}
   - moneyForWave: 65
     seconds: 1150
-    enemySet: {fileID: 0}
   - moneyForWave: 65
     seconds: 1180
-    enemySet: {fileID: 0}
   - moneyForWave: 70
     seconds: 1210
-    enemySet: {fileID: 0}
   - moneyForWave: 70
     seconds: 1240
-    enemySet: {fileID: 0}
   - moneyForWave: 70
     seconds: 1270
-    enemySet: {fileID: 0}
   - moneyForWave: 75
     seconds: 1305
-    enemySet: {fileID: 0}
   - moneyForWave: 75
     seconds: 1340
-    enemySet: {fileID: 0}
   - moneyForWave: 75
     seconds: 1375
-    enemySet: {fileID: 0}
   - moneyForWave: 80
     seconds: 1410
-    enemySet: {fileID: 0}
   - moneyForWave: 80
     seconds: 1445
-    enemySet: {fileID: 0}
   - moneyForWave: 80
     seconds: 1480
-    enemySet: {fileID: 0}
   - moneyForWave: 85
     seconds: 1515
-    enemySet: {fileID: 0}
   - moneyForWave: 85
     seconds: 1550
-    enemySet: {fileID: 0}
   - moneyForWave: 85
     seconds: 1585
-    enemySet: {fileID: 0}
   - moneyForWave: 90
     seconds: 1620
-    enemySet: {fileID: 0}
   - moneyForWave: 90
     seconds: 1658
-    enemySet: {fileID: 0}
   - moneyForWave: 90
     seconds: 1696
-    enemySet: {fileID: 0}
   - moneyForWave: 95
     seconds: 1735
-    enemySet: {fileID: 0}
   - moneyForWave: 95
     seconds: 1776
-    enemySet: {fileID: 0}
   - moneyForWave: 100
     seconds: 1816
-    enemySet: {fileID: 0}
   - moneyForWave: 100
     seconds: 1856
-    enemySet: {fileID: 0}
   - moneyForWave: 105
     seconds: 1897
-    enemySet: {fileID: 0}
   - moneyForWave: 105
     seconds: 1938
-    enemySet: {fileID: 0}
   - moneyForWave: 110
     seconds: 1979
-    enemySet: {fileID: 0}
   - moneyForWave: 110
     seconds: 2020
-    enemySet: {fileID: 0}
   - moneyForWave: 110
     seconds: 2060
-    enemySet: {fileID: 0}
   - moneyForWave: 115
     seconds: 2100
-    enemySet: {fileID: 0}
   - moneyForWave: 115
     seconds: 2140
-    enemySet: {fileID: 0}
   - moneyForWave: 115
     seconds: 2185
-    enemySet: {fileID: 0}
   - moneyForWave: 120
     seconds: 2230
-    enemySet: {fileID: 0}
   - moneyForWave: 120
     seconds: 2272
-    enemySet: {fileID: 0}
+  enemySets: []
   spawnZoneRight: {fileID: 49719856}
   spawnZoneTop: {fileID: 974871249}
   spawnZoneLeft: {fileID: 1109646516}

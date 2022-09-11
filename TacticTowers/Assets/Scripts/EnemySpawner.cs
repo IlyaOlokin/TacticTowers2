@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
     
     public static List<GameObject> enemies;
     [SerializeField] private List<Wave> Waves = new List<Wave>();
+    [SerializeField] private List<EnemySet> enemySets = new List<EnemySet>();
 
     [SerializeField] private Transform spawnZoneRight;
     [SerializeField] private Transform spawnZoneTop;
@@ -54,7 +55,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void ReleaseWave(Wave wave)
     {
-        
+        wave.enemySet = enemySets[Random.Range(0, enemySets.Count)];
+
         float weightCost = wave.moneyForWave / GetEnemyWeight(wave);
         
         ReleaseWaveSide(wave.enemySet.Right, spawnZoneRight, weightCost);
@@ -119,7 +121,7 @@ public class Wave
     [Header("Time in seconds")] 
     public int seconds;
 
-    public EnemySet enemySet;
+    [NonSerialized] public EnemySet enemySet;
 }
 
 [Serializable]
