@@ -57,10 +57,10 @@ public class EnemySpawner : MonoBehaviour
         
         float weightCost = wave.moneyForWave / GetEnemyWeight(wave);
         
-        ReleaseWaveSide(wave.enemiesRight, wave.enemiesCountRight, spawnZoneRight, weightCost);
-        ReleaseWaveSide(wave.enemiesTop, wave.enemiesCountTop, spawnZoneTop, weightCost);
-        ReleaseWaveSide(wave.enemiesLeft, wave.enemiesCountLeft, spawnZoneLeft, weightCost);
-        ReleaseWaveSide(wave.enemiesBot, wave.enemiesCountBot, spawnZoneBot, weightCost);
+        ReleaseWaveSide(wave.enemySet.Right, spawnZoneRight, weightCost);
+        ReleaseWaveSide(wave.enemySet.Top, spawnZoneTop, weightCost);
+        ReleaseWaveSide(wave.enemySet.Left, spawnZoneLeft, weightCost);
+        ReleaseWaveSide(wave.enemySet.Bot, spawnZoneBot, weightCost);
         
         
         FindEnemies();
@@ -68,13 +68,13 @@ public class EnemySpawner : MonoBehaviour
         wave.released = true;
     }
 
-    private void ReleaseWaveSide(List<GameObject> enemies, List<int> enemiesCount, Transform spawnZone, float weightCost)
+    private void ReleaseWaveSide(List<EnemyType> enemyTypes, Transform spawnZone, float weightCost)
     {
-        for (int i = 0; i < enemies.Count; i++)
+        for (int i = 0; i < enemyTypes.Count; i++)
         {
-            for (int j = 0; j < enemiesCount[i]; j++)
+            for (int j = 0; j < enemyTypes[i].enemyCount; j++)
             {
-                var newEnemy = Instantiate(enemies[i], GetRandomPointOnSpawnZone(spawnZone), Quaternion.identity, enemiesObject);
+                var newEnemy = Instantiate(enemyTypes[i].enemy, GetRandomPointOnSpawnZone(spawnZone), Quaternion.identity, enemiesObject);
                 newEnemy.GetComponent<Enemy>().cost = newEnemy.GetComponent<Enemy>().weight * weightCost;
             }
         }
@@ -91,19 +91,19 @@ public class EnemySpawner : MonoBehaviour
 
     private float GetEnemyWeight(Wave wave)
     {
-        float sum = CountSideWeight(wave.enemiesTop, wave.enemiesCountTop) +
-                    CountSideWeight(wave.enemiesBot, wave.enemiesCountBot) +
-                    CountSideWeight(wave.enemiesLeft, wave.enemiesCountLeft) +
-                    CountSideWeight(wave.enemiesRight, wave.enemiesCountRight);
+        float sum = CountSideWeight(wave.enemySet.Top) +
+                    CountSideWeight(wave.enemySet.Bot) +
+                    CountSideWeight(wave.enemySet.Left) +
+                    CountSideWeight(wave.enemySet.Right);
         return sum;
     }
 
-    private float CountSideWeight(List<GameObject> enemies, List<int> enemyCount)
+    private float CountSideWeight(List<EnemyType> enemyTypes)
     {
         float sum = 0;
-        for (int i = 0; i < enemies.Count; i++)
+        for (int i = 0; i < enemyTypes.Count; i++)
         {
-            sum +=enemies[i].GetComponent<Enemy>().weight * enemyCount[i];
+            sum +=enemyTypes[i].enemy.GetComponent<Enemy>().weight * enemyTypes[i].enemyCount;
         }
 
         return sum;
@@ -118,19 +118,15 @@ public class Wave
 
     [Header("Time in seconds")] 
     public int seconds;
-    [Header("Right Side")]
-    public List<GameObject> enemiesRight = new List<GameObject>();
-    public List<int> enemiesCountRight = new List<int>();
-    [Header("Top Side")]
-    public List<GameObject> enemiesTop = new List<GameObject>();
-    public List<int> enemiesCountTop = new List<int>();
-    [Header("Left Side")]
-    public List<GameObject> enemiesLeft = new List<GameObject>();
-    public List<int> enemiesCountLeft = new List<int>();
-    [Header("Bot Side")]
-    public List<GameObject> enemiesBot = new List<GameObject>();
-    public List<int> enemiesCountBot = new List<int>();
 
+    public EnemySet enemySet;
+}
+
+[Serializable]
+public struct EnemyType
+{
+    public GameObject enemy;
+    public int enemyCount;
 }
 
 
