@@ -2361,9 +2361,17 @@ MonoBehaviour:
   enemiesObject: {fileID: 1854380829}
   Waves:
   - moneyForWave: 5
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
     seconds: 0
-  - moneyForWave: 5
-    seconds: 5
+  - moneyForWave: 10
+    isSpecial: 1
+    specialEnemySet: {fileID: 11400000, guid: c59941ca31f37134db55f754f1b4a6e4, type: 2}
+    seconds: 10
+  - moneyForWave: 15
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 15
   enemySets:
   - {fileID: 11400000, guid: 72d41a649a6ea964ba2621cfa772e1a0, type: 2}
   - {fileID: 11400000, guid: 2be57a388dcff6f4a817f64a023b89fb, type: 2}
@@ -2781,7 +2789,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesObject: {fileID: 1854380829}
   Waves:
-  - moneyForWave: 5
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
     seconds: 0
   enemySets: []
   spawnZoneRight: {fileID: 1064235504}
@@ -2842,7 +2852,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0078125, y: 0.9256301}
   m_AnchorMax: {x: 0.09354168, y: 0.9888852}
-  m_AnchoredPosition: {x: 295.91043, y: -58.80005}
+  m_AnchoredPosition: {x: 295.91046, y: -58.80005}
   m_SizeDelta: {x: 132.91, y: -20.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371763077
@@ -15112,156 +15122,306 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesObject: {fileID: 1854380829}
   Waves:
-  - moneyForWave: 2
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
     seconds: 0
-  - moneyForWave: 3
-    seconds: 15
-  - moneyForWave: 2
-    seconds: 30
-  - moneyForWave: 3
-    seconds: 45
-  - moneyForWave: 5
-    seconds: 60
-  - moneyForWave: 5
-    seconds: 80
-  - moneyForWave: 5
-    seconds: 100
-  - moneyForWave: 5
-    seconds: 120
-  - moneyForWave: 10
-    seconds: 140
-  - moneyForWave: 10
-    seconds: 165
-  - moneyForWave: 10
-    seconds: 190
-  - moneyForWave: 10
-    seconds: 215
-  - moneyForWave: 15
-    seconds: 240
-  - moneyForWave: 15
-    seconds: 265
-  - moneyForWave: 15
-    seconds: 290
-  - moneyForWave: 20
-    seconds: 315
-  - moneyForWave: 20
-    seconds: 340
-  - moneyForWave: 20
-    seconds: 365
-  - moneyForWave: 25
-    seconds: 390
-  - moneyForWave: 25
-    seconds: 415
-  - moneyForWave: 25
-    seconds: 440
-  - moneyForWave: 30
-    seconds: 465
-  - moneyForWave: 30
-    seconds: 490
-  - moneyForWave: 30
-    seconds: 520
-  - moneyForWave: 35
-    seconds: 550
-  - moneyForWave: 35
-    seconds: 580
-  - moneyForWave: 35
-    seconds: 610
-  - moneyForWave: 40
-    seconds: 640
-  - moneyForWave: 40
-    seconds: 670
-  - moneyForWave: 40
-    seconds: 700
-  - moneyForWave: 45
-    seconds: 730
-  - moneyForWave: 45
-    seconds: 760
-  - moneyForWave: 45
-    seconds: 790
-  - moneyForWave: 50
-    seconds: 820
-  - moneyForWave: 50
-    seconds: 850
-  - moneyForWave: 50
-    seconds: 880
-  - moneyForWave: 50
-    seconds: 910
-  - moneyForWave: 55
-    seconds: 940
-  - moneyForWave: 55
-    seconds: 970
-  - moneyForWave: 55
-    seconds: 1000
-  - moneyForWave: 60
-    seconds: 1030
-  - moneyForWave: 60
-    seconds: 1060
-  - moneyForWave: 60
-    seconds: 1090
-  - moneyForWave: 65
-    seconds: 1120
-  - moneyForWave: 65
-    seconds: 1150
-  - moneyForWave: 65
-    seconds: 1180
-  - moneyForWave: 70
-    seconds: 1210
-  - moneyForWave: 70
-    seconds: 1240
-  - moneyForWave: 70
-    seconds: 1270
-  - moneyForWave: 75
-    seconds: 1305
-  - moneyForWave: 75
-    seconds: 1340
-  - moneyForWave: 75
-    seconds: 1375
-  - moneyForWave: 80
-    seconds: 1410
-  - moneyForWave: 80
-    seconds: 1445
-  - moneyForWave: 80
-    seconds: 1480
-  - moneyForWave: 85
-    seconds: 1515
-  - moneyForWave: 85
-    seconds: 1550
-  - moneyForWave: 85
-    seconds: 1585
-  - moneyForWave: 90
-    seconds: 1620
-  - moneyForWave: 90
-    seconds: 1658
-  - moneyForWave: 90
-    seconds: 1696
-  - moneyForWave: 95
-    seconds: 1735
-  - moneyForWave: 95
-    seconds: 1776
-  - moneyForWave: 100
-    seconds: 1816
-  - moneyForWave: 100
-    seconds: 1856
-  - moneyForWave: 105
-    seconds: 1897
-  - moneyForWave: 105
-    seconds: 1938
-  - moneyForWave: 110
-    seconds: 1979
-  - moneyForWave: 110
-    seconds: 2020
-  - moneyForWave: 110
-    seconds: 2060
-  - moneyForWave: 115
-    seconds: 2100
-  - moneyForWave: 115
-    seconds: 2140
-  - moneyForWave: 115
-    seconds: 2185
-  - moneyForWave: 120
-    seconds: 2230
-  - moneyForWave: 120
-    seconds: 2272
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
+  - moneyForWave: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    seconds: 0
   enemySets: []
   spawnZoneRight: {fileID: 49719856}
   spawnZoneTop: {fileID: 974871249}

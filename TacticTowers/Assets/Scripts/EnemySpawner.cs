@@ -55,7 +55,14 @@ public class EnemySpawner : MonoBehaviour
 
     private void ReleaseWave(Wave wave)
     {
-        wave.enemySet = enemySets[Random.Range(0, enemySets.Count)];
+        if (wave.isSpecial)
+        {
+            wave.enemySet = wave.specialEnemySet;
+        }
+        else
+        {
+            wave.enemySet = enemySets[Random.Range(0, enemySets.Count)];
+        }
 
         float weightCost = wave.moneyForWave / GetEnemyWeight(wave);
         
@@ -117,7 +124,9 @@ public class Wave
 {
     [NonSerialized] public bool released = false;
     public float moneyForWave;
-
+    public bool isSpecial;
+    public EnemySet specialEnemySet;
+    
     [Header("Time in seconds")] 
     public int seconds;
 
