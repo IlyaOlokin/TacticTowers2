@@ -10,6 +10,10 @@ public class EnemySpawner : MonoBehaviour
     [Header("Waves")]
     [SerializeField] private Transform enemiesObject;
     
+    private float waveScale = 1f;
+    [SerializeField]private float waveScaleIncrement = 0.05f;
+
+    
     public static List<GameObject> enemies;
     [SerializeField] private List<Wave> Waves = new List<Wave>();
     [SerializeField] private List<EnemySet> enemySets = new List<EnemySet>();
@@ -21,6 +25,9 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("UI")] 
     [SerializeField] private Text waveCount;
+
+    private int currentWave = 0;
+
 
     private void Start()
     {
@@ -37,11 +44,11 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < Waves.Count; i++)
             if (!Waves[i].released && Timer.timer <= 0)
             {
-                ReleaseWave(Waves[i]);
-
-                var currentWave = i + 1;
-                var totalWaves = Waves.Count;
-                waveCount.text = $"{currentWave:00}/{totalWaves:00}";
+                ReleaseWave(Waves[i] , waveScale);
+                waveScale += waveScaleIncrement;
+                
+                currentWave++;
+                waveCount.text = $"{currentWave:00}/{Waves.Count:00}";
                
                 if (i + 1 == Waves.Count)
                 {
@@ -53,11 +60,12 @@ public class EnemySpawner : MonoBehaviour
          
     }
 
-    private void ReleaseWave(Wave wave)
+    private void ReleaseWave(Wave wave, float waveScale)
     {
         if (wave.isSpecial)
         {
             wave.enemySet = wave.specialEnemySet;
+            waveScale = 1f;
         }
         else
         {
@@ -66,10 +74,10 @@ public class EnemySpawner : MonoBehaviour
 
         float weightCost = wave.moneyForWave / GetEnemyWeight(wave);
         
-        ReleaseWaveSide(wave.enemySet.Right, spawnZoneRight, weightCost);
-        ReleaseWaveSide(wave.enemySet.Top, spawnZoneTop, weightCost);
-        ReleaseWaveSide(wave.enemySet.Left, spawnZoneLeft, weightCost);
-        ReleaseWaveSide(wave.enemySet.Bot, spawnZoneBot, weightCost);
+        ReleaseWaveSide(wave.enemySet.Right, spawnZoneRight, waveScale, weightCost);
+        ReleaseWaveSide(wave.enemySet.Top, spawnZoneTop, waveScale, weightCost);
+        ReleaseWaveSide(wave.enemySet.Left, spawnZoneLeft, waveScale, weightCost);
+        ReleaseWaveSide(wave.enemySet.Bot, spawnZoneBot, waveScale, weightCost);
         
         
         FindEnemies();
@@ -77,11 +85,12 @@ public class EnemySpawner : MonoBehaviour
         wave.released = true;
     }
 
-    private void ReleaseWaveSide(List<EnemyType> enemyTypes, Transform spawnZone, float weightCost)
+    private void ReleaseWaveSide(List<EnemyType> enemyTypes, Transform spawnZone, float waveScale, float weightCost)
     {
         for (int i = 0; i < enemyTypes.Count; i++)
         {
-            for (int j = 0; j < enemyTypes[i].enemyCount; j++)
+            var enemyCount = Math.Floor(enemyTypes[i].enemyCount * waveScale);
+            for (int j = 0; j < enemyCount; j++)
             {
                 var newEnemy = Instantiate(enemyTypes[i].enemy, GetRandomPointOnSpawnZone(spawnZone), Quaternion.identity, enemiesObject);
                 newEnemy.GetComponent<Enemy>().cost = newEnemy.GetComponent<Enemy>().weight * weightCost;
@@ -124,11 +133,12 @@ public class Wave
 {
     [NonSerialized] public bool released = false;
     public float moneyForWave;
+    public int seconds;
+    
     public bool isSpecial;
     public EnemySet specialEnemySet;
     
-    [Header("Time in seconds")] 
-    public int seconds;
+    
 
     [NonSerialized] public EnemySet enemySet;
 }
