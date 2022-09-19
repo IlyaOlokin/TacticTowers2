@@ -20,14 +20,15 @@ public class Web : MonoBehaviour
             foreach (var tower in towers)
             {
                 var towerComp = tower.GetComponent<Tower>();
-                if (Vector3.Distance(tower.transform.position, transform.position) <
-                    transform.localScale.x + tower.transform.localScale.x 
-                    && !towerComp.isDragging)
+                
+                if ( Vector3.Distance(tower.transform.position, transform.position) <
+                     (transform.localScale.x + tower.transform.localScale.x) * 2 
+                     && !towerComp.isDragging)
                 {
                     towerComp.Disarm(disarmDuration);
                 }
             }
-            Destroy(gameObject);
+            Destroy(gameObject, 10);
         }
     }
 }

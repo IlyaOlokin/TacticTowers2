@@ -78,7 +78,7 @@ public class TowerDrag : MonoBehaviour
     {
         pressStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         triedToDrag = true;
-        
+
         mouseOffset =  transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
@@ -141,7 +141,7 @@ public class TowerDrag : MonoBehaviour
     {
         if (!dragging) return;
         var otherGameObject = other.gameObject;
-        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower"))
+        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall"))
         {
             conflicts += 1;
 
@@ -161,10 +161,11 @@ public class TowerDrag : MonoBehaviour
     {
         if (!dragging) return;
         var otherGameObject = other.gameObject;
-        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower"))
+        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall"))
         {
-            conflicts -= 1;
-            
+            if (conflicts > 0)
+                conflicts -= 1;
+
             for (int i = 0; i < otherGameObject.transform.childCount; i++)
             {
                 if (otherGameObject.transform.GetChild(i).gameObject.CompareTag("ConflictIndicator"))

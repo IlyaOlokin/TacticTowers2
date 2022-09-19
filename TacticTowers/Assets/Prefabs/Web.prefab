@@ -11,11 +11,10 @@ GameObject:
   - component: {fileID: 1459742306836387702}
   - component: {fileID: 5481057969379534988}
   - component: {fileID: 7526887423372258735}
-  - component: {fileID: -1656922614618167620}
   - component: {fileID: 8648742364609233478}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Web
-  m_TagString: Web
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,19 +100,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.05
---- !u!114 &-1656922614618167620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680028144157980390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fe04ae0a555c11458d0f931fd74ca3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 10
 --- !u!114 &8648742364609233478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,5 +112,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66ccd05988dd104782c67fd3abfcf1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  disarmDuration: 2
+  speed: 2
+  disarmDuration: 5
