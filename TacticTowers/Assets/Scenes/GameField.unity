@@ -515,6 +515,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 2888170260789091270, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888170260789091270, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
+      propertyPath: m_TagString
+      value: TowerInstance
+      objectReference: {fileID: 0}
     - target: {fileID: 2888170260789091271, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
       propertyPath: shootZone
       value: 
@@ -2270,6 +2278,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 2888170260789091270, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888170260789091270, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
+      propertyPath: m_TagString
+      value: TowerInstance
+      objectReference: {fileID: 0}
     - target: {fileID: 2888170260789091271, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
       propertyPath: shootZone
       value: 
@@ -2364,7 +2380,7 @@ MonoBehaviour:
   - moneyForWave: 5
     seconds: 0
     isSpecial: 1
-    specialEnemySet: {fileID: 0}
+    specialEnemySet: {fileID: 11400000, guid: 3d4c5d9fad22b6a4a8efb86679990508, type: 2}
   - moneyForWave: 10
     seconds: 20
     isSpecial: 0
@@ -2865,7 +2881,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0078125, y: 0.9256301}
   m_AnchorMax: {x: 0.09354168, y: 0.9888852}
-  m_AnchoredPosition: {x: 295.91055, y: -58.80005}
+  m_AnchoredPosition: {x: 295.91068, y: -58.80005}
   m_SizeDelta: {x: 132.91, y: -20.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371763077
@@ -3269,6 +3285,14 @@ PrefabInstance:
     - target: {fileID: 2888170260789091270, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
       propertyPath: m_Name
       value: Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888170260789091270, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888170260789091270, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
+      propertyPath: m_TagString
+      value: TowerInstance
       objectReference: {fileID: 0}
     - target: {fileID: 2888170260789091271, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
       propertyPath: shootZone
@@ -17236,6 +17260,14 @@ PrefabInstance:
     - target: {fileID: 2888170260789091270, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
       propertyPath: m_Name
       value: Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888170260789091270, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888170260789091270, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
+      propertyPath: m_TagString
+      value: TowerInstance
       objectReference: {fileID: 0}
     - target: {fileID: 2888170260789091271, guid: 1a6d28cd71b38dc4b904d8305a35d60e, type: 3}
       propertyPath: shootZone

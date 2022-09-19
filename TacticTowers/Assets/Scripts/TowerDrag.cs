@@ -108,7 +108,7 @@ public class TowerDrag : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Landing");
         }
         dragging = false;
-        tower.canShoot = true;
+        tower.isDragging = false;
         triedToDrag = false;
         navMeshObstacle.enabled = true;
         collider2D.isTrigger = false;
@@ -120,7 +120,7 @@ public class TowerDrag : MonoBehaviour
     {
         if (IsAnyOtherTowerDragging()) return;
         dragging = true;
-        tower.canShoot = false;
+        tower.isDragging = true;
         triedToDrag = false;
         navMeshObstacle.enabled = false;
         collider2D.isTrigger = true;
@@ -173,21 +173,5 @@ public class TowerDrag : MonoBehaviour
                 }
             }
         }
-    }
-
-    protected void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Web"))
-        {
-            StartCoroutine(Disarm());
-            Destroy(other.gameObject);
-        }
-    }
-
-    IEnumerator Disarm()
-    {
-        tower.canShoot = false;
-        yield return new WaitForSeconds(3.5f);
-        tower.canShoot = true;
     }
 }

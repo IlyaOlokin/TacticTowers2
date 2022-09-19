@@ -240,8 +240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7a15000b580ea4b9482cbaf5e236b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootDelay: 2.5
-  shootTime: 3
+  shootDelay: 4
+  shootDistance: 4
   web: {fileID: 1680028144157980390, guid: 5583ead9fa595934dbd9cdc811d3a5e5, type: 3}
 --- !u!95 &8882519611899874958
 Animator:

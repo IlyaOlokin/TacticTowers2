@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 6728170449799749953}
   m_Layer: 3
   m_Name: Laser
-  m_TagString: Tower
+  m_TagString: TowerInstance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,3 +236,17 @@ MonoBehaviour:
   maxHeat: 10
   bonusDamagePerHeat: 0.2
   coolDelay: 5
+  contactFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
