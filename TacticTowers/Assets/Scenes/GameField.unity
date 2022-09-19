@@ -2363,7 +2363,7 @@ MonoBehaviour:
   Waves:
   - moneyForWave: 5
     seconds: 0
-    isSpecial: 0
+    isSpecial: 1
     specialEnemySet: {fileID: 0}
   - moneyForWave: 10
     seconds: 20
