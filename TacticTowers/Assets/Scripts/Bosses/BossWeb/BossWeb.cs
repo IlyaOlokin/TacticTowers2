@@ -11,6 +11,15 @@ public class BossWeb : MonoBehaviour
     [SerializeField] private float shootDistance;
     
     [SerializeField] private GameObject web;
+    [SerializeField] private GameObject gun;
+    private float rotationSpeed = 12f;
+    private SpriteRenderer spriteRenderer;
+
+
+    private void Start()
+    {
+        spriteRenderer = gun.GetComponent<SpriteRenderer>();
+    }
 
     void Update()
     {
@@ -20,13 +29,33 @@ public class BossWeb : MonoBehaviour
 
     private void TryToShoot()
     {
-        if (shootTimer >= shootDelay)
-            Shoot();
-    }
-    
-    private void Shoot()
-    {
         var target = FindTower();
+        PointGunAtTarget(target);
+
+        if (shootTimer >= shootDelay)
+        {
+            Shoot(target);
+            spriteRenderer.color = Color.green; // временно
+        }
+        else
+        {
+            spriteRenderer.color = Color.red;
+        }
+            
+    }
+
+    private void PointGunAtTarget(GameObject target)
+    {
+        if (target == null) return;
+
+        Vector3 vectorToTarget = target.transform.position - gun.transform.position;
+        float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+        Quaternion q = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+        gun.transform.rotation = Quaternion.Slerp(gun.transform.rotation, q, Time.deltaTime * rotationSpeed);
+    }
+
+    private void Shoot(GameObject target)
+    {
         if (target == null) return;
 
         shootTimer = 0;

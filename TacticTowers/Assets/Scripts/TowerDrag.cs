@@ -152,8 +152,6 @@ public class TowerDrag : MonoBehaviour
                     otherGameObject.transform.GetChild(i).gameObject.SetActive(true);
                 }
             }
-            
-
         }
     }
     
