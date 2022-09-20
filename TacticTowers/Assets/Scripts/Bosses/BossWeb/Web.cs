@@ -28,7 +28,14 @@ public class Web : MonoBehaviour
                     towerComp.Disarm(disarmDuration);
                 }
             }
-            Destroy(gameObject, 10);
+            StartCoroutine(Destroy(10));
         }
+    }
+
+    private IEnumerator Destroy(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        GetComponent<CircleCollider2D>().radius = 0f;
+        Destroy(gameObject);
     }
 }
