@@ -78,7 +78,7 @@ public class TowerDrag : MonoBehaviour
     {
         pressStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         triedToDrag = true;
-        
+
         mouseOffset =  transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
@@ -108,7 +108,7 @@ public class TowerDrag : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Landing");
         }
         dragging = false;
-        tower.canShoot = true;
+        tower.isDragging = false;
         triedToDrag = false;
         navMeshObstacle.enabled = true;
         collider2D.isTrigger = false;
@@ -120,7 +120,7 @@ public class TowerDrag : MonoBehaviour
     {
         if (IsAnyOtherTowerDragging()) return;
         dragging = true;
-        tower.canShoot = false;
+        tower.isDragging = true;
         triedToDrag = false;
         navMeshObstacle.enabled = false;
         collider2D.isTrigger = true;
@@ -141,7 +141,7 @@ public class TowerDrag : MonoBehaviour
     {
         if (!dragging) return;
         var otherGameObject = other.gameObject;
-        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower"))
+        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall"))
         {
             conflicts += 1;
 
@@ -152,8 +152,6 @@ public class TowerDrag : MonoBehaviour
                     otherGameObject.transform.GetChild(i).gameObject.SetActive(true);
                 }
             }
-            
-
         }
     }
     
@@ -161,10 +159,11 @@ public class TowerDrag : MonoBehaviour
     {
         if (!dragging) return;
         var otherGameObject = other.gameObject;
-        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower"))
+        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall"))
         {
-            conflicts -= 1;
-            
+            if (conflicts > 0)
+                conflicts -= 1;
+
             for (int i = 0; i < otherGameObject.transform.childCount; i++)
             {
                 if (otherGameObject.transform.GetChild(i).gameObject.CompareTag("ConflictIndicator"))
@@ -173,21 +172,5 @@ public class TowerDrag : MonoBehaviour
                 }
             }
         }
-    }
-
-    protected void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Web"))
-        {
-            StartCoroutine(Disarm());
-            Destroy(other.gameObject);
-        }
-    }
-
-    IEnumerator Disarm()
-    {
-        tower.canShoot = false;
-        yield return new WaitForSeconds(3.5f);
-        tower.canShoot = true;
     }
 }

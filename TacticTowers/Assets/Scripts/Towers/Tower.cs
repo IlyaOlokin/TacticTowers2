@@ -31,7 +31,8 @@ public class Tower : MonoBehaviour
     
     
     protected float shootDelayTimer;
-    [NonSerialized] public bool canShoot = true;
+    [NonSerialized] public bool isDragging = false;
+    [NonSerialized] public bool isDisarmed = false;
 
     public ShootZone shootZone;
 
@@ -73,7 +74,7 @@ public class Tower : MonoBehaviour
             }
         }
         
-        if (canShoot) Shoot(target);
+        if (CanShoot()) Shoot(target);
         else Shoot(null);
     }
 
@@ -143,5 +144,23 @@ public class Tower : MonoBehaviour
             return (Vector3) wallCollision;
 
         return target;
+    }
+
+    public bool CanShoot()
+    {
+        return !isDragging && !isDisarmed;
+    }
+
+    public void Disarm(float duration)
+    {
+        isDisarmed = true;
+        StopCoroutine("LostDisarm");
+        StartCoroutine("LostDisarm", duration);
+    }
+
+    private IEnumerator LostDisarm(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isDisarmed = false;
     }
 }
