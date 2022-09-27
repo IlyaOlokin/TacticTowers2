@@ -8,7 +8,9 @@ public class Tower : MonoBehaviour
 {
     [NonSerialized] public readonly int[] upgradePrices = {10, 15, 20, 25, 30, 40, 50, 60, 70, 85, 100, 115, 130, 150};
     [NonSerialized] public int upgradeLevel = 1;
-    
+
+    [NonSerialized] public List<GameObject> enemiesToIgnore = new List<GameObject>();
+
     public float shootDirection;
 
     public string towerName; 
@@ -57,6 +59,7 @@ public class Tower : MonoBehaviour
         foreach (var enemy in EnemySpawner.enemies)
         {
             if (enemy == null) continue;
+            if (enemiesToIgnore.Contains(enemy)) continue;
             var distToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
             Vector3 dir = transform.position - enemy.transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;

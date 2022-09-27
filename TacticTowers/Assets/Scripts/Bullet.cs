@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ public class Bullet : MonoBehaviour
 {
      [NonSerialized] public float Dmg;
      [NonSerialized] public float Speed;
+     [NonSerialized] public List<GameObject> enemiesToIgnore;
      private DamageType damageType = DamageType.Normal;
     
      private Rigidbody2D rb;
@@ -14,8 +16,12 @@ public class Bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * Speed;
+        foreach (var enemy in enemiesToIgnore)
+        {
+            if (enemy is null) continue;
+            Physics2D.IgnoreCollision(enemy.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
     }
-
      private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))

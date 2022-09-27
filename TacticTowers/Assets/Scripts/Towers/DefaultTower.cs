@@ -23,8 +23,10 @@ public class DefaultTower : Tower
         {
             shootDelayTimer = 1f / GetAttackSpeed();
             var newBullet =  Instantiate(bullet, transform.position, towerCanon.transform.rotation);
-            newBullet.GetComponent<Bullet>().Dmg = GetDmg();
-            newBullet.GetComponent<Bullet>().Speed = bulletSpeed;
+            var bulletComponent = newBullet.GetComponent<Bullet>();
+            bulletComponent.Dmg = GetDmg();
+            bulletComponent.Speed = bulletSpeed;
+            bulletComponent.enemiesToIgnore = enemiesToIgnore;
             
             AudioManager.Instance.Play("DefaultTowerShot");
         }
