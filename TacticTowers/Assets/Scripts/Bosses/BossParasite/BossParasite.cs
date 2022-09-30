@@ -17,6 +17,10 @@ public class BossParasite : MonoBehaviour
     {
         TryToShoot();
         shootTimer += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Shoot(GameObject.FindGameObjectsWithTag("Tower").ToList());
+        }
     }
     
     private void TryToShoot()

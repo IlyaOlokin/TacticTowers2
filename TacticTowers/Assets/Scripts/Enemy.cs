@@ -51,6 +51,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Base"))
         {
+            if (dmg == 0) return;
             other.gameObject.GetComponent<Base>().TakeDamage(dmg);
             OnDeath(DamageType.Normal);
         }
@@ -68,7 +69,7 @@ public class Enemy : MonoBehaviour
             OnDeath(damageType);
         }
     }
-    public void OnDeath(DamageType damageType)
+    private void OnDeath(DamageType damageType)
     {
         EnemySpawner.enemies.Remove(gameObject);
         Money.AddMoney(cost * Technologies.MoneyMultiplier);

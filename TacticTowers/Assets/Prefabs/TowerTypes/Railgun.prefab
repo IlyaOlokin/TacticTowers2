@@ -232,6 +232,9 @@ MonoBehaviour:
   - {fileID: 777154454748209544, guid: 9babc93666d666149890b19701e857fc, type: 3}
   bullet: {fileID: 6687795320453916105, guid: 61c5d802cd316fa4abe31543015e9e83, type: 3}
   railStartPos: {fileID: 4335459407752955100}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 132
   dmgMultiplier: 0.8
   minDmg: 0.1
 --- !u!1 &6380372753448526936

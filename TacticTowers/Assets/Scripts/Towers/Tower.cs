@@ -129,6 +129,7 @@ public class Tower : MonoBehaviour
         shootZone = tower.shootZone;
         shootZone.tower = this;
         upgradeLevel = tower.upgradeLevel;
+        enemiesToIgnore = tower.enemiesToIgnore;
     }
     
     public static Vector3? CheckWallCollision(Vector3 origin, Vector3 target, bool shouldPenetrate)
