@@ -28,13 +28,9 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
         if (Input.GetKeyDown(KeyCode.M))
         {
-            Money.AddMoney(100);
+            Money.AddMoney(1000);
         }
     }
 }

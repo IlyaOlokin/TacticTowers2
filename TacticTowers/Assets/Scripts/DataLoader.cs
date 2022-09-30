@@ -24,16 +24,13 @@ public class DataLoader : MonoBehaviour
         Technologies.MinUpgradePrice = LoadInt("minUpgradePrice", 10);
 
         BaseSelectManager.SelectedBaseIndex = LoadInt("selectedBaseIndex", 0);
-        
-        
-        YandexSDK.Instance.Authenticate();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.N))
         {
-            Credits.AddCredits(100);
+            Credits.AddCredits(1000);
         }
 
         if (Input.GetKeyDown(KeyCode.U))
