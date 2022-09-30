@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5937050097135992821}
   - component: {fileID: 888107825920299324}
   m_Layer: 7
-  m_Name: Enemy1
+  m_Name: EnemyMoney
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 5937050097135992818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.25140798, y: 0.25140798, z: 0.25140798}
   m_Children:
   - {fileID: 1505500397662737047}
   m_Father: {fileID: 0}
@@ -179,7 +179,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49999997
-  m_Speed: 0.3
+  m_Speed: 0.14
   m_Acceleration: 2
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -220,9 +220,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 5
-  hp: 20
-  creditsDropChance: 15
-  weight: 1
+  hp: 100
+  creditsDropChance: 50
+  weight: 25
   damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
   deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
   burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
