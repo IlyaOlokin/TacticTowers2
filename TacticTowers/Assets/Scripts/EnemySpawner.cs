@@ -16,7 +16,9 @@ public class EnemySpawner : MonoBehaviour
     
     public static List<GameObject> enemies;
     [SerializeField] private List<Wave> Waves = new List<Wave>();
-    [SerializeField] private List<EnemySet> enemySets = new List<EnemySet>();
+    
+    //[SerializeField] private List<EnemySet> enemySets = new List<EnemySet>();
+    [SerializeField] private List<EnemySetGroup> enemySetGroups = new List<EnemySetGroup>();
 
     [SerializeField] private Transform spawnZoneRight;
     [SerializeField] private Transform spawnZoneTop;
@@ -44,7 +46,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < Waves.Count; i++)
             if (!Waves[i].released && Timer.timer <= 0)
             {
-                ReleaseWave(Waves[i] , waveScale);
+                ReleaseWave(Waves[i], i, waveScale);
                 waveScale += waveScaleIncrement;
                 
                 currentWave++;
@@ -55,12 +57,12 @@ public class EnemySpawner : MonoBehaviour
                     Timer.Stop();
                     break;
                 }
-                Timer.SetTimer(Waves[i + 1].seconds - Waves[i].seconds);
+                Timer.SetTimer(Waves[i + 1].seconds);
             }
          
     }
 
-    private void ReleaseWave(Wave wave, float waveScale)
+    private void ReleaseWave(Wave wave, int i, float waveScale)
     {
         if (wave.isSpecial)
         {
@@ -69,7 +71,14 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            wave.enemySet = enemySets[Random.Range(0, enemySets.Count)];
+            foreach (var enemySetGroup in enemySetGroups)
+            {
+                if (i >= enemySetGroup.minWave && i <= enemySetGroup.maxWave)
+                {
+                    wave.enemySet = enemySetGroup.enemySets[Random.Range(0, enemySetGroup.enemySets.Count)];
+                }
+            }
+            
         }
 
         float weightCost = wave.moneyForWave / GetEnemyWeight(wave);
@@ -147,7 +156,15 @@ public class Wave
 public struct EnemyType
 {
     public GameObject enemy;
-    public int enemyCount;
+    public float enemyCount;
+}
+
+[Serializable]
+public struct EnemySetGroup
+{
+    public List<EnemySet> enemySets;
+    public int minWave;
+    public int maxWave;
 }
 
 

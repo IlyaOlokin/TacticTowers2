@@ -35,15 +35,16 @@ public class MortarProjectile : MonoBehaviour
     private void DealDamage()
     {
         var enemiesInRadius = new List<Enemy>();
-        foreach (var enemy in EnemySpawner.enemies)
+        var allEnemies = EnemySpawner.enemies;
+        foreach (var enemy in allEnemies)
         {
-            
+            if (enemy is null) continue;
             if (Vector3.Distance(transform.position, enemy.transform.position) < radius)
                 enemiesInRadius.Add(enemy.GetComponent<Enemy>());
         }
 
         for (int i = 0; i < enemiesInRadius.Count; i++)
-        {
+        { if (enemiesInRadius[i] is null) continue;
             enemiesInRadius[i].TakeDamage(Dmg, damageType);
         }
             

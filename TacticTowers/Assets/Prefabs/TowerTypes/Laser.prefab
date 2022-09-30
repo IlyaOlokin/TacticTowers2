@@ -140,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 6728170449799749952}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.155, y: 0.155, z: 0.5}
+  m_LocalScale: {x: 0.11, y: 0.11, z: 0.5}
   m_Children:
   - {fileID: 3932381216777760860}
   m_Father: {fileID: 0}
@@ -220,7 +220,7 @@ MonoBehaviour:
   multiplierShootAngle: 1
   shootDistance: 3
   multiplierShootDistance: 1
-  Dmg: 2
+  Dmg: 15
   multiplierDmg: 1
   attackSpeed: 3
   multiplierAttackSpeed: 1
@@ -234,7 +234,7 @@ MonoBehaviour:
   - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
   laserBim: {fileID: 6922442246336718825, guid: a9e332a7c215fcd42b7d2aba60f6fa34, type: 3}
   maxHeat: 10
-  bonusDamagePerHeat: 0.2
+  bonusDamagePerHeat: 0.05
   coolDelay: 5
   contactFilter:
     useTriggers: 0

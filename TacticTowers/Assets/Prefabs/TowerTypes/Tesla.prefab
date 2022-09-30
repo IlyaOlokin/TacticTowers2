@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2944829047007807111}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.155, y: 0.155, z: 0.5}
+  m_LocalScale: {x: 0.11, y: 0.11, z: 0.5}
   m_Children:
   - {fileID: 1953877826536369646}
   m_Father: {fileID: 0}
@@ -106,9 +106,9 @@ MonoBehaviour:
   multiplierShootAngle: 1
   shootDistance: 3.25
   multiplierShootDistance: 1
-  Dmg: 6
+  Dmg: 30
   multiplierDmg: 1
-  attackSpeed: 0.65
+  attackSpeed: 0.6
   multiplierAttackSpeed: 1
   shootZone: {fileID: 0}
   upgrades:
