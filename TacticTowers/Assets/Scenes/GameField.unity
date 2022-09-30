@@ -1489,8 +1489,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248846766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -8, z: 0}
-  m_LocalScale: {x: 8, y: 3, z: 1}
+  m_LocalPosition: {x: 0, y: -7, z: 0}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 0.6614}
   m_Children: []
   m_Father: {fileID: 363942889}
   m_RootOrder: 3
@@ -2361,7 +2361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &341391977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2401,8 +2401,7 @@ MonoBehaviour:
     seconds: 100
     isSpecial: 0
     specialEnemySet: {fileID: 0}
-  enemySets:
-  - {fileID: 11400000, guid: 72d41a649a6ea964ba2621cfa772e1a0, type: 2}
+  enemySetGroups: []
   spawnZoneRight: {fileID: 1659689777}
   spawnZoneTop: {fileID: 12349081}
   spawnZoneLeft: {fileID: 951636402}
@@ -2797,12 +2796,12 @@ GameObject:
   - component: {fileID: 363942889}
   - component: {fileID: 363942888}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: EnemySpawnerDemo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &363942888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2816,13 +2815,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesObject: {fileID: 1854380829}
-  waveScaleIncrement: 0.05
+  waveScaleIncrement: 0.1
   Waves:
-  - moneyForWave: 0
+  - moneyForWave: 65
     seconds: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
-  enemySets: []
+  - moneyForWave: 150
+    seconds: 50
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+  - moneyForWave: 300
+    seconds: 50
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+  - moneyForWave: 450
+    seconds: 55
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+  - moneyForWave: 900
+    seconds: 60
+    isSpecial: 1
+    specialEnemySet: {fileID: 11400000, guid: 03699731e6a04ce42bf734e7f73ab862, type: 2}
+  enemySetGroups:
+  - enemySets:
+    - {fileID: 11400000, guid: e32718a4af06b9b46a76df3443f511f7, type: 2}
+    - {fileID: 11400000, guid: e29607a8b4db2634a9ea6c5338608392, type: 2}
+    - {fileID: 11400000, guid: 14232e2271702a44187ec7ec41b0053e, type: 2}
+    - {fileID: 11400000, guid: 350bcda3d65cb8b46a6496be91160308, type: 2}
+    - {fileID: 11400000, guid: 4ec699955a442a54084b652acf4b9bc9, type: 2}
+    - {fileID: 11400000, guid: 29a5dcf21be1d98429f9028fe586ff6e, type: 2}
+    - {fileID: 11400000, guid: 76140a2897b1f944d855f1978d9f4b34, type: 2}
+    - {fileID: 11400000, guid: 5c26ac2923fceae43bb5f3816c910e34, type: 2}
+    - {fileID: 11400000, guid: d68a86a4de4a5c0469b7cab568fbef4c, type: 2}
+    - {fileID: 11400000, guid: 14b7e57343dbdd5479db25fa6dcefd59, type: 2}
+    - {fileID: 11400000, guid: e3eaf143e12140247a3028d146d07aec, type: 2}
+    - {fileID: 11400000, guid: 5b23d01e15e2ded44858467a73d21382, type: 2}
+    - {fileID: 11400000, guid: 8af203003ddcc7d4fbedd44c655e65eb, type: 2}
+    - {fileID: 11400000, guid: bad2d9be0f3bb594bab6d608e0357d02, type: 2}
+    minWave: 0
+    maxWave: 4
   spawnZoneRight: {fileID: 1064235504}
   spawnZoneTop: {fileID: 709855207}
   spawnZoneLeft: {fileID: 920033258}
@@ -2881,7 +2913,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0078125, y: 0.9256301}
   m_AnchorMax: {x: 0.09354168, y: 0.9888852}
-  m_AnchoredPosition: {x: 295.91068, y: -58.80005}
+  m_AnchoredPosition: {x: 295.911, y: -58.80005}
   m_SizeDelta: {x: 132.91, y: -20.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371763077
@@ -4447,7 +4479,7 @@ RectTransform:
   m_GameObject: {fileID: 551700155}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9995973, y: 0.9995973, z: 0.9995973}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 1645450957}
   m_RootOrder: 0
@@ -5682,7 +5714,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c8061a3b6160847418107f072e8d8f8d, type: 3}
-    m_FontSize: 30
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -5891,8 +5923,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709855206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: 0}
-  m_LocalScale: {x: 8, y: 3, z: 1}
+  m_LocalPosition: {x: 0, y: 7, z: 0}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 363942889}
   m_RootOrder: 1
@@ -6891,8 +6923,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 920033257}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 8, z: 1}
+  m_LocalPosition: {x: -11, y: 0, z: 0}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 363942889}
   m_RootOrder: 2
@@ -7374,7 +7406,7 @@ RectTransform:
   m_GameObject: {fileID: 1049529898}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9995973, y: 0.9995973, z: 0.9995973}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 1435318006}
   m_RootOrder: 0
@@ -7606,8 +7638,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064235503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 8, z: 1}
+  m_LocalPosition: {x: 11, y: 0, z: 0}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 363942889}
   m_RootOrder: 0
@@ -8055,7 +8087,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c8061a3b6160847418107f072e8d8f8d, type: 3}
-    m_FontSize: 30
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -8384,7 +8416,7 @@ RectTransform:
   m_GameObject: {fileID: 1153088249}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 577486327}
   m_RootOrder: 0
@@ -9716,14 +9748,14 @@ RectTransform:
   m_GameObject: {fileID: 1238999740}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 1535222658}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -17, y: 41}
+  m_AnchoredPosition: {x: -17, y: 44.5}
   m_SizeDelta: {x: 19.1, y: 29.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1238999742
@@ -11705,7 +11737,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c8061a3b6160847418107f072e8d8f8d, type: 3}
-    m_FontSize: 30
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -12575,7 +12607,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c8061a3b6160847418107f072e8d8f8d, type: 3}
-    m_FontSize: 30
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
@@ -15460,7 +15492,7 @@ MonoBehaviour:
     seconds: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
-  enemySets: []
+  enemySetGroups: []
   spawnZoneRight: {fileID: 49719856}
   spawnZoneTop: {fileID: 974871249}
   spawnZoneLeft: {fileID: 1109646516}

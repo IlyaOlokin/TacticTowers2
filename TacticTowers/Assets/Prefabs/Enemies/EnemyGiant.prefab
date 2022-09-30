@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 3983791273410298684}
   - component: {fileID: 403173070055205115}
   m_Layer: 7
-  m_Name: Enemy4
+  m_Name: EnemyGiant
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 5937050097135992818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_LocalScale: {x: 0.38286498, y: 0.38286498, z: 0.38286498}
   m_Children:
   - {fileID: 5396144867597176987}
   m_Father: {fileID: 0}
@@ -179,7 +179,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49999997
-  m_Speed: 0.22
+  m_Speed: 0.09
   m_Acceleration: 2
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -204,9 +204,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 20
-  hp: 100
+  hp: 1000
   creditsDropChance: 30
-  weight: 5
+  weight: 11
   damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
   deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
   burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}

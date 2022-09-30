@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 5499871268351915362}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.155, y: 0.155, z: 0.155}
+  m_LocalScale: {x: 0.11, y: 0.11, z: 0.155}
   m_Children:
   - {fileID: 5295865030577654139}
   m_Father: {fileID: 0}
@@ -187,7 +187,7 @@ MonoBehaviour:
   multiplierShootAngle: 1
   shootDistance: 3
   multiplierShootDistance: 1
-  Dmg: 2
+  Dmg: 10
   multiplierDmg: 1
   attackSpeed: 1.5
   multiplierAttackSpeed: 1
@@ -199,7 +199,7 @@ MonoBehaviour:
   - {fileID: 5316641116981540922, guid: 0fa713690dec7c247b7483445fc5b194, type: 3}
   - {fileID: 4090281340738485981, guid: 1be374441f9b67c419ac9eb09122937a, type: 3}
   - {fileID: 4090281340738485981, guid: d3af56e08eb8246428449da2a35ecdb5, type: 3}
-  burnDmg: 1
+  burnDmg: 5
   burnDmgMultiplier: 1
   burnTime: 3
   flameBox: {fileID: 6922442246336718825, guid: 8d138289a6cae1c4fb5641602e7364bd, type: 3}

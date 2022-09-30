@@ -37,13 +37,13 @@ public class MortarProjectile : MonoBehaviour
         var enemiesInRadius = new List<Enemy>();
         foreach (var enemy in EnemySpawner.enemies)
         {
-            
+            if (enemy is null) continue;
             if (Vector3.Distance(transform.position, enemy.transform.position) < radius)
                 enemiesInRadius.Add(enemy.GetComponent<Enemy>());
         }
 
         for (int i = 0; i < enemiesInRadius.Count; i++)
-        {
+        { if (enemiesInRadius[i] is null) continue;
             enemiesInRadius[i].TakeDamage(Dmg, damageType);
         }
             

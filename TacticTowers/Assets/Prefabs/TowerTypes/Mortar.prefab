@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 715245652648313394}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.21329549, y: 0.21329549, z: 0.68805}
+  m_LocalScale: {x: 0.1419, y: 0.1419, z: 0.68805}
   m_Children:
   - {fileID: 7631030621158710253}
   m_Father: {fileID: 0}
@@ -106,7 +106,7 @@ MonoBehaviour:
   multiplierShootAngle: 1
   shootDistance: 3
   multiplierShootDistance: 1
-  Dmg: 8
+  Dmg: 35
   multiplierDmg: 1
   attackSpeed: 0.6
   multiplierAttackSpeed: 1
