@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04553e0e1fa40bb4db93fb9c70797975, type: 3}
   m_Name: New Enemy Set 1
   m_EditorClassIdentifier: 
-  Right: []
+  Right:
+  - enemy: {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemyCount: 5
   Top:
-  - enemy: {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+  - enemy: {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemyCount: 10
-  Left: []
-  Bot: []
+  Left:
+  - enemy: {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemyCount: 5
+  Bot:
+  - enemy: {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
+    enemyCount: 5
