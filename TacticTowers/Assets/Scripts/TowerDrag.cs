@@ -78,7 +78,11 @@ public class TowerDrag : MonoBehaviour
     {
         pressStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         triedToDrag = true;
-
+        foreach (var enemy in tower.enemiesToIgnore)
+        {
+            if (enemy is null) continue;
+            Physics2D.IgnoreCollision(enemy.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
         mouseOffset =  transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 

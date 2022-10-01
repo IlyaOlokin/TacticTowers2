@@ -8,7 +8,9 @@ public class Tower : MonoBehaviour
 {
     [NonSerialized] public readonly int[] upgradePrices = {10, 25, 40, 100, 150, 250, 500, 800, 1400, 2000, 3000, 4200, 5500, 7500};
     [NonSerialized] public int upgradeLevel = 1;
-    
+
+    [NonSerialized] public List<GameObject> enemiesToIgnore = new List<GameObject>();
+
     public float shootDirection;
 
     public string towerName; 
@@ -32,7 +34,9 @@ public class Tower : MonoBehaviour
     
     protected float shootDelayTimer;
     [NonSerialized] public bool isDragging = false;
-    [NonSerialized] public bool isDisarmed = false;
+    [NonSerialized] private bool isDisarmed = false;
+    [NonSerialized] private bool hasParasite = false;
+    private float parasiteAttackSpeedMultiplier = 1;
 
     public ShootZone shootZone;
 
@@ -57,6 +61,7 @@ public class Tower : MonoBehaviour
         foreach (var enemy in EnemySpawner.enemies)
         {
             if (enemy == null) continue;
+            if (enemiesToIgnore.Contains(enemy)) continue;
             var distToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
             Vector3 dir = transform.position - enemy.transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
@@ -97,7 +102,7 @@ public class Tower : MonoBehaviour
     
     protected float GetAttackSpeed()
     {
-        return attackSpeed * multiplierAttackSpeed * GlobalBaseEffects.GetGlobalBaseAttackSpeedMultiplier(shootDirection);
+        return attackSpeed * multiplierAttackSpeed * GlobalBaseEffects.GetGlobalBaseAttackSpeedMultiplier(shootDirection) * parasiteAttackSpeedMultiplier;
     }
     
     public float GetShootAngle()
@@ -126,6 +131,7 @@ public class Tower : MonoBehaviour
         shootZone = tower.shootZone;
         shootZone.tower = this;
         upgradeLevel = tower.upgradeLevel;
+        enemiesToIgnore = tower.enemiesToIgnore;
     }
     
     public static Vector3? CheckWallCollision(Vector3 origin, Vector3 target, bool shouldPenetrate)
@@ -162,5 +168,19 @@ public class Tower : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         isDisarmed = false;
+    }
+
+    public bool HasParasite() => hasParasite;
+
+    public void GetParasite(float multiplier)
+    {
+        hasParasite = true;
+        parasiteAttackSpeedMultiplier = multiplier;
+    }
+
+    public void LostParasite()
+    {
+        hasParasite = false;
+        parasiteAttackSpeedMultiplier = 1;
     }
 }

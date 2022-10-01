@@ -7,6 +7,7 @@ public class Railgun : Tower
 {
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform railStartPos;
+    [SerializeField] private LayerMask layerMask;
     public float dmgMultiplier;
     public float minDmg;
     private DamageType damageType = DamageType.Normal;
@@ -26,7 +27,7 @@ public class Railgun : Tower
         {
             
             RaycastHit2D[] hits;
-            hits = Physics2D.RaycastAll(transform.position, towerCanon.transform.up, Mathf.Infinity);
+            hits = Physics2D.RaycastAll(transform.position, towerCanon.transform.up, Mathf.Infinity, layerMask);
             var newRail = Instantiate(bullet, transform.position, towerCanon.transform.rotation);
             newRail.GetComponent<LineRenderer>().SetPosition(0, railStartPos.position);
             newRail.GetComponent<LineRenderer>().SetPosition(1, transform.position + towerCanon.transform.up * 50);
@@ -38,6 +39,7 @@ public class Railgun : Tower
 
                 if (newEnemy)
                 {
+                    if (enemiesToIgnore.Contains(newEnemy.gameObject)) continue;
                     if (multiplier < minDmg) multiplier = minDmg;
                     newEnemy.TakeDamage(GetDmg() * multiplier, damageType);
                     multiplier *= dmgMultiplier;
