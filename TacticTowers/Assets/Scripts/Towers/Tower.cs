@@ -34,7 +34,9 @@ public class Tower : MonoBehaviour
     
     protected float shootDelayTimer;
     [NonSerialized] public bool isDragging = false;
-    [NonSerialized] public bool isDisarmed = false;
+    [NonSerialized] private bool isDisarmed = false;
+    [NonSerialized] private bool hasParasite = false;
+    private float parasiteAttackSpeedMultiplier = 1;
 
     public ShootZone shootZone;
 
@@ -100,7 +102,7 @@ public class Tower : MonoBehaviour
     
     protected float GetAttackSpeed()
     {
-        return attackSpeed * multiplierAttackSpeed * GlobalBaseEffects.GetGlobalBaseAttackSpeedMultiplier(shootDirection);
+        return attackSpeed * multiplierAttackSpeed * GlobalBaseEffects.GetGlobalBaseAttackSpeedMultiplier(shootDirection) * parasiteAttackSpeedMultiplier;
     }
     
     public float GetShootAngle()
@@ -166,5 +168,19 @@ public class Tower : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         isDisarmed = false;
+    }
+
+    public bool HasParasite() => hasParasite;
+
+    public void GetParasite(float multiplier)
+    {
+        hasParasite = true;
+        parasiteAttackSpeedMultiplier = multiplier;
+    }
+
+    public void LostParasite()
+    {
+        hasParasite = false;
+        parasiteAttackSpeedMultiplier = 1;
     }
 }

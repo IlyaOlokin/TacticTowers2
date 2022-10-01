@@ -180,7 +180,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49999997
-  m_Speed: 0
+  m_Speed: 0.1
   m_Acceleration: 2
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -220,8 +220,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206918b2fa1b04948851d12df340955d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootDelay: 60
+  shootDelay: 15
+  parasiteLine: {fileID: 5601598668952223541, guid: 0a488da11f45e7141b27f14b66d4c78e, type: 3}
   parasite: {fileID: 5937050097135992818, guid: 9280c800eaefa714cbdc531f01fed1a5, type: 3}
+  attackSpeedMultiplier: 0.5
 --- !u!114 &5937050097135992821
 MonoBehaviour:
   m_ObjectHideFlags: 0

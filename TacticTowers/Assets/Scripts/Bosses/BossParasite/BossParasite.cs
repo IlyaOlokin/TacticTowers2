@@ -11,7 +11,9 @@ public class BossParasite : MonoBehaviour
     private float shootTimer = 0f;
     private int parasiteCount = 2;
     
+    [SerializeField] private GameObject parasiteLine;
     [SerializeField] private GameObject parasite;
+    [SerializeField] private float attackSpeedMultiplier;
 
     void Update()
     {
@@ -27,8 +29,9 @@ public class BossParasite : MonoBehaviour
     {
         if (shootTimer >= shootDelay)
         {
-            var towers = GameObject.FindGameObjectsWithTag("Tower");
+            var towers = GameObject.FindGameObjectsWithTag("Tower").Where(t => !t.GetComponent<TowerDrag>().tower.GetComponent<Tower>().HasParasite()).ToArray();
             var targets = new List<GameObject>();
+            int towersWithParasiteCount = 0;
             for (var i = 0; i < towers.Length; i++)
             {
                 var probabilityOfSelection = (parasiteCount - targets.Count) / (float) (towers.Length - i);
@@ -39,7 +42,7 @@ public class BossParasite : MonoBehaviour
                     targets.Add(towers[i]);
                 }
             }
-            
+            if (targets.Count == 0) return;
             Shoot(targets);
             //spriteRenderer.color = Color.green; // временно
         }
@@ -56,7 +59,13 @@ public class BossParasite : MonoBehaviour
         {
             var newParasite = Instantiate(parasite, tower.transform.position, Quaternion.identity);
             newParasite.GetComponent<Parasite>().tower = tower;
+            newParasite.GetComponent<Parasite>().attackSpeedMultiplier = attackSpeedMultiplier;
             EnemySpawner.enemies.Add(newParasite);
+            
+            var newParasiteLine = Instantiate(parasiteLine, tower.transform.position, Quaternion.identity);
+            var lineRenderer = newParasiteLine.GetComponent<LineRenderer>();
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, tower.transform.position);
         }
 
         shootTimer = 0;
