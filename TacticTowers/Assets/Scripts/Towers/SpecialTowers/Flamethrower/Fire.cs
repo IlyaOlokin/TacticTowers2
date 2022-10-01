@@ -37,7 +37,7 @@ public class Fire : MonoBehaviour
 
     private void DealDamage()
     {
-        enemy.TakeDamage(burnDmg, damageType);
+        enemy.TakeDamage(burnDmg, damageType, transform.position);
         dmgDelayTimer = dmgDelay;
     }
 }

@@ -56,7 +56,7 @@ public class FlameBox : MonoBehaviour
         for (var index = 0; index < enemiesInside.Count; index++)
         {
             var enemy = enemiesInside[index];
-            enemy.TakeDamage(dmg, damageType);
+            enemy.TakeDamage(dmg, damageType, transform.position);
             SetOnFire(enemy.gameObject);
             
         }

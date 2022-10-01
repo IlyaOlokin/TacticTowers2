@@ -41,7 +41,7 @@ public class Railgun : Tower
                 {
                     if (enemiesToIgnore.Contains(newEnemy.gameObject)) continue;
                     if (multiplier < minDmg) multiplier = minDmg;
-                    newEnemy.TakeDamage(GetDmg() * multiplier, damageType);
+                    newEnemy.TakeDamage(GetDmg() * multiplier, damageType, transform.position);
                     multiplier *= dmgMultiplier;
                 }
             }

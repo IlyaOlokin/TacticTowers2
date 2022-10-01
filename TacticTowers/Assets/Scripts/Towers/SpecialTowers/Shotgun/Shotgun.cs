@@ -39,6 +39,7 @@ public class Shotgun : Tower
                 bulletComponent.Dmg = GetDmg();
                 bulletComponent.Speed = bulletSpeed;
                 bulletComponent.enemiesToIgnore = enemiesToIgnore;
+                bulletComponent.departurePos = transform.position;
             }
             shootDelayTimer = 1f / GetAttackSpeed();
             

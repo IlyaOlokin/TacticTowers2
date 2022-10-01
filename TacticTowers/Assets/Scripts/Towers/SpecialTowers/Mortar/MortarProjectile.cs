@@ -48,7 +48,7 @@ public class MortarProjectile : MonoBehaviour
         for (int i = 0; i < enemiesInRadius.Count; i++)
         { 
             if (enemiesInRadius[i] is null) continue;
-            enemiesInRadius[i].TakeDamage(Dmg, damageType);
+            enemiesInRadius[i].TakeDamage(Dmg, damageType, transform.position);
         }
             
     }

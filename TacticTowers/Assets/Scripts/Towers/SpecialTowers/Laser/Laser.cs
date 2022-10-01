@@ -73,9 +73,10 @@ public class Laser : Tower
             
             shootDelayTimer = 1f / GetAttackSpeed();
             coolTimer = coolDelay;
-            
+
             if (CheckWallCollision(transform.position, enemy.transform.position, false) is null)
-                enemy.GetComponent<Enemy>().TakeDamage(GetDmg() * (1 + Mathf.Floor(heatCount) * bonusDamagePerHeat), damageType);
+                enemy.GetComponent<Enemy>().TakeDamage(GetDmg() * (1 + Mathf.Floor(heatCount) * bonusDamagePerHeat),
+                    damageType, transform.position);
         }
     }
 }

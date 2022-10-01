@@ -53,12 +53,12 @@ public class Enemy : MonoBehaviour
         {
             if (dmg == 0) return;
             other.gameObject.GetComponent<Base>().TakeDamage(dmg);
-            OnDeath(DamageType.Normal);
+            OnDeath(DamageType.Normal, other.transform.position);
         }
     
     }
     
-    public void TakeDamage(float dmg, DamageType damageType)
+    public void TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos)
     {
         if (hp < 0) return;
         hp -= dmg;
@@ -66,10 +66,10 @@ public class Enemy : MonoBehaviour
         newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
         if (hp <= 0)
         {
-            OnDeath(damageType);
+            OnDeath(damageType, damagerPos);
         }
     }
-    private void OnDeath(DamageType damageType)
+    private void OnDeath(DamageType damageType, Vector3 killerPos)
     {
         EnemySpawner.enemies.Remove(gameObject);
         Money.AddMoney(cost * Technologies.MoneyMultiplier);
@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
         switch (damageType)
         {
             case DamageType.Normal:
-                DieNormal();
+                DieNormal(killerPos);
                 break;
             case DamageType.Fire:
                 DieFire(burnMaterial);
@@ -85,9 +85,15 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void DieNormal()
+    private void DieNormal(Vector3 killerPos)
     {
-        Instantiate(deathParticles, transform.position, Quaternion.identity);
+        var dir = transform.position - killerPos;
+        var asin = Mathf.Asin(dir.normalized.y);
+        var degrees = asin * 180 / Mathf.PI;
+        if (dir.x < 0) degrees = 180 - degrees;
+        
+        Quaternion rotation = Quaternion.Euler(0,0, degrees);
+        Instantiate(deathParticles, transform.position, rotation);
         Destroy(gameObject);
     }
 
