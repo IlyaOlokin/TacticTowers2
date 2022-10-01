@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5343790803822545462}
   - component: {fileID: 1659813578851922564}
   - component: {fileID: 8547610903781544419}
+  - component: {fileID: 7219962531336537464}
   m_Layer: 0
   m_Name: ParasiteLine
   m_TagString: Untagged
@@ -142,4 +143,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe04ae0a555c11458d0f931fd74ca3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.3
+  delay: 0.5
+--- !u!114 &7219962531336537464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5601598668952223541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd2338b52b5a13478418d1ad315c57d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

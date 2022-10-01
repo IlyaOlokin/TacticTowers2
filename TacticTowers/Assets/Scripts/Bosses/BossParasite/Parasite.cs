@@ -32,10 +32,7 @@ public class Parasite : MonoBehaviour
     private void OnDestroy()
     {
         if (tower == null) return;
-        //if (tower.GetComponent<TowerDrag>() == null) return;
-        //if (tower.GetComponent<TowerDrag>().tower.GetComponent<Tower>() == null) return;
-
-
+        
         var towerComp = tower.GetComponent<TowerDrag>().tower.GetComponent<Tower>();
         towerComp.enemiesToIgnore.Remove(gameObject);
         towerComp.LostParasite();
