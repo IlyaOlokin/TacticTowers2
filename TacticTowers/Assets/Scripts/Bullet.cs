@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
      [NonSerialized] public float Dmg;
      [NonSerialized] public float Speed;
      [NonSerialized] public List<GameObject> enemiesToIgnore;
+     [NonSerialized] public Vector3 departurePos;
      private DamageType damageType = DamageType.Normal;
     
      private Rigidbody2D rb;
@@ -26,7 +27,7 @@ public class Bullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<Enemy>().TakeDamage(Dmg, damageType);
+            other.gameObject.GetComponent<Enemy>().TakeDamage(Dmg, damageType, departurePos);
         }
         Destroy(gameObject);
     }

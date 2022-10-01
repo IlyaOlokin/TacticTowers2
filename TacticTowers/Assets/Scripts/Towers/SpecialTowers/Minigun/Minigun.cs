@@ -53,6 +53,7 @@ public class Minigun : Tower
             bulletComponent.Dmg = GetDmg();
             bulletComponent.Speed = bulletSpeed;
             bulletComponent.enemiesToIgnore = enemiesToIgnore;
+            bulletComponent.departurePos = transform.position;
             
             AudioManager.Instance.Play("MinigunShot");
         }

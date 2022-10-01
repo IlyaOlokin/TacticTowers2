@@ -51,7 +51,7 @@ public class Tesla : Tower
         if (CheckWallCollision(startPos, endPos, false) is null)
         {
             newLightning.GetComponent<LineRenderer>().SetPosition(1, endPos);
-            enemy.GetComponent<Enemy>().TakeDamage(dmg, damageType);
+            enemy.GetComponent<Enemy>().TakeDamage(dmg, damageType, transform.position);
             pickedEnemies.Add(enemy);
         }
         else
