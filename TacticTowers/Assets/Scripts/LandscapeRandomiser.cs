@@ -5,23 +5,13 @@ using Random = UnityEngine.Random;
 
 public class LandscapeRandomiser : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> places;
+    [SerializeField] private GameObject landscape;
     [SerializeField] private List<GameObject> landscapes;
-    
-    // Start is called before the first frame update
+
     void Start()
     {
-        foreach (var place in places)
-        {
-            var random = Random.Range(0, landscapes.Count);
-
-            var land = Instantiate(landscapes[random], place.transform.position, place.transform.rotation);
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        var landscapeTr = landscape.transform;
+        var random = Random.Range(0, landscapes.Count);
+        var land = Instantiate(landscapes[random], landscapeTr.position, landscapeTr.rotation, landscapeTr);
     }
 }
