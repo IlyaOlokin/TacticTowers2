@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent agent;
     [Header("Stats")]
     [SerializeField] private float dmg;
-    [SerializeField] private float hp;
+    [SerializeField] public float hp;
     
     [NonSerialized] public float cost;
     [SerializeField] private int creditsDropChance;

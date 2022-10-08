@@ -212,6 +212,82 @@ public class GlobalBaseEffects : MonoBehaviour
         ShootDistanceMultiplierDown = shootDistanceMultiplier;
     }
 
+    public static void ApplyToUpTowers(float dmgMultiplier, float attackSpeedMultiplier, float shootAngleMultiplier, float shootDistanceMultiplier)
+    {
+        DmgMultiplierUp = dmgMultiplier;
+
+        AttackSpeedMultiplierUp = attackSpeedMultiplier;
+
+        ShootAngleMultiplierUp = shootAngleMultiplier;
+
+        ShootDistanceMultiplierUp = shootDistanceMultiplier;
+    }
+
+    public static void ApplyToDownTowers(float dmgMultiplier, float attackSpeedMultiplier, float shootAngleMultiplier, float shootDistanceMultiplier)
+    {
+        DmgMultiplierDown = dmgMultiplier;
+        
+        AttackSpeedMultiplierDown = attackSpeedMultiplier;
+        
+        ShootAngleMultiplierDown = shootAngleMultiplier;
+        
+        ShootDistanceMultiplierDown = shootDistanceMultiplier;
+    }
+
+    public static void ApplyToLeftTowers(float dmgMultiplier, float attackSpeedMultiplier, float shootAngleMultiplier, float shootDistanceMultiplier)
+    {
+        DmgMultiplierLeft = dmgMultiplier;
+
+        AttackSpeedMultiplierLeft = attackSpeedMultiplier;
+
+        ShootAngleMultiplierLeft = shootAngleMultiplier;
+
+        ShootDistanceMultiplierLeft = shootDistanceMultiplier;
+    }
+
+    public static void ApplyToRightTowers(float dmgMultiplier, float attackSpeedMultiplier, float shootAngleMultiplier, float shootDistanceMultiplier)
+    {
+        DmgMultiplierRight = dmgMultiplier;
+
+        AttackSpeedMultiplierRight = attackSpeedMultiplier;
+
+        ShootAngleMultiplierRight = shootAngleMultiplier;
+
+        ShootDistanceMultiplierRight = shootDistanceMultiplier;
+    }
+
+    public static void ApplyToAllTowersDmgMultiplier(float dmgMultiplier)
+    {
+        DmgMultiplierRight = dmgMultiplier;
+        DmgMultiplierLeft = dmgMultiplier;
+        DmgMultiplierUp = dmgMultiplier;
+        DmgMultiplierDown = dmgMultiplier;
+    }
+
+    public static void ApplyToAllTowersAttackSpeedMultiplier(float attackSpeedMultiplier)
+    {
+        AttackSpeedMultiplierRight = attackSpeedMultiplier;
+        AttackSpeedMultiplierLeft = attackSpeedMultiplier;
+        AttackSpeedMultiplierUp = attackSpeedMultiplier;
+        AttackSpeedMultiplierDown = attackSpeedMultiplier;
+    }
+
+    public static void ApplyToAllTowersShootAngleMultiplier(float shootAngleMultiplier)
+    {
+        ShootAngleMultiplierRight = shootAngleMultiplier;
+        ShootAngleMultiplierLeft = shootAngleMultiplier;
+        ShootAngleMultiplierUp = shootAngleMultiplier;
+        ShootAngleMultiplierDown = shootAngleMultiplier;
+    }
+
+    public static void ApplyToAllTowersShootDistanceMultiplier(float shootDistanceMultiplier)
+    {
+        ShootDistanceMultiplierRight = shootDistanceMultiplier;
+        ShootDistanceMultiplierLeft = shootDistanceMultiplier;
+        ShootDistanceMultiplierUp = shootDistanceMultiplier;
+        ShootDistanceMultiplierDown = shootDistanceMultiplier;
+    }
+
     public static void ApplyToAllTowersTemporary(float dmgMultiplier, float attackSpeedMultiplier,
         float shootAngleMultiplier, float shootDistanceMultiplier, float buffDuration)
     {
