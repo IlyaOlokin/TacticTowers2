@@ -31,7 +31,7 @@ public class BossParasite : MonoBehaviour
         {
             var towers = GameObject.FindGameObjectsWithTag("Tower").Where(t => !t.GetComponent<TowerDrag>().tower.GetComponent<Tower>().HasParasite()).ToArray();
             var targets = new List<GameObject>();
-            int towersWithParasiteCount = 0;
+            
             for (var i = 0; i < towers.Length; i++)
             {
                 var probabilityOfSelection = (parasiteCount - targets.Count) / (float) (towers.Length - i);

@@ -2279,7 +2279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &341391977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2298,7 +2298,7 @@ MonoBehaviour:
     seconds: 0
     waveScale: 0
     isSpecial: 1
-    specialEnemySet: {fileID: 11400000, guid: 7f2f6728cbf026540a3bce73750122c5, type: 2}
+    specialEnemySet: {fileID: 11400000, guid: 68782cf78a4346f46aa6995c30c5467d, type: 2}
   - moneyForWave: 5
     seconds: 60
     waveScale: 0
@@ -2307,13 +2307,13 @@ MonoBehaviour:
   - moneyForWave: 10
     seconds: 60
     waveScale: 0
-    isSpecial: 0
+    isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: c59941ca31f37134db55f754f1b4a6e4, type: 2}
   - moneyForWave: 15
     seconds: 60
     waveScale: 0
-    isSpecial: 0
-    specialEnemySet: {fileID: 11400000, guid: 8af203003ddcc7d4fbedd44c655e65eb, type: 2}
+    isSpecial: 1
+    specialEnemySet: {fileID: 11400000, guid: 7f2f6728cbf026540a3bce73750122c5, type: 2}
   - moneyForWave: 15
     seconds: 60
     waveScale: 0
@@ -2734,7 +2734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &363942888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2850,7 +2850,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0078125, y: 0.9256301}
   m_AnchorMax: {x: 0.09354168, y: 0.9888852}
-  m_AnchoredPosition: {x: 295.91122, y: -58.80005}
+  m_AnchoredPosition: {x: 295.91125, y: -58.80005}
   m_SizeDelta: {x: 132.91, y: -20.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371763077
