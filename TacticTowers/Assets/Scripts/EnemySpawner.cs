@@ -10,10 +10,6 @@ public class EnemySpawner : MonoBehaviour
     [Header("Waves")]
     [SerializeField] private Transform enemiesObject;
     
-    private float waveScale = 1f;
-    [SerializeField]private float waveScaleIncrement = 0.05f;
-
-    
     public static List<GameObject> enemies;
     [SerializeField] private List<Wave> Waves = new List<Wave>();
     
@@ -46,9 +42,8 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < Waves.Count; i++)
             if (!Waves[i].released && Timer.timer <= 0)
             {
-                ReleaseWave(Waves[i], i, waveScale);
-                waveScale += waveScaleIncrement;
-                
+                ReleaseWave(Waves[i], i);
+
                 currentWave++;
                 waveCount.text = $"{currentWave:00}/{Waves.Count:00}";
                
@@ -62,8 +57,9 @@ public class EnemySpawner : MonoBehaviour
          
     }
 
-    private void ReleaseWave(Wave wave, int i, float waveScale)
+    private void ReleaseWave(Wave wave, int i)
     {
+        float waveScale = wave.waveScale;
         if (wave.isSpecial)
         {
             wave.enemySet = wave.specialEnemySet;
@@ -143,6 +139,7 @@ public class Wave
     [NonSerialized] public bool released = false;
     public float moneyForWave;
     public int seconds;
+    public float waveScale;
     
     public bool isSpecial;
     public EnemySet specialEnemySet;
