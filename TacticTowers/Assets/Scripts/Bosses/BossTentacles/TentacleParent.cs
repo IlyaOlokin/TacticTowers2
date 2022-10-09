@@ -15,6 +15,11 @@ public class TentacleParent : MonoBehaviour
 
     private void Update()
     {
+        if (boss == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
         transform.position = boss.position;
     }
 }
