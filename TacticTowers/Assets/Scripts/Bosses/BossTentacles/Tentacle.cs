@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class Tentacle : MonoBehaviour
 {
-    private Enemy enemy;
+    [NonSerialized] public Enemy enemy;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float moveSpeed;
 
@@ -23,8 +23,8 @@ public class Tentacle : MonoBehaviour
 
     void Update()
     {
-        if (enemy == null) RandomMove();
-        else MoveToEnemy();
+        if (enemy != null) MoveToEnemy();
+        else RandomMove();
     }
 
     private void RotateTowardsTarget(Vector3 vectorToTarget)
@@ -43,8 +43,11 @@ public class Tentacle : MonoBehaviour
 
     private void RandomMove()
     {
-        var additionalVec = new Vector3(Random.Range(0, floatingSpread), Random.Range(0, floatingSpread));
-        if (transform.localPosition == floatingDestination) floatingDestination = initialPosition + additionalVec;
+        if (transform.localPosition == floatingDestination)
+        {
+            var additionalVec = new Vector3(Random.Range(0, floatingSpread), Random.Range(0, floatingSpread));
+            floatingDestination = initialPosition + additionalVec;
+        }
         transform.localPosition = Vector3.MoveTowards(transform.localPosition, floatingDestination, floatingSpeed * Time.deltaTime);
         RotateTowardsTarget(floatingDestination - transform.localPosition);
     }

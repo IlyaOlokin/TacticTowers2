@@ -1,5 +1,51 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &973787500847973881
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 165995091003590250}
+  - component: {fileID: 4623573596143451815}
+  m_Layer: 7
+  m_Name: TentacleParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &165995091003590250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973787500847973881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1693774175657914941}
+  - {fileID: 3581749744545027103}
+  m_Father: {fileID: 5937050097135992823}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4623573596143451815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973787500847973881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2837c07bbea8bcf408ab1c4718e6592a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss: {fileID: 5937050097135992823}
 --- !u!1 &2573801440193215406
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,14 +498,14 @@ Transform:
   m_GameObject: {fileID: 3428597589108341358}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1.4285713}
+  m_LocalScale: {x: 1.4285712, y: 1.4285712, z: 1.4285712}
   m_Children:
   - {fileID: 3909148443353681529}
   - {fileID: 8044262265009296586}
   - {fileID: 5100400481893105823}
   - {fileID: 7959989293370778262}
-  m_Father: {fileID: 5937050097135992823}
-  m_RootOrder: 1
+  m_Father: {fileID: 165995091003590250}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3729063929088618768
 GameObject:
@@ -813,15 +859,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5669922685323510083}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2719409, y: -0.20469147, z: -0.055852097}
-  m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1.4285713}
+  m_LocalPosition: {x: -0.2719409, y: -0.20469145, z: -0.055852093}
+  m_LocalScale: {x: 1.4285712, y: 1.4285712, z: 1.4285712}
   m_Children:
   - {fileID: 1418026348421865257}
   - {fileID: 1078481621037763141}
   - {fileID: 5789989286490066779}
   - {fileID: 2005358799908724487}
-  m_Father: {fileID: 5937050097135992823}
-  m_RootOrder: 2
+  m_Father: {fileID: 165995091003590250}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5937050097135992818
 GameObject:
@@ -835,6 +881,7 @@ GameObject:
   - component: {fileID: 5937050097135992816}
   - component: {fileID: 5937050097135992817}
   - component: {fileID: 5937050097135992822}
+  - component: {fileID: -6289906005833271352}
   - component: {fileID: 5937050097135992821}
   - component: {fileID: 8882519611899874958}
   m_Layer: 7
@@ -856,8 +903,7 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4880800273122991909}
-  - {fileID: 1693774175657914941}
-  - {fileID: 3581749744545027103}
+  - {fileID: 165995091003590250}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -922,7 +968,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49999997
-  m_Speed: 0
+  m_Speed: 0.1
   m_Acceleration: 2
   avoidancePriority: 10
   m_AngularSpeed: 120
@@ -950,6 +996,24 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.000000040978193}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &-6289906005833271352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5937050097135992818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fecd35052fe90540a9ddb1cc5abfd8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tentaclesTips:
+  - {fileID: 1278584966227933453}
+  - {fileID: 9131979270249179825}
+  - {fileID: 3540039239934249494}
+  - {fileID: 8056949512130743501}
+  tentaclesRange: 3
 --- !u!114 &5937050097135992821
 MonoBehaviour:
   m_ObjectHideFlags: 0
