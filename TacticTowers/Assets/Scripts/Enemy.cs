@@ -12,11 +12,13 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent agent;
     [Header("Stats")]
     [SerializeField] private float dmg;
-    [SerializeField] private float hp;
+    [SerializeField] public float hp;
     
     [NonSerialized] public float cost;
     [SerializeField] private int creditsDropChance;
     public int weight;
+    
+    [NonSerialized] public bool hasTentacle;
     
     [Header("Visual Effects")]
     [SerializeField] private GameObject damageNumberEffect;
@@ -43,7 +45,7 @@ public class Enemy : MonoBehaviour
     private void RotateByVelocity()
     {
         if (!agent.enabled || agent.speed == 0) return;
-        var angle = Mathf.Atan2(agent.velocity.y, agent.velocity.x) * Mathf.Rad2Deg;
+        var angle = Mathf.Atan2(agent.desiredVelocity.y, agent.desiredVelocity.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
     }
 
@@ -122,5 +124,10 @@ public class Enemy : MonoBehaviour
     private void DropCreditsByChance(int chance)
     {
         if (Random.Range(0, 100) < chance) Credits.AddSessionCredits(weight);
+    }
+
+    public void SetTentacle()
+    {
+        hasTentacle = true;
     }
 }

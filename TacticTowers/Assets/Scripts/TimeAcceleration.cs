@@ -10,7 +10,7 @@ public class TimeAcceleration : MonoBehaviour
     [SerializeField] private Color arrowSelectedColor;
     [SerializeField] private Color arrowDefaultColor;
     private readonly List<int> timeScales = new List<int>() {1, 2, 4};
-    private int currentTimeScaleIndex = 0;
+    private static int currentTimeScaleIndex = 0;
 
     private void Start()
     {
