@@ -7,11 +7,13 @@ using Random = UnityEngine.Random;
 public class Tentacle : MonoBehaviour
 {
     [NonSerialized] public Enemy enemy;
+    [SerializeField] private BossTentacles boss;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float moveSpeed;
 
     private Vector3 initialPosition;
     private Vector3 floatingDestination;
+    private bool tentacleNeedToBeDisconnected;
     [SerializeField] private float floatingSpeed;
     [SerializeField] private float floatingSpread;
 
@@ -23,8 +25,27 @@ public class Tentacle : MonoBehaviour
 
     void Update()
     {
-        if (enemy != null) MoveToEnemy();
-        else RandomMove();
+        if (enemy != null)
+        {
+            tentacleNeedToBeDisconnected = true;
+            MoveToEnemy();
+        }
+        else
+        {
+            if (tentacleNeedToBeDisconnected)
+            {
+                tentacleNeedToBeDisconnected = false;
+                boss.DisconnectTentacle();
+            }
+            RandomMove();
+        }
+    }
+
+    public void SetEnemyAsTarget(Enemy enemy)
+    {
+        this.enemy = enemy;
+        boss.ConnectTentacle();
+        enemy.SetTentacle();
     }
 
     private void RotateTowardsTarget(Vector3 vectorToTarget)
@@ -38,7 +59,10 @@ public class Tentacle : MonoBehaviour
     {
         transform.position =
             Vector3.MoveTowards(transform.position, enemy.transform.position, moveSpeed * Time.deltaTime);
-        RotateTowardsTarget(enemy.transform.position - transform.position);
+        if (Vector2.Distance(transform.position, enemy.transform.position) < 0.001f)
+            RotateTowardsTarget(enemy.transform.position - boss.transform.position);
+        else
+            RotateTowardsTarget(enemy.transform.position - transform.position);
     }
 
     private void RandomMove()

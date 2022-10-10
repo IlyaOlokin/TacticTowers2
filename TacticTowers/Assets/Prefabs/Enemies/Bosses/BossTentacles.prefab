@@ -463,10 +463,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec12fd3436559c458faeaeaa6721c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: {fileID: -6289906005833271352}
   rotationSpeed: 5
   moveSpeed: 0.3
-  floatingSpeed: 0.05
-  floatingSpread: 0.2
+  floatingSpeed: 0.2
+  floatingSpread: 0.4
 --- !u!1 &2930195758215248818
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,10 +514,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec12fd3436559c458faeaeaa6721c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: {fileID: -6289906005833271352}
   rotationSpeed: 5
   moveSpeed: 0.3
-  floatingSpeed: 0.05
-  floatingSpread: 0.2
+  floatingSpeed: 0.2
+  floatingSpread: 0.4
 --- !u!1 &3214225814938092098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,10 +1134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec12fd3436559c458faeaeaa6721c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: {fileID: -6289906005833271352}
   rotationSpeed: 5
   moveSpeed: 0.3
-  floatingSpeed: 0.05
-  floatingSpread: 0.2
+  floatingSpeed: 0.2
+  floatingSpread: 0.4
 --- !u!1 &5173328938710399858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,6 +1482,7 @@ MonoBehaviour:
   - {fileID: 3540039239934249494}
   - {fileID: 8056949512130743501}
   tentaclesRange: 1.5
+  regenForTentacle: 5
 --- !u!114 &5937050097135992821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1792,10 +1796,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec12fd3436559c458faeaeaa6721c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: {fileID: -6289906005833271352}
   rotationSpeed: 5
   moveSpeed: 0.3
-  floatingSpeed: 0.05
-  floatingSpread: 0.2
+  floatingSpeed: 0.2
+  floatingSpread: 0.4
 --- !u!1 &9054466035888346782
 GameObject:
   m_ObjectHideFlags: 0
