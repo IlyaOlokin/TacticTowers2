@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class SlowingDownIncreasingHpBox : MonoBehaviour
 {
-    [NonSerialized] public float SlowihgDownSpeed = 1;
+    [NonSerialized] public float SlowingDownSpeed = 1;
     [NonSerialized] public float IncreasingHp = 1;
     
     
@@ -15,7 +15,7 @@ public class SlowingDownIncreasingHpBox : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             var enemy = other.GetComponent("Enemy");
-            enemy.GetComponent<NavMeshAgent>().speed /= SlowihgDownSpeed;
+            enemy.GetComponent<NavMeshAgent>().speed /= SlowingDownSpeed;
             enemy.GetComponent<Enemy>().hp *= IncreasingHp;
         }
 

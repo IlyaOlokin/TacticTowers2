@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 235052623172459376}
   - component: {fileID: 2290385434053056684}
   - component: {fileID: 7695600093411397653}
-  - component: {fileID: 5767294608920531919}
+  - component: {fileID: 2603266667242282038}
   - component: {fileID: 5340991313452885713}
   - component: {fileID: 5069954680242416308}
   m_Layer: 0
@@ -581,7 +581,7 @@ MonoBehaviour:
   maxHp: 100
   canvas: {fileID: 5583321752753501627}
   baseImage: {fileID: -5040041125698078803, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
---- !u!114 &5767294608920531919
+--- !u!114 &2603266667242282038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -590,16 +590,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5373921526394233559}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72811140c36ecf745b372fea97df6acf, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e66b7d3e6fed6342af51b5542a956a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   description: 
-  coolDown: 60
-  dmgMultiplier: 3
-  attackSpeedMultiplier: 1
-  shootAngleMultiplier: 1
-  shootDistanceMultiplier: 1
-  duration: 5
+  coolDown: 30
+  dmgMultiplier: 5
+  attackSpeedMultiplier: 5
+  shootAngleMultiplier: 5
+  shootDistanceMultiplier: 5
+  duration: 10
 --- !u!114 &5340991313452885713
 MonoBehaviour:
   m_ObjectHideFlags: 0

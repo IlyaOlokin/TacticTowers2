@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7139549222802611214}
   - component: {fileID: 6202289837214657438}
   - component: {fileID: 2941296195497512182}
+  - component: {fileID: 1273752613236479866}
   m_Layer: 0
   m_Name: Box
   m_TagString: Untagged
@@ -68,6 +69,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f23c47f2842627d42b32d7928fb8ea9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1273752613236479866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095801947560078590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752baa0f050e9d643b90caf4db188709, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1383696843642771689
@@ -773,7 +786,7 @@ GameObject:
   - component: {fileID: 8888004946068320790}
   - component: {fileID: 7794163446626541105}
   - component: {fileID: 45346261972040689}
-  - component: {fileID: 3224317152836999648}
+  - component: {fileID: -6851265831254081012}
   - component: {fileID: 6702434639433975697}
   - component: {fileID: 2913116072357639317}
   - component: {fileID: 8130542157738574140}
@@ -885,7 +898,7 @@ MonoBehaviour:
   maxHp: 100
   canvas: {fileID: 3079830555775743119}
   baseImage: {fileID: -5040041125698078803, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
---- !u!114 &3224317152836999648
+--- !u!114 &-6851265831254081012
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -894,16 +907,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8860638312589261533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72811140c36ecf745b372fea97df6acf, type: 3}
+  m_Script: {fileID: 11500000, guid: e01acf7a38ab7424c9f88a835852d44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
-  coolDown: 60
-  dmgMultiplier: 3
-  attackSpeedMultiplier: 1
-  shootAngleMultiplier: 1
-  shootDistanceMultiplier: 1
-  duration: 5
+  description: "\u0441\u0443\u043F\u0435\u0440 \u0431\u043E\u043B\u044C\u043D\u043E\u0435
+    \u0430\u043E\u0435"
+  coolDown: 30
+  box: {fileID: 1273752613236479866}
+  damage: 100000
 --- !u!114 &6702434639433975697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,8 +929,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: "\u0443\u0441\u043A\u043E\u0440\u044F\u0435\u0442 \u0432\u0440\u0430\u0433\u043E\u0432"
   box: {fileID: 2941296195497512182}
-  SlowihgDownSpeed: 0.5
-  IncreasingHp: 1
+  SlowingDownSpeed: 0.5
+  IncreasingHp: 3
 --- !u!114 &2913116072357639317
 MonoBehaviour:
   m_ObjectHideFlags: 0

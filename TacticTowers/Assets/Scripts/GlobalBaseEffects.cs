@@ -350,6 +350,58 @@ public class GlobalBaseEffects : MonoBehaviour
         TempShootDistanceMultiplierDown = shootDistanceMultiplier;
     }
 
+    public static void ApplyToUpTowersTemporary(float dmgMultiplier, float attackSpeedMultiplier, float shootAngleMultiplier, float shootDistanceMultiplier, float buffDuration)
+    {
+        FunctionTimer.Create(GoBackToDefaultMultipliers, buffDuration);
+
+        TempDmgMultiplierUp = dmgMultiplier;
+
+        TempAttackSpeedMultiplierUp = attackSpeedMultiplier;
+
+        TempShootAngleMultiplierUp = shootAngleMultiplier;
+
+        TempShootDistanceMultiplierUp = shootDistanceMultiplier;
+    }
+
+    public static void ApplyToDownTowersTemporary(float dmgMultiplier, float attackSpeedMultiplier, float shootAngleMultiplier, float shootDistanceMultiplier, float buffDuration)
+    {
+        FunctionTimer.Create(GoBackToDefaultMultipliers, buffDuration);
+
+        TempDmgMultiplierDown = dmgMultiplier;
+
+        TempAttackSpeedMultiplierDown = attackSpeedMultiplier;
+
+        TempShootAngleMultiplierDown = shootAngleMultiplier;
+
+        TempShootDistanceMultiplierDown = shootDistanceMultiplier;
+    }
+
+    public static void ApplyToLeftTowersTemporary(float dmgMultiplier, float attackSpeedMultiplier, float shootAngleMultiplier, float shootDistanceMultiplier, float buffDuration)
+    {
+        FunctionTimer.Create(GoBackToDefaultMultipliers, buffDuration);
+
+        TempDmgMultiplierLeft = dmgMultiplier;
+
+        TempAttackSpeedMultiplierLeft = attackSpeedMultiplier;
+
+        TempShootAngleMultiplierLeft = shootAngleMultiplier;
+
+        TempShootDistanceMultiplierLeft = shootDistanceMultiplier;
+    }
+
+    public static void ApplyToRightTowersTemporary(float dmgMultiplier, float attackSpeedMultiplier, float shootAngleMultiplier, float shootDistanceMultiplier, float buffDuration)
+    {
+        FunctionTimer.Create(GoBackToDefaultMultipliers, buffDuration);
+
+        TempDmgMultiplierRight = dmgMultiplier;
+
+        TempAttackSpeedMultiplierRight = attackSpeedMultiplier;
+
+        TempShootAngleMultiplierRight = shootAngleMultiplier;
+
+        TempShootDistanceMultiplierRight = shootDistanceMultiplier;
+    }
+
     private static void GoBackToDefaultMultipliers()
     {
         TempDmgMultiplierRight = 1;
