@@ -101,10 +101,12 @@ public class UpgradeWindow : MonoBehaviour
         float chanceToSuper = Random.Range(0f, 1f);
         bool isSuper = chanceToSuper < superUpgradeChance;
         upgrade.ApplyBonusIncrement(isSuper);
-
+        button.GetComponent<UpgradeButton>().ActivateSuperCardEffects(isSuper);
+        
         Button.onClick.AddListener(() => upgrade.Execute(tower));
         Button.onClick.AddListener(() => gameObject.SetActive(false));
         Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
+        
         upgradeButton.upgradeLabel.text = upgrade.upgradeLabel;
         upgradeButton.upgradeText.text = upgrade.FormatUpgradeText(isSuper);
         upgradeButton.upgradeImage.sprite = upgrade.UpgradeSprite;
@@ -168,7 +170,7 @@ public class UpgradeWindow : MonoBehaviour
     {
         foreach (var button in upgradeButtons)
         {
-            button.GetComponent<Image>().sprite = imageSprite;
+            button.GetComponent<UpgradeButton>().ChangeSprite(imageSprite);
             label.text = labelText;
         }
     }

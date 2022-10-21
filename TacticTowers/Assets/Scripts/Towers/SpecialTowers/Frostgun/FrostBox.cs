@@ -83,12 +83,13 @@ public class FrostBox : MonoBehaviour
         if (!enemy.GetComponent<Freeze>())
         {
             enemy.transform.gameObject.AddComponent<Freeze>();
-            enemy.GetComponent<Freeze>().freezeStacksNeeded = freezeStacksNeeded;
-            enemy.GetComponent<Freeze>().freezeTime = freezeTime;
-            enemy.GetComponent<Freeze>().freezeEffect = freezeEffect;
-            enemy.GetComponent<Freeze>().freezeStacksPerHt = freezeStacksPerHit;
-            enemy.GetComponent<Freeze>().FindEnemy();
-            enemy.GetComponent<Freeze>().GetFreezeStack();
+            var freezeComponent = enemy.GetComponent<Freeze>();
+            freezeComponent.freezeStacksNeeded = freezeStacksNeeded;
+            freezeComponent.freezeTime = freezeTime;
+            freezeComponent.freezeEffect = freezeEffect;
+            freezeComponent.freezeStacksPerHt = freezeStacksPerHit;
+            freezeComponent.FindEnemy();
+            freezeComponent.GetFreezeStack();
         }
         else if (!enemy.GetComponent<Freeze>().frozen)
         {
