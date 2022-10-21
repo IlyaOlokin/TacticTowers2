@@ -19,9 +19,11 @@ public class UpgradeWindow : MonoBehaviour
     [SerializeField] private Sprite upgradeSprite;
     
     [Header("Functionality")]
+    [SerializeField] private int towerTypeUpgradeLevel;
+    [SerializeField] private float superUpgradeChance;
+
     [SerializeField] private List<GameObject> upgradeButtons;
 
-    [SerializeField] private int towerTypeUpgradeLevel;
     [SerializeField] private List<GameObject> towerTypes;
     [SerializeField] private List<GameObject> unlockableTowerTypes;
 
@@ -96,11 +98,15 @@ public class UpgradeWindow : MonoBehaviour
         var upgradeButton = button.GetComponent<UpgradeButton>();
         var upgrade = tower.upgrades[upgradeIndex];
         
+        float chanceToSuper = Random.Range(0f, 1f);
+        bool isSuper = chanceToSuper < superUpgradeChance;
+        upgrade.ApplyBonusIncrement(isSuper);
+
         Button.onClick.AddListener(() => upgrade.Execute(tower));
         Button.onClick.AddListener(() => gameObject.SetActive(false));
         Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
         upgradeButton.upgradeLabel.text = upgrade.upgradeLabel;
-        upgradeButton.upgradeText.text = upgrade.upgradeText;
+        upgradeButton.upgradeText.text = upgrade.FormatUpgradeText(isSuper);
         upgradeButton.upgradeImage.sprite = upgrade.UpgradeSprite;
     }
 

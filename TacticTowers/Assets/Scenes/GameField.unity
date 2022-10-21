@@ -1979,11 +1979,12 @@ MonoBehaviour:
   upgradingTowerImage: {fileID: 768386868}
   typeUpgradeSprite: {fileID: -1690205871967841355, guid: 61a49dba398bcbc46b9afcd0ff42d35c, type: 3}
   upgradeSprite: {fileID: -897964393453774138, guid: 61a49dba398bcbc46b9afcd0ff42d35c, type: 3}
+  towerTypeUpgradeLevel: 5
+  superUpgradeChance: 0.6
   upgradeButtons:
   - {fileID: 1291601969}
   - {fileID: 310804376}
   - {fileID: 1424173967}
-  towerTypeUpgradeLevel: 5
   towerTypes:
   - {fileID: 4434774992038405007, guid: 5df25896f35de054aaf84c9f7ba98643, type: 3}
   - {fileID: 6728170449799749952, guid: 128b2ee9661eb4a4d95c39ab6afa570e, type: 3}
@@ -2850,7 +2851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0078125, y: 0.9256301}
   m_AnchorMax: {x: 0.09354168, y: 0.9888852}
-  m_AnchoredPosition: {x: 295.91125, y: -58.80005}
+  m_AnchoredPosition: {x: 295.9113, y: -58.80005}
   m_SizeDelta: {x: 132.91, y: -20.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371763077

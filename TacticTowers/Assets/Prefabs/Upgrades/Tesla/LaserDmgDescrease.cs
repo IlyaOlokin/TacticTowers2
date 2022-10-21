@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class LaserDmgDescrease : Upgrade
 {
-    [SerializeField] private float bonus;
-
     public override void Execute(Tower tower)
     {
-        tower.transform.GetComponent<Tesla>().dmgDecrease += bonus;
+        tower.transform.GetComponent<Tesla>().dmgDecrease += actualBonus;
     }
 }
