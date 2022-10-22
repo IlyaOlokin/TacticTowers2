@@ -134,14 +134,17 @@ public class UpgradeWindow : MonoBehaviour
     {
         var Button = button.GetComponent<Button>();
         var upgradeButton = button.GetComponent<UpgradeButton>();
-
+        
+        button.GetComponent<UpgradeButton>().ActivateSuperCardEffects(false);
+        
         Button.onClick.AddListener(() => CreateNewTower(towerTypes[upgradeIndex], tower));
         Button.onClick.AddListener(() => gameObject.SetActive(false));
         Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
 
-        upgradeButton.upgradeLabel.text = towerTypes[upgradeIndex].GetComponent<Tower>().towerName;
-        upgradeButton.upgradeText.text =  towerTypes[upgradeIndex].GetComponent<Tower>().towerDescription;
-        upgradeButton.upgradeImage.sprite = towerTypes[upgradeIndex].GetComponent<Tower>().towerSprite;
+        var towerComponent = towerTypes[upgradeIndex].GetComponent<Tower>();
+        upgradeButton.upgradeLabel.text = towerComponent.towerName;
+        upgradeButton.upgradeText.text =  towerComponent.towerDescription;
+        upgradeButton.upgradeImage.sprite = towerComponent.towerSprite;
     }
 
     private void CreateNewTower(GameObject towerType, Tower tower)

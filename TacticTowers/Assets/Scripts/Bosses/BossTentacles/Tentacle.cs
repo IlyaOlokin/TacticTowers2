@@ -60,7 +60,10 @@ public class Tentacle : MonoBehaviour
         transform.position =
             Vector3.MoveTowards(transform.position, enemy.transform.position, moveSpeed * Time.deltaTime);
         if (Vector2.Distance(transform.position, enemy.transform.position) < 0.001f)
+        {
+            if (boss == null) return;
             RotateTowardsTarget(enemy.transform.position - boss.transform.position);
+        }
         else
             RotateTowardsTarget(enemy.transform.position - transform.position);
     }
