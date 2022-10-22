@@ -22,6 +22,8 @@ public class Bullet : MonoBehaviour
             if (enemy is null) continue;
             Physics2D.IgnoreCollision(enemy.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
+        
+        Physics2D.IgnoreLayerCollision(6, 12);
     }
      private void OnCollisionEnter2D(Collision2D other)
     {

@@ -19,9 +19,11 @@ public class UpgradeWindow : MonoBehaviour
     [SerializeField] private Sprite upgradeSprite;
     
     [Header("Functionality")]
+    [SerializeField] private int towerTypeUpgradeLevel;
+    [SerializeField] private float superUpgradeChance;
+
     [SerializeField] private List<GameObject> upgradeButtons;
 
-    [SerializeField] private int towerTypeUpgradeLevel;
     [SerializeField] private List<GameObject> towerTypes;
     [SerializeField] private List<GameObject> unlockableTowerTypes;
 
@@ -96,11 +98,17 @@ public class UpgradeWindow : MonoBehaviour
         var upgradeButton = button.GetComponent<UpgradeButton>();
         var upgrade = tower.upgrades[upgradeIndex];
         
+        float chanceToSuper = Random.Range(0f, 1f);
+        bool isSuper = chanceToSuper < superUpgradeChance;
+        upgrade.ApplyBonusIncrement(isSuper);
+        button.GetComponent<UpgradeButton>().ActivateSuperCardEffects(isSuper);
+        
         Button.onClick.AddListener(() => upgrade.Execute(tower));
         Button.onClick.AddListener(() => gameObject.SetActive(false));
         Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
+        
         upgradeButton.upgradeLabel.text = upgrade.upgradeLabel;
-        upgradeButton.upgradeText.text = upgrade.upgradeText;
+        upgradeButton.upgradeText.text = upgrade.FormatUpgradeText(isSuper);
         upgradeButton.upgradeImage.sprite = upgrade.UpgradeSprite;
     }
 
@@ -126,14 +134,17 @@ public class UpgradeWindow : MonoBehaviour
     {
         var Button = button.GetComponent<Button>();
         var upgradeButton = button.GetComponent<UpgradeButton>();
-
+        
+        button.GetComponent<UpgradeButton>().ActivateSuperCardEffects(false);
+        
         Button.onClick.AddListener(() => CreateNewTower(towerTypes[upgradeIndex], tower));
         Button.onClick.AddListener(() => gameObject.SetActive(false));
         Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
 
-        upgradeButton.upgradeLabel.text = towerTypes[upgradeIndex].GetComponent<Tower>().towerName;
-        upgradeButton.upgradeText.text =  towerTypes[upgradeIndex].GetComponent<Tower>().towerDescription;
-        upgradeButton.upgradeImage.sprite = towerTypes[upgradeIndex].GetComponent<Tower>().towerSprite;
+        var towerComponent = towerTypes[upgradeIndex].GetComponent<Tower>();
+        upgradeButton.upgradeLabel.text = towerComponent.towerName;
+        upgradeButton.upgradeText.text =  towerComponent.towerDescription;
+        upgradeButton.upgradeImage.sprite = towerComponent.towerSprite;
     }
 
     private void CreateNewTower(GameObject towerType, Tower tower)
@@ -162,7 +173,7 @@ public class UpgradeWindow : MonoBehaviour
     {
         foreach (var button in upgradeButtons)
         {
-            button.GetComponent<Image>().sprite = imageSprite;
+            button.GetComponent<UpgradeButton>().ChangeSprite(imageSprite);
             label.text = labelText;
         }
     }

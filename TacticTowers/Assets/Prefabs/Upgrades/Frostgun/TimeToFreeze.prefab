@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeLabel: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C \u0437\u0430\u043C\u043E\u0440\u043E\u0437\u043A\u0438"
-  upgradeText: "+25% \u043A \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438 \u0437\u0430\u043C\u043E\u0440\u043E\u0437\u043A\u0438"
+  upgradeText: "+{0}% \u043A \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438 \u0437\u0430\u043C\u043E\u0440\u043E\u0437\u043A\u0438"
+  bonusForFormatting: 25
   UpgradeSprite: {fileID: 8550986827704613103, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
   bonus: 0.25

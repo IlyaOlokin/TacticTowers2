@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class AttackSpeed : Upgrade
 {
-    [SerializeField] private float bonus;
-
     public override void Execute(Tower tower)
     {
-        tower.multiplierAttackSpeed += bonus;
+        tower.multiplierAttackSpeed += actualBonus;
     }
 }

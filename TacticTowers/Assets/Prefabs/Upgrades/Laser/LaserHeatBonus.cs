@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class LaserHeatBonus : Upgrade
 {
-    [SerializeField] private float bonus;
-    
     public override void Execute(Tower tower)
     {
-        tower.gameObject.GetComponent<Laser>().bonusDamagePerHeat += bonus;
+        tower.gameObject.GetComponent<Laser>().bonusDamagePerHeat += actualBonus;
     }
 }
 

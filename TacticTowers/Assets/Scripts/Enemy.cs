@@ -12,11 +12,13 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent agent;
     [Header("Stats")]
     [SerializeField] private float dmg;
-    [SerializeField] private float hp;
+    [SerializeField] public float hp;
     
     [NonSerialized] public float cost;
     [SerializeField] private int creditsDropChance;
     public int weight;
+    
+    [NonSerialized] public bool hasTentacle;
     
     [Header("Visual Effects")]
     [SerializeField] private GameObject damageNumberEffect;
@@ -72,7 +74,7 @@ public class Enemy : MonoBehaviour
     private void OnDeath(DamageType damageType, Vector3 killerPos)
     {
         EnemySpawner.enemies.Remove(gameObject);
-        Money.AddMoney(cost * Technologies.MoneyMultiplier);
+        Money.AddMoney(cost);
         DropCreditsByChance(creditsDropChance);
         switch (damageType)
         {
@@ -122,5 +124,10 @@ public class Enemy : MonoBehaviour
     private void DropCreditsByChance(int chance)
     {
         if (Random.Range(0, 100) < chance) Credits.AddSessionCredits(weight);
+    }
+
+    public void SetTentacle()
+    {
+        hasTentacle = true;
     }
 }
