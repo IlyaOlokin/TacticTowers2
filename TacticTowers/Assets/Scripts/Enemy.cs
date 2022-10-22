@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
     private void OnDeath(DamageType damageType, Vector3 killerPos)
     {
         EnemySpawner.enemies.Remove(gameObject);
-        Money.AddMoney(cost * Technologies.MoneyMultiplier);
+        Money.AddMoney(cost);
         DropCreditsByChance(creditsDropChance);
         switch (damageType)
         {

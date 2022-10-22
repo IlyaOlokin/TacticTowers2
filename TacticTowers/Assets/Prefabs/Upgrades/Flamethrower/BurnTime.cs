@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class BurnTime : Upgrade
 {
-    [SerializeField] private float bonus;
-
     public override void Execute(Tower tower)
     {
-        tower.transform.GetComponent<Flamethrower>().burnTime += bonus;
+        tower.transform.GetComponent<Flamethrower>().burnTime += actualBonus;
     }
 }
