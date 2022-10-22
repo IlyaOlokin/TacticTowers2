@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class BossParasite : MonoBehaviour
+public class BossParasite : Boss
 {
     [SerializeField] private float shootDelay; 
     private float shootTimer = 0f;

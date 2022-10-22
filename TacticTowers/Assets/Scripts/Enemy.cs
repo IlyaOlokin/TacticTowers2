@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.SetDestination(GameObject.FindGameObjectWithTag("Base").transform.position);
+        RandomizeSpeed();
     }
 
     
@@ -58,6 +59,14 @@ public class Enemy : MonoBehaviour
             OnDeath(DamageType.Normal, other.transform.position);
         }
     
+    }
+    
+    private void RandomizeSpeed()
+    {
+        if (GetComponent<Boss>() != null) return;
+        var multiplier = Random.Range(0.75f, 1.25f);
+        agent.speed *= multiplier;
+        agent.avoidancePriority = (int) (agent.avoidancePriority * multiplier);
     }
     
     public void TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos)

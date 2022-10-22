@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class BossWithShields : MonoBehaviour
+public class BossWithShields : Boss
 {
     [SerializeField] private List<GameObject> shieldPoints;
     [SerializeField] private List<GameObject> shields;

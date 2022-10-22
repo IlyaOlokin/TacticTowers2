@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class BossTentacles : MonoBehaviour
+public class BossTentacles : Boss
 {
     [SerializeField] private List<Tentacle> tentaclesTips;
     [SerializeField] private float tentaclesRange;

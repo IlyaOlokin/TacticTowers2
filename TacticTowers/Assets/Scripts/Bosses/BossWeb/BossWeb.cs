@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BossWeb : MonoBehaviour
+public class BossWeb : Boss
 {
     [SerializeField] private float shootDelay = 2.5f; 
     private float shootTimer = 0f;
