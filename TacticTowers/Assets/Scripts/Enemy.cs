@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
     private void RandomizeSpeed()
     {
         if (GetComponent<Boss>() != null) return;
-        var multiplier = Random.Range(0.75f, 1.25f);
+        var multiplier = Random.Range(1f, 1.75f);
         agent.speed *= multiplier;
         agent.avoidancePriority = (int) (agent.avoidancePriority * multiplier);
     }

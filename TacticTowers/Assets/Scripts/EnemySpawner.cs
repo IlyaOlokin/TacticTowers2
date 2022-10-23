@@ -92,6 +92,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void ReleaseWaveSide(List<EnemyType> enemyTypes, Transform spawnZone, float waveScale, float weightCost)
     {
+        if (waveScale != 0)
+            weightCost /= waveScale;
         for (int i = 0; i < enemyTypes.Count; i++)
         {
             var enemyCount = Math.Floor(enemyTypes[i].enemyCount * waveScale);
