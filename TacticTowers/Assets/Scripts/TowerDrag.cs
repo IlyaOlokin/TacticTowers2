@@ -19,6 +19,7 @@ public class TowerDrag : MonoBehaviour
     private int conflicts;
     [SerializeField] private GameObject smokeEffect;
     private int edgeSize = 20;
+    [SerializeField] private GameObject conflictIndicator;
 
     private void Start()
     {
@@ -115,7 +116,7 @@ public class TowerDrag : MonoBehaviour
         tower.isDragging = false;
         triedToDrag = false;
         navMeshObstacle.enabled = true;
-        collider2D.isTrigger = false;
+        //collider2D.isTrigger = false;
         conflicts = 0;
         
     }
@@ -127,7 +128,7 @@ public class TowerDrag : MonoBehaviour
         tower.isDragging = true;
         triedToDrag = false;
         navMeshObstacle.enabled = false;
-        collider2D.isTrigger = true;
+        //collider2D.isTrigger = true;
     }
 
     private bool IsAnyOtherTowerDragging()
@@ -143,37 +144,27 @@ public class TowerDrag : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!dragging) return;
+        
         var otherGameObject = other.gameObject;
         if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall"))
         {
             conflicts += 1;
-
-            for (int i = 0; i < otherGameObject.transform.childCount; i++)
-            {
-                if (otherGameObject.transform.GetChild(i).gameObject.CompareTag("ConflictIndicator"))
-                {
-                    otherGameObject.transform.GetChild(i).gameObject.SetActive(true);
-                }
-            }
+            
+            if (dragging) conflictIndicator.SetActive(true);
         }
     }
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!dragging) return;
         var otherGameObject = other.gameObject;
         if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall"))
         {
             if (conflicts > 0)
                 conflicts -= 1;
 
-            for (int i = 0; i < otherGameObject.transform.childCount; i++)
+            if (conflicts <= 0 && dragging)
             {
-                if (otherGameObject.transform.GetChild(i).gameObject.CompareTag("ConflictIndicator"))
-                {
-                    otherGameObject.transform.GetChild(i).gameObject.SetActive(false);
-                }
+                conflictIndicator.SetActive(false);
             }
         }
     }

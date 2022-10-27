@@ -1186,7 +1186,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1206,6 +1206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 1988608886}
   smokeEffect: {fileID: 9203543088354587739, guid: 91232424a9245784dbe5e2f395c2e37f, type: 3}
+  conflictIndicator: {fileID: 287691766}
 --- !u!4 &160588626
 Transform:
   m_ObjectHideFlags: 0
@@ -2454,7 +2455,7 @@ MonoBehaviour:
     seconds: 0
     waveScale: 0
     isSpecial: 1
-    specialEnemySet: {fileID: 11400000, guid: 68782cf78a4346f46aa6995c30c5467d, type: 2}
+    specialEnemySet: {fileID: 11400000, guid: 3d4c5d9fad22b6a4a8efb86679990508, type: 2}
   - moneyForWave: 5
     seconds: 60
     waveScale: 0
@@ -3006,7 +3007,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0078125, y: 0.9256301}
   m_AnchorMax: {x: 0.09354168, y: 0.9888852}
-  m_AnchoredPosition: {x: 295.91226, y: -58.80005}
+  m_AnchoredPosition: {x: 295.9124, y: -58.80005}
   m_SizeDelta: {x: 132.91, y: -20.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371763077
@@ -8051,7 +8052,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -8071,6 +8072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 1849170359}
   smokeEffect: {fileID: 9203543088354587739, guid: 91232424a9245784dbe5e2f395c2e37f, type: 3}
+  conflictIndicator: {fileID: 1799313849}
 --- !u!4 &1152451194
 Transform:
   m_ObjectHideFlags: 0
@@ -12921,6 +12923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 1242163671}
   smokeEffect: {fileID: 9203543088354587739, guid: 91232424a9245784dbe5e2f395c2e37f, type: 3}
+  conflictIndicator: {fileID: 1851622319}
 --- !u!4 &1635791837
 Transform:
   m_ObjectHideFlags: 0
@@ -12949,7 +12952,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -13281,7 +13284,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -13301,6 +13304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 1909107970}
   smokeEffect: {fileID: 9203543088354587739, guid: 91232424a9245784dbe5e2f395c2e37f, type: 3}
+  conflictIndicator: {fileID: 778304268}
 --- !u!4 &1713674344
 Transform:
   m_ObjectHideFlags: 0

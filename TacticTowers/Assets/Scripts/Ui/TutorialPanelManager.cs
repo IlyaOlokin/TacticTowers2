@@ -75,5 +75,6 @@ public class TutorialPanelManager : MonoBehaviour
         _base.baseAbilityMenu = baseAbilityMenu;
         _base.abilityButton = abilityButton;
         _base.coolDownImage = baseAbilityCoolDownImage;
+        CurrentPanel = 1;
     }
 }
