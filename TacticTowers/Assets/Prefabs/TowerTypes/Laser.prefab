@@ -217,13 +217,9 @@ MonoBehaviour:
   towerSprite: {fileID: -2292894377180829065, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   towerCanon: {fileID: 4597013019795596408}
   shootAngle: 45
-  multiplierShootAngle: 1
   shootDistance: 3
-  multiplierShootDistance: 1
   Dmg: 15
-  multiplierDmg: 1
   attackSpeed: 3
-  multiplierAttackSpeed: 1
   shootZone: {fileID: 0}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
@@ -234,7 +230,7 @@ MonoBehaviour:
   - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
   laserBim: {fileID: 6922442246336718825, guid: a9e332a7c215fcd42b7d2aba60f6fa34, type: 3}
   maxHeat: 10
-  bonusDamagePerHeat: 0.05
+  multiplierPerHeatStack: 0.05
   coolDelay: 5
   contactFilter:
     useTriggers: 0

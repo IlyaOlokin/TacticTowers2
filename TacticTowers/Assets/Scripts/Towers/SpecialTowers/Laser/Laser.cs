@@ -13,7 +13,7 @@ public class Laser : Tower
     private GameObject activeLaser;
 
     [SerializeField] public int maxHeat;
-    [SerializeField] public float bonusDamagePerHeat;
+    [SerializeField] public float multiplierPerHeatStack;
     [SerializeField] public float coolDelay;
     [SerializeField] private ContactFilter2D contactFilter;
 
@@ -75,7 +75,7 @@ public class Laser : Tower
             coolTimer = coolDelay;
 
             if (CheckWallCollision(transform.position, enemy.transform.position, false) is null)
-                enemy.GetComponent<Enemy>().TakeDamage(GetDmg() * (1 + Mathf.Floor(heatCount) * bonusDamagePerHeat),
+                enemy.GetComponent<Enemy>().TakeDamage(GetDmg() * (1 + Mathf.Floor(heatCount) * multiplierPerHeatStack),
                     damageType, transform.position);
         }
     }
