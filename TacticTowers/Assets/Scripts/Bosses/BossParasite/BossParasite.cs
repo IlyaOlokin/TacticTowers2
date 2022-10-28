@@ -29,7 +29,8 @@ public class BossParasite : Boss
     {
         if (shootTimer >= shootDelay)
         {
-            var towers = GameObject.FindGameObjectsWithTag("Tower").Where(t => !t.GetComponent<TowerDrag>().tower.GetComponent<Tower>().HasParasite()).ToArray();
+            var towers = GameObject.FindGameObjectsWithTag("Tower")
+                .Where(t => !t.GetComponent<TowerDrag>().tower.GetComponent<Tower>().HasParasite()).ToArray();
             var targets = new List<GameObject>();
             
             for (var i = 0; i < towers.Length; i++)

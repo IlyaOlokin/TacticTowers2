@@ -2931,6 +2931,31 @@ MonoBehaviour:
     waveScale: 0
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: 03699731e6a04ce42bf734e7f73ab862, type: 2}
+  - moneyForWave: 600
+    seconds: 60
+    waveScale: 2.5
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+  - moneyForWave: 900
+    seconds: 60
+    waveScale: 2.8
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+  - moneyForWave: 1250
+    seconds: 60
+    waveScale: 3.2
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+  - moneyForWave: 1700
+    seconds: 60
+    waveScale: 3.7
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+  - moneyForWave: 2250
+    seconds: 60
+    waveScale: 0
+    isSpecial: 1
+    specialEnemySet: {fileID: 11400000, guid: 7f2f6728cbf026540a3bce73750122c5, type: 2}
   enemySetGroups:
   - enemySets:
     - {fileID: 11400000, guid: e32718a4af06b9b46a76df3443f511f7, type: 2}
@@ -2949,6 +2974,23 @@ MonoBehaviour:
     - {fileID: 11400000, guid: bad2d9be0f3bb594bab6d608e0357d02, type: 2}
     minWave: 0
     maxWave: 4
+  - enemySets:
+    - {fileID: 11400000, guid: e32718a4af06b9b46a76df3443f511f7, type: 2}
+    - {fileID: 11400000, guid: e29607a8b4db2634a9ea6c5338608392, type: 2}
+    - {fileID: 11400000, guid: 14232e2271702a44187ec7ec41b0053e, type: 2}
+    - {fileID: 11400000, guid: 350bcda3d65cb8b46a6496be91160308, type: 2}
+    - {fileID: 11400000, guid: 4ec699955a442a54084b652acf4b9bc9, type: 2}
+    - {fileID: 11400000, guid: 29a5dcf21be1d98429f9028fe586ff6e, type: 2}
+    - {fileID: 11400000, guid: 76140a2897b1f944d855f1978d9f4b34, type: 2}
+    - {fileID: 11400000, guid: 5c26ac2923fceae43bb5f3816c910e34, type: 2}
+    - {fileID: 11400000, guid: d68a86a4de4a5c0469b7cab568fbef4c, type: 2}
+    - {fileID: 11400000, guid: 14b7e57343dbdd5479db25fa6dcefd59, type: 2}
+    - {fileID: 11400000, guid: e3eaf143e12140247a3028d146d07aec, type: 2}
+    - {fileID: 11400000, guid: 5b23d01e15e2ded44858467a73d21382, type: 2}
+    - {fileID: 11400000, guid: 8af203003ddcc7d4fbedd44c655e65eb, type: 2}
+    - {fileID: 11400000, guid: bad2d9be0f3bb594bab6d608e0357d02, type: 2}
+    minWave: 5
+    maxWave: 9
   spawnZoneRight: {fileID: 1064235504}
   spawnZoneTop: {fileID: 709855207}
   spawnZoneLeft: {fileID: 920033258}
@@ -3007,7 +3049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0078125, y: 0.9256301}
   m_AnchorMax: {x: 0.09354168, y: 0.9888852}
-  m_AnchoredPosition: {x: 295.9124, y: -58.80005}
+  m_AnchoredPosition: {x: 295.91248, y: -58.80005}
   m_SizeDelta: {x: 132.91, y: -20.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371763077
