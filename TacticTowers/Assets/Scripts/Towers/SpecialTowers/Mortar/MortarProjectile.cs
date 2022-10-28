@@ -12,7 +12,7 @@ public class MortarProjectile : MonoBehaviour
     
     private Rigidbody2D rb;
     [SerializeField] private GameObject explosionEffect;
-    private DamageType damageType = DamageType.Fire;
+    private DamageType damageType = DamageType.Normal;
 
     
     private void Update()
