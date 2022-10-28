@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04553e0e1fa40bb4db93fb9c70797975, type: 3}
+  m_Name: 6R
+  m_EditorClassIdentifier: 
+  Right:
+  - enemy: {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
+    enemyCount: 1
+  - enemy: {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemyCount: 13
+  Top:
+  - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    enemyCount: 40
+  Left:
+  - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    enemyCount: 15
+  Bot:
+  - enemy: {fileID: 5937050097135992818, guid: ad541c08a8426e9478506a86530c260d, type: 3}
+    enemyCount: 5
