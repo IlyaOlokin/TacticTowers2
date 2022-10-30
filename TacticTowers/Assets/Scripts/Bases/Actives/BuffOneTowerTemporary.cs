@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Random = System.Random;
 
 public class BuffOneTowerTemporary : BaseActive
 {
+    [SerializeField] private GameObject box;
     [SerializeField] private float dmgMultiplier;
     [SerializeField] private float attackSpeedMultiplier;
     [SerializeField] private float shootAngleMultiplier;
@@ -14,27 +14,16 @@ public class BuffOneTowerTemporary : BaseActive
 
     public override void ExecuteActiveAbility()
     {
-        var rnd = new Random();
-        var value = rnd.Next(1, 5);
+        UpdateOneTower();
+    }
 
-        switch (value)
-        {
-            case 1:
-                GlobalBaseEffects.ApplyToUpTowersTemporary(dmgMultiplier, attackSpeedMultiplier,
-                    shootAngleMultiplier, shootDistanceMultiplier, duration);
-                break;
-            case 2:
-                GlobalBaseEffects.ApplyToDownTowersTemporary(dmgMultiplier, attackSpeedMultiplier,
-                    shootAngleMultiplier, shootDistanceMultiplier, duration);
-                break;
-            case 3:
-                GlobalBaseEffects.ApplyToLeftTowersTemporary(dmgMultiplier, attackSpeedMultiplier,
-                    shootAngleMultiplier, shootDistanceMultiplier, duration);
-                break;
-            case 4:
-                GlobalBaseEffects.ApplyToRightTowersTemporary(dmgMultiplier, attackSpeedMultiplier,
-                    shootAngleMultiplier, shootDistanceMultiplier, duration);
-                break;
-        }
+    private void UpdateOneTower()
+    {
+        box.SetActive(true);
+        box.GetComponent<UpdateOneTower>().dmgMultiplier = dmgMultiplier;
+        box.GetComponent<UpdateOneTower>().attackSpeedMultiplier = attackSpeedMultiplier;
+        box.GetComponent<UpdateOneTower>().shootAngleMultiplier = shootAngleMultiplier; 
+        box.GetComponent<UpdateOneTower>().shootDistanceMultiplier = shootDistanceMultiplier; 
+        box.GetComponent<UpdateOneTower>().duration = duration;
     }
 }

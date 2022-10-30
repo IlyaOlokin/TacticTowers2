@@ -10,8 +10,14 @@ public class MassiveDamageBox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
-            enemies.Add(other.GetComponent("Enemy"));
+        if (other.transform.CompareTag("Enemy"))
+        {
+            var enemy = other.GetComponent<Enemy>();
+            if (!enemies.Contains(enemy))
+            {
+                enemies.Add(enemy);
+            }
+        }
     }
 
     public void DamageEnemy(float damage)
@@ -20,7 +26,7 @@ public class MassiveDamageBox : MonoBehaviour
         {
             if (enemy != null)
             {
-                enemy.GetComponent<Enemy>().TakeDamage(damage, DamageType.Normal, enemy.GetComponent<Transform>().position);
+                enemy.GetComponent<Enemy>().TakeDamage(damage, DamageType.Normal, transform.position);
             }
         }
         enemies.Clear();

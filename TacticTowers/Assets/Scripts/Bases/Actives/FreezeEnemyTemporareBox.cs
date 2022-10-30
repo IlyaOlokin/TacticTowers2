@@ -6,30 +6,62 @@ using UnityEngine.AI;
 
 public class FreezeEnemyTemporareBox : MonoBehaviour
 {
-    [NonSerialized] private Dictionary<Component, float> enemies = new Dictionary<Component, float>();
+    private List<Enemy> enemiesInside = new List<Enemy>();
+
+    [NonSerialized] public float freezeTime;
+    [NonSerialized] public float freezeStacksPerHit;
+
+    [SerializeField] private GameObject freezeEffect;
+    [NonSerialized] public int freezeStacksNeeded;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
-            enemies.Add(other.GetComponent("Enemy"), other.GetComponent("Enemy").GetComponent<NavMeshAgent>().speed);
+        if (other.transform.CompareTag("Enemy"))
+        {
+            var enemy = other.GetComponent<Enemy>();
+            if (!enemiesInside.Contains(enemy))
+            {
+                enemiesInside.Add(enemy);
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Enemy")) 
-            enemies.Remove(other.GetComponent("Enemy"));
+        if (other.transform.CompareTag("Enemy"))
+        {
+            var enemy = other.GetComponent<Enemy>();
+            if (enemiesInside.Contains(enemy))
+            {
+                enemiesInside.Remove(enemy);
+            }
+
+        }
     }
 
-    public void FreezeEnemy(float duration)
+    private void Freeze(GameObject enemy)
     {
-        FunctionTimer.Create(GoBackToDefaultSpeed, duration);
-        foreach (var enemy in enemies) 
-            enemy.Key.GetComponent<NavMeshAgent>().speed = 0;
+        if (!enemy.GetComponent<Freeze>())
+        {
+            enemy.transform.gameObject.AddComponent<Freeze>();
+            enemy.GetComponent<Freeze>().freezeStacksNeeded = freezeStacksNeeded;
+            enemy.GetComponent<Freeze>().freezeTime = freezeTime;
+            enemy.GetComponent<Freeze>().freezeEffect = freezeEffect;
+            enemy.GetComponent<Freeze>().freezeStacksPerHt = freezeStacksPerHit;
+            enemy.GetComponent<Freeze>().FindEnemy();
+            enemy.GetComponent<Freeze>().GetFreezeStack();
+        }
+        else if (!enemy.GetComponent<Freeze>().frozen)
+        {
+            enemy.GetComponent<Freeze>().GetFreezeStack();
+        }
     }
 
-    private void GoBackToDefaultSpeed()
+    public void FreezeEnemy()
     {
-        foreach (var enemy in enemies) 
-            enemy.Key.GetComponent<NavMeshAgent>().speed = enemy.Value;
+        foreach (var enemy in enemiesInside)
+        {
+            Freeze(enemy.gameObject);
+        }
     }
 }

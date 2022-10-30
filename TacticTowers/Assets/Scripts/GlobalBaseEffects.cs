@@ -44,6 +44,8 @@ public class GlobalBaseEffects : MonoBehaviour
     private static float TempShootDistanceMultiplierLeft = 1;
     private static float TempShootDistanceMultiplierDown = 1;
 
+    public static float TempMoneyMultiplier = 1;
+
     public static void SetAllToDefault()
     {
          DmgMultiplierRight = 1;

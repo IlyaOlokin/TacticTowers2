@@ -9,11 +9,11 @@ public class BuffMoneyTemporary : BaseActive
     public override void ExecuteActiveAbility()
     {
         FunctionTimer.Create(GoBackToMoneyMultiplier, duration);
-        Technologies.MoneyMultiplier *= MoneyMultiplier;
+        GlobalBaseEffects.TempMoneyMultiplier *= MoneyMultiplier;
     }
 
     private void GoBackToMoneyMultiplier()
     {
-        Technologies.MoneyMultiplier /= MoneyMultiplier;
+        GlobalBaseEffects.TempMoneyMultiplier /= MoneyMultiplier;
     }
 }
