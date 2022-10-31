@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Base : MonoBehaviour
@@ -77,6 +78,7 @@ public class Base : MonoBehaviour
     
     private void OnMouseUp()
     {
+        if (UiAppear.IsAnyUIActive()) return;
         OpenAbilityMenu();
     }
 

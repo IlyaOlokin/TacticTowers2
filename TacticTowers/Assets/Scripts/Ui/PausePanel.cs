@@ -84,10 +84,6 @@ public class PausePanel : MonoBehaviour
     {
         TimeManager.Pause();
         pausePanel.SetActive(true);
-        
-        foreach (var tower in towers)
-            //tower.GetComponent<CircleCollider2D>().enabled = false;
-        
         AudioManager.Instance.Play("ButtonClick2");
     }
 

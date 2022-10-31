@@ -6,7 +6,7 @@ public class LaserHeatBonus : Upgrade
 {
     public override void Execute(Tower tower)
     {
-        tower.gameObject.GetComponent<Laser>().bonusDamagePerHeat += actualBonus;
+        tower.gameObject.GetComponent<Laser>().multiplierPerHeatStack += actualBonus;
     }
 }
 

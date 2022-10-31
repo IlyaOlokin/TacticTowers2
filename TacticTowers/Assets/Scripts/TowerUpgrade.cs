@@ -47,11 +47,12 @@ public class TowerUpgrade : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        pressTimer += Time.deltaTime / Time.timeScale;
+        pressTimer += Time.unscaledDeltaTime;
     }
 
     private void OnMouseUp()
     {
+        if (UiAppear.IsAnyUIActive()) return;
         mouseUpPos = transform.position;
         if (pressTimer <= pressTimeLimit && Vector2.Distance(mouseOnPos,mouseUpPos) <= dragDistanceLimit)
         {

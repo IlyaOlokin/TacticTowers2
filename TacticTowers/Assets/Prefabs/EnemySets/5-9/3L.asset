@@ -13,16 +13,14 @@ MonoBehaviour:
   m_Name: 3L
   m_EditorClassIdentifier: 
   Right:
-  - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemyCount: 1
-  - enemy: {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
+  - enemy: {fileID: 5937050097135992818, guid: ad541c08a8426e9478506a86530c260d, type: 3}
     enemyCount: 8
   Top: []
   Left:
-  - enemy: {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemyCount: 30
+  - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    enemyCount: 35
   - enemy: {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemyCount: 5
+    enemyCount: 11
   Bot:
-  - enemy: {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemyCount: 20
+  - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    enemyCount: 25
