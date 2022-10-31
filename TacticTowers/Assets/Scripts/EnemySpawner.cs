@@ -23,8 +23,11 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("UI")] 
     [SerializeField] private Text waveCount;
+    [SerializeField] private BossHpBar bossHpBar;
 
     private int currentWave = 0;
+    private bool isBossInField;
+    private Enemy currentBoss;
 
 
     private void Start()
@@ -39,7 +42,18 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
+        if (isBossInField)
+        {
+            if (!IsAnyEnemyLeft())
+            {
+                isBossInField = false;
+                Timer.Play();
+            }
+            return;
+        }
+        
         for (int i = 0; i < Waves.Count; i++)
+        {
             if (!Waves[i].released && Timer.timer <= 0)
             {
                 ReleaseWave(Waves[i], i);
@@ -54,7 +68,7 @@ public class EnemySpawner : MonoBehaviour
                 }
                 Timer.SetTimer(Waves[i + 1].seconds);
             }
-         
+        }
     }
 
     private void ReleaseWave(Wave wave, int i)
@@ -64,6 +78,8 @@ public class EnemySpawner : MonoBehaviour
         {
             wave.enemySet = wave.specialEnemySet;
             waveScale = 1f;
+            Timer.Stop();
+            isBossInField = true;
         }
         else
         {
@@ -86,19 +102,25 @@ public class EnemySpawner : MonoBehaviour
         
         
         FindEnemies();
-
+        
+        if (isBossInField) ConnectBossHpBar();
+        
         wave.released = true;
     }
 
     private void ReleaseWaveSide(List<EnemyType> enemyTypes, Transform spawnZone, float waveScale, float weightCost)
     {
+        if (waveScale != 0)
+            weightCost /= waveScale;
         for (int i = 0; i < enemyTypes.Count; i++)
         {
             var enemyCount = Math.Floor(enemyTypes[i].enemyCount * waveScale);
             for (int j = 0; j < enemyCount; j++)
             {
                 var newEnemy = Instantiate(enemyTypes[i].enemy, GetRandomPointOnSpawnZone(spawnZone), Quaternion.identity, enemiesObject);
-                newEnemy.GetComponent<Enemy>().cost = newEnemy.GetComponent<Enemy>().weight * weightCost;
+                var enemyComp = newEnemy.GetComponent<Enemy>();
+                enemyComp.cost = enemyComp.weight * weightCost;
+                if (newEnemy.TryGetComponent(out Boss boss)) currentBoss = enemyComp;
             }
         }
     }
@@ -130,6 +152,17 @@ public class EnemySpawner : MonoBehaviour
         }
 
         return sum;
+    }
+
+    private bool IsAnyEnemyLeft()
+    {
+        return enemies.Count != 0;
+    }
+
+    private void ConnectBossHpBar()
+    {
+        bossHpBar.gameObject.SetActive(true);
+        bossHpBar.InitializeBoss(currentBoss);
     }
 }
 

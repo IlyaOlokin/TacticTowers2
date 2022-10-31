@@ -1372,6 +1372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b4740848650bf841bf27f2ad1c252fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: -7779545166641589506, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   shieldPoints:
   - {fileID: 4688771643050316407}
   - {fileID: 3658290307011509049}
@@ -1389,7 +1390,7 @@ MonoBehaviour:
   floatingSpread: 0.08
   rotationDelay: 12
   moveSpeed: 0.4
-  turnSpeed: 40
+  rotationSpeed: 60
 --- !u!114 &5937050097135992821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1403,7 +1404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 80
-  hp: 4000
+  hp: 3000
   creditsDropChance: 100
   weight: 60
   damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}

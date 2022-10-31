@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     public int weight;
     
     [NonSerialized] public bool hasTentacle;
+    private float rotationSpeed = 100f;
     
     [Header("Visual Effects")]
     [SerializeField] private GameObject damageNumberEffect;
@@ -34,6 +35,7 @@ public class Enemy : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.SetDestination(GameObject.FindGameObjectWithTag("Base").transform.position);
+        RandomizeSpeed();
     }
 
     
@@ -46,7 +48,8 @@ public class Enemy : MonoBehaviour
     {
         if (!agent.enabled || agent.speed == 0) return;
         var angle = Mathf.Atan2(agent.desiredVelocity.y, agent.desiredVelocity.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+        Quaternion targetRotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -58,6 +61,14 @@ public class Enemy : MonoBehaviour
             OnDeath(DamageType.Normal, other.transform.position);
         }
     
+    }
+    
+    private void RandomizeSpeed()
+    {
+        if (GetComponent<Boss>() != null) return;
+        var multiplier = Random.Range(1f, 1.75f);
+        agent.speed *= multiplier;
+        agent.avoidancePriority = (int) (agent.avoidancePriority * multiplier);
     }
     
     public void TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos)
