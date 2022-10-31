@@ -44,7 +44,11 @@ public class EnemySpawner : MonoBehaviour
     {
         if (isBossInField)
         {
-            if (!IsAnyEnemyLeft()) Timer.Play();
+            if (!IsAnyEnemyLeft())
+            {
+                isBossInField = false;
+                Timer.Play();
+            }
             return;
         }
         

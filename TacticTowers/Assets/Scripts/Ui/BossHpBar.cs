@@ -13,6 +13,7 @@ public class BossHpBar : MonoBehaviour
     private Animator anim;
     
     private bool isEnabling;
+    private bool isBossAlive;
 
     private void Awake()
     {
@@ -23,14 +24,20 @@ public class BossHpBar : MonoBehaviour
     {
         anim.Play("EnableHpBar");
         isEnabling = true;
+        isBossAlive = true;
         slider.value = 0;
     }
 
     void Update()
     {
-        if (!isEnabling) UpdateSlider();
-
-        Enable();
+        if (Input.GetKeyDown(KeyCode.A)) DisableThis();
+        
+        if (isEnabling)
+        {
+            Enable();
+            return;
+        }
+        if (isBossAlive) UpdateSlider();
     }
 
     private void Enable()
@@ -52,13 +59,21 @@ public class BossHpBar : MonoBehaviour
         if (boss.hp <= 0)
         {
             DisableThis();
+            isBossAlive = false;
         }
     }
 
     private void DisableThis()
     {
-        
+        anim.Play("DisableHpBar");
+        StartCoroutine("DisableDelay",  1.2f);
     }
+
+    private IEnumerator DisableDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        gameObject.SetActive(false);
+    } 
 
     public void InitializeBoss(Enemy boss)
     {

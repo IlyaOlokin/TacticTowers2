@@ -1107,7 +1107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -143, y: 80}
+  m_AnchoredPosition: {x: -139, y: 80}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &92299097
@@ -2623,10 +2623,10 @@ MonoBehaviour:
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: 3d4c5d9fad22b6a4a8efb86679990508, type: 2}
   - moneyForWave: 10
-    seconds: 60
+    seconds: 10
     waveScale: 0
     isSpecial: 1
-    specialEnemySet: {fileID: 11400000, guid: c59941ca31f37134db55f754f1b4a6e4, type: 2}
+    specialEnemySet: {fileID: 11400000, guid: 3d4c5d9fad22b6a4a8efb86679990508, type: 2}
   - moneyForWave: 15
     seconds: 60
     waveScale: 0
@@ -3212,7 +3212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0078125, y: 0.9256301}
   m_AnchorMax: {x: 0.09354168, y: 0.9888852}
-  m_AnchoredPosition: {x: 295.9131, y: -58.80005}
+  m_AnchoredPosition: {x: 295.91324, y: -58.80005}
   m_SizeDelta: {x: 132.91, y: -20.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371763077
