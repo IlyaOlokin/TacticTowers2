@@ -2597,7 +2597,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &341391977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3053,7 +3053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &363942888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3212,7 +3212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0078125, y: 0.9256301}
   m_AnchorMax: {x: 0.09354168, y: 0.9888852}
-  m_AnchoredPosition: {x: 295.91324, y: -58.80005}
+  m_AnchoredPosition: {x: 295.91336, y: -58.80005}
   m_SizeDelta: {x: 132.91, y: -20.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371763077
@@ -7025,7 +7025,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &933370195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11124,7 +11124,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.06666667
+  m_VoxelSize: 0.033333335
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
   m_NavMeshData: {fileID: 23800000, guid: 07730396db3e5bd48ae9c2a8c5ceca11, type: 2}
@@ -12605,7 +12605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   landscape: {fileID: 1556204152}
   landscapes:
-  - {fileID: 9147443391410332950, guid: c72c4240ad7cea04e980d05c27070a82, type: 3}
+  - {fileID: 7840703617842646608, guid: 19707de66ea26bf4485697e56b615609, type: 3}
 --- !u!1 &1558632616
 GameObject:
   m_ObjectHideFlags: 0
