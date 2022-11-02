@@ -3094,7 +3094,7 @@ MonoBehaviour:
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: 03699731e6a04ce42bf734e7f73ab862, type: 2}
   - moneyForWave: 600
-    seconds: 60
+    seconds: 5
     waveScale: 1
     isSpecial: 0
     specialEnemySet: {fileID: 0}
@@ -3212,7 +3212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0078125, y: 0.9256301}
   m_AnchorMax: {x: 0.09354168, y: 0.9888852}
-  m_AnchoredPosition: {x: 295.91336, y: -58.80005}
+  m_AnchoredPosition: {x: 295.9134, y: -58.80005}
   m_SizeDelta: {x: 132.91, y: -20.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371763077
