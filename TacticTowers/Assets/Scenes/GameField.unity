@@ -2617,36 +2617,43 @@ MonoBehaviour:
     waveScale: 1
     isSpecial: 0
     specialEnemySet: {fileID: 11400000, guid: 3d4c5d9fad22b6a4a8efb86679990508, type: 2}
+    bossTransform: {fileID: 0}
   - moneyForWave: 5
     seconds: 5
     waveScale: 1
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: 3d4c5d9fad22b6a4a8efb86679990508, type: 2}
+    bossTransform: {fileID: 0}
   - moneyForWave: 10
     seconds: 10
     waveScale: 0
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: 3d4c5d9fad22b6a4a8efb86679990508, type: 2}
+    bossTransform: {fileID: 0}
   - moneyForWave: 15
     seconds: 60
     waveScale: 0
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: 7f2f6728cbf026540a3bce73750122c5, type: 2}
+    bossTransform: {fileID: 0}
   - moneyForWave: 15
     seconds: 60
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 15
     seconds: 60
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 15
     seconds: 60
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   enemySetGroups:
   - enemySets:
     - {fileID: 11400000, guid: 72d41a649a6ea964ba2621cfa772e1a0, type: 2}
@@ -3073,51 +3080,61 @@ MonoBehaviour:
     waveScale: 0.9
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 100
     seconds: 50
     waveScale: 1.1
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 170
     seconds: 45
     waveScale: 1.5
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 250
     seconds: 50
     waveScale: 1.9
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 430
     seconds: 55
     waveScale: 0
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: 03699731e6a04ce42bf734e7f73ab862, type: 2}
+    bossTransform: {fileID: 737431359}
   - moneyForWave: 600
     seconds: 5
     waveScale: 1
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 900
     seconds: 50
     waveScale: 1.3
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 1250
     seconds: 50
     waveScale: 1.5
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 1700
     seconds: 55
     waveScale: 1.8
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 2250
     seconds: 55
     waveScale: 0
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: 994e1704b258d8a4392e2f1e6df007cf, type: 2}
+    bossTransform: {fileID: 1934712959}
   enemySetGroups:
   - enemySets:
     - {fileID: 11400000, guid: e32718a4af06b9b46a76df3443f511f7, type: 2}
@@ -3174,6 +3191,8 @@ Transform:
   - {fileID: 709855207}
   - {fileID: 920033258}
   - {fileID: 248846767}
+  - {fileID: 737431359}
+  - {fileID: 1934712959}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3212,7 +3231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0078125, y: 0.9256301}
   m_AnchorMax: {x: 0.09354168, y: 0.9888852}
-  m_AnchoredPosition: {x: 295.91348, y: -58.80005}
+  m_AnchoredPosition: {x: 295.9135, y: -58.80005}
   m_SizeDelta: {x: 132.91, y: -20.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371763077
@@ -5967,6 +5986,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &737431358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 737431359}
+  m_Layer: 0
+  m_Name: BossSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &737431359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737431358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.61, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 363942889}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &742597121
 GameObject:
   m_ObjectHideFlags: 0
@@ -15025,376 +15074,451 @@ MonoBehaviour:
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   - moneyForWave: 0
     seconds: 0
     waveScale: 0
     isSpecial: 0
     specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
   enemySetGroups: []
   spawnZoneRight: {fileID: 49719856}
   spawnZoneTop: {fileID: 974871249}
@@ -15881,6 +16005,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1931062930}
   m_CullTransparentMesh: 1
+--- !u!1 &1934712958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1934712959}
+  m_Layer: 0
+  m_Name: BossSpawnPoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1934712959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934712958}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.61, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 363942889}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1938888410
 GameObject:
   m_ObjectHideFlags: 0

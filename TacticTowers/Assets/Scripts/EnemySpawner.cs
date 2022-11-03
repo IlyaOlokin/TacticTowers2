@@ -94,11 +94,15 @@ public class EnemySpawner : MonoBehaviour
         }
 
         float weightCost = wave.moneyForWave / GetEnemyWeight(wave);
-        
-        ReleaseWaveSide(wave.enemySet.Right, spawnZoneRight, waveScale, weightCost);
-        ReleaseWaveSide(wave.enemySet.Top, spawnZoneTop, waveScale, weightCost);
-        ReleaseWaveSide(wave.enemySet.Left, spawnZoneLeft, waveScale, weightCost);
-        ReleaseWaveSide(wave.enemySet.Bot, spawnZoneBot, waveScale, weightCost);
+
+        Vector3 bossPosition = new Vector3();
+        if (wave.bossTransform != null)
+            bossPosition = wave.bossTransform.position;
+
+        ReleaseWaveSide(wave.enemySet.Right, spawnZoneRight, waveScale, weightCost, bossPosition);
+        ReleaseWaveSide(wave.enemySet.Top, spawnZoneTop, waveScale, weightCost, bossPosition);
+        ReleaseWaveSide(wave.enemySet.Left, spawnZoneLeft, waveScale, weightCost, bossPosition);
+        ReleaseWaveSide(wave.enemySet.Bot, spawnZoneBot, waveScale, weightCost, bossPosition);
         
         
         FindEnemies();
@@ -108,7 +112,7 @@ public class EnemySpawner : MonoBehaviour
         wave.released = true;
     }
 
-    private void ReleaseWaveSide(List<EnemyType> enemyTypes, Transform spawnZone, float waveScale, float weightCost)
+    private void ReleaseWaveSide(List<EnemyType> enemyTypes, Transform spawnZone, float waveScale, float weightCost, Vector3 bossPos)
     {
         if (waveScale != 0)
             weightCost /= waveScale;
@@ -120,7 +124,11 @@ public class EnemySpawner : MonoBehaviour
                 var newEnemy = Instantiate(enemyTypes[i].enemy, GetRandomPointOnSpawnZone(spawnZone), Quaternion.identity, enemiesObject);
                 var enemyComp = newEnemy.GetComponent<Enemy>();
                 enemyComp.cost = enemyComp.weight * weightCost;
-                if (newEnemy.TryGetComponent(out Boss boss)) currentBoss = enemyComp;
+                if (newEnemy.TryGetComponent(out Boss boss))
+                {
+                    boss.transform.position = bossPos;
+                    currentBoss = enemyComp;
+                }
             }
         }
     }
@@ -176,9 +184,8 @@ public class Wave
     
     public bool isSpecial;
     public EnemySet specialEnemySet;
+    public Transform bossTransform;
     
-    
-
     [NonSerialized] public EnemySet enemySet;
 }
 
