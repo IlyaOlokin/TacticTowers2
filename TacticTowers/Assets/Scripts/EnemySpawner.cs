@@ -24,6 +24,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("UI")] 
     [SerializeField] private Text waveCount;
     [SerializeField] private BossHpBar bossHpBar;
+    [SerializeField] private GameObject bossAnnouncement;
 
     private int currentWave = 0;
     private bool isBossInField;
@@ -106,8 +107,12 @@ public class EnemySpawner : MonoBehaviour
         
         
         FindEnemies();
-        
-        if (isBossInField) ConnectBossHpBar();
+
+        if (isBossInField)
+        {
+            bossAnnouncement.SetActive(true);
+            ConnectBossHpBar();
+        }
         
         wave.released = true;
     }
