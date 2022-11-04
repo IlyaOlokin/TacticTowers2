@@ -58,17 +58,18 @@ public class Laser : Tower
         }
         if (heatCount < maxHeat) heatCount += Time.deltaTime;
         if (activeLaser != null)  activeLaser.GetComponent<LaserBim>().IncreaseWidth(heatCount);
+        if (enemy != currentEnemy)
+        {
+            activeLaser = Instantiate(laserBim, transform.position, towerCanon.transform.rotation);
+            activeLaser.GetComponent<LaserBim>().target = enemy;
+            activeLaser.GetComponent<LaserBim>().origin = transform.position;
+            currentEnemy = enemy;
+            //FindObjectOfType<AudioManager>().Play("LaserShot");
+            shooting = true;
+        }
         if (shootDelayTimer <= 0)
         {
-            if (enemy != currentEnemy)
-            {
-                activeLaser = Instantiate(laserBim, transform.position, towerCanon.transform.rotation);
-                activeLaser.GetComponent<LaserBim>().target = enemy;
-                activeLaser.GetComponent<LaserBim>().origin = transform.position;
-                currentEnemy = enemy;
-                //FindObjectOfType<AudioManager>().Play("LaserShot");
-                shooting = true;
-            }
+            
             
             
             shootDelayTimer = 1f / GetAttackSpeed();
