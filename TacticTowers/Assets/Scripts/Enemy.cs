@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     public int weight;
     
     [NonSerialized] public bool hasTentacle;
-    private float rotationSpeed = 100f;
+    private float rotationSpeed = 160f;
     
     [Header("Visual Effects")]
     [SerializeField] private GameObject damageNumberEffect;
@@ -84,7 +84,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnDeath(DamageType damageType, Vector3 killerPos)
     {
-        EnemySpawner.enemies.Remove(gameObject);
+        
         Money.AddMoney(cost);
         DropCreditsByChance(creditsDropChance);
         switch (damageType)
@@ -96,6 +96,11 @@ public class Enemy : MonoBehaviour
                 DieFire(burnMaterial);
                 break;
         }
+    }
+
+    private void OnDestroy()
+    {
+        EnemySpawner.enemies.Remove(gameObject);
     }
 
     private void DieNormal(Vector3 killerPos)
