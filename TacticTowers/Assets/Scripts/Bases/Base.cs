@@ -66,8 +66,12 @@ public class Base : MonoBehaviour
     {
         if (abilityTimer > 0) return;
         
-        abilityTimer = ability.coolDown;
         ability.ExecuteActiveAbility();
+    }
+
+    public void UpdateAbilityTimer()
+    {
+        abilityTimer = ability.coolDown;
     }
 
     private void UpdateCoolDownImage()

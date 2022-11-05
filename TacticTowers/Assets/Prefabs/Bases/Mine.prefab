@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5246690472570685410}
   - component: {fileID: 2315561666375924739}
   - component: {fileID: 5415443711601773580}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   duration: 2
-  targetPos: {x: -6.436329, y: -0.01835544, z: 0}
+  targetPos: {x: -1.3926728, y: -2.2252083, z: 0}
   speed: 3
 --- !u!212 &5246690472570685410
 SpriteRenderer:

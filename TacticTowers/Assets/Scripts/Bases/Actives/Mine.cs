@@ -22,7 +22,6 @@ public class Mine : MonoBehaviour
             if (!enemies.Contains(enemy))
             {
                 enemies.Add(enemy);
-                print(5);
             }
         }
     }

@@ -9,6 +9,7 @@ public class LaserBox : MonoBehaviour
     [NonSerialized] private List<Enemy> enemies = new List<Enemy>();
     [SerializeField] private float damage;
     [SerializeField] private float periodBetweenDmg;
+    [SerializeField] private float speed;
     private float period;
 
     private void Start()
@@ -43,7 +44,7 @@ public class LaserBox : MonoBehaviour
 
     private void Update()
     {
-        transform.position = GetMousePosition();
+        transform.position = Vector3.MoveTowards(transform.position, GetMousePosition(), speed * Time.deltaTime);
 
         if (periodBetweenDmg > 0) periodBetweenDmg -= Time.deltaTime;
 

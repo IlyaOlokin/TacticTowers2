@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6251190561870329549}
   - component: {fileID: 3246123669257596804}
   m_Layer: 0
-  m_Name: SlowingDownEnemiesBase
+  m_Name: Base4
   m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,7 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63fc69ffb19e4614db59101d96dd25ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: "\u0432\u043F\u0435\u043C\u0435\u043D\u043D\u043E\u0435 \u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435
+    \u0441\u0443\u043F\u0435\u0440 \u043B\u0443\u0447\u043E\u043C \u043C\u044B\u0448\u043A\u043E\u0439"
   coolDown: 30
   box: {fileID: 2794868782469776626}
   duration: 30
@@ -540,7 +541,7 @@ GameObject:
   - component: {fileID: 73686262523580284}
   - component: {fileID: 7058883703785806832}
   - component: {fileID: 5833143622262788065}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DamageBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,6 +592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 30
   periodBetweenDmg: 1
+  speed: 10
 --- !u!212 &5833143622262788065
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -15,12 +15,7 @@ public class DamageZone : BaseActive
     private void CreateDamageZone()
     {
         box.SetActive(true);
-        FunctionTimer.Create(OffBox, duration);
-    }
-
-    private void OffBox()
-    {
-        box.SetActive(false);
-        box.GetComponent<DamageZoneBox>().Off();
+        box.GetComponent<DamageZoneBox>().duration = duration;
+        
     }
 }

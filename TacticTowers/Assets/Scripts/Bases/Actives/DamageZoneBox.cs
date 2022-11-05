@@ -9,7 +9,8 @@ public class DamageZoneBox : MonoBehaviour
     [NonSerialized] private List<Enemy> enemies = new List<Enemy>();
     [SerializeField] private float damage;
     [SerializeField] private float periodBetweenDmg;
-    private float period;
+    [NonSerialized] private float period;
+    [NonSerialized] public float duration;
 
     private void Start()
     {
@@ -32,13 +33,19 @@ public class DamageZoneBox : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetMouseButton(1))
+        {
+            gameObject.SetActive(false);
+        }
         if (Input.GetMouseButton(0))
         {
             isActive = true;
+            FunctionTimer.Create(Off, duration);
+            GameObject.FindGameObjectWithTag("Base").GetComponent<Base>().UpdateAbilityTimer();
         }
         if (!isActive)
         {
-            transform.position = GetMousePosition();
+            transform.position = Vector3.MoveTowards(transform.position, GetMousePosition(), 100f);
         }
         else
         {
@@ -67,6 +74,7 @@ public class DamageZoneBox : MonoBehaviour
     public void Off()
     {
         isActive = false;
+        gameObject.SetActive(false);
     }
 
     private Vector3 GetMousePosition()

@@ -531,7 +531,7 @@ GameObject:
   - component: {fileID: -673829969627735174}
   - component: {fileID: 7883339769755823019}
   m_Layer: 0
-  m_Name: RegenerationBase
+  m_Name: Base1
   m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -670,7 +670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f13489afb5091342b45f6deef7b604d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: "\u0420\u0435\u0433\u0435\u043D\u0435\u0440\u0438\u0440\u0443\u0435\u0442"
+  description: "\u0421\u043B\u0430\u0431\u044B\u0439 \u0440\u0435\u0433\u0435\u043D"
   regenAmount: 1
 --- !u!50 &7883339769755823019
 Rigidbody2D:

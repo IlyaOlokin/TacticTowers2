@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1989426097075490655}
   - component: {fileID: 5781815842549916646}
   - component: {fileID: 2772877602412116211}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -684,7 +684,7 @@ GameObject:
   - component: {fileID: 1681828360377297007}
   - component: {fileID: 7883339769755823019}
   m_Layer: 0
-  m_Name: HorizontalBase
+  m_Name: Base3
   m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -804,7 +804,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd3df47fc07b6748bb524f224f1ab42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: "\u043F\u043E\u043B\u043D\u0430\u044F \u0437\u0430\u043C\u043E\u0440\u043E\u0437\u043A\u0430"
+  description: "\u043F\u043E\u043B\u043D\u0430\u044F \u0437\u0430\u043C\u043E\u0440\u043E\u0437\u043A\u0430
+    \u0432\u0440\u0430\u0433\u043E\u0432"
   coolDown: 30
   box: {fileID: 2772877602412116211}
   duration: 10

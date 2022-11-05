@@ -21,13 +21,24 @@ public class UpdateOneTower : MonoBehaviour
         if (other.transform.CompareTag("Tower")) UpTower = other.gameObject;
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.transform.CompareTag("Tower") && !isActive) UpTower = null;
+    }
+
     private void Update()
     {
-        if (!isActive) transform.position = GetMousePosition();
+        if (Input.GetMouseButton(1) && !isActive || !UpTower && Input.GetMouseButton(0) && !isActive)
+        {
+            gameObject.SetActive(false);
+        }
+
+        if (!isActive) transform.position = Vector3.MoveTowards(transform.position, GetMousePosition(), 100f);
 
         if (UpTower && Input.GetMouseButton(0) && !isUp)
         {
             isActive = true;
+            GameObject.FindGameObjectWithTag("Base").GetComponent<Base>().UpdateAbilityTimer();
             UpdateTower();
             isUp = true;
         }
@@ -65,6 +76,7 @@ public class UpdateOneTower : MonoBehaviour
         isActive = false;
         isUp = false;
         UpTower.GetComponent<TowerDrag>().tower.shootZone.DrawShootZone();
+        UpTower = null;
         gameObject.SetActive(false);
     }
 

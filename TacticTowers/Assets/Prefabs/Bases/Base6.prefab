@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 7208314081241765531}
   - component: {fileID: 1040364657516499101}
   m_Layer: 0
-  m_Name: BuffOneTowerBase
+  m_Name: Base6
   m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -750,7 +750,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc0d181356496b48b83d85078af83ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: "\u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
+    \u0434\u043E\u0431\u044B\u0447\u0443"
   coolDown: 30
   MoneyMultiplier: 1000
   duration: 20

@@ -13,13 +13,18 @@ public class MinesSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetMouseButton(1))
+        {
+            gameObject.SetActive(false);
+        }
+
         if (Input.GetMouseButton(0))
         {
             isActive = true;
         }
         if (!isActive)
         {
-            transform.position = GetMousePosition();
+            transform.position = Vector3.MoveTowards(transform.position, GetMousePosition(), 100f);
         }
         else
         {
@@ -34,10 +39,11 @@ public class MinesSpawner : MonoBehaviour
         var rnd = new Random();
         for (var i = 0; i < countMines; i++)
         {
-            var offset = new Vector3(transform.position.x + rnd.Next(-10, 11) / 10f, transform.position.y + rnd.Next(-10, 11) / 10f, 0);
+            Mine.GetComponent<Mine>().targetPos = new Vector3(GetMousePosition().x + rnd.Next(-100, 101) / 50f * transform.localScale.x,
+                GetMousePosition().y + rnd.Next(-100, 101) / 50f * transform.localScale.y, 0);
             Instantiate(Mine, GameObject.FindGameObjectWithTag("Base").transform.position, Quaternion.identity);
-            Mine.GetComponent<Mine>().targetPos = offset;
         }
+        GameObject.FindGameObjectWithTag("Base").GetComponent<Base>().UpdateAbilityTimer();
     }
     
     private Vector3 GetMousePosition()
