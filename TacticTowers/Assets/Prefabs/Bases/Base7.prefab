@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 4616679987798028516}
   - component: {fileID: 504356958460910068}
   - component: {fileID: 592309950062556225}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -780,7 +780,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.001
 --- !u!1 &8311445290572088638
 GameObject:
   m_ObjectHideFlags: 0

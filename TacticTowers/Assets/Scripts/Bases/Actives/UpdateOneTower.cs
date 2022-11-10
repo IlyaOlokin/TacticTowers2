@@ -16,7 +16,7 @@ public class UpdateOneTower : MonoBehaviour
     private bool isUp;
     private bool isActive;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.transform.CompareTag("Tower")) UpTower = other.gameObject;
     }

@@ -10,7 +10,7 @@ public class MassiveDamage : BaseActive
     public override void ExecuteActiveAbility()
     {
         box.DamageEnemy(damage);
-        GameObject.FindGameObjectWithTag("Base").GetComponent<Base>().UpdateAbilityTimer();
+        gameObject.GetComponent<Base>().UpdateAbilityTimer();
     }
 }
 
