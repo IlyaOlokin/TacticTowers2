@@ -23,6 +23,7 @@ public class BossTentacles : Boss
     private void Update()
     {
         Regenerate();
+        UpdateHp();
     }
 
     private void Regenerate()

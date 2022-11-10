@@ -2597,7 +2597,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &341391977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2612,48 +2612,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesObject: {fileID: 1854380829}
   Waves:
-  - moneyForWave: 15
+  - moneyForWave: 0
     seconds: 0
     waveScale: 1
-    isSpecial: 0
-    specialEnemySet: {fileID: 11400000, guid: 3d4c5d9fad22b6a4a8efb86679990508, type: 2}
-    bossTransform: {fileID: 0}
-  - moneyForWave: 5
-    seconds: 5
-    waveScale: 1
     isSpecial: 1
-    specialEnemySet: {fileID: 11400000, guid: 3d4c5d9fad22b6a4a8efb86679990508, type: 2}
-    bossTransform: {fileID: 1934712959}
-  - moneyForWave: 10
-    seconds: 10
-    waveScale: 0
-    isSpecial: 1
-    specialEnemySet: {fileID: 11400000, guid: 3d4c5d9fad22b6a4a8efb86679990508, type: 2}
+    specialEnemySet: {fileID: 11400000, guid: d8d60f122d3764a46ba188356151661a, type: 2}
     bossTransform: {fileID: 737431359}
-  - moneyForWave: 15
-    seconds: 60
-    waveScale: 0
-    isSpecial: 1
-    specialEnemySet: {fileID: 11400000, guid: 7f2f6728cbf026540a3bce73750122c5, type: 2}
-    bossTransform: {fileID: 0}
-  - moneyForWave: 15
-    seconds: 60
-    waveScale: 0
-    isSpecial: 0
-    specialEnemySet: {fileID: 0}
-    bossTransform: {fileID: 0}
-  - moneyForWave: 15
-    seconds: 60
-    waveScale: 0
-    isSpecial: 0
-    specialEnemySet: {fileID: 0}
-    bossTransform: {fileID: 0}
-  - moneyForWave: 15
-    seconds: 60
-    waveScale: 0
-    isSpecial: 0
-    specialEnemySet: {fileID: 0}
-    bossTransform: {fileID: 0}
   enemySetGroups:
   - enemySets:
     - {fileID: 11400000, guid: 72d41a649a6ea964ba2621cfa772e1a0, type: 2}
@@ -3063,7 +3027,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &363942888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3233,7 +3197,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0078125, y: 0.9256301}
   m_AnchorMax: {x: 0.09354168, y: 0.9888852}
-  m_AnchoredPosition: {x: 295.9138, y: -58.80005}
+  m_AnchoredPosition: {x: 295.91397, y: -58.80005}
   m_SizeDelta: {x: 132.91, y: -20.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371763077
@@ -6126,7 +6090,7 @@ GameObject:
   m_Component:
   - component: {fileID: 737431359}
   m_Layer: 0
-  m_Name: BossSpawnPoint
+  m_Name: BossRightSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8575,8 +8539,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152451190}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 1.31, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.01999998, y: 1.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1799313850}
@@ -8584,7 +8548,7 @@ Transform:
   - {fileID: 1645450957}
   - {fileID: 444020725}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1152451195
 Rigidbody2D:
@@ -13514,7 +13478,7 @@ Transform:
   - {fileID: 1535222658}
   - {fileID: 1242163673}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &1635791838
 CircleCollider2D:
@@ -16148,7 +16112,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1934712959}
   m_Layer: 0
-  m_Name: BossSpawnPoint (1)
+  m_Name: BossLleftSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
