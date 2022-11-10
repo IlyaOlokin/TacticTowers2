@@ -1,8 +1,26 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FinalBossPart : MonoBehaviour
 {
-    private float hp;
+    private Enemy enemyComp;
+    private Boss bossAbility;
+    [SerializeField] private float bossPartHp;
+
+    private void Start()
+    {
+        enemyComp = GetComponent<Enemy>();
+        bossAbility = GetComponent<Boss>();
+    }
+
+    private void Update()
+    {
+        if (bossPartHp + enemyComp.hp <= 0)
+        {
+            Destroy(bossAbility);
+            Destroy(this);
+        }
+    }
 }
