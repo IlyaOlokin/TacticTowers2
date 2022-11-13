@@ -55,7 +55,8 @@ public class TowerStatWindow : MonoBehaviour
                 SetLaserValues(laser);
                 //laserStats.SetActive(true);
                 break;
-            case Minigun _:
+            case Minigun minigun:
+                SetMinigunValues(minigun);
                 //minigunStats.SetActive(true);
                 break;
             case Mortar _:
@@ -174,6 +175,27 @@ public class TowerStatWindow : MonoBehaviour
         specialTowerStats[1].gameObject.SetActive(true);
         var greenHeatBonus = FloatToString(tower.multiplierPerHeatStack * tower.multiplierPerHeatStackMultiplier - tower.multiplierPerHeatStack, "0.00", ",00");
         specialTowerStats[1].SetData(upgradeHeatBonus.UpgradeSprite, upgradeHeatBonus.upgradeLabel, tower.multiplierPerHeatStack.ToString(), greenHeatBonus);
+        
+        //MaxHeat
+        var upgradeMaxHeat = tower.upgrades[6];
+        specialTowerStats[2].gameObject.SetActive(true);
+        var greenMaxHeat = FloatToString(tower.maxHeat * tower.maxHeatMultiplier - tower.maxHeat, "0.0", ",0");
+        specialTowerStats[2].SetData(upgradeMaxHeat.UpgradeSprite, upgradeMaxHeat.upgradeLabel, tower.maxHeat.ToString(), greenMaxHeat);
+    }
+    
+    private void SetMinigunValues(Minigun tower)
+    {
+        //CoolDelay
+        var upgradeCoolDelay = tower.upgrades[4];
+        specialTowerStats[0].gameObject.SetActive(true);
+        var greenCoolDelay = FloatToString(tower.coolDelay * tower.coolDelayMultiplier - tower.coolDelay, "0.0", ",0");
+        specialTowerStats[0].SetData(upgradeCoolDelay.UpgradeSprite, upgradeCoolDelay.upgradeLabel, tower.coolDelay.ToString(), greenCoolDelay);
+        
+        //HeatBonus
+        var upgradeHeatBonus = tower.upgrades[5];
+        specialTowerStats[1].gameObject.SetActive(true);
+        var greenHeatBonus = FloatToString(tower.bonusAttackSpeedPerHeat * tower.bonusAttackSpeedPerHeatMultiplier - tower.bonusAttackSpeedPerHeat, "0.00", ",00");
+        specialTowerStats[1].SetData(upgradeHeatBonus.UpgradeSprite, upgradeHeatBonus.upgradeLabel, tower.bonusAttackSpeedPerHeat.ToString(), greenHeatBonus);
         
         //MaxHeat
         var upgradeMaxHeat = tower.upgrades[6];

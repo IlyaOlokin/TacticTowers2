@@ -6,6 +6,6 @@ public class MinigunHeatBonus : Upgrade
 {
     public override void Execute(Tower tower)
     {
-        tower.gameObject.GetComponent<Minigun>().bonusAttackSpeedPerHeat += actualBonus;
+        tower.gameObject.GetComponent<Minigun>().bonusAttackSpeedPerHeatMultiplier += actualBonus;
     }
 }
