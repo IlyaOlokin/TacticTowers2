@@ -12,14 +12,17 @@ public class TowerStatWindow : MonoBehaviour
     [SerializeField] private GameObject angleStat;*/
     [SerializeField] private List<TowerStat> baseTowerStats;
 
-    [Header("Special")] [SerializeField] private GameObject flameStats;
+    [Header("Special")] 
+    /*[SerializeField] private GameObject flameStats;
     [SerializeField] private GameObject frostStats;
     [SerializeField] private GameObject laserStats;
     [SerializeField] private GameObject minigunStats;
     [SerializeField] private GameObject mortarStats;
     [SerializeField] private GameObject railStats;
     [SerializeField] private GameObject shotgunStats;
-    [SerializeField] private GameObject teslaStats;
+    [SerializeField] private GameObject teslaStats;*/
+    [SerializeField] private List<TowerStat> specialTowerStats;
+
 
     [Header("idk")] [SerializeField] private Image upgradingTower;
 
@@ -41,28 +44,30 @@ public class TowerStatWindow : MonoBehaviour
             case DefaultTower _:
                 break;
             case Flamethrower _:
-                flameStats.SetActive(true);
+                var specialTower = (Flamethrower) tower;
+                SetFlamethrowerValues(specialTower);
+                //flameStats.SetActive(true);
                 break;
             case Frostgun _:
-                frostStats.SetActive(true);
+                //frostStats.SetActive(true);
                 break;
             case Laser _:
-                laserStats.SetActive(true);
+                //laserStats.SetActive(true);
                 break;
             case Minigun _:
-                minigunStats.SetActive(true);
+                //minigunStats.SetActive(true);
                 break;
             case Mortar _:
-                mortarStats.SetActive(true);
+                //mortarStats.SetActive(true);
                 break;
             case Railgun _:
-                railStats.SetActive(true);
+                //railStats.SetActive(true);
                 break;
             case Shotgun _:
-                shotgunStats.SetActive(true);
+                //shotgunStats.SetActive(true);
                 break;
             case Tesla _:
-                teslaStats.SetActive(true);
+                //teslaStats.SetActive(true);
                 break;
         }
 
@@ -89,6 +94,8 @@ public class TowerStatWindow : MonoBehaviour
 
     private void SetBaseValues(Tower tower)
     {
+        DisableSpecialStats();
+        
         //Damage
         var upgradeDamage = tower.upgrades[0];
         var greenDamage = FloatToString(tower.GetDmg(), tower.Dmg);
@@ -99,11 +106,35 @@ public class TowerStatWindow : MonoBehaviour
         baseTowerStats[1].SetData(upgradeAttackSpeed.UpgradeSprite, upgradeAttackSpeed.upgradeLabel, tower.attackSpeed.ToString(), greenAttackSpeed);
         //ShootAngle
         var upgradeShootAngle = tower.upgrades[2];
-        var greenShootAngle = (tower.GetShootAngle() - tower.shootAngle).ToString("R");
+        var greenShootAngle = FloatToString(tower.GetShootAngle(), tower.shootAngle);
         baseTowerStats[2].SetData(upgradeShootAngle.UpgradeSprite, upgradeShootAngle.upgradeLabel, tower.shootAngle.ToString(), greenShootAngle);
         //ShootDistance
         var upgradeShootDistance = tower.upgrades[3];
-        var greenShootDistance = (tower.GetShootDistance() - tower.shootDistance).ToString("R");
+        var greenShootDistance = FloatToString(tower.GetShootDistance(), tower.shootDistance);
         baseTowerStats[3].SetData(upgradeShootDistance.UpgradeSprite, upgradeShootDistance.upgradeLabel, tower.shootDistance.ToString(), greenShootDistance);
+    }
+
+    private void DisableSpecialStats()
+    {
+        foreach (var towerStat in specialTowerStats)
+        {
+            towerStat.gameObject.SetActive(false);
+        }
+    }
+
+    private void SetFlamethrowerValues(Flamethrower tower)
+    {
+        DisableSpecialStats();
+        
+        //BurnDamage
+        var upgradeBurnDamage = tower.upgrades[4];
+        specialTowerStats[0].gameObject.SetActive(true);
+        var greenBurnDamage = FloatToString(tower.burnDmg * tower.burnDmgMultiplier, tower.burnDmg);
+        specialTowerStats[0].SetData(upgradeBurnDamage.UpgradeSprite, upgradeBurnDamage.upgradeLabel, tower.burnDmg.ToString(), greenBurnDamage);
+        //BurnTime
+        var upgradeBurnTime = tower.upgrades[5];
+        specialTowerStats[1].gameObject.SetActive(true);
+        var greenBurnTime = FloatToString(tower.burnTime * tower.burnTimeMultiplier, tower.burnTime);
+        specialTowerStats[1].SetData(upgradeBurnTime.UpgradeSprite, upgradeBurnTime.upgradeLabel, tower.burnTime.ToString(), greenBurnTime);
     }
 }
