@@ -19,16 +19,16 @@ public class Tower : MonoBehaviour
 
     [SerializeField] protected GameObject towerCanon;
 
-    [SerializeField] private  float shootAngle;
+    public float shootAngle;
     [NonSerialized] public float multiplierShootAngle = 1;
     
-    [SerializeField] private  float shootDistance;
+    public float shootDistance;
     [NonSerialized] public float multiplierShootDistance = 1;
     
-    [SerializeField] private float Dmg;
+    public float Dmg;
     [NonSerialized] public float multiplierDmg = 1;
     
-    [SerializeField] private float attackSpeed;
+    public float attackSpeed;
     [NonSerialized] public float multiplierAttackSpeed = 1;
     
     
@@ -95,12 +95,12 @@ public class Tower : MonoBehaviour
         towerCanon.transform.eulerAngles = new Vector3(0, 0, angle + 90);
     }
 
-    protected float GetDmg()
+    public float GetDmg()
     {
         return Dmg * multiplierDmg * Technologies.DmgMultiplier * GlobalBaseEffects.GetGlobalBaseDmgMultiplier(shootDirection);
     }
     
-    protected float GetAttackSpeed()
+    public float GetAttackSpeed()
     {
         return attackSpeed * multiplierAttackSpeed * GlobalBaseEffects.GetGlobalBaseAttackSpeedMultiplier(shootDirection) * parasiteAttackSpeedMultiplier;
     }

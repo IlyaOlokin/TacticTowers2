@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class TowerStatWindow : MonoBehaviour
 {
-    [Header("Regular")] [SerializeField] private GameObject dmgStat;
+    [Header("Regular")]
+    /*[SerializeField] private GameObject dmgStat;
     [SerializeField] private GameObject firerateStat;
     [SerializeField] private GameObject ballisticStat;
-    [SerializeField] private GameObject angleStat;
+    [SerializeField] private GameObject angleStat;*/
+    [SerializeField] private List<TowerStat> baseTowerStats;
 
     [Header("Special")] [SerializeField] private GameObject flameStats;
     [SerializeField] private GameObject frostStats;
@@ -32,12 +34,8 @@ public class TowerStatWindow : MonoBehaviour
     public void SetTower(Tower tower)
     {
         this.tower = tower;
-    }
-    
-    private void OnEnable()
-    {
-        TimeManager.Pause();
         
+        SetBaseValues(tower);
         switch (tower)
         {
             case DefaultTower _:
@@ -70,22 +68,42 @@ public class TowerStatWindow : MonoBehaviour
 
         ShowUpgradingTower();
     }
+    
+    private void OnEnable()
+    {
+        TimeManager.Pause();
+    }
 
     private void ShowUpgradingTower()
     {
         upgradingTower.sprite = tower.towerSprite;
         upgradingTower.transform.rotation = Quaternion.Euler(0,0,tower.shootDirection - 90);
     }
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private string FloatToString(float multipliedValue, float baseValue)
     {
-        
+        string result = (multipliedValue - baseValue).ToString("0.0");
+        if (result.Substring(result.Length - 2) == ",0") result = result.Substring(0, result.Length - 2);
+        return result;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SetBaseValues(Tower tower)
     {
-        
+        //Damage
+        var upgradeDamage = tower.upgrades[0];
+        var greenDamage = FloatToString(tower.GetDmg(), tower.Dmg);
+        baseTowerStats[0].SetData(upgradeDamage.UpgradeSprite, upgradeDamage.upgradeLabel, tower.Dmg.ToString(), greenDamage);
+        //AttackSpeed
+        var upgradeAttackSpeed = tower.upgrades[1];
+        var greenAttackSpeed = FloatToString(tower.GetAttackSpeed(), tower.attackSpeed);
+        baseTowerStats[1].SetData(upgradeAttackSpeed.UpgradeSprite, upgradeAttackSpeed.upgradeLabel, tower.attackSpeed.ToString(), greenAttackSpeed);
+        //ShootAngle
+        var upgradeShootAngle = tower.upgrades[2];
+        var greenShootAngle = (tower.GetShootAngle() - tower.shootAngle).ToString("R");
+        baseTowerStats[2].SetData(upgradeShootAngle.UpgradeSprite, upgradeShootAngle.upgradeLabel, tower.shootAngle.ToString(), greenShootAngle);
+        //ShootDistance
+        var upgradeShootDistance = tower.upgrades[3];
+        var greenShootDistance = (tower.GetShootDistance() - tower.shootDistance).ToString("R");
+        baseTowerStats[3].SetData(upgradeShootDistance.UpgradeSprite, upgradeShootDistance.upgradeLabel, tower.shootDistance.ToString(), greenShootDistance);
     }
 }
