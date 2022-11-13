@@ -10,7 +10,7 @@ public class BuffMoneyTemporary : BaseActive
     {
         FunctionTimer.Create(GoBackToMoneyMultiplier, duration);
         GlobalBaseEffects.TempMoneyMultiplier = MoneyMultiplier;
-        gameObject.GetComponent<Base>().UpdateAbilityTimer();
+        GetComponent<Base>().UpdateAbilityTimer();
     }
 
     private void GoBackToMoneyMultiplier()

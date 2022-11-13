@@ -41,17 +41,20 @@ public class FreezeEnemyTemporareBox : MonoBehaviour
 
     private void Freeze(GameObject enemy)
     {
-        if (!enemy.GetComponent<Freeze>())
+        if (enemy.GetComponent<Freeze>())
         {
-            enemy.transform.gameObject.AddComponent<Freeze>();
+            enemy.GetComponent<Freeze>().UnfreezeInstantly();
+            Destroy(enemy.GetComponent<Freeze>());
         }
+        
+        var componentFreeze = enemy.gameObject.AddComponent<Freeze>();
 
-        enemy.GetComponent<Freeze>().freezeStacksNeeded = freezeStacksNeeded;
-        enemy.GetComponent<Freeze>().freezeTime = freezeTime;
-        enemy.GetComponent<Freeze>().freezeEffect = freezeEffect;
-        enemy.GetComponent<Freeze>().freezeStacksPerHt = freezeStacksPerHit;
-        enemy.GetComponent<Freeze>().FindEnemy();
-        enemy.GetComponent<Freeze>().GetFreezeStack();
+        componentFreeze.freezeStacksNeeded = freezeStacksNeeded;
+        componentFreeze.freezeTime = freezeTime;
+        componentFreeze.freezeEffect = freezeEffect;
+        componentFreeze.freezeStacksPerHt = freezeStacksPerHit;
+        
+        componentFreeze.GetFreezeStack();
     }
 
     public void FreezeEnemy()

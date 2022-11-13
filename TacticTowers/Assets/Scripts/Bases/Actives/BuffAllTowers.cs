@@ -16,6 +16,6 @@ public class BuffAllTowers : BaseActive
     {
         GlobalBaseEffects.ApplyToAllTowersTemporary(dmgMultiplier, attackSpeedMultiplier, shootAngleMultiplier,
             shootDistanceMultiplier, duration);
-        gameObject.GetComponent<Base>().UpdateAbilityTimer();
+        GetComponent<Base>().UpdateAbilityTimer();
     }
 }

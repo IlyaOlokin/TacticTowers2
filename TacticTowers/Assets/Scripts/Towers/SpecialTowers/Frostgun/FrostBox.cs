@@ -87,7 +87,6 @@ public class FrostBox : MonoBehaviour
             enemy.GetComponent<Freeze>().freezeTime = freezeTime;
             enemy.GetComponent<Freeze>().freezeEffect = freezeEffect;
             enemy.GetComponent<Freeze>().freezeStacksPerHt = freezeStacksPerHit;
-            enemy.GetComponent<Freeze>().FindEnemy();
             enemy.GetComponent<Freeze>().GetFreezeStack();
         }
         else if (!enemy.GetComponent<Freeze>().frozen)

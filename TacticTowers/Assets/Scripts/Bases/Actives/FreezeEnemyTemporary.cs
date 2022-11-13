@@ -14,7 +14,7 @@ public class FreezeEnemyTemporary : BaseActive
         box.freezeStacksNeeded = freezeStacksNeeded;
         box.freezeStacksPerHit = freezeStacksPerHit;
         box.freezeTime = duration;
-        box.FreezeEnemy();
-        gameObject.GetComponent<Base>().UpdateAbilityTimer();
+        box.FreezeEnemy(); 
+        GetComponent<Base>().UpdateAbilityTimer();
     }
 }

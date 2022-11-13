@@ -15,7 +15,7 @@ public class SuperLaser : BaseActive
     private void CreateLaserBox()
     {
         box.SetActive(true);
-        gameObject.GetComponent<Base>().UpdateAbilityTimer();
+        GetComponent<Base>().UpdateAbilityTimer();
         FunctionTimer.Create(OffBox, duration);
     }
 
