@@ -13,8 +13,11 @@ public class Laser : Tower
     private GameObject activeLaser;
 
     [SerializeField] public int maxHeat;
+    [SerializeField] public float maxHeatMultiplier;
     [SerializeField] public float multiplierPerHeatStack;
+    [SerializeField] public float multiplierPerHeatStackMultiplier;
     [SerializeField] public float coolDelay;
+    [SerializeField] public float coolDelayMultiplier;
     [SerializeField] private ContactFilter2D contactFilter;
 
     [NonSerialized] public bool shooting;
@@ -56,7 +59,7 @@ public class Laser : Tower
             shooting = false;
 
         }
-        if (heatCount < maxHeat) heatCount += Time.deltaTime;
+        if (heatCount < maxHeat * maxHeatMultiplier) heatCount += Time.deltaTime;
         if (activeLaser != null)  activeLaser.GetComponent<LaserBim>().IncreaseWidth(heatCount);
         if (enemy != currentEnemy)
         {
@@ -73,12 +76,12 @@ public class Laser : Tower
             
             
             shootDelayTimer = 1f / GetAttackSpeed();
-            coolTimer = coolDelay;
+            coolTimer = coolDelay * coolDelayMultiplier;
 
             if (CheckWallCollision(transform.position, enemy.transform.position, GetShootDistance(), false) is null)
             {
                 if (enemy.GetComponent<Enemy>().TakeDamage(
-                    GetDmg() * (1 + Mathf.Floor(heatCount) * multiplierPerHeatStack),
+                    GetDmg() * (1 + Mathf.Floor(heatCount) * multiplierPerHeatStack * multiplierPerHeatStackMultiplier),
                     damageType, transform.position))
                 {
                     Destroy(activeLaser);
