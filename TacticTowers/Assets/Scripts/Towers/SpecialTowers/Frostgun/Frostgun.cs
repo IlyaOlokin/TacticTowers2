@@ -6,11 +6,12 @@ using UnityEngine;
 public class Frostgun : Tower
 {
     public float freezeTime;
-    [SerializeField] private float freezeStacksPerHit;
+    public float freezeTimeMultiplier;
+    public float freezeStacksPerHit;
     public float freezeStacksPerHitMultiplier;
     [SerializeField] private GameObject frostBox;
 
-    [SerializeField] private int freezeStacksNeeded;
+    public int freezeStacksNeeded;
     private GameObject currentEnemy;
     private GameObject activeFrostBox;
     [SerializeField] private GameObject frostEffect;
@@ -59,7 +60,7 @@ public class Frostgun : Tower
                 
                 activeFrostBox.GetComponent<FrostBox>().dmg = GetDmg();
                 activeFrostBox.GetComponent<FrostBox>().attackSpeed = GetAttackSpeed();
-                activeFrostBox.GetComponent<FrostBox>().freezeTime = freezeTime;
+                activeFrostBox.GetComponent<FrostBox>().freezeTime = freezeTime * freezeTimeMultiplier;
                 activeFrostBox.GetComponent<FrostBox>().freezeStacksPerHit = GetFreezeStacksPerHit();
                 activeFrostBox.GetComponent<FrostBox>().freezeStacksNeeded = freezeStacksNeeded;
                 

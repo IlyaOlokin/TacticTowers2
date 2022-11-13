@@ -43,12 +43,12 @@ public class TowerStatWindow : MonoBehaviour
         {
             case DefaultTower _:
                 break;
-            case Flamethrower _:
-                var specialTower = (Flamethrower) tower;
-                SetFlamethrowerValues(specialTower);
+            case Flamethrower flamethrower:
+                SetFlamethrowerValues(flamethrower);
                 //flameStats.SetActive(true);
                 break;
-            case Frostgun _:
+            case Frostgun frostgun:
+                SetFrostgunValues(frostgun);
                 //frostStats.SetActive(true);
                 break;
             case Laser _:
@@ -85,9 +85,9 @@ public class TowerStatWindow : MonoBehaviour
         upgradingTower.transform.rotation = Quaternion.Euler(0,0,tower.shootDirection - 90);
     }
 
-    private string FloatToString(float multipliedValue, float baseValue)
+    private string FloatToString(float value)
     {
-        string result = (multipliedValue - baseValue).ToString("0.0");
+        string result = value.ToString("0.0");
         if (result.Substring(result.Length - 2) == ",0") result = result.Substring(0, result.Length - 2);
         return result;
     }
@@ -98,19 +98,19 @@ public class TowerStatWindow : MonoBehaviour
         
         //Damage
         var upgradeDamage = tower.upgrades[0];
-        var greenDamage = FloatToString(tower.GetDmg(), tower.Dmg);
+        var greenDamage = FloatToString(tower.GetDmg() - tower.Dmg);
         baseTowerStats[0].SetData(upgradeDamage.UpgradeSprite, upgradeDamage.upgradeLabel, tower.Dmg.ToString(), greenDamage);
         //AttackSpeed
         var upgradeAttackSpeed = tower.upgrades[1];
-        var greenAttackSpeed = FloatToString(tower.GetAttackSpeed(), tower.attackSpeed);
+        var greenAttackSpeed = FloatToString(tower.GetAttackSpeed() - tower.attackSpeed);
         baseTowerStats[1].SetData(upgradeAttackSpeed.UpgradeSprite, upgradeAttackSpeed.upgradeLabel, tower.attackSpeed.ToString(), greenAttackSpeed);
         //ShootAngle
         var upgradeShootAngle = tower.upgrades[2];
-        var greenShootAngle = FloatToString(tower.GetShootAngle(), tower.shootAngle);
+        var greenShootAngle = FloatToString(tower.GetShootAngle() - tower.shootAngle);
         baseTowerStats[2].SetData(upgradeShootAngle.UpgradeSprite, upgradeShootAngle.upgradeLabel, tower.shootAngle.ToString(), greenShootAngle);
         //ShootDistance
         var upgradeShootDistance = tower.upgrades[3];
-        var greenShootDistance = FloatToString(tower.GetShootDistance(), tower.shootDistance);
+        var greenShootDistance = FloatToString(tower.GetShootDistance() - tower.shootDistance);
         baseTowerStats[3].SetData(upgradeShootDistance.UpgradeSprite, upgradeShootDistance.upgradeLabel, tower.shootDistance.ToString(), greenShootDistance);
     }
 
@@ -129,12 +129,34 @@ public class TowerStatWindow : MonoBehaviour
         //BurnDamage
         var upgradeBurnDamage = tower.upgrades[4];
         specialTowerStats[0].gameObject.SetActive(true);
-        var greenBurnDamage = FloatToString(tower.burnDmg * tower.burnDmgMultiplier, tower.burnDmg);
+        var greenBurnDamage = FloatToString(tower.burnDmg * tower.burnDmgMultiplier - tower.burnDmg);
         specialTowerStats[0].SetData(upgradeBurnDamage.UpgradeSprite, upgradeBurnDamage.upgradeLabel, tower.burnDmg.ToString(), greenBurnDamage);
+        
         //BurnTime
         var upgradeBurnTime = tower.upgrades[5];
         specialTowerStats[1].gameObject.SetActive(true);
-        var greenBurnTime = FloatToString(tower.burnTime * tower.burnTimeMultiplier, tower.burnTime);
+        var greenBurnTime = FloatToString(tower.burnTime * tower.burnTimeMultiplier - tower.burnTime);
         specialTowerStats[1].SetData(upgradeBurnTime.UpgradeSprite, upgradeBurnTime.upgradeLabel, tower.burnTime.ToString(), greenBurnTime);
+    }
+    
+    private void SetFrostgunValues(Frostgun tower)
+    {
+        DisableSpecialStats();
+        
+        //TimeToFreeze
+        var upgradeBurnDamage = tower.upgrades[4];
+        specialTowerStats[0].gameObject.SetActive(true);
+        var totalTimeToFreeze = tower.freezeStacksNeeded /
+                                (tower.freezeStacksPerHit * tower.freezeStacksPerHitMultiplier * tower.GetAttackSpeed());
+        var whiteTimeToFreeze = tower.freezeStacksNeeded /
+                                (tower.freezeStacksPerHit * tower.attackSpeed);
+        var greenTimeToFreeze = FloatToString(totalTimeToFreeze - whiteTimeToFreeze);
+        specialTowerStats[0].SetData(upgradeBurnDamage.UpgradeSprite, upgradeBurnDamage.upgradeLabel, FloatToString(whiteTimeToFreeze), greenTimeToFreeze);
+        
+        //FreezeTime
+        var upgradeBurnTime = tower.upgrades[5];
+        specialTowerStats[1].gameObject.SetActive(true);
+        var greenBurnTime = FloatToString(tower.freezeTime * tower.freezeTimeMultiplier - tower.freezeTime);
+        specialTowerStats[1].SetData(upgradeBurnTime.UpgradeSprite, upgradeBurnTime.upgradeLabel, tower.freezeTime.ToString(), greenBurnTime);
     }
 }
