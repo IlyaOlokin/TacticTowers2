@@ -86,16 +86,14 @@ public class Flamethrower : Tower
 
     private float GetFireDistance(GameObject enemy)
     {
-        if(CheckWallCollision(transform.position, enemy.transform.position, true) != null)
+        if(CheckWallCollision(transform.position, enemy.transform.position, GetShootDistance(), true) != null)
         {
             var fireDistance = Vector2.Distance(transform.position,
                 GetRayImpactPoint(transform.position, enemy.transform.position, true));
             return fireDistance;
         }
-        else
-        {
-            return GetShootDistance();
-        }
+        
+        return GetShootDistance();
     }
 
     private void DestroyFlameBox()

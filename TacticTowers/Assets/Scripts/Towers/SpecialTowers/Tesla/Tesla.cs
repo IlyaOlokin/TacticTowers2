@@ -48,7 +48,7 @@ public class Tesla : Tower
         
         AudioManager.Instance.Play("TeslaShot");
         
-        if (CheckWallCollision(startPos, endPos, false) is null)
+        if (CheckWallCollision(startPos, endPos, GetShootDistance(), false) is null)
         {
             newLightning.GetComponent<LineRenderer>().SetPosition(1, endPos);
             enemy.GetComponent<Enemy>().TakeDamage(dmg, damageType, transform.position);

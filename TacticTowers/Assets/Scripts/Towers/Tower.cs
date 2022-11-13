@@ -134,18 +134,23 @@ public class Tower : MonoBehaviour
         enemiesToIgnore = tower.enemiesToIgnore;
     }
     
-    public static Vector3? CheckWallCollision(Vector3 origin, Vector3 target, bool shouldPenetrate)
+    public static Vector3? CheckWallCollision(Vector3 origin, Vector3 target, float shootDistance, bool shouldPenetrate)
     {
         RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, 100f, LayerMask.GetMask("Wall"));
-        if (hit.collider != null && (hit.distance < Vector3.Distance(origin, target) || shouldPenetrate))
-            return hit.point;
-        
+        if (hit.collider != null )
+        {
+            if (hit.distance < Vector3.Distance(origin, target))
+                return hit.point;
+            if (hit.distance < shootDistance && shouldPenetrate)
+                return hit.point;
+        }
+
         return null;
     }
 
     public static Vector3 GetRayImpactPoint(Vector3 origin, Vector3 target, bool shouldPenetrate)
     {
-        var wallCollision = CheckWallCollision(origin, target, shouldPenetrate);
+        var wallCollision = CheckWallCollision(origin, target, 100f, shouldPenetrate);
         if (wallCollision != null)
             return (Vector3) wallCollision;
 
