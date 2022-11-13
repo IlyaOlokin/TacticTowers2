@@ -10,10 +10,11 @@ public class TimeAcceleration : MonoBehaviour
     [SerializeField] private Color arrowSelectedColor;
     [SerializeField] private Color arrowDefaultColor;
     private readonly List<int> timeScales = new List<int>() {1, 2, 4};
-    private int currentTimeScaleIndex = 0;
+    private static int currentTimeScaleIndex = 0;
 
     private void Start()
     {
+        ChangeTimeScale(0);
         ColorArrows(currentTimeScaleIndex);
     }
 
@@ -22,21 +23,27 @@ public class TimeAcceleration : MonoBehaviour
         if (Time.timeScale == 0) return;
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            ChangeTimeScale(2);
+            OnButtonChangeTimeScale(2);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            ChangeTimeScale(1);
+            OnButtonChangeTimeScale(1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            ChangeTimeScale(0);
+            OnButtonChangeTimeScale(0);
         }
     }
 
     public void SwitchTimeScale()
     {
-        ChangeTimeScale(currentTimeScaleIndex + 1);
+        OnButtonChangeTimeScale(currentTimeScaleIndex + 1);
+    }
+
+    private void OnButtonChangeTimeScale(int timeScaleIndex)
+    {
+        ChangeTimeScale(timeScaleIndex);
+        AudioManager.Instance.Play("ButtonClick1");
     }
 
     private void ChangeTimeScale(int timeScaleIndex)
@@ -45,7 +52,6 @@ public class TimeAcceleration : MonoBehaviour
         int newTimeScale = timeScales[currentTimeScaleIndex];
         TimeManager.SetTimeScale(newTimeScale);
         ColorArrows(currentTimeScaleIndex);
-        AudioManager.Instance.Play("ButtonClick1");
     }
 
     private void ColorArrows(int timeScaleIndex)

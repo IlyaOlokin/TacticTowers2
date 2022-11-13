@@ -300,13 +300,9 @@ MonoBehaviour:
   towerSprite: {fileID: -7573378586640382678, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   towerCanon: {fileID: 5308795286357857833}
   shootAngle: 45
-  multiplierShootAngle: 1
-  shootDistance: 3
-  multiplierShootDistance: 1
-  Dmg: 3
-  multiplierDmg: 1
+  shootDistance: 2
+  Dmg: 10
   attackSpeed: 1.5
-  multiplierAttackSpeed: 1
   shootZone: {fileID: 0}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}

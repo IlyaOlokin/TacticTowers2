@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int creditsDropChance;
     public int weight;
     
+    [NonSerialized] public bool hasTentacle;
+    private float rotationSpeed = 160f;
+    
     [Header("Visual Effects")]
     [SerializeField] private GameObject damageNumberEffect;
     [SerializeField] private GameObject deathParticles;
@@ -32,6 +35,7 @@ public class Enemy : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.SetDestination(GameObject.FindGameObjectWithTag("Base").transform.position);
+        RandomizeSpeed();
     }
 
     
@@ -43,8 +47,9 @@ public class Enemy : MonoBehaviour
     private void RotateByVelocity()
     {
         if (!agent.enabled || agent.speed == 0) return;
-        var angle = Mathf.Atan2(agent.velocity.y, agent.velocity.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+        var angle = Mathf.Atan2(agent.desiredVelocity.y, agent.desiredVelocity.x) * Mathf.Rad2Deg;
+        Quaternion targetRotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -56,6 +61,14 @@ public class Enemy : MonoBehaviour
             OnDeath(DamageType.Normal, other.transform.position);
         }
     
+    }
+    
+    private void RandomizeSpeed()
+    {
+        if (GetComponent<Boss>() != null) return;
+        var multiplier = Random.Range(1f, 1.75f);
+        agent.speed *= multiplier;
+        agent.avoidancePriority = (int) (agent.avoidancePriority * multiplier);
     }
     
     public void TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos)
@@ -71,8 +84,8 @@ public class Enemy : MonoBehaviour
     }
     private void OnDeath(DamageType damageType, Vector3 killerPos)
     {
-        EnemySpawner.enemies.Remove(gameObject);
-        Money.AddMoney(cost * Technologies.MoneyMultiplier);
+        
+        Money.AddMoney(cost);
         DropCreditsByChance(creditsDropChance);
         switch (damageType)
         {
@@ -83,6 +96,11 @@ public class Enemy : MonoBehaviour
                 DieFire(burnMaterial);
                 break;
         }
+    }
+
+    private void OnDestroy()
+    {
+        EnemySpawner.enemies.Remove(gameObject);
     }
 
     private void DieNormal(Vector3 killerPos)
@@ -122,5 +140,10 @@ public class Enemy : MonoBehaviour
     private void DropCreditsByChance(int chance)
     {
         if (Random.Range(0, 100) < chance) Credits.AddSessionCredits(weight);
+    }
+
+    public void SetTentacle()
+    {
+        hasTentacle = true;
     }
 }

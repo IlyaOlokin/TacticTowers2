@@ -215,14 +215,10 @@ MonoBehaviour:
     \u043F\u0440\u0438 \u0441\u0442\u0440\u0435\u043B\u044C\u0431\u0435\u0432 \u0443\u043F\u043E\u0440"
   towerSprite: {fileID: 601480434192881220, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   towerCanon: {fileID: 5063031759745015767}
-  shootAngle: 50
-  multiplierShootAngle: 1
+  shootAngle: 90
   shootDistance: 2
-  multiplierShootDistance: 1
-  Dmg: 15
-  multiplierDmg: 1
-  attackSpeed: 1
-  multiplierAttackSpeed: 1
+  Dmg: 10
+  attackSpeed: 0.8
   shootZone: {fileID: 0}
   upgrades:
   - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}

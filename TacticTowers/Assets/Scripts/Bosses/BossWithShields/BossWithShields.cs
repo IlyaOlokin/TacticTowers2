@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class BossWithShields : MonoBehaviour
+public class BossWithShields : Boss
 {
     [SerializeField] private List<GameObject> shieldPoints;
     [SerializeField] private List<GameObject> shields;
@@ -18,7 +18,7 @@ public class BossWithShields : MonoBehaviour
     private Transform[] moveDestinationTransforms = new Transform[3];
     
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float turnSpeed;
+    [SerializeField] private float rotationSpeed;
     
 
     void Start()
@@ -83,7 +83,7 @@ public class BossWithShields : MonoBehaviour
         if (!NeedToRotateShield(shieldIndex)) return;
         
         shields[shieldIndex].transform.rotation = Quaternion.RotateTowards(shields[shieldIndex].transform.rotation,
-            moveDestinationTransforms[shieldIndex].rotation, turnSpeed * Time.deltaTime);
+            moveDestinationTransforms[shieldIndex].rotation, rotationSpeed * Time.deltaTime);
     }
 
     private void FloatShields(int shieldIndex)

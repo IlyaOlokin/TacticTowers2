@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class BurnDamage : Upgrade
 {
-    [SerializeField] private float bonus;
-
     public override void Execute(Tower tower)
     {
-        tower.transform.GetComponent<Flamethrower>().burnDmgMultiplier += bonus;
+        tower.transform.GetComponent<Flamethrower>().burnDmgMultiplier += actualBonus;
     }
 }

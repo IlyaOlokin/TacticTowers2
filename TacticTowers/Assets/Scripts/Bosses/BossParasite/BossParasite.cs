@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class BossParasite : MonoBehaviour
+public class BossParasite : Boss
 {
     [SerializeField] private float shootDelay; 
     private float shootTimer = 0f;
@@ -29,9 +29,10 @@ public class BossParasite : MonoBehaviour
     {
         if (shootTimer >= shootDelay)
         {
-            var towers = GameObject.FindGameObjectsWithTag("Tower").Where(t => !t.GetComponent<TowerDrag>().tower.GetComponent<Tower>().HasParasite()).ToArray();
+            var towers = GameObject.FindGameObjectsWithTag("Tower")
+                .Where(t => !t.GetComponent<TowerDrag>().tower.GetComponent<Tower>().HasParasite()).ToArray();
             var targets = new List<GameObject>();
-            int towersWithParasiteCount = 0;
+            
             for (var i = 0; i < towers.Length; i++)
             {
                 var probabilityOfSelection = (parasiteCount - targets.Count) / (float) (towers.Length - i);

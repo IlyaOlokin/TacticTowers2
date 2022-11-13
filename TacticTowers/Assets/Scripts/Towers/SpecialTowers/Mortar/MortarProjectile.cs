@@ -12,7 +12,7 @@ public class MortarProjectile : MonoBehaviour
     
     private Rigidbody2D rb;
     [SerializeField] private GameObject explosionEffect;
-    private DamageType damageType = DamageType.Fire;
+    private DamageType damageType = DamageType.Normal;
 
     
     private void Update()
@@ -38,10 +38,8 @@ public class MortarProjectile : MonoBehaviour
         var allEnemies = EnemySpawner.enemies;
         foreach (var enemy in allEnemies)
         {
-            if (enemy is null) continue;
-            var a = transform.position;
-            var b = enemy.transform.position;
-            if (Vector3.Distance(a, b) < radius)
+            if (enemy == null) continue;
+            if (Vector3.Distance(transform.position, enemy.transform.position) < radius)
                 enemiesInRadius.Add(enemy.GetComponent<Enemy>());
         }
 

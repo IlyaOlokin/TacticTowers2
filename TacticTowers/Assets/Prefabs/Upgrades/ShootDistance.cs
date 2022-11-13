@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class ShootDistance : Upgrade
 {
-    [SerializeField] private float bonus;
-    
     public override void Execute(Tower tower)
     {
-        tower.multiplierShootDistance += bonus;
+        tower.multiplierShootDistance += actualBonus;
         tower.shootZone.DrawShootZone();
     }
 }

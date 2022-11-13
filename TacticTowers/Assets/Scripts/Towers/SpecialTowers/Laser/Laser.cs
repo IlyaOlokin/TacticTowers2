@@ -13,7 +13,7 @@ public class Laser : Tower
     private GameObject activeLaser;
 
     [SerializeField] public int maxHeat;
-    [SerializeField] public float bonusDamagePerHeat;
+    [SerializeField] public float multiplierPerHeatStack;
     [SerializeField] public float coolDelay;
     [SerializeField] private ContactFilter2D contactFilter;
 
@@ -58,24 +58,25 @@ public class Laser : Tower
         }
         if (heatCount < maxHeat) heatCount += Time.deltaTime;
         if (activeLaser != null)  activeLaser.GetComponent<LaserBim>().IncreaseWidth(heatCount);
+        if (enemy != currentEnemy)
+        {
+            activeLaser = Instantiate(laserBim, transform.position, towerCanon.transform.rotation);
+            activeLaser.GetComponent<LaserBim>().target = enemy;
+            activeLaser.GetComponent<LaserBim>().origin = transform.position;
+            currentEnemy = enemy;
+            //FindObjectOfType<AudioManager>().Play("LaserShot");
+            shooting = true;
+        }
         if (shootDelayTimer <= 0)
         {
-            if (enemy != currentEnemy)
-            {
-                activeLaser = Instantiate(laserBim, transform.position, towerCanon.transform.rotation);
-                activeLaser.GetComponent<LaserBim>().target = enemy;
-                activeLaser.GetComponent<LaserBim>().origin = transform.position;
-                currentEnemy = enemy;
-                //FindObjectOfType<AudioManager>().Play("LaserShot");
-                shooting = true;
-            }
+            
             
             
             shootDelayTimer = 1f / GetAttackSpeed();
             coolTimer = coolDelay;
 
             if (CheckWallCollision(transform.position, enemy.transform.position, false) is null)
-                enemy.GetComponent<Enemy>().TakeDamage(GetDmg() * (1 + Mathf.Floor(heatCount) * bonusDamagePerHeat),
+                enemy.GetComponent<Enemy>().TakeDamage(GetDmg() * (1 + Mathf.Floor(heatCount) * multiplierPerHeatStack),
                     damageType, transform.position);
         }
     }

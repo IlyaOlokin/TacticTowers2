@@ -36,4 +36,9 @@ public class Timer : MonoBehaviour
     {
         isStopped = true;
     }
+    
+    public static void Play()
+    {
+        isStopped = false;
+    }
 }

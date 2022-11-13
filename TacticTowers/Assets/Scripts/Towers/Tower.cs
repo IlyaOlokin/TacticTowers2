@@ -20,16 +20,16 @@ public class Tower : MonoBehaviour
     [SerializeField] protected GameObject towerCanon;
 
     [SerializeField] private  float shootAngle;
-    public float multiplierShootAngle = 1;
+    [NonSerialized] public float multiplierShootAngle = 1;
     
     [SerializeField] private  float shootDistance;
-    public float multiplierShootDistance = 1;
+    [NonSerialized] public float multiplierShootDistance = 1;
     
     [SerializeField] private float Dmg;
-    public float multiplierDmg = 1;
+    [NonSerialized] public float multiplierDmg = 1;
     
     [SerializeField] private float attackSpeed;
-    public float multiplierAttackSpeed = 1;
+    [NonSerialized] public float multiplierAttackSpeed = 1;
     
     
     protected float shootDelayTimer;
