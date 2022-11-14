@@ -8,6 +8,7 @@ public class Mortar : Tower
     
     [SerializeField] private float bulletSpeed;
     public float explosionRadius;
+    public float explosionRadiusMultiplier;
 
     void Update()
     {
@@ -25,7 +26,7 @@ public class Mortar : Tower
             var newBullet =  Instantiate(bullet, transform.position, towerCanon.transform.rotation);
             newBullet.GetComponent<MortarProjectile>().Dmg = GetDmg();
             newBullet.GetComponent<MortarProjectile>().Speed = bulletSpeed;
-            newBullet.GetComponent<MortarProjectile>().radius = explosionRadius;
+            newBullet.GetComponent<MortarProjectile>().radius = explosionRadius * explosionRadiusMultiplier;
             newBullet.GetComponent<MortarProjectile>().targetPos = enemy.transform.position;
             
             shootDelayTimer = 1f / GetAttackSpeed();

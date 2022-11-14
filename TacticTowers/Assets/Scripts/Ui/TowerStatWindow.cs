@@ -45,22 +45,18 @@ public class TowerStatWindow : MonoBehaviour
                 break;
             case Flamethrower flamethrower:
                 SetFlamethrowerValues(flamethrower);
-                //flameStats.SetActive(true);
                 break;
             case Frostgun frostgun:
                 SetFrostgunValues(frostgun);
-                //frostStats.SetActive(true);
                 break;
             case Laser laser:
                 SetLaserValues(laser);
-                //laserStats.SetActive(true);
                 break;
             case Minigun minigun:
                 SetMinigunValues(minigun);
-                //minigunStats.SetActive(true);
                 break;
-            case Mortar _:
-                //mortarStats.SetActive(true);
+            case Mortar mortar:
+                SetMortarValues(mortar);
                 break;
             case Railgun _:
                 //railStats.SetActive(true);
@@ -202,5 +198,14 @@ public class TowerStatWindow : MonoBehaviour
         specialTowerStats[2].gameObject.SetActive(true);
         var greenMaxHeat = FloatToString(tower.maxHeat * tower.maxHeatMultiplier - tower.maxHeat, "0.0", ",0");
         specialTowerStats[2].SetData(upgradeMaxHeat.UpgradeSprite, upgradeMaxHeat.upgradeLabel, tower.maxHeat.ToString(), greenMaxHeat);
+    }
+    
+    private void SetMortarValues(Mortar tower)
+    {
+        //ExplosionRadius
+        var upgradeCoolDelay = tower.upgrades[4];
+        specialTowerStats[0].gameObject.SetActive(true);
+        var greenCoolDelay = FloatToString(tower.explosionRadius * tower.explosionRadiusMultiplier - tower.explosionRadius, "0.0", ",0");
+        specialTowerStats[0].SetData(upgradeCoolDelay.UpgradeSprite, upgradeCoolDelay.upgradeLabel, tower.explosionRadius.ToString(), greenCoolDelay);
     }
 }
