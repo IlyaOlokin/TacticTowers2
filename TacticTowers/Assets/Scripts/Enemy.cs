@@ -119,6 +119,7 @@ public class Enemy : MonoBehaviour
 
     private void DieFire(Material newMaterial)
     {
+        EnemySpawner.enemies.Remove(gameObject);
         GetComponent<SpriteRenderer>().material = newMaterial;
         agent.enabled = false;
         GetComponent<Collider2D>().enabled = false;

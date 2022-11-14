@@ -64,8 +64,8 @@ public class TowerStatWindow : MonoBehaviour
             case Shotgun shotgun:
                 SetShotgunValues(shotgun);
                 break;
-            case Tesla _:
-                //teslaStats.SetActive(true);
+            case Tesla tesla:
+                SetTeslaValues(tesla);
                 break;
         }
 
@@ -234,5 +234,26 @@ public class TowerStatWindow : MonoBehaviour
         specialTowerStats[0].gameObject.SetActive(true);
         var greenBullet = tower.bonusBullets.ToString();
         specialTowerStats[0].SetData(upgradeBullet.UpgradeSprite, upgradeBullet.upgradeLabel, tower.bulletCount.ToString(), greenBullet);
+    }
+    
+    private void SetTeslaValues(Tesla tower)
+    {
+        //LightningCount
+        var upgradeLightningCount = tower.upgrades[4];
+        specialTowerStats[0].gameObject.SetActive(true);
+        var greenLightningCount = tower.bonusLightningCount.ToString();
+        specialTowerStats[0].SetData(upgradeLightningCount.UpgradeSprite, upgradeLightningCount.upgradeLabel, tower.lightningCount.ToString(), greenLightningCount);
+        
+        //DamageDecrease
+        var upgradeDamageDecrease = tower.upgrades[5];
+        specialTowerStats[1].gameObject.SetActive(true);
+        var greenDamageDecrease = FloatToString(tower.dmgDecrease * tower.dmgDecreaseMultiplier - tower.dmgDecrease, "0.00", ",00");
+        specialTowerStats[1].SetData(upgradeDamageDecrease.UpgradeSprite, upgradeDamageDecrease.upgradeLabel, tower.dmgDecrease.ToString(), greenDamageDecrease);
+        
+        //JumpDistance
+        var upgradeJumpDistance = tower.upgrades[6];
+        specialTowerStats[2].gameObject.SetActive(true);
+        var greenJumpDistance = FloatToString(tower.lightningJumpDistance * tower.lightningJumpDistanceMultiplier - tower.lightningJumpDistance, "0.0", ",0");
+        specialTowerStats[2].SetData(upgradeJumpDistance.UpgradeSprite, upgradeJumpDistance.upgradeLabel, tower.lightningJumpDistance.ToString(), greenJumpDistance);
     }
 }

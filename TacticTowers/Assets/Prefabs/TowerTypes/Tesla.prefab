@@ -117,8 +117,11 @@ MonoBehaviour:
   - {fileID: 5242633527358345395, guid: e20d793e133edf94e8d3943f0d6008b6, type: 3}
   lightning: {fileID: 6687795320453916105, guid: 7f85cec6659da3f46b48d58b2ee50461, type: 3}
   lightningCount: 3
+  bonusLightningCount: 0
   dmgDecrease: 0.7
+  dmgDecreaseMultiplier: 1
   lightningJumpDistance: 1.5
+  lightningJumpDistanceMultiplier: 1
 --- !u!1 &4574035871672996920
 GameObject:
   m_ObjectHideFlags: 0
