@@ -61,8 +61,8 @@ public class TowerStatWindow : MonoBehaviour
             case Railgun railgun:
                 SetRailgunValues(railgun);
                 break;
-            case Shotgun _:
-                //shotgunStats.SetActive(true);
+            case Shotgun shotgun:
+                SetShotgunValues(shotgun);
                 break;
             case Tesla _:
                 //teslaStats.SetActive(true);
@@ -87,12 +87,16 @@ public class TowerStatWindow : MonoBehaviour
     {
         string result = value.ToString(format);
         if (result.Substring(result.Length - floatPart.Length) == floatPart) result = result.Substring(0, result.Length - floatPart.Length);
-        /*while (result[result.Length - 1] == '0')
-        {
-            result = result.Substring(0, result.Length - 1);
-        }*/
         result.TrimEnd('0');
         return result;
+    }
+    
+    private void DisableSpecialStats()
+    {
+        foreach (var towerStat in specialTowerStats)
+        {
+            towerStat.gameObject.SetActive(false);
+        }
     }
 
     private void SetBaseValues(Tower tower)
@@ -115,14 +119,6 @@ public class TowerStatWindow : MonoBehaviour
         var upgradeShootDistance = tower.upgrades[3];
         var greenShootDistance = FloatToString(tower.GetShootDistance() - tower.shootDistance, "0.0", ",0");
         baseTowerStats[3].SetData(upgradeShootDistance.UpgradeSprite, upgradeShootDistance.upgradeLabel, tower.shootDistance.ToString(), greenShootDistance);
-    }
-
-    private void DisableSpecialStats()
-    {
-        foreach (var towerStat in specialTowerStats)
-        {
-            towerStat.gameObject.SetActive(false);
-        }
     }
 
     private void SetFlamethrowerValues(Flamethrower tower)
@@ -229,5 +225,14 @@ public class TowerStatWindow : MonoBehaviour
         specialTowerStats[1].gameObject.SetActive(true);
         var greenMinDamage = FloatToString(tower.minDmg * tower.minDmgMultiplier - tower.minDmg, "0.0", ",0");
         specialTowerStats[1].SetData(upgradeMinDamage.UpgradeSprite, upgradeMinDamage.upgradeLabel, tower.minDmg.ToString(), greenMinDamage);
+    }
+    
+    private void SetShotgunValues(Shotgun tower)
+    {
+        //Bullet
+        var upgradeBullet = tower.upgrades[4];
+        specialTowerStats[0].gameObject.SetActive(true);
+        var greenBullet = tower.bonusBullets.ToString();
+        specialTowerStats[0].SetData(upgradeBullet.UpgradeSprite, upgradeBullet.upgradeLabel, tower.bulletCount.ToString(), greenBullet);
     }
 }
