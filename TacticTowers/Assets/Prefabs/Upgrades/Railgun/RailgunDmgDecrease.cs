@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RailgunDmgDescrease : Upgrade
+public class RailgunDmgDecrease : Upgrade
 {
     public override void Execute(Tower tower)
     {
-        tower.transform.GetComponent<Railgun>().dmgMultiplier += actualBonus;
+        tower.transform.GetComponent<Railgun>().dmgMultiplierMultiplier += actualBonus;
     }
 }

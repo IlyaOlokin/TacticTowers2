@@ -58,8 +58,8 @@ public class TowerStatWindow : MonoBehaviour
             case Mortar mortar:
                 SetMortarValues(mortar);
                 break;
-            case Railgun _:
-                //railStats.SetActive(true);
+            case Railgun railgun:
+                SetRailgunValues(railgun);
                 break;
             case Shotgun _:
                 //shotgunStats.SetActive(true);
@@ -87,6 +87,11 @@ public class TowerStatWindow : MonoBehaviour
     {
         string result = value.ToString(format);
         if (result.Substring(result.Length - floatPart.Length) == floatPart) result = result.Substring(0, result.Length - floatPart.Length);
+        /*while (result[result.Length - 1] == '0')
+        {
+            result = result.Substring(0, result.Length - 1);
+        }*/
+        result.TrimEnd('0');
         return result;
     }
 
@@ -203,9 +208,26 @@ public class TowerStatWindow : MonoBehaviour
     private void SetMortarValues(Mortar tower)
     {
         //ExplosionRadius
-        var upgradeCoolDelay = tower.upgrades[4];
+        var upgradeExplosionRadius = tower.upgrades[4];
         specialTowerStats[0].gameObject.SetActive(true);
-        var greenCoolDelay = FloatToString(tower.explosionRadius * tower.explosionRadiusMultiplier - tower.explosionRadius, "0.0", ",0");
-        specialTowerStats[0].SetData(upgradeCoolDelay.UpgradeSprite, upgradeCoolDelay.upgradeLabel, tower.explosionRadius.ToString(), greenCoolDelay);
+        var greenExplosionRadius = FloatToString(tower.explosionRadius * tower.explosionRadiusMultiplier - tower.explosionRadius, "0.0", ",0");
+        specialTowerStats[0].SetData(upgradeExplosionRadius.UpgradeSprite, upgradeExplosionRadius.upgradeLabel, tower.explosionRadius.ToString(), greenExplosionRadius);
+    }
+    
+    private void SetRailgunValues(Railgun tower)
+    {
+        DisableSpecialStats();
+        
+        //DamageDecrease
+        var upgradeDamageDecrease = tower.upgrades[4];
+        specialTowerStats[0].gameObject.SetActive(true);
+        var greenDamageDecrease = FloatToString(tower.dmgMultiplier * tower.dmgMultiplierMultiplier - tower.dmgMultiplier, "0.00", ",00");
+        specialTowerStats[0].SetData(upgradeDamageDecrease.UpgradeSprite, upgradeDamageDecrease.upgradeLabel, tower.dmgMultiplier.ToString(), greenDamageDecrease);
+        
+        //MinDamage
+        var upgradeMinDamage = tower.upgrades[5];
+        specialTowerStats[1].gameObject.SetActive(true);
+        var greenMinDamage = FloatToString(tower.minDmg * tower.minDmgMultiplier - tower.minDmg, "0.0", ",0");
+        specialTowerStats[1].SetData(upgradeMinDamage.UpgradeSprite, upgradeMinDamage.upgradeLabel, tower.minDmg.ToString(), greenMinDamage);
     }
 }
