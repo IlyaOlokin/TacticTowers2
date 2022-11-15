@@ -6,11 +6,12 @@ using UnityEngine;
 public class Frostgun : Tower
 {
     public float freezeTime;
-    [SerializeField] private float freezeStacksPerHit;
+    public float freezeTimeMultiplier;
+    public float freezeStacksPerHit;
     public float freezeStacksPerHitMultiplier;
     [SerializeField] private GameObject frostBox;
 
-    [SerializeField] private int freezeStacksNeeded;
+    public int freezeStacksNeeded;
     private GameObject currentEnemy;
     private GameObject activeFrostBox;
     [SerializeField] private GameObject frostEffect;
@@ -59,7 +60,7 @@ public class Frostgun : Tower
                 
                 activeFrostBox.GetComponent<FrostBox>().dmg = GetDmg();
                 activeFrostBox.GetComponent<FrostBox>().attackSpeed = GetAttackSpeed();
-                activeFrostBox.GetComponent<FrostBox>().freezeTime = freezeTime;
+                activeFrostBox.GetComponent<FrostBox>().freezeTime = freezeTime * freezeTimeMultiplier;
                 activeFrostBox.GetComponent<FrostBox>().freezeStacksPerHit = GetFreezeStacksPerHit();
                 activeFrostBox.GetComponent<FrostBox>().freezeStacksNeeded = freezeStacksNeeded;
                 
@@ -90,16 +91,14 @@ public class Frostgun : Tower
     
     private float GetFrostDistance(GameObject enemy)
     {
-        if(CheckWallCollision(transform.position, enemy.transform.position, true) != null)
+        if(CheckWallCollision(transform.position, enemy.transform.position, GetShootDistance(), true) != null)
         {
             var fireDistance = Vector2.Distance(transform.position,
                 GetRayImpactPoint(transform.position, enemy.transform.position, true));
             return fireDistance;
         }
-        else
-        {
-            return GetShootDistance();
-        }
+        
+        return GetShootDistance();
     }
 
     private void DestroyFrostBox()

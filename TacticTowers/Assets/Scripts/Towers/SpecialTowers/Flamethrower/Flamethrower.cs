@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Flamethrower : Tower
 {
-    [SerializeField] private float burnDmg;
+    public float burnDmg;
     public float burnDmgMultiplier;
     public float burnTime;
+    public float burnTimeMultiplier;
     [SerializeField] private GameObject flameBox;
     [SerializeField] private Transform flameStartPos;
     
@@ -57,7 +58,7 @@ public class Flamethrower : Tower
                 activeFlameBox.GetComponent<FlameBox>().dmg = GetDmg();
                 activeFlameBox.GetComponent<FlameBox>().attackSpeed = GetAttackSpeed();
                 activeFlameBox.GetComponent<FlameBox>().burnDmg = GetBurnDmg();
-                activeFlameBox.GetComponent<FlameBox>().burnTime = burnTime;
+                activeFlameBox.GetComponent<FlameBox>().burnTime = burnTime * burnTimeMultiplier;
                 
                 //activeFlameBox.GetComponent<FlameBox>().flameStartPos = flameStartPos.position;
                 //activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, GetShootDistance());
@@ -85,16 +86,14 @@ public class Flamethrower : Tower
 
     private float GetFireDistance(GameObject enemy)
     {
-        if(CheckWallCollision(transform.position, enemy.transform.position, true) != null)
+        if(CheckWallCollision(transform.position, enemy.transform.position, GetShootDistance(), true) != null)
         {
             var fireDistance = Vector2.Distance(transform.position,
                 GetRayImpactPoint(transform.position, enemy.transform.position, true));
             return fireDistance;
         }
-        else
-        {
-            return GetShootDistance();
-        }
+        
+        return GetShootDistance();
     }
 
     private void DestroyFlameBox()

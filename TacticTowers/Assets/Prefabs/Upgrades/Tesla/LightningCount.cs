@@ -6,6 +6,6 @@ public class LightningCount : Upgrade
 {
     public override void Execute(Tower tower)
     {
-        tower.transform.GetComponent<Tesla>().lightningCount += (int) actualBonus;
+        tower.transform.GetComponent<Tesla>().bonusLightningCount += (int) actualBonus;
     }
 }

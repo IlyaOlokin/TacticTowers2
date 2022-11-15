@@ -13,6 +13,7 @@ public class TowerUpgrade : MonoBehaviour
     private float dragDistanceLimit = 0.1f;
     
     [SerializeField] private GameObject upgradeMenu;
+    [SerializeField] private GameObject towerStatWindow;
     public Tower tower;
     [SerializeField] private GameObject upgradeWindow;
     private TowerDrag td;
@@ -87,7 +88,15 @@ public class TowerUpgrade : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("ButtonClick1");
         }
     }
-
+    public void OpenTowerStatWindow()
+    {
+        towerStatWindow.SetActive(true);
+        upgradeMenu.SetActive(false);
+        towerStatWindow.GetComponent<TowerStatWindow>().SetTower(GetComponent<TowerDrag>().tower);
+            
+        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+    }
+    
     private int GetTowerUpgradePrice()
     {
         if (IsTowerMaxLevel())

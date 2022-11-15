@@ -19,16 +19,16 @@ public class Tower : MonoBehaviour
 
     [SerializeField] protected GameObject towerCanon;
 
-    [SerializeField] private  float shootAngle;
+    public float shootAngle;
     [NonSerialized] public float multiplierShootAngle = 1;
     
-    [SerializeField] private  float shootDistance;
+    public float shootDistance;
     [NonSerialized] public float multiplierShootDistance = 1;
     
-    [SerializeField] private float Dmg;
+    public float Dmg;
     [NonSerialized] public float multiplierDmg = 1;
     
-    [SerializeField] private float attackSpeed;
+    public float attackSpeed;
     [NonSerialized] public float multiplierAttackSpeed = 1;
     
     
@@ -95,12 +95,12 @@ public class Tower : MonoBehaviour
         towerCanon.transform.eulerAngles = new Vector3(0, 0, angle + 90);
     }
 
-    protected float GetDmg()
+    public float GetDmg()
     {
         return Dmg * multiplierDmg * Technologies.DmgMultiplier * GlobalBaseEffects.GetGlobalBaseDmgMultiplier(shootDirection);
     }
     
-    protected float GetAttackSpeed()
+    public float GetAttackSpeed()
     {
         return attackSpeed * multiplierAttackSpeed * GlobalBaseEffects.GetGlobalBaseAttackSpeedMultiplier(shootDirection) * parasiteAttackSpeedMultiplier;
     }
@@ -134,18 +134,23 @@ public class Tower : MonoBehaviour
         enemiesToIgnore = tower.enemiesToIgnore;
     }
     
-    public static Vector3? CheckWallCollision(Vector3 origin, Vector3 target, bool shouldPenetrate)
+    public static Vector3? CheckWallCollision(Vector3 origin, Vector3 target, float shootDistance, bool shouldPenetrate)
     {
         RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, 100f, LayerMask.GetMask("Wall"));
-        if (hit.collider != null && (hit.distance < Vector3.Distance(origin, target) || shouldPenetrate))
-            return hit.point;
-        
+        if (hit.collider != null )
+        {
+            if (hit.distance < Vector3.Distance(origin, target))
+                return hit.point;
+            if (hit.distance < shootDistance && shouldPenetrate)
+                return hit.point;
+        }
+
         return null;
     }
 
     public static Vector3 GetRayImpactPoint(Vector3 origin, Vector3 target, bool shouldPenetrate)
     {
-        var wallCollision = CheckWallCollision(origin, target, shouldPenetrate);
+        var wallCollision = CheckWallCollision(origin, target, 100f, shouldPenetrate);
         if (wallCollision != null)
             return (Vector3) wallCollision;
 

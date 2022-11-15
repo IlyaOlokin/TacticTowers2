@@ -6,6 +6,6 @@ public class MortarExplosionRadius : Upgrade
 {
     public override void Execute(Tower tower)
     {
-        tower.GetComponent<Mortar>().explosionRadius += actualBonus;
+        tower.GetComponent<Mortar>().explosionRadiusMultiplier += actualBonus;
     }
 }

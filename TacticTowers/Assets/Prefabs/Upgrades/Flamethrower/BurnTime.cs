@@ -6,6 +6,6 @@ public class BurnTime : Upgrade
 {
     public override void Execute(Tower tower)
     {
-        tower.transform.GetComponent<Flamethrower>().burnTime += actualBonus;
+        tower.transform.GetComponent<Flamethrower>().burnTimeMultiplier += actualBonus;
     }
 }

@@ -311,7 +311,8 @@ MonoBehaviour:
   - {fileID: 5316641116981540922, guid: 0fa713690dec7c247b7483445fc5b194, type: 3}
   - {fileID: 3848503829217279395, guid: f581efd4e889d374b99f5a0c49be2d01, type: 3}
   - {fileID: -8650853418774628246, guid: 84d02589873608647b3ca225b3cd6e8e, type: 3}
-  freezeTime: 3
+  freezeTime: 2
+  freezeTimeMultiplier: 1
   freezeStacksPerHit: 1
   freezeStacksPerHitMultiplier: 1
   frostBox: {fileID: 6922442246336718825, guid: cf689a042e8baad46b08eb37dfdb02b1, type: 3}

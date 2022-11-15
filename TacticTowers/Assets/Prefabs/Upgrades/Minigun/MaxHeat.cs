@@ -6,6 +6,6 @@ public class MaxHeat : Upgrade
 {
     public override void Execute(Tower tower)
     {
-        tower.gameObject.GetComponent<Minigun>().maxHeat += (int) actualBonus;
+        tower.gameObject.GetComponent<Minigun>().maxHeatMultiplier += actualBonus;
     }
 }

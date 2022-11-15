@@ -6,6 +6,6 @@ public class LaserMaxHeat : Upgrade
 {
     public override void Execute(Tower tower)
     {
-        tower.gameObject.GetComponent<Laser>().maxHeat += (int) actualBonus;
+        tower.gameObject.GetComponent<Laser>().maxHeatMultiplier += actualBonus;
     }
 }

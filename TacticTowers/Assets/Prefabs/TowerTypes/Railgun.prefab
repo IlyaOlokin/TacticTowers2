@@ -220,19 +220,21 @@ MonoBehaviour:
   attackSpeed: 0.6
   shootZone: {fileID: 0}
   upgrades:
-  - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
+  - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
   - {fileID: -3873548290313896563, guid: 2971894abaf8fe24885a1236f80790dc, type: 3}
   - {fileID: 5316641116981540922, guid: 0fa713690dec7c247b7483445fc5b194, type: 3}
-  - {fileID: 3629801774165805403, guid: eedd47c33c850574e80b851d4df7e0a0, type: 3}
   - {fileID: 777154454748209544, guid: 9babc93666d666149890b19701e857fc, type: 3}
+  - {fileID: 3629801774165805403, guid: eedd47c33c850574e80b851d4df7e0a0, type: 3}
   bullet: {fileID: 6687795320453916105, guid: 61c5d802cd316fa4abe31543015e9e83, type: 3}
   railStartPos: {fileID: 4335459407752955100}
   layerMask:
     serializedVersion: 2
     m_Bits: 132
   dmgMultiplier: 0.8
+  dmgMultiplierMultiplier: 1
   minDmg: 0.1
+  minDmgMultiplier: 1
 --- !u!1 &6380372753448526936
 GameObject:
   m_ObjectHideFlags: 0

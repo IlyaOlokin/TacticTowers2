@@ -6,6 +6,6 @@ public class LaserCoolDelay : Upgrade
 {
     public override void Execute(Tower tower)
     {
-        tower.gameObject.GetComponent<Laser>().coolDelay += actualBonus;
+        tower.gameObject.GetComponent<Laser>().coolDelayMultiplier += actualBonus;
     }
 }
