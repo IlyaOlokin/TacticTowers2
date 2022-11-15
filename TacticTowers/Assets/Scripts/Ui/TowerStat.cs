@@ -14,6 +14,10 @@ public class TowerStat : MonoBehaviour
     {
         this.icon.sprite = icon;
         this.statLabel.text = statLabel;
-        value.text = baseValue + "<color=#33FF00> + " + greenValue + "</color>";
+        bool isPositive = greenValue[0] != '-';
+        string color = isPositive ? "33FF00" : "D61F1F";
+        string sign = isPositive ? " + " : " - ";
+        if (!isPositive) greenValue = greenValue.Substring(1);
+        value.text = baseValue + "<color=#" + color + ">" + sign + greenValue + "</color>";
     }
 }
