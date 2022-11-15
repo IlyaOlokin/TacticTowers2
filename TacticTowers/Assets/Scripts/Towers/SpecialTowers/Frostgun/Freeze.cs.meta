@@ -3,7 +3,9 @@ guid: fc01e1ec8084cb541bcb57f05639f11e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - freezeEffect: {fileID: 4128553405824924428, guid: 530ca51cfaf974148b94bdd704b3e04c, type: 3}
+  - enemy: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
