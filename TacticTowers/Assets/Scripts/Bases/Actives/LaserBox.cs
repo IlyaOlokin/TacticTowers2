@@ -62,7 +62,7 @@ public class LaserBox : MonoBehaviour
             var enemy = enemies[i];
             if (enemy != null)
             {
-                enemy.TakeDamage(damage, DamageType.Normal, transform.position);
+                enemy.TakeDamage(damage, DamageType.Fire, transform.position);
             }
         }
     }
