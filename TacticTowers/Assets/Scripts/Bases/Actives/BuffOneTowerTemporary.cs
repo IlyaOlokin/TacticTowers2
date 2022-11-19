@@ -12,6 +12,8 @@ public class BuffOneTowerTemporary : BaseActive
 
     [SerializeField] private float duration;
 
+    [SerializeField] private GameObject buffEffect;
+
     public override void ExecuteActiveAbility()
     {
         UpdateOneTower();
@@ -20,10 +22,12 @@ public class BuffOneTowerTemporary : BaseActive
     private void UpdateOneTower()
     {
         box.SetActive(true);
-        box.GetComponent<UpdateOneTower>().dmgMultiplier = dmgMultiplier;
-        box.GetComponent<UpdateOneTower>().attackSpeedMultiplier = attackSpeedMultiplier;
-        box.GetComponent<UpdateOneTower>().shootAngleMultiplier = shootAngleMultiplier; 
-        box.GetComponent<UpdateOneTower>().shootDistanceMultiplier = shootDistanceMultiplier; 
-        box.GetComponent<UpdateOneTower>().duration = duration;
+        var updateOneTower = box.GetComponent<UpdateOneTower>();
+        updateOneTower.dmgMultiplier = dmgMultiplier;
+        updateOneTower.attackSpeedMultiplier = attackSpeedMultiplier;
+        updateOneTower.shootAngleMultiplier = shootAngleMultiplier; 
+        updateOneTower.shootDistanceMultiplier = shootDistanceMultiplier; 
+        updateOneTower.duration = duration;
+        updateOneTower.buffEffect = buffEffect;
     }
 }

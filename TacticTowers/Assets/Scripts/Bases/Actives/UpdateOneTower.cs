@@ -13,6 +13,8 @@ public class UpdateOneTower : MonoBehaviour
 
     [NonSerialized] public float duration;
 
+    [NonSerialized] public GameObject buffEffect;
+
     private bool isUp;
     private bool isActive;
 
@@ -67,12 +69,14 @@ public class UpdateOneTower : MonoBehaviour
         }
 
         UpTower.GetComponent<TowerDrag>().tower.shootZone.DrawShootZone();
+        var newBuff = Instantiate(buffEffect, UpTower.transform.position, Quaternion.identity, UpTower.transform);
+        Destroy(newBuff, duration);
         StartCoroutine(Return());
     }
 
     private IEnumerator Return()
     {
-        yield return new WaitForSeconds(duration + 0.1f);
+        yield return new WaitForSeconds(duration);
         isActive = false;
         isUp = false;
         UpTower.GetComponent<TowerDrag>().tower.shootZone.DrawShootZone();
