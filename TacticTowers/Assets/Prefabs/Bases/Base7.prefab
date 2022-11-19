@@ -598,11 +598,11 @@ MonoBehaviour:
     \u043E\u0434\u043D\u043E\u0439 \u0431\u0430\u0448\u043D\u0438"
   coolDown: 30
   box: {fileID: 6722472720646499197}
-  dmgMultiplier: 5
-  attackSpeedMultiplier: 5
-  shootAngleMultiplier: 5
-  shootDistanceMultiplier: 5
-  duration: 10
+  dmgMultiplier: 2
+  attackSpeedMultiplier: 2
+  shootAngleMultiplier: 1.5
+  shootDistanceMultiplier: 1.5
+  duration: 5
   buffEffect: {fileID: 8129026926607408868, guid: de9c368cf1166cc498d322014db84ab3, type: 3}
 --- !u!114 &5340991313452885713
 MonoBehaviour:
