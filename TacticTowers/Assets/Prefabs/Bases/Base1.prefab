@@ -505,7 +505,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -5040041125698078803, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  m_Color: {r: 0.2038809, g: 0.7830189, b: 0.13665895, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -658,6 +658,7 @@ MonoBehaviour:
   shootAngleMultiplier: 1
   shootDistanceMultiplier: 1
   duration: 5
+  buffEffect: {fileID: 8129026926607408868, guid: de9c368cf1166cc498d322014db84ab3, type: 3}
 --- !u!114 &-673829969627735174
 MonoBehaviour:
   m_ObjectHideFlags: 0
