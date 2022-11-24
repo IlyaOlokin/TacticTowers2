@@ -791,6 +791,7 @@ MonoBehaviour:
   hpSlider: {fileID: 7883339769136606293}
   maxHp: 100
   canvas: {fileID: 7883339770609276406}
+  unlockCost: 250
   baseImage: {fileID: -5040041125698078803, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
 --- !u!114 &3361917677447161922
 MonoBehaviour:
@@ -806,6 +807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: "\u043F\u043E\u043B\u043D\u0430\u044F \u0437\u0430\u043C\u043E\u0440\u043E\u0437\u043A\u0430
     \u0432\u0440\u0430\u0433\u043E\u0432"
+  activeAbilitySprite: {fileID: 3686259812047226265, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
   coolDown: 30
   box: {fileID: 2772877602412116211}
   duration: 10

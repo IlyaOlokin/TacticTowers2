@@ -6,6 +6,7 @@ public class BaseActive : MonoBehaviour
 {
     
     public string description;
+    public Sprite activeAbilitySprite;
     public float coolDown;
     
 
