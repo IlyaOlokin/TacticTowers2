@@ -8,6 +8,7 @@ public class BaseSelectButton : MonoBehaviour
 {
     [SerializeField] private Image baseImage;
     [NonSerialized] public Sprite baseSprite;
+    public GameObject lockGameObject;
     
 
     [NonSerialized] public int index;
