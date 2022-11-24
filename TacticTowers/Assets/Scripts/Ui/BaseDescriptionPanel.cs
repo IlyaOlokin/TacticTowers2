@@ -11,6 +11,7 @@ public class BaseDescriptionPanel : MonoBehaviour
     [SerializeField] private Image baseImage;
     [SerializeField] private Image baseActiveAbilityImage;
     [SerializeField] private Base defaultBase;
+    [SerializeField] private Text costText;
 
     private void Start()
     {
@@ -25,5 +26,6 @@ public class BaseDescriptionPanel : MonoBehaviour
         passiveDescription.text = "Пассивная способность: " + _base.gameObject.GetComponent<BasePassive>().description;
         baseImage.sprite = _base.baseImage;
         baseActiveAbilityImage.sprite = _base.GetComponent<BaseActive>().activeAbilitySprite;
+        costText.text = _base.unlockCost.ToString();
     }
 }

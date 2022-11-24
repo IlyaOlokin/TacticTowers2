@@ -14,6 +14,7 @@ public class Base : MonoBehaviour
     [NonSerialized] public GameObject baseAbilityMenu;
     [NonSerialized] public Button abilityButton;
     [NonSerialized] public Image coolDownImage;
+    public int unlockCost;
     
     private float abilityTimer = 0;
     private BaseActive ability;
