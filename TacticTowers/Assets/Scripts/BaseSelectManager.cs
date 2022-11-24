@@ -7,7 +7,9 @@ public class BaseSelectManager : MonoBehaviour
 {
     public static GameObject SelectedBase;
     public static int SelectedBaseIndex;
-    
+
+    private List<bool> baseLock;
+
     [SerializeField] private List<GameObject> buttons;
     [SerializeField] private List<GameObject> bases;
     
@@ -16,8 +18,20 @@ public class BaseSelectManager : MonoBehaviour
     
     void Awake()
     {
+        LoadBaseLocks();
         InitializeButtons();
         SelectBase(SelectedBaseIndex);
+    }
+
+    private void LoadBaseLocks()
+    {
+        var s = DataLoader.LoadString("BaseLocks", "10000000");
+        baseLock = new List<bool>();
+        for (var i = 0; i < s.Length; i++)
+        {
+            char _char = s[i];
+            baseLock.Add(_char == '0');
+        }
     }
 
     private void InitializeButtons()
@@ -28,6 +42,7 @@ public class BaseSelectManager : MonoBehaviour
             button.index = i;
             button.BaseSelectManager = this;
             button.baseSprite = bases[i].GetComponent<Base>().baseImage;
+            button.lockGameObject.SetActive(baseLock[i]);
         }
     }
 
