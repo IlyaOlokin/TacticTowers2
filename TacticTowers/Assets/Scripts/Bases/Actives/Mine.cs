@@ -14,6 +14,7 @@ public class Mine : MonoBehaviour
     private bool beenActivated = false;
     public Vector3 targetPos;
     [SerializeField] private float speed;
+    [SerializeField] private GameObject explosionEffect;
 
     private void Start()
     {
@@ -83,6 +84,8 @@ public class Mine : MonoBehaviour
                 enemy.TakeDamage(damage, DamageType.Normal, transform.position);
             }
         }
+        var newExplosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        newExplosion.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
         Destroy(gameObject);
     }
 }
