@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Mine : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class Mine : MonoBehaviour
     private bool beenActivated = false;
     public Vector3 targetPos;
     [SerializeField] private float speed;
+
+    private void Start()
+    {
+        speed *= Random.Range(0.95f, 1.05f);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

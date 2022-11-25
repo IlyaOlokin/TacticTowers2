@@ -808,7 +808,7 @@ MonoBehaviour:
   description: "\u043F\u043E\u043B\u043D\u0430\u044F \u0437\u0430\u043C\u043E\u0440\u043E\u0437\u043A\u0430
     \u0432\u0440\u0430\u0433\u043E\u0432"
   activeAbilitySprite: {fileID: 3686259812047226265, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
-  coolDown: 30
+  coolDown: 300
   box: {fileID: 2772877602412116211}
   duration: 10
   freezeStacksPerHit: 1
@@ -829,12 +829,12 @@ MonoBehaviour:
     \u0438 \u043B\u0435\u0432\u0443\u044E \u043D\u0443 \u043E\u0447 \u0441\u0438\u043B\u044C\u043D\u044B\u043C\u0438,
     \u0430 \u043E\u0442\u0441\u0430\u043B\u044C\u043D\u044B\u0435 \u043D\u0435 \u043E\u0447
     \u0441\u0438\u043B\u044C\u043D\u044B\u043C\u0438"
-  horizontalDmgMultiplier: 1.5
-  horizontalAttackSpeedMultiplier: 1.5
-  horizontalShootAngleMultiplier: 1.1
-  horizontalShootDistanceMultiplier: 1.1
-  verticalDmgMultiplier: 0.75
-  verticalAttackSpeedMultiplier: 0.75
+  horizontalDmgMultiplier: 1.25
+  horizontalAttackSpeedMultiplier: 1.25
+  horizontalShootAngleMultiplier: 1.2
+  horizontalShootDistanceMultiplier: 1.2
+  verticalDmgMultiplier: 0.8
+  verticalAttackSpeedMultiplier: 0.8
   verticalShootAngleMultiplier: 0.9
   verticalShootDistanceMultiplier: 0.9
 --- !u!50 &7883339769755823019

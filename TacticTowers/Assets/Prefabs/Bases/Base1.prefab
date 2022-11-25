@@ -636,6 +636,7 @@ MonoBehaviour:
   hpSlider: {fileID: 7883339769136606293}
   maxHp: 100
   canvas: {fileID: 7883339770609276406}
+  unlockCost: 0
   baseImage: {fileID: -5040041125698078803, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
 --- !u!114 &4865109854965181385
 MonoBehaviour:
@@ -653,7 +654,7 @@ MonoBehaviour:
     \u0432\u0441\u0435\u0445 \u0431\u0430\u0448\u0435\u043D \u043D\u0430 20% \u043D\u0430
     5 \u0441\u0435\u043A\u0443\u043D\u0434"
   activeAbilitySprite: {fileID: 3686259812047226265, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
-  coolDown: 60
+  coolDown: 180
   dmgMultiplier: 3
   attackSpeedMultiplier: 1
   shootAngleMultiplier: 1

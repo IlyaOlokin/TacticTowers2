@@ -39,8 +39,8 @@ public class MinesSpawner : MonoBehaviour
         var rnd = new Random();
         for (var i = 0; i < countMines; i++)
         {
-            Mine.GetComponent<Mine>().targetPos = new Vector3(GetMousePosition().x + rnd.Next(-100, 101) / 50f * transform.localScale.x,
-                GetMousePosition().y + rnd.Next(-100, 101) / 50f * transform.localScale.y, 0);
+            Mine.GetComponent<Mine>().targetPos = new Vector3(GetMousePosition().x + rnd.Next(-100, 101) / 50f * transform.localScale.x * 2,
+                GetMousePosition().y + rnd.Next(-100, 101) / 50f * transform.localScale.y * 2, 0);
             Instantiate(Mine, GameObject.FindGameObjectWithTag("Base").transform.position, Quaternion.identity);
         }
         GameObject.FindGameObjectWithTag("Base").GetComponent<Base>().UpdateAbilityTimer();

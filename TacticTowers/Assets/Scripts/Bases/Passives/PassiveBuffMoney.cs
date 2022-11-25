@@ -11,10 +11,10 @@ public class PassiveBuffMoney : BasePassive
         switch (Time.timeScale)
         {
             case 2:
-                Money.AddMoney(moneyAmount * Time.timeScale * Time.deltaTime);
+                Money.AddMoney(moneyAmount * Time.deltaTime);
                 break;
             case 4:
-                Money.AddMoney(moneyAmount * Time.timeScale * Time.deltaTime);
+                Money.AddMoney(moneyAmount * Time.deltaTime);
                 break;
         }
     }
