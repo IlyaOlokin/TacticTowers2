@@ -804,8 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd3df47fc07b6748bb524f224f1ab42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: "\u043F\u043E\u043B\u043D\u0430\u044F \u0437\u0430\u043C\u043E\u0440\u043E\u0437\u043A\u0430
-    \u0432\u0440\u0430\u0433\u043E\u0432"
+  description: baseAFreezeEnemies
   coolDown: 30
   box: {fileID: 2772877602412116211}
   duration: 10
@@ -823,10 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23d2df6827d775438db1187d248b685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: "\u0414\u0435\u043B\u0430\u0435\u0442  \u043F\u0440\u0430\u0432\u0443\u044E
-    \u0438 \u043B\u0435\u0432\u0443\u044E \u043D\u0443 \u043E\u0447 \u0441\u0438\u043B\u044C\u043D\u044B\u043C\u0438,
-    \u0430 \u043E\u0442\u0441\u0430\u043B\u044C\u043D\u044B\u0435 \u043D\u0435 \u043E\u0447
-    \u0441\u0438\u043B\u044C\u043D\u044B\u043C\u0438"
+  description: basePBuffHorizontal
   horizontalDmgMultiplier: 1.5
   horizontalAttackSpeedMultiplier: 1.5
   horizontalShootAngleMultiplier: 1.1

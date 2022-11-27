@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a8978b7b8949b4093d3cb671127078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeLabel: "\u0423\u0433\u043E\u043B \u043E\u0431\u0441\u0442\u0440\u0435\u043B\u0430"
-  upgradeText: "+{0}% \u043A \u0443\u0433\u043B\u0443 \u043E\u0431\u0441\u0442\u0440\u0435\u043B\u0430"
+  upgradeLabel: upgradeAngle
+  upgradeText: upgradeAngleDesc
   bonusForFormatting: 25
   UpgradeSprite: {fileID: 162166617212675220, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
   bonus: 0.25

@@ -778,6 +778,7 @@ GameObject:
   - component: {fileID: 6798693771991130096}
   - component: {fileID: 6798693771991130098}
   - component: {fileID: 6798693771991130097}
+  - component: {fileID: 4712043176728169195}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -846,6 +847,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0423\u041B\u0423\u0427\u0428\u0418\u0422\u042C"
+--- !u!114 &4712043176728169195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6798693771991130103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4527f9ca4bde944be7220a4ec6bdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 6798693771991130097}
+  key: fieldUpButtonText
 --- !u!1 &6798693772070930149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,7 +1024,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6798693772122129727
 MonoBehaviour:
   m_ObjectHideFlags: 0

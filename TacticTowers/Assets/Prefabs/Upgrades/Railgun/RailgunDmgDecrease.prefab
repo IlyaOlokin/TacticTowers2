@@ -43,10 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 774e13f7509a13247b65e9c2930ada81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeLabel: "\u0423\u0440\u043E\u043D \u043F\u043E\u0441\u043B\u0435 \u043F\u0440\u043E\u0431\u0438\u0442\u0438\u044F"
-  upgradeText: "-{0}% \u043E\u0442 \u0441\u043D\u0438\u0436\u0435\u043D\u0438\u044F
-    \u0443\u0440\u043E\u043D\u0430 \u043F\u043E\u0441\u043B\u0435 \u043F\u0440\u043E\u0431\u0438\u0442\u0438\u044F
-    \u0432\u0440\u0430\u0433\u0430"
+  upgradeLabel: upgradeRailDamgDrop
+  upgradeText: upgradeRailDamgDropDesc
   bonusForFormatting: 5
   UpgradeSprite: {fileID: 5785148765486710552, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
   bonus: 0.05

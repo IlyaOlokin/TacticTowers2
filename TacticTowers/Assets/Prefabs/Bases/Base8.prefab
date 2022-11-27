@@ -532,9 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa679c57d4633274c9ddbfe1d11774ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: "\u0432\u0440\u0435\u043C\u0435\u043D\u043D\u0430\u044F \u0437\u043E\u043D\u0430
-    \u0441 \u043F\u0435\u0440\u0435\u043E\u0434\u0438\u0447\u0435\u0441\u043A\u0438\u043C
-    \u0443\u0440\u043E\u043D\u043E\u043C"
+  description: baseAPeriodDamage
   coolDown: 30
   box: {fileID: 8752304147856741057}
   duration: 10
@@ -550,8 +548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23d2df6827d775438db1187d248b685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: "\u0414\u0435\u043B\u0430\u0435\u0442 \u0432\u0435\u0440\u0445\u043D\u044E\u044E
-    \u0438 \u043D\u0438\u0436\u043D\u044E\u044E \u0441\u0438\u043B\u044C\u043D\u044B\u043C\u0438"
+  description: basePBuffVertical
   horizontalDmgMultiplier: 0.75
   horizontalAttackSpeedMultiplier: 0.75
   horizontalShootAngleMultiplier: 0.9

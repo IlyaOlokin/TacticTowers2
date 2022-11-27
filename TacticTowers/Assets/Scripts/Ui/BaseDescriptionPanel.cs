@@ -20,8 +20,8 @@ public class BaseDescriptionPanel : MonoBehaviour
 
     public void GetBaseInfo(Base _base)
     {
-        activeDescription.text = "Активная способнсть: " + _base.gameObject.GetComponent<BaseActive>().description;
-        passiveDescription.text = "Пассивная способность: " + _base.gameObject.GetComponent<BasePassive>().description;
+        activeDescription.GetComponent<TextLocaliser>().SetKey(_base.gameObject.GetComponent<BaseActive>().description);
+        passiveDescription.GetComponent<TextLocaliser>().SetKey(_base.gameObject.GetComponent<BasePassive>().description);
         baseImage.sprite = _base.baseImage;
     }
 }

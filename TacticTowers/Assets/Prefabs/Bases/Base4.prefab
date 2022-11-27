@@ -137,8 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63fc69ffb19e4614db59101d96dd25ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: "\u0432\u043F\u0435\u043C\u0435\u043D\u043D\u043E\u0435 \u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435
-    \u0441\u0443\u043F\u0435\u0440 \u043B\u0443\u0447\u043E\u043C \u043C\u044B\u0448\u043A\u043E\u0439"
+  description: baseASuperLaser
   coolDown: 30
   box: {fileID: 2794868782469776626}
   duration: 30
@@ -154,9 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7ca8a5160b06b940acb4c86a97aecc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: "\u0437\u0430\u043C\u0435\u0434\u043B\u044F\u0435\u0442 \u0432\u0440\u0430\u0433\u043E\u0432
-    \u043D\u043E \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
-    \u0438\u043C \u0445\u043F"
+  description: basePSlowDown
   box: {fileID: 2252019702364704714}
   SlowingDownSpeed: 2
   IncreasingHp: 5
