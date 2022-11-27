@@ -3749,36 +3749,66 @@ MonoBehaviour:
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: 994e1704b258d8a4392e2f1e6df007cf, type: 2}
     bossTransform: {fileID: 1934712959}
-  - moneyForWave: 2900
+  - moneyForWave: 2600
     seconds: 5
-    waveScale: 1
+    waveScale: 0.9
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
-  - moneyForWave: 4000
+  - moneyForWave: 3000
     seconds: 60
-    waveScale: 1.3
+    waveScale: 1.2
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
-  - moneyForWave: 5300
+  - moneyForWave: 3450
     seconds: 60
-    waveScale: 1.5
+    waveScale: 1.4
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
-  - moneyForWave: 6800
+  - moneyForWave: 3950
     seconds: 60
-    waveScale: 1.9
+    waveScale: 1.7
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
-  - moneyForWave: 9500
+  - moneyForWave: 5000
     seconds: 60
     waveScale: 0
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: 78d57718c48f6774d992eb1fb2d5ee83, type: 2}
     bossTransform: {fileID: 737431359}
+  - moneyForWave: 5800
+    seconds: 5
+    waveScale: 0.9
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
+  - moneyForWave: 6800
+    seconds: 60
+    waveScale: 1.2
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
+  - moneyForWave: 8000
+    seconds: 60
+    waveScale: 1.4
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
+  - moneyForWave: 9500
+    seconds: 60
+    waveScale: 1.7
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
+  - moneyForWave: 11500
+    seconds: 60
+    waveScale: 0
+    isSpecial: 1
+    specialEnemySet: {fileID: 11400000, guid: bd1a0c2c92283bb43aeca5a1bca0ec88, type: 2}
+    bossTransform: {fileID: 1934712959}
   enemySetGroups:
   - enemySets:
     - {fileID: 11400000, guid: e32718a4af06b9b46a76df3443f511f7, type: 2}
@@ -3831,6 +3861,23 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 249fea4a136260244bf3f9744da6927b, type: 2}
     minWave: 10
     maxWave: 14
+  - enemySets:
+    - {fileID: 11400000, guid: ac26e84d9b6ecbb458697a351b768d42, type: 2}
+    - {fileID: 11400000, guid: caf788c858b9a0a4a9439038934953de, type: 2}
+    - {fileID: 11400000, guid: 75249a8b7d632bb4498d15ca2b7b275e, type: 2}
+    - {fileID: 11400000, guid: f49d2763ba11af5469994f9545de5247, type: 2}
+    - {fileID: 11400000, guid: f49f35ce27f949f44ae661246b814451, type: 2}
+    - {fileID: 11400000, guid: c884332083baf6d4794d1aadbe99fde6, type: 2}
+    - {fileID: 11400000, guid: 4dcb69898aad5e84390da475373381c1, type: 2}
+    - {fileID: 11400000, guid: 1604365a66cc2fa42953af9a016006b2, type: 2}
+    - {fileID: 11400000, guid: 284fdc2c51ab2f5469447fd5bd4bb355, type: 2}
+    - {fileID: 11400000, guid: 8447a358b3566a247b9582a42ae006dd, type: 2}
+    - {fileID: 11400000, guid: 44081005495f4c640a615f64ee6fcd37, type: 2}
+    - {fileID: 11400000, guid: 1ac7bdfd8a089d941a2ff55a8386e0fa, type: 2}
+    - {fileID: 11400000, guid: 1b8ac52d6a6946e4487bf6efdea74649, type: 2}
+    - {fileID: 11400000, guid: 52a7feb4fad65824ebb7e541cf54d930, type: 2}
+    minWave: 15
+    maxWave: 19
   spawnZoneRight: {fileID: 1064235504}
   spawnZoneTop: {fileID: 709855207}
   spawnZoneLeft: {fileID: 920033258}
@@ -3893,7 +3940,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0078125, y: 0.9256301}
   m_AnchorMax: {x: 0.09354168, y: 0.9888852}
-  m_AnchoredPosition: {x: 295.91446, y: -58.80005}
+  m_AnchoredPosition: {x: 295.91452, y: -58.80005}
   m_SizeDelta: {x: 132.91, y: -20.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371763077
