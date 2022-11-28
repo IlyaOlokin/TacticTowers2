@@ -650,10 +650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72811140c36ecf745b372fea97df6acf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: "\u0443\u0441\u0438\u043B\u0438\u0432\u0430\u0435\u0442 \u0443\u0440\u043E\u043D
-    \u0432\u0441\u0435\u0445 \u0431\u0430\u0448\u0435\u043D \u043D\u0430 20% \u043D\u0430
-    5 \u0441\u0435\u043A\u0443\u043D\u0434"
-  activeAbilitySprite: {fileID: 3686259812047226265, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
+  description: baseABuffAll
   coolDown: 180
   dmgMultiplier: 3
   attackSpeedMultiplier: 1
@@ -673,7 +670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f13489afb5091342b45f6deef7b604d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: "\u0421\u043B\u0430\u0431\u044B\u0439 \u0440\u0435\u0433\u0435\u043D"
+  description: basePRegen
   regenAmount: 1
 --- !u!50 &7883339769755823019
 Rigidbody2D:

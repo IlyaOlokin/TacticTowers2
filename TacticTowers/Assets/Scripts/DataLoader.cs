@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class DataLoader : MonoBehaviour
 {
-
     void Start()
     {
         Technologies.BaseHpMultiplier = float.Parse(LoadString("baseHpMultiplier", "1"));
@@ -24,6 +23,9 @@ public class DataLoader : MonoBehaviour
         Technologies.MinUpgradePrice = LoadInt("minUpgradePrice", 10);
 
         BaseSelectManager.SelectedBaseIndex = LoadInt("selectedBaseIndex", 0);
+
+        Localisation.CurrentLanguage = (Language)LoadInt("currentLanguage", 0);
+        Localisation.OnLanguageChanged.Invoke();
     }
 
     private void Update()

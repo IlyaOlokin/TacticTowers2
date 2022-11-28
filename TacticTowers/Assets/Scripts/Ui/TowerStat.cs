@@ -13,7 +13,7 @@ public class TowerStat : MonoBehaviour
     public void SetData(Sprite icon, string statLabel, string baseValue, string greenValue)
     {
         this.icon.sprite = icon;
-        this.statLabel.text = statLabel;
+        this.statLabel.GetComponent<TextLocaliser>().SetKey(statLabel);
         bool isPositive = greenValue[0] != '-';
         string color = isPositive ? "33FF00" : "D61F1F";
         string sign = isPositive ? " + " : " - ";
