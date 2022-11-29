@@ -1,0 +1,117 @@
+menuPlayButton:Play
+menuTechButton:Technologies
+menuMenuButton:Menu
+menuRestartButton:Restart
+menuCancelButton:Cancel
+menuNextButton:Next
+techsHeader:Technologies
+techsUpHealth:Base health
+techsUpDamage:Global damage
+techsUpShootAngle:Global shoot angle
+techsUpCreditsEarning:Credits earning
+techsFrostgun:Frostgun
+techsFlamethrower:Flamethrower
+techsRailgun:Railgun
+techsTesla:Tesla
+baseActiveText:Active ability
+baseABuffAll:buffs the damage of all towers by 20% for 5 seconds
+baseAMines:throws mines in the chosen area
+baseAFreezeEnemies:fully freezes the enemies
+baseASuperLaser:grants a temporary control over a super laser
+baseAMassiveDamage:super powerful AOE
+baseATempBuffMoney:temporarily increases credits earning
+baseATempBuffOne:temporarily buffs one tower
+baseAPeriodDamage:temporary periodical damage zone
+basePassiveText:Passive ability
+basePRegen:Weak regen
+basePBuffAngle:increases shoot angle but decreases damage
+basePBuffHorizontal:Makes right and left towers very powerful but makes other very weak
+basePSlowDown:slows down the enemies but increases their health
+basePSpeedupEnemies:speeds up the enemies
+basePBuffOne:big buff of one tower
+basePBuffMoney:passive credits earning
+basePBuffVertical:makes top and bot towers powerful
+fieldWave:Wave
+fieldBossIncome:BOSS INCOMING!
+fieldUpChoose:Choose the upgrade
+fieldUpTypeChoose:Choose tower type
+fieldUpButtonText:UPGRADE
+upgradeDamage:Damage
+upgradeDamageDesc:+{0}% to damage
+upgradeFirerate:Firerate
+upgradeFirerateDesc:+{0}% to firerate
+upgradeBallistic:Ballistic
+upgradeBallisticDesc:+{0}% to attack range
+upgradeAngle:Shoot angle
+upgradeAngleDesc:+{0}% to shoot angle
+upgradeFlameBurnDmg:Burn damage
+upgradeFlameBurnDmgDesc:+{0}% to burn damage
+upgradeFlameBurnDur:Burn duration
+upgradeFlameBurnDurDesc:+{0} seconds to burn duration
+upgradeFrostFreezeDur:Freeze duration
+upgradeFrostFreezeDurDesc:+{0} seconds to freeze duration
+upgradeFrostFreezeSpeed:Freeze speed
+upgradeFrostFreezeSpeedDec:+{0}% to freeze speed
+upgradeLaserCool:Cooling down
+upgradeLaserCoolDesc:+{0} seconds before cooling down
+upgradeLaserHeatBonus:Heat effectiveness
+upgradeLaserHeatBonusDesc:+{0}% to damage per heat stack
+upgradeLaserMaxHeat:Heat
+upgradeLaserMaxHeatDesc:+{0} to max heat stacks
+upgradeMinigunMaxHeat:Heat
+upgradeMinigunMaxHeatDesc:+{0} to max heat stacks
+upgradeMinigunCool:Cooling down
+upgradeMinigunCoolDesc:+{0} seconds before cooling down
+upgradeMinigunHeatBonus:Heat effectiveness
+upgradeMinigunHeatBonusDesc:+{0}% to attack speed per heat stack
+upgradeMortarRadius:Explosion radius
+upgradeMortarRadiusDesc:+{0}% to explosion radius
+upgradeRailDamgDrop:Damage dropoff
+upgradeRailDamgDropDesc:-{0}% off damage reduction after enemy penetration
+upgradeRailMinDmg:Lowest damage
+upgradeRailMinDmgDesc:+{0}% to lowest damage
+upgradeShotgunCount:Bullet amount
+upgradeShotgunCountDesc:+{0} bullets per shot
+upgradeTeslaBounceAmount:Bounce amount
+upgradeTeslaBounceAmountDesc:+{0} lightning bounces per shot
+upgradeTeslaBounceRadius:Bounce radius
+upgradeTeslaBounceRadiusDesc:+{0}% to lightning bounce radius
+upgradeTeslaDmgDrop:Target damage
+upgradeTeslaDmgDropDesc:-{0}% lightning damage reduction
+upgradeFlamethrower:Flamethrower
+upgradeFlamethrowerDesc:Sets enemies on fire
+upgradeFrostgun:Frostgun
+upgradeFrostgunDesc:Slows down and freezes the enemies dealing damage
+upgradeLaser:Laser
+upgradeLaserDesc:Deals more damage over time
+upgradeMinigun:Minigun
+upgradeMinigunDesc:Shoots faster over time
+upgradeMortar:Mortar
+upgradeMortarDesc:Attacks enemies in a large radius
+upgradeRailgun:Railgun
+upgradeRailgunDesc:Attacks through enemies
+upgradeShotgun:Shotgun
+upgradeShotgunDesc:Shoots a shotshell. Effective at point-blank range
+upgradeTesla:Tesla
+upgradeTeslaDesc:Attacks enemies in a chain
+pauseHeader:Pause
+confirmText:Current progress will be lost
+defeatHeader:Result
+finishWavesCompleted:Waves completed
+finishCredits:Credits
+victoryHeader:Victory!
+tutorialSkip:Skip
+tutorialPanel1:These are the resources you have accumulated. You can upgrade tower levels with dollars and buy new technologies with <color=#E37F4D>credits</color>
+tutorialPanel2:You can the wave counter and a timer before the next wave here
+tutorialPanel3:This is your command center. It needs to be defended from the enemies
+tutorialPanel4:You have 4 towers at your disposal. Each of them can only shoot in one direction
+tutorialPanel5:Enemies are heading towards the command center from four sides
+tutorialPanel6:Towers can only shoot the enemis in the <color=#01BA76>green</color> zone
+tutorialPanel7:Your command center has an active ability. To use it press <b>LMB</b> on the center and choose the ability
+tutorialPanel8:All four of you your can be moved by holding <b>LMB</b>. Help the right turret to defeat this enemy group
+tutorialPanel9:As you gather more resources an arrow near the tower level will appear. That means that the turret can be upgraded.
+tutorialPanel10:Press <b>LMB</b> on the tower to upgrade it, then click <b>UPGRADE</b> and choose the upgrade
+tutorialCongrats:Congratulations!
+tutorialDone:Tutorial completed!
+tutorialSkipText:Are you sure you want to skip the tutorial?
+statHeader:Statistics

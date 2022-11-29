@@ -97,9 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDirection: 0
-  towerName: "\u041C\u0438\u043D\u0438\u0433\u0430\u043D"
-  towerDescription: "\u0421\u043E \u0432\u0440\u0435\u043C\u0435\u043D\u0435\u043C
-    \u0441\u0442\u0440\u0435\u043B\u044F\u0435\u0442 \u0431\u044B\u0441\u0442\u0440\u0435\u0435"
+  towerName: upgradeMinigun
+  towerDescription: upgradeMinigunDesc
   towerSprite: {fileID: 8381589813683705289, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   towerCanon: {fileID: 6774156177371616423}
   shootAngle: 40
