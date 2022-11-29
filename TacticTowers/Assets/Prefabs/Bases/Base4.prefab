@@ -138,9 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63fc69ffb19e4614db59101d96dd25ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: "\u0432\u043F\u0435\u043C\u0435\u043D\u043D\u043E\u0435 \u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435
-    \u0441\u0443\u043F\u0435\u0440 \u043B\u0443\u0447\u043E\u043C \u043C\u044B\u0448\u043A\u043E\u0439"
-  activeAbilitySprite: {fileID: 3686259812047226265, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
+  description: baseASuperLaser
   coolDown: 180
   box: {fileID: 2794868782469776626}
   duration: 8
@@ -156,9 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7ca8a5160b06b940acb4c86a97aecc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: "\u0437\u0430\u043C\u0435\u0434\u043B\u044F\u0435\u0442 \u0432\u0440\u0430\u0433\u043E\u0432
-    \u043D\u043E \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
-    \u0438\u043C \u0445\u043F"
+  description: basePSlowDown
   box: {fileID: 2252019702364704714}
   SlowingDownSpeed: 1.4
   IncreasingHp: 1.3

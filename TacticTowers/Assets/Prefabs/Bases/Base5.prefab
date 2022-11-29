@@ -911,9 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01acf7a38ab7424c9f88a835852d44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: "\u0441\u0443\u043F\u0435\u0440 \u0431\u043E\u043B\u044C\u043D\u043E\u0435
-    \u0430\u043E\u0435"
-  activeAbilitySprite: {fileID: 3686259812047226265, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
+  description: baseAMassiveDamage
   coolDown: 260
   box: {fileID: 1273752613236479866}
   damage: 1500
@@ -929,7 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7ca8a5160b06b940acb4c86a97aecc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: "\u0443\u0441\u043A\u043E\u0440\u044F\u0435\u0442 \u0432\u0440\u0430\u0433\u043E\u0432"
+  description: basePSpeedupEnemies
   box: {fileID: 2941296195497512182}
   SlowingDownSpeed: 0.8
   IncreasingHp: 1
