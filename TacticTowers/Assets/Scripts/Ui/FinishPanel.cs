@@ -41,6 +41,7 @@ public class FinishPanel : MonoBehaviour
         baseTransform = _base.gameObject.transform.position;
         Credits.LoseSessionCredits();
     }
+    
     public void OnButtonRestart()
     {
         AudioManager.Instance.Play("ButtonClick1");
