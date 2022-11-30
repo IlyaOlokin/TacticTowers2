@@ -106,9 +106,10 @@ public class UpgradeWindow : MonoBehaviour
         Button.onClick.AddListener(() => upgrade.Execute(tower));
         Button.onClick.AddListener(() => gameObject.SetActive(false));
         Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
-        
-        upgradeButton.upgradeLabel.text = upgrade.upgradeLabel;
-        upgradeButton.upgradeText.text = upgrade.FormatUpgradeText(isSuper);
+
+        upgradeButton.upgradeLabel.GetComponent<TextLocaliser>().SetKey(upgrade.upgradeLabel);
+        upgradeButton.upgradeText.GetComponent<TextLocaliser>().SetKey(upgrade.GetUpgradeText());
+        upgradeButton.upgradeText.text = string.Format(upgradeButton.upgradeText.text, isSuper ? upgrade.GetBonusForFormatting() * 2 : upgrade.GetBonusForFormatting());// upgrade.FormatUpgradeText(isSuper);
         upgradeButton.upgradeImage.sprite = upgrade.UpgradeSprite;
     }
 
@@ -142,8 +143,8 @@ public class UpgradeWindow : MonoBehaviour
         Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
 
         var towerComponent = towerTypes[upgradeIndex].GetComponent<Tower>();
-        upgradeButton.upgradeLabel.text = towerComponent.towerName;
-        upgradeButton.upgradeText.text =  towerComponent.towerDescription;
+        upgradeButton.upgradeLabel.GetComponent<TextLocaliser>().SetKey(towerComponent.towerName);
+        upgradeButton.upgradeText.GetComponent<TextLocaliser>().SetKey(towerComponent.towerDescription);
         upgradeButton.upgradeImage.sprite = towerComponent.towerSprite;
     }
 
@@ -164,6 +165,7 @@ public class UpgradeWindow : MonoBehaviour
     {
         ChangeButtonsVisual(typeUpgradeSprite, typeUpgradeText);
     }
+    
     private void ChangeVisualOnTowerUpgrade()
     {
         ChangeButtonsVisual(upgradeSprite, upgradeText);
@@ -174,7 +176,7 @@ public class UpgradeWindow : MonoBehaviour
         foreach (var button in upgradeButtons)
         {
             button.GetComponent<UpgradeButton>().ChangeSprite(imageSprite);
-            label.text = labelText;
+            label.GetComponent<TextLocaliser>().SetKey(labelText);
         }
     }
 }

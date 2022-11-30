@@ -73,18 +73,20 @@ public class Enemy : MonoBehaviour
         agent.avoidancePriority = (int) (agent.avoidancePriority * multiplier);
     }
     
-    public void TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos)
+    public bool TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos)
     {
         
         hp -= dmg;
         var newEffect = Instantiate(damageNumberEffect, transform.position, Quaternion.identity);
         newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
-        if (hp < 0 && isDead) return;
+        if (hp < 0 && isDead) return true;
         
         if (hp <= 0 && !isImmortal)
         {
             OnDeath(damageType, damagerPos);
+            return true;
         }
+        return false;
     }
     private void OnDeath(DamageType damageType, Vector3 killerPos)
     {
@@ -121,6 +123,7 @@ public class Enemy : MonoBehaviour
 
     private void DieFire(Material newMaterial)
     {
+        EnemySpawner.enemies.Remove(gameObject);
         GetComponent<SpriteRenderer>().material = newMaterial;
         agent.enabled = false;
         GetComponent<Collider2D>().enabled = false;

@@ -210,10 +210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDirection: 90
-  towerName: "\u041B\u0430\u0437\u0435\u0440"
-  towerDescription: "\u0421\u043E \u0432\u0440\u0435\u043C\u0435\u043D\u0435\u043C
-    \u043D\u0430\u043D\u043E\u0441\u0438\u0442 \u0431\u043E\u043B\u044C\u0448\u0435
-    \u0443\u0440\u043E\u043D\u0430"
+  towerName: upgradeLaser
+  towerDescription: upgradeLaserDesc
   towerSprite: {fileID: -2292894377180829065, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   towerCanon: {fileID: 4597013019795596408}
   shootAngle: 35
@@ -223,15 +221,19 @@ MonoBehaviour:
   shootZone: {fileID: 0}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
-  - {fileID: 8307493877692170530, guid: 2c57b92c00f8c0e459e6a62244163443, type: 3}
+  - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
   - {fileID: -3873548290313896563, guid: 2971894abaf8fe24885a1236f80790dc, type: 3}
   - {fileID: 5316641116981540922, guid: 0fa713690dec7c247b7483445fc5b194, type: 3}
+  - {fileID: -6665357679909551626, guid: 8e241a0e8de18804f8072fd813e5d0d7, type: 3}
+  - {fileID: 8307493877692170530, guid: 2c57b92c00f8c0e459e6a62244163443, type: 3}
   - {fileID: -5293415987209700153, guid: e56e983a6e4ede84f8921df25f8ecc16, type: 3}
-  - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
   laserBim: {fileID: 6922442246336718825, guid: a9e332a7c215fcd42b7d2aba60f6fa34, type: 3}
   maxHeat: 10
+  maxHeatMultiplier: 1
   multiplierPerHeatStack: 0.05
+  multiplierPerHeatStackMultiplier: 1
   coolDelay: 5
+  coolDelayMultiplier: 1
   contactFilter:
     useTriggers: 0
     useLayerMask: 0

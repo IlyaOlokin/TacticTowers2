@@ -6,7 +6,7 @@ public class RailGunMinDmg : Upgrade
 {
     public override void Execute(Tower tower)
     {
-        tower.transform.GetComponent<Railgun>().minDmg += actualBonus;
+        tower.transform.GetComponent<Railgun>().minDmgMultiplier += actualBonus;
     }
 }
 

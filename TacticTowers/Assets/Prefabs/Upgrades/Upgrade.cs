@@ -25,6 +25,8 @@ public class Upgrade : MonoBehaviour
         return String.Format(upgradeText, superUpgrade ? bonusForFormatting * 2 : bonusForFormatting);
     }
 
+    public string GetUpgradeText() => upgradeText;
+    public float GetBonusForFormatting() => bonusForFormatting;
     public void ApplyBonusIncrement(bool superUpgrade)
     {
         actualBonus = bonus;

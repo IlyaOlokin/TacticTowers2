@@ -9,6 +9,7 @@ public class Shotgun : Tower
     [SerializeField] private float bulletSpeed;
     [SerializeField] private float angleBetweenBullets;
     public int bulletCount;
+    public int bonusBullets;
     
     void Update()
     {
@@ -23,12 +24,12 @@ public class Shotgun : Tower
         
         if (shootDelayTimer <= 0)
         {
-            for (var i = 1; i <= bulletCount; i++)
+            for (var i = 1; i <= bulletCount + bonusBullets; i++)
             {
                 var towerRot = towerCanon.transform.eulerAngles;
                 var bulletAngle = 0f;
             
-                if (bulletCount % 2 == 1)
+                if ((bulletCount + bonusBullets) % 2 == 1)
                     bulletAngle = i / 2 * angleBetweenBullets * (i % 2 == 0 ? 1 : -1f);
                 else
                     bulletAngle = i / 2 * angleBetweenBullets * (i % 2 == 0 ? 1 : -1f) -

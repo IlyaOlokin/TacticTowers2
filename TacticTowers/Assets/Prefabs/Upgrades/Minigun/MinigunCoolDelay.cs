@@ -6,6 +6,6 @@ public class MinigunCoolDelay : Upgrade
 {
     public override void Execute(Tower tower)
     {
-        tower.gameObject.GetComponent<Minigun>().coolDelay += actualBonus;
+        tower.gameObject.GetComponent<Minigun>().coolDelayMultiplier += actualBonus;
     }
 }

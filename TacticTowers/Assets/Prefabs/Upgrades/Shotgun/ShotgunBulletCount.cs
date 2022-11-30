@@ -6,6 +6,6 @@ public class ShotgunBulletCount : Upgrade
 {
     public override void Execute(Tower tower)
     {
-        tower.GetComponent<Shotgun>().bulletCount += (int) actualBonus;
+        tower.GetComponent<Shotgun>().bonusBullets += (int) actualBonus;
     }
 }

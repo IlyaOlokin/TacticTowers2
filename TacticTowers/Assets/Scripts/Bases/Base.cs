@@ -14,6 +14,7 @@ public class Base : MonoBehaviour
     [NonSerialized] public GameObject baseAbilityMenu;
     [NonSerialized] public Button abilityButton;
     [NonSerialized] public Image coolDownImage;
+    public int unlockCost;
     
     private float abilityTimer = 0;
     private BaseActive ability;
@@ -67,8 +68,12 @@ public class Base : MonoBehaviour
     {
         if (abilityTimer > 0) return;
         
-        abilityTimer = ability.coolDown;
         ability.ExecuteActiveAbility();
+    }
+
+    public void UpdateAbilityTimer()
+    {
+        abilityTimer = ability.coolDown;
     }
 
     private void UpdateCoolDownImage()

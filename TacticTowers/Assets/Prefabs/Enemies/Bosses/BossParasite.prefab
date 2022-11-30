@@ -220,9 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206918b2fa1b04948851d12df340955d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  maxHp: 5000
-  enemyComp: {fileID: 5937050097135992821}
+  icon: {fileID: -7779545166641589506, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   shootDelay: 15
   parasiteLine: {fileID: 5601598668952223541, guid: 0a488da11f45e7141b27f14b66d4c78e, type: 3}
   parasite: {fileID: 5937050097135992818, guid: 9280c800eaefa714cbdc531f01fed1a5, type: 3}
@@ -240,10 +238,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 80
-  hp: 5000
+  hp: 10000
   creditsDropChance: 100
-  weight: 25
-  isImmortal: 0
+  weight: 225
   damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
   deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
   burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}

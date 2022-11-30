@@ -34,4 +34,18 @@ public class MainMenu : MonoBehaviour
         AudioManager.Instance.Play("ButtonClick1");
         SceneManager.LoadScene("TechsMenu");
     }
+
+    public void OnButtonChangeLanguage(int language)
+    {
+        AudioManager.Instance.Play("ButtonClick1");
+        Localisation.CurrentLanguage = (Language)language;
+        DataLoader.SaveInt("currentLanguage", language);
+        Localisation.OnLanguageChanged.Invoke();
+    }
+
+    public void OnButtonTutorial()
+    {
+        AudioManager.Instance.Play("ButtonClick2");
+        SceneManager.LoadScene("Tutorial");
+    }
 }

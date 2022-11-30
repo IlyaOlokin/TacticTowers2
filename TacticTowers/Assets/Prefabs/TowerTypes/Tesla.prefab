@@ -97,9 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDirection: 180
-  towerName: "\u0422\u0435\u0441\u043B\u0430"
-  towerDescription: "\u0411\u044C\u0435\u0442 \u0432\u0440\u0430\u0433\u043E\u0432
-    \u043F\u043E \u0446\u0435\u043F\u0438"
+  towerName: upgradeTesla
+  towerDescription: upgradeTeslaDesc
   towerSprite: {fileID: 9028847086568246414, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   towerCanon: {fileID: 4574035871672996920}
   shootAngle: 55
@@ -108,8 +107,8 @@ MonoBehaviour:
   attackSpeed: 0.6
   shootZone: {fileID: 0}
   upgrades:
-  - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
+  - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
   - {fileID: -3873548290313896563, guid: 2971894abaf8fe24885a1236f80790dc, type: 3}
   - {fileID: 5316641116981540922, guid: 0fa713690dec7c247b7483445fc5b194, type: 3}
   - {fileID: 5781665040463225641, guid: 8735b3a9cdbb3c74c9fe19a1be13f764, type: 3}
@@ -117,8 +116,11 @@ MonoBehaviour:
   - {fileID: 5242633527358345395, guid: e20d793e133edf94e8d3943f0d6008b6, type: 3}
   lightning: {fileID: 6687795320453916105, guid: 7f85cec6659da3f46b48d58b2ee50461, type: 3}
   lightningCount: 3
+  bonusLightningCount: 0
   dmgDecrease: 0.7
+  dmgDecreaseMultiplier: 1
   lightningJumpDistance: 1.5
+  lightningJumpDistanceMultiplier: 1
 --- !u!1 &4574035871672996920
 GameObject:
   m_ObjectHideFlags: 0

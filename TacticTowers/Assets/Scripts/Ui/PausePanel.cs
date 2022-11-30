@@ -14,6 +14,7 @@ public class PausePanel : MonoBehaviour
     [SerializeField] private Text creditsCount;
     [SerializeField] private GameObject soundButton;
     [SerializeField] private GameObject musicButton;
+    [SerializeField] private GameObject confirmButton;
     private bool isForRestart;
     private float startTimeScale = 1f;
     
@@ -37,7 +38,7 @@ public class PausePanel : MonoBehaviour
     {
         pausePanel.SetActive(false);
         confirmPanel.transform.Find("CreditsCount").transform.Find("Count").GetComponent<Text>().text = creditsCount.text;
-        confirmPanel.transform.Find("Button").transform.Find("Text").GetComponent<Text>().text = isForRestart ? "Заново" : "Меню";
+        confirmButton.transform.Find("Text").GetComponent<TextLocaliser>().SetKey(isForRestart ? "menuRestartButton" : "menuMenuButton"); 
         confirmPanel.SetActive(true);
     }
 

@@ -550,6 +550,7 @@ GameObject:
   - component: {fileID: 74884040}
   - component: {fileID: 74884042}
   - component: {fileID: 74884041}
+  - component: {fileID: 74884043}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -573,8 +574,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 89.25, y: 65.17325}
-  m_SizeDelta: {x: 475.29, y: 40}
+  m_AnchoredPosition: {x: 82.433, y: 59.010002}
+  m_SizeDelta: {x: 468.3, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &74884041
 MonoBehaviour:
@@ -619,6 +620,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 74884039}
   m_CullTransparentMesh: 1
+--- !u!114 &74884043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74884039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4527f9ca4bde944be7220a4ec6bdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 74884041}
+  key: techsUpShootAngle
 --- !u!1 &84380642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,6 +1730,7 @@ GameObject:
   - component: {fileID: 237287179}
   - component: {fileID: 237287181}
   - component: {fileID: 237287180}
+  - component: {fileID: 237287182}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -1738,8 +1754,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 74.41986, y: 62.02417}
-  m_SizeDelta: {x: 446.67, y: 46.55}
+  m_AnchoredPosition: {x: 82.182, y: 55.735004}
+  m_SizeDelta: {x: 468.08, y: 46.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &237287180
 MonoBehaviour:
@@ -1774,7 +1790,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0422\u0435\u0441\u043B\u0430\n"
+  m_Text: "\u0422\u0435\u0441\u043B\u0430"
 --- !u!222 &237287181
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1783,6 +1799,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 237287178}
   m_CullTransparentMesh: 1
+--- !u!114 &237287182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237287178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4527f9ca4bde944be7220a4ec6bdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 237287180}
+  key: techsTesla
 --- !u!1 &237744057
 GameObject:
   m_ObjectHideFlags: 0
@@ -3699,6 +3729,7 @@ GameObject:
   - component: {fileID: 614168857}
   - component: {fileID: 614168859}
   - component: {fileID: 614168858}
+  - component: {fileID: 614168860}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -3722,8 +3753,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20.682983, y: 65.17325}
-  m_SizeDelta: {x: 255.42, y: 40}
+  m_AnchoredPosition: {x: 82.433, y: 59.009995}
+  m_SizeDelta: {x: 468.3, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &614168858
 MonoBehaviour:
@@ -3767,6 +3798,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614168856}
   m_CullTransparentMesh: 1
+--- !u!114 &614168860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614168856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4527f9ca4bde944be7220a4ec6bdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 614168858}
+  key: techsUpHealth
 --- !u!1 &634824067
 GameObject:
   m_ObjectHideFlags: 0
@@ -3778,6 +3823,7 @@ GameObject:
   - component: {fileID: 634824068}
   - component: {fileID: 634824070}
   - component: {fileID: 634824069}
+  - component: {fileID: 634824071}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -3801,8 +3847,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -20.682983, y: 65.17325}
-  m_SizeDelta: {x: 255.42, y: 40}
+  m_AnchoredPosition: {x: 82.433, y: 59.01}
+  m_SizeDelta: {x: 468.3, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &634824069
 MonoBehaviour:
@@ -3846,6 +3892,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634824067}
   m_CullTransparentMesh: 1
+--- !u!114 &634824071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634824067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4527f9ca4bde944be7220a4ec6bdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 634824069}
+  key: techsUpDamage
 --- !u!1 &640260885
 GameObject:
   m_ObjectHideFlags: 0
@@ -5411,6 +5471,7 @@ GameObject:
   - component: {fileID: 996139229}
   - component: {fileID: 996139231}
   - component: {fileID: 996139230}
+  - component: {fileID: 996139232}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -5434,8 +5495,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 74.41986, y: 62.02417}
-  m_SizeDelta: {x: 446.67, y: 46.55}
+  m_AnchoredPosition: {x: 82.182, y: 55.734997}
+  m_SizeDelta: {x: 468.08, y: 46.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &996139230
 MonoBehaviour:
@@ -5479,6 +5540,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996139228}
   m_CullTransparentMesh: 1
+--- !u!114 &996139232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996139228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4527f9ca4bde944be7220a4ec6bdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 996139230}
+  key: techsRailgun
 --- !u!1 &1001446200
 GameObject:
   m_ObjectHideFlags: 0
@@ -6224,6 +6299,7 @@ GameObject:
   - component: {fileID: 1164601386}
   - component: {fileID: 1164601388}
   - component: {fileID: 1164601387}
+  - component: {fileID: 1164601389}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -6247,8 +6323,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 89.25, y: 65.17325}
-  m_SizeDelta: {x: 475.29, y: 40}
+  m_AnchoredPosition: {x: 82.433, y: 59.010014}
+  m_SizeDelta: {x: 468.3, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1164601387
 MonoBehaviour:
@@ -6283,7 +6359,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u0411\u043E\u043B\u044C\u0448\u0435 \u0434\u043E\u0431\u044B\u0447\u0430"
+  m_Text: "\u0414\u043E\u0431\u044B\u0447\u0430 \u043A\u0440\u0435\u0434\u0438\u0442\u043E\u0432"
 --- !u!222 &1164601388
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6292,6 +6368,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164601385}
   m_CullTransparentMesh: 1
+--- !u!114 &1164601389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164601385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4527f9ca4bde944be7220a4ec6bdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 1164601387}
+  key: techsUpCreditsEarning
 --- !u!1 &1165826089
 GameObject:
   m_ObjectHideFlags: 0
@@ -6753,6 +6843,7 @@ GameObject:
   - component: {fileID: 1248320264}
   - component: {fileID: 1248320266}
   - component: {fileID: 1248320265}
+  - component: {fileID: 1248320267}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -6776,8 +6867,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.6640778, y: 0.6660118}
-  m_SizeDelta: {x: -95.33, y: -12.224}
+  m_AnchoredPosition: {x: 0, y: 0.000015258789}
+  m_SizeDelta: {x: 0, y: -0.000022888}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1248320265
 MonoBehaviour:
@@ -6821,6 +6912,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248320263}
   m_CullTransparentMesh: 1
+--- !u!114 &1248320267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248320263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4527f9ca4bde944be7220a4ec6bdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 1248320265}
+  key: menuPlayButton
 --- !u!1 &1278603124
 GameObject:
   m_ObjectHideFlags: 0
@@ -6907,6 +7012,7 @@ GameObject:
   - component: {fileID: 1297050907}
   - component: {fileID: 1297050909}
   - component: {fileID: 1297050908}
+  - component: {fileID: 1297050910}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -6930,8 +7036,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 74.41986, y: 62.02417}
-  m_SizeDelta: {x: 446.67, y: 46.55}
+  m_AnchoredPosition: {x: 82.182, y: 55.735004}
+  m_SizeDelta: {x: 468.08, y: 46.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1297050908
 MonoBehaviour:
@@ -6975,6 +7081,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297050906}
   m_CullTransparentMesh: 1
+--- !u!114 &1297050910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297050906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4527f9ca4bde944be7220a4ec6bdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 1297050908}
+  key: techsFlamethrower
 --- !u!1 &1322677809
 GameObject:
   m_ObjectHideFlags: 0
@@ -8653,7 +8773,7 @@ GameObject:
   - component: {fileID: 1730331017}
   - component: {fileID: 1730331016}
   m_Layer: 5
-  m_Name: MenuButton
+  m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9053,8 +9173,9 @@ GameObject:
   - component: {fileID: 1843499473}
   - component: {fileID: 1843499475}
   - component: {fileID: 1843499474}
+  - component: {fileID: 1843499476}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9076,8 +9197,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.6639304, y: 432.27634}
-  m_SizeDelta: {x: 499.85, y: 127.54}
+  m_AnchoredPosition: {x: 8.72, y: 452.81}
+  m_SizeDelta: {x: 1348.36, y: 106.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1843499474
 MonoBehaviour:
@@ -9121,6 +9242,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843499472}
   m_CullTransparentMesh: 1
+--- !u!114 &1843499476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843499472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4527f9ca4bde944be7220a4ec6bdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 1843499474}
+  key: techsHeader
 --- !u!1 &1849508948
 GameObject:
   m_ObjectHideFlags: 0
@@ -10794,6 +10929,7 @@ GameObject:
   - component: {fileID: 2145642635}
   - component: {fileID: 2145642637}
   - component: {fileID: 2145642636}
+  - component: {fileID: 2145642638}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -10817,8 +10953,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 74.41986, y: 62.02417}
-  m_SizeDelta: {x: 446.67, y: 46.55}
+  m_AnchoredPosition: {x: 82.183, y: 55.735004}
+  m_SizeDelta: {x: 468.09, y: 46.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2145642636
 MonoBehaviour:
@@ -10862,3 +10998,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145642634}
   m_CullTransparentMesh: 1
+--- !u!114 &2145642638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145642634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4527f9ca4bde944be7220a4ec6bdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 2145642636}
+  key: techsFrostgun

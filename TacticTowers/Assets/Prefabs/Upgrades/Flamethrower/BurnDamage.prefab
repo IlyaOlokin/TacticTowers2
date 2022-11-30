@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef43638ae5384e54dbb2c91d5c206c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeLabel: "\u0423\u0440\u043E\u043D \u043E\u0442 \u0433\u043E\u0440\u0435\u043D\u0438\u044F"
-  upgradeText: "+{0}% \u043A \u0443\u0440\u043E\u043D\u0443 \u043E\u0442 \u0433\u043E\u0440\u0435\u043D\u0438\u044F"
+  upgradeLabel: upgradeFlameBurndmg
+  upgradeText: upgradeFlameBurnDmgDesc
   bonusForFormatting: 35
   UpgradeSprite: {fileID: 7923774002771053405, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
   bonus: 0.35

@@ -6,6 +6,6 @@ public class LightningJumpDistance : Upgrade
 {
     public override void Execute(Tower tower)
     {
-        tower.transform.GetComponent<Tesla>().lightningJumpDistance += actualBonus;
+        tower.transform.GetComponent<Tesla>().lightningJumpDistanceMultiplier += actualBonus;
     }
 }

@@ -1476,7 +1476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fecd35052fe90540a9ddb1cc5abfd8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: -7779545166641589506, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   maxHp: 1000
   enemyComp: {fileID: 5937050097135992821}
   tentaclesTips:
@@ -1499,9 +1499,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 45
-  hp: 1000
+  hp: 15000
   creditsDropChance: 100
-  weight: 25
+  weight: 330
   isImmortal: 0
   damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
   deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
