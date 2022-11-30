@@ -18,6 +18,7 @@ public class BossParasite : Boss
     void Update()
     {
         TryToShoot();
+        UpdateHp();
         shootTimer += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.A))
         {

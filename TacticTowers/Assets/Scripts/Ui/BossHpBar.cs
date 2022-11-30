@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BossHpBar : MonoBehaviour
 {
-    private Enemy boss;
+    private Boss boss;
     [SerializeField] private Slider slider;
     [SerializeField] private Image bossIcon;
     
@@ -75,10 +75,10 @@ public class BossHpBar : MonoBehaviour
         gameObject.SetActive(false);
     } 
 
-    public void InitializeBoss(Enemy boss)
+    public void InitializeBoss(Boss boss)
     {
         this.boss = boss;
-        slider.maxValue = this.boss.hp;
+        slider.maxValue = this.boss.maxHp;
         bossIcon.sprite = boss.transform.GetComponent<Boss>().icon;
     }
 }

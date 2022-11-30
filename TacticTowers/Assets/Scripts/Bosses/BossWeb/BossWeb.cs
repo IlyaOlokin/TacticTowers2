@@ -24,6 +24,7 @@ public class BossWeb : Boss
     void Update()
     {
         TryToShoot();
+        UpdateHp();
         shootTimer += Time.deltaTime;
     }
 

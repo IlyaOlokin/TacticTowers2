@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
     
     [NonSerialized] public bool hasTentacle;
     private float rotationSpeed = 160f;
+    private bool isDead;
+    [SerializeField] private bool isImmortal;
     
     [Header("Visual Effects")]
     [SerializeField] private GameObject damageNumberEffect;
@@ -73,11 +75,13 @@ public class Enemy : MonoBehaviour
     
     public bool TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos)
     {
-        if (hp < 0) return false;
+        
         hp -= dmg;
         var newEffect = Instantiate(damageNumberEffect, transform.position, Quaternion.identity);
         newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
-        if (hp <= 0)
+        if (hp < 0 && isDead) return true;
+        
+        if (hp <= 0 && !isImmortal)
         {
             OnDeath(damageType, damagerPos);
             return true;
@@ -86,8 +90,8 @@ public class Enemy : MonoBehaviour
     }
     private void OnDeath(DamageType damageType, Vector3 killerPos)
     {
-        
         Money.AddMoney(cost);
+        isDead = true;
         DropCreditsByChance(creditsDropChance);
         switch (damageType)
         {
