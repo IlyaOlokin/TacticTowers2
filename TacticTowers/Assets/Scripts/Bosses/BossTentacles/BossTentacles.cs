@@ -9,8 +9,8 @@ public class BossTentacles : Boss
     [SerializeField] private List<Tentacle> tentaclesTips;
     [SerializeField] private float tentaclesRange;
     [SerializeField] private float regenForTentacle;
-    private Enemy enemyComp;
-    private float maxHp;
+    //private Enemy enemyComp;
+    //private float maxHp;
     private float tentacleConnected;
     private float castDelay = 5f;
     void Start()

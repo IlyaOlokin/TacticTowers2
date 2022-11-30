@@ -6,6 +6,7 @@ using UnityEngine;
 public class FinalBoss : Boss
 {
     [SerializeField] private List<Enemy> bossParts;
+    [SerializeField] private List<MonoBehaviour> bossFunctionality;
     void Update()
     {
         UpdateHp();
@@ -26,5 +27,15 @@ public class FinalBoss : Boss
         }
 
         return hp;
+    }
+
+    public void ActivateBossFunctionality()
+    {
+        foreach (var component in bossFunctionality) component.enabled = true;
+    }
+    
+    public void DeactivateBossFunctionality()
+    {
+        foreach (var component in bossFunctionality) component.enabled = false;
     }
 }
