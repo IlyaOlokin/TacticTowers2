@@ -28,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
 
     private int currentWave = 0;
     private bool isBossInField;
-    private Enemy currentBoss;
+    private Boss currentBoss;
 
 
     private void Start()
@@ -36,9 +36,16 @@ public class EnemySpawner : MonoBehaviour
         FindEnemies();
     }
 
-    private static void FindEnemies()
+    private void FindEnemies()
     {
         enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
+        if (isBossInField)
+        {
+            foreach (var bossPart in GameObject.FindGameObjectsWithTag("BossPart"))
+            {
+                enemies.Add(bossPart);
+            }
+        }
     }
 
     private void Update()
@@ -132,7 +139,7 @@ public class EnemySpawner : MonoBehaviour
                 if (newEnemy.TryGetComponent(out Boss boss))
                 {
                     boss.transform.position = bossPos;
-                    currentBoss = enemyComp;
+                    currentBoss = newEnemy.GetComponent<Boss>();
                 }
             }
         }

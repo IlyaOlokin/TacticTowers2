@@ -39,6 +39,8 @@ public class BossWithShields : Boss
             RotateShields(i);
         }
         
+        UpdateHp();
+        
         /*if (Input.GetKeyDown(KeyCode.Alpha4))
             SetNewShieldPositions(0);
         if (Input.GetKeyDown(KeyCode.Alpha5))
