@@ -27,16 +27,17 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject bossAnnouncement;
 
     private int currentWave = 0;
-    private bool isBossInField;
+    private static bool isBossInField;
     private Boss currentBoss;
 
 
     private void Start()
     {
         FindEnemies();
+        isBossInField = false;
     }
 
-    private void FindEnemies()
+    public static void FindEnemies()
     {
         enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
         if (isBossInField)

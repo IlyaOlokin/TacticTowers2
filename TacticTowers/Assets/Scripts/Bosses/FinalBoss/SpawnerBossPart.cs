@@ -22,8 +22,9 @@ public class SpawnerBossPart : MonoBehaviour
 
     private IEnumerator SpawnEnemyPack(float delay)
     {
-        SpawnEnemies(PickRandomPack());
         yield return new WaitForSeconds(delay);
+        SpawnEnemies(PickRandomPack());
+        EnemySpawner.FindEnemies();
         StartCoroutine("SpawnEnemyPack", Random.Range(minDelay, maxDelay));
     }
 
