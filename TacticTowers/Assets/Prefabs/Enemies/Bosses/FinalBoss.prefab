@@ -362,6 +362,7 @@ MonoBehaviour:
   - hpThreshold: 0.75
   - hpThreshold: 0.5
   - hpThreshold: 0.25
+  changePositionDelay: 30
 --- !u!95 &3190797490539967590
 Animator:
   serializedVersion: 3

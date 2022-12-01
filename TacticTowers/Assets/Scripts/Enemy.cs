@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        if (!agent.enabled) return;
+        if (!agent.enabled || !agent.isOnNavMesh) return;
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.SetDestination(GameObject.FindGameObjectWithTag("Base").transform.position);

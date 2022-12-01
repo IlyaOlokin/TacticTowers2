@@ -11,6 +11,8 @@ public class FinalBoss : Boss
     [SerializeField] private List<Threshold> thresholds;
     [NonSerialized] public List<Transform> positions = new List<Transform>();
     private Animator anim;
+    [SerializeField] private float changePositionDelay;
+    private float changePositionTimer;
 
     private void Start()
     {
@@ -24,6 +26,8 @@ public class FinalBoss : Boss
     void Update()
     {
         UpdateHp();
+        changePositionTimer += Time.deltaTime;
+        if (changePositionTimer >= changePositionDelay) ChangePosition();
     }
 
     protected override void UpdateHp()
@@ -33,11 +37,17 @@ public class FinalBoss : Boss
         {
             if (!thresholds[i].passed && hp / maxHp < thresholds[i].hpThreshold)
             {
-                anim.SetTrigger("ChangePosition");
+                ChangePosition();
                 thresholds[i].passed = true;
             }
         }
         if (hp <= 0) Destroy(gameObject);
+    }
+
+    private void ChangePosition()
+    {
+        anim.SetTrigger("ChangePosition");
+        changePositionTimer = 0;
     }
 
     private float GetDamageDone()
