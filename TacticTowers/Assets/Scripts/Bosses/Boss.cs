@@ -8,7 +8,7 @@ public class Boss : MonoBehaviour
     public Sprite icon;
     [NonSerialized]public float hp;
     public float maxHp;
-    [SerializeField] private Enemy enemyComp;
+    [SerializeField] protected Enemy enemyComp;
     
     protected virtual void UpdateHp()
     {
