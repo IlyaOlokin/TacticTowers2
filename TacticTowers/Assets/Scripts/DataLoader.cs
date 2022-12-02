@@ -9,8 +9,9 @@ public class DataLoader : MonoBehaviour
     {
         Technologies.BaseHpMultiplier = float.Parse(LoadString("baseHpMultiplier", "1"));
         Technologies.DmgMultiplier = float.Parse(LoadString("dmgMultiplier", "1"));
+        Technologies.AttackSpeedMultiplier = float.Parse(LoadString("attackSpeedMultiplier", "1"));
         Technologies.ShootAngleMultiplier = float.Parse(LoadString("shootAngleMultiplier", "1"));
-        Technologies.MoneyMultiplier = float.Parse(LoadString("moneyMultiplier", "1"));
+        Technologies.ShootDistanceMultiplier = float.Parse(LoadString("shootDistanceMultiplier", "1"));
         
         Technologies.IsFrostGunUnlocked = Convert.ToBoolean(LoadInt("isFrostGunUnlocked", 0));
         Technologies.IsFlamethrowerUnlocked = Convert.ToBoolean(LoadInt("isFlamethrowerUnlocked", 0));
