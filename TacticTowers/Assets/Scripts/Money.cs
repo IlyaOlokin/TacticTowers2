@@ -19,7 +19,7 @@ public class Money : MonoBehaviour
     }
     public static void AddMoney(float income)
     {
-        money += income * Technologies.MoneyMultiplier * GlobalBaseEffects.TempMoneyMultiplier;
+        money += income * GlobalBaseEffects.TempMoneyMultiplier;
         animation.Stop("MoneyAnimation");
         WriteMoney();
         animation.Play("MoneyAnimation");
