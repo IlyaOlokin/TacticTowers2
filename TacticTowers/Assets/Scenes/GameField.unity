@@ -414,7 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 4641657415697292076, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 295.91458
+      value: 295.9146
       objectReference: {fileID: 0}
     - target: {fileID: 6320360387982982927, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Camera
@@ -3899,25 +3899,25 @@ MonoBehaviour:
     bossTransform: {fileID: 638799782}
   - moneyForWave: 12000
     seconds: 5
-    waveScale: 0
+    waveScale: 0.9
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 13200
     seconds: 60
-    waveScale: 0
+    waveScale: 1.2
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 14300
     seconds: 60
-    waveScale: 0
+    waveScale: 1.4
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 15500
     seconds: 60
-    waveScale: 0
+    waveScale: 1.7
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
