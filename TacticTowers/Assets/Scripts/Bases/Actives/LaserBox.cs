@@ -10,6 +10,7 @@ public class LaserBox : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float periodBetweenDmg;
     [SerializeField] private float speed;
+    [SerializeField] public float duration;
     private float period;
 
     private void Start()
@@ -53,6 +54,8 @@ public class LaserBox : MonoBehaviour
             PeriodDamage();
             periodBetweenDmg = period;
         }
+        duration -= Time.deltaTime;
+        if (duration < 0) Destroy(gameObject);
     }
 
     private void PeriodDamage()
