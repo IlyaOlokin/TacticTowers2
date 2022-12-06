@@ -414,7 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 4641657415697292076, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 295.91455
+      value: 295.9146
       objectReference: {fileID: 0}
     - target: {fileID: 6320360387982982927, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Camera
@@ -3897,6 +3897,36 @@ MonoBehaviour:
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: bd1a0c2c92283bb43aeca5a1bca0ec88, type: 2}
     bossTransform: {fileID: 638799782}
+  - moneyForWave: 12000
+    seconds: 5
+    waveScale: 0.9
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
+  - moneyForWave: 13200
+    seconds: 60
+    waveScale: 1.2
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
+  - moneyForWave: 14300
+    seconds: 60
+    waveScale: 1.4
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
+  - moneyForWave: 15500
+    seconds: 60
+    waveScale: 1.7
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
+  - moneyForWave: 18000
+    seconds: 60
+    waveScale: 1
+    isSpecial: 1
+    specialEnemySet: {fileID: 11400000, guid: 561f495df71b4564bbbb2675c5202a4a, type: 2}
+    bossTransform: {fileID: 1684239101}
   enemySetGroups:
   - enemySets:
     - {fileID: 11400000, guid: e32718a4af06b9b46a76df3443f511f7, type: 2}
@@ -3966,6 +3996,19 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 52a7feb4fad65824ebb7e541cf54d930, type: 2}
     minWave: 15
     maxWave: 19
+  - enemySets:
+    - {fileID: 11400000, guid: fdee67efe3a753e49973e47e28ecb454, type: 2}
+    - {fileID: 11400000, guid: 80a490d68cfb00f4ba533391e37f658c, type: 2}
+    - {fileID: 11400000, guid: d0fcf1edab827974c9db38c5a5be46cc, type: 2}
+    - {fileID: 11400000, guid: 1ec30378d4a5f264c98aed0b2351e063, type: 2}
+    - {fileID: 11400000, guid: 15567d657565a14458b0037b1a2ee5d2, type: 2}
+    - {fileID: 11400000, guid: 0c2e96c631322df4d80c9eca4ffff292, type: 2}
+    - {fileID: 11400000, guid: 043b519ebfa5c4d43b52c1c7a2ead02c, type: 2}
+    - {fileID: 11400000, guid: caeca0497866a8f4a8ad9c727599963f, type: 2}
+    - {fileID: 11400000, guid: fc977186bce9b534cbbef9cef6aed466, type: 2}
+    - {fileID: 11400000, guid: fa5142050248bcf47a8a4011ddd8f001, type: 2}
+    minWave: 20
+    maxWave: 24
   spawnZoneRight: {fileID: 1064235504}
   spawnZoneTop: {fileID: 709855207}
   spawnZoneLeft: {fileID: 920033258}
@@ -15150,7 +15193,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1556204154
 MonoBehaviour:
@@ -20549,7 +20592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 402404313116825505, guid: 545b544b30a72bf4bb1408f8037a0a75, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 402404313116825505, guid: 545b544b30a72bf4bb1408f8037a0a75, type: 3}
       propertyPath: m_LocalPosition.x
