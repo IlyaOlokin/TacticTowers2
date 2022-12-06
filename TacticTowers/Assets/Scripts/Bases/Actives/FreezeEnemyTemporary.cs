@@ -8,6 +8,7 @@ public class FreezeEnemyTemporary : BaseActive
     [SerializeField] private float duration;
     [SerializeField] private float freezeStacksPerHit;
     [SerializeField] private int freezeStacksNeeded;
+    [SerializeField] private GameObject freezeExplosion;
 
     public override void ExecuteActiveAbility()
     {
@@ -16,5 +17,6 @@ public class FreezeEnemyTemporary : BaseActive
         box.freezeTime = duration;
         box.FreezeEnemy(); 
         GetComponent<Base>().UpdateAbilityTimer();
+        Instantiate(freezeExplosion, transform.position, Quaternion.identity);
     }
 }

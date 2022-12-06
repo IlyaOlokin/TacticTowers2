@@ -912,9 +912,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: baseAMassiveDamage
+  activeAbilitySprite: {fileID: 0}
   coolDown: 260
   box: {fileID: 1273752613236479866}
   damage: 1500
+  explosion: {fileID: 989831715101367143, guid: a3d2162b04f0a704aa07dbc932237907, type: 3}
 --- !u!114 &6702434639433975697
 MonoBehaviour:
   m_ObjectHideFlags: 0

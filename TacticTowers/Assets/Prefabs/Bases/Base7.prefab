@@ -596,6 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: baseATempBuffOne
+  activeAbilitySprite: {fileID: 0}
   coolDown: 120
   box: {fileID: 6722472720646499197}
   dmgMultiplier: 1.5
@@ -604,6 +605,7 @@ MonoBehaviour:
   shootDistanceMultiplier: 1.5
   duration: 15
   buffEffect: {fileID: 8129026926607408868, guid: de9c368cf1166cc498d322014db84ab3, type: 3}
+  chooseEffect: {fileID: 8129026926607408868, guid: 4db790b6cfa655c4382fee70e54d5e75, type: 3}
 --- !u!114 &5340991313452885713
 MonoBehaviour:
   m_ObjectHideFlags: 0
