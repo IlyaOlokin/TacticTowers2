@@ -1,21 +1,15 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageZone : BaseActive
 {
     [SerializeField] private GameObject box;
-    [SerializeField] private float duration;
+    [SerializeField] private GameObject boxCreator;
 
     public override void ExecuteActiveAbility()
     {
-        CreateDamageZone();
-    }
-
-    private void CreateDamageZone()
-    {
-        box.SetActive(true);
-        box.GetComponent<DamageZoneBox>().duration = duration;
-        
+        boxCreator.GetComponent<BoxCreator>().Box = box;
+        boxCreator.SetActive(true);
     }
 }

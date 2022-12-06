@@ -10,7 +10,7 @@ public class DamageZoneBox : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float periodBetweenDmg;
     [NonSerialized] private float period;
-    [NonSerialized] public float duration;
+    [SerializeField] public float duration;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class DamageZoneBox : MonoBehaviour
 
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.transform.CompareTag("Enemy"))
         {
@@ -30,57 +30,41 @@ public class DamageZoneBox : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.transform.CompareTag("Enemy"))
+        {
+            var enemy = other.GetComponent<Enemy>();
+            if (enemies.Contains(enemy))
+            {
+                enemies.Remove(enemy);
+            }
+        }
+    }
+
 
     private void Update()
     {
-        if (Input.GetMouseButton(1))
-        {
-            gameObject.SetActive(false);
-        }
-        if (Input.GetMouseButton(0))
-        {
-            isActive = true;
-            FunctionTimer.Create(Off, duration);
-            GameObject.FindGameObjectWithTag("Base").GetComponent<Base>().UpdateAbilityTimer();
-        }
-        if (!isActive)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, GetMousePosition(), 100f);
-        }
-        else
-        {
-            if (periodBetweenDmg > 0) periodBetweenDmg -= Time.deltaTime;
+        if (periodBetweenDmg > 0) periodBetweenDmg -= Time.deltaTime;
 
-            if (periodBetweenDmg <= 0)
-            {
-                PeriodDamage();
-                periodBetweenDmg = period;
-                enemies.Clear();
-            }
+        if (periodBetweenDmg <= 0)
+        { 
+            PeriodDamage();
+            periodBetweenDmg = period;
         }
+        duration -= Time.deltaTime;
+        if (duration < 0) Destroy(gameObject);
     }
 
     private void PeriodDamage()
     {
-        foreach (var enemy in enemies)
+        for (var i = 0; i < enemies.Count; i++)
         {
+            var enemy = enemies[i];
             if (enemy != null)
             {
-                enemy.TakeDamage(damage, DamageType.Normal, transform.position);
+                enemy.TakeDamage(damage, DamageType.Fire, transform.position);
             }
         }
-    }
-
-    public void Off()
-    {
-        isActive = false;
-        gameObject.SetActive(false);
-    }
-
-    private Vector3 GetMousePosition()
-    {
-        var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0;
-        return mousePosition;
     }
 }
