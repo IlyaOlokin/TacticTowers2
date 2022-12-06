@@ -14,9 +14,44 @@ public class UpdateOneTower : MonoBehaviour
     [NonSerialized] public float duration;
 
     [NonSerialized] public GameObject buffEffect;
+    [NonSerialized] public GameObject chooseEffect;
+    
+    private GameObject[] towers;
+    private List<GameObject> activeChooseEffects;
+
+
 
     private bool isUp;
     private bool isActive;
+
+    private void OnEnable()
+    {
+        towers = GameObject.FindGameObjectsWithTag("Tower");
+        CreateVisualEffect();
+    }
+
+    private void OnDisable()
+    {
+        DestroyVisualEffect();
+    }
+
+    private void DestroyVisualEffect()
+    {
+        foreach (var effect in activeChooseEffects)
+        {
+            Destroy(effect);
+        }
+        activeChooseEffects.Clear();
+    }
+
+    private void CreateVisualEffect()
+    {
+        activeChooseEffects = new List<GameObject>();
+        foreach (var tower in towers)
+        {
+            activeChooseEffects.Add(Instantiate(chooseEffect, tower.transform.position, Quaternion.identity, tower.transform));
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -71,6 +106,7 @@ public class UpdateOneTower : MonoBehaviour
         UpTower.GetComponent<TowerDrag>().tower.shootZone.DrawShootZone();
         var newBuff = Instantiate(buffEffect, UpTower.transform.position, Quaternion.identity, UpTower.transform);
         Destroy(newBuff, duration);
+        DestroyVisualEffect();
         StartCoroutine(Return());
     }
 
