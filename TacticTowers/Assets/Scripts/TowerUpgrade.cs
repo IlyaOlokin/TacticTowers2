@@ -87,6 +87,8 @@ public class TowerUpgrade : MonoBehaviour
             
             FindObjectOfType<AudioManager>().Play("ButtonClick1");
         }
+
+        ShowCommonAd();
     }
     public void OpenTowerStatWindow()
     {
@@ -107,5 +109,17 @@ public class TowerUpgrade : MonoBehaviour
     private bool IsTowerMaxLevel()
     {
         return tower.upgradeLevel == tower.upgradePrices.Length + 1;
+    }
+    
+    private void ShowCommonAd()
+    {
+        try
+        {
+            YandexSDK.Instance.ShowCommonAdvertisment();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("add");
+        }
     }
 }

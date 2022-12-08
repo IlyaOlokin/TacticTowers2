@@ -27,6 +27,8 @@ public class DataLoader : MonoBehaviour
 
         Localisation.CurrentLanguage = (Language)LoadInt("currentLanguage", 0);
         Localisation.OnLanguageChanged.Invoke();
+
+        YandexSDK.Instance.Authenticate();
     }
 
     private void Update()
