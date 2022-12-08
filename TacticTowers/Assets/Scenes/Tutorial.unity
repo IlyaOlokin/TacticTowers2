@@ -5187,14 +5187,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 77490761799017895, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-      propertyPath: m_Text
-      value: "\u0411\u041E\u0421\u0421 \u041F\u0420\u0418\u0411\u041B\u0418\u0416\u0410\u0415\u0422\u0421\u042F!"
-      objectReference: {fileID: 0}
     - target: {fileID: 2534379164848940827, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 581097253}
+    - target: {fileID: 4641657415697292076, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 295.91388
+      objectReference: {fileID: 0}
     - target: {fileID: 6320360387982982927, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Camera
       value: 

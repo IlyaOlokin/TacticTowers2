@@ -190,9 +190,10 @@ public class FinishPanel : MonoBehaviour
     private void Resurrection()
     {
         isRewarding = false;
-        var newBase = Instantiate(basePrefab, baseTransform, Quaternion.identity);
-        _base = newBase.GetComponent<Base>();
-        _base.TakeDamage(_base.GetMaxHp() / 2f);
+        //var newBase = Instantiate(basePrefab, baseTransform, Quaternion.identity);
+        //_base = newBase.GetComponent<Base>();
+        //_base.TakeDamage(_base.GetMaxHp() / 2f);
+        _base.hp = _base.maxHp / 2f;
         ResurrectionPanel.SetActive(false);
         isSessionEnded = false;
         Resume(true);
