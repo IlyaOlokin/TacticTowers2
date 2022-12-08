@@ -48,10 +48,10 @@ public class Base : MonoBehaviour
     {
         hp -= dmg;
         UpdateHpBar();
-        if (hp <= 0)
+        /*if (hp <= 0)
         {
             Destroy(gameObject);
-        }
+        }*/
     }
 
     public void UpdateHpBar()
