@@ -2588,6 +2588,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1483723064}
     m_Modifications:
+    - target: {fileID: 6981248140477076099, guid: a13a2fd8e6d60ac4c891237a8ec360d2, type: 3}
+      propertyPath: key
+      value: techsUpFirerate
+      objectReference: {fileID: 0}
     - target: {fileID: 6981248140477076101, guid: a13a2fd8e6d60ac4c891237a8ec360d2, type: 3}
       propertyPath: m_Text
       value: "\u0413\u043B\u043E\u0430\u0431\u043B\u044C\u043D\u0430\u044F \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C
@@ -4273,6 +4277,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1483723064}
     m_Modifications:
+    - target: {fileID: 6981248140477076099, guid: a13a2fd8e6d60ac4c891237a8ec360d2, type: 3}
+      propertyPath: key
+      value: techsUpBallistic
+      objectReference: {fileID: 0}
     - target: {fileID: 6981248140477076101, guid: a13a2fd8e6d60ac4c891237a8ec360d2, type: 3}
       propertyPath: m_Text
       value: "\u0413\u043B\u043E\u0431\u0430\u043B\u044C\u043D\u0430\u044F \u0434\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C
