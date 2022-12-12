@@ -248,10 +248,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: baseAMines
+  activeAbilitySprite: {fileID: 0}
   coolDown: 60
   spawner: {fileID: 3628518200857728454}
   Mine: {fileID: 6123032434971390439, guid: fe3ab5525eebaf143ae843534e818df6, type: 3}
-  countMines: 10
+  countMines: 15
 --- !u!114 &6372732056684603554
 MonoBehaviour:
   m_ObjectHideFlags: 0
