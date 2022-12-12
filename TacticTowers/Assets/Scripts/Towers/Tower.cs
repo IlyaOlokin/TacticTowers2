@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    [NonSerialized] public readonly int[] upgradePrices = {10, 25, 40, 100, 150, 250, 500, 800, 1400, 2000, 3000, 4200, 5500, 7500};
+    [NonSerialized] public readonly int[] upgradePrices = {10, 25, 40, 100, 150, 250, 500, 800, 1400, 2000, 3000, 4200, 5500, 7500, 10000};
     [NonSerialized] public int upgradeLevel = 1;
 
     [NonSerialized] public List<GameObject> enemiesToIgnore = new List<GameObject>();
