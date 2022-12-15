@@ -99,6 +99,11 @@ public class TowerDrag : MonoBehaviour
             PlaceTower();
             needToDrop = false;
         }
+        else if (!dragging)
+        {
+            needToDrop = false;
+            triedToDrag = false;
+        }
         else
         {
             needToDrop = true;
