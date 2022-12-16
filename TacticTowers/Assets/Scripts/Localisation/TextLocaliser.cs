@@ -15,7 +15,7 @@ public class TextLocaliser : MonoBehaviour
         SetText();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         SetText();
         Localisation.OnLanguageChanged.AddListener(SetText);
