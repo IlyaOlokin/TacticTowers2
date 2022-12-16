@@ -8,6 +8,8 @@ public class MassiveDamage : BaseActive
     [SerializeField] private float damage;
     [SerializeField] private GameObject explosion;
 
+    private void Start() => audioSrc = GetComponent<AudioSource>();
+        
     public override void ExecuteActiveAbility()
     {
         StartCoroutine("DealDamage", 0.2f);

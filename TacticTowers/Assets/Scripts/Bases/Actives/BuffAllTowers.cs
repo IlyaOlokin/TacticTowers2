@@ -19,6 +19,7 @@ public class BuffAllTowers : BaseActive
     private void Start()
     {
         towers = GameObject.FindGameObjectsWithTag("Tower");
+        audioSrc = GetComponent<AudioSource>();
     }
 
     public override void ExecuteActiveAbility()

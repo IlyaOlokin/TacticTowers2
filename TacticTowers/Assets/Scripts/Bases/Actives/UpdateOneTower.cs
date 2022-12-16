@@ -15,10 +15,12 @@ public class UpdateOneTower : MonoBehaviour
 
     [NonSerialized] public GameObject buffEffect;
     [NonSerialized] public GameObject chooseEffect;
+
+    [NonSerialized] public AudioSource audioSrc;
     
     private GameObject[] towers;
     private List<GameObject> activeChooseEffects;
-
+    
 
 
     private bool isUp;
@@ -102,9 +104,9 @@ public class UpdateOneTower : MonoBehaviour
                     shootAngleMultiplier, shootDistanceMultiplier, duration);
                 break;
         }
-
         UpTower.GetComponent<TowerDrag>().tower.shootZone.DrawShootZone();
         var newBuff = Instantiate(buffEffect, UpTower.transform.position, Quaternion.identity, UpTower.transform);
+        audioSrc.PlayOneShot(audioSrc.clip);
         Destroy(newBuff, duration);
         DestroyVisualEffect();
         StartCoroutine(Return());

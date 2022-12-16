@@ -11,7 +11,7 @@ public class BaseActive : MonoBehaviour
 
     protected AudioSource audioSrc;
 
-    protected void Start() => audioSrc.GetComponent<AudioSource>();
+    //protected void Start() => audioSrc.GetComponent<AudioSource>();
     
     public virtual void ExecuteActiveAbility()
     {

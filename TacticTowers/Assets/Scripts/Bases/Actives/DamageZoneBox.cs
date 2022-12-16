@@ -12,10 +12,13 @@ public class DamageZoneBox : MonoBehaviour
     [NonSerialized] private float period;
     [SerializeField] public float duration;
 
+    private AudioSource audioSrc;   
+    
     private void Start()
     {
         period = periodBetweenDmg;
-
+        audioSrc = GetComponent<AudioSource>();
+        audioSrc.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

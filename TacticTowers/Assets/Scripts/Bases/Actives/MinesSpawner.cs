@@ -9,7 +9,7 @@ public class MinesSpawner : MonoBehaviour
     [NonSerialized] private bool isActive = false;
     [NonSerialized] public GameObject Mine;
     [NonSerialized] public int countMines;
-
+    public AudioSource audioSrc;
 
     private void Update()
     {
@@ -37,11 +37,13 @@ public class MinesSpawner : MonoBehaviour
     private void SpawnMines()
     {
         var rnd = new Random();
+        audioSrc.PlayOneShot(audioSrc.clip);
         for (var i = 0; i < countMines; i++)
         {
             Mine.GetComponent<Mine>().targetPos = new Vector3(GetMousePosition().x + rnd.Next(-100, 101) / 50f * transform.localScale.x * 2,
                 GetMousePosition().y + rnd.Next(-100, 101) / 50f * transform.localScale.y * 2, 0);
             Instantiate(Mine, GameObject.FindGameObjectWithTag("Base").transform.position, Quaternion.identity);
+            //audioSrc.PlayOneShot(audioSrc.clip);
         }
         GameObject.FindGameObjectWithTag("Base").GetComponent<Base>().UpdateAbilityTimer();
     }

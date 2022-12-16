@@ -10,6 +10,8 @@ public class FreezeEnemyTemporary : BaseActive
     [SerializeField] private int freezeStacksNeeded;
     [SerializeField] private GameObject freezeExplosion;
 
+    private void Start() => audioSrc = GetComponent<AudioSource>();
+    
     public override void ExecuteActiveAbility()
     {
         box.freezeStacksNeeded = freezeStacksNeeded;

@@ -20,9 +20,9 @@ public class Explosion : MonoBehaviour
         {
             ps.transform.localScale = radius * scaleMultiplier;
         }
-        Destroy(gameObject, explosionDuration);
-        //AudioManager.Instance.Play("MortarExplosion");
         audioSrc = GetComponent<AudioSource>();
         audioSrc.PlayOneShot(audioSrc.clip);
+        Destroy(gameObject, explosionDuration);
+        //AudioManager.Instance.Play("MortarExplosion");
     }
 }
