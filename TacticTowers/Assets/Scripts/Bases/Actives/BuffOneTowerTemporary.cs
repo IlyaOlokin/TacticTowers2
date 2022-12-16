@@ -18,6 +18,7 @@ public class BuffOneTowerTemporary : BaseActive
     public override void ExecuteActiveAbility()
     {
         UpdateOneTower();
+        audioSrc.PlayOneShot(audioSrc.clip);
     }
 
     private void UpdateOneTower()

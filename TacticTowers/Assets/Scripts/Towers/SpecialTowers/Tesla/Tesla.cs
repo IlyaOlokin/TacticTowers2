@@ -13,10 +13,8 @@ public class Tesla : Tower
     public float lightningJumpDistanceMultiplier;
     private DamageType damageType = DamageType.Fire;
 
-    void Update()
-    {
-        base.Update();
-    }
+    private void Start() => base.Start();
+    private void Update() => base.Update();
 
     protected override void Shoot(GameObject enemy)
     {
@@ -29,6 +27,7 @@ public class Tesla : Tower
             object[] parms = {GetDmg(), transform.position, enemy, lightningCount + bonusLightningCount, new List<GameObject>()};
             StartCoroutine("ShootLightning", parms);
             shootDelayTimer = 1f / GetAttackSpeed();
+            audioSrc.PlayOneShot(audioSrc.clip);
         }
     }
 
@@ -49,7 +48,7 @@ public class Tesla : Tower
         var newLightning = Instantiate(lightning, transform.position, towerCanon.transform.rotation);
         newLightning.GetComponent<LineRenderer>().SetPosition(0, startPos);
         
-        AudioManager.Instance.Play("TeslaShot");
+        //AudioManager.Instance.Play("TeslaShot");
         
         if (CheckWallCollision(startPos, endPos, GetShootDistance(), false) is null)
         {

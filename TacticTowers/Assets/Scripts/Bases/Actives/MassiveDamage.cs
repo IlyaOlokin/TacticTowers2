@@ -13,6 +13,7 @@ public class MassiveDamage : BaseActive
         StartCoroutine("DealDamage", 0.2f);
         Instantiate(explosion, transform.position, Quaternion.identity);
         GetComponent<Base>().UpdateAbilityTimer();
+        audioSrc.PlayOneShot(audioSrc.clip);
     }
 
     private IEnumerator DealDamage(float delay)

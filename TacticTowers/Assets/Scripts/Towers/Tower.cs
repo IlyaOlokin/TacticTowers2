@@ -42,6 +42,13 @@ public class Tower : MonoBehaviour
 
     public List<Upgrade> upgrades;
     
+    [SerializeField] protected AudioSource audioSrc;
+
+    protected void Start()
+    {
+        audioSrc = GetComponent<AudioSource>();
+    }
+    
     protected void Update()
     {
         FindTarget();

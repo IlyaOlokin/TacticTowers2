@@ -13,6 +13,7 @@ public class BuffMoneyTemporary : BaseActive
         Destroy(Instantiate(moneyEffect, transform.position, Quaternion.identity), duration);
         GlobalBaseEffects.TempMoneyMultiplier = MoneyMultiplier;
         GetComponent<Base>().UpdateAbilityTimer();
+        audioSrc.PlayOneShot(audioSrc.clip);
     }
 
     private void GoBackToMoneyMultiplier()

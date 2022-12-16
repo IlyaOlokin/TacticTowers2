@@ -10,7 +10,10 @@ public class Explosion : MonoBehaviour
 
     private float scaleMultiplier = 0.75f;
     [SerializeField] private List<GameObject> particleSystems;
-    void Start()
+
+    private AudioSource audioSrc;
+
+    private void Start()
     {
         radius = transform.localScale;
         foreach (var ps in particleSystems)
@@ -18,6 +21,8 @@ public class Explosion : MonoBehaviour
             ps.transform.localScale = radius * scaleMultiplier;
         }
         Destroy(gameObject, explosionDuration);
-        AudioManager.Instance.Play("MortarExplosion");
+        //AudioManager.Instance.Play("MortarExplosion");
+        audioSrc = GetComponent<AudioSource>();
+        audioSrc.PlayOneShot(audioSrc.clip);
     }
 }

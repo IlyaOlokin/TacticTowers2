@@ -21,14 +21,12 @@ public class Flamethrower : Tower
     private void Start()
     { 
         ps = GetComponent<ParticleSystem>();
-        AudioManager.Instance.flamethrowers.Add(this);
+        //AudioManager.Instance.flamethrowers.Add(this);
+        base.Start();
     }
 
-    void Update()
-    {
-        base.Update();
-    }
-    
+    private void Update() => base.Update();
+
     protected override void Shoot(GameObject enemy)
     {
         if (enemy == null)
@@ -36,7 +34,7 @@ public class Flamethrower : Tower
             DestroyFlameBox();
             currentEnemy = null;
             shooting = false;
-
+            audioSrc.Stop();
 
             return;
         }
@@ -46,7 +44,7 @@ public class Flamethrower : Tower
         {
             DestroyFlameBox();
             shooting = false;
-
+            audioSrc.Stop();
 
         }
         
@@ -68,7 +66,7 @@ public class Flamethrower : Tower
                 currentEnemy = enemy;
                 
                 shooting = true;
-
+                audioSrc.Play();
             }
             
             shootDelayTimer = 1f / GetAttackSpeed();

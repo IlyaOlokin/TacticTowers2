@@ -47,7 +47,7 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        ControlLoopSound("LaserShot", IsAnyLaserShooting());
+        //ControlLoopSound("LaserShot", IsAnyLaserShooting());
         ControlLoopSound("FrostgunShot", IsAnyFrostgunShooting());
         ControlLoopSound("FlamethrowerShot", IsAnyFlamethrowerShooting());
     }
@@ -114,7 +114,8 @@ public class AudioManager : MonoBehaviour
     public void Play(string name)
     {
         Sound s = Array.Find(Sounds, sound => sound.name == name);
-        s.source.Play();
+        s.source.PlayOneShot(s.source.clip);
+        //s.source.Play();
     }
 
     public void Stop(string name)

@@ -11,5 +11,6 @@ public class DamageZone : BaseActive
     {
         boxCreator.GetComponent<BoxCreator>().Box = box;
         boxCreator.SetActive(true);
+        audioSrc.PlayOneShot(audioSrc.clip);
     }
 }

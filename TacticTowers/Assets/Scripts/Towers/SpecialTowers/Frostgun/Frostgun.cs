@@ -21,17 +21,11 @@ public class Frostgun : Tower
 
 
 
-    private void Start()
-    {
-        AudioManager.Instance.frostguns.Add(this);
+    private void Start() => base.Start();
 
-    }
+    //AudioManager.Instance.frostguns.Add(this);
+    void Update() => base.Update();
 
-    void Update()
-    {
-        base.Update();
-    }
-    
     protected override void Shoot(GameObject enemy)
     {
         if (enemy == null)
@@ -40,7 +34,7 @@ public class Frostgun : Tower
             currentEnemy = null;
             frostEffect.SetActive(false);
             shooting = false;
-            
+            audioSrc.Stop();
             return;
         }
         LootAtTarget(enemy);
@@ -49,7 +43,7 @@ public class Frostgun : Tower
         {
             DestroyFrostBox();
             shooting = false;
-
+            audioSrc.Stop();
         }
         
         if (shootDelayTimer <= 0)
@@ -72,7 +66,7 @@ public class Frostgun : Tower
                 currentEnemy = enemy;
                 
                 shooting = true;
-                
+                audioSrc.Play();
                 frostEffect.SetActive(true);
             }
             

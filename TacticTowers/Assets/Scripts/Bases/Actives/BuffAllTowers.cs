@@ -27,6 +27,7 @@ public class BuffAllTowers : BaseActive
             shootDistanceMultiplier, duration);
         GetComponent<Base>().UpdateAbilityTimer();
         CreateVisualEffect();
+        audioSrc.PlayOneShot(audioSrc.clip);
     }
 
     private void CreateVisualEffect()

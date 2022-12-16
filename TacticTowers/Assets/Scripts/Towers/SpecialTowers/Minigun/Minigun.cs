@@ -18,7 +18,9 @@ public class Minigun : Tower
     [SerializeField] public float coolDelay;
     [SerializeField] public float coolDelayMultiplier;
 
-    void Update()
+    private void Start() => base.Start();
+    
+    private void Update()
     {
         base.Update();
 
@@ -58,7 +60,8 @@ public class Minigun : Tower
             bulletComponent.enemiesToIgnore = enemiesToIgnore;
             bulletComponent.departurePos = transform.position;
             
-            AudioManager.Instance.Play("MinigunShot");
+            //AudioManager.Instance.Play("MinigunShot");
+            audioSrc.PlayOneShot(audioSrc.clip);
         }
     }
 }

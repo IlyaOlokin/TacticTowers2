@@ -18,5 +18,6 @@ public class FreezeEnemyTemporary : BaseActive
         box.FreezeEnemy(); 
         GetComponent<Base>().UpdateAbilityTimer();
         Instantiate(freezeExplosion, transform.position, Quaternion.identity);
+        audioSrc.PlayOneShot(audioSrc.clip);
     }
 }

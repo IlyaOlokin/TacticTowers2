@@ -23,12 +23,10 @@ public class Laser : Tower
     [NonSerialized] public bool shooting;
     private DamageType damageType = DamageType.Fire;
 
-    private void Start()
-    {
-        AudioManager.Instance.lasers.Add(this);
-    }
+    private void Start() => base.Start();
 
-    void Update()
+    //AudioManager.Instance.lasers.Add(this);
+    private void Update()
     {
         base.Update();
 
@@ -46,6 +44,8 @@ public class Laser : Tower
         {
             Destroy(activeLaser);
             //FindObjectOfType<AudioManager>().Stop("LaserShot");
+            //AudioManager.Instance.Stop("LaserShot");
+            audioSrc.Stop();
             shooting = false;
             currentEnemy = null;
             return;
@@ -56,6 +56,8 @@ public class Laser : Tower
         {
             Destroy(activeLaser);
             //FindObjectOfType<AudioManager>().Stop("LaserShot");
+            //AudioManager.Instance.Stop("LaserShot");
+            audioSrc.Stop();
             shooting = false;
 
         }
@@ -68,13 +70,13 @@ public class Laser : Tower
             activeLaser.GetComponent<LaserBim>().origin = transform.position;
             currentEnemy = enemy;
             //FindObjectOfType<AudioManager>().Play("LaserShot");
+            //AudioManager.Instance.Play("LaserShot");
+            audioSrc.Play();
             shooting = true;
         }
+        
         if (shootDelayTimer <= 0)
         {
-            
-            
-            
             shootDelayTimer = 1f / GetAttackSpeed();
             coolTimer = coolDelay * coolDelayMultiplier;
 

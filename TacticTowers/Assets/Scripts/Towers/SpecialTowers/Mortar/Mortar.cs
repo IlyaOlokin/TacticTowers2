@@ -10,11 +10,9 @@ public class Mortar : Tower
     public float explosionRadius;
     public float explosionRadiusMultiplier;
 
-    void Update()
-    {
-        base.Update();
-    }
-    
+    private void Start() => base.Start();
+    private void Update() => base.Update();
+
     protected override void Shoot(GameObject enemy)
     {
         if (enemy == null) return;
@@ -31,7 +29,8 @@ public class Mortar : Tower
             
             shootDelayTimer = 1f / GetAttackSpeed();
             
-            AudioManager.Instance.Play("MortarShot");
+            //AudioManager.Instance.Play("MortarShot");
+            audioSrc.PlayOneShot(audioSrc.clip);
         }
     }
 }

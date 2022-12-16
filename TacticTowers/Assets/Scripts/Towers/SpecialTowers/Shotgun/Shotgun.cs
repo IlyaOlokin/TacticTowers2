@@ -10,12 +10,10 @@ public class Shotgun : Tower
     [SerializeField] private float angleBetweenBullets;
     public int bulletCount;
     public int bonusBullets;
-    
-    void Update()
-    {
-        base.Update();
-    }
-    
+
+    private void Start() => base.Start();
+    private void Update() => base.Update();
+
     protected override void Shoot(GameObject enemy)
     {
         if (enemy == null) return;
@@ -44,7 +42,8 @@ public class Shotgun : Tower
             }
             shootDelayTimer = 1f / GetAttackSpeed();
             
-            AudioManager.Instance.Play("ShotgunShot");
+            //AudioManager.Instance.Play("ShotgunShot");
+            audioSrc.PlayOneShot(audioSrc.clip);
         }
     }
 }
