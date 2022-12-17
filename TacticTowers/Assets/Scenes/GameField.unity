@@ -414,7 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 4641657415697292076, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 295.9139
+      value: 295.91394
       objectReference: {fileID: 0}
     - target: {fileID: 6320360387982982927, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Camera
@@ -3759,25 +3759,25 @@ MonoBehaviour:
     bossTransform: {fileID: 1684239101}
   - moneyForWave: 600
     seconds: 5
-    waveScale: 1
+    waveScale: 0.9
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 900
     seconds: 50
-    waveScale: 1.3
+    waveScale: 1.1
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 1250
     seconds: 50
-    waveScale: 1.5
+    waveScale: 1.3
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 1700
     seconds: 55
-    waveScale: 1.8
+    waveScale: 1.6
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
@@ -3789,25 +3789,25 @@ MonoBehaviour:
     bossTransform: {fileID: 638799782}
   - moneyForWave: 2600
     seconds: 5
-    waveScale: 0.9
+    waveScale: 0.8
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 3000
     seconds: 60
-    waveScale: 1.1
+    waveScale: 1
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 3450
     seconds: 60
-    waveScale: 1.3
+    waveScale: 1.2
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 3950
     seconds: 60
-    waveScale: 1.6
+    waveScale: 1.5
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
@@ -3819,25 +3819,25 @@ MonoBehaviour:
     bossTransform: {fileID: 1684239101}
   - moneyForWave: 5800
     seconds: 5
-    waveScale: 0.9
+    waveScale: 0.8
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 6800
     seconds: 60
-    waveScale: 1.1
+    waveScale: 1
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 8000
     seconds: 60
-    waveScale: 1.3
+    waveScale: 1.2
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 9500
     seconds: 60
-    waveScale: 1.6
+    waveScale: 1.5
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
@@ -3849,25 +3849,25 @@ MonoBehaviour:
     bossTransform: {fileID: 638799782}
   - moneyForWave: 12000
     seconds: 5
-    waveScale: 0.9
+    waveScale: 0.8
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 13200
     seconds: 60
-    waveScale: 1.1
+    waveScale: 1
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 14300
     seconds: 60
-    waveScale: 1.3
+    waveScale: 1.2
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 15500
     seconds: 60
-    waveScale: 1.6
+    waveScale: 1.5
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
