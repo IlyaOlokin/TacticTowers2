@@ -946,6 +946,7 @@ MonoBehaviour:
   buttonSprite: {fileID: 423226805}
   spriteActive: {fileID: -457555882396643226, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
   spriteDeactive: {fileID: 8657532418779330660, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
+  audioMixer: {fileID: 24100000, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
 --- !u!1 &543264083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1960,89 +1961,23 @@ MonoBehaviour:
     volume: 0.101
     pitch: 1
     loop: 1
-    source: {fileID: 0}
-  - name: DefaultTowerShot
-    clip: {fileID: 8300000, guid: 3bcbf627af8fc37439c62c601efedbe5, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: MinigunShot
-    clip: {fileID: 8300000, guid: 4ed7fcb0b7ee7b143989837dd8dd5b86, type: 3}
-    volume: 0.05
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: LaserShot
-    clip: {fileID: 8300000, guid: bd400d03004db714280aaaca64f2930d, type: 3}
-    volume: 0.1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: MortarShot
-    clip: {fileID: 8300000, guid: e4284311892ed29419eac6f66b44b8a4, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: MortarExplosion
-    clip: {fileID: 8300000, guid: 6934257988cbc934494e26b553fb8b6f, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: ShotgunShot
-    clip: {fileID: 8300000, guid: 974a9067e6401a04eade2ab0f5dbea27, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: TeslaShot
-    clip: {fileID: 8300000, guid: 4b7eb2b1f6bf73a428ed2f8dcd1e79c9, type: 3}
-    volume: 0.04
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: RailgunShot
-    clip: {fileID: 8300000, guid: 61d8bdae5ac5e3c419f94e254acac530, type: 3}
-    volume: 0.045
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: FrostgunShot
-    clip: {fileID: 8300000, guid: 154a8f41c380ee048a2fb818ecd8a6f3, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: FlamethrowerShot
-    clip: {fileID: 8300000, guid: e8b7d7be86a60094fa862d36f96ae02e, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 1
+    audioMixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: ButtonClick1
     clip: {fileID: 8300000, guid: 57cf47e992273e243ad9f992fde83a0e, type: 3}
     volume: 0.06
     pitch: 1
     loop: 0
+    audioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     source: {fileID: 0}
   - name: ButtonClick2
     clip: {fileID: 8300000, guid: 30d9f96aeeb64aa48a7125115ac87f0e, type: 3}
     volume: 0.06
     pitch: 1
     loop: 0
-    source: {fileID: 0}
-  - name: Landing
-    clip: {fileID: 8300000, guid: 1f07c1c283a21044d8a04b2fe71c6df9, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 0
+    audioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     source: {fileID: 0}
   soundEnabled: 1
-  lasers: []
-  flamethrowers: []
-  frostguns: []
 --- !u!4 &1640472941
 Transform:
   m_ObjectHideFlags: 0
@@ -2425,7 +2360,6 @@ GameObject:
   - component: {fileID: 1903381663}
   - component: {fileID: 1903381662}
   - component: {fileID: 1903381661}
-  - component: {fileID: 1903381665}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -2559,102 +2493,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903381659}
   m_CullTransparentMesh: 1
---- !u!82 &1903381665
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903381659}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 57cf47e992273e243ad9f992fde83a0e, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.06
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1974798720
 GameObject:
   m_ObjectHideFlags: 0

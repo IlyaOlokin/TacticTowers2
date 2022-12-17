@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 40
   duration: 1.5
-  targetPos: {x: -7.8990083, y: 0.05626478, z: 0}
+  targetPos: {x: 8.247968, y: 0.87768584, z: 0}
   speed: 3
   explosionEffect: {fileID: 7143900964320028573, guid: c18bc23ced74f3942aa8f1c63a230fa5, type: 3}
 --- !u!212 &5246690472570685410
@@ -149,7 +149,7 @@ AudioSource:
   m_GameObject: {fileID: 6123032434971390439}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
   m_audioClip: {fileID: 8300000, guid: 935b5d30871dbc544b419b048d02a813, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -196,7 +196,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.7
       inSlope: 0
       outSlope: 0
       tangentMode: 0
