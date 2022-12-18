@@ -14,11 +14,9 @@ public class Railgun : Tower
     public float minDmgMultiplier;
     private DamageType damageType = DamageType.Normal;
 
-    void Update()
-    {
-        base.Update();
-    }
-    
+    private void Start() => audioSrc = GetComponent<AudioSource>();
+    private void Update() => base.Update();
+
     protected override void Shoot(GameObject enemy)
     {
         if (enemy == null) return;
@@ -50,7 +48,7 @@ public class Railgun : Tower
 
             shootDelayTimer = 1f / GetAttackSpeed();
             
-            AudioManager.Instance.Play("RailgunShot");
+            audioSrc.PlayOneShot(audioSrc.clip);
         }
     }
 }

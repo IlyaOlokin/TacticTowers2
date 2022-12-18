@@ -42,6 +42,8 @@ public class Tower : MonoBehaviour
 
     public List<Upgrade> upgrades;
     
+    protected AudioSource audioSrc;
+    
     protected void Update()
     {
         FindTarget();

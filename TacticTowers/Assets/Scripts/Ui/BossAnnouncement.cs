@@ -10,6 +10,7 @@ public class BossAnnouncement : MonoBehaviour
         anim = GetComponent<Animator>();
         anim.Play("BossAnnouncementAppear");
         StartCoroutine(DeactivateThis(2.5f));
+        AudioManager.Instance.Play("BossRoar1");
     }
 
     IEnumerator DeactivateThis(float delay)

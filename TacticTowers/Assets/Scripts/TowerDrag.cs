@@ -20,11 +20,13 @@ public class TowerDrag : MonoBehaviour
     [SerializeField] private GameObject smokeEffect;
     private int edgeSize = 20;
     [SerializeField] private GameObject conflictIndicator;
-
+    private AudioSource audioSrc;
+    
     private void Start()
     {
         collider2D = GetComponent<CircleCollider2D>();
         navMeshObstacle = GetComponent<NavMeshObstacle>();
+        audioSrc = GetComponent<AudioSource>();
     }
     
     private void Update()
@@ -115,7 +117,8 @@ public class TowerDrag : MonoBehaviour
         if (dragging)
         {
             Instantiate(smokeEffect, transform.position, Quaternion.identity);
-            FindObjectOfType<AudioManager>().Play("Landing");
+            audioSrc.PlayOneShot(audioSrc.clip);
+            //FindObjectOfType<AudioManager>().Play("Landing");
         }
         dragging = false;
         tower.isDragging = false;

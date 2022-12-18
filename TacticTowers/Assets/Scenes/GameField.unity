@@ -412,6 +412,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 3859803994424071787, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     - target: {fileID: 4641657415697292076, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 295.91394
@@ -3696,6 +3700,7 @@ MonoBehaviour:
   buttonSprite: {fileID: 360847123}
   spriteActive: {fileID: -457555882396643226, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
   spriteDeactive: {fileID: 8657532418779330660, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
+  audioMixer: {fileID: 0}
 --- !u!1 &363942887
 GameObject:
   m_ObjectHideFlags: 0
