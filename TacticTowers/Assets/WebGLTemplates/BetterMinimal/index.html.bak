@@ -239,7 +239,7 @@
                 console.log('Error while open video ad:', e);
             }
           }
-        })
+        )
       }
     </script>
 </body>

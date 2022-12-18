@@ -30,14 +30,13 @@ public class BossHpBar : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A)) DisableThis();
-        
         if (isEnabling)
         {
             Enable();
             return;
         }
         if (isBossAlive) UpdateSlider();
+        if (boss == null) DisableThis();
     }
 
     private void Enable()
@@ -59,14 +58,14 @@ public class BossHpBar : MonoBehaviour
         if (boss.hp <= 0)
         {
             DisableThis();
-            isBossAlive = false;
         }
     }
 
     private void DisableThis()
     {
+        isBossAlive = false;
         anim.Play("DisableHpBar");
-        StartCoroutine("DisableDelay",  1.2f);
+        StartCoroutine("DisableDelay",  1.34f);
     }
 
     private IEnumerator DisableDelay(float delay)
