@@ -21,8 +21,7 @@ public class Flamethrower : Tower
     private void Start()
     { 
         ps = GetComponent<ParticleSystem>();
-        //AudioManager.Instance.flamethrowers.Add(this);
-        base.Start();
+        audioSrc = GetComponent<AudioSource>();
     }
 
     private void Update() => base.Update();

@@ -23,9 +23,8 @@ public class Laser : Tower
     [NonSerialized] public bool shooting;
     private DamageType damageType = DamageType.Fire;
 
-    private void Start() => base.Start();
+    private void Start() => audioSrc = GetComponent<AudioSource>();
 
-    //AudioManager.Instance.lasers.Add(this);
     private void Update()
     {
         base.Update();
@@ -43,8 +42,6 @@ public class Laser : Tower
         if (enemy == null)
         {
             Destroy(activeLaser);
-            //FindObjectOfType<AudioManager>().Stop("LaserShot");
-            //AudioManager.Instance.Stop("LaserShot");
             audioSrc.Stop();
             shooting = false;
             currentEnemy = null;
@@ -55,8 +52,6 @@ public class Laser : Tower
         if (enemy != currentEnemy)
         {
             Destroy(activeLaser);
-            //FindObjectOfType<AudioManager>().Stop("LaserShot");
-            //AudioManager.Instance.Stop("LaserShot");
             audioSrc.Stop();
             shooting = false;
 
@@ -69,8 +64,6 @@ public class Laser : Tower
             activeLaser.GetComponent<LaserBim>().target = enemy;
             activeLaser.GetComponent<LaserBim>().origin = transform.position;
             currentEnemy = enemy;
-            //FindObjectOfType<AudioManager>().Play("LaserShot");
-            //AudioManager.Instance.Play("LaserShot");
             audioSrc.Play();
             shooting = true;
         }

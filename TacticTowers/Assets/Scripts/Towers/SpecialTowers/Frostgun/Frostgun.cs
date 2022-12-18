@@ -18,12 +18,9 @@ public class Frostgun : Tower
     
     [NonSerialized] public bool shooting;
     [SerializeField] private Transform frostStartPos;
+    
+    private void Start() => audioSrc = GetComponent<AudioSource>();
 
-
-
-    private void Start() => base.Start();
-
-    //AudioManager.Instance.frostguns.Add(this);
     void Update() => base.Update();
 
     protected override void Shoot(GameObject enemy)

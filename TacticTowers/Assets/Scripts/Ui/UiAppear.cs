@@ -11,6 +11,9 @@ public class UiAppear : MonoBehaviour
     private void Start()
     {
         uisStatic = uis;
+        
+        if (Convert.ToBoolean(DataLoader.LoadInt("isMusicOn", 1)))
+            AudioManager.Instance.PlayMusic("GameField");
     }
 
     public static bool IsAnyUIActive()

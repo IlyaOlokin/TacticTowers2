@@ -29,6 +29,9 @@ public class DataLoader : MonoBehaviour
         Localisation.OnLanguageChanged.Invoke();
 
         //YandexSDK.Instance.Authenticate();
+        
+        if (Convert.ToBoolean(DataLoader.LoadInt("isMusicOn", 1)))
+            AudioManager.Instance.PlayMusic("MainTheme");
     }
 
     private void Update()

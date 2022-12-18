@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class AudioManager : MonoBehaviour
 {
@@ -37,49 +38,23 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        if (Convert.ToBoolean(DataLoader.LoadInt("isMusicOn", 1)))
-            Play("MainTheme");
-    }
-
     public void Play(string name)
     {
-        Sound s = Array.Find(Sounds, sound => sound.name == name);
-        s.source.PlayOneShot(s.source.clip);
-        //s.source.Play();
+        Array.Find(Sounds, sound => sound.name == name).source.Play();
     }
 
     public void Stop(string name)
     {
-        Sound s = Array.Find(Sounds, sound => sound.name == name);
-        s.source.Stop();
+        Array.Find(Sounds, sound => sound.name == name).source.Stop();
     }
 
-    public void SoundOn()
+    public void PlayMusic(string name)
     {
-        for (int i = 0; i < Sounds.Length; i++)
-        {
-            if (Sounds[i].name == "MainTheme")
-                continue;
-            
-            Sounds[i].source.volume = savedSoundsVolume[i];
-        }
-
-        soundEnabled = true;
-    }
-    
-    public void SoundOff()
-    {
-        for (int i = 0; i < Sounds.Length; i++)
-        {
-            if (Sounds[i].name == "MainTheme")
-                continue;
-            
-            Sounds[i].source.volume = 0;
-        }
-
-        soundEnabled = false;
+        Sounds
+            .Where(sound => sound.source.isPlaying && sound.isMusic)
+            .ToList()
+            .ForEach(sound => sound.source.Stop());
+        Play(name);
     }
 }
 
@@ -96,6 +71,7 @@ public class Sound
     public float pitch;
 
     public bool loop;
+    public bool isMusic;
     
     public AudioMixerGroup audioMixerGroup;
     

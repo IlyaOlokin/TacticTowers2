@@ -21,8 +21,6 @@ public class UpdateOneTower : MonoBehaviour
     private GameObject[] towers;
     private List<GameObject> activeChooseEffects;
     
-
-
     private bool isUp;
     private bool isActive;
 

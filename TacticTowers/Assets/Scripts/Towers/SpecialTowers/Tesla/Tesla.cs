@@ -13,7 +13,7 @@ public class Tesla : Tower
     public float lightningJumpDistanceMultiplier;
     private DamageType damageType = DamageType.Fire;
 
-    private void Start() => base.Start();
+    private void Start() => audioSrc = GetComponent<AudioSource>();
     private void Update() => base.Update();
 
     protected override void Shoot(GameObject enemy)

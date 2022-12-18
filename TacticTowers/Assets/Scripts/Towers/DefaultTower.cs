@@ -8,7 +8,7 @@ public class DefaultTower : Tower
     
     [SerializeField] private float bulletSpeed;
 
-    private void Start() => base.Start();
+    private void Start() => audioSrc = GetComponent<AudioSource>();
     
     void Update()
     {

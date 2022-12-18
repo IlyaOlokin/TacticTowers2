@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         newBase.abilityButton = abilityButton;
         newBase.coolDownImage = baseAbilityCoolDownImage;
     }
-
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))

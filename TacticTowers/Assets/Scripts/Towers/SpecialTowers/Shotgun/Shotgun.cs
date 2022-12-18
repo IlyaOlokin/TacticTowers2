@@ -11,7 +11,7 @@ public class Shotgun : Tower
     public int bulletCount;
     public int bonusBullets;
 
-    private void Start() => base.Start();
+    private void Start() => audioSrc = GetComponent<AudioSource>();
     private void Update() => base.Update();
 
     protected override void Shoot(GameObject enemy)
@@ -42,7 +42,6 @@ public class Shotgun : Tower
             }
             shootDelayTimer = 1f / GetAttackSpeed();
             
-            //AudioManager.Instance.Play("ShotgunShot");
             audioSrc.PlayOneShot(audioSrc.clip);
         }
     }

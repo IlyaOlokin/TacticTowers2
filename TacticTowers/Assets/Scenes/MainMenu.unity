@@ -1961,13 +1961,15 @@ MonoBehaviour:
     volume: 0.101
     pitch: 1
     loop: 1
-    audioMixerGroup: {fileID: 0}
+    isMusic: 1
+    audioMixerGroup: {fileID: 2652926259098970617, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     source: {fileID: 0}
   - name: ButtonClick1
     clip: {fileID: 8300000, guid: 57cf47e992273e243ad9f992fde83a0e, type: 3}
     volume: 0.06
     pitch: 1
     loop: 0
+    isMusic: 0
     audioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     source: {fileID: 0}
   - name: ButtonClick2
@@ -1975,7 +1977,24 @@ MonoBehaviour:
     volume: 0.06
     pitch: 1
     loop: 0
+    isMusic: 0
     audioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
+    source: {fileID: 0}
+  - name: BossRoar1
+    clip: {fileID: 8300000, guid: 5ab7ed26d39db4441ac6ea0ee62601e8, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 0
+    isMusic: 0
+    audioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
+    source: {fileID: 0}
+  - name: GameField
+    clip: {fileID: 8300000, guid: d3bc0424640d228419d7625a959d573f, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 1
+    isMusic: 1
+    audioMixerGroup: {fileID: 2652926259098970617, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     source: {fileID: 0}
   soundEnabled: 1
 --- !u!4 &1640472941
