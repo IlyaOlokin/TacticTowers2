@@ -6,7 +6,7 @@ public class DamageZone : BaseActive
 {
     [SerializeField] private GameObject box;
     [SerializeField] private GameObject boxCreator;
-
+    
     public override void ExecuteActiveAbility()
     {
         boxCreator.GetComponent<BoxCreator>().Box = box;

@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MusicButton : MonoBehaviour
@@ -9,21 +11,19 @@ public class MusicButton : MonoBehaviour
     [SerializeField] private Image buttonSprite;
     [SerializeField] private Sprite spriteActive;
     [SerializeField] private Sprite spriteDeactive;
-
+    private Sound currentMusic;
+    
     public void Switch()
     {
-        var audioManager = FindObjectOfType<AudioManager>();
-        var music = Array.Find(audioManager.Sounds, sound => sound.name == "MainTheme");
-
-        if (music.source.isPlaying)
+        if (currentMusic.source.isPlaying)
         {
             DataLoader.SaveInt("isMusicOn", 0);
-            audioManager.Stop("MainTheme");
+            AudioManager.Instance.Stop(currentMusic.name);
         }
         else
         {
             DataLoader.SaveInt("isMusicOn", 1);
-            audioManager.Play("MainTheme");
+            AudioManager.Instance.Play(currentMusic.name);
         }
         
         buttonSprite.sprite = buttonSprite.sprite == spriteActive ? spriteDeactive : spriteActive;
@@ -34,5 +34,7 @@ public class MusicButton : MonoBehaviour
         var isMusicOn = Convert.ToBoolean(DataLoader.LoadInt("isMusicOn", 1));
 
         buttonSprite.sprite = isMusicOn ? spriteActive : spriteDeactive;
+        
+        currentMusic = Array.Find(AudioManager.Instance.Sounds, sound => sound.isMusic && sound.source.isPlaying);
     }
 }
