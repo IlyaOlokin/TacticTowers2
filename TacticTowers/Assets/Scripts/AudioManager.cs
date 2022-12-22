@@ -8,8 +8,7 @@ public class AudioManager : MonoBehaviour
 {
     private List<float> savedSoundsVolume = new List<float>();
     public Sound[] Sounds;
-    public bool soundEnabled = true;
-    
+    public Sound[] Music;
     public static AudioManager Instance;
 
     void Awake()
@@ -26,15 +25,26 @@ public class AudioManager : MonoBehaviour
         
         DontDestroyOnLoad(gameObject);
 
-        for (int i = 0; i < Sounds.Length; i++)
+        foreach (var sound in Sounds)
         {
-            Sounds[i].source = gameObject.AddComponent<AudioSource>();
-            Sounds[i].source.outputAudioMixerGroup = Sounds[i].audioMixerGroup;
-            Sounds[i].source.clip = Sounds[i].clip;
-            Sounds[i].source.volume = Sounds[i].volume;
-            Sounds[i].source.pitch = Sounds[i].pitch;
-            Sounds[i].source.loop = Sounds[i].loop;
-            savedSoundsVolume.Add(Sounds[i].volume);
+            sound.source = gameObject.AddComponent<AudioSource>();
+            sound.source.outputAudioMixerGroup = sound.audioMixerGroup;
+            sound.source.clip = sound.clip;
+            sound.source.volume = sound.volume;
+            sound.source.pitch = sound.pitch;
+            sound.source.loop = sound.loop;
+            savedSoundsVolume.Add(sound.volume);
+        }
+        
+        foreach (var music in Music)
+        {
+            music.source = gameObject.AddComponent<AudioSource>();
+            music.source.outputAudioMixerGroup = music.audioMixerGroup;
+            music.source.clip = music.clip;
+            music.source.volume = music.volume;
+            music.source.pitch = music.pitch;
+            music.source.loop = music.loop;
+            savedSoundsVolume.Add(music.volume);
         }
     }
 
@@ -48,13 +58,13 @@ public class AudioManager : MonoBehaviour
         Array.Find(Sounds, sound => sound.name == name).source.Stop();
     }
 
-    public void PlayMusic(string name)
+    public void PlayMusic(string musicName)
     {
-        Sounds
-            .Where(sound => sound.source.isPlaying && sound.isMusic)
+        Music
+            .Where(music => music.source.isPlaying && music.name != musicName)
             .ToList()
-            .ForEach(sound => sound.source.Stop());
-        Play(name);
+            .ForEach(music => music.source.Stop());
+        Array.Find(Music, music => music.name == musicName).source.Play();
     }
 }
 

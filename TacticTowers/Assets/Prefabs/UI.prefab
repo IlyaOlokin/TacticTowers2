@@ -9055,6 +9055,7 @@ GameObject:
   - component: {fileID: 7070494615169227713}
   - component: {fileID: 2830701943123558968}
   - component: {fileID: 8209650976507846846}
+  - component: {fileID: 2765978472038740065}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -9123,6 +9124,20 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u0425\u043E\u0442\u0438\u0442\u0435 \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C?"
+--- !u!114 &2765978472038740065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892035835454668324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4527f9ca4bde944be7220a4ec6bdae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 8209650976507846846}
+  key: ressurectText
 --- !u!1 &2004873156675142028
 GameObject:
   m_ObjectHideFlags: 0
@@ -16432,7 +16447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textField: {fileID: 2685138715526929716}
-  key: menuRestartButton
+  key: ressurectButton
 --- !u!1 &3133404715974414499
 GameObject:
   m_ObjectHideFlags: 0
@@ -48799,6 +48814,7 @@ MonoBehaviour:
   buttonSprite: {fileID: 2791207347040539663}
   spriteActive: {fileID: -457555882396643226, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
   spriteDeactive: {fileID: 8657532418779330660, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
+  audioMixer: {fileID: 0}
 --- !u!1 &8948855353978398680
 GameObject:
   m_ObjectHideFlags: 0

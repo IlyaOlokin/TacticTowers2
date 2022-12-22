@@ -59,7 +59,7 @@ public class Mine : MonoBehaviour
             {
                 needActivate = true;
                 beenActivated = true;
-                audioSrc.PlayOneShot(audioSrc.clip);
+                //audioSrc.PlayOneShot(audioSrc.clip);
             }
         }
         
