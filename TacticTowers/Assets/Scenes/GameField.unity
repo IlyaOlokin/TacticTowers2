@@ -412,42 +412,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 3859803994424071787, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-      propertyPath: audioMixer
-      value: 
-      objectReference: {fileID: 24100000, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     - target: {fileID: 4641657415697292076, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 295.91394
-      objectReference: {fileID: 0}
-    - target: {fileID: 5917282976586003206, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-      propertyPath: key
-      value: ressurectButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 6052923975671910101, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -61.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 6052923975671910101, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -0.0000076294
-      objectReference: {fileID: 0}
-    - target: {fileID: 6052923975671910101, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -30.867996
-      objectReference: {fileID: 0}
-    - target: {fileID: 6052923975671910101, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.0000038146973
+      value: 295.914
       objectReference: {fileID: 0}
     - target: {fileID: 6320360387982982927, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 8098183434750362124, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8344130361910586229, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Name
       value: UI
@@ -622,36 +594,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1c4abb1136fb4419ad535c114c5e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &34911432 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1892035835454668324, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-  m_PrefabInstance: {fileID: 34911425}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &34911433 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8209650976507846846, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-  m_PrefabInstance: {fileID: 34911425}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 34911432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &34911434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 34911432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac4527f9ca4bde944be7220a4ec6bdae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textField: {fileID: 34911433}
-  key: ressurectText
 --- !u!1 &37760883
 GameObject:
   m_ObjectHideFlags: 0

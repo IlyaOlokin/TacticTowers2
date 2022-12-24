@@ -9,7 +9,8 @@ public class Pulse : MonoBehaviour
     [SerializeField] private float scaleMultiplier; 
     private float timer; 
     [SerializeField] private float scaleHalfLoopDuration; 
-    private float scaleSpeed; 
+    private float scaleSpeed;
+    [SerializeField] private bool useUnscaledTime;
     
     void Start()
     {
@@ -21,7 +22,7 @@ public class Pulse : MonoBehaviour
     
     void Update()
     {
-        float deltaTime = Time.deltaTime;
+        float deltaTime = useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
         timer += deltaTime;
 
         if (timer < scaleHalfLoopDuration)
