@@ -253,7 +253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236600922790868141, guid: 68419a26c83c9844987a30edb1d5b245, type: 3}
       propertyPath: price
-      value: 1245
+      value: 1250
       objectReference: {fileID: 0}
     - target: {fileID: 4236600922790868141, guid: 68419a26c83c9844987a30edb1d5b245, type: 3}
       propertyPath: unlockableTower
@@ -1042,11 +1042,11 @@ PrefabInstance:
       objectReference: {fileID: 162166617212675220, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
     - target: {fileID: 6981248141541927952, guid: a13a2fd8e6d60ac4c891237a8ec360d2, type: 3}
       propertyPath: bonusValue
-      value: 0.03
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 6981248141541927952, guid: a13a2fd8e6d60ac4c891237a8ec360d2, type: 3}
       propertyPath: upgradeObject
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6981248141541927952, guid: a13a2fd8e6d60ac4c891237a8ec360d2, type: 3}
       propertyPath: minUpgradePriceFinder
@@ -2603,7 +2603,7 @@ PrefabInstance:
       objectReference: {fileID: 8328495744193124838, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
     - target: {fileID: 6981248141541927952, guid: a13a2fd8e6d60ac4c891237a8ec360d2, type: 3}
       propertyPath: bonusValue
-      value: 0.05
+      value: 0.075
       objectReference: {fileID: 0}
     - target: {fileID: 6981248141541927952, guid: a13a2fd8e6d60ac4c891237a8ec360d2, type: 3}
       propertyPath: upgradeObject
@@ -2944,7 +2944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4236600922790868141, guid: 68419a26c83c9844987a30edb1d5b245, type: 3}
       propertyPath: price
-      value: 1245
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 4236600922790868141, guid: 68419a26c83c9844987a30edb1d5b245, type: 3}
       propertyPath: unlockableTower
@@ -4440,7 +4440,7 @@ PrefabInstance:
       objectReference: {fileID: 5227546615105667674, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
     - target: {fileID: 6981248141541927952, guid: a13a2fd8e6d60ac4c891237a8ec360d2, type: 3}
       propertyPath: bonusValue
-      value: 0.03
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 6981248141541927952, guid: a13a2fd8e6d60ac4c891237a8ec360d2, type: 3}
       propertyPath: upgradeObject
@@ -8140,6 +8140,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4236600922790868141, guid: 68419a26c83c9844987a30edb1d5b245, type: 3}
+      propertyPath: price
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236600922790868141, guid: 68419a26c83c9844987a30edb1d5b245, type: 3}
       propertyPath: unlockableTower
       value: 1
       objectReference: {fileID: 0}
@@ -8722,7 +8726,7 @@ PrefabInstance:
       objectReference: {fileID: 122853135535622430, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
     - target: {fileID: 6981248141541927952, guid: a13a2fd8e6d60ac4c891237a8ec360d2, type: 3}
       propertyPath: bonusValue
-      value: 0.05
+      value: 0.075
       objectReference: {fileID: 0}
     - target: {fileID: 6981248141541927952, guid: a13a2fd8e6d60ac4c891237a8ec360d2, type: 3}
       propertyPath: upgradeObject
@@ -10131,6 +10135,10 @@ PrefabInstance:
     - target: {fileID: 4236600922790868140, guid: 68419a26c83c9844987a30edb1d5b245, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4236600922790868141, guid: 68419a26c83c9844987a30edb1d5b245, type: 3}
+      propertyPath: price
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4236600922790868141, guid: 68419a26c83c9844987a30edb1d5b245, type: 3}
       propertyPath: minUpgradePriceFinder
