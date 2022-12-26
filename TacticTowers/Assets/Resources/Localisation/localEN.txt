@@ -17,23 +17,23 @@ techsRailgun:Railgun
 techsTesla:Tesla
 baseLabel:Choose a base
 baseActiveText:Active ability
-baseABuffAll:buffs the damage of all towers by 20% for 5 seconds
-baseAMines:throws mines in the chosen area
-baseAFreezeEnemies:fully freezes the enemies
-baseASuperLaser:grants a temporary control over a super laser
-baseAMassiveDamage:super powerful AOE
-baseATempBuffMoney:temporarily increases credits earning
-baseATempBuffOne:temporarily buffs one tower
-baseAPeriodDamage:temporary periodical damage zone
+baseABuffAll:Gives +200% damage to all towers for 5 seconds.
+baseAMines:Scatters 15 mines in the selected area, dealing 75 damage each.
+baseAFreezeEnemies:Freezes all enemies for 6 seconds.
+baseASuperLaser:Grants temporary control over an orbital beam that deals 250 damage per second.
+baseAMassiveDamage:Deals 1500 damage to all enemies.
+baseATempBuffMoney:Increases the amount of $ received from enemies by 1.5 times for 15 seconds.
+baseATempBuffOne:Buffs the selected tower for 15 seconds.
+baseAPeriodDamage:Creates a storm field in the selected area, dealing 150 damage per second.
 basePassiveText:Passive ability
-basePRegen:Weak regen
-basePBuffAngle:increases shoot angle but decreases damage
-basePBuffHorizontal:Makes right and left towers very powerful but makes other very weak
-basePSlowDown:slows down the enemies but increases their health
-basePSpeedupEnemies:speeds up the enemies
-basePBuffOne:big buff of one tower
-basePBuffMoney:passive credits earning
-basePBuffVertical:makes top and bot towers powerful
+basePRegen:Regenerates 1 HP per second.
+basePBuffAngle:Increases shoot angle of all towers by 50%, but reduces fire rate  by 10%.
+basePBuffHorizontal:Strengthens the right and left towers, but weakens the top and bottom ones.
+basePSlowDown:Slows enemies by 30%, but increases their HP by 30%.
+basePSpeedupEnemies:Regenerates 2 HP per second, but speeds up enemies by 25%.
+basePBuffOne:Significantly buffs one tower, but weakens the rest.
+basePBuffMoney:During time acceleration gives passive income $.
+basePBuffVertical:Strengthens the top and bottom towers, but weakens the right and left ones.
 fieldWave:Wave
 fieldBossIncome:BOSS INCOMING!
 fieldUpChoose:Choose an upgrade
@@ -104,16 +104,22 @@ finishWavesCompleted:Waves completed
 finishCredits:Credits
 victoryHeader:Victory!
 tutorialSkip:Skip
-tutorialPanel1:These are the resources you have accumulated. You can upgrade tower levels with dollars and buy new technologies with <color=#E37F4D>credits</color>
-tutorialPanel2:You can the wave counter and a timer before the next wave here
-tutorialPanel3:This is your command center. It needs to be defended from the enemies
-tutorialPanel4:You have 4 towers at your disposal. Each of them can only shoot in one direction
-tutorialPanel5:Enemies are heading towards the command center from four sides
-tutorialPanel6:Towers can only shoot the enemis in the <color=#01BA76>green</color> zone
-tutorialPanel7:Your command center has an active ability. To use it press <b>LMB</b> on the center and choose the ability
-tutorialPanel8:All four of you your can be moved by holding <b>LMB</b>. Help the right turret to defeat this enemy group
-tutorialPanel9:As you gather more resources an arrow near the tower level will appear. That means that the turret can be upgraded.
-tutorialPanel10:Press <b>LMB</b> on the tower to upgrade it, then click <b>UPGRADE</b> and choose the upgrade
+tutorialPanel1:You have 4 towers at your disposal. Each of them can only shoot in one direction
+tutorialPanel2:This is your command center. It needs to be defended from the enemies that are heading towards it from four sides
+tutorialPanel3:All four of you your can be moved by holding <b>LMB</b>. Help the right turret to defeat this enemy group
+tutorialPanel4:Every command center has an special ability. To use it press on the ability button
+tutorialPanel5:As you gather more resources an arrow near the tower level will appear. That means that the turret can be upgraded
+tutorialPanel6:Press <b>LMB</b> on the tower to upgrade it, then click <b>UPGRADE</b> and choose the upgrade. At level 5 a choice of tower type is given
+tutorialPanel1old:These are the resources you have accumulated. You can upgrade tower levels with dollars and buy new technologies with <color=#E37F4D>credits</color>
+tutorialPanel2old:You can the wave counter and a timer before the next wave here
+tutorialPanel3old:This is your command center. It needs to be defended from the enemies
+tutorialPanel4old:You have 4 towers at your disposal. Each of them can only shoot in one direction
+tutorialPanel5old:Enemies are heading towards the command center from four sides
+tutorialPanel6old:Towers can only shoot the enemis in the <color=#01BA76>green</color> zone
+tutorialPanel7old:Your command center has an active ability. To use it press <b>LMB</b> on the center and choose the ability
+tutorialPanel8old:All four of you your can be moved by holding <b>LMB</b>. Help the right turret to defeat this enemy group
+tutorialPanel9old:As you gather more resources an arrow near the tower level will appear. That means that the turret can be upgraded.
+tutorialPanel10old:Press <b>LMB</b> on the tower to upgrade it, then click <b>UPGRADE</b> and choose the upgrade
 tutorialCongrats:Congratulations!
 tutorialDone:Tutorial completed!
 tutorialSkipText:Are you sure you want to skip the tutorial?

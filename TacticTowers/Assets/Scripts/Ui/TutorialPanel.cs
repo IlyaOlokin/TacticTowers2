@@ -16,7 +16,7 @@ public class TutorialPanel : MonoBehaviour
         TutorialPanelManager.CurrentPanel++;
         TimeManager.Resume();
         
-        if (TutorialPanelManager.CurrentPanel > 6)
+        if (TutorialPanelManager.CurrentPanel > 2)
             foreach (var tower in towers)
                 tower.GetComponent<CircleCollider2D>().enabled = true;
     }

@@ -35,6 +35,6 @@ public class MusicButton : MonoBehaviour
 
         buttonSprite.sprite = isMusicOn ? spriteActive : spriteDeactive;
         
-        currentMusic = Array.Find(AudioManager.Instance.Sounds, sound => sound.isMusic && sound.source.isPlaying);
+        //currentMusic = Array.Find(AudioManager.Instance.Sounds, sound => sound.isMusic && sound.source.isPlaying);
     }
 }

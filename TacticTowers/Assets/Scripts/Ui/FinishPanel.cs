@@ -123,7 +123,7 @@ public class FinishPanel : MonoBehaviour
             else ShowDefeatPanel();
         }
         
-        if (enemies.transform.childCount == 0)
+        if (SceneManager.GetActiveScene().name != "Tutorial" && enemies.transform.childCount == 0)
         {
             var waveCount = waveText.text.Split('/').Select(int.Parse).ToArray();
 

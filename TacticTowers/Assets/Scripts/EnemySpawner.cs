@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -116,7 +117,7 @@ public class EnemySpawner : MonoBehaviour
         
         FindEnemies();
 
-        if (isBossInField)
+        if (SceneManager.GetActiveScene().name != "Tutorial" && isBossInField)
         {
             bossAnnouncement.SetActive(true);
             ConnectBossHpBar();

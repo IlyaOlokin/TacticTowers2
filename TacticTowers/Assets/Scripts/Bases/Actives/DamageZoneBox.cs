@@ -69,5 +69,7 @@ public class DamageZoneBox : MonoBehaviour
                 enemy.TakeDamage(damage, DamageType.Fire, transform.position);
             }
         }
+        
+        //audioSrc.PlayOneShot(audioSrc.clip);
     }
 }

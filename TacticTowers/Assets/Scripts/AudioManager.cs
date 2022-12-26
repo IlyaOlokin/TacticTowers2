@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
     public Sound[] Music;
     public static AudioManager Instance;
 
+    public Sound CurrentMusic;
+    
     void Awake()
     {
         if (Instance == null)
@@ -81,8 +83,7 @@ public class Sound
     public float pitch;
 
     public bool loop;
-    public bool isMusic;
-    
+
     public AudioMixerGroup audioMixerGroup;
     
     [HideInInspector]

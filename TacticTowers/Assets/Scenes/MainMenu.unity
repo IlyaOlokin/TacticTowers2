@@ -683,7 +683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &340925738
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1961,7 +1961,6 @@ MonoBehaviour:
     volume: 0.101
     pitch: 1
     loop: 1
-    isMusic: 1
     audioMixerGroup: {fileID: 2652926259098970617, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     source: {fileID: 0}
   - name: ButtonClick1
@@ -1969,7 +1968,6 @@ MonoBehaviour:
     volume: 0.06
     pitch: 1
     loop: 0
-    isMusic: 0
     audioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     source: {fileID: 0}
   - name: ButtonClick2
@@ -1977,7 +1975,6 @@ MonoBehaviour:
     volume: 0.06
     pitch: 1
     loop: 0
-    isMusic: 0
     audioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     source: {fileID: 0}
   - name: BossRoar1
@@ -1985,7 +1982,6 @@ MonoBehaviour:
     volume: 0.06
     pitch: 1
     loop: 0
-    isMusic: 0
     audioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     source: {fileID: 0}
   - name: GameFieldd
@@ -1993,7 +1989,6 @@ MonoBehaviour:
     volume: 0.06
     pitch: 1
     loop: 1
-    isMusic: 1
     audioMixerGroup: {fileID: 2652926259098970617, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     source: {fileID: 0}
   Music:
@@ -2002,7 +1997,6 @@ MonoBehaviour:
     volume: 0.101
     pitch: 1
     loop: 1
-    isMusic: 1
     audioMixerGroup: {fileID: 2652926259098970617, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     source: {fileID: 0}
   - name: GameField
@@ -2010,8 +2004,15 @@ MonoBehaviour:
     volume: 0.06
     pitch: 1
     loop: 1
-    isMusic: 1
     audioMixerGroup: {fileID: 2652926259098970617, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
+    source: {fileID: 0}
+  CurrentMusic:
+    name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    audioMixerGroup: {fileID: 0}
     source: {fileID: 0}
 --- !u!4 &1640472941
 Transform:
