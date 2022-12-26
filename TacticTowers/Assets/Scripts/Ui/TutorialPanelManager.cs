@@ -17,10 +17,10 @@ public class TutorialPanelManager : MonoBehaviour
     
     [SerializeField] private Base _base;
     [SerializeField] private GameObject baseAbilityMenu;
-    [SerializeField] private Button abilityButton;
+    [SerializeField] private Button baseAbilityButton;
     [SerializeField] private Image baseAbilityCoolDownImage;
-    
-    [SerializeField] private int collidedPanelNum;
+    [SerializeField] private Text baseCoolDownText;
+    private int collidedPanelNum;
     
     public void SetCollidedPanelNum(int panelNum)
     {
@@ -80,8 +80,9 @@ public class TutorialPanelManager : MonoBehaviour
     {
         _base.ExecuteBasePassiveEffect();
         _base.baseAbilityMenu = baseAbilityMenu;
-        _base.abilityButton = abilityButton;
+        _base.abilityButton = baseAbilityButton;
         _base.coolDownImage = baseAbilityCoolDownImage;
+        _base.coolDownText = baseCoolDownText;
         CurrentPanel = 1;
     }
 }
