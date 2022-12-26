@@ -8,14 +8,6 @@ public class PassiveBuffMoney : BasePassive
     
     void Update()
     {
-        switch (Time.timeScale)
-        {
-            case 2:
-                Money.AddMoney(moneyAmount * Time.deltaTime);
-                break;
-            case 4:
-                Money.AddMoney(moneyAmount * Time.deltaTime);
-                break;
-        }
+        if (Time.timeScale > 1) Money.AddMoney(moneyAmount * Time.deltaTime);
     }
 }

@@ -260,7 +260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.75, y: 1.71}
+  m_AnchoredPosition: {x: 21.588074, y: 1.71}
   m_SizeDelta: {x: 16.788, y: 16.788}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6981248140503610156
@@ -448,7 +448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -34.53803, y: 1}
+  m_AnchoredPosition: {x: -31.7, y: 1}
   m_SizeDelta: {x: 79.09, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6981248140790176288
@@ -943,7 +943,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34.929455, y: 0.51766676}
+  m_AnchoredPosition: {x: 31, y: -0.000033438}
   m_SizeDelta: {x: 229.93, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6981248141178647450
@@ -976,7 +976,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: c8061a3b6160847418107f072e8d8f8d, type: 3}
-    m_FontSize: 23
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1211,7 +1211,7 @@ MonoBehaviour:
   button: {fileID: 6981248140280231050}
   enoughMoneyButton: {fileID: 8008574969191610349, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
   notEnoughMoneyButton: {fileID: 4673862727404753516, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
-  prices: 320000006400000096000000c8000000fa0000002c0100005e01000090010000
+  prices: 190000003200000064000000af0000002c010000f4010000ee020000e8030000
   currentValue: 1
   bonusValue: 0.1
   upgradeObject: 0

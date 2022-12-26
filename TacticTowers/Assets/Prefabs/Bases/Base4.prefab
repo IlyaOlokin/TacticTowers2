@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: basePSlowDown
   box: {fileID: 2252019702364704714}
-  SlowingDownSpeed: 1.4
+  SlowingDownSpeed: 0.7
   IncreasingHp: 1.3
 --- !u!50 &6251190561870329549
 Rigidbody2D:

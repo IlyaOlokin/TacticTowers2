@@ -221,8 +221,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: 10
   hp: 900
-  creditsDropChance: 20
+  creditsDropChance: 10
   weight: 22
+  isImmortal: 0
   damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
   deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
   burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}

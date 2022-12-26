@@ -230,9 +230,9 @@ MonoBehaviour:
   - {fileID: -5293415987209700153, guid: e56e983a6e4ede84f8921df25f8ecc16, type: 3}
   audioSrc: {fileID: 0}
   laserBim: {fileID: 6922442246336718825, guid: a9e332a7c215fcd42b7d2aba60f6fa34, type: 3}
-  maxHeat: 10
+  maxHeat: 8
   maxHeatMultiplier: 1
-  multiplierPerHeatStack: 0.05
+  multiplierPerHeatStack: 0.04
   multiplierPerHeatStackMultiplier: 1
   coolDelay: 5
   coolDelayMultiplier: 1
