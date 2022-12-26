@@ -103,6 +103,12 @@ public class PausePanel : MonoBehaviour
         Resume();
     }
 
+    private void OnEnable()
+    {
+        musicButton.GetComponent<MusicButton>().Init();
+        soundButton.GetComponent<SoundButton>().Init();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

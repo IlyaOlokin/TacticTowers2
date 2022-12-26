@@ -11,30 +11,28 @@ public class MusicButton : MonoBehaviour
     [SerializeField] private Image buttonSprite;
     [SerializeField] private Sprite spriteActive;
     [SerializeField] private Sprite spriteDeactive;
-    private Sound currentMusic;
     
     public void Switch()
     {
+        var currentMusic = AudioManager.Instance.CurrentMusic;
+        
         if (currentMusic.source.isPlaying)
         {
             DataLoader.SaveInt("isMusicOn", 0);
-            AudioManager.Instance.Stop(currentMusic.name);
+            AudioManager.Instance.StopMusic();
         }
         else
         {
             DataLoader.SaveInt("isMusicOn", 1);
-            AudioManager.Instance.Play(currentMusic.name);
+            AudioManager.Instance.PlayMusic();
         }
         
         buttonSprite.sprite = buttonSprite.sprite == spriteActive ? spriteDeactive : spriteActive;
     }
 
-    private void Start()
+    public void Init()
     {
         var isMusicOn = Convert.ToBoolean(DataLoader.LoadInt("isMusicOn", 1));
-
         buttonSprite.sprite = isMusicOn ? spriteActive : spriteDeactive;
-        
-        //currentMusic = Array.Find(AudioManager.Instance.Sounds, sound => sound.isMusic && sound.source.isPlaying);
     }
 }

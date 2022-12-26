@@ -6,11 +6,10 @@ using System.Linq;
 
 public class AudioManager : MonoBehaviour
 {
-    private List<float> savedSoundsVolume = new List<float>();
     public Sound[] Sounds;
     public Sound[] Music;
     public static AudioManager Instance;
-
+        
     public Sound CurrentMusic;
     
     void Awake()
@@ -35,7 +34,6 @@ public class AudioManager : MonoBehaviour
             sound.source.volume = sound.volume;
             sound.source.pitch = sound.pitch;
             sound.source.loop = sound.loop;
-            savedSoundsVolume.Add(sound.volume);
         }
         
         foreach (var music in Music)
@@ -46,7 +44,6 @@ public class AudioManager : MonoBehaviour
             music.source.volume = music.volume;
             music.source.pitch = music.pitch;
             music.source.loop = music.loop;
-            savedSoundsVolume.Add(music.volume);
         }
     }
 
@@ -67,6 +64,26 @@ public class AudioManager : MonoBehaviour
             .ToList()
             .ForEach(music => music.source.Stop());
         Array.Find(Music, music => music.name == musicName).source.Play();
+    }
+
+    public void PlayMusic()
+    {
+        if (!CurrentMusic.source.isPlaying)
+            CurrentMusic.source.Play();
+    }
+    
+    public void ChangeMusic(string musicName)
+    {
+        Music
+            .Where(music => music.source.isPlaying && music.name != musicName)
+            .ToList()
+            .ForEach(music => music.source.Stop());
+        CurrentMusic = Array.Find(Music, music => music.name == musicName);
+    }
+
+    public void StopMusic()
+    {
+        CurrentMusic.source.Stop();
     }
 }
 

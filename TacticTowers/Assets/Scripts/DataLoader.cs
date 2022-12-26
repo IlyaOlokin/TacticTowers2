@@ -5,8 +5,17 @@ using UnityEngine;
 
 public class DataLoader : MonoBehaviour
 {
+    [SerializeField] private MusicButton musicButton;
+    [SerializeField] private SoundButton soundButton;
+    
+    private static MusicButton mscButton;
+    private static SoundButton sndButton;
+    
     void Start()
     {
+        mscButton = musicButton;
+        sndButton = soundButton;
+        
         YandexSDK.Instance.GettingData();
         LoadStartData();
     }
@@ -36,8 +45,13 @@ public class DataLoader : MonoBehaviour
 
         //YandexSDK.Instance.Authenticate();
         
-        if (Convert.ToBoolean(DataLoader.LoadInt("isMusicOn", 1)))
-            AudioManager.Instance.PlayMusic("MainTheme");
+        AudioManager.Instance.ChangeMusic("MainTheme");
+        
+        if (Convert.ToBoolean(LoadInt("isMusicOn", 1)))
+            AudioManager.Instance.PlayMusic();
+        
+        mscButton.Init();
+        sndButton.Init();
     }
 
     private void Update()

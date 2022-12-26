@@ -31,8 +31,8 @@ public class SoundButton : MonoBehaviour
         
         buttonSprite.sprite = buttonSprite.sprite == spriteActive ? spriteDeactive : spriteActive;
     }
-
-    private void Start()
+    
+    public void Init()
     {
         var isSoundOn = Convert.ToBoolean(DataLoader.LoadInt("isSoundOn", 1));
         buttonSprite.sprite = isSoundOn ? spriteActive : spriteDeactive;

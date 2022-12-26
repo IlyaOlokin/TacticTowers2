@@ -3202,7 +3202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &341391977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3218,7 +3218,13 @@ MonoBehaviour:
   enemiesObject: {fileID: 1854380829}
   Waves:
   - moneyForWave: 15
-    seconds: 0
+    seconds: 60
+    waveScale: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
+  - moneyForWave: 15
+    seconds: 20
     waveScale: 1
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: d8d60f122d3764a46ba188356151661a, type: 2}
@@ -3240,12 +3246,6 @@ MonoBehaviour:
     waveScale: 0
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: 7f2f6728cbf026540a3bce73750122c5, type: 2}
-    bossTransform: {fileID: 0}
-  - moneyForWave: 15
-    seconds: 60
-    waveScale: 0
-    isSpecial: 0
-    specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 15
     seconds: 60
