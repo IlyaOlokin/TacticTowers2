@@ -17,7 +17,7 @@ public class DataLoader : MonoBehaviour
         sndButton = soundButton;
         
         YandexSDK.Instance.GettingData();
-        LoadStartData();
+        //LoadStartData();
     }
 
     public static void LoadStartData()
