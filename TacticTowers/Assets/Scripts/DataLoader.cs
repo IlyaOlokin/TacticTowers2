@@ -58,7 +58,7 @@ public class DataLoader : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.N))
         {
-            Credits.AddCredits(1000);
+            Credits.AddCredits(10000);
         }
 
         if (Input.GetKeyDown(KeyCode.U))
@@ -69,26 +69,46 @@ public class DataLoader : MonoBehaviour
 
     public static void SaveInt(string variableName, int isUnlocked)
     {
-        PlayerPrefs.SetInt(variableName, Convert.ToInt16(isUnlocked));
+        if (!YandexSDK.Instance.playerData.intData.ContainsKey(variableName))
+            YandexSDK.Instance.playerData.intData.Add(variableName, isUnlocked);
+        else
+            YandexSDK.Instance.playerData.intData[variableName] = isUnlocked;
+        
+        YandexSDK.Instance.SettingData();
     }
 
     public static void SaveInt(string variableName, bool isUnlocked)
     {
-        PlayerPrefs.SetInt(variableName, Convert.ToInt16(isUnlocked));
+        if (!YandexSDK.Instance.playerData.intData.ContainsKey(variableName))
+            YandexSDK.Instance.playerData.intData.Add(variableName, Convert.ToInt16(isUnlocked));
+        else
+            YandexSDK.Instance.playerData.intData[variableName] = Convert.ToInt16(isUnlocked);
+        YandexSDK.Instance.SettingData();
     }
 
     public static void SaveString(string variableName, string value)
     {
         PlayerPrefs.SetString(variableName, value);
+        if (!YandexSDK.Instance.playerData.stringData.ContainsKey(variableName))
+            YandexSDK.Instance.playerData.stringData.Add(variableName, value);
+        else
+            YandexSDK.Instance.playerData.stringData[variableName] = value;
+        YandexSDK.Instance.SettingData();
     }
 
     public static string LoadString(string variableName, string defaultValue)
     {
-        return PlayerPrefs.GetString(variableName, defaultValue);
+        if (!YandexSDK.Instance.playerData.stringData.ContainsKey(variableName))
+            return defaultValue;
+       
+        return YandexSDK.Instance.playerData.stringData[variableName];
     }
     
     public static int LoadInt(string variableName, int defaultValue)
     {
-        return PlayerPrefs.GetInt(variableName, defaultValue);
+        if (!YandexSDK.Instance.playerData.intData.ContainsKey(variableName))
+            return defaultValue;
+       
+        return YandexSDK.Instance.playerData.intData[variableName];
     }
 }
