@@ -2,17 +2,15 @@ using UnityEngine;
 using UnityEngine.Audio;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class AudioManager : MonoBehaviour
 {
-    private List<float> savedSoundsVolume = new List<float>();
     public Sound[] Sounds;
-    public bool soundEnabled = true;
-    
+    public Sound[] Music;
     public static AudioManager Instance;
-    public List<Laser> lasers;
-    public List<Flamethrower> flamethrowers;
-    public List<Frostgun> frostguns;
+        
+    public Sound CurrentMusic;
     
     void Awake()
     {
@@ -28,125 +26,64 @@ public class AudioManager : MonoBehaviour
         
         DontDestroyOnLoad(gameObject);
 
-        for (int i = 0; i < Sounds.Length; i++)
+        foreach (var sound in Sounds)
         {
-            Sounds[i].source = gameObject.AddComponent<AudioSource>();
-            Sounds[i].source.clip = Sounds[i].clip;
-            Sounds[i].source.volume = Sounds[i].volume;
-            savedSoundsVolume.Add(Sounds[i].volume);
-            Sounds[i].source.pitch = Sounds[i].pitch;
-            Sounds[i].source.loop = Sounds[i].loop;
+            sound.source = gameObject.AddComponent<AudioSource>();
+            sound.source.outputAudioMixerGroup = sound.audioMixerGroup;
+            sound.source.clip = sound.clip;
+            sound.source.volume = sound.volume;
+            sound.source.pitch = sound.pitch;
+            sound.source.loop = sound.loop;
         }
-    }
-
-    private void Start()
-    {
-        if (Convert.ToBoolean(DataLoader.LoadInt("isMusicOn", 1)))
-            Play("MainTheme");
-    }
-
-    private void Update()
-    {
-        ControlLoopSound("LaserShot", IsAnyLaserShooting());
-        ControlLoopSound("FrostgunShot", IsAnyFrostgunShooting());
-        ControlLoopSound("FlamethrowerShot", IsAnyFlamethrowerShooting());
-    }
-
-    private void ControlLoopSound(string name, bool isAnyShooting)
-    {
-        if (Time.timeScale == 0)
+        
+        foreach (var music in Music)
         {
-            Stop(name);
-            return;
+            music.source = gameObject.AddComponent<AudioSource>();
+            music.source.outputAudioMixerGroup = music.audioMixerGroup;
+            music.source.clip = music.clip;
+            music.source.volume = music.volume;
+            music.source.pitch = music.pitch;
+            music.source.loop = music.loop;
         }
-        bool isPlaying = Array.Find(Sounds, sound => sound.name == name).source.isPlaying;
-        if (isAnyShooting && !isPlaying)
-            Play(name);
-        else if (!isAnyShooting)
-            Stop(name);
-    }
-
-    private bool IsAnyLaserShooting()
-    {
-        foreach (var laser in lasers)
-        {
-            if (laser == null)
-            {
-                lasers.Remove(laser);
-                return false;
-            }
-            if (laser.shooting) return true;
-        }
-
-        return false;
-    }
-    
-    private bool IsAnyFrostgunShooting()
-    {
-        foreach (var frostgun in frostguns)
-        {
-            if (frostgun == null)
-            {
-                frostguns.Remove(frostgun);
-                return false;
-            }
-            if (frostgun.shooting) return true;
-        }
-
-        return false;
-    }
-    
-    private bool IsAnyFlamethrowerShooting()
-    {
-        foreach (var flamethrower in flamethrowers)
-        {
-            if (flamethrower == null)
-            {
-                flamethrowers.Remove(flamethrower);
-                return false;
-            }
-            if (flamethrower.shooting) return true;
-        }
-
-        return false;
     }
 
     public void Play(string name)
     {
-        Sound s = Array.Find(Sounds, sound => sound.name == name);
-        s.source.Play();
+        Array.Find(Sounds, sound => sound.name == name).source.Play();
     }
 
     public void Stop(string name)
     {
-        Sound s = Array.Find(Sounds, sound => sound.name == name);
-        s.source.Stop();
+        Array.Find(Sounds, sound => sound.name == name).source.Stop();
     }
 
-    public void SoundOn()
+    public void PlayMusic(string musicName)
     {
-        for (int i = 0; i < Sounds.Length; i++)
-        {
-            if (Sounds[i].name == "MainTheme")
-                continue;
-            
-            Sounds[i].source.volume = savedSoundsVolume[i];
-        }
+        Music
+            .Where(music => music.source.isPlaying && music.name != musicName)
+            .ToList()
+            .ForEach(music => music.source.Stop());
+        Array.Find(Music, music => music.name == musicName).source.Play();
+    }
 
-        soundEnabled = true;
+    public void PlayMusic()
+    {
+        if (!CurrentMusic.source.isPlaying)
+            CurrentMusic.source.Play();
     }
     
-    public void SoundOff()
+    public void ChangeMusic(string musicName)
     {
-        for (int i = 0; i < Sounds.Length; i++)
-        {
-            if (Sounds[i].name == "MainTheme")
-                continue;
-            
-            Sounds[i].source.volume = 0;
-        }
+        Music
+            .Where(music => music.source.isPlaying && music.name != musicName)
+            .ToList()
+            .ForEach(music => music.source.Stop());
+        CurrentMusic = Array.Find(Music, music => music.name == musicName);
+    }
 
-        soundEnabled = false;
+    public void StopMusic()
+    {
+        CurrentMusic.source.Stop();
     }
 }
 
@@ -164,6 +101,8 @@ public class Sound
 
     public bool loop;
 
+    public AudioMixerGroup audioMixerGroup;
+    
     [HideInInspector]
     public AudioSource source;
 }

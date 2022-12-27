@@ -10,7 +10,7 @@ public class SlowingDownIncreasingHp : BasePassive
 
     public override void ExecutePassiveEffect()
     {
-        box.SlowingDownSpeed = SlowingDownSpeed;
+        box.SpeedMultiplier = SlowingDownSpeed;
         box.IncreasingHp = IncreasingHp;
     }
 }

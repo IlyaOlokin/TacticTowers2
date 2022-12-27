@@ -683,7 +683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &340925738
 RectTransform:
   m_ObjectHideFlags: 0
@@ -946,6 +946,7 @@ MonoBehaviour:
   buttonSprite: {fileID: 423226805}
   spriteActive: {fileID: -457555882396643226, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
   spriteDeactive: {fileID: 8657532418779330660, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
+  audioMixer: {fileID: 24100000, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
 --- !u!1 &543264083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,6 +1779,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fce81c6bc65d0844a98fa9d41ca3ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicButton: {fileID: 1703905702}
+  soundButton: {fileID: 423226808}
 --- !u!4 &1426094669
 Transform:
   m_ObjectHideFlags: 0
@@ -1955,94 +1958,64 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sounds:
-  - name: MainTheme
+  - name: MainThemee
     clip: {fileID: 8300000, guid: 9adf123e4d0292443b43cc94425f2350, type: 3}
     volume: 0.101
     pitch: 1
     loop: 1
-    source: {fileID: 0}
-  - name: DefaultTowerShot
-    clip: {fileID: 8300000, guid: cbc5b630183ef7d4daee39830bf2a6c4, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: MinigunShot
-    clip: {fileID: 8300000, guid: b1011ac093acda3489cfc0fc8567e6c9, type: 3}
-    volume: 0.05
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: LaserShot
-    clip: {fileID: 8300000, guid: be99013ee6b5dbc48b315c241b0b3b27, type: 3}
-    volume: 0.1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: MortarShot
-    clip: {fileID: 8300000, guid: ccf9e3ce3c21e4742889188c2729eb38, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: MortarExplosion
-    clip: {fileID: 8300000, guid: 606a28581f84eb942a436dce42bee639, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: ShotgunShot
-    clip: {fileID: 8300000, guid: 0199e15df2b8caf4eb1862df3dbf031f, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: TeslaShot
-    clip: {fileID: 8300000, guid: 56592937930591b409a60e8649fc114b, type: 3}
-    volume: 0.04
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: RailgunShot
-    clip: {fileID: 8300000, guid: e17fe966545e75845997da559127b19b, type: 3}
-    volume: 0.045
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: FrostgunShot
-    clip: {fileID: 8300000, guid: 575e5a8cc39e3e045b6734e8416bb03c, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: FlamethrowerShot
-    clip: {fileID: 8300000, guid: f577352e7e3ecd5439cac35a050ab421, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 1
+    audioMixerGroup: {fileID: 2652926259098970617, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     source: {fileID: 0}
   - name: ButtonClick1
     clip: {fileID: 8300000, guid: 57cf47e992273e243ad9f992fde83a0e, type: 3}
     volume: 0.06
     pitch: 1
     loop: 0
+    audioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     source: {fileID: 0}
   - name: ButtonClick2
     clip: {fileID: 8300000, guid: 30d9f96aeeb64aa48a7125115ac87f0e, type: 3}
     volume: 0.06
     pitch: 1
     loop: 0
+    audioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     source: {fileID: 0}
-  - name: Landing
-    clip: {fileID: 8300000, guid: 1f07c1c283a21044d8a04b2fe71c6df9, type: 3}
+  - name: BossRoar1
+    clip: {fileID: 8300000, guid: 5ab7ed26d39db4441ac6ea0ee62601e8, type: 3}
     volume: 0.06
     pitch: 1
     loop: 0
+    audioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
     source: {fileID: 0}
-  soundEnabled: 1
-  lasers: []
-  flamethrowers: []
-  frostguns: []
+  - name: GameFieldd
+    clip: {fileID: 8300000, guid: d3bc0424640d228419d7625a959d573f, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 1
+    audioMixerGroup: {fileID: 2652926259098970617, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
+    source: {fileID: 0}
+  Music:
+  - name: MainTheme
+    clip: {fileID: 8300000, guid: 9adf123e4d0292443b43cc94425f2350, type: 3}
+    volume: 0.101
+    pitch: 1
+    loop: 1
+    audioMixerGroup: {fileID: 2652926259098970617, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
+    source: {fileID: 0}
+  - name: GameField
+    clip: {fileID: 8300000, guid: d3bc0424640d228419d7625a959d573f, type: 3}
+    volume: 0.06
+    pitch: 1
+    loop: 1
+    audioMixerGroup: {fileID: 2652926259098970617, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
+    source: {fileID: 0}
+  CurrentMusic:
+    name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    audioMixerGroup: {fileID: 0}
+    source: {fileID: 0}
 --- !u!4 &1640472941
 Transform:
   m_ObjectHideFlags: 0
@@ -2374,6 +2347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundButton: {fileID: 423226802}
   musicButton: {fileID: 1703905696}
+  playButton: {fileID: 1903381659}
 --- !u!1 &1870064118
 GameObject:
   m_ObjectHideFlags: 0

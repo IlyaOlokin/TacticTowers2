@@ -15,10 +15,12 @@ public class Mine : MonoBehaviour
     public Vector3 targetPos;
     [SerializeField] private float speed;
     [SerializeField] private GameObject explosionEffect;
-
+    private AudioSource audioSrc;
+    
     private void Start()
     {
         speed *= Random.Range(0.95f, 1.05f);
+        audioSrc = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -57,9 +59,10 @@ public class Mine : MonoBehaviour
             {
                 needActivate = true;
                 beenActivated = true;
+                //audioSrc.PlayOneShot(audioSrc.clip);
             }
         }
-
+        
         if (enemies.Count >= 1 && needActivate)
         {
             isActive = true;

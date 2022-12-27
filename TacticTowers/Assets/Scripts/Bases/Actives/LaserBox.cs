@@ -12,12 +12,15 @@ public class LaserBox : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] public float duration;
     private float period;
-
+    private AudioSource audioSrc;
+    
     private void Start()
     {
         period = periodBetweenDmg;
+        audioSrc = GetComponent<AudioSource>();
+        audioSrc.Play();
     }
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.transform.CompareTag("Enemy"))
@@ -55,7 +58,10 @@ public class LaserBox : MonoBehaviour
             periodBetweenDmg = period;
         }
         duration -= Time.deltaTime;
-        if (duration < 0) Destroy(gameObject);
+        if (duration < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void PeriodDamage()

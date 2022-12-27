@@ -10,6 +10,8 @@ public class FreezeEnemyTemporary : BaseActive
     [SerializeField] private int freezeStacksNeeded;
     [SerializeField] private GameObject freezeExplosion;
 
+    private void Start() => audioSrc = GetComponent<AudioSource>();
+    
     public override void ExecuteActiveAbility()
     {
         box.freezeStacksNeeded = freezeStacksNeeded;
@@ -18,5 +20,6 @@ public class FreezeEnemyTemporary : BaseActive
         box.FreezeEnemy(); 
         GetComponent<Base>().UpdateAbilityTimer();
         Instantiate(freezeExplosion, transform.position, Quaternion.identity);
+        audioSrc.PlayOneShot(audioSrc.clip);
     }
 }

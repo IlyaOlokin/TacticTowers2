@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4434774992038405003}
   - component: {fileID: 4434774992038405004}
   - component: {fileID: 4434774992038405006}
+  - component: {fileID: -5942364998071044418}
   m_Layer: 3
   m_Name: Minigun
   m_TagString: TowerInstance
@@ -101,9 +102,9 @@ MonoBehaviour:
   towerDescription: upgradeMinigunDesc
   towerSprite: {fileID: 8381589813683705289, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   towerCanon: {fileID: 6774156177371616423}
-  shootAngle: 40
+  shootAngle: 55
   shootDistance: 3
-  Dmg: 15
+  Dmg: 18
   attackSpeed: 1.8
   shootZone: {fileID: 0}
   upgrades:
@@ -114,6 +115,7 @@ MonoBehaviour:
   - {fileID: 2176275356486688434, guid: 3296baa9be94d8540a8e3cfe13ef031b, type: 3}
   - {fileID: 1137575584556741642, guid: fbb7796e4bc53ea4eaa4f46a99375347, type: 3}
   - {fileID: 3469322727381602793, guid: a0c2916f64d892d4d8909040d328968e, type: 3}
+  audioSrc: {fileID: 0}
   bullet: {fileID: 1680028144157980390, guid: dbb970afe829a3442a564d91386b71ff, type: 3}
   bulletSpeed: 12
   heatIndicator: {fileID: 3952267508470251726}
@@ -123,6 +125,102 @@ MonoBehaviour:
   bonusAttackSpeedPerHeatMultiplier: 1
   coolDelay: 5
   coolDelayMultiplier: 1
+--- !u!82 &-5942364998071044418
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4434774992038405007}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
+  m_audioClip: {fileID: 8300000, guid: b1011ac093acda3489cfc0fc8567e6c9, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.7
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6004427081337367730
 GameObject:
   m_ObjectHideFlags: 0

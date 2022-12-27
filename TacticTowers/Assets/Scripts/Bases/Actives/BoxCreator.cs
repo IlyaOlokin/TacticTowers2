@@ -8,7 +8,6 @@ public class BoxCreator : MonoBehaviour
     [NonSerialized] private bool isActive = false;
     [NonSerialized] public GameObject Box;
 
-
     private void Update()
     {
         if (Input.GetMouseButton(1))
@@ -34,7 +33,7 @@ public class BoxCreator : MonoBehaviour
 
     private void SpawnBox()
     {
-        Instantiate(Box, transform.position, Quaternion.identity);
+        Instantiate(Box, transform.position, Quaternion.identity);   
         GameObject.FindGameObjectWithTag("Base").GetComponent<Base>().UpdateAbilityTimer();
     }
 

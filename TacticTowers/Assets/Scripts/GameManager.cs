@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject baseAbilityMenu;
     [SerializeField] private Button abilityButton;
     [SerializeField] private Image baseAbilityCoolDownImage;
+    [SerializeField] private Text baseAbilityCoolDownText;
 
     [SerializeField] private FinishPanel finishPanel;
 
@@ -24,8 +25,9 @@ public class GameManager : MonoBehaviour
         newBase.baseAbilityMenu = baseAbilityMenu;
         newBase.abilityButton = abilityButton;
         newBase.coolDownImage = baseAbilityCoolDownImage;
+        newBase.coolDownText = baseAbilityCoolDownText;
     }
-
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -34,7 +36,7 @@ public class GameManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.M))
         {
-            Money.AddMoney(100);
+            Money.AddMoney(9999);
         }
     }
 }

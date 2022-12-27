@@ -5,9 +5,19 @@ using UnityEngine;
 
 public class DataLoader : MonoBehaviour
 {
+    [SerializeField] private MusicButton musicButton;
+    [SerializeField] private SoundButton soundButton;
+    
+    private static MusicButton mscButton;
+    private static SoundButton sndButton;
+    
     void Start()
     {
+        mscButton = musicButton;
+        sndButton = soundButton;
+        
         YandexSDK.Instance.GettingData();
+        LoadStartData();
     }
 
     public static void LoadStartData()
@@ -32,6 +42,16 @@ public class DataLoader : MonoBehaviour
 
         Localisation.CurrentLanguage = (Language) LoadInt("currentLanguage", 0);
         Localisation.OnLanguageChanged.Invoke();
+
+        //YandexSDK.Instance.Authenticate();
+        
+        AudioManager.Instance.ChangeMusic("MainTheme");
+        
+        if (Convert.ToBoolean(LoadInt("isMusicOn", 1)))
+            AudioManager.Instance.PlayMusic();
+        
+        mscButton.Init();
+        sndButton.Init();
     }
 
     private void Update()
@@ -49,46 +69,26 @@ public class DataLoader : MonoBehaviour
 
     public static void SaveInt(string variableName, int isUnlocked)
     {
-        if (!YandexSDK.Instance.playerData.intData.ContainsKey(variableName))
-            YandexSDK.Instance.playerData.intData.Add(variableName, isUnlocked);
-        else
-            YandexSDK.Instance.playerData.intData[variableName] = isUnlocked;
-        
-        YandexSDK.Instance.SettingData();
+        PlayerPrefs.SetInt(variableName, Convert.ToInt16(isUnlocked));
     }
 
     public static void SaveInt(string variableName, bool isUnlocked)
     {
-        if (!YandexSDK.Instance.playerData.intData.ContainsKey(variableName))
-            YandexSDK.Instance.playerData.intData.Add(variableName, Convert.ToInt16(isUnlocked));
-        else
-            YandexSDK.Instance.playerData.intData[variableName] = Convert.ToInt16(isUnlocked);
-        YandexSDK.Instance.SettingData();
+        PlayerPrefs.SetInt(variableName, Convert.ToInt16(isUnlocked));
     }
 
     public static void SaveString(string variableName, string value)
     {
         PlayerPrefs.SetString(variableName, value);
-        if (!YandexSDK.Instance.playerData.stringData.ContainsKey(variableName))
-            YandexSDK.Instance.playerData.stringData.Add(variableName, value);
-        else
-            YandexSDK.Instance.playerData.stringData[variableName] = value;
-        YandexSDK.Instance.SettingData();
     }
 
     public static string LoadString(string variableName, string defaultValue)
     {
-        if (!YandexSDK.Instance.playerData.stringData.ContainsKey(variableName))
-            return defaultValue;
-       
-        return YandexSDK.Instance.playerData.stringData[variableName];
+        return PlayerPrefs.GetString(variableName, defaultValue);
     }
     
     public static int LoadInt(string variableName, int defaultValue)
     {
-        if (!YandexSDK.Instance.playerData.intData.ContainsKey(variableName))
-            return defaultValue;
-       
-        return YandexSDK.Instance.playerData.intData[variableName];
+        return PlayerPrefs.GetInt(variableName, defaultValue);
     }
 }

@@ -7,6 +7,8 @@ public class DefaultTower : Tower
     [SerializeField] private GameObject bullet;
     
     [SerializeField] private float bulletSpeed;
+
+    private void Start() => audioSrc = GetComponent<AudioSource>();
     
     void Update()
     {
@@ -29,7 +31,9 @@ public class DefaultTower : Tower
             bulletComponent.enemiesToIgnore = enemiesToIgnore;
             bulletComponent.departurePos = transform.position;
             
-            AudioManager.Instance.Play("DefaultTowerShot");
+            //AudioManager.Instance.Play("DefaultTowerShot");
+            audioSrc.PlayOneShot(audioSrc.clip);
+            //audioSrc.Play();
         }
     }
 }

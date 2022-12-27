@@ -19,8 +19,8 @@ MonoBehaviour:
   - enemy: {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
     enemyCount: 5
   Left:
-  - enemy: {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
-    enemyCount: 0.9
   - enemy: {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
     enemyCount: 45
-  Bot: []
+  Bot:
+  - enemy: {fileID: 5937050097135992818, guid: aba919730f6b6bb4fbf273e47aaefc91, type: 3}
+    enemyCount: 5

@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject soundButton;
     [SerializeField] private GameObject musicButton;
+    [SerializeField] private GameObject playButton;
     
     public void OnButtonMusic()
     {
@@ -25,7 +26,7 @@ public class MainMenu : MonoBehaviour
     {
         var isTutorialCompleted = Convert.ToBoolean(DataLoader.LoadInt("isTutorialCompleted", 0));
         AudioManager.Instance.Play("ButtonClick2");
-
+        //playButton.GetComponent<AudioSource>().Play();
         SceneManager.LoadScene(isTutorialCompleted ? "BaseChooseMenu" : "Tutorial");
     }
     

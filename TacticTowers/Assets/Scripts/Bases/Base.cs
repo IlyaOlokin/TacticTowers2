@@ -14,6 +14,7 @@ public class Base : MonoBehaviour
     [NonSerialized] public GameObject baseAbilityMenu;
     [NonSerialized] public Button abilityButton;
     [NonSerialized] public Image coolDownImage;
+    [NonSerialized] public Text coolDownText;
     public int unlockCost;
     
     private float abilityTimer = 0;
@@ -39,7 +40,7 @@ public class Base : MonoBehaviour
 
     private void Update()
     {
-        UpdateCoolDownImage();
+        UpdateCoolUI();
         if (abilityTimer > 0)
             abilityTimer -= Time.deltaTime;
     }
@@ -76,9 +77,10 @@ public class Base : MonoBehaviour
         abilityTimer = ability.coolDown;
     }
 
-    private void UpdateCoolDownImage()
+    private void UpdateCoolUI()
     {
         coolDownImage.fillAmount = 1 - (ability.coolDown - abilityTimer) / ability.coolDown;
+        coolDownText.text = abilityTimer > 0 ? Mathf.Ceil(abilityTimer).ToString() : "";
     }
     
     private void OnMouseUp()

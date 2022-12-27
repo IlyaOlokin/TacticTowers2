@@ -414,16 +414,12 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 4641657415697292076, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 295.91388
+      value: 295.914
       objectReference: {fileID: 0}
     - target: {fileID: 6320360387982982927, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 8098183434750362124, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8344130361910586229, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Name
       value: UI
@@ -3206,7 +3202,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &341391977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3222,7 +3218,13 @@ MonoBehaviour:
   enemiesObject: {fileID: 1854380829}
   Waves:
   - moneyForWave: 15
-    seconds: 0
+    seconds: 60
+    waveScale: 0
+    isSpecial: 0
+    specialEnemySet: {fileID: 0}
+    bossTransform: {fileID: 0}
+  - moneyForWave: 15
+    seconds: 20
     waveScale: 1
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: d8d60f122d3764a46ba188356151661a, type: 2}
@@ -3244,12 +3246,6 @@ MonoBehaviour:
     waveScale: 0
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: 7f2f6728cbf026540a3bce73750122c5, type: 2}
-    bossTransform: {fileID: 0}
-  - moneyForWave: 15
-    seconds: 60
-    waveScale: 0
-    isSpecial: 0
-    specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 15
     seconds: 60
@@ -3696,6 +3692,7 @@ MonoBehaviour:
   buttonSprite: {fileID: 360847123}
   spriteActive: {fileID: -457555882396643226, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
   spriteDeactive: {fileID: 8657532418779330660, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
+  audioMixer: {fileID: 0}
 --- !u!1 &363942887
 GameObject:
   m_ObjectHideFlags: 0
@@ -3759,25 +3756,25 @@ MonoBehaviour:
     bossTransform: {fileID: 1684239101}
   - moneyForWave: 600
     seconds: 5
-    waveScale: 1
+    waveScale: 0.9
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 900
     seconds: 50
-    waveScale: 1.3
+    waveScale: 1.1
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 1250
     seconds: 50
-    waveScale: 1.5
+    waveScale: 1.3
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 1700
     seconds: 55
-    waveScale: 1.8
+    waveScale: 1.6
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
@@ -3789,25 +3786,25 @@ MonoBehaviour:
     bossTransform: {fileID: 638799782}
   - moneyForWave: 2600
     seconds: 5
-    waveScale: 0.9
+    waveScale: 0.8
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 3000
     seconds: 60
-    waveScale: 1.2
+    waveScale: 1
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 3450
     seconds: 60
-    waveScale: 1.4
+    waveScale: 1.2
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 3950
     seconds: 60
-    waveScale: 1.7
+    waveScale: 1.5
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
@@ -3819,25 +3816,25 @@ MonoBehaviour:
     bossTransform: {fileID: 1684239101}
   - moneyForWave: 5800
     seconds: 5
-    waveScale: 0.9
+    waveScale: 0.8
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 6800
     seconds: 60
-    waveScale: 1.2
+    waveScale: 1
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 8000
     seconds: 60
-    waveScale: 1.4
+    waveScale: 1.2
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 9500
     seconds: 60
-    waveScale: 1.7
+    waveScale: 1.5
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
@@ -3849,25 +3846,25 @@ MonoBehaviour:
     bossTransform: {fileID: 638799782}
   - moneyForWave: 12000
     seconds: 5
-    waveScale: 0.9
+    waveScale: 0.8
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 13200
     seconds: 60
-    waveScale: 1.2
+    waveScale: 1
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 14300
     seconds: 60
-    waveScale: 1.4
+    waveScale: 1.2
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 15500
     seconds: 60
-    waveScale: 1.7
+    waveScale: 1.5
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
@@ -4894,6 +4891,7 @@ RectTransform:
   m_Children:
   - {fileID: 6560693}
   - {fileID: 121806846}
+  - {fileID: 1769473802}
   m_Father: {fileID: 62178998}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15869,6 +15867,7 @@ MonoBehaviour:
   baseAbilityMenu: {fileID: 457497090}
   abilityButton: {fileID: 6560694}
   baseAbilityCoolDownImage: {fileID: 121806847}
+  baseAbilityCoolDownText: {fileID: 1769473803}
   finishPanel: {fileID: 34911431}
 --- !u!4 &1618933603
 Transform:
@@ -16989,6 +16988,85 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750773247}
+  m_CullTransparentMesh: 1
+--- !u!1 &1769473801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1769473802}
+  - component: {fileID: 1769473804}
+  - component: {fileID: 1769473803}
+  m_Layer: 5
+  m_Name: CoolDownText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1769473802
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769473801}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 457497096}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.00022125}
+  m_SizeDelta: {x: 100, y: 94.009}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1769473803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769473801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c8061a3b6160847418107f072e8d8f8d, type: 3}
+    m_FontSize: 55
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 55
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 45
+--- !u!222 &1769473804
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769473801}
   m_CullTransparentMesh: 1
 --- !u!1 &1775850610
 GameObject:
