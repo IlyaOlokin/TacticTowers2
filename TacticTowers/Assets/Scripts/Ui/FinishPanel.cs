@@ -93,19 +93,16 @@ public class FinishPanel : MonoBehaviour
 
     public void PauseMusik()
     {
-        var audioManager = FindObjectOfType<AudioManager>();
-        var music = Array.Find(audioManager.Sounds, sound => sound.name == "MainTheme");
-
-        if (music.source.isPlaying)
+        if (Convert.ToBoolean(DataLoader.LoadInt("isMusicOn", 1)))
         {
-            audioManager.Stop("MainTheme");
+            AudioManager.Instance.StopMusic();
             wasMusicStopped = true;
         }
     }
 
     private void ResumeMusic()
     {
-        if (wasMusicStopped) AudioManager.Instance.Play("MainTheme");
+        if (wasMusicStopped) AudioManager.Instance.PlayMusic();
     }
     
     private void Update()
