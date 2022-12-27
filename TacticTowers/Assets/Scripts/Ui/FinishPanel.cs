@@ -93,19 +93,16 @@ public class FinishPanel : MonoBehaviour
 
     public void PauseMusik()
     {
-        var audioManager = FindObjectOfType<AudioManager>();
-        var music = Array.Find(audioManager.Sounds, sound => sound.name == "MainTheme");
-
-        if (music.source.isPlaying)
+        if (Convert.ToBoolean(DataLoader.LoadInt("isMusicOn", 1)))
         {
-            audioManager.Stop("MainTheme");
+            AudioManager.Instance.StopMusic();
             wasMusicStopped = true;
         }
     }
 
     private void ResumeMusic()
     {
-        if (wasMusicStopped) AudioManager.Instance.Play("MainTheme");
+        if (wasMusicStopped) AudioManager.Instance.PlayMusic();
     }
     
     private void Update()
@@ -194,6 +191,7 @@ public class FinishPanel : MonoBehaviour
         //_base = newBase.GetComponent<Base>();
         //_base.TakeDamage(_base.GetMaxHp() / 2f);
         _base.hp = _base.maxHp / 2f;
+        _base.UpdateHpBar();
         ResurrectionPanel.SetActive(false);
         isSessionEnded = false;
         Resume(true);
