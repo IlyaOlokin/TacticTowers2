@@ -111,12 +111,12 @@ public class YandexSDK : MonoBehaviour
 
     public void RewardGetting()
     {
-        RewardGet?.Invoke();
+        //RewardGet?.Invoke();
     }
     
     public void RewardClose()
     {
-        //RewardGet?.Invoke();
+        RewardGet?.Invoke();
     }
 
     public void SetLeaderScore(int score)
