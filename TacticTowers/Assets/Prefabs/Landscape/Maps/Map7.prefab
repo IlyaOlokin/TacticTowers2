@@ -60,6 +60,22 @@ Transform:
   m_Father: {fileID: 2782666942654910290}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &8971890411470763717
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831541423640632032}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.81
 --- !u!1 &2131900214661988650
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +577,22 @@ Transform:
   m_Father: {fileID: 3340887781996603506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &8544111189102979068
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8901942448671208363}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.81
 --- !u!1001 &1166211383931641313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -790,19 +822,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 609451774512135568, guid: 11f91a479514d13449db7a0309f6b937, type: 3}
       propertyPath: m_Shape
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 609451774512135568, guid: 11f91a479514d13449db7a0309f6b937, type: 3}
       propertyPath: m_Extents.x
-      value: 0.775
+      value: 0.86
       objectReference: {fileID: 0}
     - target: {fileID: 609451774512135568, guid: 11f91a479514d13449db7a0309f6b937, type: 3}
       propertyPath: m_Extents.y
-      value: 0.775
+      value: 0.822
       objectReference: {fileID: 0}
     - target: {fileID: 609451774512135568, guid: 11f91a479514d13449db7a0309f6b937, type: 3}
       propertyPath: m_Extents.z
-      value: 0.78
+      value: 0.86
       objectReference: {fileID: 0}
     - target: {fileID: 609451774512135569, guid: 11f91a479514d13449db7a0309f6b937, type: 3}
       propertyPath: m_RootOrder
@@ -884,8 +916,14 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1.645
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 609451774512135663, guid: 11f91a479514d13449db7a0309f6b937, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 11f91a479514d13449db7a0309f6b937, type: 3}
+--- !u!1 &1831541423640632032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 609451774512135570, guid: 11f91a479514d13449db7a0309f6b937, type: 3}
+  m_PrefabInstance: {fileID: 1233920397599418226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1831541423640632035 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 609451774512135569, guid: 11f91a479514d13449db7a0309f6b937, type: 3}
@@ -2392,7 +2430,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 609451774512135568, guid: 11f91a479514d13449db7a0309f6b937, type: 3}
       propertyPath: m_Shape
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 609451774512135568, guid: 11f91a479514d13449db7a0309f6b937, type: 3}
       propertyPath: m_Extents.x
@@ -2486,8 +2524,14 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1.645
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 609451774512135663, guid: 11f91a479514d13449db7a0309f6b937, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 11f91a479514d13449db7a0309f6b937, type: 3}
+--- !u!1 &8901942448671208363 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 609451774512135570, guid: 11f91a479514d13449db7a0309f6b937, type: 3}
+  m_PrefabInstance: {fileID: 8358461379593784889}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8901942448671208360 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 609451774512135569, guid: 11f91a479514d13449db7a0309f6b937, type: 3}
