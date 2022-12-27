@@ -1,0 +1,759 @@
+fileFormatVersion: 2
+guid: a7039526883d88e4896f87f90c4cf963
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5343448141753731585
+    second: LandscapeKit_0
+  - first:
+      213: -7477243700706323426
+    second: LandscapeKit_3
+  - first:
+      213: -2079980255030849522
+    second: LandscapeKit_6
+  - first:
+      213: 5719115917140274141
+    second: LandscapeKit_8
+  - first:
+      213: -3825468761730764919
+    second: LandscapeKit_10
+  - first:
+      213: 2356596521653214849
+    second: LandscapeKit_11
+  - first:
+      213: 288658828093583564
+    second: LandscapeKit_12
+  - first:
+      213: -2442951763113900847
+    second: LandscapeKit_21
+  - first:
+      213: -1667730878349499722
+    second: LandscapeKit_22
+  - first:
+      213: -525183559532692532
+    second: LandscapeKit_24
+  - first:
+      213: 2475575538095780656
+    second: LandscapeKit_32
+  - first:
+      213: 7840510901385508893
+    second: LandscapeKit_35
+  - first:
+      213: -3947219803277974082
+    second: LandscapeKit_37
+  - first:
+      213: -6068373674984324754
+    second: LandscapeKit_38
+  - first:
+      213: -659841316660626662
+    second: LandscapeKit_40
+  - first:
+      213: 7987378576773831730
+    second: LandscapeKit_41
+  - first:
+      213: -9007734947282955775
+    second: LandscapeKit_42
+  - first:
+      213: -2175636538562579391
+    second: LandscapeKit_43
+  - first:
+      213: -8513384956214330343
+    second: LandscapeKit_44
+  - first:
+      213: 1998973789427842929
+    second: LandscapeKit_45
+  - first:
+      213: -7265707405872372038
+    second: LandscapeKit_50
+  - first:
+      213: 1603856900364479891
+    second: LandscapeKit_51
+  - first:
+      213: 6119978614818814139
+    second: LandscapeKit_52
+  - first:
+      213: 7640551698513145698
+    second: LandscapeKit_55
+  - first:
+      213: 3001812381836203762
+    second: LandscapeKit_59
+  - first:
+      213: -4499755319855644144
+    second: LandscapeKit_60
+  - first:
+      213: 4006315918341310960
+    second: LandscapeKit_63
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LandscapeKit_0
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 3911
+        width: 293
+        height: 435
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff53c03d93248d5b0800000000000000
+      internalID: -5343448141753731585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_3
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 3905
+        width: 293
+        height: 435
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e145f58687e7b3890800000000000000
+      internalID: -7477243700706323426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_6
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 3602
+        width: 175
+        height: 743
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e005f0f6afc6223e0800000000000000
+      internalID: -2079980255030849522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_8
+      rect:
+        serializedVersion: 2
+        x: 1668
+        y: 3662
+        width: 394
+        height: 682
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddbad6e10a16e5f40800000000000000
+      internalID: 5719115917140274141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_10
+      rect:
+        serializedVersion: 2
+        x: 2169
+        y: 3662
+        width: 394
+        height: 682
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98f2faded6439eac0800000000000000
+      internalID: -3825468761730764919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_12
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 3602
+        width: 175
+        height: 743
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc07ccdbca5810400800000000000000
+      internalID: 288658828093583564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_21
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3288
+        width: 112
+        height: 1065
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d48e249054e81ed0800000000000000
+      internalID: -2442951763113900847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_22
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 3301
+        width: 320
+        height: 549
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b227072a970bd8e0800000000000000
+      internalID: -1667730878349499722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_24
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 3301
+        width: 320
+        height: 549
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccbbd2cc55c26b8f0800000000000000
+      internalID: -525183559532692532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_32
+      rect:
+        serializedVersion: 2
+        x: 1590
+        y: 2850
+        width: 581
+        height: 709
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03378d2f5d20b5220800000000000000
+      internalID: 2475575538095780656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_35
+      rect:
+        serializedVersion: 2
+        x: 2205
+        y: 2833
+        width: 581
+        height: 709
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1839aebf171fcc60800000000000000
+      internalID: 7840510901385508893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_37
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 3381
+        width: 153
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb5aa3f8088a839c0800000000000000
+      internalID: -3947219803277974082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_38
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 3381
+        width: 153
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e614a325b4ec8cba0800000000000000
+      internalID: -6068373674984324754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_40
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 2686
+        width: 411
+        height: 556
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1b315881d5c7d6f0800000000000000
+      internalID: -659841316660626662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_41
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 2684
+        width: 413
+        height: 565
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23c5b232f7ed8de60800000000000000
+      internalID: 7987378576773831730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_42
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 3227
+        width: 43
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 102d35c5ac81ef280800000000000000
+      internalID: -9007734947282955775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_43
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 3223
+        width: 138
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 144fd9e58169ec1e0800000000000000
+      internalID: -2175636538562579391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_44
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 3218
+        width: 138
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91cb0b8fc716ad980800000000000000
+      internalID: -8513384956214330343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_45
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 3082
+        width: 58
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17fb92a0218cdbb10800000000000000
+      internalID: 1998973789427842929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_50
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 2669
+        width: 45
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab66d071c950b2b90800000000000000
+      internalID: -7265707405872372038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_51
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 2049
+        width: 293
+        height: 630
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39da8c07a5b024610800000000000000
+      internalID: 1603856900364479891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_52
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 2032
+        width: 294
+        height: 564
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb8334900288ee450800000000000000
+      internalID: 6119978614818814139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_55
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 2086
+        width: 486
+        height: 478
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f22e5d941b80a60800000000000000
+      internalID: 7640551698513145698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_59
+      rect:
+        serializedVersion: 2
+        x: 1477
+        y: 2078
+        width: 135
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f657bdf47498a920800000000000000
+      internalID: 3001812381836203762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_60
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 2103
+        width: 344
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01284d79068ad81c0800000000000000
+      internalID: -4499755319855644144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LandscapeKit_63
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 45
+        width: 3160
+        height: 1780
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f90ab2f91b499730800000000000000
+      internalID: 4006315918341310960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
