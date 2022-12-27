@@ -191,6 +191,7 @@ public class FinishPanel : MonoBehaviour
         //_base = newBase.GetComponent<Base>();
         //_base.TakeDamage(_base.GetMaxHp() / 2f);
         _base.hp = _base.maxHp / 2f;
+        _base.UpdateHpBar();
         ResurrectionPanel.SetActive(false);
         isSessionEnded = false;
         Resume(true);
