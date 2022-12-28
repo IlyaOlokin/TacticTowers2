@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: d35288c5b9dfcc6479044eed49b3ce18, type: 3}
+  m_Sprite: {fileID: 8008574969191610349, guid: 48235b6932ac7574f86d2aeab9d86593, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   disarmDuration: 5
+  webSprite: {fileID: 21300000, guid: d35288c5b9dfcc6479044eed49b3ce18, type: 3}
 --- !u!1 &1947193100560463588
 GameObject:
   m_ObjectHideFlags: 0
