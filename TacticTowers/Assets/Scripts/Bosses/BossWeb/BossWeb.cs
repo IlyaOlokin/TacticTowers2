@@ -23,6 +23,7 @@ public class BossWeb : Boss
 
     void Update()
     {
+        if (isDead) return;
         TryToShoot();
         UpdateHp();
         shootTimer += Time.deltaTime;
@@ -85,5 +86,11 @@ public class BossWeb : Boss
         }
 
         return targetTower;
+    }
+
+    protected override void BossDeath()
+    {
+        Destroy(gun);
+        isDead = true;
     }
 }
