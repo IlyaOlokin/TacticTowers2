@@ -317,7 +317,7 @@ MonoBehaviour:
   StartPoint: {fileID: 1693774175657914941}
   EndPoint: {fileID: 8294108301928347103}
   ropeSegLen: 0.12
-  segmentCount: 8
+  segmentCount: 12
   lineWidth: 0.05
 --- !u!120 &2180146838761480059
 LineRenderer:
@@ -682,7 +682,7 @@ MonoBehaviour:
   StartPoint: {fileID: 1693774175657914941}
   EndPoint: {fileID: 264410214030982742}
   ropeSegLen: 0.12
-  segmentCount: 8
+  segmentCount: 12
   lineWidth: 0.05
 --- !u!120 &1841838528628906291
 LineRenderer:
@@ -1572,7 +1572,7 @@ MonoBehaviour:
   StartPoint: {fileID: 1693774175657914941}
   EndPoint: {fileID: 4476420131418323166}
   ropeSegLen: 0.12
-  segmentCount: 8
+  segmentCount: 12
   lineWidth: 0.05
 --- !u!120 &1012857439494779899
 LineRenderer:
@@ -1852,7 +1852,7 @@ MonoBehaviour:
   StartPoint: {fileID: 1693774175657914941}
   EndPoint: {fileID: 5434793434061896491}
   ropeSegLen: 0.12
-  segmentCount: 8
+  segmentCount: 12
   lineWidth: 0.05
 --- !u!120 &3158340354658547340
 LineRenderer:

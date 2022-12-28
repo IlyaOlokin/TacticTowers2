@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 public class BossTentacles : Boss
 {
     [SerializeField] private List<Tentacle> tentaclesTips;
-    [SerializeField] private float tentaclesRange;
+    public float tentaclesRange;
     [SerializeField] private float regenForTentacle;
     //private Enemy enemyComp;
     //private float maxHp;
