@@ -10,6 +10,7 @@ public class BossWithShields : Boss
     [SerializeField] private List<GameObject> shieldPoints;
     [SerializeField] private List<GameObject> shields;
     [SerializeField] private List<ShieldSide> shieldSides;
+    [SerializeField] private GameObject ropesParent;
     [SerializeField] private float floatingSpeed;
     [SerializeField] private float floatingSpread;
     [SerializeField] private float rotationDelay;
@@ -19,7 +20,7 @@ public class BossWithShields : Boss
     
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
-    
+
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class BossWithShields : Boss
     
     void Update()
     {
+        if (isDead) return;
         for (int i = 0; i < shields.Count; i++)
         {
             FloatShields(i);
@@ -133,5 +135,16 @@ public class BossWithShields : Boss
         currentShieldPositionIndex = newIndex;
         yield return new WaitForSeconds(rotationDelay);
         StartCoroutine(RotateShields());
+    }
+
+    protected override void BossDeath()
+    {
+        isDead = true;
+        Destroy(ropesParent);
+        int listCount = shieldPoints.Count;
+        for (int i = 0; i < listCount; i++)
+        {
+            Destroy(shieldPoints[listCount - i - 1]);
+        }
     }
 }

@@ -9,9 +9,16 @@ public class Boss : MonoBehaviour
     [NonSerialized]public float hp;
     public float maxHp;
     [SerializeField] protected Enemy enemyComp;
+    protected bool isDead;
     
     protected virtual void UpdateHp()
     {
+        if (enemyComp.hp <= 0) BossDeath();
         hp = enemyComp.hp;
-    } 
+    }
+
+    protected virtual void BossDeath()
+    {
+        
+    }
 }
