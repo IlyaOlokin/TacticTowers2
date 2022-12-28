@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     [NonSerialized] public bool hasTentacle;
     private float rotationSpeed = 160f;
     private bool isDead;
-    [SerializeField] private bool isImmortal;
+    public bool isImmortal;
     
     [Header("Visual Effects")]
     [SerializeField] private GameObject damageNumberEffect;

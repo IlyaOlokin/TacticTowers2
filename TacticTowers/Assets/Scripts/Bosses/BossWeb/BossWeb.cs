@@ -90,6 +90,7 @@ public class BossWeb : Boss
 
     protected override void BossDeath()
     {
+        if (GetComponent<Enemy>().isImmortal) return;
         Destroy(gun);
         isDead = true;
     }
