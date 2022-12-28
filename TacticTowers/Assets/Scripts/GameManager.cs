@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         finishPanel._base = newBase;
         newBase.baseAbilityMenu = baseAbilityMenu;
         newBase.abilityButton = abilityButton;
+        abilityButton.image.sprite = newBase.GetComponent<BaseActive>().activeAbilitySprite;
         newBase.coolDownImage = baseAbilityCoolDownImage;
         newBase.coolDownText = baseAbilityCoolDownText;
     }
