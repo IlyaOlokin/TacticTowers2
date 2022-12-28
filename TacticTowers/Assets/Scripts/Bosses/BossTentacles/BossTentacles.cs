@@ -9,6 +9,7 @@ public class BossTentacles : Boss
     [SerializeField] private List<Tentacle> tentaclesTips;
     public float tentaclesRange;
     [SerializeField] private float regenForTentacle;
+    [SerializeField] private GameObject tentacleParent;
     //private Enemy enemyComp;
     //private float maxHp;
     private float tentacleConnected;
@@ -22,6 +23,7 @@ public class BossTentacles : Boss
 
     private void Update()
     {
+        if (isDead) return;
         Regenerate();
         UpdateHp();
     }
@@ -85,5 +87,11 @@ public class BossTentacles : Boss
     public void DisconnectTentacle()
     {
         tentacleConnected--;
+    }
+
+    protected override void BossDeath()
+    {
+        isDead = true;
+        Destroy(tentacleParent);
     }
 }
