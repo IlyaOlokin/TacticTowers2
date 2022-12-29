@@ -9,6 +9,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject soundButton;
     [SerializeField] private GameObject musicButton;
     [SerializeField] private GameObject playButton;
+    [SerializeField] private List<GameObject> languageButtons;
+    [SerializeField] private SelectIndicator languageSelectIndicator;
+    
     
     public void OnButtonMusic()
     {
@@ -36,12 +39,22 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("TechsMenu");
     }
 
+    public void InitializeLanguage()
+    {
+        var language = DataLoader.LoadInt("currentLanguage", 0);
+        Localisation.CurrentLanguage = (Language)language;
+        Localisation.OnLanguageChanged.Invoke();
+        
+        languageSelectIndicator.GetNewDestination(languageButtons[language].transform.position);
+    }
+
     public void OnButtonChangeLanguage(int language)
     {
         AudioManager.Instance.Play("ButtonClick1");
         Localisation.CurrentLanguage = (Language)language;
         DataLoader.SaveInt("currentLanguage", language);
         Localisation.OnLanguageChanged.Invoke();
+        languageSelectIndicator.GetNewDestination(languageButtons[language].transform.position);
     }
 
     public void OnButtonTutorial()

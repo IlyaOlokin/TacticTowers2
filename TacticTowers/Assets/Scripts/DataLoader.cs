@@ -7,14 +7,17 @@ public class DataLoader : MonoBehaviour
 {
     [SerializeField] private MusicButton musicButton;
     [SerializeField] private SoundButton soundButton;
+    [SerializeField] private MainMenu mainMenu;
     
     private static MusicButton mscButton;
     private static SoundButton sndButton;
+    private static MainMenu mnMenu;
     
     void Start()
     {
         mscButton = musicButton;
         sndButton = soundButton;
+        mnMenu = mainMenu;
         
         YandexSDK.Instance.GettingData();
         LoadStartData();
@@ -52,6 +55,7 @@ public class DataLoader : MonoBehaviour
         
         mscButton.Init();
         sndButton.Init();
+        mnMenu.InitializeLanguage();
     }
 
     private void Update()
