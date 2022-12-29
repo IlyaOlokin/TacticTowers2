@@ -70,6 +70,7 @@ public class BaseSelectManager : MonoBehaviour
         DataLoader.SaveString("BaseUnlocks", ConvertToSave());
         playButton.interactable = true;
         unlockBaseButton.SetActive(false);
+        AudioManager.Instance.Play("ButtonClick1");
         InitializeButtons();
     }
 
