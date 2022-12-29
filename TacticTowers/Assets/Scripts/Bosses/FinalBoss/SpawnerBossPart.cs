@@ -24,7 +24,6 @@ public class SpawnerBossPart : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         SpawnEnemies(PickRandomPack());
-        EnemySpawner.FindEnemies();
         StartCoroutine("SpawnEnemyPack", Random.Range(minDelay, maxDelay));
     }
 
@@ -36,7 +35,8 @@ public class SpawnerBossPart : MonoBehaviour
             {
                 Instantiate(enemyPack.enemies[i], GetRandomPointOnSpawnZone(spawnZone), Quaternion.identity, enemyParent);
             }
-        }        
+        }    
+        EnemySpawner.FindEnemies();
     }
 
     private EnemyPack PickRandomPack()
@@ -48,10 +48,10 @@ public class SpawnerBossPart : MonoBehaviour
     private Vector2 GetRandomPointOnSpawnZone(Transform spawnZone)
     {
         return new Vector2(
-            Random.Range(spawnZone.position.x - spawnZone.localScale.x / 2f,
-                spawnZone.position.x + spawnZone.localScale.x / 2f),
-            Random.Range(spawnZone.position.y - spawnZone.localScale.y / 2f,
-                spawnZone.position.y + spawnZone.localScale.y / 2f));
+            Random.Range(spawnZone.position.x - spawnZone.localScale.x / 2f * transform.localScale.x,
+                spawnZone.position.x + spawnZone.localScale.x / 2f * transform.localScale.x),
+            Random.Range(spawnZone.position.y - spawnZone.localScale.y / 2f * transform.localScale.y,
+                spawnZone.position.y + spawnZone.localScale.y / 2f * transform.localScale.y));
     }
 }
 
