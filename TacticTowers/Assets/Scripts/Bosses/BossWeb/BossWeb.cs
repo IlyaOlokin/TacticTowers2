@@ -37,13 +37,8 @@ public class BossWeb : Boss
         if (shootTimer >= shootDelay)
         {
             Shoot(target);
-            spriteRenderer.color = Color.green; // временно
-        }
-        else
-        {
-            spriteRenderer.color = Color.red;
-        }
             
+        }
     }
 
     private void PointGunAtTarget(GameObject target)
