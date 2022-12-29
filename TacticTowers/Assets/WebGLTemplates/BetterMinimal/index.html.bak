@@ -210,7 +210,8 @@
   function setUserData(_data){
       console.log('Try Save');
       console.log(_data);
-      player.setData({data : _data}).then(()=>{
+	  var obj = JSON.parse(_data)
+      player.setData(obj).then(()=>{
         console.log('saved');
       }).catch(()=>{console.log('unsaved')});
     }
