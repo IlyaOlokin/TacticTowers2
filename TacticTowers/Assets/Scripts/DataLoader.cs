@@ -62,12 +62,12 @@ public class DataLoader : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.N))
         {
-            Credits.AddCredits(10000);
+            //Credits.AddCredits(1000);
         }
 
         if (Input.GetKeyDown(KeyCode.U))
         {
-            PlayerPrefs.DeleteAll();
+            //PlayerPrefs.DeleteAll();
         }
     }
 
