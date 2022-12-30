@@ -36,7 +36,7 @@ public class DataLoader : MonoBehaviour
         Technologies.IsRailgunUnlocked = Convert.ToBoolean(LoadInt("isRailgunUnlocked", 0));
         Technologies.IsTeslaUnlocked = Convert.ToBoolean(LoadInt("isTeslaUnlocked", 0));
 
-        Credits.credits = int.Parse(LoadString("Credits", "0"));
+        Credits.credits = LoadInt("Credits", 0);
         Credits.CreditsInTotal = int.Parse(LoadString("CreditsInTotal", Credits.credits.ToString()));
 
         Technologies.MinUpgradePrice = LoadInt("minUpgradePrice", 10);

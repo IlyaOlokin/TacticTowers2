@@ -115,7 +115,6 @@ MonoBehaviour:
   - {fileID: 5781665040463225641, guid: 8735b3a9cdbb3c74c9fe19a1be13f764, type: 3}
   - {fileID: 6197532413266546659, guid: 0ab53c3d85b64734e8d4c7af605f82ea, type: 3}
   - {fileID: 5242633527358345395, guid: e20d793e133edf94e8d3943f0d6008b6, type: 3}
-  audioSrc: {fileID: 0}
   lightning: {fileID: 6687795320453916105, guid: 7f85cec6659da3f46b48d58b2ee50461, type: 3}
   lightningCount: 4
   bonusLightningCount: 0
@@ -135,7 +134,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4b7eb2b1f6bf73a428ed2f8dcd1e79c9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.07
   m_Pitch: 1
   Loop: 0
   Mute: 0

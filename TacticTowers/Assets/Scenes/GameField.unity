@@ -426,7 +426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4641657415697292076, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 295.91397
+      value: 295.91394
       objectReference: {fileID: 0}
     - target: {fileID: 6320360387982982927, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Camera
@@ -2926,6 +2926,7 @@ MonoBehaviour:
   - {fileID: 5499871268351915362, guid: d88c2582efa0e5e408034f624bd1a7be, type: 3}
   - {fileID: 4761622032506297042, guid: dd67b35408f2ebe49bb04e088488f341, type: 3}
   - {fileID: 2944829047007807111, guid: 02f2b478d6f736d4a9c8580654fd5a58, type: 3}
+  audioMixer: {fileID: 0}
 --- !u!114 &323355770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3057,6 +3058,7 @@ MonoBehaviour:
   soundButton: {fileID: 360847120}
   musicButton: {fileID: 1630707668}
   confirmButton: {fileID: 0}
+  audioMixer: {fileID: 0}
 --- !u!114 &324751679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4649,6 +4651,7 @@ MonoBehaviour:
   - {fileID: 1679923834}
   upgradingTower: {fileID: 2078680927}
   tower: {fileID: 0}
+  audioMixer: {fileID: 0}
 --- !u!1 &440105354
 GameObject:
   m_ObjectHideFlags: 0
@@ -11922,6 +11925,7 @@ MonoBehaviour:
   circleTimer: {fileID: 0}
   textTimer: {fileID: 0}
   timeToReact: 5
+  audioMixer: {fileID: 0}
 --- !u!1 &1233992738
 GameObject:
   m_ObjectHideFlags: 0

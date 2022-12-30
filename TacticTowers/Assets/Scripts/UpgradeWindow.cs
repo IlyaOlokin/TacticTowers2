@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -27,12 +28,14 @@ public class UpgradeWindow : MonoBehaviour
     [SerializeField] private List<GameObject> towerTypes;
     [SerializeField] private List<GameObject> unlockableTowerTypes;
 
+    [SerializeField] private AudioMixer audioMixer;
+
     [NonSerialized] public TowerDrag td;
     [NonSerialized] public TowerUpgrade tu;
 
     private void OnEnable()
     {
-        TimeManager.Pause();
+        TimeManager.Pause(audioMixer);
         
         AddUnlockedTowerTypes();
     }
@@ -51,7 +54,7 @@ public class UpgradeWindow : MonoBehaviour
 
     private void OnDisable()
     {
-        TimeManager.Resume();
+        TimeManager.Resume(audioMixer);
     }
 
     public void UpgradeTower(Tower tower)
