@@ -23,6 +23,7 @@ public class BossWeb : Boss
 
     void Update()
     {
+        if (isDead) return;
         TryToShoot();
         UpdateHp();
         shootTimer += Time.deltaTime;
@@ -36,13 +37,8 @@ public class BossWeb : Boss
         if (shootTimer >= shootDelay)
         {
             Shoot(target);
-            spriteRenderer.color = Color.green; // временно
-        }
-        else
-        {
-            spriteRenderer.color = Color.red;
-        }
             
+        }
     }
 
     private void PointGunAtTarget(GameObject target)
@@ -85,5 +81,12 @@ public class BossWeb : Boss
         }
 
         return targetTower;
+    }
+
+    protected override void BossDeath()
+    {
+        if (GetComponent<Enemy>().isImmortal) return;
+        Destroy(gun);
+        isDead = true;
     }
 }

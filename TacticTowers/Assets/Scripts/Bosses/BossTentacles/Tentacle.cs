@@ -25,7 +25,7 @@ public class Tentacle : MonoBehaviour
 
     void Update()
     {
-        if (enemy != null)
+        if (enemy != null && Vector2.Distance(boss.transform.position, enemy.transform.position) < boss.tentaclesRange)
         {
             tentacleNeedToBeDisconnected = true;
             MoveToEnemy();
