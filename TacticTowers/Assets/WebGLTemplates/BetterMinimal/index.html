@@ -185,7 +185,7 @@
 
       function initPlayer(){
         console.log('InitPlayerTry')
-        return sdk.getPlayer().then(_player => {
+        return sdk.getPlayer({scopes:false}).then(_player => {
                 console.log('InitPlayer2');
                 player = _player;
             });}

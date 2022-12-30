@@ -10,6 +10,8 @@ public class Web : MonoBehaviour
     [NonSerialized] public Vector3 endPos;
     private bool reachedEndPos = false;
     private CircleCollider2D collider;
+    [SerializeField] private Sprite webSprite;
+    
     private void Start()
     {
         collider = GetComponent<CircleCollider2D>();
@@ -18,6 +20,11 @@ public class Web : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, endPos, speed * Time.deltaTime);
+        
+        Vector3 dir = transform.position - endPos;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.eulerAngles = new Vector3(0, 0, angle + 90);
+        
         if (transform.position.Equals(endPos) && !reachedEndPos)
         {
             OnTargetReached();
@@ -28,6 +35,7 @@ public class Web : MonoBehaviour
     {
         reachedEndPos = true;
         collider.enabled = true;
+        GetComponent<SpriteRenderer>().sprite = webSprite;
         var towers = GameObject.FindGameObjectsWithTag("TowerInstance");
         foreach (var tower in towers)
         {

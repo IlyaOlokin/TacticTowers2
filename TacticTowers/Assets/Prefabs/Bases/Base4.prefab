@@ -126,7 +126,7 @@ MonoBehaviour:
   maxHp: 100
   canvas: {fileID: 4071880579857607806}
   unlockCost: 500
-  baseImage: {fileID: -5040041125698078803, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  baseImage: {fileID: -4487247941301392076, guid: 26c6c5c61930f1c45b4ce38e214ad365, type: 3}
 --- !u!114 &7584650013373707910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: baseASuperLaser
-  activeAbilitySprite: {fileID: 0}
+  activeAbilitySprite: {fileID: -5550416411569346885, guid: 56bafef3e6b45974381afc38b897e3b9, type: 3}
   coolDown: 180
   box: {fileID: 5966420336491615282, guid: 2e27c5a8320800e49bff2a699943bc8c, type: 3}
   boxCreator: {fileID: 4823127503884786550}
@@ -726,7 +726,7 @@ Transform:
   m_GameObject: {fileID: 3900736437246154750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.26003, y: 0.26003, z: 0.26003}
+  m_LocalScale: {x: 0.6107418, y: 0.6107418, z: 0.6107418}
   m_Children: []
   m_Father: {fileID: 3650460012554577426}
   m_RootOrder: 3
@@ -771,7 +771,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5040041125698078803, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  m_Sprite: {fileID: -4487247941301392076, guid: 26c6c5c61930f1c45b4ce38e214ad365, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
