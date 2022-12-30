@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class TutorialPanel : MonoBehaviour
 {
     [SerializeField] private List<GameObject> towers;
     [SerializeField] private GameObject skipPanel;
+    [SerializeField] private AudioMixer audioMixer;
     private float prevTimescale;
     
     public void OnButtonNext()
@@ -14,7 +16,7 @@ public class TutorialPanel : MonoBehaviour
         gameObject.SetActive(false);
         AudioManager.Instance.Play("ButtonClick1");
         TutorialPanelManager.CurrentPanel++;
-        TimeManager.Resume();
+        TimeManager.Resume(audioMixer);
         
         if (TutorialPanelManager.CurrentPanel > 2)
             foreach (var tower in towers)
@@ -36,7 +38,7 @@ public class TutorialPanel : MonoBehaviour
     
     private void OnEnable()
     {
-        TimeManager.Pause();
+        TimeManager.Pause(audioMixer);
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = false;
     }

@@ -112,7 +112,6 @@ MonoBehaviour:
   - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
   - {fileID: -3873548290313896563, guid: 2971894abaf8fe24885a1236f80790dc, type: 3}
   - {fileID: 5316641116981540922, guid: 0fa713690dec7c247b7483445fc5b194, type: 3}
-  audioSrc: {fileID: 0}
   bullet: {fileID: 1680028144157980390, guid: 174ab832ba4221e4c8b6b2f2c3689797, type: 3}
   bulletSpeed: 10
 --- !u!82 &-4667821085970149074
@@ -127,7 +126,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
   m_audioClip: {fileID: 8300000, guid: 3bcbf627af8fc37439c62c601efedbe5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.06
   m_Pitch: 1
   Loop: 0
   Mute: 0

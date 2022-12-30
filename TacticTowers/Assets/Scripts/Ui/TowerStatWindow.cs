@@ -1,37 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class TowerStatWindow : MonoBehaviour
 {
     [Header("Regular")]
-    /*[SerializeField] private GameObject dmgStat;
-    [SerializeField] private GameObject firerateStat;
-    [SerializeField] private GameObject ballisticStat;
-    [SerializeField] private GameObject angleStat;*/
     [SerializeField] private List<TowerStat> baseTowerStats;
 
-    [Header("Special")] 
-    /*[SerializeField] private GameObject flameStats;
-    [SerializeField] private GameObject frostStats;
-    [SerializeField] private GameObject laserStats;
-    [SerializeField] private GameObject minigunStats;
-    [SerializeField] private GameObject mortarStats;
-    [SerializeField] private GameObject railStats;
-    [SerializeField] private GameObject shotgunStats;
-    [SerializeField] private GameObject teslaStats;*/
+    [Header("Special")]
     [SerializeField] private List<TowerStat> specialTowerStats;
 
 
     [Header("idk")] [SerializeField] private Image upgradingTower;
 
     [SerializeField] private Tower tower;
+    [SerializeField] private AudioMixer audioMixer;
+
 
     public void OnButtonClose()
     {
         gameObject.SetActive(false);
-        TimeManager.Resume();
+        TimeManager.Resume(audioMixer);
     }
 
     public void SetTower(Tower tower)
@@ -74,7 +65,7 @@ public class TowerStatWindow : MonoBehaviour
     
     private void OnEnable()
     {
-        TimeManager.Pause();
+        TimeManager.Pause(audioMixer);
     }
 
     private void ShowUpgradingTower()

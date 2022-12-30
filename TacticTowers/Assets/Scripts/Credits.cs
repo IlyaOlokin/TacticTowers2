@@ -13,15 +13,15 @@ public static class Credits
     public static void TakeCredits(int credits)
     {
         Credits.credits -= credits;
-        DataLoader.SaveString("Credits", Credits.credits.ToString());
+        DataLoader.SaveInt("Credits", Credits.credits);
 
     }
     public static void AddCredits(int credits)
     {
         Credits.credits += credits;
         CreditsInTotal += credits;
-        DataLoader.SaveString("Credits", Credits.credits.ToString());
-        DataLoader.SaveString("CreditsInTotal", CreditsInTotal.ToString());
+        DataLoader.SaveInt("Credits", Credits.credits);
+        DataLoader.SaveInt("CreditsInTotal", CreditsInTotal);
         YandexSDK.Instance.SetLeaderScore(CreditsInTotal);
     }
 
