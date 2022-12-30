@@ -13,7 +13,7 @@ public static class Credits
     public static void TakeCredits(int credits)
     {
         Credits.credits -= credits;
-        DataLoader.SaveString("Credits", Credits.credits.ToString());
+        DataLoader.SaveInt("Credits", Credits.credits);
 
     }
     public static void AddCredits(int credits)
