@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -31,6 +32,8 @@ public class FinishPanel : MonoBehaviour
     [SerializeField] private Image circleTimer;
     [SerializeField] private Text textTimer;
     [SerializeField] private float timeToReact;
+    [SerializeField] private AudioMixer audioMixer;
+
     private float timer;
     private bool isRewarding;
 
@@ -87,11 +90,11 @@ public class FinishPanel : MonoBehaviour
     public void OnButtonResurrectionAd()
     {
         isRewarding = true;
-        PauseMusik();
+        PauseMusic();
         YandexSDK.Instance.ShowRewardedAdvertisment();
     }
 
-    public void PauseMusik()
+    public void PauseMusic()
     {
         if (Convert.ToBoolean(DataLoader.LoadInt("isMusicOn", 1)))
         {
@@ -223,7 +226,7 @@ public class FinishPanel : MonoBehaviour
     private void Pause()
     {
         savedTimeScale = Time.timeScale;
-        TimeManager.Pause();
+        TimeManager.Pause(audioMixer);
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = false;
     }
@@ -233,7 +236,7 @@ public class FinishPanel : MonoBehaviour
         //victoryPanel.SetActive(false);
         //defeatPanel.SetActive(false);
         if (savePreviousTimeScale)
-            TimeManager.Resume();
+            TimeManager.Resume(audioMixer);
         else
             TimeManager.SetTimeScale(1f);
         

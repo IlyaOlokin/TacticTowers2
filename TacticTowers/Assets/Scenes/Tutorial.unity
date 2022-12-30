@@ -621,6 +621,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 0}
 --- !u!222 &68929814
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1359,6 +1360,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 0}
 --- !u!222 &131471374
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3600,6 +3602,7 @@ MonoBehaviour:
   - {fileID: 400511274}
   - {fileID: 431229262}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 24100000, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
 --- !u!222 &370318983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3840,7 +3843,7 @@ PrefabInstance:
       objectReference: {fileID: 581097253}
     - target: {fileID: 4641657415697292076, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 295.91397
+      value: 295.914
       objectReference: {fileID: 0}
     - target: {fileID: 6320360387982982927, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Camera
@@ -4525,6 +4528,7 @@ MonoBehaviour:
   - {fileID: 400511274}
   - {fileID: 431229262}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 24100000, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
 --- !u!222 &427972271
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4730,6 +4734,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   skipPanel: {fileID: 0}
+  audioMixer: {fileID: 0}
 --- !u!1 &464150724
 GameObject:
   m_ObjectHideFlags: 0
@@ -4845,6 +4850,7 @@ MonoBehaviour:
   - {fileID: 400511274}
   - {fileID: 431229262}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 24100000, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
 --- !u!222 &492542149
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5252,6 +5258,7 @@ MonoBehaviour:
   - {fileID: 400511274}
   - {fileID: 431229262}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 24100000, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
 --- !u!222 &509948720
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5479,6 +5486,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 0}
 --- !u!222 &526353461
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7634,6 +7642,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 0}
 --- !u!222 &698702142
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8236,6 +8245,7 @@ MonoBehaviour:
   towers:
   - {fileID: 0}
   skipPanel: {fileID: 0}
+  audioMixer: {fileID: 0}
 --- !u!114 &781180100 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 402404312348263463, guid: 545b544b30a72bf4bb1408f8037a0a75, type: 3}
@@ -10171,6 +10181,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 0}
 --- !u!222 &974925221
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10676,6 +10687,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 0}
 --- !u!222 &1011356725
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11093,6 +11105,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 0}
 --- !u!222 &1041738277
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11265,6 +11278,7 @@ MonoBehaviour:
   towers:
   - {fileID: 0}
   skipPanel: {fileID: 0}
+  audioMixer: {fileID: 0}
 --- !u!1 &1095177275
 GameObject:
   m_ObjectHideFlags: 0
@@ -12385,6 +12399,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 0}
 --- !u!222 &1239484609
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13867,6 +13882,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 0}
 --- !u!222 &1346308656
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15604,6 +15620,7 @@ MonoBehaviour:
   - {fileID: 400511274}
   - {fileID: 431229262}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 24100000, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
 --- !u!1 &1454660092
 GameObject:
   m_ObjectHideFlags: 0
@@ -16354,6 +16371,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 0}
 --- !u!222 &1547644517
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16428,6 +16446,7 @@ MonoBehaviour:
   towers:
   - {fileID: 0}
   skipPanel: {fileID: 0}
+  audioMixer: {fileID: 0}
 --- !u!1001 &1582070983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19651,6 +19670,7 @@ MonoBehaviour:
   - {fileID: 400511274}
   - {fileID: 431229262}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 24100000, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
 --- !u!222 &1939722490
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19695,6 +19715,7 @@ MonoBehaviour:
   - {fileID: 400511274}
   - {fileID: 431229262}
   skipPanel: {fileID: 1720758886}
+  audioMixer: {fileID: 24100000, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
 --- !u!222 &1942699209
 CanvasRenderer:
   m_ObjectHideFlags: 0

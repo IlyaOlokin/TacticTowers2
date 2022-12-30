@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -15,6 +16,7 @@ public class PausePanel : MonoBehaviour
     [SerializeField] private GameObject soundButton;
     [SerializeField] private GameObject musicButton;
     [SerializeField] private GameObject confirmButton;
+    [SerializeField] private AudioMixer audioMixer;
     private bool isForRestart;
     private float startTimeScale = 1f;
     
@@ -84,16 +86,15 @@ public class PausePanel : MonoBehaviour
     
     private void Pause()
     {
-        TimeManager.Pause();
+        TimeManager.Pause(audioMixer);
         pausePanel.SetActive(true);
         AudioManager.Instance.Play("ButtonClick2");
     }
 
     private void Resume()
     {
-        TimeManager.Resume();
+        TimeManager.Resume(audioMixer);
         pausePanel.SetActive(false);
-        
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = true;
     }

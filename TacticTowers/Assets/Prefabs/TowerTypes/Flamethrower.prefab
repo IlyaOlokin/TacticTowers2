@@ -196,7 +196,6 @@ MonoBehaviour:
   - {fileID: 5316641116981540922, guid: 0fa713690dec7c247b7483445fc5b194, type: 3}
   - {fileID: 4090281340738485981, guid: d3af56e08eb8246428449da2a35ecdb5, type: 3}
   - {fileID: 4090281340738485981, guid: 1be374441f9b67c419ac9eb09122937a, type: 3}
-  audioSrc: {fileID: 0}
   burnDmg: 5
   burnDmgMultiplier: 1
   burnTime: 2
@@ -212,10 +211,10 @@ AudioSource:
   m_GameObject: {fileID: 5499871268351915362}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
+  OutputAudioMixerGroup: {fileID: -898184949580952691, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
   m_audioClip: {fileID: 8300000, guid: e8b7d7be86a60094fa862d36f96ae02e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
