@@ -81,12 +81,17 @@ public class TowerDrag : MonoBehaviour
     {
         pressStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         triedToDrag = true;
+        IgnoreEnemiesToIgnore();
+        mouseOffset =  transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    private void IgnoreEnemiesToIgnore()
+    {
         foreach (var enemy in tower.enemiesToIgnore)
         {
             if (enemy is null) continue;
             Physics2D.IgnoreCollision(enemy.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
-        mouseOffset =  transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void OnMouseUp()
@@ -157,7 +162,7 @@ public class TowerDrag : MonoBehaviour
         if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall"))
         {
             conflicts += 1;
-            
+            IgnoreEnemiesToIgnore();
             if (dragging) conflictIndicator.SetActive(true);
         }
     }
