@@ -18,8 +18,7 @@ public class PausePanel : MonoBehaviour
     [SerializeField] private GameObject confirmButton;
     [SerializeField] private AudioMixer audioMixer;
     private bool isForRestart;
-    private float startTimeScale = 1f;
-    
+
     public void OnButtonRestart()
     {
         isForRestart = true;
@@ -132,7 +131,7 @@ public class PausePanel : MonoBehaviour
         {
             YandexSDK.Instance.ShowCommonAdvertisment();
         }
-        catch (Exception e)
+        catch 
         {
             Console.WriteLine("add");
         }

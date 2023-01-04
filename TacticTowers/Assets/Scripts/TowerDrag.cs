@@ -7,7 +7,6 @@ using UnityEngine.AI;
 public class TowerDrag : MonoBehaviour
 {
     public Tower tower;
-    private Collider2D collider2D;
     private NavMeshObstacle navMeshObstacle;
     private Vector2 mouseOffset;
 
@@ -24,7 +23,6 @@ public class TowerDrag : MonoBehaviour
     
     private void Start()
     {
-        collider2D = GetComponent<CircleCollider2D>();
         navMeshObstacle = GetComponent<NavMeshObstacle>();
         audioSrc = GetComponent<AudioSource>();
     }

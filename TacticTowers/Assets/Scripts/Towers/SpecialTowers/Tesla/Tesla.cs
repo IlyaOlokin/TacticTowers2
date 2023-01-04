@@ -14,7 +14,7 @@ public class Tesla : Tower
     private DamageType damageType = DamageType.Fire;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
-    private void Update() => base.Update();
+    private new void Update() => base.Update();
 
     protected override void Shoot(GameObject enemy)
     {

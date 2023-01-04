@@ -52,8 +52,8 @@ public class YandexSDK : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void SetLeaderBoard(int score);
     
-    public event Action AuthSuccess;    //События
-    public event Action DataGet;    //События
+    //public event Action AuthSuccess;    //События
+    //public event Action DataGet;    //События
     public event Action RewardGet;  //События
 
     void Update()

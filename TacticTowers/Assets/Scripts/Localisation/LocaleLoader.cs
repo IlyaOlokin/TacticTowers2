@@ -19,6 +19,7 @@ public static class LocaleLoader
         {
             Language.Russian => localRu,
             Language.English => localEn,
+            _ => throw new ArgumentOutOfRangeException(nameof(language), language, "Non valid language!")
         };
         
         var lines = currentLocal.text.Split(lineSeparator, StringSplitOptions.RemoveEmptyEntries);

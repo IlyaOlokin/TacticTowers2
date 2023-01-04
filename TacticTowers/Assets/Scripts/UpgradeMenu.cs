@@ -10,13 +10,13 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] private Text towerLevel;
     [SerializeField] private Text towerLevelConst;
     [SerializeField] private Text nextUpgradeCost;
-    private Animation animation;
+    private Animation anim;
     
     private void OnEnable()
     {
-        animation = GetComponent<Animation>();
-        animation.Stop("UpgradeMenuAnimation");
-        animation.Play("UpgradeMenuAnimation");
+        anim = GetComponent<Animation>();
+        anim.Stop("UpgradeMenuAnimation");
+        anim.Play("UpgradeMenuAnimation");
     }
 
     void Update()

@@ -15,7 +15,7 @@ public class Railgun : Tower
     private DamageType damageType = DamageType.Normal;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
-    private void Update() => base.Update();
+    private new void Update() => base.Update();
 
     protected override void Shoot(GameObject enemy)
     {
