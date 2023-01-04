@@ -9,12 +9,9 @@ public class DefaultTower : Tower
     [SerializeField] private float bulletSpeed;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
-    
-    void Update()
-    {
-        base.Update();
-    }
-    
+
+    new void Update() => base.Update();
+
     protected override void Shoot(GameObject enemy)
     {
         if (enemy == null) return;

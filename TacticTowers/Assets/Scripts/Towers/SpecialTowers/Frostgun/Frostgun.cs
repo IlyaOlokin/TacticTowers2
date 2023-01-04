@@ -21,7 +21,7 @@ public class Frostgun : Tower
     
     private void Start() => audioSrc = GetComponent<AudioSource>();
 
-    void Update() => base.Update();
+    new void Update() => base.Update();
 
     protected override void Shoot(GameObject enemy)
     {

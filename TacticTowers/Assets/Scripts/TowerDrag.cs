@@ -103,13 +103,10 @@ public class TowerDrag : MonoBehaviour
     {
         pressStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         triedToDrag = true;
-        foreach (var enemy in tower.enemiesToIgnore)
-        {
-            if (enemy is null) continue;
-            Physics2D.IgnoreCollision(enemy.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        }
+        IgnoreEnemiesToIgnore();
         mouseOffset =  transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
+
     private void IgnoreEnemiesToIgnore()
     {
         foreach (var enemy in tower.enemiesToIgnore)
@@ -118,7 +115,7 @@ public class TowerDrag : MonoBehaviour
             Physics2D.IgnoreCollision(enemy.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
     }
-    
+
     private void OnMouseUp()
     {
         TryToDrop();
@@ -154,8 +151,6 @@ public class TowerDrag : MonoBehaviour
         triedToDrag = false;
         navMeshObstacle.enabled = true;
         coll2D.enabled = true;
-        //conflicts = 0;
-        
     }
 
     private void StartDragging()
@@ -184,24 +179,7 @@ public class TowerDrag : MonoBehaviour
         var otherGameObject = other.gameObject;
         if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall"))
         {
-            //conflicts += 1;
             IgnoreEnemiesToIgnore();
-            //if (dragging) conflictIndicator.SetActive(true);
         }
     }
-    
-    /*private void OnTriggerExit2D(Collider2D other)
-    {
-        var otherGameObject = other.gameObject;
-        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall"))
-        {
-            if (conflicts > 0)
-                conflicts -= 1;
-
-            if (conflicts <= 0 && dragging)
-            {
-                conflictIndicator.SetActive(false);
-            }
-        }
-    }*/
 }

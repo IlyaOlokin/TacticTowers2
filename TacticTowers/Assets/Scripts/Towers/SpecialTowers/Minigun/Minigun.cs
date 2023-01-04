@@ -20,7 +20,7 @@ public class Minigun : Tower
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
     
-    private void Update()
+    private new void Update()
     {
         base.Update();
 

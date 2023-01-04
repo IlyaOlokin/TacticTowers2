@@ -24,7 +24,7 @@ public class Flamethrower : Tower
         audioSrc = GetComponent<AudioSource>();
     }
 
-    private void Update() => base.Update();
+    private new void Update() => base.Update();
 
     protected override void Shoot(GameObject enemy)
     {

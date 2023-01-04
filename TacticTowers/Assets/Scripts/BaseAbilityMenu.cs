@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class BaseAbilityMenu : MonoBehaviour
 {
-    private Animation animation;
+    private Animation anim;
     public bool mouseOn;
     
     private void OnEnable()
     {
-        animation = GetComponent<Animation>();
-        animation.Stop("UpgradeMenuAnimation");
-        animation.Play("UpgradeMenuAnimation");
+        anim = GetComponent<Animation>();
+        anim.Stop("UpgradeMenuAnimation");
+        anim.Play("UpgradeMenuAnimation");
     }
     
     void Update()
