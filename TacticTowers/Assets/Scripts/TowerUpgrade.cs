@@ -117,7 +117,7 @@ public class TowerUpgrade : MonoBehaviour
         {
             YandexSDK.Instance.ShowCommonAdvertisment();
         }
-        catch (Exception e)
+        catch 
         {
             Console.WriteLine("add");
         }

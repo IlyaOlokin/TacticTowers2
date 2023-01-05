@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class DamageZoneBox : MonoBehaviour
 {
-    private bool isActive = false;
     [NonSerialized] private List<Enemy> enemies = new List<Enemy>();
     [SerializeField] private float damage;
     [SerializeField] private float periodBetweenDmg;
