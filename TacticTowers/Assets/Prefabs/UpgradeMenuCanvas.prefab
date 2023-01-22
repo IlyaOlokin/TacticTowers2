@@ -465,7 +465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd5784a47d6a454dbb334e6a30313f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseOn: 0
   towerLevel: {fileID: 6798693770857269415}
   towerLevelConst: {fileID: 6798693772070930151}
   nextUpgradeCost: {fileID: 6798693771448709516}
@@ -802,8 +801,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 9}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 8.824998}
+  m_SizeDelta: {x: 0, y: -17.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6798693771991130098
 CanvasRenderer:

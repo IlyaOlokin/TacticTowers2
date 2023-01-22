@@ -6,12 +6,17 @@ using UnityEngine.UI;
 
 public class UpgradeMenu : MonoBehaviour
 {
-    public bool mouseOn;
     [SerializeField] private Text towerLevel;
     [SerializeField] private Text towerLevelConst;
     [SerializeField] private Text nextUpgradeCost;
     private Animation anim;
-    
+    private Collider2D coll2D;
+
+    private void Start()
+    {
+        coll2D = GetComponent<BoxCollider2D>();
+    }
+
     private void OnEnable()
     {
         anim = GetComponent<Animation>();
@@ -21,20 +26,11 @@ public class UpgradeMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0) && !mouseOn)
+        if (Input.GetMouseButton(0))
         {
-            DeactivateMenu();
+            if (!coll2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+                DeactivateMenu();
         }
-    }
-
-    private void OnMouseEnter()
-    {
-        mouseOn = true;
-    }
-
-    private void OnMouseExit()
-    {
-        mouseOn = false;
     }
 
     public void UpdateTexts(int level, int cost)
@@ -48,12 +44,6 @@ public class UpgradeMenu : MonoBehaviour
         
     }
 
-    /*public void ActivateMenu()
-    {
-        animation.Stop("UpgradeMenuAnimation");
-        animation.Play("UpgradeMenuAnimation");
-    }*/
-    
     private void DeactivateMenu()
     {
         gameObject.SetActive(false);
