@@ -9,13 +9,12 @@ public class BossAnnouncement : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         anim.Play("BossAnnouncementAppear");
-        StartCoroutine(DeactivateThis(2.5f));
+        
         AudioManager.Instance.Play("BossRoar1");
     }
 
-    IEnumerator DeactivateThis(float delay)
+    public void DeactivateThis()
     {
-        yield return new WaitForSeconds(delay);
         gameObject.SetActive(false);
     }
 }
