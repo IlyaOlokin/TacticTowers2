@@ -9,12 +9,12 @@ public class Web : MonoBehaviour
     [SerializeField] private float disarmDuration;
     [NonSerialized] public Vector3 endPos;
     private bool reachedEndPos = false;
-    private CircleCollider2D collider;
+    private CircleCollider2D circleCollider2D;
     [SerializeField] private Sprite webSprite;
     
     private void Start()
     {
-        collider = GetComponent<CircleCollider2D>();
+        circleCollider2D = GetComponent<CircleCollider2D>();
     }
 
     void Update()
@@ -34,7 +34,7 @@ public class Web : MonoBehaviour
     private void OnTargetReached()
     {
         reachedEndPos = true;
-        collider.enabled = true;
+        circleCollider2D.enabled = true;
         GetComponent<SpriteRenderer>().sprite = webSprite;
         var towers = GameObject.FindGameObjectsWithTag("TowerInstance");
         foreach (var tower in towers)
@@ -55,7 +55,7 @@ public class Web : MonoBehaviour
     private IEnumerator Destroy(float delay)
     {
         yield return new WaitForSeconds(delay);
-        collider.radius = 0f;
+        circleCollider2D.radius = 0f;
         Destroy(gameObject);
     }
 }

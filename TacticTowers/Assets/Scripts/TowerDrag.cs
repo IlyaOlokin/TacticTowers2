@@ -7,7 +7,6 @@ using UnityEngine.AI;
 public class TowerDrag : MonoBehaviour
 {
     public Tower tower;
-    private Collider2D collider2D;
     private NavMeshObstacle navMeshObstacle;
     private Vector2 mouseOffset;
 
@@ -24,7 +23,6 @@ public class TowerDrag : MonoBehaviour
     
     private void Start()
     {
-        collider2D = GetComponent<CircleCollider2D>();
         navMeshObstacle = GetComponent<NavMeshObstacle>();
         audioSrc = GetComponent<AudioSource>();
     }
@@ -81,12 +79,17 @@ public class TowerDrag : MonoBehaviour
     {
         pressStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         triedToDrag = true;
+        IgnoreEnemiesToIgnore();
+        mouseOffset =  transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    private void IgnoreEnemiesToIgnore()
+    {
         foreach (var enemy in tower.enemiesToIgnore)
         {
             if (enemy is null) continue;
             Physics2D.IgnoreCollision(enemy.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         }
-        mouseOffset =  transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void OnMouseUp()
@@ -157,7 +160,7 @@ public class TowerDrag : MonoBehaviour
         if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall"))
         {
             conflicts += 1;
-            
+            IgnoreEnemiesToIgnore();
             if (dragging) conflictIndicator.SetActive(true);
         }
     }

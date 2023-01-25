@@ -23,10 +23,6 @@ public class Freeze : MonoBehaviour
     public void OnEnable()
     {
         enemy = GetComponent<Enemy>();
-        if (enemy == null)
-        {
-            var a = 0;
-        }
         enemySpeed = enemy.GetComponent<NavMeshAgent>().speed;
         enemyColor = enemy.GetComponent<SpriteRenderer>().color;
     }

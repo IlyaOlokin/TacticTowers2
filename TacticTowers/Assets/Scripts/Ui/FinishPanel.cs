@@ -250,7 +250,7 @@ public class FinishPanel : MonoBehaviour
         {
             YandexSDK.Instance.ShowCommonAdvertisment();
         }
-        catch (Exception e)
+        catch 
         {
             Console.WriteLine("add");
         }
