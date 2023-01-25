@@ -6,7 +6,7 @@ public class TeslaSetOnFireUpgrade : SpecialUpgrade
 {
     public override void Execute(Tower tower)
     {
+        base.Execute(tower);
         tower.transform.GetComponent<Tesla>().hasSetOnFireUpgrade = true;
-        isUpgraded = true;
     }
 }

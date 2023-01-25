@@ -15,8 +15,8 @@ public class Tesla : Tower
     private DamageType damageType = DamageType.Fire;
 
     [NonSerialized] public bool hasSetOnFireUpgrade;
-    [NonSerialized] public bool hasBranchingUpgrade;
     [NonSerialized] public bool hasMicroStunUpgrade;
+    [NonSerialized] public bool hasBranchingUpgrade;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
     private new void Update() => base.Update();

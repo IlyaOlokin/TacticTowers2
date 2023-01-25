@@ -162,7 +162,7 @@ public class UpgradeWindow : MonoBehaviour
     {
         for (int i = 0; i < tower.specialUpgrades.Count; i++)
         {
-            if (tower.specialUpgrades[i].isUpgraded) continue;
+            if (tower.upgradedSpecilaUpgrades[i]) continue;
             if (upgradeIndex == 0)  return tower.specialUpgrades[i];
             upgradeIndex--;
         }

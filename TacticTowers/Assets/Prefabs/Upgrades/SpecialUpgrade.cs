@@ -5,5 +5,10 @@ using UnityEngine;
 
 public class SpecialUpgrade : Upgrade
 {
-    [NonSerialized] public bool isUpgraded;
+    [SerializeField] protected int upgradeIndex;
+    
+    public override void Execute(Tower tower)
+    {
+        tower.transform.GetComponent<Tower>().upgradedSpecilaUpgrades[upgradeIndex] = true;
+    }
 }

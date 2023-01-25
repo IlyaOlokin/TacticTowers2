@@ -43,6 +43,7 @@ public class Tower : MonoBehaviour
     public List<Upgrade> upgrades;
 
     public List<SpecialUpgrade> specialUpgrades;
+    [NonSerialized] public List<bool> upgradedSpecilaUpgrades = new List<bool> {false, false, false};
 
     protected AudioSource audioSrc;
 
