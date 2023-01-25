@@ -25,11 +25,14 @@ public class UpgradeWindow : MonoBehaviour
     [SerializeField] private float superUpgradeChance;
 
     [SerializeField] private List<GameObject> upgradeButtons;
+    [SerializeField] private List<Transform> upgradeButtonsPositions;
 
     [SerializeField] private List<GameObject> towerTypes;
     [SerializeField] private List<GameObject> unlockableTowerTypes;
 
     [SerializeField] private AudioMixer audioMixer;
+    
+   
 
     [NonSerialized] public TowerDrag td;
     [NonSerialized] public TowerUpgrade tu;
@@ -109,12 +112,28 @@ public class UpgradeWindow : MonoBehaviour
 
     private void SetUpgradeButtonsSpecialPositions(int specialUpgradesLeft)
     {
+        switch (specialUpgradesLeft)
+        {
+            case 3:
+                SetDefaultUpgradeButtonsPositions();
+                break;
+            case 2:
+                upgradeButtons[0].transform.position = upgradeButtonsPositions[3].transform.position;
+                upgradeButtons[1].transform.position = upgradeButtonsPositions[4].transform.position;
+                break;
+            case 1:
+                upgradeButtons[0].transform.position = upgradeButtonsPositions[1].transform.position;
+                break;
+        }
         
     }
 
     private void SetDefaultUpgradeButtonsPositions()
     {
-        
+        for (int i = 0; i < upgradeButtons.Count; i++)
+        {
+            upgradeButtons[i].transform.position = upgradeButtonsPositions[i].transform.position;
+        }
     }
 
     private void DisableExtraUpgradesButtons(int specialUpgradesLeft)
