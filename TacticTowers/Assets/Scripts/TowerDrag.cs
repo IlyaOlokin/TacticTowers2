@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.AI;
+using Debug = UnityEngine.Debug;
 
 public class TowerDrag : MonoBehaviour
 {
+    private Collider2D coll2D;
     public Tower tower;
     private NavMeshObstacle navMeshObstacle;
     private Vector2 mouseOffset;
@@ -14,8 +17,8 @@ public class TowerDrag : MonoBehaviour
     [NonSerialized] public bool dragging;
     private bool triedToDrag;
     [NonSerialized] public bool needToDrop;
-
-    private int conflicts;
+        
+    private bool hasConflicts;
     [SerializeField] private GameObject smokeEffect;
     private int edgeSize = 20;
     [SerializeField] private GameObject conflictIndicator;
@@ -23,12 +26,13 @@ public class TowerDrag : MonoBehaviour
     
     private void Start()
     {
+        coll2D = GetComponent<CircleCollider2D>();
         navMeshObstacle = GetComponent<NavMeshObstacle>();
         audioSrc = GetComponent<AudioSource>();
     }
     
     private void Update()
-    { 
+    {
         if (needToDrop || Time.deltaTime == 0)
         {
             TryToDrop();
@@ -38,6 +42,8 @@ public class TowerDrag : MonoBehaviour
         {
             var mousePos = Camera.main.ScreenToWorldPoint(ControlledMousePosition());
             transform.position = new Vector3(mousePos.x + mouseOffset.x, mousePos.y + mouseOffset.y);
+
+            CheckForConflicts();
         }
         
         if (!triedToDrag) return;
@@ -48,6 +54,24 @@ public class TowerDrag : MonoBehaviour
                 StartDragging();
             }
         }
+    }
+
+    private void CheckForConflicts()
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, tower.transform.localScale.x * 2.5f);
+        bool _hasConflicts = false;
+        foreach (var hitEnemy in hitEnemies)
+        {
+            var otherGameObject = hitEnemy.gameObject;
+            if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") ||
+                otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall"))
+            {
+                _hasConflicts = true;
+                break;
+            }
+        }
+        hasConflicts = _hasConflicts;
+        conflictIndicator.SetActive(hasConflicts);
     }
 
     private Vector3 ControlledMousePosition()
@@ -99,7 +123,7 @@ public class TowerDrag : MonoBehaviour
 
     private void TryToDrop()
     {
-        if (conflicts <= 0)
+        if (!hasConflicts)
         {
             PlaceTower();
             needToDrop = false;
@@ -121,15 +145,12 @@ public class TowerDrag : MonoBehaviour
         {
             Instantiate(smokeEffect, transform.position, Quaternion.identity);
             audioSrc.PlayOneShot(audioSrc.clip);
-            //FindObjectOfType<AudioManager>().Play("Landing");
         }
         dragging = false;
         tower.isDragging = false;
         triedToDrag = false;
         navMeshObstacle.enabled = true;
-        //collider2D.isTrigger = false;
-        conflicts = 0;
-        
+        coll2D.enabled = true;
     }
 
     private void StartDragging()
@@ -139,7 +160,7 @@ public class TowerDrag : MonoBehaviour
         tower.isDragging = true;
         triedToDrag = false;
         navMeshObstacle.enabled = false;
-        //collider2D.isTrigger = true;
+        coll2D.enabled = false;
     }
 
     private bool IsAnyOtherTowerDragging()
@@ -155,28 +176,10 @@ public class TowerDrag : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
         var otherGameObject = other.gameObject;
         if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall"))
         {
-            conflicts += 1;
             IgnoreEnemiesToIgnore();
-            if (dragging) conflictIndicator.SetActive(true);
-        }
-    }
-    
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        var otherGameObject = other.gameObject;
-        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall"))
-        {
-            if (conflicts > 0)
-                conflicts -= 1;
-
-            if (conflicts <= 0 && dragging)
-            {
-                conflictIndicator.SetActive(false);
-            }
         }
     }
 }
