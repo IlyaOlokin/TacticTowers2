@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,10 @@ public class Tesla : Tower
     public float lightningJumpDistance;
     public float lightningJumpDistanceMultiplier;
     private DamageType damageType = DamageType.Fire;
+
+    [NonSerialized] public bool hasSetOnFireUpgrade;
+    [NonSerialized] public bool hasBranchingUpgrade;
+    [NonSerialized] public bool hasMicroStunUpgrade;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
     private new void Update() => base.Update();

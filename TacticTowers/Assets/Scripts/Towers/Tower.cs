@@ -41,9 +41,13 @@ public class Tower : MonoBehaviour
     public ShootZone shootZone;
 
     public List<Upgrade> upgrades;
-    
+
+    public List<SpecialUpgrade> specialUpgrades;
+
     protected AudioSource audioSrc;
-    
+
+
+
     protected void Update()
     {
         FindTarget();
