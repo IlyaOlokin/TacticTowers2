@@ -32,8 +32,6 @@ public class UpgradeWindow : MonoBehaviour
 
     [SerializeField] private AudioMixer audioMixer;
     
-   
-
     [NonSerialized] public TowerDrag td;
     [NonSerialized] public TowerUpgrade tu;
 
@@ -81,95 +79,6 @@ public class UpgradeWindow : MonoBehaviour
         ShowUpgradingTower(tower);
     }
     
-    private void InitializeSpecialUpgrade(Tower tower, out int specialUpgradesLeft)
-    {
-        specialUpgradesLeft = specialUpgradesLevels.Count - specialUpgradesLevels.IndexOf(tower.upgradeLevel);
-        for (int i = 0; i < specialUpgradesLeft; i++)
-        {
-            InitializeSpecialUpgradeButton(upgradeButtons[i], tower, i, specialUpgradesLeft);
-        }
-    }
-
-    private void InitializeSpecialUpgradeButton(GameObject button, Tower tower, int upgradeIndex, int specialUpgradesLeft)
-    {
-        var Button = button.GetComponent<Button>();
-        Button.onClick.RemoveAllListeners();
-        var upgradeButton = button.GetComponent<UpgradeButton>();
-        var upgrade = GetNextSpecialUpgrade(tower, upgradeIndex);
-
-        Button.onClick.AddListener(() => upgrade.Execute(tower));
-        Button.onClick.AddListener(() => gameObject.SetActive(false));
-        Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
-        Button.onClick.AddListener(EnableAllUpgradeButtons);
-
-        //upgradeButton.upgradeLabel.GetComponent<TextLocaliser>().SetKey(upgrade.upgradeLabel);
-        //upgradeButton.upgradeText.GetComponent<TextLocaliser>().SetKey(upgrade.GetUpgradeText());
-        
-        upgradeButton.upgradeLabel.text = upgrade.upgradeLabel;
-        upgradeButton.upgradeText.text = upgrade.GetUpgradeText();
-        upgradeButton.upgradeImage.sprite = upgrade.UpgradeSprite;
-    }
-
-    private void SetUpgradeButtonsSpecialPositions(int specialUpgradesLeft)
-    {
-        switch (specialUpgradesLeft)
-        {
-            case 3:
-                SetDefaultUpgradeButtonsPositions();
-                break;
-            case 2:
-                upgradeButtons[0].transform.position = upgradeButtonsPositions[3].transform.position;
-                upgradeButtons[1].transform.position = upgradeButtonsPositions[4].transform.position;
-                break;
-            case 1:
-                upgradeButtons[0].transform.position = upgradeButtonsPositions[1].transform.position;
-                break;
-        }
-        
-    }
-
-    private void SetDefaultUpgradeButtonsPositions()
-    {
-        for (int i = 0; i < upgradeButtons.Count; i++)
-        {
-            upgradeButtons[i].transform.position = upgradeButtonsPositions[i].transform.position;
-        }
-    }
-
-    private void DisableExtraUpgradesButtons(int specialUpgradesLeft)
-    {
-        for (int i = upgradeButtons.Count - 1; i >= specialUpgradesLeft; i--)
-        {
-            upgradeButtons[i].SetActive(false);
-        }
-    }
-
-    private void EnableAllUpgradeButtons()
-    {
-        foreach (var button in upgradeButtons)
-        {
-            button.SetActive(true);
-        }
-    }
-
-    private void ShowUpgradingTower(Tower tower)
-    {
-        upgradingTowerImage.sprite = tower.towerSprite;
-        upgradingTowerImage.transform.rotation = Quaternion.Euler(0,0,tower.shootDirection - 90);
-    }
-
-    private SpecialUpgrade GetNextSpecialUpgrade(Tower tower, int upgradeIndex)
-    {
-        for (int i = 0; i < tower.specialUpgrades.Count; i++)
-        {
-            if (tower.upgradedSpecilaUpgrades[i]) continue;
-            if (upgradeIndex == 0)  return tower.specialUpgrades[i];
-            upgradeIndex--;
-        }
-
-        return null;
-    }
-
     private void InitializeUpgrade(Tower tower)
     {
         List<int> pickedIndexes = new List<int>();
@@ -231,17 +140,106 @@ public class UpgradeWindow : MonoBehaviour
         var Button = button.GetComponent<Button>();
         Button.onClick.RemoveAllListeners();
         var upgradeButton = button.GetComponent<UpgradeButton>();
-        
-        button.GetComponent<UpgradeButton>().ActivateSuperCardEffects(false);
-        
+
         Button.onClick.AddListener(() => CreateNewTower(towerTypes[upgradeIndex], tower));
         Button.onClick.AddListener(() => gameObject.SetActive(false));
         Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
+        
+        button.GetComponent<UpgradeButton>().ActivateSuperCardEffects(false);
 
         var towerComponent = towerTypes[upgradeIndex].GetComponent<Tower>();
         upgradeButton.upgradeLabel.GetComponent<TextLocaliser>().SetKey(towerComponent.towerName);
         upgradeButton.upgradeText.GetComponent<TextLocaliser>().SetKey(towerComponent.towerDescription);
         upgradeButton.upgradeImage.sprite = towerComponent.towerSprite;
+    }
+    
+    private void InitializeSpecialUpgrade(Tower tower, out int specialUpgradesLeft)
+    {
+        specialUpgradesLeft = specialUpgradesLevels.Count - specialUpgradesLevels.IndexOf(tower.upgradeLevel);
+        for (int i = 0; i < specialUpgradesLeft; i++)
+        {
+            InitializeSpecialUpgradeButton(upgradeButtons[i], tower, i);
+        }
+    }
+
+    private void InitializeSpecialUpgradeButton(GameObject button, Tower tower, int upgradeIndex)
+    {
+        var Button = button.GetComponent<Button>();
+        Button.onClick.RemoveAllListeners();
+        var upgradeButton = button.GetComponent<UpgradeButton>();
+        var upgrade = GetNextSpecialUpgrade(tower, upgradeIndex);
+
+        Button.onClick.AddListener(() => upgrade.Execute(tower));
+        Button.onClick.AddListener(() => gameObject.SetActive(false));
+        Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
+        Button.onClick.AddListener(EnableAllUpgradeButtons);
+        
+        button.GetComponent<UpgradeButton>().ActivateSuperCardEffects(false);
+        //upgradeButton.upgradeLabel.GetComponent<TextLocaliser>().SetKey(upgrade.upgradeLabel);
+        //upgradeButton.upgradeText.GetComponent<TextLocaliser>().SetKey(upgrade.GetUpgradeText());
+        
+        upgradeButton.upgradeLabel.text = upgrade.upgradeLabel;
+        upgradeButton.upgradeText.text = upgrade.GetUpgradeText();
+        upgradeButton.upgradeImage.sprite = upgrade.UpgradeSprite;
+    }
+
+    private void SetUpgradeButtonsSpecialPositions(int specialUpgradesLeft)
+    {
+        switch (specialUpgradesLeft)
+        {
+            case 3:
+                SetDefaultUpgradeButtonsPositions();
+                break;
+            case 2:
+                upgradeButtons[0].transform.position = upgradeButtonsPositions[3].transform.position;
+                upgradeButtons[1].transform.position = upgradeButtonsPositions[4].transform.position;
+                break;
+            case 1:
+                upgradeButtons[0].transform.position = upgradeButtonsPositions[1].transform.position;
+                break;
+        }
+    }
+
+    private void SetDefaultUpgradeButtonsPositions()
+    {
+        for (int i = 0; i < upgradeButtons.Count; i++)
+        {
+            upgradeButtons[i].transform.position = upgradeButtonsPositions[i].transform.position;
+        }
+    }
+
+    private void DisableExtraUpgradesButtons(int specialUpgradesLeft)
+    {
+        for (int i = upgradeButtons.Count - 1; i >= specialUpgradesLeft; i--)
+        {
+            upgradeButtons[i].SetActive(false);
+        }
+    }
+
+    private void EnableAllUpgradeButtons()
+    {
+        foreach (var button in upgradeButtons)
+        {
+            button.SetActive(true);
+        }
+    }
+
+    private void ShowUpgradingTower(Tower tower)
+    {
+        upgradingTowerImage.sprite = tower.towerSprite;
+        upgradingTowerImage.transform.rotation = Quaternion.Euler(0,0,tower.shootDirection - 90);
+    }
+
+    private SpecialUpgrade GetNextSpecialUpgrade(Tower tower, int upgradeIndex)
+    {
+        for (int i = 0; i < tower.specialUpgrades.Count; i++)
+        {
+            if (tower.upgradedSpecilaUpgrades[i]) continue;
+            if (upgradeIndex == 0)  return tower.specialUpgrades[i];
+            upgradeIndex--;
+        }
+
+        return null;
     }
 
     private void CreateNewTower(GameObject towerType, Tower tower)
@@ -267,6 +265,7 @@ public class UpgradeWindow : MonoBehaviour
     {
         DisableExtraUpgradesButtons(specialUpgradesLeft);
         SetUpgradeButtonsSpecialPositions(specialUpgradesLeft);
+        ChangeButtonsVisual(typeUpgradeSprite, upgradeText);
     }
     
     private void ChangeVisualOnTowerUpgrade()
@@ -280,7 +279,7 @@ public class UpgradeWindow : MonoBehaviour
         foreach (var button in upgradeButtons)
         {
             button.GetComponent<UpgradeButton>().ChangeSprite(imageSprite);
-            label.GetComponent<TextLocaliser>().SetKey(labelText);
         }
+        label.GetComponent<TextLocaliser>().SetKey(labelText);
     }
 }
