@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,5 +10,13 @@ public class MenuChangeButton : MonoBehaviour
     {
         AudioManager.Instance.Play("ButtonClick1");
         SceneManager.LoadScene(menuName);
+    }
+    
+    public void OnButtonPlay()
+    {
+        var isTutorialCompleted = Convert.ToBoolean(DataLoader.LoadInt("isTutorialCompleted", 0));
+        AudioManager.Instance.Play("ButtonClick2");
+
+        SceneManager.LoadScene(isTutorialCompleted ? "BaseChooseMenu" : "Tutorial");
     }
 }

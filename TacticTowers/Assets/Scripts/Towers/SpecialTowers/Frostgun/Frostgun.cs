@@ -6,29 +6,23 @@ using UnityEngine;
 public class Frostgun : Tower
 {
     public float freezeTime;
-    [SerializeField] private float freezeStacksPerHit;
+    public float freezeTimeMultiplier;
+    public float freezeStacksPerHit;
     public float freezeStacksPerHitMultiplier;
     [SerializeField] private GameObject frostBox;
 
-    [SerializeField] private int freezeStacksNeeded;
+    public int freezeStacksNeeded;
     private GameObject currentEnemy;
     private GameObject activeFrostBox;
     [SerializeField] private GameObject frostEffect;
     
     [NonSerialized] public bool shooting;
-
-
-    private void Start()
-    {
-        AudioManager.Instance.frostguns.Add(this);
-
-    }
-
-    void Update()
-    {
-        base.Update();
-    }
+    [SerializeField] private Transform frostStartPos;
     
+    private void Start() => audioSrc = GetComponent<AudioSource>();
+
+    new void Update() => base.Update();
+
     protected override void Shoot(GameObject enemy)
     {
         if (enemy == null)
@@ -37,7 +31,7 @@ public class Frostgun : Tower
             currentEnemy = null;
             frostEffect.SetActive(false);
             shooting = false;
-            
+            audioSrc.Stop();
             return;
         }
         LootAtTarget(enemy);
@@ -46,7 +40,7 @@ public class Frostgun : Tower
         {
             DestroyFrostBox();
             shooting = false;
-
+            audioSrc.Stop();
         }
         
         if (shootDelayTimer <= 0)
@@ -57,17 +51,19 @@ public class Frostgun : Tower
                 
                 activeFrostBox.GetComponent<FrostBox>().dmg = GetDmg();
                 activeFrostBox.GetComponent<FrostBox>().attackSpeed = GetAttackSpeed();
-                activeFrostBox.GetComponent<FrostBox>().freezeTime = freezeTime;
+                activeFrostBox.GetComponent<FrostBox>().freezeTime = freezeTime * freezeTimeMultiplier;
                 activeFrostBox.GetComponent<FrostBox>().freezeStacksPerHit = GetFreezeStacksPerHit();
                 activeFrostBox.GetComponent<FrostBox>().freezeStacksNeeded = freezeStacksNeeded;
                 
-                activeFrostBox.GetComponent<FrostBox>().frostStartPos = transform.position;
-                activeFrostBox.transform.localScale = new Vector3(activeFrostBox.transform.localScale.x, GetShootDistance());
-                activeFrostBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
+                //activeFrostBox.GetComponent<FrostBox>().frostStartPos = transform.position;
+                //activeFrostBox.transform.localScale = new Vector3(activeFrostBox.transform.localScale.x, GetShootDistance());
+                var frostDistance = GetFrostDistance(enemy);
+                activeFrostBox.transform.localScale = new Vector3(activeFrostBox.transform.localScale.x, activeFrostBox.transform.localScale.x * 2.5f * frostDistance / 3f);
+                activeFrostBox.transform.position = ((transform.up * frostDistance + transform.position) + frostStartPos.position) / 2f;
                 currentEnemy = enemy;
                 
                 shooting = true;
-                
+                audioSrc.Play();
                 frostEffect.SetActive(true);
             }
             
@@ -76,19 +72,29 @@ public class Frostgun : Tower
 
         if (activeFrostBox != null)
         {
-            activeFrostBox.transform.position = (towerCanon.transform.up * GetShootDistance() + transform.position + transform.position) / 2f;
+            var frostDistance = GetFrostDistance(enemy);
+            activeFrostBox.transform.position = (towerCanon.transform.up * frostDistance + frostStartPos.position + transform.position) / 2f;
+            activeFrostBox.transform.localScale = new Vector3(activeFrostBox.transform.localScale.x, activeFrostBox.transform.localScale.x * 2.5f * frostDistance / 3f);
+
             activeFrostBox.transform.rotation = towerCanon.transform.rotation;
         }
+    }
+    
+    private float GetFrostDistance(GameObject enemy)
+    {
+        if(CheckWallCollision(transform.position, enemy.transform.position, GetShootDistance(), true) != null)
+        {
+            var fireDistance = Vector2.Distance(transform.position,
+                GetRayImpactPoint(transform.position, enemy.transform.position, true));
+            return fireDistance;
+        }
+        
+        return GetShootDistance();
     }
 
     private void DestroyFrostBox()
     {
-        Destroy(activeFrostBox, GetShootDistance() / 3f);
-        if (activeFrostBox != null && activeFrostBox.GetComponent<FrostBox>() != null)
-        {
-            activeFrostBox.GetComponent<FrostBox>().ps.Stop();
-        }
-
+        if (activeFrostBox != null) activeFrostBox.GetComponent<FrostBox>().DestroySelf(1f);
         activeFrostBox = null;
     }
 

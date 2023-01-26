@@ -12,6 +12,8 @@ public class MortarProjectile : MonoBehaviour
     
     private Rigidbody2D rb;
     [SerializeField] private GameObject explosionEffect;
+    private DamageType damageType = DamageType.Normal;
+
     
     private void Update()
     {
@@ -33,16 +35,18 @@ public class MortarProjectile : MonoBehaviour
     private void DealDamage()
     {
         var enemiesInRadius = new List<Enemy>();
-        foreach (var enemy in EnemySpawner.enemies)
+        var allEnemies = EnemySpawner.enemies;
+        foreach (var enemy in allEnemies)
         {
-            
+            if (enemy == null) continue;
             if (Vector3.Distance(transform.position, enemy.transform.position) < radius)
                 enemiesInRadius.Add(enemy.GetComponent<Enemy>());
         }
 
         for (int i = 0; i < enemiesInRadius.Count; i++)
-        {
-            enemiesInRadius[i].TakeDamage(Dmg);
+        { 
+            if (enemiesInRadius[i] is null) continue;
+            enemiesInRadius[i].TakeDamage(Dmg, damageType, transform.position);
         }
             
     }

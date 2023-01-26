@@ -15,12 +15,12 @@ public class Freeze : MonoBehaviour
     [NonSerialized] public GameObject freezeEffect;
     private GameObject newFreezeEffect;
     
-    private Enemy enemy;
+    [SerializeField]private Enemy enemy;
     private float enemySpeed;
     private Color enemyColor;
     
 
-    public void FindEnemy()
+    public void OnEnable()
     {
         enemy = GetComponent<Enemy>();
         enemySpeed = enemy.GetComponent<NavMeshAgent>().speed;
@@ -60,8 +60,9 @@ public class Freeze : MonoBehaviour
         frozen = true;
         StopAllCoroutines();
         enemy.GetComponent<NavMeshAgent>().speed = 0;
+        
         newFreezeEffect = Instantiate(freezeEffect, transform.position, Quaternion.identity, enemy.transform);
-        StartCoroutine(Unfreeze());
+        StartCoroutine(Unfreeze(freezeTime));
     }
 
     IEnumerator LoseFreezeStack()
@@ -71,7 +72,7 @@ public class Freeze : MonoBehaviour
         ColorEnemy();
         SlowEnemy();
     }
-    IEnumerator Unfreeze()
+    IEnumerator Unfreeze(float freezeTime)
     {
         yield return new WaitForSeconds(freezeTime);
         enemy.GetComponent<NavMeshAgent>().speed = enemySpeed;
@@ -79,7 +80,15 @@ public class Freeze : MonoBehaviour
         StopAllCoroutines();
         freezeStacks = 0;
         ColorEnemy();
-        
+    }
+
+    public void UnfreezeInstantly()
+    {
+        enemy.GetComponent<NavMeshAgent>().speed = enemySpeed;
+        Destroy(newFreezeEffect?.gameObject);
+        StopAllCoroutines();
+        freezeStacks = 0;
+        ColorEnemy();
     }
     
     private void ColorEnemy()

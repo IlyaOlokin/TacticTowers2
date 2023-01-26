@@ -1,42 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class TutorialPanel : MonoBehaviour
 {
     [SerializeField] private List<GameObject> towers;
-
-    public void OnButtonNext(int panelNum)
+    [SerializeField] private GameObject skipPanel;
+    [SerializeField] private AudioMixer audioMixer;
+    private float prevTimescale;
+    
+    public void OnButtonNext()
     {
         gameObject.SetActive(false);
         AudioManager.Instance.Play("ButtonClick1");
-
-        if (panelNum == 1)
-            Time.timeScale = 3;
-        else
-            Time.timeScale = 1;
-
-        if (panelNum > 2)
+        TutorialPanelManager.CurrentPanel++;
+        TimeManager.Resume(audioMixer);
+        
+        if (TutorialPanelManager.CurrentPanel > 2)
             foreach (var tower in towers)
                 tower.GetComponent<CircleCollider2D>().enabled = true;
     }
 
     public void OnButtonPlay()
     {
-        PlayerPrefs.SetInt("isTutorialCompleted", 1);
+        DataLoader.SaveInt("isTutorialCompleted", 1);
         AudioManager.Instance.Play("ButtonClick2");
-        SceneManager.LoadScene("GameField");
+        SceneManager.LoadScene("BaseChooseMenu");
+    }
+
+    public void OnButtonSkip()
+    {
+        skipPanel.SetActive(true);
+        AudioManager.Instance.Play("ButtonClick2");
     }
     
-    private void Update()
+    private void OnEnable()
     {
-        if (gameObject.activeInHierarchy)
-        {
-            Time.timeScale = 0;
-            foreach (var tower in towers)
-                tower.GetComponent<CircleCollider2D>().enabled = false;
-        }
-            
+        TimeManager.Pause(audioMixer);
+        foreach (var tower in towers)
+            tower.GetComponent<CircleCollider2D>().enabled = false;
     }
 }

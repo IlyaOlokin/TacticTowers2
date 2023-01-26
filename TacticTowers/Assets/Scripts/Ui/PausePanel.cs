@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -12,9 +15,10 @@ public class PausePanel : MonoBehaviour
     [SerializeField] private Text creditsCount;
     [SerializeField] private GameObject soundButton;
     [SerializeField] private GameObject musicButton;
+    [SerializeField] private GameObject confirmButton;
+    [SerializeField] private AudioMixer audioMixer;
     private bool isForRestart;
-    private float startTimeScale = 1f;
-    
+
     public void OnButtonRestart()
     {
         isForRestart = true;
@@ -35,7 +39,7 @@ public class PausePanel : MonoBehaviour
     {
         pausePanel.SetActive(false);
         confirmPanel.transform.Find("CreditsCount").transform.Find("Count").GetComponent<Text>().text = creditsCount.text;
-        confirmPanel.transform.Find("Button").transform.Find("Text").GetComponent<Text>().text = isForRestart ? "Заново" : "Меню";
+        confirmButton.transform.Find("Text").GetComponent<TextLocaliser>().SetKey(isForRestart ? "menuRestartButton" : "menuMenuButton"); 
         confirmPanel.SetActive(true);
     }
 
@@ -72,6 +76,7 @@ public class PausePanel : MonoBehaviour
 
     public void OnButtonContinue()
     {
+        ShowCommonAd();
         Resume();
         AudioManager.Instance.Play("ButtonClick1");
         Credits.LoseSessionCredits();
@@ -80,21 +85,15 @@ public class PausePanel : MonoBehaviour
     
     private void Pause()
     {
-        startTimeScale = Time.timeScale;
-        Time.timeScale = 0;
+        TimeManager.Pause(audioMixer);
         pausePanel.SetActive(true);
-        
-        foreach (var tower in towers)
-            tower.GetComponent<CircleCollider2D>().enabled = false;
-        
         AudioManager.Instance.Play("ButtonClick2");
     }
 
     private void Resume()
     {
-        Time.timeScale = startTimeScale;
+        TimeManager.Resume(audioMixer);
         pausePanel.SetActive(false);
-        
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = true;
     }
@@ -102,6 +101,12 @@ public class PausePanel : MonoBehaviour
     private void Start()
     {
         Resume();
+    }
+
+    private void OnEnable()
+    {
+        musicButton.GetComponent<MusicButton>().Init();
+        soundButton.GetComponent<SoundButton>().Init();
     }
 
     private void Update()
@@ -112,10 +117,23 @@ public class PausePanel : MonoBehaviour
             {
                 Resume();
             }
-            else if (!confirmPanel.activeInHierarchy)
+            else if (!pausePanel.activeInHierarchy)
             {
+                if (towers.Any(tower =>  tower.GetComponent<TowerDrag>().needToDrop)) return;
                 Pause();
             }
+        }
+    }
+    
+    private void ShowCommonAd()
+    {
+        try
+        {
+            YandexSDK.Instance.ShowCommonAdvertisment();
+        }
+        catch 
+        {
+            Console.WriteLine("add");
         }
     }
 }

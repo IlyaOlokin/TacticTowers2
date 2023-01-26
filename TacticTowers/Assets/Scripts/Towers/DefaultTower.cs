@@ -7,12 +7,11 @@ public class DefaultTower : Tower
     [SerializeField] private GameObject bullet;
     
     [SerializeField] private float bulletSpeed;
-    
-    void Update()
-    {
-        base.Update();
-    }
-    
+
+    private void Start() => audioSrc = GetComponent<AudioSource>();
+
+    new void Update() => base.Update();
+
     protected override void Shoot(GameObject enemy)
     {
         if (enemy == null) return;
@@ -23,10 +22,15 @@ public class DefaultTower : Tower
         {
             shootDelayTimer = 1f / GetAttackSpeed();
             var newBullet =  Instantiate(bullet, transform.position, towerCanon.transform.rotation);
-            newBullet.GetComponent<Bullet>().Dmg = GetDmg();
-            newBullet.GetComponent<Bullet>().Speed = bulletSpeed;
+            var bulletComponent = newBullet.GetComponent<Bullet>();
+            bulletComponent.Dmg = GetDmg();
+            bulletComponent.Speed = bulletSpeed;
+            bulletComponent.enemiesToIgnore = enemiesToIgnore;
+            bulletComponent.departurePos = transform.position;
             
-            AudioManager.Instance.Play("DefaultTowerShot");
+            //AudioManager.Instance.Play("DefaultTowerShot");
+            audioSrc.PlayOneShot(audioSrc.clip);
+            //audioSrc.Play();
         }
     }
 }

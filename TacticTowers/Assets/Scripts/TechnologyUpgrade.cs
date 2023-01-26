@@ -26,8 +26,9 @@ public class TechnologyUpgrade : MonoBehaviour
     {
         BaseHp,
         Dmg,
+        AttackSpeed,
         ShootAngle,
-        Money
+        ShootDistance
     }
     
     void Start()
@@ -49,28 +50,33 @@ public class TechnologyUpgrade : MonoBehaviour
         {
             case UpgradeObject.BaseHp:
                 Technologies.BaseHpMultiplier = currentValue;
-                PlayerPrefs.SetString("baseHpMultiplier", currentValue.ToString());
-                PlayerPrefs.SetString("baseHpMultiplierUpgradeLevel", upgradeLevel.ToString());
+                DataLoader.SaveString("baseHpMultiplier", currentValue.ToString());
+                DataLoader.SaveString("baseHpMultiplierUpgradeLevel", upgradeLevel.ToString());
                 break;
+            
             case UpgradeObject.Dmg :
                 Technologies.DmgMultiplier = currentValue;
-                PlayerPrefs.SetString("dmgMultiplier", currentValue.ToString());
-                PlayerPrefs.SetString("dmgMultiplierUpgradeLevel", upgradeLevel.ToString());
-
+                DataLoader.SaveString("dmgMultiplier", currentValue.ToString());
+                DataLoader.SaveString("dmgMultiplierUpgradeLevel", upgradeLevel.ToString());
                 break;
+            
+            case UpgradeObject.AttackSpeed :
+                Technologies.AttackSpeedMultiplier = currentValue;
+                DataLoader.SaveString("attackSpeedMultiplier", currentValue.ToString());
+                DataLoader.SaveString("attackSpeedMultiplierUpgradeLevel", upgradeLevel.ToString());
+                break;
+            
             case UpgradeObject.ShootAngle :
                 Technologies.ShootAngleMultiplier = currentValue;
-                PlayerPrefs.SetString("shootAngleMultiplier", currentValue.ToString());
-                PlayerPrefs.SetString("shootAngleMultiplierUpgradeLevel", upgradeLevel.ToString());
-
+                DataLoader.SaveString("shootAngleMultiplier", currentValue.ToString());
+                DataLoader.SaveString("shootAngleMultiplierUpgradeLevel", upgradeLevel.ToString());
                 break;
-            case UpgradeObject.Money :
-                Technologies.MoneyMultiplier = currentValue;
-                PlayerPrefs.SetString("moneyMultiplier", currentValue.ToString());
-                PlayerPrefs.SetString("moneyMultiplierUpgradeLevel", upgradeLevel.ToString());
-
+            
+            case UpgradeObject.ShootDistance :
+                Technologies.ShootDistanceMultiplier = currentValue;
+                DataLoader.SaveString("shootDistanceMultiplier", currentValue.ToString());
+                DataLoader.SaveString("shootDistanceMultiplierUpgradeLevel", upgradeLevel.ToString());
                 break;
-
         }
         minUpgradePriceFinder.FindMinPrice();
         AudioManager.Instance.Play("ButtonClick2");
@@ -114,21 +120,26 @@ public class TechnologyUpgrade : MonoBehaviour
         switch (upgradeObject)
         {
             case UpgradeObject.BaseHp:
-                currentValue = float.Parse(PlayerPrefs.GetString("baseHpMultiplier", "1"));
-                upgradeLevel = int.Parse(PlayerPrefs.GetString("baseHpMultiplierUpgradeLevel", "0"));
+                currentValue = float.Parse(DataLoader.LoadString("baseHpMultiplier", "1"));
+                upgradeLevel = int.Parse(DataLoader.LoadString("baseHpMultiplierUpgradeLevel", "0"));
                 break;
             case UpgradeObject.Dmg:
-                currentValue = float.Parse(PlayerPrefs.GetString("dmgMultiplier", "1"));
-                upgradeLevel = int.Parse(PlayerPrefs.GetString("dmgMultiplierUpgradeLevel", "0"));
+                currentValue = float.Parse(DataLoader.LoadString("dmgMultiplier", "1"));
+                upgradeLevel = int.Parse(DataLoader.LoadString("dmgMultiplierUpgradeLevel", "0"));
+                break;
+            case UpgradeObject.AttackSpeed:
+                currentValue = float.Parse(DataLoader.LoadString("attackSpeedMultiplier", "1"));
+                upgradeLevel = int.Parse(DataLoader.LoadString("attackSpeedMultiplierUpgradeLevel", "0"));
                 break;
             case UpgradeObject.ShootAngle:
-                currentValue = float.Parse(PlayerPrefs.GetString("shootAngleMultiplier", "1"));
-                upgradeLevel = int.Parse(PlayerPrefs.GetString("shootAngleMultiplierUpgradeLevel", "0"));
+                currentValue = float.Parse(DataLoader.LoadString("shootAngleMultiplier", "1"));
+                upgradeLevel = int.Parse(DataLoader.LoadString("shootAngleMultiplierUpgradeLevel", "0"));
                 break;
-            case UpgradeObject.Money:
-                currentValue = float.Parse(PlayerPrefs.GetString("moneyMultiplier", "1"));
-                upgradeLevel = int.Parse(PlayerPrefs.GetString("moneyMultiplierUpgradeLevel", "0"));
+            case UpgradeObject.ShootDistance:
+                currentValue = float.Parse(DataLoader.LoadString("shootDistanceMultiplier", "1"));
+                upgradeLevel = int.Parse(DataLoader.LoadString("shootDistanceMultiplierUpgradeLevel", "0"));
                 break;
+            
         }
     }
 

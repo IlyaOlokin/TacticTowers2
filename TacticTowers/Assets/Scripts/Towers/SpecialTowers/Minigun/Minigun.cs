@@ -12,10 +12,15 @@ public class Minigun : Tower
     private float coolTimer;
 
     [SerializeField] public int maxHeat;
+    [SerializeField] public float maxHeatMultiplier;
     [SerializeField] public float bonusAttackSpeedPerHeat;
+    [SerializeField] public float bonusAttackSpeedPerHeatMultiplier;
     [SerializeField] public float coolDelay;
+    [SerializeField] public float coolDelayMultiplier;
 
-    void Update()
+    private void Start() => audioSrc = GetComponent<AudioSource>();
+    
+    private new void Update()
     {
         base.Update();
 
@@ -32,7 +37,7 @@ public class Minigun : Tower
     private void BarrelHeat()
     {
         var color = heatIndicator.color;
-        color = Color.HSVToRGB(0, heatCount / maxHeat * 0.6f , 1);
+        color = Color.HSVToRGB(0, heatCount / (maxHeat * maxHeatMultiplier) * 0.6f , 1);
         heatIndicator.color = color;
     }
 
@@ -45,14 +50,17 @@ public class Minigun : Tower
         if (shootDelayTimer <= 0)
         {
             heatCount = Mathf.Ceil(heatCount);
-            shootDelayTimer = 1f / (GetAttackSpeed() + heatCount * bonusAttackSpeedPerHeat);
-            if (heatCount < maxHeat) heatCount += 1;
-            coolTimer = coolDelay;
+            shootDelayTimer = 1f / (GetAttackSpeed() + heatCount * bonusAttackSpeedPerHeat * bonusAttackSpeedPerHeatMultiplier);
+            if (heatCount < maxHeat * maxHeatMultiplier) heatCount += 1;
+            coolTimer = coolDelay * coolDelayMultiplier;
             var newBullet = Instantiate(bullet, transform.position, towerCanon.transform.rotation);
-            newBullet.GetComponent<Bullet>().Dmg = GetDmg();
-            newBullet.GetComponent<Bullet>().Speed = bulletSpeed;
+            var bulletComponent = newBullet.GetComponent<Bullet>();
+            bulletComponent.Dmg = GetDmg();
+            bulletComponent.Speed = bulletSpeed;
+            bulletComponent.enemiesToIgnore = enemiesToIgnore;
+            bulletComponent.departurePos = transform.position;
             
-            AudioManager.Instance.Play("MinigunShot");
+            audioSrc.PlayOneShot(audioSrc.clip);
         }
     }
 }

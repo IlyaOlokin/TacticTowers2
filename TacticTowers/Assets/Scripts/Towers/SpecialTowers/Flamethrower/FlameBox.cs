@@ -11,18 +11,26 @@ public class FlameBox : MonoBehaviour
     [NonSerialized] public float burnDmg;
     [NonSerialized] public float burnTime;
     [NonSerialized] public float attackSpeed;
-    [NonSerialized] public Vector3 flameStartPos;
     private float dmgDelayTimer;
-    [NonSerialized] public ParticleSystem ps;
+    private Material myMaterial;
+    
+    private float appearTimer;
+    private float appearDelay = 2f;
+
+    private float destroyTimer;
+    private float destroyDelay;
+    
+    private bool needToBeDestroyed;
+    private DamageType damageType = DamageType.Fire;
 
     [SerializeField] private GameObject fire;
+    private static readonly int EndFlame = Shader.PropertyToID("_EndFlame");
+    private static readonly int StartFlame = Shader.PropertyToID("_StartFlame");
 
     private void Start()
     {
-        ps = transform.GetChild(0).GetComponent<ParticleSystem>();
-        ps.transform.position = flameStartPos;
-        var mainModule = ps.main;
-        mainModule.startLifetime =transform.localScale.y / 3 * 0.85f;
+        myMaterial = GetComponent<SpriteRenderer>().material;
+        myMaterial.SetFloat(StartFlame, 0);
     }
 
     protected void Update()
@@ -30,6 +38,17 @@ public class FlameBox : MonoBehaviour
         if (dmgDelayTimer > 0) dmgDelayTimer -= Time.deltaTime;
         
         if (dmgDelayTimer <= 0) DealDamage();
+        if (needToBeDestroyed)
+        {
+            destroyTimer += Time.deltaTime;
+            myMaterial.SetFloat(EndFlame, destroyTimer / destroyDelay);
+        }
+
+        if (appearTimer < appearDelay)
+        {
+            appearTimer += Time.deltaTime;
+            myMaterial.SetFloat(StartFlame, appearTimer / appearDelay);
+        }
     }
 
     private void DealDamage()
@@ -37,12 +56,19 @@ public class FlameBox : MonoBehaviour
         for (var index = 0; index < enemiesInside.Count; index++)
         {
             var enemy = enemiesInside[index];
-            enemy.TakeDamage(dmg);
+            enemy.TakeDamage(dmg, damageType, transform.position);
             SetOnFire(enemy.gameObject);
             
         }
 
         dmgDelayTimer = 1f / attackSpeed;
+    }
+
+    public void DestroySelf(float delay)
+    {
+        Destroy(gameObject, delay);
+        destroyDelay = delay;
+        needToBeDestroyed = true; 
     }
 
     private void SetOnFire(GameObject enemy)

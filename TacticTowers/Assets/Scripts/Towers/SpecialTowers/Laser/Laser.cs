@@ -13,17 +13,19 @@ public class Laser : Tower
     private GameObject activeLaser;
 
     [SerializeField] public int maxHeat;
-    [SerializeField] public float bonusDamagePerHeat;
+    [SerializeField] public float maxHeatMultiplier;
+    [SerializeField] public float multiplierPerHeatStack;
+    [SerializeField] public float multiplierPerHeatStackMultiplier;
     [SerializeField] public float coolDelay;
+    [SerializeField] public float coolDelayMultiplier;
+    [SerializeField] private ContactFilter2D contactFilter;
 
     [NonSerialized] public bool shooting;
+    private DamageType damageType = DamageType.Fire;
 
-    private void Start()
-    {
-        AudioManager.Instance.lasers.Add(this);
-    }
+    private void Start() => audioSrc = GetComponent<AudioSource>();
 
-    void Update()
+    private new void Update()
     {
         base.Update();
 
@@ -40,39 +42,48 @@ public class Laser : Tower
         if (enemy == null)
         {
             Destroy(activeLaser);
-            //FindObjectOfType<AudioManager>().Stop("LaserShot");
+            audioSrc.Stop();
             shooting = false;
             currentEnemy = null;
             return;
         }
         LootAtTarget(enemy);
-
+        
         if (enemy != currentEnemy)
         {
             Destroy(activeLaser);
-            //FindObjectOfType<AudioManager>().Stop("LaserShot");
+            audioSrc.Stop();
             shooting = false;
 
         }
-        if (heatCount < maxHeat) heatCount += Time.deltaTime;
+        if (heatCount < maxHeat * maxHeatMultiplier) heatCount += Time.deltaTime;
         if (activeLaser != null)  activeLaser.GetComponent<LaserBim>().IncreaseWidth(heatCount);
+        if (enemy != currentEnemy)
+        {
+            activeLaser = Instantiate(laserBim, transform.position, towerCanon.transform.rotation);
+            activeLaser.GetComponent<LaserBim>().target = enemy;
+            activeLaser.GetComponent<LaserBim>().origin = transform.position;
+            currentEnemy = enemy;
+            audioSrc.Play();
+            shooting = true;
+        }
+        
         if (shootDelayTimer <= 0)
         {
-            if (enemy != currentEnemy)
-            {
-                activeLaser = Instantiate(laserBim, transform.position, towerCanon.transform.rotation);
-                activeLaser.GetComponent<LaserBim>().target = enemy;
-                activeLaser.GetComponent<LaserBim>().origin = transform.position;
-                currentEnemy = enemy;
-                //FindObjectOfType<AudioManager>().Play("LaserShot");
-                shooting = true;
-            }
-            
-            
             shootDelayTimer = 1f / GetAttackSpeed();
-            coolTimer = coolDelay;
-            
-            enemy.GetComponent<Enemy>().TakeDamage(GetDmg() + Mathf.Floor(heatCount) * bonusDamagePerHeat);
+            coolTimer = coolDelay * coolDelayMultiplier;
+
+            if (CheckWallCollision(transform.position, enemy.transform.position, GetShootDistance(), false) is null)
+            {
+                if (enemy.GetComponent<Enemy>().TakeDamage(
+                    GetDmg() * (1 + Mathf.Floor(heatCount) * multiplierPerHeatStack * multiplierPerHeatStackMultiplier),
+                    damageType, transform.position))
+                {
+                    Destroy(activeLaser);
+                    shooting = false;
+                }
+            }
+                
         }
     }
 }

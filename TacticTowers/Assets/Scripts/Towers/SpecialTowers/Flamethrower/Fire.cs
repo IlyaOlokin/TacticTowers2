@@ -13,6 +13,7 @@ public class Fire : MonoBehaviour
     
     private float dmgDelayTimer;
     private float dmgDelay = 0.5f;
+    private DamageType damageType = DamageType.Fire;
 
     private void Start()
     {
@@ -36,7 +37,7 @@ public class Fire : MonoBehaviour
 
     private void DealDamage()
     {
-        enemy.TakeDamage(burnDmg);
+        enemy.TakeDamage(burnDmg, damageType, transform.position);
         dmgDelayTimer = dmgDelay;
     }
 }

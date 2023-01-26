@@ -13,6 +13,7 @@ public class TowerUpgrade : MonoBehaviour
     private float dragDistanceLimit = 0.1f;
     
     [SerializeField] private GameObject upgradeMenu;
+    [SerializeField] private GameObject towerStatWindow;
     public Tower tower;
     [SerializeField] private GameObject upgradeWindow;
     private TowerDrag td;
@@ -47,11 +48,12 @@ public class TowerUpgrade : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        pressTimer += Time.deltaTime;
+        pressTimer += Time.unscaledDeltaTime;
     }
 
     private void OnMouseUp()
     {
+        if (UiAppear.IsAnyUIActive()) return;
         mouseUpPos = transform.position;
         if (pressTimer <= pressTimeLimit && Vector2.Distance(mouseOnPos,mouseUpPos) <= dragDistanceLimit)
         {
@@ -62,7 +64,6 @@ public class TowerUpgrade : MonoBehaviour
     private void OpenUpgradeMenu()
     {
         if (td.dragging) return;
-        upgradeMenu.GetComponent<UpgradeMenu>().mouseOn = false;
         upgradeMenu.SetActive(true);
     }
 
@@ -84,8 +85,18 @@ public class TowerUpgrade : MonoBehaviour
             
             FindObjectOfType<AudioManager>().Play("ButtonClick1");
         }
-    }
 
+        ShowCommonAd();
+    }
+    public void OpenTowerStatWindow()
+    {
+        towerStatWindow.SetActive(true);
+        upgradeMenu.SetActive(false);
+        towerStatWindow.GetComponent<TowerStatWindow>().SetTower(GetComponent<TowerDrag>().tower);
+            
+        FindObjectOfType<AudioManager>().Play("ButtonClick1");
+    }
+    
     private int GetTowerUpgradePrice()
     {
         if (IsTowerMaxLevel())
@@ -96,5 +107,17 @@ public class TowerUpgrade : MonoBehaviour
     private bool IsTowerMaxLevel()
     {
         return tower.upgradeLevel == tower.upgradePrices.Length + 1;
+    }
+    
+    private void ShowCommonAd()
+    {
+        try
+        {
+            YandexSDK.Instance.ShowCommonAdvertisment();
+        }
+        catch 
+        {
+            Console.WriteLine("add");
+        }
     }
 }

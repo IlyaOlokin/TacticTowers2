@@ -6,9 +6,11 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    [NonSerialized] public readonly int[] upgradePrices = {10, 15, 20, 25, 30, 40, 50, 60, 70, 85, 100, 115, 130, 150};
+    [NonSerialized] public readonly int[] upgradePrices = {10, 25, 50, 100, 150, 225, 325, 475, 700, 1000, 1400, 2000, 2750, 3750, 5000, 6500, 8250, 10000, 12000};
     [NonSerialized] public int upgradeLevel = 1;
-    
+
+    [NonSerialized] public List<GameObject> enemiesToIgnore = new List<GameObject>();
+
     public float shootDirection;
 
     public string towerName; 
@@ -17,25 +19,30 @@ public class Tower : MonoBehaviour
 
     [SerializeField] protected GameObject towerCanon;
 
-    [SerializeField] private  float shootAngle;
-    public float multiplierShootAngle = 1;
+    public float shootAngle;
+    [NonSerialized] public float multiplierShootAngle = 1;
     
-    [SerializeField] private  float shootDistance;
-    public float multiplierShootDistance = 1;
+    public float shootDistance;
+    [NonSerialized] public float multiplierShootDistance = 1;
     
-    [SerializeField] private float Dmg;
-    public float multiplierDmg = 1;
+    public float Dmg;
+    [NonSerialized] public float multiplierDmg = 1;
     
-    [SerializeField] private float attackSpeed;
-    public float multiplierAttackSpeed = 1;
+    public float attackSpeed;
+    [NonSerialized] public float multiplierAttackSpeed = 1;
     
     
     protected float shootDelayTimer;
-    [NonSerialized] public bool canShoot = true;
+    [NonSerialized] public bool isDragging = false;
+    [NonSerialized] private bool isDisarmed = false;
+    [NonSerialized] private bool hasParasite = false;
+    private float parasiteAttackSpeedMultiplier = 1;
 
     public ShootZone shootZone;
 
     public List<Upgrade> upgrades;
+    
+    protected AudioSource audioSrc;
     
     protected void Update()
     {
@@ -56,6 +63,7 @@ public class Tower : MonoBehaviour
         foreach (var enemy in EnemySpawner.enemies)
         {
             if (enemy == null) continue;
+            if (enemiesToIgnore.Contains(enemy)) continue;
             var distToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
             Vector3 dir = transform.position - enemy.transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
@@ -73,7 +81,7 @@ public class Tower : MonoBehaviour
             }
         }
         
-        if (canShoot) Shoot(target);
+        if (CanShoot()) Shoot(target);
         else Shoot(null);
     }
 
@@ -89,24 +97,24 @@ public class Tower : MonoBehaviour
         towerCanon.transform.eulerAngles = new Vector3(0, 0, angle + 90);
     }
 
-    protected float GetDmg()
+    public float GetDmg()
     {
-        return Dmg * multiplierDmg * Technologies.DmgMultiplier;
+        return Dmg * multiplierDmg * Technologies.DmgMultiplier * GlobalBaseEffects.GetGlobalBaseDmgMultiplier(shootDirection);
     }
     
-    protected float GetAttackSpeed()
+    public float GetAttackSpeed()
     {
-        return attackSpeed * multiplierAttackSpeed;
+        return attackSpeed * multiplierAttackSpeed * Technologies.AttackSpeedMultiplier * GlobalBaseEffects.GetGlobalBaseAttackSpeedMultiplier(shootDirection) * parasiteAttackSpeedMultiplier;
     }
     
     public float GetShootAngle()
     {
-        return shootAngle * multiplierShootAngle * Technologies.ShootAngleMultiplier;
+        return shootAngle * multiplierShootAngle * Technologies.ShootAngleMultiplier * GlobalBaseEffects.GetGlobalBaseShootAngleMultiplier(shootDirection);
     }
     
     public float GetShootDistance()
     {
-        return shootDistance * multiplierShootDistance;
+        return shootDistance * multiplierShootDistance * Technologies.ShootDistanceMultiplier * GlobalBaseEffects.GetGlobalBaseShootDistanceMultiplier(shootDirection);
     }
 
     public void GetMultipliers(Tower tower)
@@ -125,5 +133,61 @@ public class Tower : MonoBehaviour
         shootZone = tower.shootZone;
         shootZone.tower = this;
         upgradeLevel = tower.upgradeLevel;
+        enemiesToIgnore = tower.enemiesToIgnore;
+    }
+    
+    public static Vector3? CheckWallCollision(Vector3 origin, Vector3 target, float shootDistance, bool shouldPenetrate)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(origin, target - origin, 100f, LayerMask.GetMask("Wall"));
+        if (hit.collider != null )
+        {
+            if (hit.distance < Vector3.Distance(origin, target))
+                return hit.point;
+            if (hit.distance < shootDistance && shouldPenetrate)
+                return hit.point;
+        }
+
+        return null;
+    }
+
+    public static Vector3 GetRayImpactPoint(Vector3 origin, Vector3 target, bool shouldPenetrate)
+    {
+        var wallCollision = CheckWallCollision(origin, target, 100f, shouldPenetrate);
+        if (wallCollision != null)
+            return (Vector3) wallCollision;
+
+        return target;
+    }
+
+    public bool CanShoot()
+    {
+        return !isDragging && !isDisarmed;
+    }
+
+    public void Disarm(float duration)
+    {
+        isDisarmed = true;
+        StopCoroutine("LostDisarm");
+        StartCoroutine("LostDisarm", duration);
+    }
+
+    private IEnumerator LostDisarm(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isDisarmed = false;
+    }
+
+    public bool HasParasite() => hasParasite;
+
+    public void GetParasite(float multiplier)
+    {
+        hasParasite = true;
+        parasiteAttackSpeedMultiplier = multiplier;
+    }
+
+    public void LostParasite()
+    {
+        hasParasite = false;
+        parasiteAttackSpeedMultiplier = 1;
     }
 }

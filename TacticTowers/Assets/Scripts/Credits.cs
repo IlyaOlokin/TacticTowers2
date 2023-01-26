@@ -7,16 +7,22 @@ public static class Credits
     public static int credits;
     public static int creditsDuringSession;
 
+    public static int CreditsInTotal;
+
 
     public static void TakeCredits(int credits)
     {
         Credits.credits -= credits;
-        PlayerPrefs.SetString("Credits", Credits.credits.ToString());
+        DataLoader.SaveInt("Credits", Credits.credits);
+
     }
     public static void AddCredits(int credits)
     {
         Credits.credits += credits;
-        PlayerPrefs.SetString("Credits", Credits.credits.ToString());
+        CreditsInTotal += credits;
+        DataLoader.SaveInt("Credits", Credits.credits);
+        DataLoader.SaveInt("CreditsInTotal", CreditsInTotal);
+        YandexSDK.Instance.SetLeaderScore(CreditsInTotal);
     }
 
     public static void AddSessionCredits(int credits)

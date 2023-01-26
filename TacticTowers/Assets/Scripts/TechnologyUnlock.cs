@@ -45,19 +45,19 @@ public class TechnologyUnlock : MonoBehaviour
         {
             case UnlockableTowers.Frostgun:
                 Technologies.IsFrostGunUnlocked = true;
-                PlayerPrefs.SetInt("isFrostGunUnlocked", Convert.ToInt16(isUnlocked));
+                DataLoader.SaveInt("isFrostGunUnlocked", isUnlocked);
                 break;
             case UnlockableTowers.Flamethrower :
                 Technologies.IsFlamethrowerUnlocked = true;
-                PlayerPrefs.SetInt("isFlamethrowerUnlocked",  Convert.ToInt16(isUnlocked));
+                DataLoader.SaveInt("isFlamethrowerUnlocked", isUnlocked);
                 break;
             case UnlockableTowers.Railgun :
                 Technologies.IsRailgunUnlocked = true;
-                PlayerPrefs.SetInt("isRailgunUnlocked",  Convert.ToInt16(isUnlocked));
+                DataLoader.SaveInt("isRailgunUnlocked", isUnlocked);
                 break;
             case UnlockableTowers.Tesla :
                 Technologies.IsTeslaUnlocked = true;
-                PlayerPrefs.SetInt("isTeslaUnlocked",  Convert.ToInt16(isUnlocked));
+                DataLoader.SaveInt("isTeslaUnlocked", isUnlocked);
                 break;
         }
         minUpgradePriceFinder.FindMinPrice();

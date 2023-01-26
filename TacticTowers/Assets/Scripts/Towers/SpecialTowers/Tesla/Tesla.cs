@@ -5,14 +5,16 @@ using UnityEngine;
 public class Tesla : Tower
 {
     [SerializeField] private GameObject lightning;
-    [SerializeField] public int lightningCount;
-    [SerializeField] public float dmgDecrease;
-    [SerializeField] public float lightningJumpDistance;
+    public int lightningCount;
+    public int bonusLightningCount;
+    public float dmgDecrease;
+    public float dmgDecreaseMultiplier;
+    public float lightningJumpDistance;
+    public float lightningJumpDistanceMultiplier;
+    private DamageType damageType = DamageType.Fire;
 
-    void Update()
-    {
-        base.Update();
-    }
+    private void Start() => audioSrc = GetComponent<AudioSource>();
+    private new void Update() => base.Update();
 
     protected override void Shoot(GameObject enemy)
     {
@@ -22,9 +24,10 @@ public class Tesla : Tower
 
         if (shootDelayTimer <= 0)
         {
-            object[] parms = {GetDmg(), transform.position, enemy, lightningCount, new List<GameObject>()};
+            object[] parms = {GetDmg(), transform.position, enemy, lightningCount + bonusLightningCount, new List<GameObject>()};
             StartCoroutine("ShootLightning", parms);
             shootDelayTimer = 1f / GetAttackSpeed();
+            audioSrc.PlayOneShot(audioSrc.clip);
         }
     }
 
@@ -36,26 +39,41 @@ public class Tesla : Tower
         float dmg = (float) parms[0];
         Vector3 startPos = (Vector3) parms[1];
         GameObject enemy = (GameObject) parms[2];
-        List<GameObject> pickedEnemy = (List<GameObject>) parms[4];
+        List<GameObject> pickedEnemies = (List<GameObject>) parms[4];
 
 
         var endPos = enemy.transform.position;
-        pickedEnemy.Add(enemy);
+        
 
         var newLightning = Instantiate(lightning, transform.position, towerCanon.transform.rotation);
         newLightning.GetComponent<LineRenderer>().SetPosition(0, startPos);
-        newLightning.GetComponent<LineRenderer>().SetPosition(1, endPos);
         
-        AudioManager.Instance.Play("TeslaShot");
+        //AudioManager.Instance.Play("TeslaShot");
+        
+        if (CheckWallCollision(startPos, endPos, GetShootDistance(), false) is null)
+        {
+            newLightning.GetComponent<LineRenderer>().SetPosition(1, endPos);
+            enemy.GetComponent<Enemy>().TakeDamage(dmg, damageType, transform.position);
+            pickedEnemies.Add(enemy);
+        }
+        else
+        {
+            endPos = GetRayImpactPoint(startPos, endPos, false);
+            newLightning.GetComponent<LineRenderer>().SetPosition(1, endPos);
+            yield break;
+        }
+        Debug.DrawRay(startPos, endPos - startPos, Color.cyan, 1);
+        
 
-        enemy.GetComponent<Enemy>().TakeDamage(dmg);
+        
+
         yield return new WaitForSeconds(0.2f);
         GameObject newEnemy = null;
         var minDist = float.MaxValue;
         foreach (var e in EnemySpawner.enemies)
         {
             var distance = Vector3.Distance(endPos, e.transform.position);
-            if (distance <= lightningJumpDistance && distance < minDist && !pickedEnemy.Contains(e))
+            if (distance <= lightningJumpDistance * lightningJumpDistanceMultiplier && distance < minDist && !pickedEnemies.Contains(e))
             {
                 newEnemy = e;
                 minDist = distance;
@@ -63,7 +81,7 @@ public class Tesla : Tower
         }
 
         if (newEnemy == null) yield break;
-        parms = new object[] {dmg * dmgDecrease, endPos, newEnemy, lightningLeft - 1, pickedEnemy};
+        parms = new object[] {dmg * dmgDecrease * dmgDecreaseMultiplier, endPos, newEnemy, lightningLeft - 1, pickedEnemies};
         
 
         StartCoroutine("ShootLightning", parms);

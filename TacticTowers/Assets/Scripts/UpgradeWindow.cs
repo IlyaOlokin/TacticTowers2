@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -19,18 +20,23 @@ public class UpgradeWindow : MonoBehaviour
     [SerializeField] private Sprite upgradeSprite;
     
     [Header("Functionality")]
+    [SerializeField] private int towerTypeUpgradeLevel;
+    [SerializeField] private float superUpgradeChance;
+
     [SerializeField] private List<GameObject> upgradeButtons;
 
-    [SerializeField] private int towerTypeUpgradeLevel;
     [SerializeField] private List<GameObject> towerTypes;
     [SerializeField] private List<GameObject> unlockableTowerTypes;
+
+    [SerializeField] private AudioMixer audioMixer;
 
     [NonSerialized] public TowerDrag td;
     [NonSerialized] public TowerUpgrade tu;
 
     private void OnEnable()
     {
-        Time.timeScale = 0;
+        TimeManager.Pause(audioMixer);
+        
         AddUnlockedTowerTypes();
     }
 
@@ -48,7 +54,7 @@ public class UpgradeWindow : MonoBehaviour
 
     private void OnDisable()
     {
-        Time.timeScale = 1;
+        TimeManager.Resume(audioMixer);
     }
 
     public void UpgradeTower(Tower tower)
@@ -95,11 +101,18 @@ public class UpgradeWindow : MonoBehaviour
         var upgradeButton = button.GetComponent<UpgradeButton>();
         var upgrade = tower.upgrades[upgradeIndex];
         
+        float chanceToSuper = Random.Range(0f, 1f);
+        bool isSuper = chanceToSuper < superUpgradeChance;
+        upgrade.ApplyBonusIncrement(isSuper);
+        button.GetComponent<UpgradeButton>().ActivateSuperCardEffects(isSuper);
+        
         Button.onClick.AddListener(() => upgrade.Execute(tower));
         Button.onClick.AddListener(() => gameObject.SetActive(false));
         Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
-        upgradeButton.upgradeLabel.text = upgrade.upgradeLabel;
-        upgradeButton.upgradeText.text = upgrade.upgradeText;
+
+        upgradeButton.upgradeLabel.GetComponent<TextLocaliser>().SetKey(upgrade.upgradeLabel);
+        upgradeButton.upgradeText.GetComponent<TextLocaliser>().SetKey(upgrade.GetUpgradeText());
+        upgradeButton.upgradeText.text = string.Format(upgradeButton.upgradeText.text, isSuper ? upgrade.GetBonusForFormatting() * 2 : upgrade.GetBonusForFormatting());// upgrade.FormatUpgradeText(isSuper);
         upgradeButton.upgradeImage.sprite = upgrade.UpgradeSprite;
     }
 
@@ -125,14 +138,17 @@ public class UpgradeWindow : MonoBehaviour
     {
         var Button = button.GetComponent<Button>();
         var upgradeButton = button.GetComponent<UpgradeButton>();
-
+        
+        button.GetComponent<UpgradeButton>().ActivateSuperCardEffects(false);
+        
         Button.onClick.AddListener(() => CreateNewTower(towerTypes[upgradeIndex], tower));
         Button.onClick.AddListener(() => gameObject.SetActive(false));
         Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
 
-        upgradeButton.upgradeLabel.text = towerTypes[upgradeIndex].GetComponent<Tower>().towerName;
-        upgradeButton.upgradeText.text =  towerTypes[upgradeIndex].GetComponent<Tower>().towerDescription;
-        upgradeButton.upgradeImage.sprite = towerTypes[upgradeIndex].GetComponent<Tower>().towerSprite;
+        var towerComponent = towerTypes[upgradeIndex].GetComponent<Tower>();
+        upgradeButton.upgradeLabel.GetComponent<TextLocaliser>().SetKey(towerComponent.towerName);
+        upgradeButton.upgradeText.GetComponent<TextLocaliser>().SetKey(towerComponent.towerDescription);
+        upgradeButton.upgradeImage.sprite = towerComponent.towerSprite;
     }
 
     private void CreateNewTower(GameObject towerType, Tower tower)
@@ -152,6 +168,7 @@ public class UpgradeWindow : MonoBehaviour
     {
         ChangeButtonsVisual(typeUpgradeSprite, typeUpgradeText);
     }
+    
     private void ChangeVisualOnTowerUpgrade()
     {
         ChangeButtonsVisual(upgradeSprite, upgradeText);
@@ -161,8 +178,8 @@ public class UpgradeWindow : MonoBehaviour
     {
         foreach (var button in upgradeButtons)
         {
-            button.GetComponent<Image>().sprite = imageSprite;
-            label.text = labelText;
+            button.GetComponent<UpgradeButton>().ChangeSprite(imageSprite);
+            label.GetComponent<TextLocaliser>().SetKey(labelText);
         }
     }
 }

@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5acc38404c905349b4f62039442e9bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeLabel: "\u0414\u0430\u043B\u044C\u043D\u043E\u0441\u0442\u044C \u043E\u0442\u0441\u043A\u043E\u043A\u0430"
-  upgradeText: "+20% \u043A \u0440\u0430\u0434\u0438\u0443\u0441\u0443 \u043E\u0442\u0441\u043A\u043E\u043A\u0430
-    \u043C\u043E\u043B\u043D\u0438\u0438"
+  upgradeLabel: upgradeTeslaBounceRadius
+  upgradeText: upgradeTeslaBounceRadiusDesc
+  bonusForFormatting: 20
   UpgradeSprite: {fileID: 580036154899726866, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
-  bonus: 0.3
+  bonus: 0.2

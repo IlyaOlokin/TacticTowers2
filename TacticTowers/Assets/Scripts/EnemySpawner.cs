@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -12,6 +13,9 @@ public class EnemySpawner : MonoBehaviour
     
     public static List<GameObject> enemies;
     [SerializeField] private List<Wave> Waves = new List<Wave>();
+    
+    //[SerializeField] private List<EnemySet> enemySets = new List<EnemySet>();
+    [SerializeField] private List<EnemySetGroup> enemySetGroups = new List<EnemySetGroup>();
 
     [SerializeField] private Transform spawnZoneRight;
     [SerializeField] private Transform spawnZoneTop;
@@ -20,62 +24,125 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("UI")] 
     [SerializeField] private Text waveCount;
+    [SerializeField] private BossHpBar bossHpBar;
+    [SerializeField] private GameObject bossAnnouncement;
+
+    private int currentWave = 0;
+    private static bool isBossInField;
+    private Boss currentBoss;
+
 
     private void Start()
     {
         FindEnemies();
+        isBossInField = false;
     }
 
-    private static void FindEnemies()
+    public static void FindEnemies()
     {
         enemies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Enemy"));
+        if (isBossInField)
+        {
+            foreach (var bossPart in GameObject.FindGameObjectsWithTag("BossPart"))
+            {
+                enemies.Add(bossPart);
+            }
+        }
     }
 
     private void Update()
     {
+        if (isBossInField)
+        {
+            if (!IsAnyEnemyLeft())
+            {
+                isBossInField = false;
+                Timer.Play();
+            }
+            return;
+        }
+        
         for (int i = 0; i < Waves.Count; i++)
+        {
             if (!Waves[i].released && Timer.timer <= 0)
             {
-                ReleaseWave(Waves[i]);
+                ReleaseWave(Waves[i], i);
 
-                var currentWave = i + 1;
-                var totalWaves = Waves.Count;
-                waveCount.text = $"{currentWave:00}/{totalWaves:00}";
+                currentWave++;
+                waveCount.text = $"{currentWave:00}/{Waves.Count:00}";
                
                 if (i + 1 == Waves.Count)
                 {
                     Timer.Stop();
                     break;
                 }
-                Timer.SetTimer(Waves[i + 1].seconds - Waves[i].seconds);
+                Timer.SetTimer(Waves[i + 1].seconds);
             }
-         
+        }
     }
 
-    private void ReleaseWave(Wave wave)
+    private void ReleaseWave(Wave wave, int i)
     {
-        
+        float waveScale = wave.waveScale;
+        if (wave.isSpecial)
+        {
+            wave.enemySet = wave.specialEnemySet;
+            waveScale = 1f;
+            Timer.Stop();
+            isBossInField = true;
+        }
+        else
+        {
+            foreach (var enemySetGroup in enemySetGroups)
+            {
+                if (i >= enemySetGroup.minWave && i <= enemySetGroup.maxWave)
+                {
+                    wave.enemySet = enemySetGroup.enemySets[Random.Range(0, enemySetGroup.enemySets.Count)];
+                }
+            }
+            
+        }
+
         float weightCost = wave.moneyForWave / GetEnemyWeight(wave);
-        
-        ReleaseWaveSide(wave.enemiesRight, wave.enemiesCountRight, spawnZoneRight, weightCost);
-        ReleaseWaveSide(wave.enemiesTop, wave.enemiesCountTop, spawnZoneTop, weightCost);
-        ReleaseWaveSide(wave.enemiesLeft, wave.enemiesCountLeft, spawnZoneLeft, weightCost);
-        ReleaseWaveSide(wave.enemiesBot, wave.enemiesCountBot, spawnZoneBot, weightCost);
+
+        Vector3 bossPosition = new Vector3();
+        if (wave.bossTransform != null)
+            bossPosition = wave.bossTransform.position;
+
+        ReleaseWaveSide(wave.enemySet.Right, spawnZoneRight, waveScale, weightCost, bossPosition);
+        ReleaseWaveSide(wave.enemySet.Top, spawnZoneTop, waveScale, weightCost, bossPosition);
+        ReleaseWaveSide(wave.enemySet.Left, spawnZoneLeft, waveScale, weightCost, bossPosition);
+        ReleaseWaveSide(wave.enemySet.Bot, spawnZoneBot, waveScale, weightCost, bossPosition);
         
         
         FindEnemies();
 
+        if (SceneManager.GetActiveScene().name != "Tutorial" && isBossInField)
+        {
+            bossAnnouncement.SetActive(true);
+            ConnectBossHpBar();
+        }
+        
         wave.released = true;
     }
 
-    private void ReleaseWaveSide(List<GameObject> enemies, List<int> enemiesCount, Transform spawnZone, float weightCost)
+    private void ReleaseWaveSide(List<EnemyType> enemyTypes, Transform spawnZone, float waveScale, float weightCost, Vector3 bossPos)
     {
-        for (int i = 0; i < enemies.Count; i++)
+        if (waveScale != 0)
+            weightCost /= waveScale;
+        for (int i = 0; i < enemyTypes.Count; i++)
         {
-            for (int j = 0; j < enemiesCount[i]; j++)
+            var enemyCount = Math.Floor(enemyTypes[i].enemyCount * waveScale);
+            for (int j = 0; j < enemyCount; j++)
             {
-                var newEnemy = Instantiate(enemies[i], GetRandomPointOnSpawnZone(spawnZone), Quaternion.identity, enemiesObject);
-                newEnemy.GetComponent<Enemy>().cost = newEnemy.GetComponent<Enemy>().weight * weightCost;
+                var newEnemy = Instantiate(enemyTypes[i].enemy, GetRandomPointOnSpawnZone(spawnZone), Quaternion.identity, enemiesObject);
+                var enemyComp = newEnemy.GetComponent<Enemy>();
+                enemyComp.cost = enemyComp.weight * weightCost;
+                if (newEnemy.TryGetComponent(out Boss boss))
+                {
+                    boss.transform.position = bossPos;
+                    currentBoss = newEnemy.GetComponent<Boss>();
+                }
             }
         }
     }
@@ -91,22 +158,33 @@ public class EnemySpawner : MonoBehaviour
 
     private float GetEnemyWeight(Wave wave)
     {
-        float sum = CountSideWeight(wave.enemiesTop, wave.enemiesCountTop) +
-                    CountSideWeight(wave.enemiesBot, wave.enemiesCountBot) +
-                    CountSideWeight(wave.enemiesLeft, wave.enemiesCountLeft) +
-                    CountSideWeight(wave.enemiesRight, wave.enemiesCountRight);
+        float sum = CountSideWeight(wave.enemySet.Top) +
+                    CountSideWeight(wave.enemySet.Bot) +
+                    CountSideWeight(wave.enemySet.Left) +
+                    CountSideWeight(wave.enemySet.Right);
         return sum;
     }
 
-    private float CountSideWeight(List<GameObject> enemies, List<int> enemyCount)
+    private float CountSideWeight(List<EnemyType> enemyTypes)
     {
         float sum = 0;
-        for (int i = 0; i < enemies.Count; i++)
+        for (int i = 0; i < enemyTypes.Count; i++)
         {
-            sum +=enemies[i].GetComponent<Enemy>().weight * enemyCount[i];
+            sum +=enemyTypes[i].enemy.GetComponent<Enemy>().weight * enemyTypes[i].enemyCount;
         }
 
         return sum;
+    }
+
+    private bool IsAnyEnemyLeft()
+    {
+        return enemies.Count != 0;
+    }
+
+    private void ConnectBossHpBar()
+    {
+        bossHpBar.gameObject.SetActive(true);
+        bossHpBar.InitializeBoss(currentBoss);
     }
 }
 
@@ -115,22 +193,29 @@ public class Wave
 {
     [NonSerialized] public bool released = false;
     public float moneyForWave;
-
-    [Header("Time in seconds")] 
     public int seconds;
-    [Header("Right Side")]
-    public List<GameObject> enemiesRight = new List<GameObject>();
-    public List<int> enemiesCountRight = new List<int>();
-    [Header("Top Side")]
-    public List<GameObject> enemiesTop = new List<GameObject>();
-    public List<int> enemiesCountTop = new List<int>();
-    [Header("Left Side")]
-    public List<GameObject> enemiesLeft = new List<GameObject>();
-    public List<int> enemiesCountLeft = new List<int>();
-    [Header("Bot Side")]
-    public List<GameObject> enemiesBot = new List<GameObject>();
-    public List<int> enemiesCountBot = new List<int>();
+    public float waveScale;
+    
+    public bool isSpecial;
+    public EnemySet specialEnemySet;
+    public Transform bossTransform;
+    
+    [NonSerialized] public EnemySet enemySet;
+}
 
+[Serializable]
+public struct EnemyType
+{
+    public GameObject enemy;
+    public float enemyCount;
+}
+
+[Serializable]
+public struct EnemySetGroup
+{
+    public List<EnemySet> enemySets;
+    public int minWave;
+    public int maxWave;
 }
 
 

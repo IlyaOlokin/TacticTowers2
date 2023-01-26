@@ -9,6 +9,13 @@ TagManager:
   - Bullet
   - Base
   - ConflictIndicator
+  - Web
+  - Wall
+  - TowerInstance
+  - Pit
+  - BossPart
+  - EnemyParent
+  - BossSpawnPoint
   layers:
   - Default
   - TransparentFX
@@ -19,10 +26,10 @@ TagManager:
   - Bullet
   - Enemy
   - Base
-  - 
-  - 
-  - 
-  - 
+  - Web
+  - Wall
+  - TowerInstance
+  - Pit
   - 
   - 
   - 

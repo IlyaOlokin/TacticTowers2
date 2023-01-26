@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class Flamethrower : Tower
 {
-    [SerializeField] private float burnDmg;
+    public float burnDmg;
     public float burnDmgMultiplier;
     public float burnTime;
+    public float burnTimeMultiplier;
     [SerializeField] private GameObject flameBox;
     [SerializeField] private Transform flameStartPos;
     
@@ -20,14 +21,11 @@ public class Flamethrower : Tower
     private void Start()
     { 
         ps = GetComponent<ParticleSystem>();
-        AudioManager.Instance.flamethrowers.Add(this);
+        audioSrc = GetComponent<AudioSource>();
     }
 
-    void Update()
-    {
-        base.Update();
-    }
-    
+    private new void Update() => base.Update();
+
     protected override void Shoot(GameObject enemy)
     {
         if (enemy == null)
@@ -35,7 +33,7 @@ public class Flamethrower : Tower
             DestroyFlameBox();
             currentEnemy = null;
             shooting = false;
-
+            audioSrc.Stop();
 
             return;
         }
@@ -45,7 +43,7 @@ public class Flamethrower : Tower
         {
             DestroyFlameBox();
             shooting = false;
-
+            audioSrc.Stop();
 
         }
         
@@ -57,15 +55,17 @@ public class Flamethrower : Tower
                 activeFlameBox.GetComponent<FlameBox>().dmg = GetDmg();
                 activeFlameBox.GetComponent<FlameBox>().attackSpeed = GetAttackSpeed();
                 activeFlameBox.GetComponent<FlameBox>().burnDmg = GetBurnDmg();
-                activeFlameBox.GetComponent<FlameBox>().burnTime = burnTime;
+                activeFlameBox.GetComponent<FlameBox>().burnTime = burnTime * burnTimeMultiplier;
                 
-                activeFlameBox.GetComponent<FlameBox>().flameStartPos = flameStartPos.position;
-                activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, GetShootDistance());
-                activeFlameBox.transform.position = ((transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
+                //activeFlameBox.GetComponent<FlameBox>().flameStartPos = flameStartPos.position;
+                //activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, GetShootDistance());
+                var fireDistance = GetFireDistance(enemy);
+                activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, activeFlameBox.transform.localScale.x * 2.5f * fireDistance / 3f);
+                activeFlameBox.transform.position = ((transform.up * fireDistance + transform.position) + flameStartPos.position) / 2f;
                 currentEnemy = enemy;
                 
                 shooting = true;
-
+                audioSrc.Play();
             }
             
             shootDelayTimer = 1f / GetAttackSpeed();
@@ -73,19 +73,29 @@ public class Flamethrower : Tower
 
         if (activeFlameBox != null)
         {
-            activeFlameBox.transform.position = ((towerCanon.transform.up * GetShootDistance() + transform.position) + transform.position) / 2f;
+            var fireDistance = GetFireDistance(enemy);
+            activeFlameBox.transform.position = ((towerCanon.transform.up * fireDistance + flameStartPos.position) + transform.position) / 2f;
+            activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, activeFlameBox.transform.localScale.x * 2.5f * fireDistance / 3f);
+
             activeFlameBox.transform.rotation = towerCanon.transform.rotation;
         }
     }
 
+    private float GetFireDistance(GameObject enemy)
+    {
+        if(CheckWallCollision(transform.position, enemy.transform.position, GetShootDistance(), true) != null)
+        {
+            var fireDistance = Vector2.Distance(transform.position,
+                GetRayImpactPoint(transform.position, enemy.transform.position, true));
+            return fireDistance;
+        }
+        
+        return GetShootDistance();
+    }
+
     private void DestroyFlameBox()
     {
-        Destroy(activeFlameBox, GetShootDistance() / 3f);
-        if (activeFlameBox != null && activeFlameBox.GetComponent<FlameBox>() != null)
-        {
-            activeFlameBox.GetComponent<FlameBox>().ps.Stop();
-        }
-
+        if (activeFlameBox != null) activeFlameBox.GetComponent<FlameBox>().DestroySelf(1f);
         activeFlameBox = null;
     }
 
