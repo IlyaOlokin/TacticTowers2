@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class MortarProjectile : MonoBehaviour
@@ -12,8 +13,11 @@ public class MortarProjectile : MonoBehaviour
     
     private Rigidbody2D rb;
     [SerializeField] private GameObject explosionEffect;
+    [SerializeField] private GameObject flameField;
     private DamageType damageType = DamageType.Normal;
 
+    [NonSerialized] public bool hasFlameFieldUpgrade;
+    [NonSerialized] public bool hasScatterUpgrade;
     
     private void Update()
     {
@@ -29,6 +33,7 @@ public class MortarProjectile : MonoBehaviour
     {
         var newExplosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
         newExplosion.transform.localScale = new Vector3(radius, radius, radius) * 0.9f;
+        if (hasFlameFieldUpgrade) CreateFlameField();
         DealDamage();
     }
     
@@ -48,6 +53,12 @@ public class MortarProjectile : MonoBehaviour
             if (enemiesInRadius[i] is null) continue;
             enemiesInRadius[i].TakeDamage(Dmg, damageType, transform.position);
         }
-            
+    }
+
+    private void CreateFlameField()
+    {
+        var newFlameField = Instantiate(flameField, transform.position, quaternion.identity);
+        newFlameField.GetComponent<DamageZoneBox>().damage = Dmg / 10f;
+        newFlameField.GetComponent<UpScalerOnStart>().targetScale = new Vector3(radius * 2, radius * 2, radius);
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -155,7 +156,7 @@ public class UpgradeWindow : MonoBehaviour
     
     private void InitializeSpecialUpgrade(Tower tower, out int specialUpgradesLeft)
     {
-        specialUpgradesLeft = specialUpgradesLevels.Count - specialUpgradesLevels.IndexOf(tower.upgradeLevel);
+        specialUpgradesLeft = tower.specialUpgrades.Count - tower.upgradedSpecilaUpgrades.Count(t => t);
         for (int i = 0; i < specialUpgradesLeft; i++)
         {
             InitializeSpecialUpgradeButton(upgradeButtons[i], tower, i);

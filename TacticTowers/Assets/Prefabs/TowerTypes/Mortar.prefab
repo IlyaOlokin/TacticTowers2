@@ -113,7 +113,9 @@ MonoBehaviour:
   - {fileID: -3873548290313896563, guid: 2971894abaf8fe24885a1236f80790dc, type: 3}
   - {fileID: 5316641116981540922, guid: 0fa713690dec7c247b7483445fc5b194, type: 3}
   - {fileID: 8912425378622642239, guid: 91d40d9f9c1c5d54e9fe7a33e9afb6ae, type: 3}
-  audioSrc: {fileID: 0}
+  specialUpgrades:
+  - {fileID: -6550371785292312111, guid: b3e01e794bbac5240bff2389ab9d4309, type: 3}
+  - {fileID: -4296837814536900955, guid: b5096adcfcb097f49926c3bd21718c84, type: 3}
   bullet: {fileID: 1680028144157980390, guid: 7f81e7ce6b482e5488e5f9452d0d39dc, type: 3}
   bulletSpeed: 4
   explosionRadius: 0.5

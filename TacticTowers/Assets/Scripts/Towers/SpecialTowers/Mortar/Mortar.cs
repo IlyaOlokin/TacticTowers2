@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,10 @@ public class Mortar : Tower
     [SerializeField] private float bulletSpeed;
     public float explosionRadius;
     public float explosionRadiusMultiplier;
+
+    [NonSerialized] public bool hasFlameFieldUpgrade;
+    [NonSerialized] public bool hasScatterUpgrade;
+    [NonSerialized] public bool hasUpgrade;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
     private new void Update() => base.Update();
@@ -22,10 +27,13 @@ public class Mortar : Tower
         if (shootDelayTimer <= 0)
         {
             var newBullet =  Instantiate(bullet, transform.position, towerCanon.transform.rotation);
-            newBullet.GetComponent<MortarProjectile>().Dmg = GetDmg();
-            newBullet.GetComponent<MortarProjectile>().Speed = bulletSpeed;
-            newBullet.GetComponent<MortarProjectile>().radius = explosionRadius * explosionRadiusMultiplier;
-            newBullet.GetComponent<MortarProjectile>().targetPos = enemy.transform.position;
+            MortarProjectile mortarProjectile = newBullet.GetComponent<MortarProjectile>();
+            mortarProjectile.Dmg = GetDmg();
+            mortarProjectile.Speed = bulletSpeed;
+            mortarProjectile.radius = explosionRadius * explosionRadiusMultiplier;
+            mortarProjectile.targetPos = enemy.transform.position;
+            mortarProjectile.hasFlameFieldUpgrade = hasFlameFieldUpgrade;
+            mortarProjectile.hasScatterUpgrade = hasScatterUpgrade;
             
             shootDelayTimer = 1f / GetAttackSpeed();
             
