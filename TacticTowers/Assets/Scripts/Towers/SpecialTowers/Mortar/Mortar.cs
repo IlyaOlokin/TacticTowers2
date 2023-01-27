@@ -34,6 +34,7 @@ public class Mortar : Tower
             mortarProjectile.targetPos = enemy.transform.position;
             mortarProjectile.hasFlameFieldUpgrade = hasFlameFieldUpgrade;
             mortarProjectile.hasScatterUpgrade = hasScatterUpgrade;
+            mortarProjectile.senderPosition = transform.position;
             
             shootDelayTimer = 1f / GetAttackSpeed();
             
