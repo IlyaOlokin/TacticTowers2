@@ -51,20 +51,16 @@ public class Tower : MonoBehaviour
 
     protected void Update()
     {
-        FindTarget();
-        
+        Shoot(FindTarget());
+
         if (shootDelayTimer > 0) shootDelayTimer -= Time.deltaTime;
     }
 
-    private void FindTarget()
+    private GameObject FindTarget()
     {
+        if (!CanShoot() || EnemySpawner.enemies.Count == 0) return null;
         GameObject target = null;
         float distToTarget = float.MaxValue;
-        if (EnemySpawner.enemies.Count == 0)
-        {
-            Shoot(null);
-            return;
-        }
         foreach (var enemy in EnemySpawner.enemies)
         {
             if (enemy == null) continue;
@@ -85,9 +81,36 @@ public class Tower : MonoBehaviour
                 }
             }
         }
-        
-        if (CanShoot()) Shoot(target);
-        else Shoot(null);
+
+        return target;
+    }
+    protected GameObject FindTarget(List<GameObject> targetsToIgnore)
+    {
+        if (!CanShoot() || EnemySpawner.enemies.Count == 0) return null;
+        GameObject target = null;
+        float distToTarget = float.MaxValue;
+        foreach (var enemy in EnemySpawner.enemies)
+        {
+            if (enemy == null) continue;
+            if (enemiesToIgnore.Contains(enemy) || targetsToIgnore.Contains(enemy)) continue;
+            var distToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
+            Vector3 dir = transform.position - enemy.transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
+            if (distToEnemy <= GetShootDistance())
+            {
+                if (target == null || distToEnemy < distToTarget)
+                {
+                    if (Math.Abs(shootDirection - angle) <= GetShootAngle() / 2f
+                        || shootDirection == 0 && Math.Abs(360 - angle) <= GetShootAngle() / 2f) // костыль
+                    {
+                        distToTarget = distToEnemy;
+                        target = enemy;
+                    }
+                }
+            }
+        }
+
+        return target;
     }
 
     protected virtual void Shoot(GameObject enemy)

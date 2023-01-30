@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserBim : MonoBehaviour
+public class LaserBeam : MonoBehaviour
 {
     private LineRenderer lr;
     [NonSerialized] public GameObject target;

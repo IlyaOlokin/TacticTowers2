@@ -9,8 +9,8 @@ public class Laser : Tower
 
     private float heatCount = 0;
     private float coolTimer;
-    private GameObject currentEnemy;
-    private GameObject activeLaser;
+    private List<GameObject> currentEnemies = new List<GameObject>() {null, null};
+    private List<GameObject> activeLasers = new List<GameObject>() {null, null};
 
     [SerializeField] public int maxHeat;
     [SerializeField] public float maxHeatMultiplier;
@@ -22,6 +22,8 @@ public class Laser : Tower
 
     [NonSerialized] public bool shooting;
     private DamageType damageType = DamageType.Fire;
+
+    [NonSerialized] public bool hasSecondLaserUpgrade;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
 
@@ -39,51 +41,68 @@ public class Laser : Tower
     
     protected override void Shoot(GameObject enemy)
     {
-        if (enemy == null)
+        LaserShoot(enemy, 0);
+        LaserShoot(FindTarget(new List<GameObject>(){enemy}), 1);
+        //if (hasSecondLaserUpgrade && heatCount >= maxHeat * maxHeatMultiplier) LaserShoot(FindTarget(new List<GameObject>(){enemy}), 1);
+        DealDamage();
+    }
+
+    private void LaserShoot(GameObject target, int i)
+    {
+        if (target == null)
         {
-            Destroy(activeLaser);
+            Destroy(activeLasers[i]);
             audioSrc.Stop();
             shooting = false;
-            currentEnemy = null;
+            currentEnemies[i] = null;
             return;
         }
-        LootAtTarget(enemy);
-        
-        if (enemy != currentEnemy)
+
+        LootAtTarget(target);
+
+        if (target != currentEnemies[i])
         {
-            Destroy(activeLaser);
+            Destroy(activeLasers[i]);
             audioSrc.Stop();
             shooting = false;
-
         }
+
         if (heatCount < maxHeat * maxHeatMultiplier) heatCount += Time.deltaTime;
-        if (activeLaser != null)  activeLaser.GetComponent<LaserBim>().IncreaseWidth(heatCount);
-        if (enemy != currentEnemy)
+        if (activeLasers[i] != null) activeLasers[i].GetComponent<LaserBeam>().IncreaseWidth(heatCount);
+        if (target != currentEnemies[i])
         {
-            activeLaser = Instantiate(laserBim, transform.position, towerCanon.transform.rotation);
-            activeLaser.GetComponent<LaserBim>().target = enemy;
-            activeLaser.GetComponent<LaserBim>().origin = transform.position;
-            currentEnemy = enemy;
+            activeLasers[i] = Instantiate(laserBim, transform.position, towerCanon.transform.rotation);
+            activeLasers[i].GetComponent<LaserBeam>().target = target;
+            activeLasers[i].GetComponent<LaserBeam>().origin = transform.position;
+            currentEnemies[i] = target;
             audioSrc.Play();
             shooting = true;
         }
-        
+    }
+
+    private void DealDamage()
+    {
         if (shootDelayTimer <= 0)
         {
             shootDelayTimer = 1f / GetAttackSpeed();
             coolTimer = coolDelay * coolDelayMultiplier;
 
-            if (CheckWallCollision(transform.position, enemy.transform.position, GetShootDistance(), false) is null)
+            for (var i = 0; i < currentEnemies.Count; i++)
             {
-                if (enemy.GetComponent<Enemy>().TakeDamage(
-                    GetDmg() * (1 + Mathf.Floor(heatCount) * multiplierPerHeatStack * multiplierPerHeatStackMultiplier),
-                    damageType, transform.position))
+                if (currentEnemies[i] == null) continue;
+                if (CheckWallCollision(transform.position, currentEnemies[i].transform.position, GetShootDistance(), false) is
+                    null)
                 {
-                    Destroy(activeLaser);
-                    shooting = false;
+                    if (currentEnemies[i].GetComponent<Enemy>().TakeDamage(
+                        GetDmg() * (1 + Mathf.Floor(heatCount) * multiplierPerHeatStack *
+                            multiplierPerHeatStackMultiplier),
+                        damageType, transform.position))
+                    {
+                        Destroy(activeLasers[i]);
+                        shooting = false;
+                    }
                 }
             }
-                
         }
     }
 }
