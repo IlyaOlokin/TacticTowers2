@@ -11,6 +11,7 @@ public class Laser : Tower
     private float coolTimer;
     private List<GameObject> currentEnemies = new List<GameObject>() {null, null};
     private List<GameObject> activeLasers = new List<GameObject>() {null, null};
+    private List<bool> laserSound = new List<bool>() {false, false};
 
     [SerializeField] public int maxHeat;
     [SerializeField] public float maxHeatMultiplier;
@@ -52,7 +53,7 @@ public class Laser : Tower
         if (target == null)
         {
             Destroy(activeLasers[i]);
-            audioSrc.Stop();
+            DeactivateLaserSound(i);
             shooting = false;
             currentEnemies[i] = null;
             return;
@@ -63,7 +64,7 @@ public class Laser : Tower
         if (target != currentEnemies[i])
         {
             Destroy(activeLasers[i]);
-            audioSrc.Stop();
+            DeactivateLaserSound(i);
             shooting = false;
         }
 
@@ -75,7 +76,7 @@ public class Laser : Tower
             activeLasers[i].GetComponent<LaserBeam>().target = target;
             activeLasers[i].GetComponent<LaserBeam>().origin = transform.position;
             currentEnemies[i] = target;
-            audioSrc.Play();
+            ActivateLaserSound(i);
             shooting = true;
         }
     }
@@ -104,5 +105,26 @@ public class Laser : Tower
                 }
             }
         }
+    }
+
+    private void ActivateLaserSound(int i)
+    {
+        laserSound[i] = true;
+        HandleLaserSound();
+    }
+    
+    private void DeactivateLaserSound(int i)
+    {
+        laserSound[i] = false;
+        HandleLaserSound();
+    }
+
+    private void HandleLaserSound()
+    {
+        if (laserSound.Contains(true))
+        {
+            if (!audioSrc.isPlaying) audioSrc.Play();
+        }
+        else audioSrc.Stop();
     }
 }
