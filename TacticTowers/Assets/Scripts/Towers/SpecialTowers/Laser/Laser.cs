@@ -24,7 +24,7 @@ public class Laser : Tower
     [NonSerialized] public bool shooting;
     private DamageType damageType = DamageType.Fire;
 
-    [NonSerialized] public bool hasSecondLaserUpgrade;
+    [NonSerialized] public bool hasSecondBeamUpgrade;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
 
@@ -43,8 +43,8 @@ public class Laser : Tower
     protected override void Shoot(GameObject enemy)
     {
         LaserShoot(enemy, 0);
-        LaserShoot(FindTarget(new List<GameObject>(){enemy}), 1);
-        //if (hasSecondLaserUpgrade && heatCount >= maxHeat * maxHeatMultiplier) LaserShoot(FindTarget(new List<GameObject>(){enemy}), 1);
+        if (hasSecondBeamUpgrade && heatCount >= maxHeat * maxHeatMultiplier) 
+            LaserShoot(FindTarget(new List<GameObject>(){enemy}), 1);
         DealDamage();
     }
 
@@ -54,7 +54,6 @@ public class Laser : Tower
         {
             Destroy(activeLasers[i]);
             DeactivateLaserSound(i);
-            shooting = false;
             currentEnemies[i] = null;
             return;
         }
@@ -65,7 +64,6 @@ public class Laser : Tower
         {
             Destroy(activeLasers[i]);
             DeactivateLaserSound(i);
-            shooting = false;
         }
 
         if (heatCount < maxHeat * maxHeatMultiplier) heatCount += Time.deltaTime;
@@ -77,12 +75,22 @@ public class Laser : Tower
             activeLasers[i].GetComponent<LaserBeam>().origin = transform.position;
             currentEnemies[i] = target;
             ActivateLaserSound(i);
-            shooting = true;
         }
     }
 
     private void DealDamage()
     {
+        bool needToDealDamage = false;
+        foreach (var enemy in currentEnemies)
+        {
+            if (enemy != null)
+            {
+                needToDealDamage = true;
+                break;
+            }
+        }
+        if (!needToDealDamage) return;
+        
         if (shootDelayTimer <= 0)
         {
             shootDelayTimer = 1f / GetAttackSpeed();
