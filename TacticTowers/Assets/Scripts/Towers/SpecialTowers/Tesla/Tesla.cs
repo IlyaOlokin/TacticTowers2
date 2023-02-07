@@ -17,7 +17,10 @@ public class Tesla : Tower
 
     [NonSerialized] public bool hasSetOnFireUpgrade;
     [NonSerialized] public bool hasMicroStunUpgrade;
+    
     [NonSerialized] public bool hasBranchingUpgrade;
+    [Header("Branching Upgrade")]
+    [SerializeField] private float branchingChance = 0.25f;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
     private new void Update() => base.Update();
@@ -75,7 +78,7 @@ public class Tesla : Tower
 
         yield return new WaitForSeconds(0.2f);
         int branches = 1;
-        if (hasBranchingUpgrade && Random.Range(0f, 1f) < 0.25f)
+        if (hasBranchingUpgrade && Random.Range(0f, 1f) < branchingChance)
         {
             branches = 2;
         }

@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class MortarProjectile : MonoBehaviour
 {
-    [NonSerialized] public float Dmg;
-    [NonSerialized] public float Speed;
+    [NonSerialized] public float dmg;
+    [NonSerialized] public float speed;
     [NonSerialized] public float radius;
     [NonSerialized] public Vector3 targetPos;
     [NonSerialized] public Vector3 senderPosition;
@@ -18,11 +18,21 @@ public class MortarProjectile : MonoBehaviour
     private DamageType damageType = DamageType.Normal;
 
     [NonSerialized] public bool hasFlameFieldUpgrade;
+
+    [NonSerialized] public float flameFieldDamageMultiplier;
+    
     [NonSerialized] public bool hasScatterUpgrade;
+    
+    [NonSerialized] public int angleBetweenSubProjectiles;
+    [NonSerialized] public float subProjectilesDamageMultiplier;
+    [NonSerialized] public float subProjectilesSpeedMultiplier;
+    [NonSerialized] public float subProjectilesRadiusMultiplier;
+    
+    
     
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, Speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
         if (Vector3.Distance(transform.position, targetPos) < 0.001f)
         {
             Explode();
@@ -53,14 +63,14 @@ public class MortarProjectile : MonoBehaviour
         for (int i = 0; i < enemiesInRadius.Count; i++)
         { 
             if (enemiesInRadius[i] is null) continue;
-            enemiesInRadius[i].TakeDamage(Dmg, damageType, transform.position);
+            enemiesInRadius[i].TakeDamage(dmg, damageType, transform.position);
         }
     }
 
     private void CreateFlameField()
     {
         var newFlameField = Instantiate(flameField, transform.position, quaternion.identity);
-        newFlameField.GetComponent<DamageZoneBox>().damage = Dmg * 0.1f;
+        newFlameField.GetComponent<DamageZoneBox>().damage = dmg * flameFieldDamageMultiplier;
         newFlameField.GetComponent<UpScalerOnStart>().targetScale = new Vector3(radius * 2, radius * 2, radius);
     }
     
@@ -71,9 +81,9 @@ public class MortarProjectile : MonoBehaviour
         {
             var newBullet = Instantiate(gameObject, transform.position, Quaternion.identity);
             MortarProjectile mortarProjectile = newBullet.GetComponent<MortarProjectile>();
-            mortarProjectile.Dmg = Dmg * 0.2f;
-            mortarProjectile.Speed = Speed * 0.5f;
-            mortarProjectile.radius = radius * 0.5f;
+            mortarProjectile.dmg = dmg * subProjectilesDamageMultiplier;
+            mortarProjectile.speed = speed * subProjectilesSpeedMultiplier;
+            mortarProjectile.radius = radius * subProjectilesRadiusMultiplier;
             mortarProjectile.targetPos = GetSubProjTargetPos(subProjCount, i);
             mortarProjectile.hasFlameFieldUpgrade = hasFlameFieldUpgrade;
             mortarProjectile.hasScatterUpgrade = false;
@@ -83,14 +93,13 @@ public class MortarProjectile : MonoBehaviour
 
     private Vector3 GetSubProjTargetPos(int count, int i)
     {
-        int angleBetweenBullets = 30;
         Vector3 result = new Vector3();
         if (count % 2 == 1)
-            result = Quaternion.Euler(0, 0, i / 2 * angleBetweenBullets * (i % 2 == 0 ? 1 : -1f)) *
+            result = Quaternion.Euler(0, 0, i / 2 * angleBetweenSubProjectiles * (i % 2 == 0 ? 1 : -1f)) *
                      (transform.position - senderPosition).normalized * radius * 1.5f;
         else
             result = Quaternion.Euler(0, 0,
-                         i / 2 * angleBetweenBullets * (i % 2 == 0 ? 1 : -1f) - angleBetweenBullets / 2f) *
+                         i / 2 * angleBetweenSubProjectiles * (i % 2 == 0 ? 1 : -1f) - angleBetweenSubProjectiles / 2f) *
                      (transform.position - senderPosition).normalized * radius * 1.5f;
 
         return transform.position + result;

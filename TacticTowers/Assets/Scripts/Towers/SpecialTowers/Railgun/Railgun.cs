@@ -15,6 +15,8 @@ public class Railgun : Tower
     private DamageType damageType = DamageType.Normal;
 
     [NonSerialized] public bool hasDamageOverDistanceUpgrade;
+    [Header("Damage Over Distance Upgrade")]
+    [SerializeField] private float damageOverDistanceMultiplier = 0.05f;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
     private new void Update() => base.Update();
@@ -46,7 +48,7 @@ public class Railgun : Tower
 
                     if (hasDamageOverDistanceUpgrade && i == 0)
                     {
-                        distanceMultiplier = 1f + Vector2.Distance(transform.position, hit.transform.position) * 0.05f;
+                        distanceMultiplier = 1f + Vector2.Distance(transform.position, hit.transform.position) * damageOverDistanceMultiplier;
                     }
                     if (multiplier < minDmg * minDmgMultiplier) multiplier = minDmg * minDmgMultiplier;
                     newEnemy.TakeDamage(GetDmg() * multiplier * distanceMultiplier, damageType, transform.position);

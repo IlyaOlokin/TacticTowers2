@@ -11,8 +11,19 @@ public class Mortar : Tower
     public float explosionRadius;
     public float explosionRadiusMultiplier;
 
+    
     [NonSerialized] public bool hasFlameFieldUpgrade;
+    [Header("Flame Field Upgrade")]
+    [SerializeField] private float flameFieldDamageMultiplier = 0.1f;
+    
+    
     [NonSerialized] public bool hasScatterUpgrade;
+    [Header("Scatter Upgrade")]
+    [SerializeField] private int angleBetweenSubProjectiles = 30;
+    [SerializeField] private float subProjectilesDamageMultiplier = 0.2f;
+    [SerializeField] private float subProjectilesSpeedMultiplier = 0.5f;
+    [SerializeField] private float subProjectilesRadiusMultiplier = 0.5f;
+    
     [NonSerialized] public bool hasUpgrade;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
@@ -28,13 +39,18 @@ public class Mortar : Tower
         {
             var newBullet =  Instantiate(bullet, transform.position, towerCanon.transform.rotation);
             MortarProjectile mortarProjectile = newBullet.GetComponent<MortarProjectile>();
-            mortarProjectile.Dmg = GetDmg();
-            mortarProjectile.Speed = bulletSpeed;
+            mortarProjectile.dmg = GetDmg();
+            mortarProjectile.speed = bulletSpeed;
             mortarProjectile.radius = explosionRadius * explosionRadiusMultiplier;
             mortarProjectile.targetPos = enemy.transform.position;
             mortarProjectile.hasFlameFieldUpgrade = hasFlameFieldUpgrade;
             mortarProjectile.hasScatterUpgrade = hasScatterUpgrade;
             mortarProjectile.senderPosition = transform.position;
+            mortarProjectile.angleBetweenSubProjectiles = angleBetweenSubProjectiles;
+            mortarProjectile.subProjectilesDamageMultiplier = subProjectilesDamageMultiplier;
+            mortarProjectile.subProjectilesSpeedMultiplier = subProjectilesSpeedMultiplier;
+            mortarProjectile.subProjectilesRadiusMultiplier = subProjectilesRadiusMultiplier;
+            mortarProjectile.flameFieldDamageMultiplier = flameFieldDamageMultiplier;
             
             shootDelayTimer = 1f / GetAttackSpeed();
             
