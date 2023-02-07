@@ -119,7 +119,7 @@ public class PausePanel : MonoBehaviour
             }
             else if (!pausePanel.activeInHierarchy)
             {
-                if (towers.Any(tower =>  tower.GetComponent<TowerDrag>().needToDrop)) return;
+                if (towers.Any(tower =>  tower.GetComponent<TowerDrag>().needToDrop) || Time.timeScale == 0) return;
                 Pause();
             }
         }
