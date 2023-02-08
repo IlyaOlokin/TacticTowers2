@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MaxHeat : Upgrade
+public class MinigunMaxHeat : Upgrade
 {
     public override void Execute(Tower tower)
     {

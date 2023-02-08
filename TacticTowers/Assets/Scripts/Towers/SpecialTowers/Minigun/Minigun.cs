@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,12 @@ public class Minigun : Tower
     [SerializeField] public float bonusAttackSpeedPerHeatMultiplier;
     [SerializeField] public float coolDelay;
     [SerializeField] public float coolDelayMultiplier;
+
+    [NonSerialized] public bool hasPenetrationUpgrade;
+
+    [Header("Penetration Upgrade")] 
+    [SerializeField] private float penetrationDamageMultiplier;
+    [SerializeField] private int penetrationsCount;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
     
@@ -59,6 +66,9 @@ public class Minigun : Tower
             bulletComponent.Speed = bulletSpeed;
             bulletComponent.enemiesToIgnore = enemiesToIgnore;
             bulletComponent.departurePos = transform.position;
+            bulletComponent.hasPenetrationUpgrade = hasPenetrationUpgrade;
+            bulletComponent.penetrationDamageMultiplier = penetrationDamageMultiplier;
+            bulletComponent.penetrationsCount = penetrationsCount;
             
             audioSrc.PlayOneShot(audioSrc.clip);
         }

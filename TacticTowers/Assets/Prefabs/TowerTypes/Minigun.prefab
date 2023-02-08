@@ -115,7 +115,10 @@ MonoBehaviour:
   - {fileID: 2176275356486688434, guid: 3296baa9be94d8540a8e3cfe13ef031b, type: 3}
   - {fileID: 1137575584556741642, guid: fbb7796e4bc53ea4eaa4f46a99375347, type: 3}
   - {fileID: 3469322727381602793, guid: a0c2916f64d892d4d8909040d328968e, type: 3}
-  audioSrc: {fileID: 0}
+  specialUpgrades:
+  - {fileID: -8132409494211933578, guid: 0534c1fee0e775c45a6915f429d29ae8, type: 3}
+  - {fileID: -8132409494211933578, guid: 0534c1fee0e775c45a6915f429d29ae8, type: 3}
+  - {fileID: -8132409494211933578, guid: 0534c1fee0e775c45a6915f429d29ae8, type: 3}
   bullet: {fileID: 1680028144157980390, guid: dbb970afe829a3442a564d91386b71ff, type: 3}
   bulletSpeed: 12
   heatIndicator: {fileID: 3952267508470251726}
@@ -125,6 +128,8 @@ MonoBehaviour:
   bonusAttackSpeedPerHeatMultiplier: 1
   coolDelay: 5
   coolDelayMultiplier: 1
+  penetrationDamageMultiplier: 0.5
+  penetrationsCount: 1
 --- !u!82 &-5942364998071044418
 AudioSource:
   m_ObjectHideFlags: 0
