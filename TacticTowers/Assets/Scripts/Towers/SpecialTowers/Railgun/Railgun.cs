@@ -14,6 +14,10 @@ public class Railgun : Tower
     public float minDmgMultiplier;
     private DamageType damageType = DamageType.Normal;
 
+    [NonSerialized] public bool hasDamageOverDistanceUpgrade;
+    [Header("Damage Over Distance Upgrade")]
+    [SerializeField] private float damageOverDistanceMultiplier = 0.05f;
+
     private void Start() => audioSrc = GetComponent<AudioSource>();
     private new void Update() => base.Update();
 
@@ -32,6 +36,7 @@ public class Railgun : Tower
             newRail.GetComponent<LineRenderer>().SetPosition(0, railStartPos.position);
             newRail.GetComponent<LineRenderer>().SetPosition(1, transform.position + towerCanon.transform.up * 50);
             float multiplier = 1f;
+            float distanceMultiplier = 1f;
             for (int i = 0; i < hits.Length; i++)
             {
                 RaycastHit2D hit = hits[i];
@@ -40,8 +45,13 @@ public class Railgun : Tower
                 if (newEnemy)
                 {
                     if (enemiesToIgnore.Contains(newEnemy.gameObject)) continue;
+
+                    if (hasDamageOverDistanceUpgrade && i == 0)
+                    {
+                        distanceMultiplier = 1f + Vector2.Distance(transform.position, hit.transform.position) * damageOverDistanceMultiplier;
+                    }
                     if (multiplier < minDmg * minDmgMultiplier) multiplier = minDmg * minDmgMultiplier;
-                    newEnemy.TakeDamage(GetDmg() * multiplier, damageType, transform.position);
+                    newEnemy.TakeDamage(GetDmg() * multiplier * distanceMultiplier, damageType, transform.position);
                     multiplier *= dmgMultiplier * dmgMultiplierMultiplier;
                 }
             }

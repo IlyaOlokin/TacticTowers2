@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Shotgun : Tower
 {
@@ -10,6 +12,11 @@ public class Shotgun : Tower
     [SerializeField] private float angleBetweenBullets;
     public int bulletCount;
     public int bonusBullets;
+
+    [NonSerialized] public bool hasDoubleDamageUpgrade;
+
+    [Header("Double Damage Upgrade")] 
+    [SerializeField] private float doubleDamageChance;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
     private new void Update() => base.Update();
@@ -35,7 +42,7 @@ public class Shotgun : Tower
 
                 var newBullet =  Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, bulletAngle + towerRot.z));
                 var bulletComponent = newBullet.GetComponent<Bullet>();
-                bulletComponent.Dmg = GetDmg();
+                bulletComponent.Dmg = GetDmg() * GetLocalDamageMultiplier();
                 bulletComponent.Speed = bulletSpeed;
                 bulletComponent.enemiesToIgnore = enemiesToIgnore;
                 bulletComponent.departurePos = transform.position;
@@ -44,5 +51,13 @@ public class Shotgun : Tower
             
             audioSrc.PlayOneShot(audioSrc.clip);
         }
+    }
+
+    private float GetLocalDamageMultiplier()
+    {
+        if (hasDoubleDamageUpgrade && Random.Range(0f, 1f) < doubleDamageChance)
+            return 2f;
+        
+        return 1f;
     }
 }

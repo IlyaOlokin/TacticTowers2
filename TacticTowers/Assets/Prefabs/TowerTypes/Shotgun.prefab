@@ -226,12 +226,16 @@ MonoBehaviour:
   - {fileID: -3873548290313896563, guid: 2971894abaf8fe24885a1236f80790dc, type: 3}
   - {fileID: 5316641116981540922, guid: 0fa713690dec7c247b7483445fc5b194, type: 3}
   - {fileID: 4548540807997358008, guid: 7bcafb4356b748c45992d5ac11333803, type: 3}
-  audioSrc: {fileID: 0}
+  specialUpgrades:
+  - {fileID: 4740354218852455707, guid: 4851c9d19f480af43b906dcfceb5ca18, type: 3}
+  - {fileID: 4740354218852455707, guid: 4851c9d19f480af43b906dcfceb5ca18, type: 3}
+  - {fileID: 4740354218852455707, guid: 4851c9d19f480af43b906dcfceb5ca18, type: 3}
   bullet: {fileID: 1680028144157980390, guid: 3a93c5358cf89a548a3093d227d19dca, type: 3}
   bulletSpeed: 7
   angleBetweenBullets: 6
   bulletCount: 5
   bonusBullets: 0
+  doubleDamageChance: 0.2
 --- !u!82 &-93241459267449738
 AudioSource:
   m_ObjectHideFlags: 0

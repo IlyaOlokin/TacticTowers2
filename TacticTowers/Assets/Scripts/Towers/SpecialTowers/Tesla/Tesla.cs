@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Tesla : Tower
 {
@@ -12,6 +14,13 @@ public class Tesla : Tower
     public float lightningJumpDistance;
     public float lightningJumpDistanceMultiplier;
     private DamageType damageType = DamageType.Fire;
+
+    [NonSerialized] public bool hasSetOnFireUpgrade;
+    [NonSerialized] public bool hasMicroStunUpgrade;
+    
+    [NonSerialized] public bool hasBranchingUpgrade;
+    [Header("Branching Upgrade")]
+    [SerializeField] private float branchingChance = 0.25f;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
     private new void Update() => base.Update();
@@ -68,22 +77,29 @@ public class Tesla : Tower
         
 
         yield return new WaitForSeconds(0.2f);
-        GameObject newEnemy = null;
-        var minDist = float.MaxValue;
-        foreach (var e in EnemySpawner.enemies)
+        int branches = 1;
+        if (hasBranchingUpgrade && Random.Range(0f, 1f) < branchingChance)
         {
-            var distance = Vector3.Distance(endPos, e.transform.position);
-            if (distance <= lightningJumpDistance * lightningJumpDistanceMultiplier && distance < minDist && !pickedEnemies.Contains(e))
-            {
-                newEnemy = e;
-                minDist = distance;
-            }
+            branches = 2;
         }
+        for (int i = 0; i < branches; i++)
+        {
+            GameObject newEnemy = null;
+            var minDist = float.MaxValue;
+            foreach (var e in EnemySpawner.enemies)
+            {
+                var distance = Vector3.Distance(endPos, e.transform.position);
+                if (distance <= lightningJumpDistance * lightningJumpDistanceMultiplier && distance < minDist && !pickedEnemies.Contains(e))
+                {
+                    newEnemy = e;
+                    minDist = distance;
+                }
+            }
 
-        if (newEnemy == null) yield break;
-        parms = new object[] {dmg * dmgDecrease * dmgDecreaseMultiplier, endPos, newEnemy, lightningLeft - 1, pickedEnemies};
-        
+            if (newEnemy == null) yield break;
+            parms = new object[] {dmg * dmgDecrease * dmgDecreaseMultiplier, endPos, newEnemy, lightningLeft - 1, pickedEnemies};
 
-        StartCoroutine("ShootLightning", parms);
+            StartCoroutine("ShootLightning", parms);
+        }
     }
 }

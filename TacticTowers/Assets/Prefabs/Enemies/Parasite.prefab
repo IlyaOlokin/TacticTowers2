@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 5937050097135992822}
   - component: {fileID: 5937050097135992821}
   - component: {fileID: 6735614924725604676}
+  - component: {fileID: -7252514893401967746}
   - component: {fileID: 888107825920299324}
   m_Layer: 2
   m_Name: Parasite
@@ -240,6 +241,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3acfb09c2f00d242add9349f0176673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7252514893401967746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5937050097135992818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6ad3dadad3b334e99fdbe9b80b20d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetScale: {x: 0, y: 0, z: 0}
+  useObjectScale: 1
 --- !u!95 &888107825920299324
 Animator:
   serializedVersion: 3
