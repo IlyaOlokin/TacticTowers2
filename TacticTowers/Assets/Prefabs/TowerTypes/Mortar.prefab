@@ -116,10 +116,16 @@ MonoBehaviour:
   specialUpgrades:
   - {fileID: -6550371785292312111, guid: b3e01e794bbac5240bff2389ab9d4309, type: 3}
   - {fileID: -4296837814536900955, guid: b5096adcfcb097f49926c3bd21718c84, type: 3}
+  - {fileID: -4296837814536900955, guid: b5096adcfcb097f49926c3bd21718c84, type: 3}
   bullet: {fileID: 1680028144157980390, guid: 7f81e7ce6b482e5488e5f9452d0d39dc, type: 3}
   bulletSpeed: 4
   explosionRadius: 0.5
   explosionRadiusMultiplier: 1
+  flameFieldDamageMultiplier: 0.1
+  angleBetweenSubProjectiles: 30
+  subProjectilesDamageMultiplier: 0.2
+  subProjectilesSpeedMultiplier: 0.5
+  subProjectilesRadiusMultiplier: 0.5
 --- !u!82 &1871518985860457926
 AudioSource:
   m_ObjectHideFlags: 0
