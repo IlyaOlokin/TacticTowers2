@@ -17,7 +17,6 @@ public class Frostgun : Tower
     private float defaultFrostBoxWidth;
     [SerializeField] private GameObject frostEffect;
     
-    [NonSerialized] public bool shooting;
     [SerializeField] private Transform frostStartPos;
     
     [NonSerialized] public bool hasWidthUpgrade;
@@ -36,7 +35,6 @@ public class Frostgun : Tower
             DestroyFrostBox();
             currentEnemy = null;
             frostEffect.SetActive(false);
-            shooting = false;
             audioSrc.Stop();
             return;
         }
@@ -45,7 +43,6 @@ public class Frostgun : Tower
         if (enemy != currentEnemy)
         {
             DestroyFrostBox();
-            shooting = false;
             audioSrc.Stop();
         }
         
@@ -61,12 +58,9 @@ public class Frostgun : Tower
                 activeFrostBox.GetComponent<FrostBox>().freezeStacksPerHit = GetFreezeStacksPerHit();
                 activeFrostBox.GetComponent<FrostBox>().freezeStacksNeeded = freezeStacksNeeded;
                 
-                //activeFrostBox.GetComponent<FrostBox>().frostStartPos = transform.position;
-                //activeFrostBox.transform.localScale = new Vector3(activeFrostBox.transform.localScale.x, GetShootDistance());
                 defaultFrostBoxWidth = activeFrostBox.transform.localScale.x ;
                 currentEnemy = enemy;
                 
-                shooting = true;
                 audioSrc.Play();
                 frostEffect.SetActive(true);
             }
@@ -102,13 +96,7 @@ public class Frostgun : Tower
         activeFrostBox = null;
     }
 
-    private float GetFreezeStacksPerHit()
-    {
-        return freezeStacksPerHit * freezeStacksPerHitMultiplier;
-    }
+    private float GetFreezeStacksPerHit() => freezeStacksPerHit * freezeStacksPerHitMultiplier;
 
-    private float GetWidthMultiplier()
-    {
-        return hasWidthUpgrade ? widthMultiplier : 1;
-    }
+    private float GetWidthMultiplier() => hasWidthUpgrade ? widthMultiplier : 1;
 }
