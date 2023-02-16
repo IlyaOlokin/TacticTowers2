@@ -310,6 +310,10 @@ MonoBehaviour:
   - {fileID: 5316641116981540922, guid: 0fa713690dec7c247b7483445fc5b194, type: 3}
   - {fileID: 3848503829217279395, guid: f581efd4e889d374b99f5a0c49be2d01, type: 3}
   - {fileID: -8650853418774628246, guid: 84d02589873608647b3ca225b3cd6e8e, type: 3}
+  specialUpgrades:
+  - {fileID: 4608471175938290370, guid: b392ec7c0add6b044b14bcbfaf0ad3a8, type: 3}
+  - {fileID: 4608471175938290370, guid: b392ec7c0add6b044b14bcbfaf0ad3a8, type: 3}
+  - {fileID: 4608471175938290370, guid: b392ec7c0add6b044b14bcbfaf0ad3a8, type: 3}
   freezeTime: 2
   freezeTimeMultiplier: 1
   freezeStacksPerHit: 1
@@ -318,6 +322,7 @@ MonoBehaviour:
   freezeStacksNeeded: 7
   frostEffect: {fileID: 5000610879543921375}
   frostStartPos: {fileID: 5321652949688940132}
+  widthMultiplier: 1.5
 --- !u!82 &8480988701643582432
 AudioSource:
   m_ObjectHideFlags: 0

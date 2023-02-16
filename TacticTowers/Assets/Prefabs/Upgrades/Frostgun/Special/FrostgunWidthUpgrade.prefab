@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4282815986938489130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4780980129322057344}
+  - component: {fileID: -8650853418774628246}
+  - component: {fileID: 4608471175938290370}
+  m_Layer: 0
+  m_Name: FrostgunWidthUpgrade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4780980129322057344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4282815986938489130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5622723, y: -3.1173487, z: -0.6907269}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8650853418774628246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4282815986938489130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f166bb21bb8a8469a47bb0ebe8b999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeLabel: upgradeFrostFreezeDur
+  upgradeText: upgradeFrostFreezeDurDesc
+  bonusForFormatting: 0.5
+  UpgradeSprite: {fileID: 4763664303394481082, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
+  bonus: 0.25
+--- !u!114 &4608471175938290370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4282815986938489130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21639bb04c993674ea041cd839698fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeLabel: "\u0428\u0438\u0440\u0438\u043D\u0430 \u043F\u043E\u0442\u043E\u043A\u0430"
+  upgradeText: "+50% \u043A \u0448\u0438\u0440\u0438\u043D\u0435 \u043F\u043E\u0442\u043E\u043A\u0430"
+  bonusForFormatting: 0
+  UpgradeSprite: {fileID: -7573378586640382678, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  bonus: 0
+  upgradeIndex: 0
