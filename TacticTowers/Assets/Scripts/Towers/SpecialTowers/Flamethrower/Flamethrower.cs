@@ -15,8 +15,15 @@ public class Flamethrower : Tower
     
     private GameObject currentEnemy;
     private GameObject activeFlameBox;
+    private float defaultFlameBoxWidth;
+
     private ParticleSystem ps;
     [NonSerialized] public bool shooting;
+    
+    [NonSerialized] public bool hasWidthUpgrade;
+
+    [Header("Width Upgrade")] 
+    [SerializeField] private float widthMultiplier;
 
     private void Start()
     { 
@@ -59,9 +66,7 @@ public class Flamethrower : Tower
                 
                 //activeFlameBox.GetComponent<FlameBox>().flameStartPos = flameStartPos.position;
                 //activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, GetShootDistance());
-                var fireDistance = GetFireDistance(enemy);
-                activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, activeFlameBox.transform.localScale.x * 2.5f * fireDistance / 3f);
-                activeFlameBox.transform.position = ((transform.up * fireDistance + transform.position) + flameStartPos.position) / 2f;
+                defaultFlameBoxWidth = activeFlameBox.transform.localScale.x ;
                 currentEnemy = enemy;
                 
                 shooting = true;
@@ -75,7 +80,7 @@ public class Flamethrower : Tower
         {
             var fireDistance = GetFireDistance(enemy);
             activeFlameBox.transform.position = ((towerCanon.transform.up * fireDistance + flameStartPos.position) + transform.position) / 2f;
-            activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, activeFlameBox.transform.localScale.x * 2.5f * fireDistance / 3f);
+            activeFlameBox.transform.localScale = new Vector3(defaultFlameBoxWidth * GetWidthMultiplier(), defaultFlameBoxWidth * 2.5f * fireDistance / 3f);
 
             activeFlameBox.transform.rotation = towerCanon.transform.rotation;
         }
@@ -102,5 +107,10 @@ public class Flamethrower : Tower
     private float GetBurnDmg()
     {
         return burnDmg * burnDmgMultiplier;
+    }
+    
+    private float GetWidthMultiplier()
+    {
+        return hasWidthUpgrade ? widthMultiplier : 1;
     }
 }

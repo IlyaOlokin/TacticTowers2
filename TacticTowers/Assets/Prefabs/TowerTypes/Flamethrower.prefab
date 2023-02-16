@@ -196,12 +196,17 @@ MonoBehaviour:
   - {fileID: 5316641116981540922, guid: 0fa713690dec7c247b7483445fc5b194, type: 3}
   - {fileID: 4090281340738485981, guid: d3af56e08eb8246428449da2a35ecdb5, type: 3}
   - {fileID: 4090281340738485981, guid: 1be374441f9b67c419ac9eb09122937a, type: 3}
+  specialUpgrades:
+  - {fileID: -7804595158433790875, guid: 083fd8f8672f0fc459d06f6d8a055f2a, type: 3}
+  - {fileID: -7804595158433790875, guid: 083fd8f8672f0fc459d06f6d8a055f2a, type: 3}
+  - {fileID: -7804595158433790875, guid: 083fd8f8672f0fc459d06f6d8a055f2a, type: 3}
   burnDmg: 5
   burnDmgMultiplier: 1
   burnTime: 2
   burnTimeMultiplier: 1
   flameBox: {fileID: 6922442246336718825, guid: 8d138289a6cae1c4fb5641602e7364bd, type: 3}
   flameStartPos: {fileID: 7384725582850842073}
+  widthMultiplier: 1.5
 --- !u!82 &5555574916851888602
 AudioSource:
   m_ObjectHideFlags: 0
