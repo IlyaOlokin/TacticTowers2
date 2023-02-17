@@ -29,7 +29,6 @@ public class Bullet : MonoBehaviour
 
         if (hasPenetrationUpgrade)
             penetrationsLeft = penetrationsCount;
-        Physics2D.IgnoreLayerCollision(6, 12);
     }
      
      private void OnTriggerEnter2D(Collider2D other)
@@ -45,7 +44,7 @@ public class Bullet : MonoBehaviour
 
              GetPenetrationEffect();
          }
-         else
+         else if (!other.gameObject.CompareTag("EffectZone") && !other.gameObject.CompareTag("Base"))
          {
              Destroy(gameObject);
          }
