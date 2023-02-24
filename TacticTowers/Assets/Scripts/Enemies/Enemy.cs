@@ -8,11 +8,11 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
-    
     private NavMeshAgent agent;
+    
     [Header("Stats")]
-    [SerializeField] private float dmg;
     [SerializeField] public float hp;
+    [SerializeField] protected float dmg;
     
     [NonSerialized] public float cost;
     [SerializeField] private int creditsDropChance;
@@ -39,7 +39,6 @@ public class Enemy : MonoBehaviour
         agent.SetDestination(GameObject.FindGameObjectWithTag("Base").transform.position);
         RandomizeSpeed();
     }
-
     
     void Update()
     {
@@ -75,7 +74,6 @@ public class Enemy : MonoBehaviour
     
     public bool TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos)
     {
-        
         hp -= dmg;
         var newEffect = Instantiate(damageNumberEffect, transform.position, Quaternion.identity);
         newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
@@ -88,6 +86,7 @@ public class Enemy : MonoBehaviour
         }
         return false;
     }
+    
     private void OnDeath(DamageType damageType, Vector3 killerPos)
     {
         Money.AddMoney(cost);
