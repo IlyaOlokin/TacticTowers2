@@ -173,6 +173,7 @@ public class UpgradeWindow : MonoBehaviour
         Button.onClick.AddListener(() => upgrade.Execute(tower));
         Button.onClick.AddListener(() => gameObject.SetActive(false));
         Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
+        Button.onClick.AddListener(() => tower.currentVisualSpriteIndex = GetSpecialUpgradeLevel(tower));
         Button.onClick.AddListener(EnableAllUpgradeButtons);
         
         button.GetComponent<UpgradeButton>().ActivateSuperCardEffects(false);
@@ -227,7 +228,7 @@ public class UpgradeWindow : MonoBehaviour
 
     private void ShowUpgradingTower(Tower tower)
     {
-        upgradingTowerImage.sprite = tower.towerSprites[GetSpecialUpgradeLevel(tower)];
+        upgradingTowerImage.sprite = tower.towerSprites[tower.currentVisualSpriteIndex];
         upgradingTowerImage.transform.rotation = Quaternion.Euler(0,0,tower.shootDirection - 90);
     }
 
