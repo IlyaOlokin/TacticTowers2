@@ -14,11 +14,14 @@ public class BossTentacles : Boss
     //private float maxHp;
     private float tentacleConnected;
     private float castDelay = 5f;
+
+   // private List<GameObject> tentacledEnemies;
+    
     void Start()
     {
+        //tentacledEnemies = new List<GameObject>();
         StartCoroutine("CastTentacles");
-        enemyComp = GetComponent<Enemy>();
-        maxHp = enemyComp.hp;
+        maxHp = hp;
     }
 
     private void Update()
@@ -30,21 +33,25 @@ public class BossTentacles : Boss
 
     private void Regenerate()
     {
-        if (enemyComp.hp < maxHp)
-            enemyComp.hp += regenForTentacle * tentacleConnected * Time.deltaTime;
+        if (hp < maxHp)
+            hp += regenForTentacle * tentacleConnected * Time.deltaTime;
         else
-            enemyComp.hp = maxHp;
+            hp = maxHp;
     }
 
     private List<Enemy> FindEnemies()
     {
         var targets = new List<Enemy>();
-        
+
         for (var i = 0; i < EnemySpawner.enemies.Count; i++)
         {
-            if (Vector2.Distance(transform.position, EnemySpawner.enemies[i].transform.position) > tentaclesRange) continue;
+            if (Vector2.Distance(transform.position, EnemySpawner.enemies[i].transform.position) > tentaclesRange) 
+                continue;
+            //if (tentacledEnemies.Contains(EnemySpawner.enemies[i]))
+            //    continue;
             if (EnemySpawner.enemies[i].GetComponent<Enemy>().hasTentacle) continue;
-            if (EnemySpawner.enemies[i] == gameObject) continue;
+            if (EnemySpawner.enemies[i] == gameObject) 
+                continue;
             
             var probabilityOfSelection = (tentaclesTips.Count - targets.Count) / (float) (EnemySpawner.enemies.Count - i);
             probabilityOfSelection *= 100;

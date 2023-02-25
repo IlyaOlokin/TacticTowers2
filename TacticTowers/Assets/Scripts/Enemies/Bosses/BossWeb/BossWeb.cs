@@ -12,13 +12,13 @@ public class BossWeb : Boss
     
     [SerializeField] private GameObject web;
     [SerializeField] private GameObject gun;
-    private float rotationSpeed = 12f;
+    //private float rotationSpeed = 12f;
     private SpriteRenderer spriteRenderer;
-
 
     private void Start()
     {
         spriteRenderer = gun.GetComponent<SpriteRenderer>();
+        rotationSpeed = 12f;
     }
 
     void Update()
@@ -85,7 +85,7 @@ public class BossWeb : Boss
 
     protected override void BossDeath()
     {
-        if (GetComponent<Enemy>().isImmortal) return;
+        if (isImmortal) return;
         Destroy(gun);
         isDead = true;
     }

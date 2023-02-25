@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.Audio;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 public class EnemyVFXManager : MonoBehaviour
 {
-    public VisualEffect[] VisualEffects;
+    [SerializeField] private VisualEffect[] visualEffects;
     public static EnemyVFXManager Instance;
         
     void Awake()
@@ -20,19 +17,20 @@ public class EnemyVFXManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        DontDestroyOnLoad(gameObject);
+        
+        //DontDestroyOnLoad(gameObject);
     }
 
-    public GameObject GetEffect(string name)
+    public VisualEffect GetEffect(string effectName)
     {
-        return Array.Find(VisualEffects, effect => effect.Name == name).Effect;
+        return Array.Find(visualEffects, effect => effect.name == effectName);
     }
 }
 
 [Serializable]
 public class VisualEffect
 {
-    public string Name;
-    public GameObject Effect;
-
+    public string name;
+    public GameObject effect;
+    public Material material;
 }

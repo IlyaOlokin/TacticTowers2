@@ -2,5 +2,5 @@
 
 public interface IDeathEffect
 {
-    void PlayEffect(Vector3 position, Vector3 killerPos);
+    public void PlayEffect(GameObject source, Vector3 killerPos);
 }

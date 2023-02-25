@@ -31,7 +31,7 @@ public class EnemySetEditor : Editor
         foreach (var enemyType in enemySet)
         {
             if (enemyType.enemy == null) continue;
-            totalWeight += enemyType.enemyCount * enemyType.enemy.GetComponent<Enemy>().weight;
+            totalWeight += enemyType.enemyCount * enemyType.enemy.GetComponent<Enemy>().GetWeight();
         }
 
         return totalWeight;

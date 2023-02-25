@@ -1,34 +1,36 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class DeathFire : IDeathEffect
 {
-    public void PlayEffect(Vector3 position, Vector3 killerPos)
+    private static readonly int Fade = Shader.PropertyToID("_Fade");
+    private const float FadeDuration = 1.2f;
+
+    public void PlayEffect(GameObject source, Vector3 killerPos)
     {
-        throw new System.NotImplementedException();
-    }
-    
-    /*
-    private void DieFire(Material newMaterial)
-    {
-        EnemySpawner.enemies.Remove(gameObject);
-        GetComponent<SpriteRenderer>().material = newMaterial;
-        agent.enabled = false;
-        GetComponent<Collider2D>().enabled = false;
-        foreach (Collider2D collider in transform.GetComponentsInChildren(typeof(Collider2D)))
+        source.GetComponent<SpriteRenderer>().material = EnemyVFXManager.Instance.GetEffect("DeathFire").material;
+        
+        source.GetComponent<Collider2D>().enabled = false;
+        foreach (var component in source.transform.GetComponentsInChildren(typeof(Collider2D)))
         {
+            var collider = (Collider2D)component;
             collider.enabled = false;
         }
-        StartCoroutine("Burn", GetComponent<SpriteRenderer>().material);
+        
+        new MonoBehaviour().StartCoroutine("Burn", source.GetComponent<SpriteRenderer>().material);
     }
 
     private IEnumerator Burn(Material material)
     {
-        for (float alpha = fadeDuration; alpha >= 0; alpha -= Time.deltaTime)
+        for (var alpha = FadeDuration; alpha >= 0; alpha -= Time.deltaTime)
         {
-            material.SetFloat(fade, alpha / fadeDuration);
+            material.SetFloat(Fade, alpha / FadeDuration);
             yield return null;
         }
-        Destroy(gameObject);
-    }*/
+    }
 }
