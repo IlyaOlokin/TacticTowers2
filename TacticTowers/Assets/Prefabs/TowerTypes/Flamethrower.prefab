@@ -182,7 +182,11 @@ MonoBehaviour:
   shootDirection: 0
   towerName: upgradeFlamethrower
   towerDescription: upgradeFlamethrowerDesc
-  towerSprite: {fileID: 4212499518175065928, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  towerSprites:
+  - {fileID: 4212499518175065928, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 4212499518175065928, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 4212499518175065928, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 4212499518175065928, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   towerCanon: {fileID: 5594251201364017430}
   shootAngle: 45
   shootDistance: 2

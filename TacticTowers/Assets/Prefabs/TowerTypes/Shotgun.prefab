@@ -213,7 +213,11 @@ MonoBehaviour:
   shootDirection: 0
   towerName: upgradeShotgun
   towerDescription: upgradeShotgunDesc
-  towerSprite: {fileID: 601480434192881220, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  towerSprites:
+  - {fileID: 601480434192881220, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 601480434192881220, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 601480434192881220, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 601480434192881220, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   towerCanon: {fileID: 5063031759745015767}
   shootAngle: 90
   shootDistance: 2

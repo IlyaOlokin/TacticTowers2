@@ -15,7 +15,7 @@ public class Tower : MonoBehaviour
 
     public string towerName; 
     [Multiline]public string towerDescription;
-    public Sprite towerSprite;
+    public Sprite[] towerSprites;
 
     [SerializeField] protected GameObject towerCanon;
 
