@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8711112538470985156}
-  - component: {fileID: 1137575584556741642}
   - component: {fileID: -8132409494211933578}
   m_Layer: 0
   m_Name: MinigunPenetrationUpgrade
@@ -32,23 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1137575584556741642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5493820848105342559}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a7f7d02908d2664a83d39bf06fff8ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeLabel: upgradeMinigunMaxHeat
-  upgradeText: upgradeMinigunMaxHeatDesc
-  bonusForFormatting: 2
-  UpgradeSprite: {fileID: -1757909815072640504, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
-  bonus: 0.2
 --- !u!114 &-8132409494211933578
 MonoBehaviour:
   m_ObjectHideFlags: 0
