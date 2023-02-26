@@ -2911,11 +2911,13 @@ MonoBehaviour:
   typeUpgradeSprite: {fileID: -1690205871967841355, guid: 61a49dba398bcbc46b9afcd0ff42d35c, type: 3}
   upgradeSprite: {fileID: 21300000, guid: e4f3ddb2cc923c144a7f154671427f05, type: 3}
   towerTypeUpgradeLevel: 5
+  specialUpgradesLevels: 
   superUpgradeChance: 0.05
   upgradeButtons:
   - {fileID: 1291601969}
   - {fileID: 310804376}
   - {fileID: 1424173967}
+  upgradeButtonsPositions: []
   towerTypes:
   - {fileID: 4434774992038405007, guid: 5df25896f35de054aaf84c9f7ba98643, type: 3}
   - {fileID: 6728170449799749952, guid: 128b2ee9661eb4a4d95c39ab6afa570e, type: 3}
@@ -4823,7 +4825,7 @@ GameObject:
   - component: {fileID: 457497093}
   m_Layer: 5
   m_Name: BaseAbility
-  m_TagString: Untagged
+  m_TagString: BaseAbility
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

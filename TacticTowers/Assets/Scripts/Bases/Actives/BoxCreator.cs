@@ -7,18 +7,16 @@ public class BoxCreator : MonoBehaviour
 {
     [NonSerialized] private bool isActive = false;
     [NonSerialized] public GameObject Box;
+    [NonSerialized] public BaseActive baseActive;
 
     private void Update()
     {
         if (Input.GetMouseButton(1))
         {
-            gameObject.SetActive(false);
+            baseActive.CancelAiming();
         }
 
-        if (Input.GetMouseButton(0))
-        {
-            isActive = true;
-        }
+        
         if (!isActive)
         {
             transform.position = Vector3.MoveTowards(transform.position, GetMousePosition(), 100f);
@@ -29,10 +27,16 @@ public class BoxCreator : MonoBehaviour
             isActive = false;
             gameObject.SetActive(false);
         }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            isActive = true;
+        }
     }
 
     private void SpawnBox()
     {
+        baseActive.isAiming = false;
         Instantiate(Box, transform.position, Quaternion.identity);   
         GameObject.FindGameObjectWithTag("Base").GetComponent<Base>().UpdateAbilityTimer();
     }
