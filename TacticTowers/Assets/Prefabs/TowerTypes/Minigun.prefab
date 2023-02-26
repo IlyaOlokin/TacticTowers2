@@ -100,7 +100,11 @@ MonoBehaviour:
   shootDirection: 0
   towerName: upgradeMinigun
   towerDescription: upgradeMinigunDesc
-  towerSprite: {fileID: 8381589813683705289, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  towerSprites:
+  - {fileID: 8381589813683705289, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 8381589813683705289, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 8381589813683705289, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 8381589813683705289, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   towerCanon: {fileID: 6774156177371616423}
   shootAngle: 55
   shootDistance: 3

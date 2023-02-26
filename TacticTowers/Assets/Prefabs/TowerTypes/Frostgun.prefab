@@ -296,7 +296,11 @@ MonoBehaviour:
   shootDirection: 0
   towerName: upgradeFrostgun
   towerDescription: upgradeFrostgunDesc
-  towerSprite: {fileID: -7573378586640382678, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  towerSprites:
+  - {fileID: -7573378586640382678, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: -7573378586640382678, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: -7573378586640382678, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: -7573378586640382678, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   towerCanon: {fileID: 5308795286357857833}
   shootAngle: 45
   shootDistance: 2

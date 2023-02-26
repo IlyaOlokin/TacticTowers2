@@ -100,7 +100,11 @@ MonoBehaviour:
   shootDirection: 0
   towerName: upgradeMortar
   towerDescription: upgradeMortarDesc
-  towerSprite: {fileID: -87443805730573279, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  towerSprites:
+  - {fileID: -87443805730573279, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: -87443805730573279, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: -87443805730573279, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: -87443805730573279, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   towerCanon: {fileID: 3475854050236517507}
   shootAngle: 45
   shootDistance: 3.5
