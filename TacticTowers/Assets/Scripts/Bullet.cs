@@ -12,8 +12,8 @@ public class Bullet : MonoBehaviour
      [NonSerialized] public bool hasPenetrationUpgrade;
      [NonSerialized] public float penetrationDamageMultiplier;
      [NonSerialized] public int penetrationsCount;
-     private DamageType damageType = DamageType.Normal;
-     private int penetrationsLeft = 0;
+     protected DamageType damageType = DamageType.Normal;
+     protected int penetrationsLeft = 0;
     
      private Rigidbody2D rb;
 
@@ -35,14 +35,7 @@ public class Bullet : MonoBehaviour
      {
          if (other.gameObject.CompareTag("Enemy"))
          {
-             other.gameObject.GetComponent<Enemy>().TakeDamage(Dmg, damageType, departurePos);
-             if (penetrationsLeft == 0)
-             {
-                 Destroy(gameObject);
-                 return;
-             }
-
-             GetPenetrationEffect();
+             OnEnemyHit(other);
          }
          else if (!other.gameObject.CompareTag("EffectZone") && !other.gameObject.CompareTag("Base"))
          {
@@ -50,7 +43,19 @@ public class Bullet : MonoBehaviour
          }
      }
 
-     private void GetPenetrationEffect()
+     protected virtual void OnEnemyHit(Collider2D other)
+     {
+         other.gameObject.GetComponent<Enemy>().TakeDamage(Dmg, damageType, departurePos);
+         if (penetrationsLeft == 0)
+         {
+             Destroy(gameObject);
+             return;
+         }
+
+         GetPenetrationEffect();
+     }
+
+     protected void GetPenetrationEffect()
      {
          penetrationsLeft--;
          Dmg *= penetrationDamageMultiplier;

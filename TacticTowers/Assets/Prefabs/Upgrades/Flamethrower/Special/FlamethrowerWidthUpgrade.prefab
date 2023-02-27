@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4780980129322057344}
-  - component: {fileID: 4090281340738485981}
   - component: {fileID: -7804595158433790875}
   m_Layer: 0
   m_Name: FlamethrowerWidthUpgrade
@@ -32,23 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4090281340738485981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4282815986938489130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef43638ae5384e54dbb2c91d5c206c00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeLabel: upgradeFlameBurnDmg
-  upgradeText: upgradeFlameBurnDmgDesc
-  bonusForFormatting: 35
-  UpgradeSprite: {fileID: 7923774002771053405, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
-  bonus: 0.35
 --- !u!114 &-7804595158433790875
 MonoBehaviour:
   m_ObjectHideFlags: 0

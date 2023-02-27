@@ -100,7 +100,11 @@ MonoBehaviour:
   shootDirection: 0
   towerName: upgradeMinigun
   towerDescription: upgradeMinigunDesc
-  towerSprite: {fileID: 8381589813683705289, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  towerSprites:
+  - {fileID: 8381589813683705289, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 8381589813683705289, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 8381589813683705289, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 8381589813683705289, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   towerCanon: {fileID: 6774156177371616423}
   shootAngle: 55
   shootDistance: 3
@@ -117,7 +121,7 @@ MonoBehaviour:
   - {fileID: 3469322727381602793, guid: a0c2916f64d892d4d8909040d328968e, type: 3}
   specialUpgrades:
   - {fileID: -8132409494211933578, guid: 0534c1fee0e775c45a6915f429d29ae8, type: 3}
-  - {fileID: -8132409494211933578, guid: 0534c1fee0e775c45a6915f429d29ae8, type: 3}
+  - {fileID: 5608103525338110795, guid: 8e5be29870cf81047981738bd9125f27, type: 3}
   - {fileID: -8132409494211933578, guid: 0534c1fee0e775c45a6915f429d29ae8, type: 3}
   bullet: {fileID: 1680028144157980390, guid: dbb970afe829a3442a564d91386b71ff, type: 3}
   bulletSpeed: 12
@@ -130,6 +134,8 @@ MonoBehaviour:
   coolDelayMultiplier: 1
   penetrationDamageMultiplier: 0.5
   penetrationsCount: 1
+  bonusMultiplierForStack: 0.05
+  maxDamageStacksCount: 10
 --- !u!82 &-5942364998071044418
 AudioSource:
   m_ObjectHideFlags: 0

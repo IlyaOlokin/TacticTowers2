@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6192804204696811197}
-  - component: {fileID: 4548540807997358008}
   - component: {fileID: 4740354218852455707}
   m_Layer: 0
   m_Name: ShotgunDoubleDamageUpgrade
@@ -32,23 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4548540807997358008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8571091721845801384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f7694bdf2c8f59468b2c17711860b5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeLabel: upgradeShotgunCount
-  upgradeText: upgradeShotgunCountDesc
-  bonusForFormatting: 1
-  UpgradeSprite: {fileID: 7381383066301680534, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
-  bonus: 1
 --- !u!114 &4740354218852455707
 MonoBehaviour:
   m_ObjectHideFlags: 0

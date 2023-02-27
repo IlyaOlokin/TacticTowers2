@@ -100,7 +100,11 @@ MonoBehaviour:
   shootDirection: 180
   towerName: upgradeTesla
   towerDescription: upgradeTeslaDesc
-  towerSprite: {fileID: 9028847086568246414, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  towerSprites:
+  - {fileID: 9028847086568246414, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 9028847086568246414, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 9028847086568246414, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 9028847086568246414, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   towerCanon: {fileID: 4574035871672996920}
   shootAngle: 55
   shootDistance: 3.25
@@ -126,6 +130,7 @@ MonoBehaviour:
   dmgDecreaseMultiplier: 1
   lightningJumpDistance: 1.5
   lightningJumpDistanceMultiplier: 1
+  branchingChance: 0.25
 --- !u!82 &-3813369448337411365
 AudioSource:
   m_ObjectHideFlags: 0

@@ -212,7 +212,11 @@ MonoBehaviour:
   shootDirection: 0
   towerName: upgradeRailgun
   towerDescription: upgradeRailgunDesc
-  towerSprite: {fileID: 4024885317370060812, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  towerSprites:
+  - {fileID: 4024885317370060812, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 4024885317370060812, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 4024885317370060812, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - {fileID: 4024885317370060812, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   towerCanon: {fileID: 6380372753448526936}
   shootAngle: 25
   shootDistance: 5
@@ -239,6 +243,7 @@ MonoBehaviour:
   dmgMultiplierMultiplier: 1
   minDmg: 0.1
   minDmgMultiplier: 1
+  damageOverDistanceMultiplier: 0.05
 --- !u!82 &-5487695012915496547
 AudioSource:
   m_ObjectHideFlags: 0

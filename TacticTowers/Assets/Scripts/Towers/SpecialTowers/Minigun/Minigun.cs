@@ -21,10 +21,19 @@ public class Minigun : Tower
 
     [NonSerialized] public bool hasPenetrationUpgrade;
 
+    private GameObject currentEnemy;
+
     [Header("Penetration Upgrade")] 
     [SerializeField] private float penetrationDamageMultiplier;
     [SerializeField] private int penetrationsCount;
-
+    
+    [NonSerialized] public bool hasDamageStackUpgrade;
+    
+    [Header("Damage Stack Upgrade")] 
+    [SerializeField] private float bonusMultiplierForStack;
+    [SerializeField] private int maxDamageStacksCount;
+    private int damageStacksCount;
+    
     private void Start() => audioSrc = GetComponent<AudioSource>();
     
     private new void Update()
@@ -52,6 +61,10 @@ public class Minigun : Tower
     {
         if (enemy == null) return;
 
+        if (currentEnemy != enemy) ResetDamageStacksCount();
+
+        currentEnemy = enemy;
+
         LootAtTarget(enemy);
 
         if (shootDelayTimer <= 0)
@@ -69,8 +82,20 @@ public class Minigun : Tower
             bulletComponent.hasPenetrationUpgrade = hasPenetrationUpgrade;
             bulletComponent.penetrationDamageMultiplier = penetrationDamageMultiplier;
             bulletComponent.penetrationsCount = penetrationsCount;
-            
+            var minigunBulletComponent = newBullet.GetComponent<MinigunBullet>();
+            minigunBulletComponent.sender = this;
+            minigunBulletComponent.target = enemy;
+
             audioSrc.PlayOneShot(audioSrc.clip);
         }
     }
+
+    public float GetBonusStackDamageMultiplier() => 1 + bonusMultiplierForStack * damageStacksCount;
+
+    public void IncrementStacksCount()
+    {
+        if (damageStacksCount < maxDamageStacksCount) damageStacksCount++;
+    }
+
+    public void ResetDamageStacksCount() => damageStacksCount = 0;
 }
