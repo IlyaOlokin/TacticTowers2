@@ -41,7 +41,7 @@ public class Tower : MonoBehaviour
 
     public ShootZone shootZone;
 
-    public List<Upgrade> upgrades;
+    public List<CommonUpgrade> upgrades;
 
     public List<SpecialUpgrade> specialUpgrades;
     [NonSerialized] public List<bool> upgradedSpecilaUpgrades = new List<bool> {false, false, false};

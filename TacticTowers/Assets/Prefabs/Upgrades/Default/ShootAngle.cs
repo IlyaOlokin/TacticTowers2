@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackSpeed : Upgrade
+public class ShootAngle : CommonUpgrade
 {
     public override void Execute(Tower tower)
     {
-        tower.multiplierAttackSpeed += actualBonus;
+        tower.multiplierShootAngle += actualBonus;
+        tower.shootZone.DrawShootZone();
     }
 }

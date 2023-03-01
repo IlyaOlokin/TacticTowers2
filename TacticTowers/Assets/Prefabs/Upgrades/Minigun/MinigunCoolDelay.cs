@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinigunCoolDelay : Upgrade
+public class MinigunCoolDelay : CommonUpgrade
 {
     public override void Execute(Tower tower)
     {
