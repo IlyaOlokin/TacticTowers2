@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BurnDamage : Upgrade
+public class BurnDamage : CommonUpgrade
 {
     public override void Execute(Tower tower)
     {

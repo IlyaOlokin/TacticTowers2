@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackSpeed : Upgrade
+public class AttackSpeed : CommonUpgrade
 {
     public override void Execute(Tower tower)
     {

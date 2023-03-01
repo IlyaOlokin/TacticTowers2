@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootDistance : Upgrade
+public class ShootDistance : CommonUpgrade
 {
     public override void Execute(Tower tower)
     {
