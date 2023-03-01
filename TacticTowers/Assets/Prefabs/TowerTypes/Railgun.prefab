@@ -232,7 +232,7 @@ MonoBehaviour:
   - {fileID: 3629801774165805403, guid: eedd47c33c850574e80b851d4df7e0a0, type: 3}
   specialUpgrades:
   - {fileID: 301189744776703719, guid: f08b80dff4d9a344baaa36d57487483e, type: 3}
-  - {fileID: 301189744776703719, guid: f08b80dff4d9a344baaa36d57487483e, type: 3}
+  - {fileID: 8894942514159070104, guid: aa378e7675568ba4b89d8a255779b2bc, type: 3}
   - {fileID: 301189744776703719, guid: f08b80dff4d9a344baaa36d57487483e, type: 3}
   bullet: {fileID: 6687795320453916105, guid: 61c5d802cd316fa4abe31543015e9e83, type: 3}
   railStartPos: {fileID: 4335459407752955100}
@@ -244,6 +244,8 @@ MonoBehaviour:
   minDmg: 0.1
   minDmgMultiplier: 1
   damageOverDistanceMultiplier: 0.05
+  doubleShotChance: 0.2
+  doubleShotDelay: 0.1
 --- !u!82 &-5487695012915496547
 AudioSource:
   m_ObjectHideFlags: 0
