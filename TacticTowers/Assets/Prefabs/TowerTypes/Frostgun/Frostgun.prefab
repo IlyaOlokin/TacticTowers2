@@ -297,16 +297,10 @@ MonoBehaviour:
   towerName: upgradeFrostgun
   towerDescription: upgradeFrostgunDesc
   towerSprites:
-  - {fileID: -7573378586640382678, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  - {fileID: -7573378586640382678, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  - {fileID: -7573378586640382678, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  - {fileID: -7573378586640382678, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  towerCanon: {fileID: 5308795286357857833}
-  shootAngle: 45
-  shootDistance: 2
-  Dmg: 10
-  attackSpeed: 2
-  shootZone: {fileID: 0}
+  - {fileID: 11400000, guid: ca00b4d09d9d8334690caad1533d4dfb, type: 2}
+  - {fileID: 11400000, guid: e26296c1e769d784b91bc62f10affe1f, type: 2}
+  - {fileID: 11400000, guid: 04d4a95ef56306b4d9832aed2722d67e, type: 2}
+  - {fileID: 11400000, guid: d89c7286203e8ce4e9f20fe087367b8a, type: 2}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
   - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
@@ -318,6 +312,12 @@ MonoBehaviour:
   - {fileID: 4608471175938290370, guid: b392ec7c0add6b044b14bcbfaf0ad3a8, type: 3}
   - {fileID: 4608471175938290370, guid: b392ec7c0add6b044b14bcbfaf0ad3a8, type: 3}
   - {fileID: 4608471175938290370, guid: b392ec7c0add6b044b14bcbfaf0ad3a8, type: 3}
+  towerCanon: {fileID: 5308795286357857833}
+  shootZone: {fileID: 0}
+  shootAngle: 45
+  shootDistance: 2
+  Dmg: 10
+  attackSpeed: 2
   freezeTime: 2
   freezeTimeMultiplier: 1
   freezeStacksPerHit: 1
