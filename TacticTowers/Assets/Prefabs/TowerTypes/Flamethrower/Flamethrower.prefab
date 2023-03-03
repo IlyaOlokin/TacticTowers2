@@ -183,16 +183,10 @@ MonoBehaviour:
   towerName: upgradeFlamethrower
   towerDescription: upgradeFlamethrowerDesc
   towerSprites:
-  - {fileID: 4212499518175065928, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  - {fileID: 4212499518175065928, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  - {fileID: 4212499518175065928, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  - {fileID: 4212499518175065928, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  towerCanon: {fileID: 5594251201364017430}
-  shootAngle: 45
-  shootDistance: 2
-  Dmg: 10
-  attackSpeed: 2
-  shootZone: {fileID: 0}
+  - {fileID: 11400000, guid: 9787e713bc7490e4fa4922a175fccfd3, type: 2}
+  - {fileID: 11400000, guid: e86af10f20e86134a83609e35661342d, type: 2}
+  - {fileID: 11400000, guid: 0cf07f2874d9acb408fe0f0472500988, type: 2}
+  - {fileID: 11400000, guid: 4c39afc4701633145a3aa36fe9179cd3, type: 2}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
   - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
@@ -204,6 +198,12 @@ MonoBehaviour:
   - {fileID: -7804595158433790875, guid: 083fd8f8672f0fc459d06f6d8a055f2a, type: 3}
   - {fileID: -7804595158433790875, guid: 083fd8f8672f0fc459d06f6d8a055f2a, type: 3}
   - {fileID: -7804595158433790875, guid: 083fd8f8672f0fc459d06f6d8a055f2a, type: 3}
+  towerCanon: {fileID: 5594251201364017430}
+  shootZone: {fileID: 0}
+  shootAngle: 45
+  shootDistance: 2
+  Dmg: 10
+  attackSpeed: 2
   burnDmg: 5
   burnDmgMultiplier: 1
   burnTime: 2

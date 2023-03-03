@@ -151,7 +151,7 @@ public class UpgradeWindow : MonoBehaviour
         var towerComponent = towerTypes[upgradeIndex].GetComponent<Tower>();
         upgradeButton.upgradeLabel.GetComponent<TextLocaliser>().SetKey(towerComponent.towerName);
         upgradeButton.upgradeText.GetComponent<TextLocaliser>().SetKey(towerComponent.towerDescription);
-        upgradeButton.upgradeImage.sprite = towerComponent.towerSprites[0];
+        upgradeButton.upgradeImage.sprite = towerComponent.towerSprites[0].towerSprite;
     }
     
     private void InitializeSpecialUpgrade(Tower tower, out int specialUpgradesLeft)
@@ -182,7 +182,7 @@ public class UpgradeWindow : MonoBehaviour
         
         upgradeButton.upgradeLabel.text = upgrade.upgradeLabel;
         upgradeButton.upgradeText.text = upgrade.GetUpgradeText();
-        upgradeButton.upgradeImage.sprite = tower.towerSprites[GetSpecialUpgradeLevel(tower)];
+        upgradeButton.upgradeImage.sprite = tower.towerSprites[GetSpecialUpgradeLevel(tower)].towerSprite;
     }
 
     private void SetUpgradeButtonsSpecialPositions(int specialUpgradesLeft)
@@ -228,7 +228,7 @@ public class UpgradeWindow : MonoBehaviour
 
     private void ShowUpgradingTower(Tower tower)
     {
-        upgradingTowerImage.sprite = tower.towerSprites[tower.currentVisualSpriteIndex];
+        upgradingTowerImage.sprite = tower.towerSprites[tower.currentVisualSpriteIndex].towerSprite;
         upgradingTowerImage.transform.rotation = Quaternion.Euler(0,0,tower.shootDirection - 90);
     }
 

@@ -18,7 +18,7 @@ public class Tower : MonoBehaviour
     [Multiline]public string towerDescription;
     
     [Header("Visual")]
-    public Sprite[] towerSprites;
+    public TowerSprites[] towerSprites;
     [NonSerialized] public int currentVisualSpriteIndex;
     
     [Header("Upgrades")]
