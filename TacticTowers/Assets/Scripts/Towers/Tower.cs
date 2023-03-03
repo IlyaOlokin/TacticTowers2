@@ -13,13 +13,23 @@ public class Tower : MonoBehaviour
 
     public float shootDirection;
 
+    [Header("Description")]
     public string towerName; 
     [Multiline]public string towerDescription;
-    public Sprite[] towerSprites;
+    
+    [Header("Visual")]
+    public TowerSprites[] towerSprites;
     [NonSerialized] public int currentVisualSpriteIndex;
+    
+    [Header("Upgrades")]
+    public List<CommonUpgrade> upgrades;
+    public List<SpecialUpgrade> specialUpgrades;
 
+    [Header("References")]
     [SerializeField] protected GameObject towerCanon;
+    public ShootZone shootZone;
 
+    [Header("Stats")]
     public float shootAngle;
     [NonSerialized] public float multiplierShootAngle = 1;
     
@@ -39,16 +49,11 @@ public class Tower : MonoBehaviour
     [NonSerialized] private bool hasParasite = false;
     private float parasiteAttackSpeedMultiplier = 1;
 
-    public ShootZone shootZone;
 
-    public List<CommonUpgrade> upgrades;
-
-    public List<SpecialUpgrade> specialUpgrades;
+    
     [NonSerialized] public List<bool> upgradedSpecilaUpgrades = new List<bool> {false, false, false};
 
     protected AudioSource audioSrc;
-
-
 
     protected void Update()
     {

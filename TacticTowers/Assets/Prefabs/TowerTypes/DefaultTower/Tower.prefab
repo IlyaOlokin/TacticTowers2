@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2944829047007807111
+--- !u!1 &2888170260789091270
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2944829047007807106}
-  - component: {fileID: 2944829047007807109}
-  - component: {fileID: 2944829047007807108}
-  - component: {fileID: -3813369448337411365}
+  - component: {fileID: 2888170260789091273}
+  - component: {fileID: 2888170260789091272}
+  - component: {fileID: 2888170260789091271}
+  - component: {fileID: -4667821085970149074}
   m_Layer: 3
-  m_Name: Tesla
+  m_Name: Tower
   m_TagString: TowerInstance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2944829047007807106
+--- !u!4 &2888170260789091273
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2944829047007807111}
+  m_GameObject: {fileID: 2888170260789091270}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.11, y: 0.11, z: 0.5}
+  m_LocalScale: {x: 0.11, y: 0.11, z: 0.155}
   m_Children:
-  - {fileID: 1953877826536369646}
+  - {fileID: 3634409467693833845}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!212 &2944829047007807109
+--- !u!212 &2888170260789091272
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2944829047007807111}
+  m_GameObject: {fileID: 2888170260789091270}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 9028847086568246414, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  m_Sprite: {fileID: -7859219762184668703, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,65 +85,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2944829047007807108
+--- !u!114 &2888170260789091271
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2944829047007807111}
+  m_GameObject: {fileID: 2888170260789091270}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a30409c5fc3555e46936c11c48c8e401, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d83b75cf4d944e4185b7f544519ea4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootDirection: 180
-  towerName: upgradeTesla
-  towerDescription: upgradeTeslaDesc
+  shootDirection: 0
+  towerName: 
+  towerDescription: 
   towerSprites:
-  - {fileID: 9028847086568246414, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  - {fileID: 9028847086568246414, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  - {fileID: 9028847086568246414, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  - {fileID: 9028847086568246414, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  towerCanon: {fileID: 4574035871672996920}
-  shootAngle: 55
-  shootDistance: 3.25
-  Dmg: 40
-  attackSpeed: 0.6
-  shootZone: {fileID: 0}
+  - {fileID: 11400000, guid: 22fbbaf1eb1363b4488fce91e31b5a0f, type: 2}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
   - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
   - {fileID: -3873548290313896563, guid: 2971894abaf8fe24885a1236f80790dc, type: 3}
   - {fileID: 5316641116981540922, guid: 0fa713690dec7c247b7483445fc5b194, type: 3}
-  - {fileID: 5781665040463225641, guid: 8735b3a9cdbb3c74c9fe19a1be13f764, type: 3}
-  - {fileID: 5242633527358345395, guid: e20d793e133edf94e8d3943f0d6008b6, type: 3}
-  - {fileID: 6197532413266546659, guid: 13c96710adc3e1b4abab83def634ee16, type: 3}
-  specialUpgrades:
-  - {fileID: 6249963306892496327, guid: 0ab53c3d85b64734e8d4c7af605f82ea, type: 3}
-  - {fileID: 94140271431413253, guid: 13f45435653cdaf4089879d0845facae, type: 3}
-  - {fileID: 1627839138343907601, guid: 41d5b5e5be8c98244979bb4e843057b2, type: 3}
-  lightning: {fileID: 6687795320453916105, guid: 7f85cec6659da3f46b48d58b2ee50461, type: 3}
-  lightningCount: 4
-  bonusLightningCount: 0
-  dmgDecrease: 0.7
-  dmgDecreaseMultiplier: 1
-  lightningJumpDistance: 1.5
-  lightningJumpDistanceMultiplier: 1
-  branchingChance: 0.25
---- !u!82 &-3813369448337411365
+  specialUpgrades: []
+  towerCanon: {fileID: 8291628604097662895}
+  shootZone: {fileID: 0}
+  shootAngle: 45
+  shootDistance: 3
+  Dmg: 20
+  attackSpeed: 2
+  bullet: {fileID: 1680028144157980390, guid: 174ab832ba4221e4c8b6b2f2c3689797, type: 3}
+  bulletSpeed: 10
+--- !u!82 &-4667821085970149074
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2944829047007807111}
+  m_GameObject: {fileID: 2888170260789091270}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4b7eb2b1f6bf73a428ed2f8dcd1e79c9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3bcbf627af8fc37439c62c601efedbe5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.07
+  m_Volume: 0.06
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -227,7 +212,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &4574035871672996920
+--- !u!1 &6312869045576918360
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -235,7 +220,89 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1953877826536369646}
+  - component: {fileID: 2146120969214553820}
+  - component: {fileID: 1628519134988373800}
+  m_Layer: 3
+  m_Name: Sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2146120969214553820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6312869045576918360}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.89, z: 0}
+  m_LocalScale: {x: 1.056, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3634409467693833845}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1628519134988373800
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6312869045576918360}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 6
+  m_Sprite: {fileID: 953745586329191729, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &8291628604097662895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3634409467693833845}
   m_Layer: 3
   m_Name: TowerCanon
   m_TagString: Untagged
@@ -243,17 +310,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1953877826536369646
+--- !u!4 &3634409467693833845
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4574035871672996920}
+  m_GameObject: {fileID: 8291628604097662895}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2944829047007807106}
+  m_Children:
+  - {fileID: 2146120969214553820}
+  m_Father: {fileID: 2888170260789091273}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

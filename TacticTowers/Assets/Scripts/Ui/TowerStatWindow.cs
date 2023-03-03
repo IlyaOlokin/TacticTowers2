@@ -70,7 +70,7 @@ public class TowerStatWindow : MonoBehaviour
 
     private void ShowUpgradingTower()
     {
-        upgradingTower.sprite = tower.towerSprites[tower.currentVisualSpriteIndex];
+        upgradingTower.sprite = tower.towerSprites[tower.currentVisualSpriteIndex].towerSprite;
         upgradingTower.transform.rotation = Quaternion.Euler(0,0,tower.shootDirection - 90);
     }
 

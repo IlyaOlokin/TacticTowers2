@@ -101,16 +101,10 @@ MonoBehaviour:
   towerName: upgradeMortar
   towerDescription: upgradeMortarDesc
   towerSprites:
-  - {fileID: -87443805730573279, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  - {fileID: -87443805730573279, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  - {fileID: -87443805730573279, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  - {fileID: -87443805730573279, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  towerCanon: {fileID: 3475854050236517507}
-  shootAngle: 45
-  shootDistance: 3.5
-  Dmg: 30
-  attackSpeed: 0.4
-  shootZone: {fileID: 0}
+  - {fileID: 11400000, guid: b1631731657f1f84db745e956a95d82f, type: 2}
+  - {fileID: 11400000, guid: 0b6d6cb2697a8254ba55633c05adc221, type: 2}
+  - {fileID: 11400000, guid: 14b4af06f56cb9541816dabf6bd4642c, type: 2}
+  - {fileID: 11400000, guid: 6e725c8ec33c1bb458fa20662bca904f, type: 2}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
   - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
@@ -121,6 +115,12 @@ MonoBehaviour:
   - {fileID: -6550371785292312111, guid: b3e01e794bbac5240bff2389ab9d4309, type: 3}
   - {fileID: -4296837814536900955, guid: b5096adcfcb097f49926c3bd21718c84, type: 3}
   - {fileID: -4296837814536900955, guid: b5096adcfcb097f49926c3bd21718c84, type: 3}
+  towerCanon: {fileID: 3475854050236517507}
+  shootZone: {fileID: 0}
+  shootAngle: 45
+  shootDistance: 3.5
+  Dmg: 30
+  attackSpeed: 0.4
   bullet: {fileID: 1680028144157980390, guid: 7f81e7ce6b482e5488e5f9452d0d39dc, type: 3}
   bulletSpeed: 4
   explosionRadius: 0.5
