@@ -11,6 +11,10 @@ public class FlameBox : MonoBehaviour
     [NonSerialized] public float burnDmg;
     [NonSerialized] public float burnTime;
     [NonSerialized] public float attackSpeed;
+    [NonSerialized] public float closeDamageMultiplier;
+    [NonSerialized] public Flamethrower sender;
+    [NonSerialized] public Vector3 senderPos;
+
     private float dmgDelayTimer;
     private Material myMaterial;
     
@@ -26,6 +30,7 @@ public class FlameBox : MonoBehaviour
     [SerializeField] private GameObject fire;
     private static readonly int EndFlame = Shader.PropertyToID("_EndFlame");
     private static readonly int StartFlame = Shader.PropertyToID("_StartFlame");
+
 
     private void Start()
     {
@@ -56,11 +61,10 @@ public class FlameBox : MonoBehaviour
         for (var index = 0; index < enemiesInside.Count; index++)
         {
             var enemy = enemiesInside[index];
-            enemy.TakeDamage(dmg, damageType, transform.position);
-            SetOnFire(enemy.gameObject);
             
+            enemy.TakeDamage(GetDamage(enemy), damageType, transform.position);
+            SetOnFire(enemy.gameObject);
         }
-
         dmgDelayTimer = 1f / attackSpeed;
     }
 
@@ -69,6 +73,21 @@ public class FlameBox : MonoBehaviour
         Destroy(gameObject, delay);
         destroyDelay = delay;
         needToBeDestroyed = true; 
+    }
+
+    private float GetDamage(Enemy enemy)
+    {
+        if (sender.hasCloseDamageUpgrade)
+        {
+            var multiplierOverOne = closeDamageMultiplier - 1;
+            var dist = Vector2.Distance(enemy.transform.position, senderPos);
+            var shtDist = sender.GetShootDistance();
+            var bonusMultiplier = multiplierOverOne * (1 - dist / shtDist);
+            var damageMultiplier = 1 + bonusMultiplier;
+            return dmg * damageMultiplier;
+        }
+        
+        return dmg;
     }
 
     private void SetOnFire(GameObject enemy)
@@ -107,7 +126,6 @@ public class FlameBox : MonoBehaviour
             {
                 enemiesInside.Remove(enemy);
             }
-            
         }
     }
 }
