@@ -20,6 +20,12 @@ public class Flamethrower : Tower
 
     [Header("Width Upgrade")] 
     [SerializeField] private float widthMultiplier;
+    
+    [NonSerialized] public bool hasCloseDamageUpgrade;
+
+    [Header("Width Upgrade")] 
+    [SerializeField] private float closeDamageMultiplier;
+
 
     private void Start()
     {
@@ -52,10 +58,15 @@ public class Flamethrower : Tower
             if (enemy != currentEnemy)
             {
                 activeFlameBox = Instantiate(flameBox, transform.position, towerCanon.transform.rotation);
-                activeFlameBox.GetComponent<FlameBox>().dmg = GetDmg();
-                activeFlameBox.GetComponent<FlameBox>().attackSpeed = GetAttackSpeed();
-                activeFlameBox.GetComponent<FlameBox>().burnDmg = GetBurnDmg();
-                activeFlameBox.GetComponent<FlameBox>().burnTime = burnTime * burnTimeMultiplier;
+
+                FlameBox flameBoxComponent = activeFlameBox.GetComponent<FlameBox>();
+                flameBoxComponent.dmg = GetDmg();
+                flameBoxComponent.attackSpeed = GetAttackSpeed();
+                flameBoxComponent.burnDmg = GetBurnDmg();
+                flameBoxComponent.burnTime = burnTime * burnTimeMultiplier;
+                flameBoxComponent.closeDamageMultiplier = closeDamageMultiplier;
+                flameBoxComponent.sender = this;
+                flameBoxComponent.senderPos = transform.position;
                 
                 defaultFlameBoxWidth = activeFlameBox.transform.localScale.x ;
                 currentEnemy = enemy;
