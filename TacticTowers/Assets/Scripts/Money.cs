@@ -19,12 +19,20 @@ public class Money : MonoBehaviour
     }
     public static void AddMoney(float income)
     {
+        float oldMoney = money;
         money += income * GlobalBaseEffects.TempMoneyMultiplier;
-        anim.Stop("MoneyAnimation");
+        if (Mathf.Floor(money) > Mathf.Floor(oldMoney)) {
+            PlayAnimation();
+        }
         WriteMoney();
+    }
+
+    private static void PlayAnimation()
+    {
+        anim.Stop("MoneyAnimation");
         anim.Play("MoneyAnimation");
     }
-    
+
     public static void TakeMoney(int cost)
     {
         money -= cost;
@@ -47,5 +55,4 @@ public class Money : MonoBehaviour
     {
         text.text = Mathf.Floor(money).ToString();
     }
-
 }
