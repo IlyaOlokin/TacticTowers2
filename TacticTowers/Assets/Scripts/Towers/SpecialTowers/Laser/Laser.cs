@@ -45,6 +45,8 @@ public class Laser : Tower
         LaserShoot(enemy, 0);
         if (hasSecondBeamUpgrade && heatCount >= maxHeat * maxHeatMultiplier) 
             LaserShoot(FindTarget(new List<GameObject>(){enemy}), 1);
+        if (enemy == null) return;
+        LootAtTarget(MiddleEnemyPoint());
         DealDamage();
     }
 
@@ -57,8 +59,6 @@ public class Laser : Tower
             currentEnemies[i] = null;
             return;
         }
-
-        LootAtTarget(target);
 
         if (target != currentEnemies[i])
         {
@@ -134,5 +134,19 @@ public class Laser : Tower
             if (!audioSrc.isPlaying) audioSrc.Play();
         }
         else audioSrc.Stop();
+    }
+
+    private Vector3 MiddleEnemyPoint()
+    {
+        Vector3 posSum = Vector3.zero;
+        int enemiesCount = 0;
+        foreach (var enemy in currentEnemies)
+            if (enemy != null)
+            {
+                posSum += enemy.transform.position;
+                enemiesCount++;
+            }
+        
+        return posSum / enemiesCount;
     }
 }

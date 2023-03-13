@@ -65,7 +65,7 @@ public class Minigun : Tower
 
         currentEnemy = enemy;
 
-        LootAtTarget(enemy);
+        LootAtTarget(enemy.transform.position);
 
         if (shootDelayTimer <= 0)
         {

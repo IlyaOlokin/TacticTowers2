@@ -44,7 +44,8 @@ public class Flamethrower : Tower
 
             return;
         }
-        LootAtTarget(enemy);
+        LootAtTarget(enemy.transform.position);
+
 
         if (enemy != currentEnemy)
         {

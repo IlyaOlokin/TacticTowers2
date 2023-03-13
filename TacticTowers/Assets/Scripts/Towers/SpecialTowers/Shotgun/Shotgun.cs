@@ -32,7 +32,8 @@ public class Shotgun : Tower
     {
         if (enemy == null) return;
 
-        LootAtTarget(enemy);
+        LootAtTarget(enemy.transform.position);
+
 
         if (shootDelayTimer <= 0)
         {
