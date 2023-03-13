@@ -25,6 +25,5 @@ public class LineRendererFadeOut : MonoBehaviour
             lineRenderer.material.color = color;
             yield return null;
         }
-        Destroy(gameObject);
     }
 }

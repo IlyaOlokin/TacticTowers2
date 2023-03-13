@@ -124,9 +124,9 @@ public class Tower : MonoBehaviour
         
     }
 
-    protected void LootAtTarget(GameObject target)
+    protected void LootAtTarget(Vector3 target)
     {
-        Vector3 dir = transform.position - target.transform.position;
+        Vector3 dir = transform.position - target;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         towerCanon.transform.eulerAngles = new Vector3(0, 0, angle + 90);
     }

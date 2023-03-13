@@ -38,7 +38,7 @@ public class Frostgun : Tower
             audioSrc.Stop();
             return;
         }
-        LootAtTarget(enemy);
+        LootAtTarget(enemy.transform.position);
 
         if (enemy != currentEnemy)
         {
