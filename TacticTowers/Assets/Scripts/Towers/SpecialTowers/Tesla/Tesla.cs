@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -84,17 +85,7 @@ public class Tesla : Tower
         }
         for (int i = 0; i < branches; i++)
         {
-            GameObject newEnemy = null;
-            var minDist = float.MaxValue;
-            foreach (var e in EnemySpawner.enemies)
-            {
-                var distance = Vector3.Distance(endPos, e.transform.position);
-                if (distance <= lightningJumpDistance * lightningJumpDistanceMultiplier && distance < minDist && !pickedEnemies.Contains(e))
-                {
-                    newEnemy = e;
-                    minDist = distance;
-                }
-            }
+            var newEnemy = FindClosetEnemy(endPos, pickedEnemies, lightningJumpDistance * lightningJumpDistanceMultiplier);
 
             if (newEnemy == null) yield break;
             parms = new object[] {dmg * dmgDecrease * dmgDecreaseMultiplier, endPos, newEnemy, lightningLeft - 1, pickedEnemies};
