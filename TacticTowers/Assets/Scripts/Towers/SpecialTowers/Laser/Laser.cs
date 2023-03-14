@@ -51,8 +51,9 @@ public class Laser : Tower
     protected override void Shoot(GameObject enemy)
     {
         LaserShoot(enemy, 0);
-        if (hasSecondBeamUpgrade && heatCount >= maxHeat * maxHeatMultiplier) 
+        if (hasSecondBeamUpgrade && isMaxHeated()) 
             LaserShoot(FindTarget(new List<GameObject>(){enemy}.Union(extraCurrentEnemies)), 1);
+        
         if (enemy == null) return;
         LootAtTarget(MiddleEnemyPoint());
         DealDamage();
@@ -62,12 +63,8 @@ public class Laser : Tower
     {
         if (target == null)
         {
-            Destroy(activeLasers[i]);
-            DeactivateLaserSound(i);
-            currentEnemies[i] = null;
-            if (hasBranchingBeamUpgrade)
-                for (int j = 0; j < extraLaserCount; j++)
-                    DeactivateExtraLasers(i, j);
+            DeactivateLaser(i);
+            DeactivateExtraLasers(i);
             return;
         }
 
@@ -76,40 +73,41 @@ public class Laser : Tower
         
         if (target != currentEnemies[i])
         {
-            if (hasBranchingBeamUpgrade)
-                for (int j = 0; j < extraLaserCount; j++)
-                    DeactivateExtraLasers(i, j);
+            DeactivateExtraLasers(i);
             Destroy(activeLasers[i]);
             DeactivateLaserSound(i);
             activeLasers[i] = Instantiate(laserBim, transform.position, towerCanon.transform.rotation);
-            activeLasers[i].GetComponent<LaserBeam>().target = target;
-            activeLasers[i].GetComponent<LaserBeam>().origin = gameObject;
+            var laserBeamComp = activeLasers[i].GetComponent<LaserBeam>();
+            laserBeamComp.target = target;
+            laserBeamComp.origin = gameObject;
             currentEnemies[i] = target;
             ActivateLaserSound(i);
         }
         
-        if (hasBranchingBeamUpgrade)
-        {
-            for (int j = 0; j < extraLaserCount; j++)
-            {
-                var enemyToIgnore = currentEnemies.Union(extraCurrentEnemies).ToList();
-                enemyToIgnore.Remove(extraCurrentEnemies[i * 2 + j]);
-                var closetEnemy = FindClosetEnemy(target.transform.position, enemyToIgnore, 1f);
+        if (hasBranchingBeamUpgrade) HandleExtraLasers(target, i);
+    }
 
-                if (CheckWallCollision(transform.position, target.transform.position, GetShootDistance(), false) is
-                    null)
-                {
-                    ExtraLaserShoot(target, closetEnemy, i, j);
-                }
+    private void HandleExtraLasers(GameObject target, int i)
+    {
+        for (int j = 0; j < extraLaserCount; j++)
+        {
+            var enemyToIgnore = currentEnemies.Union(extraCurrentEnemies).ToList();
+            enemyToIgnore.Remove(extraCurrentEnemies[i * 2 + j]);
+            var closetEnemy = FindClosetEnemy(target.transform.position, enemyToIgnore, 1f);
+
+            if (CheckWallCollision(transform.position, target.transform.position, GetShootDistance(), false) is
+                null)
+            {
+                ExtraLaserShoot(target, closetEnemy, i, j);
             }
         }
     }
-    
+
     private void ExtraLaserShoot(GameObject origin, GameObject target, int parentLaserIndex, int extraLaserIndex)
     {
         if (target == null || origin == null)
         {
-            DeactivateExtraLasers(parentLaserIndex, extraLaserIndex);
+            DeactivateExtraLasers(parentLaserIndex);
             return;
         }
         
@@ -119,17 +117,13 @@ public class Laser : Tower
         {
             Destroy(extraActiveLasers[parentLaserIndex][extraLaserIndex]);
             extraActiveLasers[parentLaserIndex][extraLaserIndex] = Instantiate(laserBim, transform.position, towerCanon.transform.rotation);
-            extraActiveLasers[parentLaserIndex][extraLaserIndex].GetComponent<LaserBeam>().target = target;
-            extraActiveLasers[parentLaserIndex][extraLaserIndex].GetComponent<LaserBeam>().origin = origin;
-            extraActiveLasers[parentLaserIndex][extraLaserIndex].GetComponent<LaserBeam>().scaleMultiplier = 0.5f;
+            var laserBeamComp = extraActiveLasers[parentLaserIndex][extraLaserIndex].GetComponent<LaserBeam>();
+
+            laserBeamComp.target = target;
+            laserBeamComp.origin = origin;
+            laserBeamComp.scaleMultiplier = 0.5f;
             extraCurrentEnemies[parentLaserIndex * 2 + extraLaserIndex] = target;
         }
-    }
-
-    private void DeactivateExtraLasers(int parentLaserIndex, int extraLaserIndex)
-    {
-        Destroy(extraActiveLasers[parentLaserIndex][extraLaserIndex]);
-        extraCurrentEnemies[parentLaserIndex * 2 + extraLaserIndex] = null;
     }
 
     private void DealDamage()
@@ -175,6 +169,23 @@ public class Laser : Tower
             }
         }
     }
+    
+    private void DeactivateLaser(int i)
+    {
+        Destroy(activeLasers[i]);
+        DeactivateLaserSound(i);
+        currentEnemies[i] = null;
+    }
+    
+    private void DeactivateExtraLasers(int parentLaserIndex)
+    {
+        if (hasBranchingBeamUpgrade)
+            for (int j = 0; j < extraLaserCount; j++)
+            {
+                Destroy(extraActiveLasers[parentLaserIndex][j]);
+                extraCurrentEnemies[parentLaserIndex * 2 + j] = null;
+            }
+    }
 
     private void ActivateLaserSound(int i)
     {
@@ -195,6 +206,11 @@ public class Laser : Tower
             if (!audioSrc.isPlaying) audioSrc.Play();
         }
         else audioSrc.Stop();
+    }
+    
+    private bool isMaxHeated()
+    {
+        return heatCount >= maxHeat * maxHeatMultiplier;
     }
 
     private Vector3 MiddleEnemyPoint()
