@@ -110,8 +110,39 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6473677266249179738}
+  - {fileID: 3721970758973067473}
   m_Father: {fileID: 6728170449799749959}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4946474536978119602
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3721970758973067473}
+  m_Layer: 3
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3721970758973067473
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4946474536978119602}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 1.93, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3932381216777760860}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6728170449799749952
 GameObject:
@@ -228,7 +259,7 @@ MonoBehaviour:
   - {fileID: -5293415987209700153, guid: e56e983a6e4ede84f8921df25f8ecc16, type: 3}
   specialUpgrades:
   - {fileID: -4772870071425929792, guid: 4bc02f21b93f50742abed67349280440, type: 3}
-  - {fileID: -4772870071425929792, guid: 4bc02f21b93f50742abed67349280440, type: 3}
+  - {fileID: 4775017974191420747, guid: 520cad066d40c414f8b33554a692b177, type: 3}
   - {fileID: -4772870071425929792, guid: 4bc02f21b93f50742abed67349280440, type: 3}
   towerCanon: {fileID: 4597013019795596408}
   shootZone: {fileID: 0}
@@ -237,6 +268,7 @@ MonoBehaviour:
   Dmg: 15
   attackSpeed: 3
   laserBim: {fileID: 6922442246336718825, guid: a9e332a7c215fcd42b7d2aba60f6fa34, type: 3}
+  shootPoint: {fileID: 4946474536978119602}
   maxHeat: 8
   maxHeatMultiplier: 1
   multiplierPerHeatStack: 0.04
@@ -257,6 +289,8 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  extraLaserCount: 2
+  extraLaserDamageMultiplier: 0.25
 --- !u!82 &-7971934188379434946
 AudioSource:
   m_ObjectHideFlags: 0

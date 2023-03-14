@@ -1,16 +1,20 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Laser : Tower
 {
     [SerializeField] private GameObject laserBim;
+    [SerializeField] private GameObject shootPoint;
 
     private float heatCount = 0;
     private float coolTimer;
     private List<GameObject> currentEnemies = new List<GameObject>() {null, null};
+    private List<GameObject> extraCurrentEnemies = new List<GameObject>() {null, null, null, null};
     private List<GameObject> activeLasers = new List<GameObject>() {null, null};
+    private List<List<GameObject>> extraActiveLasers = new List<List<GameObject>>() {new List<GameObject>() {null, null}, new List<GameObject>() {null, null}};
     private List<bool> laserSound = new List<bool>() {false, false};
 
     [SerializeField] public int maxHeat;
@@ -25,6 +29,10 @@ public class Laser : Tower
     private DamageType damageType = DamageType.Fire;
 
     [NonSerialized] public bool hasSecondBeamUpgrade;
+    
+    [NonSerialized] public bool hasBranchingBeamUpgrade;
+    [SerializeField] private int extraLaserCount = 2;
+    [SerializeField] private float extraLaserDamageMultiplier;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
 
@@ -43,8 +51,9 @@ public class Laser : Tower
     protected override void Shoot(GameObject enemy)
     {
         LaserShoot(enemy, 0);
-        if (hasSecondBeamUpgrade && heatCount >= maxHeat * maxHeatMultiplier) 
-            LaserShoot(FindTarget(new List<GameObject>(){enemy}), 1);
+        if (hasSecondBeamUpgrade && isMaxHeated()) 
+            LaserShoot(FindTarget(new List<GameObject>(){enemy}.Union(extraCurrentEnemies)), 1);
+        
         if (enemy == null) return;
         LootAtTarget(MiddleEnemyPoint());
         DealDamage();
@@ -54,27 +63,66 @@ public class Laser : Tower
     {
         if (target == null)
         {
-            Destroy(activeLasers[i]);
-            DeactivateLaserSound(i);
-            currentEnemies[i] = null;
+            DeactivateLaser(i);
+            DeactivateExtraLasers(i);
             return;
-        }
-
-        if (target != currentEnemies[i])
-        {
-            Destroy(activeLasers[i]);
-            DeactivateLaserSound(i);
         }
 
         if (heatCount < maxHeat * maxHeatMultiplier) heatCount += Time.deltaTime;
         if (activeLasers[i] != null) activeLasers[i].GetComponent<LaserBeam>().IncreaseWidth(heatCount);
+        
         if (target != currentEnemies[i])
         {
+            DeactivateExtraLasers(i);
+            Destroy(activeLasers[i]);
+            DeactivateLaserSound(i);
             activeLasers[i] = Instantiate(laserBim, transform.position, towerCanon.transform.rotation);
-            activeLasers[i].GetComponent<LaserBeam>().target = target;
-            activeLasers[i].GetComponent<LaserBeam>().origin = transform.position;
+            var laserBeamComp = activeLasers[i].GetComponent<LaserBeam>();
+            laserBeamComp.target = target;
+            laserBeamComp.origin = gameObject;
             currentEnemies[i] = target;
             ActivateLaserSound(i);
+        }
+        
+        if (hasBranchingBeamUpgrade) HandleExtraLasers(target, i);
+    }
+
+    private void HandleExtraLasers(GameObject target, int i)
+    {
+        for (int j = 0; j < extraLaserCount; j++)
+        {
+            var enemyToIgnore = currentEnemies.Union(extraCurrentEnemies).ToList();
+            enemyToIgnore.Remove(extraCurrentEnemies[i * 2 + j]);
+            var closetEnemy = FindClosetEnemy(target.transform.position, enemyToIgnore, 1f);
+
+            if (CheckWallCollision(transform.position, target.transform.position, GetShootDistance(), false) is
+                null)
+            {
+                ExtraLaserShoot(target, closetEnemy, i, j);
+            }
+        }
+    }
+
+    private void ExtraLaserShoot(GameObject origin, GameObject target, int parentLaserIndex, int extraLaserIndex)
+    {
+        if (target == null || origin == null)
+        {
+            DeactivateExtraLasers(parentLaserIndex);
+            return;
+        }
+        
+        if (extraActiveLasers[parentLaserIndex][extraLaserIndex] != null) extraActiveLasers[parentLaserIndex][extraLaserIndex].GetComponent<LaserBeam>().IncreaseWidth(heatCount);
+        
+        if (target != extraCurrentEnemies[parentLaserIndex * 2 + extraLaserIndex])
+        {
+            Destroy(extraActiveLasers[parentLaserIndex][extraLaserIndex]);
+            extraActiveLasers[parentLaserIndex][extraLaserIndex] = Instantiate(laserBim, transform.position, towerCanon.transform.rotation);
+            var laserBeamComp = extraActiveLasers[parentLaserIndex][extraLaserIndex].GetComponent<LaserBeam>();
+
+            laserBeamComp.target = target;
+            laserBeamComp.origin = origin;
+            laserBeamComp.scaleMultiplier = 0.5f;
+            extraCurrentEnemies[parentLaserIndex * 2 + extraLaserIndex] = target;
         }
     }
 
@@ -96,23 +144,47 @@ public class Laser : Tower
             shootDelayTimer = 1f / GetAttackSpeed();
             coolTimer = coolDelay * coolDelayMultiplier;
 
-            for (var i = 0; i < currentEnemies.Count; i++)
+            DealDamageToGroup(currentEnemies, activeLasers);
+            var extraLasers = extraActiveLasers[0].Union(extraActiveLasers[1]).ToList();
+            DealDamageToGroup(extraCurrentEnemies, extraLasers,  extraLaserDamageMultiplier);
+        }
+    }
+
+    private void DealDamageToGroup(List<GameObject> enemies, List<GameObject> lasers, float damageMultiplier = 1f)
+    {
+        for (var i = 0; i < enemies.Count; i++)
+        {
+            if (enemies[i] == null) continue;
+            if (CheckWallCollision(transform.position, enemies[i].transform.position, GetShootDistance(), false) is
+                null)
             {
-                if (currentEnemies[i] == null) continue;
-                if (CheckWallCollision(transform.position, currentEnemies[i].transform.position, GetShootDistance(), false) is
-                    null)
+                if (enemies[i].GetComponent<Enemy>().TakeDamage(
+                    GetDmg() * (1 + Mathf.Floor(heatCount) * multiplierPerHeatStack *
+                        multiplierPerHeatStackMultiplier) * damageMultiplier,
+                    damageType, transform.position))
                 {
-                    if (currentEnemies[i].GetComponent<Enemy>().TakeDamage(
-                        GetDmg() * (1 + Mathf.Floor(heatCount) * multiplierPerHeatStack *
-                            multiplierPerHeatStackMultiplier),
-                        damageType, transform.position))
-                    {
-                        Destroy(activeLasers[i]);
-                        shooting = false;
-                    }
+                    Destroy(lasers[i]);
+                    shooting = false;
                 }
             }
         }
+    }
+    
+    private void DeactivateLaser(int i)
+    {
+        Destroy(activeLasers[i]);
+        DeactivateLaserSound(i);
+        currentEnemies[i] = null;
+    }
+    
+    private void DeactivateExtraLasers(int parentLaserIndex)
+    {
+        if (hasBranchingBeamUpgrade)
+            for (int j = 0; j < extraLaserCount; j++)
+            {
+                Destroy(extraActiveLasers[parentLaserIndex][j]);
+                extraCurrentEnemies[parentLaserIndex * 2 + j] = null;
+            }
     }
 
     private void ActivateLaserSound(int i)
@@ -134,6 +206,11 @@ public class Laser : Tower
             if (!audioSrc.isPlaying) audioSrc.Play();
         }
         else audioSrc.Stop();
+    }
+    
+    private bool isMaxHeated()
+    {
+        return heatCount >= maxHeat * maxHeatMultiplier;
     }
 
     private Vector3 MiddleEnemyPoint()

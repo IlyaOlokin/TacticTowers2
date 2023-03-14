@@ -90,7 +90,7 @@ public class Tower : MonoBehaviour
 
         return target;
     }
-    protected GameObject FindTarget(List<GameObject> targetsToIgnore)
+    protected GameObject FindTarget(IEnumerable<GameObject> targetsToIgnore)
     {
         if (!CanShoot() || EnemySpawner.enemies.Count == 0) return null;
         GameObject target = null;
@@ -191,6 +191,24 @@ public class Tower : MonoBehaviour
             return (Vector3) wallCollision;
 
         return target;
+    }
+    
+    protected GameObject FindClosetEnemy(Vector3 endPos, IEnumerable<GameObject> pickedEnemies, float searchDist)
+    {
+        GameObject newEnemy = null;
+        var minDist = float.MaxValue;
+        foreach (var e in EnemySpawner.enemies)
+        {
+            var distance = Vector3.Distance(endPos, e.transform.position);
+            if (distance <= searchDist && distance < minDist &&
+                !pickedEnemies.Contains(e))
+            {
+                newEnemy = e;
+                minDist = distance;
+            }
+        }
+
+        return newEnemy;
     }
 
     public bool CanShoot()
