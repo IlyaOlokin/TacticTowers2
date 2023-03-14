@@ -25,6 +25,8 @@ public class Laser : Tower
     private DamageType damageType = DamageType.Fire;
 
     [NonSerialized] public bool hasSecondBeamUpgrade;
+    
+    [NonSerialized] public bool hasBranchingBeamUpgrade;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
 
