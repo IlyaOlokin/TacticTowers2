@@ -9662,7 +9662,7 @@ GameObject:
   - component: {fileID: 6498885561018725112}
   - component: {fileID: 4580142155461568241}
   m_Layer: 0
-  m_Name: LaserBim
+  m_Name: LaserBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9696,6 +9696,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   impactEffect: {fileID: 3067975521405260334}
+  ps1: {fileID: 3067975519890756133}
+  ps2: {fileID: 3067975520935408700}
 --- !u!120 &4580142155461568241
 LineRenderer:
   m_ObjectHideFlags: 0

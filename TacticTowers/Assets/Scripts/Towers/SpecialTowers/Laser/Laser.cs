@@ -121,6 +121,7 @@ public class Laser : Tower
             extraActiveLasers[parentLaserIndex][extraLaserIndex] = Instantiate(laserBim, transform.position, towerCanon.transform.rotation);
             extraActiveLasers[parentLaserIndex][extraLaserIndex].GetComponent<LaserBeam>().target = target;
             extraActiveLasers[parentLaserIndex][extraLaserIndex].GetComponent<LaserBeam>().origin = origin;
+            extraActiveLasers[parentLaserIndex][extraLaserIndex].GetComponent<LaserBeam>().scaleMultiplier = 0.5f;
             extraCurrentEnemies[parentLaserIndex * 2 + extraLaserIndex] = target;
         }
     }

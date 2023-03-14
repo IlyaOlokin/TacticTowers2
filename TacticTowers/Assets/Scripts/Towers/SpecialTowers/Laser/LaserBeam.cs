@@ -9,11 +9,18 @@ public class LaserBeam : MonoBehaviour
     [NonSerialized] public GameObject target;
     [NonSerialized] public GameObject origin;
     [SerializeField] private GameObject impactEffect;
+    [SerializeField] private Transform ps1;
+    [SerializeField] private Transform ps2;
+    [NonSerialized] public float scaleMultiplier = 1f;
+    
     void Start()
     {
         lr = GetComponent<LineRenderer>();
         lr.SetPosition(0, origin.transform.position);
         lr.SetPosition(1, Tower.GetRayImpactPoint(origin.transform.position,target.transform.position, false));
+        lr.widthMultiplier *= scaleMultiplier;
+        ps1.localScale *= scaleMultiplier;
+        ps2.localScale *= scaleMultiplier;
     }
     
     void Update()
