@@ -13,12 +13,23 @@ public class Tower : MonoBehaviour
 
     public float shootDirection;
 
+    [Header("Description")]
     public string towerName; 
     [Multiline]public string towerDescription;
-    public Sprite towerSprite;
+    
+    [Header("Visual")]
+    public TowerSprites[] towerSprites;
+    [NonSerialized] public int currentVisualSpriteIndex;
+    
+    [Header("Upgrades")]
+    public List<CommonUpgrade> upgrades;
+    public List<SpecialUpgrade> specialUpgrades;
 
+    [Header("References")]
     [SerializeField] protected GameObject towerCanon;
+    public ShootZone shootZone;
 
+    [Header("Stats")]
     public float shootAngle;
     [NonSerialized] public float multiplierShootAngle = 1;
     
@@ -38,16 +49,11 @@ public class Tower : MonoBehaviour
     [NonSerialized] private bool hasParasite = false;
     private float parasiteAttackSpeedMultiplier = 1;
 
-    public ShootZone shootZone;
 
-    public List<Upgrade> upgrades;
-
-    public List<SpecialUpgrade> specialUpgrades;
+    
     [NonSerialized] public List<bool> upgradedSpecilaUpgrades = new List<bool> {false, false, false};
 
     protected AudioSource audioSrc;
-
-
 
     protected void Update()
     {
@@ -84,7 +90,7 @@ public class Tower : MonoBehaviour
 
         return target;
     }
-    protected GameObject FindTarget(List<GameObject> targetsToIgnore)
+    protected GameObject FindTarget(IEnumerable<GameObject> targetsToIgnore)
     {
         if (!CanShoot() || EnemySpawner.enemies.Count == 0) return null;
         GameObject target = null;
@@ -118,9 +124,9 @@ public class Tower : MonoBehaviour
         
     }
 
-    protected void LootAtTarget(GameObject target)
+    protected void LootAtTarget(Vector3 target)
     {
-        Vector3 dir = transform.position - target.transform.position;
+        Vector3 dir = transform.position - target;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         towerCanon.transform.eulerAngles = new Vector3(0, 0, angle + 90);
     }
@@ -185,6 +191,24 @@ public class Tower : MonoBehaviour
             return (Vector3) wallCollision;
 
         return target;
+    }
+    
+    protected GameObject FindClosetEnemy(Vector3 endPos, IEnumerable<GameObject> pickedEnemies, float searchDist)
+    {
+        GameObject newEnemy = null;
+        var minDist = float.MaxValue;
+        foreach (var e in EnemySpawner.enemies)
+        {
+            var distance = Vector3.Distance(endPos, e.transform.position);
+            if (distance <= searchDist && distance < minDist &&
+                !pickedEnemies.Contains(e))
+            {
+                newEnemy = e;
+                minDist = distance;
+            }
+        }
+
+        return newEnemy;
     }
 
     public bool CanShoot()

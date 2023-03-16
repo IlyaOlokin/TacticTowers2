@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MortarExplosionRadius : Upgrade
+public class MortarExplosionRadius : CommonUpgrade
 {
     public override void Execute(Tower tower)
     {

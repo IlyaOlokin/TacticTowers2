@@ -38,7 +38,7 @@ public class Frostgun : Tower
             audioSrc.Stop();
             return;
         }
-        LootAtTarget(enemy);
+        LootAtTarget(enemy.transform.position);
 
         if (enemy != currentEnemy)
         {
@@ -51,12 +51,13 @@ public class Frostgun : Tower
             if (enemy != currentEnemy)
             {
                 activeFrostBox = Instantiate(frostBox, transform.position, towerCanon.transform.rotation);
-                
-                activeFrostBox.GetComponent<FrostBox>().dmg = GetDmg();
-                activeFrostBox.GetComponent<FrostBox>().attackSpeed = GetAttackSpeed();
-                activeFrostBox.GetComponent<FrostBox>().freezeTime = freezeTime * freezeTimeMultiplier;
-                activeFrostBox.GetComponent<FrostBox>().freezeStacksPerHit = GetFreezeStacksPerHit();
-                activeFrostBox.GetComponent<FrostBox>().freezeStacksNeeded = freezeStacksNeeded;
+
+                FrostBox frostBoxComponent = activeFrostBox.GetComponent<FrostBox>();
+                frostBoxComponent.dmg = GetDmg();
+                frostBoxComponent.attackSpeed = GetAttackSpeed();
+                frostBoxComponent.freezeTime = freezeTime * freezeTimeMultiplier;
+                frostBoxComponent.freezeStacksPerHit = GetFreezeStacksPerHit();
+                frostBoxComponent.freezeStacksNeeded = freezeStacksNeeded;
                 
                 defaultFrostBoxWidth = activeFrostBox.transform.localScale.x ;
                 currentEnemy = enemy;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinigunHeatBonus : Upgrade
+public class MinigunHeatBonus : CommonUpgrade
 {
     public override void Execute(Tower tower)
     {

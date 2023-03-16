@@ -68,7 +68,12 @@ public class Base : MonoBehaviour
     private void ExecuteBaseActiveAbility()
     {
         if (abilityTimer > 0) return;
-        
+        if (ability.isAiming)
+        {
+            ability.CancelAiming();
+            return;
+        }
+            
         ability.ExecuteActiveAbility();
     }
 

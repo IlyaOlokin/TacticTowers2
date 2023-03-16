@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeToFreeze  : Upgrade
+public class TimeToFreeze  : CommonUpgrade
 {
     public override void Execute(Tower tower)
     {

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7938090246815077777}
   - component: {fileID: 5023498074839775312}
   - component: {fileID: -1656922614618167620}
-  - component: {fileID: 594237292206792800}
+  - component: {fileID: -8441546739238861573}
   - component: {fileID: 2165607543440100942}
   m_Layer: 6
   m_Name: MinigunBullet
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 10
---- !u!114 &594237292206792800
+--- !u!114 &-8441546739238861573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1680028144157980390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cba9ab3e0be2aab46a90833d7e10c339, type: 3}
+  m_Script: {fileID: 11500000, guid: 35b1483a5a8756b4bba3f9c835956d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!96 &2165607543440100942

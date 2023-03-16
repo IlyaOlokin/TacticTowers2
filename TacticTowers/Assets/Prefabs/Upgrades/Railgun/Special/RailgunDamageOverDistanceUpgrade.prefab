@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6192804204696811197}
-  - component: {fileID: 777154454748209544}
   - component: {fileID: 301189744776703719}
   m_Layer: 0
   m_Name: RailgunDamageOverDistanceUpgrade
@@ -32,23 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &777154454748209544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8571091721845801384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 774e13f7509a13247b65e9c2930ada81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeLabel: upgradeRailDamgDrop
-  upgradeText: upgradeRailDamgDropDesc
-  bonusForFormatting: 5
-  UpgradeSprite: {fileID: 5785148765486710552, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
-  bonus: 0.05
 --- !u!114 &301189744776703719
 MonoBehaviour:
   m_ObjectHideFlags: 0
