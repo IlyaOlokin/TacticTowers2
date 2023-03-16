@@ -1,9 +1,11 @@
-﻿using System;
-using UnityEngine;
-
-[Serializable]
-public class FireStats
+﻿public class FireStats
 {
-    [SerializeField] private float burnTime;
-    [SerializeField] private float burnDmg;
+    public float BurnTime { get; }
+    public float BurnDmg { get; }
+
+    public FireStats(float burnTime, float burnDmg)
+    {
+        BurnTime = burnTime;
+        BurnDmg = burnDmg;
+    }
 }

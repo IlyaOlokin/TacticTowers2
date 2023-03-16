@@ -1872,16 +1872,14 @@ MonoBehaviour:
   visualEffects:
   - name: DamageNumber
     effect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-    material: {fileID: 0}
   - name: DeathNormal
     effect: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-    material: {fileID: 0}
   - name: DeathFire
     effect: {fileID: 0}
-    material: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
   - name: FireOnEnemy
     effect: {fileID: 4128553405824924428, guid: d8432a620834e3e4b83e337c27f4bf91, type: 3}
-    material: {fileID: 0}
+  - name: FreezeOnEnemy
+    effect: {fileID: 4128553405824924428, guid: 530ca51cfaf974148b94bdd704b3e04c, type: 3}
 --- !u!4 &215019559
 Transform:
   m_ObjectHideFlags: 0
@@ -19109,7 +19107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2123222805969592, guid: 61a49dba398bcbc46b9afcd0ff42d35c, type: 3}
+  m_Sprite: {fileID: 4006315918341310960, guid: a7039526883d88e4896f87f90c4cf963, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

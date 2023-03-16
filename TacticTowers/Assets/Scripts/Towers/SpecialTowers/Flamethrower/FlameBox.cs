@@ -62,7 +62,7 @@ public class FlameBox : MonoBehaviour
             
             enemy.TakeDamage(GetDamage(enemy), damageType, transform.position);
             //SetOnFire(enemy.gameObject);
-            enemy.TakeFire(burnDmg, burnTime);
+            enemy.TakeFire(new FireStats(burnTime, burnDmg));
         }
 
         dmgDelayTimer = 1f / attackSpeed;

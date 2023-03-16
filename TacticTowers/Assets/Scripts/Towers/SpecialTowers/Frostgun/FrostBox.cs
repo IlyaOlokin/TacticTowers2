@@ -7,7 +7,6 @@ public class FrostBox : MonoBehaviour
 {
     private List<Enemy> enemiesInside = new List<Enemy>();
 
-    
     [NonSerialized] public float dmg;
     [NonSerialized] public float attackSpeed;
     [NonSerialized] public int freezeStacksNeeded;
@@ -30,7 +29,7 @@ public class FrostBox : MonoBehaviour
     [NonSerialized] public float freezeTime;
     [NonSerialized] public float freezeStacksPerHit;
 
-    [SerializeField] private GameObject freezeEffect;
+    //[SerializeField] private GameObject freezeEffect;
     private static readonly int StartFlame = Shader.PropertyToID("_StartFlame");
     private static readonly int EndFlame = Shader.PropertyToID("_EndFlame");
 
@@ -64,8 +63,9 @@ public class FrostBox : MonoBehaviour
         {
             var enemy = enemiesInside[index];
             enemy.TakeDamage(dmg, damageType, transform.position);
-            Freeze(enemy.gameObject);
-            enemy.TakeFreeze();
+            //Freeze(enemy.gameObject);
+            // TODO: добавить проверку на спец                                                              V 
+            enemy.TakeFreeze(new FreezeStats(freezeStacksNeeded, freezeTime, freezeStacksPerHit), true);
         }
 
         dmgDelayTimer = 1f / attackSpeed;
@@ -77,7 +77,7 @@ public class FrostBox : MonoBehaviour
         destroyDelay = delay;
         needToBeDestroyed = true; 
     }
-
+/*
     private void Freeze(GameObject enemy)
     {
         if (!enemy.GetComponent<Freeze>())
@@ -94,7 +94,7 @@ public class FrostBox : MonoBehaviour
             enemy.GetComponent<Freeze>().GetFreezeStack();
         }
     }
-
+*/
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.transform.CompareTag("Enemy"))

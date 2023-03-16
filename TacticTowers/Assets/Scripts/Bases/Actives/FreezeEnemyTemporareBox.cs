@@ -51,7 +51,7 @@ public class FreezeEnemyTemporareBox : MonoBehaviour
 
         componentFreeze.freezeStacksNeeded = freezeStacksNeeded;
         componentFreeze.freezeTime = freezeTime;
-        componentFreeze.freezeEffect = freezeEffect;
+        //componentFreeze.freezeEffect = freezeEffect;
         componentFreeze.freezeStacksPerHt = freezeStacksPerHit;
         
         componentFreeze.GetFreezeStack();

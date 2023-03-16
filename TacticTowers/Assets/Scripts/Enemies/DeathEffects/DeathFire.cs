@@ -13,7 +13,7 @@ public class DeathFire : IDeathEffect
 
     public void PlayEffect(GameObject source, Vector3 killerPos)
     {
-        source.GetComponent<SpriteRenderer>().material = EnemyVFXManager.Instance.GetEffect("DeathFire").material;
+        //source.GetComponent<SpriteRenderer>().material = EnemyVFXManager.Instance.GetEffect("DeathFire").material;
         
         source.GetComponent<Collider2D>().enabled = false;
         foreach (var component in source.transform.GetComponentsInChildren(typeof(Collider2D)))

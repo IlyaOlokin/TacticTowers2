@@ -2032,108 +2032,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611855397}
   m_CullTransparentMesh: 1
---- !u!1 &1640472939
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1640472941}
-  - component: {fileID: 1640472940}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1640472940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640472939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc3953484d3c26842ab472927204b154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sounds:
-  - name: MainThemee
-    clip: {fileID: 8300000, guid: 9adf123e4d0292443b43cc94425f2350, type: 3}
-    volume: 0.101
-    pitch: 1
-    loop: 1
-    audioMixerGroup: {fileID: 2652926259098970617, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
-    source: {fileID: 0}
-  - name: ButtonClick1
-    clip: {fileID: 8300000, guid: 57cf47e992273e243ad9f992fde83a0e, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 0
-    audioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
-    source: {fileID: 0}
-  - name: ButtonClick2
-    clip: {fileID: 8300000, guid: 30d9f96aeeb64aa48a7125115ac87f0e, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 0
-    audioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
-    source: {fileID: 0}
-  - name: BossRoar1
-    clip: {fileID: 8300000, guid: 5ab7ed26d39db4441ac6ea0ee62601e8, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 0
-    audioMixerGroup: {fileID: 3197331514536124601, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
-    source: {fileID: 0}
-  - name: GameFieldd
-    clip: {fileID: 8300000, guid: d3bc0424640d228419d7625a959d573f, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 1
-    audioMixerGroup: {fileID: 2652926259098970617, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
-    source: {fileID: 0}
-  Music:
-  - name: MainTheme
-    clip: {fileID: 8300000, guid: 9adf123e4d0292443b43cc94425f2350, type: 3}
-    volume: 0.101
-    pitch: 1
-    loop: 1
-    audioMixerGroup: {fileID: 2652926259098970617, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
-    source: {fileID: 0}
-  - name: GameField
-    clip: {fileID: 8300000, guid: d3bc0424640d228419d7625a959d573f, type: 3}
-    volume: 0.06
-    pitch: 1
-    loop: 1
-    audioMixerGroup: {fileID: 2652926259098970617, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
-    source: {fileID: 0}
-  CurrentMusic:
-    name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
-    loop: 0
-    audioMixerGroup: {fileID: 0}
-    source: {fileID: 0}
---- !u!4 &1640472941
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640472939}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1899954, y: -0.06828351, z: -1.6567944}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1703905696
 GameObject:
   m_ObjectHideFlags: 0
@@ -2834,3 +2732,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137718954}
   m_CullTransparentMesh: 1
+--- !u!1001 &8356650721321235502
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8356650721878906179, guid: 128269ba7eda8384bb428de826e8acdc, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356650721878906179, guid: 128269ba7eda8384bb428de826e8acdc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.1899954
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356650721878906179, guid: 128269ba7eda8384bb428de826e8acdc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.06828351
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356650721878906179, guid: 128269ba7eda8384bb428de826e8acdc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.6567944
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356650721878906179, guid: 128269ba7eda8384bb428de826e8acdc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356650721878906179, guid: 128269ba7eda8384bb428de826e8acdc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356650721878906179, guid: 128269ba7eda8384bb428de826e8acdc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356650721878906179, guid: 128269ba7eda8384bb428de826e8acdc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356650721878906179, guid: 128269ba7eda8384bb428de826e8acdc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356650721878906179, guid: 128269ba7eda8384bb428de826e8acdc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356650721878906179, guid: 128269ba7eda8384bb428de826e8acdc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8356650721878906181, guid: 128269ba7eda8384bb428de826e8acdc, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 128269ba7eda8384bb428de826e8acdc, type: 3}

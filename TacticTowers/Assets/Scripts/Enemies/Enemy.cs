@@ -60,47 +60,45 @@ public class Enemy : MonoBehaviour
     
     public void SetCost(float newCost) => cost = newCost;
 
-    public void TakeFire(float burnDmg, float burnTime)
+    public void TakeFire(FireStats newFire)
     {
         if (IsImmuneToFire)
             return;
         
-        // Проверяем, есть ли на объекте уже компонент Fire
-        var existingFire = GetComponent<Fire>();
+        var currentFire = GetComponent<Fire>() ?? gameObject.AddComponent<Fire>();
 
-        // Если компонента нет, добавляем его на объект
-        if (existingFire == null)
-        {
-            gameObject.AddComponent<Fire>();
-            existingFire = GetComponent<Fire>();
-        }
-        else
-        {
-            // Если компонент уже есть, сравниваем результаты умножения burnTime и burnDmg
-            var existingFireValue = existingFire.burnTime * existingFire.burnDmg;
-            var newFireValue = burnTime * burnDmg;
+        var existingFireValue = currentFire.burnTime * currentFire.burnDmg;
+        var newFireValue = newFire.BurnTime * newFire.BurnDmg;
 
-            // Если новый компонент имеет большее значение, заменяем старый на новый
-            if (newFireValue <= existingFireValue)
-            {
-                return;
-            }/*
-            else
-            {
-                // Если старый компонент имеет большее значение, прекращаем выполнение метода
-                return;
-            }*/
-        }
-
-        // Копируем значения переменных из переданного компонента Fire
-        existingFire.burnTime = burnTime;
-        existingFire.burnDmg = burnDmg;
-        //existingFire.fire = fire;
+        if (newFireValue <= existingFireValue)
+            return;
+        
+        currentFire.burnTime = newFire.BurnTime;
+        currentFire.burnDmg = newFire.BurnDmg;
     }
 
-    public void TakeFreeze()
+    public void TakeFreeze(FreezeStats newFreeze, bool hasSpecial)
     {
+        if (IsImmuneToFreeze && !hasSpecial)
+            return;
         
+        var currentFreeze = GetComponent<Freeze>() ?? gameObject.AddComponent<Freeze>();
+
+        if (newFreeze.FreezeTime > currentFreeze.freezeTime)
+        {
+            if (currentFreeze.frozen && newFreeze.FreezeStacksNeeded == 1)
+            {
+                currentFreeze.UnfreezeInstantly();
+            }
+            else
+            {
+                currentFreeze.freezeTime = newFreeze.FreezeTime;
+                currentFreeze.freezeStacksNeeded = newFreeze.FreezeStacksNeeded;
+                currentFreeze.freezeStacksPerHt = newFreeze.FreezeStacksPerHit;
+            }
+        }
+
+        currentFreeze.GetFreezeStack();
     }
     
     private void RotateByVelocity()

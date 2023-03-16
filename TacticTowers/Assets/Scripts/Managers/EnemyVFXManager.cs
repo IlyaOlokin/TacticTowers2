@@ -32,5 +32,4 @@ public class VisualEffect
 {
     public string name;
     public GameObject effect;
-    public Material material;
 }
