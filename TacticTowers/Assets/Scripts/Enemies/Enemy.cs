@@ -100,6 +100,11 @@ public class Enemy : MonoBehaviour
 
         currentFreeze.GetFreezeStack();
     }
+
+    public void TakeForce(float force, Vector2 dir)
+    {
+        
+    }
     
     private void RotateByVelocity()
     {

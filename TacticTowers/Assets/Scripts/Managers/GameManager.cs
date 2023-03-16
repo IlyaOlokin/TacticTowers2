@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -39,6 +40,16 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
             Money.AddMoney(999999);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            var enemies = GameObject.FindWithTag("EnemyParent");
+            for (var i = 0; i < enemies.transform.childCount; i++)
+            {
+                var enemy = enemies.transform.GetChild(i);
+                enemy.GetComponent<Enemy>().TakeForce(100f, new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)));
+            }
         }
     }
 }
