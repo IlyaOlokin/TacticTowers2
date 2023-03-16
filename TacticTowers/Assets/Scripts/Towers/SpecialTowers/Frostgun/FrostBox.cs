@@ -65,7 +65,7 @@ public class FrostBox : MonoBehaviour
             var enemy = enemiesInside[index];
             enemy.TakeDamage(dmg, damageType, transform.position);
             Freeze(enemy.gameObject);
-            
+            enemy.TakeFreeze();
         }
 
         dmgDelayTimer = 1f / attackSpeed;

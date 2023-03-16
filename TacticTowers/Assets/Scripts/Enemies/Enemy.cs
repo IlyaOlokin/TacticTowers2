@@ -18,6 +18,9 @@ public class Enemy : MonoBehaviour
     protected bool isDead;
     protected bool isImmortal;
     protected float rotationSpeed = 160f;
+
+    protected bool IsImmuneToFire = false;
+    protected bool IsImmuneToFreeze = false;
     
     [NonSerialized] public bool hasTentacle; // TODO: убрать
     
@@ -56,6 +59,49 @@ public class Enemy : MonoBehaviour
     public void SetHp(float newHp) => hp = newHp;
     
     public void SetCost(float newCost) => cost = newCost;
+
+    public void TakeFire(float burnDmg, float burnTime)
+    {
+        if (IsImmuneToFire)
+            return;
+        
+        // Проверяем, есть ли на объекте уже компонент Fire
+        var existingFire = GetComponent<Fire>();
+
+        // Если компонента нет, добавляем его на объект
+        if (existingFire == null)
+        {
+            gameObject.AddComponent<Fire>();
+            existingFire = GetComponent<Fire>();
+        }
+        else
+        {
+            // Если компонент уже есть, сравниваем результаты умножения burnTime и burnDmg
+            var existingFireValue = existingFire.burnTime * existingFire.burnDmg;
+            var newFireValue = burnTime * burnDmg;
+
+            // Если новый компонент имеет большее значение, заменяем старый на новый
+            if (newFireValue <= existingFireValue)
+            {
+                return;
+            }/*
+            else
+            {
+                // Если старый компонент имеет большее значение, прекращаем выполнение метода
+                return;
+            }*/
+        }
+
+        // Копируем значения переменных из переданного компонента Fire
+        existingFire.burnTime = burnTime;
+        existingFire.burnDmg = burnDmg;
+        //existingFire.fire = fire;
+    }
+
+    public void TakeFreeze()
+    {
+        
+    }
     
     private void RotateByVelocity()
     {

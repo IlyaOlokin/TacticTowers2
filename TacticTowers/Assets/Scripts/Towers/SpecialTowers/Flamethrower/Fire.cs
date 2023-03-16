@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class Fire : MonoBehaviour
 {
-    [NonSerialized] public float burnTime;
-    [NonSerialized] public float burnDmg;
-    [NonSerialized] public GameObject fire;
+    public float burnTime;
+    public float burnDmg;
+    //[NonSerialized] public GameObject fire;
     private GameObject newFire;
     private Enemy enemy;
     
@@ -18,7 +19,7 @@ public class Fire : MonoBehaviour
     private void Start()
     {
         enemy = GetComponent<Enemy>();
-        newFire = Instantiate(fire, transform.position, Quaternion.identity, enemy.transform);
+        newFire = Instantiate(EnemyVFXManager.Instance.GetEffect("FireOnEnemy").effect, transform.position, Quaternion.identity, enemy.transform);
     }
 
     void Update()
@@ -26,7 +27,6 @@ public class Fire : MonoBehaviour
         burnTime -= Time.deltaTime;
         if (burnTime <= 0)
         {
-            Destroy(newFire.gameObject);
             Destroy(this);
         }
         
@@ -39,5 +39,10 @@ public class Fire : MonoBehaviour
     {
         enemy.TakeDamage(burnDmg, damageType, transform.position);
         dmgDelayTimer = dmgDelay;
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(newFire.gameObject);
     }
 }

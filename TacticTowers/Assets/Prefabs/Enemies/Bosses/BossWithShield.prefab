@@ -140,9 +140,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b4740848650bf841bf27f2ad1c252fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 1080240355971404347, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
-  maxHp: 3000
-  enemyComp: {fileID: 753058034755746039}
+  hp: 0
+  dmg: 0
+  weight: 0
   shieldPoints:
   - {fileID: 1803156355789608309}
   - {fileID: 7697529687493278779}
@@ -161,7 +161,7 @@ MonoBehaviour:
   floatingSpread: 0.08
   rotationDelay: 12
   moveSpeed: 0.4
-  rotationSpeed: 60
+  shieldRotationSpeed: 60
 --- !u!114 &753058034755746039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,14 +174,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 200
   hp: 3000
-  creditsDropChance: 100
+  dmg: 200
   weight: 60
-  isImmortal: 0
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
 --- !u!95 &8892582879605452107
 Animator:
   serializedVersion: 3

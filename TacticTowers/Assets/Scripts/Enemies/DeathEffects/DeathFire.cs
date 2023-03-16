@@ -22,7 +22,7 @@ public class DeathFire : IDeathEffect
             collider.enabled = false;
         }
         
-        new MonoBehaviour().StartCoroutine("Burn", source.GetComponent<SpriteRenderer>().material);
+        //new MonoBehaviour().StartCoroutine("Burn", source.GetComponent<SpriteRenderer>().material);
     }
 
     private IEnumerator Burn(Material material)
