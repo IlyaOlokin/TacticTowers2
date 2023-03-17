@@ -259,14 +259,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 100
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 0
+  KnockBackResist: 0
   hp: 0
-  creditsDropChance: 100
+  dmg: 100
   weight: 1000
-  isImmortal: 1
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
 --- !u!114 &120221017296783122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +291,7 @@ GameObject:
   - component: {fileID: 6446521071913530626}
   - component: {fileID: 6446521071913530625}
   - component: {fileID: 3190797490539967590}
+  - component: {fileID: 4924631018447108676}
   m_Layer: 0
   m_Name: FinalBoss
   m_TagString: Enemy
@@ -352,14 +351,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 100
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 1
+  KnockBackResist: 1
   hp: 500
-  creditsDropChance: 100
+  dmg: 100
   weight: 750
-  isImmortal: 0
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
 --- !u!114 &6446521071913530625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,9 +369,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18d2e71ef112ce43b39da27e733f22d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: -7445606136193012617, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
-  maxHp: 20000
-  enemyComp: {fileID: 0}
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 0
+  KnockBackResist: 0
+  hp: 0
+  dmg: 0
+  weight: 0
   bossParts:
   - {fileID: 3558987875503934382}
   - {fileID: 2904762401304267128}
@@ -411,6 +411,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &4924631018447108676
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2961055341434008806}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &4588691749895395681
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,14 +578,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 100
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 0
+  KnockBackResist: 0
   hp: 0
-  creditsDropChance: 100
+  dmg: 100
   weight: 1000
-  isImmortal: 1
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
 --- !u!114 &8028479673118369190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -724,14 +743,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 100
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 0
+  KnockBackResist: 0
   hp: 0
-  creditsDropChance: 100
+  dmg: 100
   weight: 1000
-  isImmortal: 1
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
 --- !u!114 &1289420881266966757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -891,14 +908,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 100
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 0
+  KnockBackResist: 0
   hp: 0
-  creditsDropChance: 100
+  dmg: 100
   weight: 1000
-  isImmortal: 1
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
 --- !u!114 &6503018593721682127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1145,14 +1160,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 100
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 0
+  KnockBackResist: 0
   hp: 0
-  creditsDropChance: 100
+  dmg: 100
   weight: 1000
-  isImmortal: 1
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
 --- !u!114 &8033207782579975124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1318,14 +1331,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 100
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 0
+  KnockBackResist: 0
   hp: 0
-  creditsDropChance: 100
+  dmg: 100
   weight: 1000
-  isImmortal: 1
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
 --- !u!114 &3289408514062954294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1338,9 +1349,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206918b2fa1b04948851d12df340955d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  maxHp: 0
-  enemyComp: {fileID: 2904762401304267128}
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 0
+  KnockBackResist: 0
+  hp: 0
+  dmg: 0
+  weight: 0
   shootDelay: 30
   parasiteLine: {fileID: 5601598668952223541, guid: 0a488da11f45e7141b27f14b66d4c78e, type: 3}
   parasite: {fileID: 5937050097135992818, guid: 9280c800eaefa714cbdc531f01fed1a5, type: 3}
@@ -1524,14 +1538,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 100
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 0
+  KnockBackResist: 0
   hp: 0
-  creditsDropChance: 100
+  dmg: 100
   weight: 1000
-  isImmortal: 1
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
 --- !u!114 &2637137269561843709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1544,9 +1556,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7a15000b580ea4b9482cbaf5e236b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  maxHp: 0
-  enemyComp: {fileID: 2258485711902351478}
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 0
+  KnockBackResist: 0
+  hp: 0
+  dmg: 0
+  weight: 0
   shootDelay: 20
   shootDistance: 10
   web: {fileID: 1680028144157980390, guid: 5583ead9fa595934dbd9cdc811d3a5e5, type: 3}
@@ -1697,14 +1712,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 100
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 0
+  KnockBackResist: 0
   hp: 0
-  creditsDropChance: 100
+  dmg: 100
   weight: 1000
-  isImmortal: 1
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
 --- !u!114 &34895520525691741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1895,14 +1908,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 100
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 0
+  KnockBackResist: 0
   hp: 0
-  creditsDropChance: 100
+  dmg: 100
   weight: 1000
-  isImmortal: 1
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
 --- !u!114 &1557768127679278906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2062,14 +2073,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 100
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 0
+  KnockBackResist: 0
   hp: 0
-  creditsDropChance: 100
+  dmg: 100
   weight: 1000
-  isImmortal: 1
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
 --- !u!114 &8174093012485467882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2105,6 +2114,14 @@ PrefabInstance:
     - target: {fileID: 2684442192003813592, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: m_LocalPosition.y
       value: -2.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: KnockBackResist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: IsImmuneToFreeze
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6634871045546908824, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: m_Name
@@ -2198,6 +2215,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4937924204824667844}
     m_Modifications:
+    - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: KnockBackResist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: IsImmuneToFreeze
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6634871045546908824, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: m_Name
       value: Spawner (1)

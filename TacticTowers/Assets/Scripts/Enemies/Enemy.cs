@@ -9,8 +9,13 @@ using Random = UnityEngine.Random;
 public class Enemy : MonoBehaviour
 {
     protected PathFinder pathFinder;
+    private Rigidbody2D rb;
     
     [Header("Stats")]
+    [SerializeField] private bool IsImmuneToFire = false;
+    [SerializeField] private bool IsImmuneToFreeze = false;
+    [SerializeField] private float KnockBackResist = 0f;
+    
     [SerializeField] protected float hp;
     [SerializeField] protected float dmg;
     [SerializeField] protected int weight;
@@ -19,9 +24,6 @@ public class Enemy : MonoBehaviour
     protected bool isImmortal;
     protected float rotationSpeed = 160f;
 
-    protected bool IsImmuneToFire = false;
-    protected bool IsImmuneToFreeze = false;
-    
     [NonSerialized] public bool hasTentacle; // TODO: убрать
     
     /*
@@ -38,6 +40,7 @@ public class Enemy : MonoBehaviour
     public void Start()
     {
         pathFinder = new PathFinderGround(GetComponent<NavMeshAgent>());
+        rb = GetComponent<Rigidbody2D>();
         /*
         agent = GetComponent<NavMeshAgent>();
         if (!agent.enabled || !agent.isOnNavMesh) return;
@@ -97,15 +100,15 @@ public class Enemy : MonoBehaviour
                 currentFreeze.freezeStacksPerHt = newFreeze.FreezeStacksPerHit;
             }
         }
-
-        currentFreeze.GetFreezeStack();
+        if (!currentFreeze.frozen) 
+            currentFreeze.GetFreezeStack();
     }
 
-    public void TakeForce(float force, Vector2 dir)
+    public void TakeForce(float force, Vector3 dir)
     {
-        
+        rb.AddForce(dir.normalized * force * (1 - KnockBackResist), ForceMode2D.Impulse);
     }
-    
+
     private void RotateByVelocity()
     {
         if (pathFinder.IsStopped()) 
@@ -125,7 +128,6 @@ public class Enemy : MonoBehaviour
             other.gameObject.GetComponent<Base>().TakeDamage(dmg);
             OnDeath(DamageType.Normal, other.transform.position);
         }
-    
     }
     
     private void RandomizeSpeed()
