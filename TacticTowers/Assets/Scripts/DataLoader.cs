@@ -71,9 +71,9 @@ public class DataLoader : MonoBehaviour
         }
     }
 
-    public static void SaveInt(string variableName, int isUnlocked)
+    public static void SaveInt(string variableName, int value)
     {
-        PlayerPrefs.SetInt(variableName, Convert.ToInt16(isUnlocked));
+        PlayerPrefs.SetInt(variableName, Convert.ToInt16(value));
     }
 
     public static void SaveInt(string variableName, bool isUnlocked)
