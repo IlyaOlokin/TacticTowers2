@@ -1102,7 +1102,6 @@ GameObject:
   - component: {fileID: 5937050097135992817}
   - component: {fileID: 5937050097135992822}
   - component: {fileID: -6289906005833271352}
-  - component: {fileID: 5937050097135992821}
   - component: {fileID: 8819852561868140008}
   - component: {fileID: 8254661326842455118}
   m_Layer: 7
@@ -1230,11 +1229,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsImmuneToFire: 0
-  IsImmuneToFreeze: 0
-  KnockBackResist: 0
-  hp: 0
-  dmg: 0
-  weight: 0
+  IsImmuneToFreeze: 1
+  KnockBackResist: 1
+  hp: 15000
+  dmg: 200
+  weight: 330
   tentaclesTips:
   - {fileID: 1278584966227933453}
   - {fileID: 9131979270249179825}
@@ -1243,24 +1242,6 @@ MonoBehaviour:
   tentaclesRange: 1.5
   regenForTentacle: 5
   tentacleParent: {fileID: 973787500847973881}
---- !u!114 &5937050097135992821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5937050097135992818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsImmuneToFire: 0
-  IsImmuneToFreeze: 1
-  KnockBackResist: 1
-  hp: 15000
-  dmg: 200
-  weight: 330
 --- !u!95 &8819852561868140008
 Animator:
   serializedVersion: 3

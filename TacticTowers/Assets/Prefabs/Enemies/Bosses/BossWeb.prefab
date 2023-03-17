@@ -354,11 +354,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsImmuneToFire: 0
-  IsImmuneToFreeze: 0
-  KnockBackResist: 0
-  hp: 0
-  dmg: 0
-  weight: 0
+  IsImmuneToFreeze: 1
+  KnockBackResist: 1
+  hp: 7500
+  dmg: 200
+  weight: 165
   shootDelay: 10
   shootDistance: 6
   web: {fileID: 1680028144157980390, guid: 5583ead9fa595934dbd9cdc811d3a5e5, type: 3}

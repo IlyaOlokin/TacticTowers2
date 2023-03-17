@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 753058034755746035}
   - component: {fileID: 753058034755746036}
   - component: {fileID: 4395380624547128743}
-  - component: {fileID: 753058034755746039}
   - component: {fileID: 8892582879605452107}
   - component: {fileID: 6208723934211412869}
   m_Layer: 7
@@ -142,11 +141,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsImmuneToFire: 0
-  IsImmuneToFreeze: 0
-  KnockBackResist: 0
-  hp: 0
-  dmg: 0
-  weight: 0
+  IsImmuneToFreeze: 1
+  KnockBackResist: 1
+  hp: 3000
+  dmg: 200
+  weight: 60
   shieldPoints:
   - {fileID: 1803156355789608309}
   - {fileID: 7697529687493278779}
@@ -166,24 +165,6 @@ MonoBehaviour:
   rotationDelay: 12
   moveSpeed: 0.4
   shieldRotationSpeed: 60
---- !u!114 &753058034755746039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753058034755746032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsImmuneToFire: 0
-  IsImmuneToFreeze: 1
-  KnockBackResist: 1
-  hp: 3000
-  dmg: 200
-  weight: 60
 --- !u!95 &8892582879605452107
 Animator:
   serializedVersion: 3
