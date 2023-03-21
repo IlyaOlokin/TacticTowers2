@@ -13,6 +13,7 @@ public class DamageNumberEffect : MonoBehaviour
     [SerializeField] private float effectDuration;
     [SerializeField] private float scaleMultiplier;
     [SerializeField] private float moveUpDistance;
+    [SerializeField] private float lerpSpeed;
     private float timer;
     private Vector3 targetScale;
     private Vector3 startScale;
@@ -42,7 +43,7 @@ public class DamageNumberEffect : MonoBehaviour
         if (timer <= effectDuration)
         {
             transform.localScale = Vector2.Lerp(startScale, targetScale, timer / effectDuration);
-            transform.position = Vector2.Lerp(startPos, targetPos, timer / effectDuration);
+            transform.position = Vector2.Lerp(transform.position, targetPos, lerpSpeed);
         }
         else
         {
