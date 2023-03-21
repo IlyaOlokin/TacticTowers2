@@ -11,24 +11,22 @@ public class Shotgun : Tower
     [SerializeField] private float bulletSpeed;
     [SerializeField] private float angleBetweenBullets;
     public int bulletCount;
-    public int bonusBullets;
-
-
-    [Header("Double Damage Upgrade")] 
+    [NonSerialized] public int bonusBullets;
+    
     [NonSerialized] public bool hasDoubleDamageUpgrade;
+    [Header("Double Damage Upgrade")]
 
     [SerializeField] private float doubleDamageChance;
-    
-    
-    [Header("Double Damage Upgrade")]
+
     [NonSerialized] public bool hasDoubleShotUpgrade;
+    [Header("Double Damage Upgrade")]
 
     [SerializeField] private float doubleShotChance;
     [SerializeField] private float doubleShotDelay;
     
-    [Header("Knock Back Upgrade")]
     [NonSerialized] public bool hasKnockBackUpgrade;
-    
+    [Header("Knock Back Upgrade")]
+
     [SerializeField] private float knockBackForce;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();

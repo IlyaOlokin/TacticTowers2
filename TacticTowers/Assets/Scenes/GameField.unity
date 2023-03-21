@@ -416,22 +416,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3354139222115887396, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-      propertyPath: towerTypeUpgradeLevel
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3354139222115887396, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-      propertyPath: specialUpgradesLevels.Array.data[0]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3354139222115887396, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-      propertyPath: specialUpgradesLevels.Array.data[1]
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3354139222115887396, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-      propertyPath: specialUpgradesLevels.Array.data[2]
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 4350232194081054234, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -442,7 +426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4641657415697292076, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 295.914
+      value: 295.91394
       objectReference: {fileID: 0}
     - target: {fileID: 6320360387982982927, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Camera

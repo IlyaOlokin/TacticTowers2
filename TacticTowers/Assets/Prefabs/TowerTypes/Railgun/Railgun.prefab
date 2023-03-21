@@ -227,7 +227,7 @@ MonoBehaviour:
   specialUpgrades:
   - {fileID: 301189744776703719, guid: f08b80dff4d9a344baaa36d57487483e, type: 3}
   - {fileID: 8894942514159070104, guid: aa378e7675568ba4b89d8a255779b2bc, type: 3}
-  - {fileID: 301189744776703719, guid: f08b80dff4d9a344baaa36d57487483e, type: 3}
+  - {fileID: 3630716149564005556, guid: 8adc31b2f03220e40bcb4fc737d6cf43, type: 3}
   towerCanon: {fileID: 6380372753448526936}
   shootZone: {fileID: 0}
   shootAngle: 25
@@ -246,6 +246,7 @@ MonoBehaviour:
   damageOverDistanceMultiplier: 0.05
   doubleShotChance: 0.2
   doubleShotDelay: 0.1
+  knockBackForce: 2
 --- !u!82 &-5487695012915496547
 AudioSource:
   m_ObjectHideFlags: 0
