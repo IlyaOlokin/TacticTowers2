@@ -10,7 +10,7 @@ public class MinUpgradePriceFinder : MonoBehaviour
 
     public void FindMinPrice()
     {
-        int minPrice = Int32.MaxValue;
+        int minPrice = Int16.MaxValue;
         foreach (var technology in technologyUpgrades)
         {
             if (technology.upgradeLevel == technology.prices.Count) continue;

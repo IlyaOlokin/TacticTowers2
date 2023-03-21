@@ -27,10 +27,8 @@ public class FlameBox : MonoBehaviour
     private bool needToBeDestroyed;
     private DamageType damageType = DamageType.Fire;
 
-    [SerializeField] private GameObject fire;
     private static readonly int EndFlame = Shader.PropertyToID("_EndFlame");
     private static readonly int StartFlame = Shader.PropertyToID("_StartFlame");
-
 
     private void Start()
     {
@@ -63,8 +61,10 @@ public class FlameBox : MonoBehaviour
             var enemy = enemiesInside[index];
             
             enemy.TakeDamage(GetDamage(enemy), damageType, transform.position);
-            SetOnFire(enemy.gameObject);
+            //SetOnFire(enemy.gameObject);
+            enemy.TakeFire(new FireStats(burnTime, burnDmg));
         }
+
         dmgDelayTimer = 1f / attackSpeed;
     }
 
@@ -92,12 +92,14 @@ public class FlameBox : MonoBehaviour
 
     private void SetOnFire(GameObject enemy)
     {
+        //var fire = 
+        //enemy.GetComponent<Enemy>().TakeFire()
         if (!enemy.GetComponent<Fire>())
         {
             enemy.transform.gameObject.AddComponent<Fire>();
             enemy.GetComponent<Fire>().burnDmg = burnDmg;
             enemy.GetComponent<Fire>().burnTime = burnTime;
-            enemy.GetComponent<Fire>().fire = fire;
+            //enemy.GetComponent<Fire>().fire = fire;
         }
         else
         {

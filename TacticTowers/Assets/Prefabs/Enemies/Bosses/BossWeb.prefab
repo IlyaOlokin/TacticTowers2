@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 5937050097135992821}
   - component: {fileID: 8597005283071043525}
   - component: {fileID: 4209256755581398347}
+  - component: {fileID: -6096209314608355814}
   m_Layer: 7
   m_Name: BossWeb
   m_TagString: Enemy
@@ -334,14 +335,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 200
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 1
+  KnockBackResist: 1
   hp: 7500
-  creditsDropChance: 100
+  dmg: 200
   weight: 165
-  isImmortal: 0
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
 --- !u!114 &8597005283071043525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,9 +353,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7a15000b580ea4b9482cbaf5e236b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: -2805804733518999434, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
-  maxHp: 7500
-  enemyComp: {fileID: 5937050097135992821}
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 1
+  KnockBackResist: 1
+  hp: 7500
+  dmg: 200
+  weight: 165
   shootDelay: 10
   shootDistance: 6
   web: {fileID: 1680028144157980390, guid: 5583ead9fa595934dbd9cdc811d3a5e5, type: 3}
@@ -380,3 +382,24 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &-6096209314608355814
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5937050097135992818}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

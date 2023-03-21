@@ -12,13 +12,11 @@ public class Freeze : MonoBehaviour
     [NonSerialized] public float freezeStacksPerHt;
     [NonSerialized] public bool frozen;
 
-    [NonSerialized] public GameObject freezeEffect;
     private GameObject newFreezeEffect;
     
     [SerializeField]private Enemy enemy;
     private float enemySpeed;
     private Color enemyColor;
-    
 
     public void OnEnable()
     {
@@ -61,7 +59,7 @@ public class Freeze : MonoBehaviour
         StopAllCoroutines();
         enemy.GetComponent<NavMeshAgent>().speed = 0;
         
-        newFreezeEffect = Instantiate(freezeEffect, transform.position, Quaternion.identity, enemy.transform);
+        newFreezeEffect = Instantiate(EnemyVFXManager.Instance.GetEffect("FreezeOnEnemy").effect, transform.position, Quaternion.identity, enemy.transform);
         StartCoroutine(Unfreeze(freezeTime));
     }
 
@@ -72,6 +70,7 @@ public class Freeze : MonoBehaviour
         ColorEnemy();
         SlowEnemy();
     }
+    
     IEnumerator Unfreeze(float freezeTime)
     {
         yield return new WaitForSeconds(freezeTime);

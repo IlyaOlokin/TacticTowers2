@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class BossWithShields : Boss
@@ -19,9 +20,8 @@ public class BossWithShields : Boss
     private Transform[] moveDestinationTransforms = new Transform[3];
     
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float rotationSpeed;
-
-
+    [SerializeField] private float shieldRotationSpeed;
+    
     void Start()
     {
         for (int i = 0; i < shields.Count; i++)
@@ -87,7 +87,7 @@ public class BossWithShields : Boss
         if (!NeedToRotateShield(shieldIndex)) return;
         
         shields[shieldIndex].transform.rotation = Quaternion.RotateTowards(shields[shieldIndex].transform.rotation,
-            moveDestinationTransforms[shieldIndex].rotation, rotationSpeed * Time.deltaTime);
+            moveDestinationTransforms[shieldIndex].rotation, shieldRotationSpeed * Time.deltaTime);
     }
 
     private void FloatShields(int shieldIndex)

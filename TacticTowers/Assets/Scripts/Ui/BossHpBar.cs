@@ -54,8 +54,8 @@ public class BossHpBar : MonoBehaviour
 
     private void UpdateSlider()
     {
-        slider.value = boss.hp;
-        if (boss.hp <= 0)
+        slider.value = boss.GetHp();
+        if (boss.GetHp() <= 0)
         {
             DisableThis();
         }
@@ -77,7 +77,7 @@ public class BossHpBar : MonoBehaviour
     public void InitializeBoss(Boss boss)
     {
         this.boss = boss;
-        slider.maxValue = this.boss.maxHp;
-        bossIcon.sprite = boss.transform.GetComponent<Boss>().icon;
+        slider.maxValue = this.boss.GetMaxHp();
+        bossIcon.sprite = boss.transform.GetComponent<Boss>().GetIcon();
     }
 }

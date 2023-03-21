@@ -8,20 +8,27 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
+    protected PathFinder pathFinder;
+    private Rigidbody2D rb;
     
-    private NavMeshAgent agent;
     [Header("Stats")]
-    [SerializeField] private float dmg;
-    [SerializeField] public float hp;
+    [SerializeField] private bool IsImmuneToFire = false;
+    [SerializeField] private bool IsImmuneToFreeze = false;
+    [SerializeField] private float KnockBackResist = 0f;
     
-    [NonSerialized] public float cost;
+    [SerializeField] protected float hp;
+    [SerializeField] protected float dmg;
+    [SerializeField] protected int weight;
+    protected float cost;
+    protected bool isDead;
+    protected bool isImmortal;
+    protected float rotationSpeed = 160f;
+
+    [NonSerialized] public bool hasTentacle; // TODO: убрать
+    
+    /*
+    private NavMeshAgent agent;
     [SerializeField] private int creditsDropChance;
-    public int weight;
-    
-    [NonSerialized] public bool hasTentacle;
-    private float rotationSpeed = 160f;
-    private bool isDead;
-    public bool isImmortal;
     
     [Header("Visual Effects")]
     [SerializeField] private GameObject damageNumberEffect;
@@ -29,28 +36,87 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Material burnMaterial;
     private static readonly int fade = Shader.PropertyToID("_Fade");
     private float fadeDuration = 1.2f;
-
-    void Start()
+*/
+    public void Start()
     {
+        pathFinder = new PathFinderGround(GetComponent<NavMeshAgent>());
+        rb = GetComponent<Rigidbody2D>();
+        /*
         agent = GetComponent<NavMeshAgent>();
         if (!agent.enabled || !agent.isOnNavMesh) return;
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.SetDestination(GameObject.FindGameObjectWithTag("Base").transform.position);
+        */
         RandomizeSpeed();
     }
-
     
-    void Update()
+    public void Update()
     {
         RotateByVelocity();
     }
 
+    public int GetWeight() => weight;
+    public float GetHp() => hp;
+
+    public void SetHp(float newHp) => hp = newHp;
+    
+    public void SetCost(float newCost) => cost = newCost;
+
+    public void TakeFire(FireStats newFire)
+    {
+        if (IsImmuneToFire)
+            return;
+        
+        var currentFire = GetComponent<Fire>() ?? gameObject.AddComponent<Fire>();
+
+        var existingFireValue = currentFire.burnTime * currentFire.burnDmg;
+        var newFireValue = newFire.BurnTime * newFire.BurnDmg;
+
+        if (newFireValue <= existingFireValue)
+            return;
+        
+        currentFire.burnTime = newFire.BurnTime;
+        currentFire.burnDmg = newFire.BurnDmg;
+    }
+
+    public void TakeFreeze(FreezeStats newFreeze, bool hasSpecial)
+    {
+        if (IsImmuneToFreeze && !hasSpecial)
+            return;
+        
+        var currentFreeze = GetComponent<Freeze>() ?? gameObject.AddComponent<Freeze>();
+
+        if (newFreeze.FreezeTime > currentFreeze.freezeTime)
+        {
+            if (currentFreeze.frozen && newFreeze.FreezeStacksNeeded == 1)
+            {
+                currentFreeze.UnfreezeInstantly();
+            }
+            else
+            {
+                currentFreeze.freezeTime = newFreeze.FreezeTime;
+                currentFreeze.freezeStacksNeeded = newFreeze.FreezeStacksNeeded;
+                currentFreeze.freezeStacksPerHt = newFreeze.FreezeStacksPerHit;
+            }
+        }
+        if (!currentFreeze.frozen) 
+            currentFreeze.GetFreezeStack();
+    }
+
+    public void TakeForce(float force, Vector3 dir)
+    {
+        rb.AddForce(dir.normalized * force * (1 - KnockBackResist), ForceMode2D.Impulse);
+    }
+
     private void RotateByVelocity()
     {
-        if (!agent.enabled || agent.speed == 0) return;
-        var angle = Mathf.Atan2(agent.desiredVelocity.y, agent.desiredVelocity.x) * Mathf.Rad2Deg;
-        Quaternion targetRotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+        if (pathFinder.IsStopped()) 
+            return;
+        
+        var angle = pathFinder.GetRotationAngle();
+        var targetRotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+        
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
     }
 
@@ -62,22 +128,19 @@ public class Enemy : MonoBehaviour
             other.gameObject.GetComponent<Base>().TakeDamage(dmg);
             OnDeath(DamageType.Normal, other.transform.position);
         }
-    
     }
     
     private void RandomizeSpeed()
     {
-        if (GetComponent<Boss>() != null) return;
-        var multiplier = Random.Range(1f, 1.75f);
-        agent.speed *= multiplier;
-        agent.avoidancePriority = (int) (agent.avoidancePriority * multiplier);
+        if (GetComponent<Boss>() != null) 
+            return;
+        pathFinder.RandomizeSpeed();
     }
     
     public bool TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos)
     {
-        
         hp -= dmg;
-        var newEffect = Instantiate(damageNumberEffect, transform.position, Quaternion.identity);
+        var newEffect = Instantiate(EnemyVFXManager.Instance.GetEffect("DamageNumber").effect, transform.position, Quaternion.identity);
         newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
         if (hp < 0 && isDead) return true;
         
@@ -88,27 +151,36 @@ public class Enemy : MonoBehaviour
         }
         return false;
     }
+    
     private void OnDeath(DamageType damageType, Vector3 killerPos)
     {
         Money.AddMoney(cost);
+        
         isDead = true;
-        DropCreditsByChance(creditsDropChance);
+        pathFinder.StopMovement();
+        //agent.enabled = false;
+        
+        //DropCreditsByChance(creditsDropChance);
         switch (damageType)
         {
             case DamageType.Normal:
-                DieNormal(killerPos);
+                new DeathNormal().PlayEffect(gameObject, killerPos);
+                //DieNormal(killerPos);
                 break;
             case DamageType.Fire:
-                DieFire(burnMaterial);
+                new DeathFire().PlayEffect(gameObject, killerPos);
+                //DieFire(burnMaterial);
                 break;
         }
+        
+        Destroy(gameObject);
     }
 
     private void OnDestroy()
     {
         EnemySpawner.enemies.Remove(gameObject);
     }
-
+/*
     private void DieNormal(Vector3 killerPos)
     {
         var dir = transform.position - killerPos;
@@ -117,7 +189,7 @@ public class Enemy : MonoBehaviour
         if (dir.x < 0) degrees = 180 - degrees;
         
         Quaternion rotation = Quaternion.Euler(0,0, degrees);
-        Instantiate(deathParticles, transform.position, rotation);
+        /Instantiate(deathParticles, transform.position, rotation);
         Destroy(gameObject);
     }
 
@@ -148,7 +220,7 @@ public class Enemy : MonoBehaviour
     {
         if (Random.Range(0, 100) < chance) Credits.AddSessionCredits(weight);
     }
-
+*/
     public void SetTentacle()
     {
         hasTentacle = true;

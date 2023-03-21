@@ -52,13 +52,7 @@ public class FinalBoss : Boss
 
     private float GetDamageDone()
     {
-        float hp = 0;
-        foreach (var bossPart in bossParts)
-        {
-            hp += bossPart.hp;
-        }
-
-        return hp;
+        return bossParts.Sum(bossPart => bossPart.GetHp());
     }
 
     public void ActivateBossFunctionality()
