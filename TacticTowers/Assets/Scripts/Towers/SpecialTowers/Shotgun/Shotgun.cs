@@ -13,18 +13,24 @@ public class Shotgun : Tower
     public int bulletCount;
     public int bonusBullets;
 
-    [NonSerialized] public bool hasDoubleDamageUpgrade;
 
     [Header("Double Damage Upgrade")] 
+    [NonSerialized] public bool hasDoubleDamageUpgrade;
+
     [SerializeField] private float doubleDamageChance;
     
     
-    [NonSerialized] public bool hasDoubleShotUpgrade;
-    
     [Header("Double Damage Upgrade")]
+    [NonSerialized] public bool hasDoubleShotUpgrade;
+
     [SerializeField] private float doubleShotChance;
     [SerializeField] private float doubleShotDelay;
     
+    [Header("Knock Back Upgrade")]
+    [NonSerialized] public bool hasKnockBackUpgrade;
+    
+    [SerializeField] private float knockBackForce;
+
     private void Start() => audioSrc = GetComponent<AudioSource>();
     private new void Update() => base.Update();
 
@@ -60,11 +66,13 @@ public class Shotgun : Tower
                               angleBetweenBullets / 2f;
 
             var newBullet = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, bulletAngle + towerRot.z));
-            var bulletComponent = newBullet.GetComponent<Bullet>();
+            var bulletComponent = newBullet.GetComponent<ShotgunBullet>();
             bulletComponent.Dmg = GetDmg() * GetLocalDamageMultiplier();
             bulletComponent.Speed = bulletSpeed;
             bulletComponent.enemiesToIgnore = enemiesToIgnore;
             bulletComponent.departurePos = transform.position;
+            bulletComponent.hasKnockBackUpgrade = hasKnockBackUpgrade;
+            bulletComponent.knockBackForce = knockBackForce;
         }
         audioSrc.PlayOneShot(audioSrc.clip);
     }
