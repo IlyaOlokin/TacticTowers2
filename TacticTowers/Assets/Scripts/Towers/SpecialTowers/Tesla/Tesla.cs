@@ -16,12 +16,18 @@ public class Tesla : Tower
     public float lightningJumpDistanceMultiplier;
     private DamageType damageType = DamageType.Fire;
 
-    [NonSerialized] public bool hasSetOnFireUpgrade;
+    
     [NonSerialized] public bool hasMicroStunUpgrade;
     
     [NonSerialized] public bool hasBranchingUpgrade;
     [Header("Branching Upgrade")]
     [SerializeField] private float branchingChance = 0.25f;
+    
+    [NonSerialized] public bool hasFireChanceUpgrade;
+    [Header("Fire Chance Upgrade")]
+    [SerializeField] private float chanceToSetOnFire;
+    [SerializeField] private float burnTime;
+    [SerializeField] private float burnDamageMultiplier;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
     private new void Update() => base.Update();
@@ -64,6 +70,8 @@ public class Tesla : Tower
         {
             newLightning.GetComponent<LineRenderer>().SetPosition(1, endPos);
             enemy.GetComponent<Enemy>().TakeDamage(dmg, damageType, transform.position);
+            if (Random.Range(0f, 1f) < chanceToSetOnFire)
+                enemy.GetComponent<Enemy>().TakeFire(new FireStats(burnTime, dmg * burnDamageMultiplier));
             pickedEnemies.Add(enemy);
         }
         else
