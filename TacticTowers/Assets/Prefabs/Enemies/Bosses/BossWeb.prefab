@@ -207,7 +207,6 @@ GameObject:
   - component: {fileID: 5937050097135992816}
   - component: {fileID: 5937050097135992817}
   - component: {fileID: 5937050097135992822}
-  - component: {fileID: 5937050097135992821}
   - component: {fileID: 8597005283071043525}
   - component: {fileID: 4209256755581398347}
   - component: {fileID: -6096209314608355814}
@@ -323,24 +322,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.77
---- !u!114 &5937050097135992821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5937050097135992818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsImmuneToFire: 0
-  IsImmuneToFreeze: 1
-  KnockBackResist: 1
-  hp: 7500
-  dmg: 200
-  weight: 165
 --- !u!114 &8597005283071043525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +340,9 @@ MonoBehaviour:
   hp: 7500
   dmg: 200
   weight: 165
+  creditsDropChance: 0
+  icon: {fileID: -2805804733518999434, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
+  maxHp: 7500
   shootDelay: 10
   shootDistance: 6
   web: {fileID: 1680028144157980390, guid: 5583ead9fa595934dbd9cdc811d3a5e5, type: 3}

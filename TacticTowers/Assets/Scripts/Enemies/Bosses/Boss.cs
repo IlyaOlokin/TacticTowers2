@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Boss : Enemy
 {
-    protected Sprite icon;
-    protected float maxHp;
+    [SerializeField] protected Sprite icon;
+    [SerializeField] protected float maxHp;
     
     //[NonSerialized]public float hp;
     //[SerializeField] protected Enemy enemyComp;
@@ -23,6 +23,6 @@ public class Boss : Enemy
 
     protected virtual void BossDeath()
     {
-        
+        isDead = true;
     }
 }

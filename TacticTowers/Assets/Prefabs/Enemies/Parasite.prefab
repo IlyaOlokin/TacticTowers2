@@ -225,9 +225,11 @@ MonoBehaviour:
   IsImmuneToFire: 0
   IsImmuneToFreeze: 1
   KnockBackResist: 1
+  isImmortal: 0
   hp: 80
   dmg: 0
   weight: 0
+  creditsDropChance: 0
 --- !u!114 &6735614924725604676
 MonoBehaviour:
   m_ObjectHideFlags: 0

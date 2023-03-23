@@ -3267,12 +3267,12 @@ GameObject:
   - component: {fileID: 341391978}
   - component: {fileID: 341391977}
   m_Layer: 0
-  m_Name: EnemySpawner (1)
+  m_Name: EnemySpawnerBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &341391977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3290,8 +3290,14 @@ MonoBehaviour:
   - moneyForWave: 15
     seconds: 60
     waveScale: 0
-    isSpecial: 0
-    specialEnemySet: {fileID: 0}
+    isSpecial: 1
+    specialEnemySet: {fileID: 11400000, guid: 7f2f6728cbf026540a3bce73750122c5, type: 2}
+    bossTransform: {fileID: 1653073194}
+  - moneyForWave: 5
+    seconds: 120
+    waveScale: 1
+    isSpecial: 1
+    specialEnemySet: {fileID: 11400000, guid: 7f2f6728cbf026540a3bce73750122c5, type: 2}
     bossTransform: {fileID: 0}
   - moneyForWave: 15
     seconds: 20
@@ -3299,12 +3305,6 @@ MonoBehaviour:
     isSpecial: 1
     specialEnemySet: {fileID: 11400000, guid: d8d60f122d3764a46ba188356151661a, type: 2}
     bossTransform: {fileID: 1684239101}
-  - moneyForWave: 5
-    seconds: 120
-    waveScale: 1
-    isSpecial: 1
-    specialEnemySet: {fileID: 11400000, guid: 3d4c5d9fad22b6a4a8efb86679990508, type: 2}
-    bossTransform: {fileID: 0}
   - moneyForWave: 10
     seconds: 10
     waveScale: 0
@@ -3321,7 +3321,7 @@ MonoBehaviour:
     seconds: 60
     waveScale: 0
     isSpecial: 0
-    specialEnemySet: {fileID: 0}
+    specialEnemySet: {fileID: 11400000, guid: 68782cf78a4346f46aa6995c30c5467d, type: 2}
     bossTransform: {fileID: 0}
   - moneyForWave: 15
     seconds: 60
@@ -3779,7 +3779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &363942888
 MonoBehaviour:
   m_ObjectHideFlags: 0

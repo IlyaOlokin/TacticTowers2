@@ -16,38 +16,22 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool IsImmuneToFreeze = false;
     [SerializeField] private float KnockBackResist = 0f;
     
+    [SerializeField] protected bool isImmortal;
     [SerializeField] protected float hp;
     [SerializeField] protected float dmg;
     [SerializeField] protected int weight;
     protected float cost;
     protected bool isDead;
-    protected bool isImmortal;
     protected float rotationSpeed = 160f;
 
     [NonSerialized] public bool hasTentacle; // TODO: убрать
-    
-    /*
-    private NavMeshAgent agent;
     [SerializeField] private int creditsDropChance;
     
-    [Header("Visual Effects")]
-    [SerializeField] private GameObject damageNumberEffect;
-    [SerializeField] private GameObject deathParticles;
-    [SerializeField] private Material burnMaterial;
-    private static readonly int fade = Shader.PropertyToID("_Fade");
-    private float fadeDuration = 1.2f;
-*/
     public void Start()
     {
         pathFinder = new PathFinderGround(GetComponent<NavMeshAgent>());
         rb = GetComponent<Rigidbody2D>();
-        /*
-        agent = GetComponent<NavMeshAgent>();
-        if (!agent.enabled || !agent.isOnNavMesh) return;
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        agent.SetDestination(GameObject.FindGameObjectWithTag("Base").transform.position);
-        */
+ 
         RandomizeSpeed();
     }
     
@@ -106,7 +90,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeForce(float force, Vector3 dir)
     {
-        rb.AddForce(dir.normalized * force * (1 - KnockBackResist), ForceMode2D.Impulse);
+        rb.AddForce(dir.normalized * (force * (1 - KnockBackResist)), ForceMode2D.Impulse);
     }
 
     private void RotateByVelocity()
@@ -158,18 +142,16 @@ public class Enemy : MonoBehaviour
         
         isDead = true;
         pathFinder.StopMovement();
-        //agent.enabled = false;
         
-        //DropCreditsByChance(creditsDropChance);
+        DropCreditsByChance(creditsDropChance);
         switch (damageType)
         {
             case DamageType.Normal:
                 new DeathNormal().PlayEffect(gameObject, killerPos);
-                //DieNormal(killerPos);
                 break;
+                
             case DamageType.Fire:
                 new DeathFire().PlayEffect(gameObject, killerPos);
-                //DieFire(burnMaterial);
                 break;
         }
         
@@ -180,47 +162,12 @@ public class Enemy : MonoBehaviour
     {
         EnemySpawner.enemies.Remove(gameObject);
     }
-/*
-    private void DieNormal(Vector3 killerPos)
-    {
-        var dir = transform.position - killerPos;
-        var asin = Mathf.Asin(dir.normalized.y);
-        var degrees = asin * 180 / Mathf.PI;
-        if (dir.x < 0) degrees = 180 - degrees;
-        
-        Quaternion rotation = Quaternion.Euler(0,0, degrees);
-        /Instantiate(deathParticles, transform.position, rotation);
-        Destroy(gameObject);
-    }
-
-    private void DieFire(Material newMaterial)
-    {
-        EnemySpawner.enemies.Remove(gameObject);
-        GetComponent<SpriteRenderer>().material = newMaterial;
-        agent.enabled = false;
-        GetComponent<Collider2D>().enabled = false;
-        foreach (Collider2D collider in transform.GetComponentsInChildren(typeof(Collider2D)))
-        {
-            collider.enabled = false;
-        }
-        StartCoroutine("Burn", GetComponent<SpriteRenderer>().material);
-    }
-
-    private IEnumerator Burn(Material material)
-    {
-        for (float alpha = fadeDuration; alpha >= 0; alpha -= Time.deltaTime)
-        {
-            material.SetFloat(fade, alpha / fadeDuration);
-            yield return null;
-        }
-        Destroy(gameObject);
-    }
 
     private void DropCreditsByChance(int chance)
     {
         if (Random.Range(0, 100) < chance) Credits.AddSessionCredits(weight);
     }
-*/
+    
     public void SetTentacle()
     {
         hasTentacle = true;

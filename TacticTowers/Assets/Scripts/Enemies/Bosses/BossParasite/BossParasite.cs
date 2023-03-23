@@ -17,6 +17,7 @@ public class BossParasite : Boss
 
     void Update()
     {
+        base.Update();
         TryToShoot();
         UpdateHp();
         shootTimer += Time.deltaTime;
@@ -59,7 +60,7 @@ public class BossParasite : Boss
     {
         foreach (var tower in towers)
         {
-            var newParasite = Instantiate(parasite, tower.transform.position, Quaternion.identity);
+            var newParasite = Instantiate(parasite, tower.transform.position, Quaternion.identity, tower.transform);
             newParasite.GetComponent<Parasite>().tower = tower;
             newParasite.GetComponent<Parasite>().attackSpeedMultiplier = attackSpeedMultiplier;
             EnemySpawner.enemies.Add(newParasite);

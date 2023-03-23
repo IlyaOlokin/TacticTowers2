@@ -7,6 +7,7 @@ public class Parasite : MonoBehaviour
 {
     [NonSerialized] public GameObject tower;
     [NonSerialized] public float attackSpeedMultiplier;
+    
     void Start()
     {
         AttachToTower();
@@ -14,16 +15,19 @@ public class Parasite : MonoBehaviour
 
     private void AttachToTower()
     {
-        var towerComp = tower.GetComponent<TowerDrag>().tower.GetComponent<Tower>();
+        var towerComp = tower.GetComponent<TowerDrag>().tower;
+        //var towerComp = tower.GetComponent<Tower>();
         towerComp.enemiesToIgnore.Add(gameObject);
         towerComp.GetParasite(attackSpeedMultiplier);
     }
 
     private void OnDestroy()
     {
-        if (tower == null) return;
+        if (tower == null) 
+            return;
         
-        var towerComp = tower.GetComponent<TowerDrag>().tower.GetComponent<Tower>();
+        var towerComp = tower.GetComponent<TowerDrag>().tower;
+        //var towerComp = tower.GetComponent<Tower>();
         towerComp.enemiesToIgnore.Remove(gameObject);
         towerComp.LostParasite();
     }

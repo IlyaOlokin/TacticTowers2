@@ -98,7 +98,7 @@ public class BossTentacles : Boss
 
     protected override void BossDeath()
     {
-        isDead = true;
+        base.BossDeath();
         Destroy(tentacleParent);
     }
 }

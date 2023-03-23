@@ -146,6 +146,9 @@ MonoBehaviour:
   hp: 3000
   dmg: 200
   weight: 60
+  creditsDropChance: 0
+  icon: {fileID: 1080240355971404347, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
+  maxHp: 3000
   shieldPoints:
   - {fileID: 1803156355789608309}
   - {fileID: 7697529687493278779}
