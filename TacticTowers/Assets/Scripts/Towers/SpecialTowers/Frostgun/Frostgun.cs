@@ -24,6 +24,8 @@ public class Frostgun : Tower
     [Header("Width Upgrade")] 
     [SerializeField] private float widthMultiplier;
     
+    [NonSerialized] public bool hasImmuneIgnoreUpgrade;
+    
     private void Start() => audioSrc = GetComponent<AudioSource>();
 
     new void Update() => base.Update();
@@ -58,6 +60,7 @@ public class Frostgun : Tower
                 frostBoxComponent.freezeTime = freezeTime * freezeTimeMultiplier;
                 frostBoxComponent.freezeStacksPerHit = GetFreezeStacksPerHit();
                 frostBoxComponent.freezeStacksNeeded = freezeStacksNeeded;
+                frostBoxComponent.hasImmuneIgnoreUpgrade = hasImmuneIgnoreUpgrade;
                 
                 defaultFrostBoxWidth = activeFrostBox.transform.localScale.x ;
                 currentEnemy = enemy;

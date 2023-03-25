@@ -28,6 +28,7 @@ public class FrostBox : MonoBehaviour
     [NonSerialized] public Vector3 frostStartPos;
     [NonSerialized] public float freezeTime;
     [NonSerialized] public float freezeStacksPerHit;
+    [NonSerialized] public bool hasImmuneIgnoreUpgrade;
 
     //[SerializeField] private GameObject freezeEffect;
     private static readonly int StartFlame = Shader.PropertyToID("_StartFlame");
@@ -64,8 +65,7 @@ public class FrostBox : MonoBehaviour
             var enemy = enemiesInside[index];
             enemy.TakeDamage(dmg, damageType, transform.position);
             //Freeze(enemy.gameObject);
-            // TODO: добавить проверку на спец                                                              V 
-            enemy.TakeFreeze(new FreezeStats(freezeStacksNeeded, freezeTime, freezeStacksPerHit), true);
+            enemy.TakeFreeze(new FreezeStats(freezeStacksNeeded, freezeTime, freezeStacksPerHit), hasImmuneIgnoreUpgrade);
         }
 
         dmgDelayTimer = 1f / attackSpeed;
