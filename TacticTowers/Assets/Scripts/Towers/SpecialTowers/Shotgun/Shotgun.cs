@@ -65,7 +65,13 @@ public class Shotgun : Tower
 
             var newBullet = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, bulletAngle + towerRot.z));
             var bulletComponent = newBullet.GetComponent<ShotgunBullet>();
-            bulletComponent.Dmg = GetDmg() * GetLocalDamageMultiplier();
+            if (GetLocalDamageMultiplier())
+            {
+                bulletComponent.ActivateVisualEffect();
+                bulletComponent.Dmg = GetDmg() * 2f;
+            }
+            else bulletComponent.Dmg = GetDmg();
+            
             bulletComponent.Speed = bulletSpeed;
             bulletComponent.enemiesToIgnore = enemiesToIgnore;
             bulletComponent.departurePos = transform.position;
@@ -84,11 +90,11 @@ public class Shotgun : Tower
         }
     }
 
-    private float GetLocalDamageMultiplier()
+    private bool GetLocalDamageMultiplier()
     {
         if (hasDoubleDamageUpgrade && Random.Range(0f, 1f) < doubleDamageChance)
-            return 2f;
+            return true;
         
-        return 1f;
+        return false;
     }
 }
