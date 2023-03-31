@@ -1,9 +1,12 @@
 ﻿
+using System;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public abstract class PathFinder
 {
+    private float speed;
     protected NavMeshAgent agent;
     
     protected PathFinder(NavMeshAgent agent)
@@ -27,9 +30,9 @@ public abstract class PathFinder
         agent.SetDestination(GameObject.FindGameObjectWithTag("Base").transform.position);
     }
 
-    public void SlowMovement()
+    public void SlowMovement(float slowAmount)
     {
-        
+        agent.speed *= (1 - slowAmount);
     }
     
     public float GetRotationAngle()
@@ -44,5 +47,22 @@ public abstract class PathFinder
         var multiplier = Random.Range(1f, 1.75f);
         agent.speed *= multiplier;
         agent.avoidancePriority = (int) (agent.avoidancePriority * multiplier);
+        speed = agent.speed;
+    }
+
+    public void MultiplySpeed(float multiplier)
+    {
+        agent.speed *= multiplier;
+        speed = agent.speed;
+    }
+
+    public void ApplySlow(Func<float, float> slowFunc)
+    {
+        agent.speed = slowFunc(speed);
+    }
+    
+    public void ResetSpeed()
+    {
+        agent.speed = speed;
     }
 }

@@ -14,28 +14,24 @@ public class Freeze : MonoBehaviour
 
     private GameObject newFreezeEffect;
     
-    [SerializeField]private Enemy enemy;
+    [SerializeField] private Enemy enemy;
     private float enemySpeed;
     private Color enemyColor;
 
     public void OnEnable()
     {
         enemy = GetComponent<Enemy>();
-        enemySpeed = enemy.GetComponent<NavMeshAgent>().speed;
+        // enemySpeed = enemy.GetComponent<NavMeshAgent>().speed;
         enemyColor = enemy.GetComponent<SpriteRenderer>().color;
     }
 
     void Update()
     {
         if (freezeStacks <= 0)
-        {
             Destroy(this);
-        }
-        
+
         if (freezeStacks >= freezeStacksNeeded && !frozen)
-        {
             FreezeEnemy();
-        }
     }
 
     public void GetFreezeStack()
@@ -43,9 +39,11 @@ public class Freeze : MonoBehaviour
         freezeStacks += freezeStacksPerHt;
         
         ColorEnemy();
-        SlowEnemy();
+        enemy.TakeSlow(currentSpeed => currentSpeed - freezeStacks / freezeStacksNeeded * currentSpeed * 0.5f, 5f);
+        //SlowEnemy();
         
-        if (!frozen) StartCoroutine(LoseFreezeStack());
+        if (!frozen) 
+            StartCoroutine(LoseFreezeStack());
     }
 
     private void SlowEnemy()
@@ -56,8 +54,11 @@ public class Freeze : MonoBehaviour
     private void FreezeEnemy()
     {
         frozen = true;
+        //enemy.StopCoroutine(nameof(enemy.BeSlowed));
         StopAllCoroutines();
-        enemy.GetComponent<NavMeshAgent>().speed = 0;
+        //enemy.TakeSlow(1, freezeTime);
+        enemy.TakeStun(freezeTime, true);
+        //!!!!!!!!!!enemy.GetComponent<NavMeshAgent>().speed = 0;
         
         newFreezeEffect = Instantiate(EnemyVFXManager.Instance.GetEffect("FreezeOnEnemy").effect, transform.position, Quaternion.identity, enemy.transform);
         StartCoroutine(Unfreeze(freezeTime));
@@ -68,14 +69,16 @@ public class Freeze : MonoBehaviour
         yield return new WaitForSeconds(5f);
         freezeStacks -= freezeStacksPerHt;
         ColorEnemy();
-        SlowEnemy();
+        enemy.TakeSlow(currentSpeed => currentSpeed - freezeStacks / freezeStacksNeeded * currentSpeed * 0.5f, 5f);
+        //SlowEnemy();
     }
     
     IEnumerator Unfreeze(float freezeTime)
     {
         yield return new WaitForSeconds(freezeTime);
-        enemy.GetComponent<NavMeshAgent>().speed = enemySpeed;
+        //!!!!!!!!!!!enemy.GetComponent<NavMeshAgent>().speed = enemySpeed;
         Destroy(newFreezeEffect.gameObject);
+        //enemy.StopCoroutine(nameof(enemy.BeSlowed));
         StopAllCoroutines();
         freezeStacks = 0;
         ColorEnemy();
@@ -83,8 +86,10 @@ public class Freeze : MonoBehaviour
 
     public void UnfreezeInstantly()
     {
-        enemy.GetComponent<NavMeshAgent>().speed = enemySpeed;
+        enemy.TakeSlow(0f, 0f);
+        //!!!!!!!!!!!!!enemy.GetComponent<NavMeshAgent>().speed = enemySpeed;
         Destroy(newFreezeEffect?.gameObject);
+        //enemy.StopCoroutine(nameof(enemy.BeSlowed));
         StopAllCoroutines();
         freezeStacks = 0;
         ColorEnemy();
