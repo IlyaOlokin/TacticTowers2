@@ -104,7 +104,7 @@ public class Enemy : MonoBehaviour
         hp -= dmg;
         var newEffect = Instantiate(EnemyVFXManager.Instance.GetEffect("DamageNumber").effect, transform.position, Quaternion.identity);
         newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
-        
+        newEffect.GetComponent<DamageNumberEffect>().InitTargetPos(damagerPos);
         if (hp < 0 && isDead) 
             return true;
         
