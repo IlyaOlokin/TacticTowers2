@@ -10,4 +10,3 @@ public class FrostgunWidthUpgrade : SpecialUpgrade
         tower.gameObject.GetComponent<Frostgun>().hasWidthUpgrade = true;
     }
 }
-

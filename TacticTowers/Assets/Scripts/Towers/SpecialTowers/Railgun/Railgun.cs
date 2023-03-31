@@ -17,12 +17,19 @@ public class Railgun : Tower
 
     [NonSerialized] public bool hasDamageOverDistanceUpgrade;
     [Header("Damage Over Distance Upgrade")]
+
     [SerializeField] private float damageOverDistanceMultiplier = 0.05f;
     
     [NonSerialized] public bool hasDoubleShotUpgrade;
     [Header("Double Shot Upgrade")]
+
     [SerializeField] private float doubleShotChance;
     [SerializeField] private float doubleShotDelay;
+    
+    [NonSerialized] public bool hasKonockBackUpgrade;
+    [Header("Knock Back Upgrade")]
+
+    [SerializeField] private float knockBackForce;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
     private new void Update() => base.Update();
@@ -71,6 +78,7 @@ public class Railgun : Tower
 
                 if (multiplier < minDmg * minDmgMultiplier) multiplier = minDmg * minDmgMultiplier;
                 newEnemy.TakeDamage(GetDmg() * multiplier * distanceMultiplier, damageType, transform.position);
+                if (hasKonockBackUpgrade) newEnemy.TakeForce(knockBackForce, towerCanon.transform.up);
                 multiplier *= dmgMultiplier * dmgMultiplierMultiplier;
             }
         }

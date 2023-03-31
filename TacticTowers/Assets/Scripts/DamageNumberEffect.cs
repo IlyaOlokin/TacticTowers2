@@ -12,7 +12,8 @@ public class DamageNumberEffect : MonoBehaviour
     [SerializeField] private float lifeTime;
     [SerializeField] private float effectDuration;
     [SerializeField] private float scaleMultiplier;
-    [SerializeField] private float moveUpDistance;
+    [SerializeField] private float moveDistance;
+    [SerializeField] private float lerpSpeed;
     private float timer;
     private Vector3 targetScale;
     private Vector3 startScale;
@@ -32,7 +33,7 @@ public class DamageNumberEffect : MonoBehaviour
         startScale = transform.localScale;
         targetScale = startScale * scaleMultiplier;
         startPos = transform.position;
-        targetPos = startPos + new Vector3(0, moveUpDistance);
+        //targetPos = startPos + new Vector3(0, moveUpDistance);
 
     }
 
@@ -42,7 +43,7 @@ public class DamageNumberEffect : MonoBehaviour
         if (timer <= effectDuration)
         {
             transform.localScale = Vector2.Lerp(startScale, targetScale, timer / effectDuration);
-            transform.position = Vector2.Lerp(startPos, targetPos, timer / effectDuration);
+            transform.position = Vector2.Lerp(transform.position, targetPos, lerpSpeed);
         }
         else
         {
@@ -61,6 +62,16 @@ public class DamageNumberEffect : MonoBehaviour
         }
         
         text.text = (Math.Round(dmg)).ToString();
+    }
+
+    public void InitTargetPos(Vector3 damagerPos)
+    {
+        if ((damagerPos - transform.position).magnitude < posSpreading)
+        {
+            targetPos = transform.position + new Vector3(0, moveDistance);
+            return;
+        }
+        targetPos = transform.position + (transform.position - damagerPos).normalized * moveDistance;
     }
 
     private void GetInnerColor(float dmg)

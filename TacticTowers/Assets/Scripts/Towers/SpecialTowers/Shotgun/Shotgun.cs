@@ -11,20 +11,24 @@ public class Shotgun : Tower
     [SerializeField] private float bulletSpeed;
     [SerializeField] private float angleBetweenBullets;
     public int bulletCount;
-    public int bonusBullets;
-
+    [NonSerialized] public int bonusBullets;
+    
     [NonSerialized] public bool hasDoubleDamageUpgrade;
-
-    [Header("Double Damage Upgrade")] 
-    [SerializeField] private float doubleDamageChance;
-    
-    
-    [NonSerialized] public bool hasDoubleShotUpgrade;
-    
     [Header("Double Damage Upgrade")]
+
+    [SerializeField] private float doubleDamageChance;
+
+    [NonSerialized] public bool hasDoubleShotUpgrade;
+    [Header("Double Damage Upgrade")]
+
     [SerializeField] private float doubleShotChance;
     [SerializeField] private float doubleShotDelay;
     
+    [NonSerialized] public bool hasKnockBackUpgrade;
+    [Header("Knock Back Upgrade")]
+
+    [SerializeField] private float knockBackForce;
+
     private void Start() => audioSrc = GetComponent<AudioSource>();
     private new void Update() => base.Update();
 
@@ -60,11 +64,19 @@ public class Shotgun : Tower
                               angleBetweenBullets / 2f;
 
             var newBullet = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, bulletAngle + towerRot.z));
-            var bulletComponent = newBullet.GetComponent<Bullet>();
-            bulletComponent.Dmg = GetDmg() * GetLocalDamageMultiplier();
+            var bulletComponent = newBullet.GetComponent<ShotgunBullet>();
+            if (GetLocalDamageMultiplier())
+            {
+                bulletComponent.ActivateVisualEffect();
+                bulletComponent.Dmg = GetDmg() * 2f;
+            }
+            else bulletComponent.Dmg = GetDmg();
+            
             bulletComponent.Speed = bulletSpeed;
             bulletComponent.enemiesToIgnore = enemiesToIgnore;
             bulletComponent.departurePos = transform.position;
+            bulletComponent.hasKnockBackUpgrade = hasKnockBackUpgrade;
+            bulletComponent.knockBackForce = knockBackForce;
         }
         audioSrc.PlayOneShot(audioSrc.clip);
     }
@@ -78,11 +90,11 @@ public class Shotgun : Tower
         }
     }
 
-    private float GetLocalDamageMultiplier()
+    private bool GetLocalDamageMultiplier()
     {
         if (hasDoubleDamageUpgrade && Random.Range(0f, 1f) < doubleDamageChance)
-            return 2f;
+            return true;
         
-        return 1f;
+        return false;
     }
 }
