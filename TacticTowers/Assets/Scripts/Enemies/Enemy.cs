@@ -105,18 +105,16 @@ public class Enemy : MonoBehaviour
         var newEffect = Instantiate(EnemyVFXManager.Instance.GetEffect("DamageNumber").effect, transform.position, Quaternion.identity);
         newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
         
-        switch (hp)
+        if (hp < 0 && isDead) 
+            return true;
+        
+        if (hp <= 0 && !isImmortal)
         {
-            case < 0 when isDead:
-                return true;
-            
-            case <= 0 when !isImmortal:
-                OnDeath(damageType, damagerPos);
-                return true;
-            
-            default:
-                return false;
+            OnDeath(damageType, damagerPos);
+            return true;
         }
+        
+        return false;
     }
     
     public void TakeSlow(float duration, float slowAmount)
