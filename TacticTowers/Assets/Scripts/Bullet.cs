@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Bullet : MonoBehaviour
 {
@@ -46,6 +47,9 @@ public class Bullet : MonoBehaviour
      protected virtual void OnEnemyHit(Collider2D other)
      {
          other.gameObject.GetComponent<Enemy>().TakeDamage(Dmg, damageType, departurePos);
+         if (Random.Range(0, 101) < 50)
+             other.gameObject.GetComponent<Enemy>().TakeStun(2f, true);
+         
          if (penetrationsLeft == 0)
          {
              Destroy(gameObject);

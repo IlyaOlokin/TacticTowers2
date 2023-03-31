@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
             for (var i = 0; i < enemies.transform.childCount; i++)
             {
                 var enemy = enemies.transform.GetChild(i);
-                enemy.GetComponent<Enemy>().TakeForce(100f, new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)));
+                enemy.GetComponent<Enemy>().TakeForce(10f, new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)));
             }
         }
     }

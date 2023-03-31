@@ -87,6 +87,6 @@ public class BossWeb : Boss
     {
         if (isImmortal) return;
         Destroy(gun);
-        isDead = true;
+        base.BossDeath();
     }
 }

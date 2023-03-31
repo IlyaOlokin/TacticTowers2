@@ -24,7 +24,9 @@ public class BossWithShields : Boss
     
     void Start()
     {
-        for (int i = 0; i < shields.Count; i++)
+        base.Start();
+        
+        for (var i = 0; i < shields.Count; i++)
         {
             floatingDestinations.Add(SelectRandomFloatingPosition());
         }
@@ -33,8 +35,12 @@ public class BossWithShields : Boss
     
     void Update()
     {
-        if (isDead) return;
-        for (int i = 0; i < shields.Count; i++)
+        if (isDead) 
+            return;
+        
+        base.Update();
+        
+        for (var i = 0; i < shields.Count; i++)
         {
             FloatShields(i);
             MoveShields(i);
@@ -42,8 +48,8 @@ public class BossWithShields : Boss
         }
         
         UpdateHp();
-        
-        /*if (Input.GetKeyDown(KeyCode.Alpha4))
+        /*
+        if (Input.GetKeyDown(KeyCode.Alpha4))
             SetNewShieldPositions(0);
         if (Input.GetKeyDown(KeyCode.Alpha5))
             SetNewShieldPositions(1);
@@ -55,27 +61,30 @@ public class BossWithShields : Boss
 
     private void SetNewShieldPositions(int sideIndex)
     {
-        List<int> pickedIndexes = new List<int>();
+        var pickedIndexes = new List<int>();
         
         SetRandomMoveDestination(pickedIndexes, shieldSides[sideIndex].middlePoint.transform);
         SetRandomMoveDestination(pickedIndexes, shieldSides[sideIndex].rightPoint.transform);
         SetRandomMoveDestination(pickedIndexes, shieldSides[sideIndex].leftPoint.transform);
     }
 
-    private void SetRandomMoveDestination( List<int> pickedIndexes, Transform point)
+    private void SetRandomMoveDestination(List<int> pickedIndexes, Transform point)
     {
-        int destIndex = Random.Range(0, 3);
+        var destIndex = Random.Range(0, 3);
+        
         while (pickedIndexes.Contains(destIndex))
         {
             destIndex = Random.Range(0, 3);
         }
+        
         pickedIndexes.Add(destIndex);
         moveDestinationTransforms[destIndex] = point;
     }
 
     private void MoveShields(int shieldIndex)
     {
-        if (!NeedToMoveShield(shieldIndex)) return;
+        if (!NeedToMoveShield(shieldIndex)) 
+            return;
 
         shieldPoints[shieldIndex].transform.position = Vector3.MoveTowards(shieldPoints[shieldIndex].transform.position,
             moveDestinationTransforms[shieldIndex].position, moveSpeed * Time.deltaTime);
@@ -84,7 +93,8 @@ public class BossWithShields : Boss
 
     private void RotateShields(int shieldIndex)
     {
-        if (!NeedToRotateShield(shieldIndex)) return;
+        if (!NeedToRotateShield(shieldIndex)) 
+            return;
         
         shields[shieldIndex].transform.rotation = Quaternion.RotateTowards(shields[shieldIndex].transform.rotation,
             moveDestinationTransforms[shieldIndex].rotation, shieldRotationSpeed * Time.deltaTime);
@@ -93,6 +103,7 @@ public class BossWithShields : Boss
     private void FloatShields(int shieldIndex)
     {
         var dest = shieldPoints[shieldIndex].transform.position + floatingDestinations[shieldIndex];
+        
         if (shields[shieldIndex].transform.position == dest)
         {
             floatingDestinations[shieldIndex] = SelectRandomFloatingPosition();
@@ -115,7 +126,7 @@ public class BossWithShields : Boss
     
     private bool NeedToRotateShield(int shieldIndex)
     {
-        bool areEqualish = Quaternion.Angle(shields[shieldIndex].transform.rotation,
+        var areEqualish = Quaternion.Angle(shields[shieldIndex].transform.rotation,
             moveDestinationTransforms[shieldIndex].transform.rotation) < 0.001f;
         return !areEqualish;
     }
@@ -124,13 +135,14 @@ public class BossWithShields : Boss
     {
         var range = Enumerable.Range(0, shieldSides.Count).Where(i => i != currentShieldPositionIndex);
         var rand = new System.Random();
-        int index = rand.Next(0, shieldSides.Count - 1);
+        var index = rand.Next(0, shieldSides.Count - 1);
         return range.ElementAt(index);
     }
 
     private IEnumerator RotateShields()
     {
-        int newIndex = PickNewShieldPosition();
+        var newIndex = PickNewShieldPosition();
+        
         SetNewShieldPositions(newIndex);
         currentShieldPositionIndex = newIndex;
         yield return new WaitForSeconds(rotationDelay);
@@ -139,9 +151,11 @@ public class BossWithShields : Boss
 
     protected override void BossDeath()
     {
-        isDead = true;
+        base.BossDeath();
+        
         Destroy(ropesParent);
-        int listCount = shieldPoints.Count;
+        
+        var listCount = shieldPoints.Count;
         for (int i = 0; i < listCount; i++)
         {
             Destroy(shieldPoints[listCount - i - 1]);

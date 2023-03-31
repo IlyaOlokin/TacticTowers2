@@ -28,6 +28,16 @@ public class FinalBoss : Boss
         UpdateHp();
         changePositionTimer += Time.deltaTime;
         if (changePositionTimer >= changePositionDelay) ChangePosition();
+        
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            ChangePosition();
+        }
+        
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            TakeDamage(2000, DamageType.Normal, Vector3.zero);
+        }
     }
 
     protected override void UpdateHp()

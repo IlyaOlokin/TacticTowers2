@@ -226,6 +226,9 @@ MonoBehaviour:
   hp: 9000
   dmg: 200
   weight: 225
+  creditsDropChance: 0
+  icon: {fileID: 6493763172763167353, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
+  maxHp: 9000
   shootDelay: 20
   parasiteLine: {fileID: 5601598668952223541, guid: 0a488da11f45e7141b27f14b66d4c78e, type: 3}
   parasite: {fileID: 5937050097135992818, guid: 9280c800eaefa714cbdc531f01fed1a5, type: 3}
