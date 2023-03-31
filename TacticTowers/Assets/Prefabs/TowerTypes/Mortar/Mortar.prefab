@@ -114,7 +114,7 @@ MonoBehaviour:
   specialUpgrades:
   - {fileID: -6550371785292312111, guid: b3e01e794bbac5240bff2389ab9d4309, type: 3}
   - {fileID: -4296837814536900955, guid: b5096adcfcb097f49926c3bd21718c84, type: 3}
-  - {fileID: -4296837814536900955, guid: b5096adcfcb097f49926c3bd21718c84, type: 3}
+  - {fileID: 8172900366665378274, guid: 25cca27d7d3233b4ab78b19fe3105d23, type: 3}
   towerCanon: {fileID: 3475854050236517507}
   shootZone: {fileID: 0}
   shootAngle: 45
@@ -130,6 +130,9 @@ MonoBehaviour:
   subProjectilesDamageMultiplier: 0.2
   subProjectilesSpeedMultiplier: 0.5
   subProjectilesRadiusMultiplier: 0.5
+  chanceToSetOnFire: 0.25
+  burnTime: 3
+  burnDamageMultiplier: 0.2
 --- !u!82 &1871518985860457926
 AudioSource:
   m_ObjectHideFlags: 0

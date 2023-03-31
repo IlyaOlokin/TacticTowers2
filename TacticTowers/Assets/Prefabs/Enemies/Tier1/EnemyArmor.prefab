@@ -222,7 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsImmuneToFire: 0
   IsImmuneToFreeze: 0
-  KnockBackResist: 2
+  KnockBackResist: 0.5
   hp: 350
   dmg: 10
   weight: 8
