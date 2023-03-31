@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -12,20 +13,24 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     
     [Header("Stats")]
-    [SerializeField] private bool IsImmuneToFire = false;
-    [SerializeField] private bool IsImmuneToFreeze = false;
-    [SerializeField] private float KnockBackResist = 0f;
+    [FormerlySerializedAs("IsImmuneToFire")] [SerializeField] private bool isImmuneToFire = false;
+    [FormerlySerializedAs("IsImmuneToFreeze")] [SerializeField] private bool isImmuneToFreeze = false;
+    [FormerlySerializedAs("KnockBackResist")] [SerializeField] private float knockBackResist = 0f;
+    [SerializeField] private float stunResist;
     
     [SerializeField] protected bool isImmortal;
     [SerializeField] protected float hp;
     [SerializeField] protected float dmg;
     [SerializeField] protected int weight;
+    [SerializeField] protected float stunCd = 5f;
     protected float cost;
     protected bool isDead;
     protected float rotationSpeed = 160f;
-
+    
     [NonSerialized] public bool hasTentacle; // TODO: убрать
     [SerializeField] private int creditsDropChance;
+
+    [SerializeField] private bool isReadyForStun = true;
     
     public void Start()
     {
@@ -41,6 +46,7 @@ public class Enemy : MonoBehaviour
     }
 
     public int GetWeight() => weight;
+    
     public float GetHp() => hp;
 
     public void SetHp(float newHp) => hp = newHp;
@@ -49,7 +55,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeFire(FireStats newFire)
     {
-        if (IsImmuneToFire)
+        if (isImmuneToFire)
             return;
         
         var currentFire = GetComponent<Fire>() ?? gameObject.AddComponent<Fire>();
@@ -66,7 +72,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeFreeze(FreezeStats newFreeze, bool hasSpecial)
     {
-        if (IsImmuneToFreeze && !hasSpecial)
+        if (isImmuneToFreeze && !hasSpecial)
             return;
         
         var currentFreeze = GetComponent<Freeze>() ?? gameObject.AddComponent<Freeze>();
@@ -90,9 +96,59 @@ public class Enemy : MonoBehaviour
 
     public void TakeForce(float force, Vector3 dir)
     {
-        rb.AddForce(dir.normalized * (force * (1 - KnockBackResist)), ForceMode2D.Impulse);
+        rb.AddForce(dir.normalized * (force * (1 - knockBackResist)), ForceMode2D.Impulse);
     }
 
+    public bool TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos)
+    {
+        hp -= dmg;
+        var newEffect = Instantiate(EnemyVFXManager.Instance.GetEffect("DamageNumber").effect, transform.position, Quaternion.identity);
+        newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
+        
+        switch (hp)
+        {
+            case < 0 when isDead:
+                return true;
+            
+            case <= 0 when !isImmortal:
+                OnDeath(damageType, damagerPos);
+                return true;
+            
+            default:
+                return false;
+        }
+    }
+    
+    public void TakeSlow(float duration, float slowAmount)
+    {
+        
+    }
+    
+    public void TakeStun(float duration, bool isStartingCd)
+    {
+        if (!isReadyForStun)
+            return;
+        
+        pathFinder.StopMovement();
+        isReadyForStun = false;
+        StartCoroutine(nameof(BeStunned), duration * (1 - stunResist));
+        
+        if (isStartingCd)
+            StartCoroutine(nameof(GetReadyForStun));
+    }
+
+    private IEnumerator BeStunned(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        pathFinder.StartMovement();
+    }
+    
+    private IEnumerator GetReadyForStun()
+    {
+        yield return new WaitForSeconds(stunCd);
+        isReadyForStun = true;
+    }
+    
     private void RotateByVelocity()
     {
         if (pathFinder.IsStopped()) 
@@ -118,22 +174,8 @@ public class Enemy : MonoBehaviour
     {
         if (GetComponent<Boss>() != null) 
             return;
-        pathFinder.RandomizeSpeed();
-    }
-    
-    public bool TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos)
-    {
-        hp -= dmg;
-        var newEffect = Instantiate(EnemyVFXManager.Instance.GetEffect("DamageNumber").effect, transform.position, Quaternion.identity);
-        newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
-        if (hp < 0 && isDead) return true;
         
-        if (hp <= 0 && !isImmortal)
-        {
-            OnDeath(damageType, damagerPos);
-            return true;
-        }
-        return false;
+        pathFinder.RandomizeSpeed();
     }
     
     private void OnDeath(DamageType damageType, Vector3 killerPos)
@@ -165,7 +207,8 @@ public class Enemy : MonoBehaviour
 
     private void DropCreditsByChance(int chance)
     {
-        if (Random.Range(0, 100) < chance) Credits.AddSessionCredits(weight);
+        if (Random.Range(0, 100) < chance) 
+            Credits.AddSessionCredits(weight);
     }
     
     public void SetTentacle()

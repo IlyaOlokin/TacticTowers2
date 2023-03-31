@@ -5,8 +5,8 @@ using UnityEngine.AI;
 public abstract class PathFinder
 {
     protected NavMeshAgent agent;
-
-    public PathFinder(NavMeshAgent agent)
+    
+    protected PathFinder(NavMeshAgent agent)
     {
         this.agent = agent;
         if (!agent.enabled || !agent.isOnNavMesh) 
@@ -21,6 +21,17 @@ public abstract class PathFinder
         agent.enabled = false;
     }
 
+    public void StartMovement()
+    {
+        agent.enabled = true;
+        agent.SetDestination(GameObject.FindGameObjectWithTag("Base").transform.position);
+    }
+
+    public void SlowMovement()
+    {
+        
+    }
+    
     public float GetRotationAngle()
     {
         return Mathf.Atan2(agent.desiredVelocity.y, agent.desiredVelocity.x) * Mathf.Rad2Deg;
