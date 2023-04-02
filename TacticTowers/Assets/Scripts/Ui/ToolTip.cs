@@ -7,7 +7,9 @@ using UnityEngine.EventSystems;
 public class ToolTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public String toolTipText;
-    [SerializeField] private GameObject textWindowPrefab;
+    [SerializeField] private GameObject textWindowPrefab; 
+    [SerializeField] private Transform windowSpawnPoint;
+
     private GameObject textWindow;
 
     private float mouseOverTimer;
@@ -19,14 +21,14 @@ public class ToolTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
        textWindow = Instantiate(textWindowPrefab, transform.position, Quaternion.identity, transform);
        textWindow.GetComponent<ToolTipWindow>().text.text = toolTipText;
-       
+       textWindow.transform.position = windowSpawnPoint.position;
+
        HideTip();
     }
 
     private void ShowTip()
     {
         textWindow.SetActive(true);
-        textWindow.transform.position = (Vector2) Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void HideTip()
