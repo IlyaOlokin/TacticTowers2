@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
         var newBase = newBaseGameObject.GetComponent<Base>();
         newBase.ExecuteBasePassiveEffect();
         finishPanel._base = newBase;
+        baseAbilityMenu.GetComponent<ToolTip>().toolTipText = Localisation.GetLocalisedValue(newBase.GetComponent<BaseActive>().description);
         newBase.baseAbilityMenu = baseAbilityMenu;
         newBase.abilityButton = abilityButton;
         abilityButton.image.sprite = newBase.GetComponent<BaseActive>().activeAbilitySprite;
