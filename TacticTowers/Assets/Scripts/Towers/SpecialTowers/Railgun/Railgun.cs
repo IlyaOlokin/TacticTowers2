@@ -61,6 +61,7 @@ public class Railgun : Tower
         newRail.GetComponent<LineRenderer>().SetPosition(1, transform.position + towerCanon.transform.up * 50);
         float multiplier = 1f;
         float distanceMultiplier = 1f;
+        bool firstEnemyHit = true;
         for (int i = 0; i < hits.Length; i++)
         {
             RaycastHit2D hit = hits[i];
@@ -70,10 +71,11 @@ public class Railgun : Tower
             {
                 if (enemiesToIgnore.Contains(newEnemy.gameObject)) continue;
 
-                if (hasDamageOverDistanceUpgrade && i == 0)
+                if (hasDamageOverDistanceUpgrade && firstEnemyHit)
                 {
                     distanceMultiplier = 1f + Vector2.Distance(transform.position, hit.transform.position) *
                         damageOverDistanceMultiplier;
+                    firstEnemyHit = false;
                 }
 
                 if (multiplier < minDmg * minDmgMultiplier) multiplier = minDmg * minDmgMultiplier;
