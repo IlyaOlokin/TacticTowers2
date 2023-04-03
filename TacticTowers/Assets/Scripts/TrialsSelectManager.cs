@@ -62,6 +62,7 @@ public class TrialsSelectManager : MonoBehaviour
 
     public void OnPlay()
     {
-        SceneManager.LoadScene("Trial" + (DataLoader.LoadInt("selectedTrialsIndex", 0) + 1).ToString());
+        DataLoader.SaveString("PlaySceneLoad", "Trial" + (DataLoader.LoadInt("selectedTrialsIndex", 0) + 1).ToString());
+        SceneManager.LoadScene("BaseChooseMenu");
     }
 }
