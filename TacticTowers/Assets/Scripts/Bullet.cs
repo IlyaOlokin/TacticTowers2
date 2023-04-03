@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
      [NonSerialized] public List<GameObject> enemiesToIgnore;
      [NonSerialized] public Vector3 departurePos;
      [NonSerialized] public bool hasPenetrationUpgrade;
+     [NonSerialized] public bool isCritical;
      [NonSerialized] public float penetrationDamageMultiplier;
      [NonSerialized] public int penetrationsCount;
      protected DamageType damageType = DamageType.Normal;
@@ -46,7 +47,7 @@ public class Bullet : MonoBehaviour
 
      protected virtual void OnEnemyHit(Collider2D other)
      {
-         other.gameObject.GetComponent<Enemy>().TakeDamage(Dmg, damageType, departurePos);
+         other.gameObject.GetComponent<Enemy>().TakeDamage(Dmg, damageType, departurePos, isCritical);
          if (Random.Range(0, 101) < 50)
              other.gameObject.GetComponent<Enemy>().TakeStun(2f, true);
          

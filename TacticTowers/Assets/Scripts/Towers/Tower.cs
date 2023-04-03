@@ -85,10 +85,8 @@ public class Tower : MonoBehaviour
             if (enemiesToIgnore.Contains(enemy)) continue;
             var distToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
             Vector3 dir = (enemy.transform.position - transform.position).normalized;
-            
-            var dot = Vector2.Dot(dir, shootDirVector);
-            double angle = Math.Acos(dot) * 180 / Math.PI;;
-            
+            var angle = Vector2.Angle(dir, shootDirVector);
+
             if (distToEnemy <= GetShootDistance())
             {
                 if (target == null || distToEnemy < distToTarget)
@@ -115,9 +113,7 @@ public class Tower : MonoBehaviour
             if (enemiesToIgnore.Contains(enemy) || targetsToIgnore.Contains(enemy)) continue;
             var distToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
             Vector3 dir = (enemy.transform.position - transform.position).normalized;
-            
-            var dot = Vector2.Dot(dir, shootDirVector);
-            double angle = Math.Acos(dot) * 180 / Math.PI;;
+            var angle = Vector2.Angle(dir, shootDirVector);
             
             if (distToEnemy <= GetShootDistance())
             {
