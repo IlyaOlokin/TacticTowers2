@@ -10,7 +10,9 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Transform baseTransform;
-    [SerializeField] private GameObject baseAbilityMenu;
+    [SerializeField] private GameObject baseActiveAbilityMenu;
+    [SerializeField] private GameObject basePassiveAbilityMenu;
+    [SerializeField] private Image passiveAbilitySprite;
     [SerializeField] private Button abilityButton;
     [SerializeField] private Image baseAbilityCoolDownImage;
     [SerializeField] private Text baseAbilityCoolDownText;
@@ -24,13 +26,29 @@ public class GameManager : MonoBehaviour
         var newBase = newBaseGameObject.GetComponent<Base>();
         newBase.ExecuteBasePassiveEffect();
         finishPanel._base = newBase;
-        newBase.baseAbilityMenu = baseAbilityMenu;
+        InitPassiveAbilityButton(newBase);
+        InitActiveAbilityButton(newBase);
+    }
+    
+    private void InitPassiveAbilityButton(Base newBase)
+    {
+        basePassiveAbilityMenu.GetComponent<ToolTip>().toolTipText =
+            Localisation.GetLocalisedValue(newBase.GetComponent<BasePassive>().description);
+        //TODO спрайты пассивок 
+        passiveAbilitySprite.sprite = newBase.GetComponent<BaseActive>().activeAbilitySprite;
+    }
+
+    private void InitActiveAbilityButton(Base newBase)
+    {
+        baseActiveAbilityMenu.GetComponent<ToolTip>().toolTipText =
+            Localisation.GetLocalisedValue(newBase.GetComponent<BaseActive>().description);
+        newBase.baseAbilityMenu = baseActiveAbilityMenu;
         newBase.abilityButton = abilityButton;
         abilityButton.image.sprite = newBase.GetComponent<BaseActive>().activeAbilitySprite;
         newBase.coolDownImage = baseAbilityCoolDownImage;
         newBase.coolDownText = baseAbilityCoolDownText;
     }
-    
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
