@@ -58,8 +58,13 @@ public class Tower : MonoBehaviour
 
     private void Awake()
     {
-        shootDirVector = new Vector2((float) Math.Cos(shootDirection / 180f * Math.PI),
-            (float) Math.Sin(shootDirection / 180f * Math.PI)).normalized;
+        shootDirVector = GetShootDirInVector(shootDirection);
+    }
+
+    private static Vector2 GetShootDirInVector(float shootDir)
+    {
+        return new Vector2((float) Math.Cos(shootDir / 180f * Math.PI),
+            (float) Math.Sin(shootDir / 180f * Math.PI)).normalized;
     }
 
     protected void Update()
@@ -79,7 +84,7 @@ public class Tower : MonoBehaviour
             if (enemy == null) continue;
             if (enemiesToIgnore.Contains(enemy)) continue;
             var distToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
-            Vector3 dir =  (enemy.transform.position - transform.position).normalized;
+            Vector3 dir = (enemy.transform.position - transform.position).normalized;
             
             var dot = Vector2.Dot(dir, shootDirVector);
             double angle = Math.Acos(dot) * 180 / Math.PI;;
@@ -172,6 +177,7 @@ public class Tower : MonoBehaviour
     {
         transform.parent = tower.transform.parent;
         shootDirection = tower.shootDirection;
+        shootDirVector = GetShootDirInVector(shootDirection);
         transform.rotation = tower.transform.rotation;
         shootZone = tower.shootZone;
         shootZone.tower = this;
