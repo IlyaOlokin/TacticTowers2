@@ -114,14 +114,16 @@ public class Tower : MonoBehaviour
             if (enemy == null) continue;
             if (enemiesToIgnore.Contains(enemy) || targetsToIgnore.Contains(enemy)) continue;
             var distToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
-            Vector3 dir = transform.position - enemy.transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
+            Vector3 dir = (enemy.transform.position - transform.position).normalized;
+            
+            var dot = Vector2.Dot(dir, shootDirVector);
+            double angle = Math.Acos(dot) * 180 / Math.PI;;
+            
             if (distToEnemy <= GetShootDistance())
             {
                 if (target == null || distToEnemy < distToTarget)
                 {
-                    if (Math.Abs(shootDirection - angle) <= GetShootAngle() / 2f
-                        || shootDirection == 0 && Math.Abs(360 - angle) <= GetShootAngle() / 2f) // костыль
+                    if (angle <= GetShootAngle() / 2f) 
                     {
                         distToTarget = distToEnemy;
                         target = enemy;
