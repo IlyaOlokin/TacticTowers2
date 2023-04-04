@@ -9,6 +9,8 @@ public class Trial : MonoBehaviour
     public int index;
     [SerializeField] public string description;
     [SerializeField] public string present;
+    [SerializeField] private Prise prise;
+    [SerializeField] private int value;
 
     public enum Prise
     {
@@ -18,16 +20,17 @@ public class Trial : MonoBehaviour
 
     static int credits;
     static int caseInt;
-
-    public static void GetPrise(Prise prise, int value)
+    static Prise sPrise;
+    static int sValue;
+    public static void GetPrise()
     {
-        if (prise == Prise.baseInt)
+        if (sPrise == Prise.baseInt)
         {
             var s = DataLoader.LoadString("BaseUnlocks", "10000000");
             var r = "";
             for (int j = 0; j < s.Length; j++)
             {
-                if (j == value)
+                if (j == sValue)
                     r += "1";
                 else
                     r += s[j];
@@ -36,7 +39,13 @@ public class Trial : MonoBehaviour
         }
         else
         {
-            Credits.AddCredits(value);
+            Credits.AddCredits(sValue);
         }
+    }
+
+    public void InitPrise()
+    {
+        sPrise = prise;
+        sValue = value;
     }
 }

@@ -58,6 +58,7 @@ public class TrialsSelectManager : MonoBehaviour
         indicatorButton.SetActive(false);
         selectIndicator.GetNewDestination(buttons[index].transform.position);
         indicatorButton.SetActive(true);
+        SelectedTrial.GetComponent<Trial>().InitPrise();
     }
 
     public void OnPlay()
