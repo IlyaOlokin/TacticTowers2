@@ -161,7 +161,7 @@ public class FinishPanel : MonoBehaviour
 
         var trialCompleted = DataLoader.LoadString("TrialCompleted", "00000000").Split();
         var trialCompleted1 = DataLoader.LoadString("TrialCompleted", "00000000").Split();
-        var i = int.Parse(SceneManager.GetActiveScene().name.Substring(4)) - 1;
+        var i = int.Parse(SceneManager.GetActiveScene().name.Substring(5)) - 1;
         trialCompleted[i] = "1";
 
         if (trialCompleted[i] != trialCompleted1[i])
