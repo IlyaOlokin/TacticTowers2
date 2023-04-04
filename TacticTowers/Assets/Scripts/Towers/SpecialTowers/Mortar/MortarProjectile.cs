@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MortarProjectile : MonoBehaviour
 {
@@ -28,8 +29,11 @@ public class MortarProjectile : MonoBehaviour
     [NonSerialized] public float subProjectilesSpeedMultiplier;
     [NonSerialized] public float subProjectilesRadiusMultiplier;
     
-    
-    
+    [NonSerialized] public bool hasFireChanceUpgrade;
+    [NonSerialized] public float chanceToSetOnFire;
+    [NonSerialized] public float burnTime;
+    [NonSerialized] public float burnDamageMultiplier;
+
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
@@ -64,6 +68,8 @@ public class MortarProjectile : MonoBehaviour
         { 
             if (enemiesInRadius[i] is null) continue;
             enemiesInRadius[i].TakeDamage(dmg, damageType, transform.position);
+            if (Random.Range(0f, 1f) < chanceToSetOnFire)
+                enemiesInRadius[i].TakeFire(new FireStats(burnTime, dmg * burnDamageMultiplier));
         }
     }
 
@@ -88,6 +94,11 @@ public class MortarProjectile : MonoBehaviour
             mortarProjectile.hasFlameFieldUpgrade = hasFlameFieldUpgrade;
             mortarProjectile.hasScatterUpgrade = false;
             mortarProjectile.senderPosition = transform.position;
+            
+            mortarProjectile.hasFireChanceUpgrade = hasFireChanceUpgrade;
+            mortarProjectile.chanceToSetOnFire = chanceToSetOnFire;
+            mortarProjectile.burnTime = burnTime;
+            mortarProjectile.burnDamageMultiplier = burnDamageMultiplier;
         }
     }
 

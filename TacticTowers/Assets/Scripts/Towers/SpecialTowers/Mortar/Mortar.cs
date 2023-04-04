@@ -24,7 +24,13 @@ public class Mortar : Tower
     [SerializeField] private float subProjectilesSpeedMultiplier = 0.5f;
     [SerializeField] private float subProjectilesRadiusMultiplier = 0.5f;
     
-    [NonSerialized] public bool hasUpgrade;
+    [NonSerialized] public bool hasFireChanceUpgrade;
+
+    [Header("Fire Chance Upgrade")] 
+    [SerializeField] private float chanceToSetOnFire;
+    [SerializeField] private float burnTime;
+    [SerializeField] private float burnDamageMultiplier;
+
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
     private new void Update() => base.Update();
@@ -33,7 +39,7 @@ public class Mortar : Tower
     {
         if (enemy == null) return;
         
-        LootAtTarget(enemy);
+        LootAtTarget(enemy.transform.position);
         
         if (shootDelayTimer <= 0)
         {
@@ -51,6 +57,11 @@ public class Mortar : Tower
             mortarProjectile.subProjectilesSpeedMultiplier = subProjectilesSpeedMultiplier;
             mortarProjectile.subProjectilesRadiusMultiplier = subProjectilesRadiusMultiplier;
             mortarProjectile.flameFieldDamageMultiplier = flameFieldDamageMultiplier;
+            
+            mortarProjectile.hasFireChanceUpgrade = hasFireChanceUpgrade;
+            mortarProjectile.chanceToSetOnFire = chanceToSetOnFire;
+            mortarProjectile.burnTime = burnTime;
+            mortarProjectile.burnDamageMultiplier = burnDamageMultiplier;
             
             shootDelayTimer = 1f / GetAttackSpeed();
             

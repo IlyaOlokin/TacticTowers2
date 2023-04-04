@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,12 +16,18 @@ public class Tesla : Tower
     public float lightningJumpDistanceMultiplier;
     private DamageType damageType = DamageType.Fire;
 
-    [NonSerialized] public bool hasSetOnFireUpgrade;
+    
     [NonSerialized] public bool hasMicroStunUpgrade;
     
     [NonSerialized] public bool hasBranchingUpgrade;
     [Header("Branching Upgrade")]
     [SerializeField] private float branchingChance = 0.25f;
+    
+    [NonSerialized] public bool hasFireChanceUpgrade;
+    [Header("Fire Chance Upgrade")]
+    [SerializeField] private float chanceToSetOnFire;
+    [SerializeField] private float burnTime;
+    [SerializeField] private float burnDamageMultiplier;
 
     private void Start() => audioSrc = GetComponent<AudioSource>();
     private new void Update() => base.Update();
@@ -29,7 +36,7 @@ public class Tesla : Tower
     {
         if (enemy == null) return;
 
-        LootAtTarget(enemy);
+        LootAtTarget(enemy.transform.position);
 
         if (shootDelayTimer <= 0)
         {
@@ -63,6 +70,8 @@ public class Tesla : Tower
         {
             newLightning.GetComponent<LineRenderer>().SetPosition(1, endPos);
             enemy.GetComponent<Enemy>().TakeDamage(dmg, damageType, transform.position);
+            if (Random.Range(0f, 1f) < chanceToSetOnFire)
+                enemy.GetComponent<Enemy>().TakeFire(new FireStats(burnTime, dmg * burnDamageMultiplier));
             pickedEnemies.Add(enemy);
         }
         else
@@ -84,17 +93,7 @@ public class Tesla : Tower
         }
         for (int i = 0; i < branches; i++)
         {
-            GameObject newEnemy = null;
-            var minDist = float.MaxValue;
-            foreach (var e in EnemySpawner.enemies)
-            {
-                var distance = Vector3.Distance(endPos, e.transform.position);
-                if (distance <= lightningJumpDistance * lightningJumpDistanceMultiplier && distance < minDist && !pickedEnemies.Contains(e))
-                {
-                    newEnemy = e;
-                    minDist = distance;
-                }
-            }
+            var newEnemy = FindClosetEnemy(endPos, pickedEnemies, lightningJumpDistance * lightningJumpDistanceMultiplier);
 
             if (newEnemy == null) yield break;
             parms = new object[] {dmg * dmgDecrease * dmgDecreaseMultiplier, endPos, newEnemy, lightningLeft - 1, pickedEnemies};

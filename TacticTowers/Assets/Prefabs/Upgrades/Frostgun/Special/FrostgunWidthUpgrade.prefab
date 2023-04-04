@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4780980129322057344}
-  - component: {fileID: -8650853418774628246}
   - component: {fileID: 4608471175938290370}
   m_Layer: 0
   m_Name: FrostgunWidthUpgrade
@@ -32,23 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8650853418774628246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4282815986938489130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29f166bb21bb8a8469a47bb0ebe8b999, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgradeLabel: upgradeFrostFreezeDur
-  upgradeText: upgradeFrostFreezeDurDesc
-  bonusForFormatting: 0.5
-  UpgradeSprite: {fileID: 4763664303394481082, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
-  bonus: 0.25
 --- !u!114 &4608471175938290370
 MonoBehaviour:
   m_ObjectHideFlags: 0

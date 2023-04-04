@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 753058034755746035}
   - component: {fileID: 753058034755746036}
   - component: {fileID: 4395380624547128743}
-  - component: {fileID: 753058034755746039}
   - component: {fileID: 8892582879605452107}
+  - component: {fileID: 6208723934211412869}
   m_Layer: 7
   m_Name: BossWithShield
   m_TagString: Enemy
@@ -140,9 +140,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b4740848650bf841bf27f2ad1c252fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsImmuneToFire: 0
+  IsImmuneToFreeze: 1
+  KnockBackResist: 1
+  hp: 3000
+  dmg: 200
+  weight: 60
+  creditsDropChance: 0
   icon: {fileID: 1080240355971404347, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
   maxHp: 3000
-  enemyComp: {fileID: 753058034755746039}
   shieldPoints:
   - {fileID: 1803156355789608309}
   - {fileID: 7697529687493278779}
@@ -161,27 +167,7 @@ MonoBehaviour:
   floatingSpread: 0.08
   rotationDelay: 12
   moveSpeed: 0.4
-  rotationSpeed: 60
---- !u!114 &753058034755746039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 753058034755746032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmg: 200
-  hp: 3000
-  creditsDropChance: 100
-  weight: 60
-  isImmortal: 0
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
+  shieldRotationSpeed: 60
 --- !u!95 &8892582879605452107
 Animator:
   serializedVersion: 3
@@ -201,6 +187,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &6208723934211412869
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753058034755746032}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &845726653872715967
 GameObject:
   m_ObjectHideFlags: 0

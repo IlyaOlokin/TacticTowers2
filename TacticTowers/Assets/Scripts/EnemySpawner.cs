@@ -137,7 +137,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 var newEnemy = Instantiate(enemyTypes[i].enemy, GetRandomPointOnSpawnZone(spawnZone), Quaternion.identity, enemiesObject);
                 var enemyComp = newEnemy.GetComponent<Enemy>();
-                enemyComp.cost = enemyComp.weight * weightCost;
+                enemyComp.SetCost(enemyComp.GetWeight() * weightCost);
                 if (newEnemy.TryGetComponent(out Boss boss))
                 {
                     boss.transform.position = bossPos;
@@ -170,7 +170,7 @@ public class EnemySpawner : MonoBehaviour
         float sum = 0;
         for (int i = 0; i < enemyTypes.Count; i++)
         {
-            sum +=enemyTypes[i].enemy.GetComponent<Enemy>().weight * enemyTypes[i].enemyCount;
+            sum += enemyTypes[i].enemy.GetComponent<Enemy>().GetWeight() * enemyTypes[i].enemyCount;
         }
 
         return sum;

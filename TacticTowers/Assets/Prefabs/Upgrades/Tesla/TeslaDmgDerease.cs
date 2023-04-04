@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeslaDmgDerease : Upgrade
+public class TeslaDmgDerease : CommonUpgrade
 {
     public override void Execute(Tower tower)
     {
