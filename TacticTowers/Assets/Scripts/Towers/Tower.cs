@@ -236,6 +236,11 @@ public class Tower : MonoBehaviour
         StartCoroutine("LostDisarm", duration);
     }
 
+    public bool IsDisarmed()
+    {
+        return isDisarmed;
+    }
+
     private IEnumerator LostDisarm(float delay)
     {
         yield return new WaitForSeconds(delay);
