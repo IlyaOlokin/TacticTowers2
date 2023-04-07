@@ -3,66 +3,47 @@ using System;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
-
+/*
 public abstract class PathFinder
 {
-    private float speed;
-    protected NavMeshAgent agent;
-    
-    protected PathFinder(NavMeshAgent agent)
+    protected PathFinder()
     {
-        this.agent = agent;
-        if (!agent.enabled || !agent.isOnNavMesh) 
-            return;
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        agent.SetDestination(GameObject.FindGameObjectWithTag("Base").transform.position);
     }
 
-    public void StopMovement()
+    public virtual void StopMovement()
     {
-        agent.enabled = false;
     }
 
-    public void StartMovement()
+    public virtual void StartMovement()
     {
-        agent.enabled = true;
-        agent.SetDestination(GameObject.FindGameObjectWithTag("Base").transform.position);
     }
 
-    public void SlowMovement(float slowAmount)
+    public virtual void SlowMovement(float slowAmount)
     {
-        agent.speed *= (1 - slowAmount);
     }
     
-    public float GetRotationAngle()
+    public virtual float GetRotationAngle()
     {
-        return Mathf.Atan2(agent.desiredVelocity.y, agent.desiredVelocity.x) * Mathf.Rad2Deg;
+        return float.
     }
 
-    public bool IsStopped() => !agent.enabled || agent.speed == 0;
-
-    public void RandomizeSpeed()
+    public virtual bool IsStopped()
     {
-        var multiplier = Random.Range(1f, 1.75f);
-        agent.speed *= multiplier;
-        agent.avoidancePriority = (int) (agent.avoidancePriority * multiplier);
-        speed = agent.speed;
     }
 
-    public void MultiplySpeed(float multiplier)
+    public virtual void RandomizeSpeed()
     {
-        agent.speed *= multiplier;
-        speed = agent.speed;
     }
 
-    public void ApplySlow(Func<float, float> slowFunc)
+    public virtual void MultiplySpeed(float multiplier)
     {
-        agent.speed = slowFunc(speed);
+    }
+
+    public virtual void ApplySlow(Func<float, float> slowFunc)
+    {
     }
     
-    public void ResetSpeed()
+    public virtual void ResetSpeed()
     {
-        agent.speed = speed;
     }
-}
+}*/

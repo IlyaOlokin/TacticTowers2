@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
-    protected PathFinder pathFinder;
+    protected IPathFinder pathFinder;
     private Rigidbody2D rb;
     
     [Header("Stats")]
