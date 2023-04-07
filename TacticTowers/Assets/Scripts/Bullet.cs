@@ -39,7 +39,7 @@ public class Bullet : MonoBehaviour
          {
              OnEnemyHit(other);
          }
-         else if (!other.gameObject.CompareTag("EffectZone") && !other.gameObject.CompareTag("Base"))
+         else if (other.gameObject.CompareTag("Wall"))
          {
              Destroy(gameObject);
          }
