@@ -54,7 +54,9 @@ public class Enemy : MonoBehaviour
     public void SetCost(float newCost) => cost = newCost;
 
     public void MultiplySpeed(float multiplier) => pathFinder.MultiplySpeed(multiplier);
-    
+
+    public virtual void ExecuteAbility() { }
+
     public void TakeFire(FireStats newFire)
     {
         if (isImmuneToFire)
