@@ -18,7 +18,10 @@ public class Tesla : Tower
 
     
     [NonSerialized] public bool hasMicroStunUpgrade;
-    
+    [Header("Micro Stun Upgrade")]
+    [SerializeField] private float stunDuration;
+    [SerializeField] private float stunDelay;
+
     [NonSerialized] public bool hasBranchingUpgrade;
     [Header("Branching Upgrade")]
     [SerializeField] private float branchingChance = 0.25f;
@@ -56,22 +59,20 @@ public class Tesla : Tower
         Vector3 startPos = (Vector3) parms[1];
         GameObject enemy = (GameObject) parms[2];
         List<GameObject> pickedEnemies = (List<GameObject>) parms[4];
-
-
-        var endPos = enemy.transform.position;
         
+        var endPos = enemy.transform.position;
 
         var newLightning = Instantiate(lightning, transform.position, towerCanon.transform.rotation);
         newLightning.GetComponent<LineRenderer>().SetPosition(0, startPos);
-        
-        //AudioManager.Instance.Play("TeslaShot");
-        
+
         if (CheckWallCollision(startPos, endPos, GetShootDistance(), false) is null)
         {
             newLightning.GetComponent<LineRenderer>().SetPosition(1, endPos);
-            enemy.GetComponent<Enemy>().TakeDamage(dmg, damageType, transform.position);
-            if (Random.Range(0f, 1f) < chanceToSetOnFire)
-                enemy.GetComponent<Enemy>().TakeFire(new FireStats(burnTime, dmg * burnDamageMultiplier));
+            Enemy enemyComp = enemy.GetComponent<Enemy>();
+            enemyComp.TakeDamage(dmg, damageType, transform.position);
+            if (hasFireChanceUpgrade && Random.Range(0f, 1f) < chanceToSetOnFire)
+                enemyComp.TakeFire(new FireStats(burnTime, dmg * burnDamageMultiplier));
+            if (hasMicroStunUpgrade) enemyComp.TakeStun(stunDuration, true);
             pickedEnemies.Add(enemy);
         }
         else
@@ -80,10 +81,6 @@ public class Tesla : Tower
             newLightning.GetComponent<LineRenderer>().SetPosition(1, endPos);
             yield break;
         }
-        Debug.DrawRay(startPos, endPos - startPos, Color.cyan, 1);
-        
-
-        
 
         yield return new WaitForSeconds(0.2f);
         int branches = 1;
