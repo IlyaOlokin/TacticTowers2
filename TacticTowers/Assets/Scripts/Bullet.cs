@@ -47,9 +47,10 @@ public class Bullet : MonoBehaviour
 
      protected virtual void OnEnemyHit(Collider2D other)
      {
-         other.gameObject.GetComponent<Enemy>().TakeDamage(Dmg, damageType, departurePos, isCritical);
-         if (Random.Range(0, 101) < 50)
-             other.gameObject.GetComponent<Enemy>().TakeStun(2f, true);
+         other.gameObject.GetComponent<Enemy>().TakeDamage(Dmg, damageType, departurePos);
+         //if (Random.Range(0, 101) < 50)
+         //other.gameObject.GetComponent<Enemy>().TakeSlow(x => x * 0.2f,7f);
+         //other.gameObject.GetComponent<Enemy>().TakeSlow(0.7f, 2f);
          
          if (penetrationsLeft == 0)
          {

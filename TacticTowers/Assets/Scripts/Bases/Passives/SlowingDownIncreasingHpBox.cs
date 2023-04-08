@@ -13,8 +13,9 @@ public class SlowingDownIncreasingHpBox : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            var enemy = other.GetComponent("Enemy");
-            enemy.GetComponent<NavMeshAgent>().speed *= SpeedMultiplier;
+            var enemy = other.GetComponent<Enemy>();
+            enemy.MultiplySpeed(SpeedMultiplier);
+            //enemy.GetComponent<NavMeshAgent>().speed *= SpeedMultiplier;
             enemy.GetComponent<Enemy>().SetHp(enemy.GetComponent<Enemy>().GetHp() * IncreasingHp);
         }
 

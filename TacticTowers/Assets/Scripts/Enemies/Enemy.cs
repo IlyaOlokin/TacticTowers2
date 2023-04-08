@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
-    protected PathFinder pathFinder;
+    protected IPathFinder pathFinder;
     private Rigidbody2D rb;
     
     [Header("Stats")]
@@ -52,6 +52,10 @@ public class Enemy : MonoBehaviour
     public void SetHp(float newHp) => hp = newHp;
     
     public void SetCost(float newCost) => cost = newCost;
+
+    public void MultiplySpeed(float multiplier) => pathFinder.MultiplySpeed(multiplier);
+
+    public virtual void ExecuteAbility() { }
 
     public void TakeFire(FireStats newFire)
     {
@@ -117,9 +121,16 @@ public class Enemy : MonoBehaviour
         return false;
     }
     
-    public void TakeSlow(float duration, float slowAmount)
+    public void TakeSlow(float slowAmount, float duration)
     {
-        
+        pathFinder.SlowMovement(slowAmount);
+        StartCoroutine(nameof(BeSlowed), duration);
+    }
+
+    public void TakeSlow(Func<float, float> slowFunc, float duration)
+    {
+        pathFinder.ApplySlow(slowFunc);
+        StartCoroutine(nameof(BeSlowed), duration);
     }
     
     public void TakeStun(float duration, bool isStartingCd)
@@ -135,6 +146,12 @@ public class Enemy : MonoBehaviour
             StartCoroutine(nameof(GetReadyForStun));
     }
 
+    public IEnumerator BeSlowed(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        pathFinder.ResetSpeed();
+    }
+    
     private IEnumerator BeStunned(float duration)
     {
         yield return new WaitForSeconds(duration);
