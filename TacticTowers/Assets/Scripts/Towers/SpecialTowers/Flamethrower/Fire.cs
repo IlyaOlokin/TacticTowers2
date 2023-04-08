@@ -6,6 +6,8 @@ using UnityEngine;
 [Serializable]
 public class Fire : MonoBehaviour
 {
+    private static float GlobalBurnMultiplier = 1;
+    
     public float burnTime;
     public float burnDmg;
     //[NonSerialized] public GameObject fire;
@@ -35,9 +37,19 @@ public class Fire : MonoBehaviour
         if (dmgDelayTimer <= 0) DealDamage();
     }
 
+    public static void ResetGlobalBurnMultiplier()
+    {
+        GlobalBurnMultiplier = 1;
+    }
+    
+    public static void MultiplyGlobalBurnMultiplier(int multiplier)
+    {
+        GlobalBurnMultiplier *= multiplier;
+    }
+
     private void DealDamage()
     {
-        enemy.TakeDamage(burnDmg, damageType, transform.position);
+        enemy.TakeDamage(burnDmg * GlobalBurnMultiplier, damageType, transform.position);
         dmgDelayTimer = dmgDelay;
     }
 
@@ -45,4 +57,6 @@ public class Fire : MonoBehaviour
     {
         Destroy(newFire.gameObject);
     }
+    
+    
 }
