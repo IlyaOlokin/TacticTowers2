@@ -31,6 +31,6 @@ public class MenuChangeButton : MonoBehaviour
     public void LoadGameScene()
     {
         AudioManager.Instance.Play("ButtonClick1");
-        SceneManager.LoadScene(DataLoader.LoadString("PlaySceneLoad", "GameField"));
+        SceneManager.LoadScene("LoadScene");
     }
 }

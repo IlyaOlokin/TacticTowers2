@@ -159,15 +159,17 @@ public class FinishPanel : MonoBehaviour
         Credits.AcceptSessionCredits();
         isSessionEnded = true;
 
-        var trialCompleted = DataLoader.LoadString("TrialCompleted", "00000000").Split();
-        var trialCompleted1 = DataLoader.LoadString("TrialCompleted", "00000000").Split();
-        var i = int.Parse(SceneManager.GetActiveScene().name.Substring(5)) - 1;
-        trialCompleted[i] = "1";
+        var trialCompletedList = new List<char>();
+        foreach (var i in DataLoader.LoadString("TrialCompleted", "00000000")) trialCompletedList.Add(i);
 
-        if (trialCompleted[i] != trialCompleted1[i])
+        var trialCompleted1 = DataLoader.LoadString("TrialCompleted", "00000000");
+        var j = int.Parse(SceneManager.GetActiveScene().name.Substring(5)) - 1;
+        trialCompletedList[j] = '1';
+
+        if (trialCompletedList[j] != trialCompleted1[j])
             Trial.GetPrise();
 
-        DataLoader.SaveString("TrialCompleted", string.Join("", trialCompleted));
+        DataLoader.SaveString("TrialCompleted", string.Join("", trialCompletedList));
     }
 
     private void ShowVictoryPanel()

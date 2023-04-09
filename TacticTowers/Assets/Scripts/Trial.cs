@@ -18,10 +18,8 @@ public class Trial : MonoBehaviour
         baseInt
     }
 
-    static int credits;
-    static int caseInt;
-    static Prise sPrise;
-    static int sValue;
+    public static Prise sPrise;
+    public static int sValue;
     public static void GetPrise()
     {
         if (sPrise == Prise.baseInt)
