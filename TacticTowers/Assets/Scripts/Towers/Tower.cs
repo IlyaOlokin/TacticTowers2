@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Tower : MonoBehaviour
 {
@@ -222,6 +223,14 @@ public class Tower : MonoBehaviour
         }
 
         return newEnemy;
+    }
+    
+    protected bool IsCriticalShot(float critChance)
+    {
+        if (Random.Range(0f, 1f) < critChance)
+            return true;
+        
+        return false;
     }
 
     public bool CanShoot()

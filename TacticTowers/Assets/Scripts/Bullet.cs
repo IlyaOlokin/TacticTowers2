@@ -18,6 +18,8 @@ public class Bullet : MonoBehaviour
      protected int penetrationsLeft = 0;
     
      private Rigidbody2D rb;
+     
+     [SerializeField] private GameObject visualEffect;
 
      private void Start()
     {
@@ -33,6 +35,11 @@ public class Bullet : MonoBehaviour
             penetrationsLeft = penetrationsCount;
     }
      
+     public void ActivateVisualEffect()
+     {
+         visualEffect.SetActive(true);
+     }
+     
      private void OnTriggerEnter2D(Collider2D other)
      {
          if (other.gameObject.CompareTag("Enemy"))
@@ -47,11 +54,8 @@ public class Bullet : MonoBehaviour
 
      protected virtual void OnEnemyHit(Collider2D other)
      {
-         other.gameObject.GetComponent<Enemy>().TakeDamage(Dmg, damageType, departurePos);
-         //if (Random.Range(0, 101) < 50)
-         //other.gameObject.GetComponent<Enemy>().TakeSlow(x => x * 0.2f,7f);
-         //other.gameObject.GetComponent<Enemy>().TakeSlow(0.7f, 2f);
-         
+         other.gameObject.GetComponent<Enemy>().TakeDamage(Dmg, damageType, departurePos, isCritical);
+
          if (penetrationsLeft == 0)
          {
              Destroy(gameObject);
