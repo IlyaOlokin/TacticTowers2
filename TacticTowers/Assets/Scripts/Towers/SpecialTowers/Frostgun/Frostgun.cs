@@ -9,6 +9,7 @@ public class Frostgun : Tower
     public float freezeTimeMultiplier;
     public float freezeStacksPerHit;
     public float freezeStacksPerHitMultiplier;
+    
     [SerializeField] private GameObject frostBox;
 
     public int freezeStacksNeeded;
@@ -61,6 +62,7 @@ public class Frostgun : Tower
                 frostBoxComponent.freezeStacksPerHit = GetFreezeStacksPerHit();
                 frostBoxComponent.freezeStacksNeeded = freezeStacksNeeded;
                 frostBoxComponent.hasImmuneIgnoreUpgrade = hasImmuneIgnoreUpgrade;
+                frostBoxComponent.senderPos = transform.position;
                 
                 defaultFrostBoxWidth = activeFrostBox.transform.localScale.x ;
                 currentEnemy = enemy;
