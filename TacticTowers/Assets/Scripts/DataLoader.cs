@@ -23,7 +23,7 @@ public class DataLoader : MonoBehaviour
         trMeButton = trialsMenuButton;
 
 
-        YandexSDK.Instance.GettingData();
+        //YandexSDK.Instance.GettingData();
         LoadStartData();
     }
 
