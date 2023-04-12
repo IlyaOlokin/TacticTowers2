@@ -7,10 +7,12 @@ public class TrialsMenuButton : MonoBehaviour
 {
     [SerializeField] private Sprite UnlockedTrials;
     [SerializeField] private Sprite BlockedTrials;
+    public static bool isTrialsUnlocked;
 
-    void Start()
+   
+    public void Init()
     {
-        if (DataLoader.LoadInt("isTrialsUnlocked", 0) == 0)
+        if (isTrialsUnlocked)
         {
             GetComponent<Image>().sprite = BlockedTrials;
             GetComponent<Button>().enabled = false;

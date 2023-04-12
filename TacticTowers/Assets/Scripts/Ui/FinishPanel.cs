@@ -37,7 +37,6 @@ public class FinishPanel : MonoBehaviour
     private float timer;
     private bool isRewarding;
 
-    
 
     void Start()
     {
@@ -122,8 +121,10 @@ public class FinishPanel : MonoBehaviour
             if(!wasResurrectionUsed) ShowResurrectionPanel();
             else ShowDefeatPanel();
         }
-        
-        if (SceneManager.GetActiveScene().name == "GameField" && enemies.transform.childCount == 0)
+
+        if (EnemySpawner.enemies.Count != 0) return;
+
+        if (SceneManager.GetActiveScene().name == "GameField")
         {
             var waveCount = waveText.text.Split('/').Select(int.Parse).ToArray();
 
@@ -133,7 +134,7 @@ public class FinishPanel : MonoBehaviour
             }
         }
 
-        if (SceneManager.GetActiveScene().name != "Tutorial" && SceneManager.GetActiveScene().name != "GameField" && enemies.transform.childCount == 0)
+        if (SceneManager.GetActiveScene().name != "Tutorial" && SceneManager.GetActiveScene().name != "GameField")
         {
             var waveCount = waveText.text.Split('/').Select(int.Parse).ToArray();
 
@@ -158,55 +159,17 @@ public class FinishPanel : MonoBehaviour
         Credits.AcceptSessionCredits();
         isSessionEnded = true;
 
-        var trialCompleted = DataLoader.LoadString("TrialCompleted", "00000000").Split();
-        var trialCompleted1 = DataLoader.LoadString("TrialCompleted", "00000000").Split();
-        var i = int.Parse(SceneManager.GetActiveScene().name.Substring(4)) - 1;
-        trialCompleted[i] = "1";
+        var trialCompletedList = new List<char>();
+        foreach (var i in DataLoader.LoadString("TrialCompleted", "00000000")) trialCompletedList.Add(i);
 
-        if (trialCompleted[i] != trialCompleted1[i])
-            switch (i) {
-                case 0:
-                    Credits.AddCredits(500);
-                    break;
-                case 1:
-                    var s = DataLoader.LoadString("BaseUnlocks", "10000000");
-                    var r = "";
-                    for (int j = 0; j < s.Length; j++)
-                    {
-                        if (j == 5)
-                            r += "1";
-                        else
-                            r += s[j];
-                    }
-                    DataLoader.SaveString("BaseUnlocks", r);
-                    break;
-                case 2:
-                    Credits.AddCredits(1000);
-                    break;
-                case 3:
-                    var s1 = DataLoader.LoadString("BaseUnlocks", "10000000");
-                    var r1 = "";
-                    for (int j = 0; j < s1.Length; j++)
-                    {
-                        if (j == 4)
-                            r1 += "1";
-                        else
-                            r1 += s1[j];
-                    }
-                    DataLoader.SaveString("BaseUnlocks", r1);
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    Credits.AddCredits(2000);
-                    break;
-                case 6:
-                    break;
-                case 7:
-                    break;
-            }
+        var trialCompleted1 = DataLoader.LoadString("TrialCompleted", "00000000");
+        var j = int.Parse(SceneManager.GetActiveScene().name.Substring(5)) - 1;
+        trialCompletedList[j] = '1';
 
-        DataLoader.SaveString("TrialCompleted", string.Join("", trialCompleted));
+        if (trialCompletedList[j] != trialCompleted1[j])
+            Trial.GetPrise();
+
+        DataLoader.SaveString("TrialCompleted", string.Join("", trialCompletedList));
     }
 
     private void ShowVictoryPanel()

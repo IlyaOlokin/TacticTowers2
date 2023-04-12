@@ -3605,7 +3605,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 591903137}
         m_TargetAssemblyTypeName: MenuChangeButton, Assembly-CSharp
-        m_MethodName: OnButtonPlay
+        m_MethodName: LoadChooseBaseMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

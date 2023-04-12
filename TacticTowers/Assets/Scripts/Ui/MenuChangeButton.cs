@@ -19,4 +19,18 @@ public class MenuChangeButton : MonoBehaviour
 
         SceneManager.LoadScene(isTutorialCompleted ? "BaseChooseMenu" : "Tutorial");
     }
+
+    public void LoadChooseBaseMenu()
+    {
+        AudioManager.Instance.Play("ButtonClick1");
+        DataLoader.SaveString("PlaySceneLoad", "GameField");
+        SceneManager.LoadScene("BaseChooseMenu");
+
+    }
+
+    public void LoadGameScene()
+    {
+        AudioManager.Instance.Play("ButtonClick1");
+        SceneManager.LoadScene("LoadScene");
+    }
 }
