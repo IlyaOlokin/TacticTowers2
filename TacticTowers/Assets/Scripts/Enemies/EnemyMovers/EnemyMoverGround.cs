@@ -4,38 +4,46 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class PathFinderGround : IPathFinder
+public class EnemyMoverGround : IEnemyMover
 {
+    private readonly NavMeshAgent agent;
+    private Vector3 target;
     private float speed;
-    protected NavMeshAgent agent;
 
-    public PathFinderGround(NavMeshAgent agent)
+    public EnemyMoverGround(NavMeshAgent agent, float initialSpeed, Vector3 initialTarget)
     {
         this.agent = agent;
+        speed = initialSpeed;
+        agent.speed = speed;
+        target = initialTarget;
         if (!agent.enabled || !agent.isOnNavMesh) 
             return;
         agent.updateRotation = false;
         agent.updateUpAxis = false;
-        agent.SetDestination(GameObject.FindGameObjectWithTag("Base").transform.position);
     }
-
-    public void StopMovement()
+    
+    public void Move(Transform transform)
     {
-        agent.enabled = false;
+        if (agent.enabled)
+            agent.SetDestination(target);
     }
     
     public void StartMovement()
     {
         agent.enabled = true;
-        agent.SetDestination(GameObject.FindGameObjectWithTag("Base").transform.position);
     }
     
-    public void SlowMovement(float slowAmount)
+    public void StopMovement()
     {
-        agent.speed *= (1 - slowAmount);
+        agent.enabled = false;
     }
-    
-    public float GetRotationAngle()
+
+    public void ChangeTarget(Vector3 newTarget)
+    {
+        target = newTarget;
+    }
+
+    public float GetRotationAngle(Vector3 currentPos)
     {
         return Mathf.Atan2(agent.desiredVelocity.y, agent.desiredVelocity.x) * Mathf.Rad2Deg;
     }
@@ -45,20 +53,24 @@ public class PathFinderGround : IPathFinder
     public void RandomizeSpeed()
     {
         var multiplier = Random.Range(1f, 1.75f);
-        agent.speed *= multiplier;
         agent.avoidancePriority = (int) (agent.avoidancePriority * multiplier);
-        speed = agent.speed;
+        MultiplySpeed(multiplier);
     }
 
     public void MultiplySpeed(float multiplier)
     {
-        agent.speed *= multiplier;
-        speed = agent.speed;
+        speed *= multiplier;
+        agent.speed = speed;
     }
 
     public void ApplySlow(Func<float, float> slowFunc)
     {
         agent.speed = slowFunc(speed);
+    }
+    
+    public void ApplySlow(float slowAmount)
+    {
+        agent.speed *= 1 - slowAmount;
     }
     
     public void ResetSpeed()

@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 
 public class BossWithShields : Boss
 {
+    [Header("BossShields")]
     [SerializeField] private List<GameObject> shieldPoints;
     [SerializeField] private List<GameObject> shields;
     [SerializeField] private List<ShieldSide> shieldSides;
@@ -19,7 +20,7 @@ public class BossWithShields : Boss
     private List<Vector3> floatingDestinations = new List<Vector3>();
     private Transform[] moveDestinationTransforms = new Transform[3];
     
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float shieldMoveSpeed;
     [SerializeField] private float shieldRotationSpeed;
     
     void Start()
@@ -87,7 +88,7 @@ public class BossWithShields : Boss
             return;
 
         shieldPoints[shieldIndex].transform.position = Vector3.MoveTowards(shieldPoints[shieldIndex].transform.position,
-            moveDestinationTransforms[shieldIndex].position, moveSpeed * Time.deltaTime);
+            moveDestinationTransforms[shieldIndex].position, shieldMoveSpeed * Time.deltaTime);
         
     }
 
