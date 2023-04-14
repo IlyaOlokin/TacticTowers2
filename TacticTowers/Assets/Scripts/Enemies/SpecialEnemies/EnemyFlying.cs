@@ -4,7 +4,8 @@ public class EnemyFlying : Enemy
 {
     public void Awake()
     {
-        ExecuteAbility();
+        EnemyMover = new EnemyMoverAir(initialSpeed, GameObject.FindGameObjectWithTag("Base").transform.position);
+        //ExecuteAbility();
     }
 
     public override void ExecuteAbility()

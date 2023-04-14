@@ -39,7 +39,8 @@ public class Freeze : MonoBehaviour
         freezeStacks += freezeStacksPerHt;
         
         ColorEnemy();
-        enemy.TakeSlow(currentSpeed => currentSpeed - freezeStacks / freezeStacksNeeded * currentSpeed * 0.5f, 2f);
+        enemy.TakeSlow(0.25f, 5f);
+        //enemy.TakeSlow(currentSpeed => currentSpeed - freezeStacks / freezeStacksNeeded * currentSpeed * 0.5f, 2f);
         //SlowEnemy();
         
         if (!frozen) 
@@ -69,7 +70,8 @@ public class Freeze : MonoBehaviour
         yield return new WaitForSeconds(5f);
         freezeStacks -= freezeStacksPerHt;
         ColorEnemy();
-        enemy.TakeSlow(currentSpeed => currentSpeed - freezeStacks / freezeStacksNeeded * currentSpeed * 0.5f, 2f);
+        enemy.TakeSlow(0.25f, 5f);
+        //enemy.TakeSlow(currentSpeed => currentSpeed - freezeStacks / freezeStacksNeeded * currentSpeed * 0.5f, 2f);
         //SlowEnemy();
     }
     

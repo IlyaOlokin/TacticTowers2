@@ -30,7 +30,8 @@ public class Enemy : MonoBehaviour
     protected bool isDead;
     
     private bool isReadyForStun = true;
-
+    private Coroutine currentSlow;
+    
     public void Awake()
     {
         EnemyMover = new EnemyMoverGround(GetComponent<NavMeshAgent>(), initialSpeed, GameObject.FindGameObjectWithTag("Base").transform.position);
@@ -138,7 +139,9 @@ public class Enemy : MonoBehaviour
     public void TakeSlow(Func<float, float> slowFunc, float duration)
     {
         EnemyMover.ApplySlow(slowFunc);
-        StartCoroutine(nameof(BeSlowed), duration);
+        if (currentSlow != null)
+            StopCoroutine(currentSlow);
+        currentSlow = StartCoroutine(nameof(BeSlowed), duration);
     }
     
     public void TakeStun(float duration, float stunCd)
@@ -172,15 +175,10 @@ public class Enemy : MonoBehaviour
         EnemyMover.RandomizeSpeed();
     }
 
-    private int num = 0;
-    
     private IEnumerator BeSlowed(float duration)
     {
-        Debug.Log($"ENTER slowed {num}");
         yield return new WaitForSeconds(duration);
-        Debug.Log($"Reset speed {num}");
         EnemyMover.ResetSpeed();
-        num++;
     }
     
     private IEnumerator BeStunned(float duration)
