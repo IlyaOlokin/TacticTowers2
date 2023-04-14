@@ -112,12 +112,12 @@ public class Enemy : MonoBehaviour
         rb.AddForce(dir.normalized * (force * (1 - knockBackResist)), ForceMode2D.Impulse);
     }
 
-    public bool TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos)
+    public bool TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos, bool isCritical = false)
     {
         hp -= dmg;
         var newEffect = Instantiate(EnemyVFXManager.Instance.GetEffect("DamageNumber").effect, transform.position, Quaternion.identity);
         newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
-        newEffect.GetComponent<DamageNumberEffect>().InitTargetPos(damagerPos);
+        newEffect.GetComponent<DamageNumberEffect>().InitTargetPos(damagerPos, isCritical);
         if (hp < 0 && isDead) 
             return true;
         

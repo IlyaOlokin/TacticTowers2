@@ -19,6 +19,7 @@ public class BossWeb : Boss
 
     private void Start()
     {
+        base.Start();
         spriteRenderer = gun.GetComponent<SpriteRenderer>();
         rotationSpeed = 12f;
     }
@@ -26,7 +27,8 @@ public class BossWeb : Boss
     private void Update()
     {
         if (isDead) 
-            return;
+			return;
+        base.Update();
         TryToShoot();
         UpdateHp();
         shootTimer += Time.deltaTime;

@@ -49,7 +49,7 @@ public class Web : MonoBehaviour
             }
         }
 
-        StartCoroutine(Destroy(10));
+        StartCoroutine(Destroy(5));
     }
 
     private IEnumerator Destroy(float delay)

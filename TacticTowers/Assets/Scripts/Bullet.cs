@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
      [NonSerialized] public List<GameObject> enemiesToIgnore;
      [NonSerialized] public Vector3 departurePos;
      [NonSerialized] public bool hasPenetrationUpgrade;
+     [NonSerialized] public bool isCritical;
      [NonSerialized] public float penetrationDamageMultiplier;
      [NonSerialized] public int penetrationsCount;
      protected DamageType damageType = DamageType.Normal;
@@ -38,7 +39,7 @@ public class Bullet : MonoBehaviour
          {
              OnEnemyHit(other);
          }
-         else if (!other.gameObject.CompareTag("EffectZone") && !other.gameObject.CompareTag("Base"))
+         else if (other.gameObject.CompareTag("Wall"))
          {
              Destroy(gameObject);
          }
@@ -47,9 +48,7 @@ public class Bullet : MonoBehaviour
      protected virtual void OnEnemyHit(Collider2D other)
      {
          other.gameObject.GetComponent<Enemy>().TakeDamage(Dmg, damageType, departurePos);
-         //if (Random.Range(0, 101) < 50)
-         //other.gameObject.GetComponent<Enemy>().TakeSlow(x => x * 0.2f,7f);
-         //other.gameObject.GetComponent<Enemy>().TakeSlow(0.7f, 2f);
+         
          
          if (penetrationsLeft == 0)
          {

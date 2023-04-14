@@ -65,10 +65,11 @@ public class Shotgun : Tower
 
             var newBullet = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, bulletAngle + towerRot.z));
             var bulletComponent = newBullet.GetComponent<ShotgunBullet>();
-            if (GetLocalDamageMultiplier())
+            if (IsCriticalShot())
             {
                 bulletComponent.ActivateVisualEffect();
                 bulletComponent.Dmg = GetDmg() * 2f;
+                bulletComponent.isCritical = true;
             }
             else bulletComponent.Dmg = GetDmg();
             
@@ -90,7 +91,7 @@ public class Shotgun : Tower
         }
     }
 
-    private bool GetLocalDamageMultiplier()
+    private bool IsCriticalShot()
     {
         if (hasDoubleDamageUpgrade && Random.Range(0f, 1f) < doubleDamageChance)
             return true;

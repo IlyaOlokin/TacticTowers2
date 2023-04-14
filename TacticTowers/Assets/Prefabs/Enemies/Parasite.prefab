@@ -244,7 +244,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.000000040978193}
@@ -263,8 +263,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isImmuneToFire: 0
-  isImmuneToFreeze: 0
-  knockBackResist: 0
+  isImmuneToFreeze: 1
+  knockBackResist: 1
   stunResist: 0
   isImmortal: 0
   hp: 80
@@ -272,6 +272,7 @@ MonoBehaviour:
   weight: 0
   initialSpeed: 0
   creditsDropChance: 0
+  isReadyForStun: 1
 --- !u!114 &6735614924725604676
 MonoBehaviour:
   m_ObjectHideFlags: 0

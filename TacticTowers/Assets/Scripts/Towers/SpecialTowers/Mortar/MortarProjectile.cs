@@ -68,7 +68,7 @@ public class MortarProjectile : MonoBehaviour
         { 
             if (enemiesInRadius[i] is null) continue;
             enemiesInRadius[i].TakeDamage(dmg, damageType, transform.position);
-            if (Random.Range(0f, 1f) < chanceToSetOnFire)
+            if (hasFireChanceUpgrade && Random.Range(0f, 1f) < chanceToSetOnFire)
                 enemiesInRadius[i].TakeFire(new FireStats(burnTime, dmg * burnDamageMultiplier));
         }
     }
