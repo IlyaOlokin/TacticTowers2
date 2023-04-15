@@ -130,7 +130,8 @@ MonoBehaviour:
   dmgDecreaseMultiplier: 1
   lightningJumpDistance: 1.5
   lightningJumpDistanceMultiplier: 1
-  stunDuration: 1
+  stunDuration: 0.5
+  stunDelay: 1
   branchingChance: 0.25
   chanceToSetOnFire: 0.25
   burnTime: 3
