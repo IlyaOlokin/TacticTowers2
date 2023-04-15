@@ -72,7 +72,7 @@ public class Tesla : Tower
             enemyComp.TakeDamage(dmg, damageType, transform.position);
             if (hasFireChanceUpgrade && Random.Range(0f, 1f) < chanceToSetOnFire)
                 enemyComp.TakeFire(new FireStats(burnTime, dmg * burnDamageMultiplier));
-            if (hasMicroStunUpgrade) enemyComp.TakeStun(stunDuration, true);
+            if (hasMicroStunUpgrade) enemyComp.TakeStun(stunDuration, stunDelay);
             pickedEnemies.Add(enemy);
         }
         else
