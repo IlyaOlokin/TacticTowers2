@@ -6,12 +6,13 @@ using UnityEngine;
 
 public class FinalBoss : Boss
 {
+    [Header("FinalBoss")]
     [SerializeField] private List<Enemy> bossParts;
     [SerializeField] private List<MonoBehaviour> bossFunctionality;
     [SerializeField] private List<Threshold> thresholds;
+    [SerializeField] private float changePositionDelay;
     [NonSerialized] public List<Transform> positions = new List<Transform>();
     private Animator anim;
-    [SerializeField] private float changePositionDelay;
     private float changePositionTimer;
 
     private void Start()

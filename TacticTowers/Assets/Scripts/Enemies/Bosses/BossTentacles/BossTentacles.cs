@@ -6,22 +6,21 @@ using Random = UnityEngine.Random;
 
 public class BossTentacles : Boss
 {
-    [SerializeField] private List<Tentacle> tentaclesTips;
-    public float tentaclesRange;
-    [SerializeField] private float regenForTentacle;
+    [Header("BossTentacles")]
     [SerializeField] private GameObject tentacleParent;
-    //private Enemy enemyComp;
-    //private float maxHp;
+    [SerializeField] private List<Tentacle> tentaclesTips;
+    [SerializeField] private float regenForTentacle;
+    public float tentaclesRange;
+
     private float tentacleConnected;
     private float castDelay = 5f;
 
-   // private List<GameObject> tentacledEnemies;
+    private List<GameObject> tentacledEnemies;
     
     void Start()
     {
-        //tentacledEnemies = new List<GameObject>();
+        tentacledEnemies = new List<GameObject>();
         StartCoroutine("CastTentacles");
-        maxHp = hp;
     }
 
     private void Update()
@@ -47,9 +46,9 @@ public class BossTentacles : Boss
         {
             if (Vector2.Distance(transform.position, EnemySpawner.enemies[i].transform.position) > tentaclesRange) 
                 continue;
-            //if (tentacledEnemies.Contains(EnemySpawner.enemies[i]))
-            //    continue;
-            if (EnemySpawner.enemies[i].GetComponent<Enemy>().hasTentacle) continue;
+            if (tentacledEnemies.Contains(EnemySpawner.enemies[i]))
+               continue;
+            //if (EnemySpawner.enemies[i].GetComponent<Enemy>().hasTentacle) continue;
             if (EnemySpawner.enemies[i] == gameObject) 
                 continue;
             
@@ -72,7 +71,7 @@ public class BossTentacles : Boss
             foreach (var tentacle in tentaclesTips)
             {
                 if (tentacle.enemy != null) continue;
-                tentacle.SetEnemyAsTarget(enemy);
+                tentacle.SetEnemyAsTarget(enemy, tentacledEnemies);
                 ConnectTentacle();
                 break;
             }

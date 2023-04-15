@@ -41,11 +41,12 @@ public class Tentacle : MonoBehaviour
         }
     }
 
-    public void SetEnemyAsTarget(Enemy enemy)
+    public void SetEnemyAsTarget(Enemy enemy, List<GameObject> tentacledEnemies)
     {
         this.enemy = enemy;
         boss.ConnectTentacle();
-        enemy.SetTentacle();
+        //enemy.SetTentacle();
+        tentacledEnemies.Add(enemy.gameObject);
     }
 
     private void RotateTowardsTarget(Vector3 vectorToTarget)

@@ -6,13 +6,15 @@ using UnityEngine.AI;
 
 public class BossWeb : Boss
 {
-    [SerializeField] private float shootDelay = 2.5f; 
-    private float shootTimer = 0f;
-    [SerializeField] private float shootDistance;
-    
-    [SerializeField] private GameObject web;
+    [Header("BossWeb")]
     [SerializeField] private GameObject gun;
-    //private float rotationSpeed = 12f;
+    [SerializeField] private float shootDelay = 2.5f; 
+    [SerializeField] private float shootDistance;
+    private float shootTimer = 0f;
+    
+    [Header("Web")]
+    [SerializeField] private GameObject web;
+    
     private SpriteRenderer spriteRenderer;
 
     private void Start()
@@ -22,9 +24,10 @@ public class BossWeb : Boss
         rotationSpeed = 12f;
     }
 
-    void Update()
+    private void Update()
     {
-        if (isDead) return;
+        if (isDead) 
+			return;
         base.Update();
         TryToShoot();
         UpdateHp();

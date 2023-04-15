@@ -9,32 +9,36 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
-    protected IPathFinder pathFinder;
-    private Rigidbody2D rb;
+    protected IEnemyMover EnemyMover;
+    protected Rigidbody2D rb;
+    
+    [Header("Resists")]
+    [SerializeField] private bool isImmuneToFire = false;
+    [SerializeField] private bool isImmuneToFreeze = false;
+    [SerializeField] private float knockBackResist = 0f;
+    [SerializeField] private float stunResist = 0f;
+    [SerializeField] protected bool isImmortal;
     
     [Header("Stats")]
-    [FormerlySerializedAs("IsImmuneToFire")] [SerializeField] private bool isImmuneToFire = false;
-    [FormerlySerializedAs("IsImmuneToFreeze")] [SerializeField] private bool isImmuneToFreeze = false;
-    [FormerlySerializedAs("KnockBackResist")] [SerializeField] private float knockBackResist = 0f;
-    [SerializeField] private float stunResist;
-    
-    [SerializeField] protected bool isImmortal;
     [SerializeField] protected float hp;
     [SerializeField] protected float dmg;
     [SerializeField] protected int weight;
-    [SerializeField] protected float stunCd = 5f;
-    protected float cost;
-    protected bool isDead;
-    protected float rotationSpeed = 160f;
-    
-    [NonSerialized] public bool hasTentacle; // TODO: убрать
+    [SerializeField] protected float initialSpeed;
     [SerializeField] private int creditsDropChance;
-
-    [SerializeField] private bool isReadyForStun = true;
+    protected float cost;
+    protected float rotationSpeed = 160f;
+    protected bool isDead;
     
+    private bool isReadyForStun = true;
+    private Coroutine currentSlow;
+    
+    public void Awake()
+    {
+        EnemyMover = new EnemyMoverGround(GetComponent<NavMeshAgent>(), initialSpeed, GameObject.FindGameObjectWithTag("Base").transform.position);
+    }
+
     public void Start()
     {
-        pathFinder = new PathFinderGround(GetComponent<NavMeshAgent>());
         rb = GetComponent<Rigidbody2D>();
  
         RandomizeSpeed();
@@ -45,6 +49,11 @@ public class Enemy : MonoBehaviour
         RotateByVelocity();
     }
 
+    public void FixedUpdate()
+    {
+        EnemyMover.Move(transform);
+    }
+
     public int GetWeight() => weight;
     
     public float GetHp() => hp;
@@ -53,7 +62,7 @@ public class Enemy : MonoBehaviour
     
     public void SetCost(float newCost) => cost = newCost;
 
-    public void MultiplySpeed(float multiplier) => pathFinder.MultiplySpeed(multiplier);
+    public void MultiplySpeed(float multiplier) => EnemyMover.MultiplySpeed(multiplier);
 
     public virtual void ExecuteAbility() { }
 
@@ -123,74 +132,71 @@ public class Enemy : MonoBehaviour
     
     public void TakeSlow(float slowAmount, float duration)
     {
-        pathFinder.SlowMovement(slowAmount);
+        EnemyMover.ApplySlow(slowAmount);
         StartCoroutine(nameof(BeSlowed), duration);
     }
 
     public void TakeSlow(Func<float, float> slowFunc, float duration)
     {
-        pathFinder.ApplySlow(slowFunc);
-        StartCoroutine(nameof(BeSlowed), duration);
+        EnemyMover.ApplySlow(slowFunc);
+        if (currentSlow != null)
+            StopCoroutine(currentSlow);
+        currentSlow = StartCoroutine(nameof(BeSlowed), duration);
     }
     
-    public void TakeStun(float duration, bool isStartingCd)
+    public void TakeStun(float duration, float stunCd)
     {
         if (!isReadyForStun)
             return;
         
-        pathFinder.StopMovement();
+        EnemyMover.StopMovement();
         isReadyForStun = false;
         StartCoroutine(nameof(BeStunned), duration * (1 - stunResist));
         
-        if (isStartingCd)
-            StartCoroutine(nameof(GetReadyForStun));
+        StartCoroutine(nameof(GetReadyForStun), stunCd);
+    }
+    
+    protected void RotateByVelocity()
+    {
+        if (EnemyMover.IsStopped()) 
+            return;
+        
+        var angle = EnemyMover.GetRotationAngle(transform.position);
+        var targetRotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+        
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+    }
+    
+    protected void RandomizeSpeed()
+    {
+        if (GetComponent<Boss>() != null) 
+            return;
+        
+        EnemyMover.RandomizeSpeed();
     }
 
-    public IEnumerator BeSlowed(float duration)
+    private IEnumerator BeSlowed(float duration)
     {
         yield return new WaitForSeconds(duration);
-        pathFinder.ResetSpeed();
+        EnemyMover.ResetSpeed();
     }
     
     private IEnumerator BeStunned(float duration)
     {
         yield return new WaitForSeconds(duration);
-        pathFinder.StartMovement();
+        EnemyMover.StartMovement();
     }
     
-    private IEnumerator GetReadyForStun()
+    private IEnumerator GetReadyForStun(float stunCd)
     {
         yield return new WaitForSeconds(stunCd);
         isReadyForStun = true;
     }
-    
-    private void RotateByVelocity()
-    {
-        if (pathFinder.IsStopped()) 
-            return;
-        
-        var angle = pathFinder.GetRotationAngle();
-        var targetRotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
-        
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-    }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void DropCreditsByChance(int chance)
     {
-        if (other.gameObject.CompareTag("Base"))
-        {
-            if (dmg == 0) return;
-            other.gameObject.GetComponent<Base>().TakeDamage(dmg);
-            OnDeath(DamageType.Normal, other.transform.position);
-        }
-    }
-    
-    private void RandomizeSpeed()
-    {
-        if (GetComponent<Boss>() != null) 
-            return;
-        
-        pathFinder.RandomizeSpeed();
+        if (Random.Range(0, 100) < chance) 
+            Credits.AddSessionCredits(weight);
     }
     
     private void OnDeath(DamageType damageType, Vector3 killerPos)
@@ -198,7 +204,7 @@ public class Enemy : MonoBehaviour
         Money.AddMoney(cost);
         
         isDead = true;
-        pathFinder.StopMovement();
+        EnemyMover.StopMovement();
         
         DropCreditsByChance(creditsDropChance);
         switch (damageType)
@@ -215,19 +221,19 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Base"))
+        {
+            if (dmg == 0) return;
+            other.gameObject.GetComponent<Base>().TakeDamage(dmg);
+            OnDeath(DamageType.Normal, other.transform.position);
+        }
+    }
+    
     private void OnDestroy()
     {
         EnemySpawner.enemies.Remove(gameObject);
-    }
-
-    private void DropCreditsByChance(int chance)
-    {
-        if (Random.Range(0, 100) < chance) 
-            Credits.AddSessionCredits(weight);
-    }
-    
-    public void SetTentacle()
-    {
-        hasTentacle = true;
     }
 }
