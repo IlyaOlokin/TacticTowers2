@@ -26,6 +26,7 @@ public class Frostgun : Tower
     [SerializeField] private float widthMultiplier;
     
     [NonSerialized] public bool hasImmuneIgnoreUpgrade;
+    [NonSerialized] public bool hasFrozenDamageUpgrade;
     
     private void Start() => audioSrc = GetComponent<AudioSource>();
 

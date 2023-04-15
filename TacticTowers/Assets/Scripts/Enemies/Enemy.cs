@@ -114,6 +114,11 @@ public class Enemy : MonoBehaviour
 
     public bool TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos, bool isCritical = false)
     {
+        
+        if (Freeze.GetActiveFrozenDamageMultiplier() && TryGetComponent<Freeze>(out var freeze))
+            if (freeze.frozen)
+                dmg *= Freeze.GetGlobalFrozenMultiplier();
+            
         hp -= dmg;
         var newEffect = Instantiate(EnemyVFXManager.Instance.GetEffect("DamageNumber").effect, transform.position, Quaternion.identity);
         newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
