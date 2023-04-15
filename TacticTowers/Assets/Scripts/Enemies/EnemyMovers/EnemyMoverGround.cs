@@ -70,7 +70,7 @@ public class EnemyMoverGround : IEnemyMover
     
     public void ApplySlow(float slowAmount)
     {
-        agent.speed *= 1 - slowAmount;
+        agent.speed = speed *  (1 - slowAmount);
     }
     
     public void ResetSpeed()

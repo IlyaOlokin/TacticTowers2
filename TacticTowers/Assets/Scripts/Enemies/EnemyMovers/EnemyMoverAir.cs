@@ -62,7 +62,7 @@ public class EnemyMoverAir : IEnemyMover
 
     public void ApplySlow(float slowAmount)
     {
-        currentSpeed *= 1 - slowAmount;
+        currentSpeed = speed * (1 - slowAmount);
     }
     
     public void ApplySlow(Func<float, float> slowFunc)

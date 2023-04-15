@@ -133,7 +133,9 @@ public class Enemy : MonoBehaviour
     public void TakeSlow(float slowAmount, float duration)
     {
         EnemyMover.ApplySlow(slowAmount);
-        StartCoroutine(nameof(BeSlowed), duration);
+        if (currentSlow != null)
+            StopCoroutine(currentSlow);
+        currentSlow = StartCoroutine(nameof(BeSlowed), duration);
     }
 
     public void TakeSlow(Func<float, float> slowFunc, float duration)
