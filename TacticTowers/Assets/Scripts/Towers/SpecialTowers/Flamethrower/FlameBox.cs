@@ -60,7 +60,7 @@ public class FlameBox : MonoBehaviour
         {
             var enemy = enemiesInside[index];
             
-            enemy.TakeDamage(GetDamage(enemy), damageType, transform.position);
+            enemy.TakeDamage(GetDamage(enemy), damageType, senderPos);
             //SetOnFire(enemy.gameObject);
             enemy.TakeFire(new FireStats(burnTime, burnDmg));
         }

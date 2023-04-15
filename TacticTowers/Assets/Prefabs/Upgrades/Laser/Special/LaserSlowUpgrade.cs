@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinigunDamageStackUpgrade : SpecialUpgrade
+public class LaserSlowUpgrade : SpecialUpgrade
 {
     public override void Execute(Tower tower)
     {
         base.Execute(tower);
-        tower.gameObject.GetComponent<Minigun>().hasDamageStackUpgrade = true;
+        tower.transform.GetComponent<Laser>().hasSlowUpgrade = true;
     }
 }

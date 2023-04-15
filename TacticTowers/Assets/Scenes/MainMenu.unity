@@ -2032,6 +2032,7 @@ MonoBehaviour:
   musicButton: {fileID: 1703905702}
   soundButton: {fileID: 423226808}
   mainMenu: {fileID: 1788173293}
+  trialsMenuButton: {fileID: 799995208}
 --- !u!4 &1426094669
 Transform:
   m_ObjectHideFlags: 0
@@ -2445,7 +2446,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775811668}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9b89e1282d62df40a7c5bf30e207817, type: 3}
   m_Name: 

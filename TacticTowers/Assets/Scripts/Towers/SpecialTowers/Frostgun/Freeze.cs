@@ -6,6 +6,9 @@ using UnityEngine.AI;
 
 public class Freeze : MonoBehaviour
 {
+    private static bool IsGlobalBonusDamageActivated;
+    private static float GlobalFrozenDamageMultiplier;
+    
     private float freezeStacks;
     [NonSerialized] public int freezeStacksNeeded;
     [NonSerialized] public float freezeTime;
@@ -102,5 +105,30 @@ public class Freeze : MonoBehaviour
         enemy.GetComponent<SpriteRenderer>().color = new Color(enemyColor.r,
                                                                 enemyColor.g,
                                                                 enemyColor.b + (freezeStacks / freezeStacksNeeded) * 0.3f);
+    }
+    
+    public static void ResetGlobalFrozenDamageMultiplier()
+    {
+        GlobalFrozenDamageMultiplier = 1;
+    }
+    
+    public static void MultiplyGlobalFrozenMultiplier(float multiplier)
+    {
+        GlobalFrozenDamageMultiplier *= multiplier;
+    }
+
+    public static float GetGlobalFrozenMultiplier()
+    {
+        return GlobalFrozenDamageMultiplier;
+    }
+    
+    public static void SetActiveFrozenDamageMultiplier(bool enabled)
+    {
+        IsGlobalBonusDamageActivated = enabled;
+    }
+    
+    public static bool GetActiveFrozenDamageMultiplier()
+    {
+        return IsGlobalBonusDamageActivated;
     }
 }

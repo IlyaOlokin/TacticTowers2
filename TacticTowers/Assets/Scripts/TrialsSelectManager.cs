@@ -58,10 +58,12 @@ public class TrialsSelectManager : MonoBehaviour
         indicatorButton.SetActive(false);
         selectIndicator.GetNewDestination(buttons[index].transform.position);
         indicatorButton.SetActive(true);
+        SelectedTrial.GetComponent<Trial>().InitPrise();
     }
 
     public void OnPlay()
     {
-        SceneManager.LoadScene("Trial" + (DataLoader.LoadInt("selectedTrialsIndex", 0) + 1).ToString());
+        DataLoader.SaveString("PlaySceneLoad", "Trial" + (DataLoader.LoadInt("selectedTrialsIndex", 0) + 1).ToString());
+        SceneManager.LoadScene("BaseChooseMenu");
     }
 }

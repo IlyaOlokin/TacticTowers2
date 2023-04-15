@@ -114,6 +114,11 @@ public class Enemy : MonoBehaviour
 
     public bool TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos, bool isCritical = false)
     {
+        
+        if (Freeze.GetActiveFrozenDamageMultiplier() && TryGetComponent<Freeze>(out var freeze))
+            if (freeze.frozen)
+                dmg *= Freeze.GetGlobalFrozenMultiplier();
+            
         hp -= dmg;
         var newEffect = Instantiate(EnemyVFXManager.Instance.GetEffect("DamageNumber").effect, transform.position, Quaternion.identity);
         newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
@@ -133,7 +138,9 @@ public class Enemy : MonoBehaviour
     public void TakeSlow(float slowAmount, float duration)
     {
         EnemyMover.ApplySlow(slowAmount);
-        StartCoroutine(nameof(BeSlowed), duration);
+        if (currentSlow != null)
+            StopCoroutine(currentSlow);
+        currentSlow = StartCoroutine(nameof(BeSlowed), duration);
     }
 
     public void TakeSlow(Func<float, float> slowFunc, float duration)

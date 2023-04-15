@@ -315,8 +315,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 196254637}
         m_TargetAssemblyTypeName: MenuChangeButton, Assembly-CSharp
-        m_MethodName: LoadMenu
-        m_Mode: 5
+        m_MethodName: LoadGameScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

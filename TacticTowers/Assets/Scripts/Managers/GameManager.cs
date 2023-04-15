@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
         finishPanel._base = newBase;
         InitPassiveAbilityButton(newBase);
         InitActiveAbilityButton(newBase);
+        Fire.ResetGlobalBurnMultiplier();
+        Freeze.ResetGlobalFrozenDamageMultiplier();
     }
     
     private void InitPassiveAbilityButton(Base newBase)

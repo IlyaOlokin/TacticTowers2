@@ -238,8 +238,7 @@ MonoBehaviour:
   bulletSpeed: 7
   angleBetweenBullets: 6
   bulletCount: 5
-  bonusBullets: 0
-  doubleDamageChance: 0.2
+  critChance: 0.2
   doubleShotChance: 0.2
   doubleShotDelay: 0.1
   knockBackForce: 1.5

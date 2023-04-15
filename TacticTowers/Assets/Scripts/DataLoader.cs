@@ -8,18 +8,22 @@ public class DataLoader : MonoBehaviour
     [SerializeField] private MusicButton musicButton;
     [SerializeField] private SoundButton soundButton;
     [SerializeField] private MainMenu mainMenu;
-    
+    [SerializeField] private TrialsMenuButton trialsMenuButton;
+
     private static MusicButton mscButton;
     private static SoundButton sndButton;
     private static MainMenu mnMenu;
-    
+    private static TrialsMenuButton trMeButton;
+
     void Start()
     {
         mscButton = musicButton;
         sndButton = soundButton;
         mnMenu = mainMenu;
-        
-        YandexSDK.Instance.GettingData();
+        trMeButton = trialsMenuButton;
+
+
+        //YandexSDK.Instance.GettingData();
         LoadStartData();
     }
 
@@ -56,6 +60,9 @@ public class DataLoader : MonoBehaviour
         mscButton.Init();
         sndButton.Init();
         mnMenu.InitializeLanguage();
+
+        TrialsMenuButton.isTrialsUnlocked = LoadInt("isTrialsUnlocked", 0) == 0;
+        trMeButton.Init();
     }
 
     private void Update()

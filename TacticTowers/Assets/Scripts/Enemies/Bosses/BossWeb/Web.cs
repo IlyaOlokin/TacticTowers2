@@ -37,12 +37,13 @@ public class Web : MonoBehaviour
         circleCollider2D.enabled = true;
         GetComponent<SpriteRenderer>().sprite = webSprite;
         var towers = GameObject.FindGameObjectsWithTag("TowerInstance");
+        
         foreach (var tower in towers)
         {
             var towerComp = tower.GetComponent<Tower>();
 
             if (Vector3.Distance(tower.transform.position, transform.position) <
-                (transform.localScale.x + tower.transform.localScale.x) * 2
+                (transform.localScale.x + tower.transform.localScale.x) / 2f
                 && !towerComp.isDragging)
             {
                 towerComp.Disarm(disarmDuration);

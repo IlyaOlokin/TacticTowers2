@@ -116,7 +116,7 @@ MonoBehaviour:
   specialUpgrades:
   - {fileID: -8132409494211933578, guid: 0534c1fee0e775c45a6915f429d29ae8, type: 3}
   - {fileID: 5608103525338110795, guid: 8e5be29870cf81047981738bd9125f27, type: 3}
-  - {fileID: -8132409494211933578, guid: 0534c1fee0e775c45a6915f429d29ae8, type: 3}
+  - {fileID: 4915101146026763974, guid: 346fe426808dd6c45bb02e3fe2ace38a, type: 3}
   towerCanon: {fileID: 6774156177371616423}
   shootZone: {fileID: 0}
   shootAngle: 55
@@ -136,6 +136,7 @@ MonoBehaviour:
   penetrationsCount: 1
   bonusMultiplierForStack: 0.05
   maxDamageStacksCount: 10
+  critChance: 0.5
 --- !u!82 &-5942364998071044418
 AudioSource:
   m_ObjectHideFlags: 0

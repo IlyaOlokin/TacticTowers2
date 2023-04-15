@@ -16,7 +16,7 @@ public class Shotgun : Tower
     [NonSerialized] public bool hasDoubleDamageUpgrade;
     [Header("Double Damage Upgrade")]
 
-    [SerializeField] private float doubleDamageChance;
+    [SerializeField] private float critChance;
 
     [NonSerialized] public bool hasDoubleShotUpgrade;
     [Header("Double Damage Upgrade")]
@@ -65,7 +65,7 @@ public class Shotgun : Tower
 
             var newBullet = Instantiate(bullet, transform.position, Quaternion.Euler(0, 0, bulletAngle + towerRot.z));
             var bulletComponent = newBullet.GetComponent<ShotgunBullet>();
-            if (IsCriticalShot())
+            if (hasDoubleDamageUpgrade && IsCriticalShot(critChance))
             {
                 bulletComponent.ActivateVisualEffect();
                 bulletComponent.Dmg = GetDmg() * 2f;
@@ -89,13 +89,5 @@ public class Shotgun : Tower
             MakeShot();
             yield return new WaitForSeconds(delayInSeconds);
         }
-    }
-
-    private bool IsCriticalShot()
-    {
-        if (hasDoubleDamageUpgrade && Random.Range(0f, 1f) < doubleDamageChance)
-            return true;
-        
-        return false;
     }
 }
