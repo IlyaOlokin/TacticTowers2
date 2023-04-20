@@ -114,7 +114,6 @@ public class Enemy : MonoBehaviour
 
     public bool TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos, bool isCritical = false)
     {
-        
         if (Freeze.GetActiveFrozenDamageMultiplier() && TryGetComponent<Freeze>(out var freeze))
             if (freeze.frozen)
                 dmg *= Freeze.GetGlobalFrozenMultiplier();

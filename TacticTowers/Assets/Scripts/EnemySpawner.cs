@@ -89,7 +89,8 @@ public class EnemySpawner : MonoBehaviour
             wave.enemySet = wave.specialEnemySet;
             waveScale = 1f;
             Timer.Stop();
-            isBossInField = true;
+            //isBossInField = true;
+            isBossInField = FindObjectOfType<Boss>() != null;
         }
         else
         {
