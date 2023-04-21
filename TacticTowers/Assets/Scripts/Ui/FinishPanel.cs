@@ -153,7 +153,6 @@ public class FinishPanel : MonoBehaviour
         currentPanel = victoryPanel;
         adButtons[1].SetActive(true);
         //adButtons[1].GetComponent<Button>().onClick.AddListener(PauseMusik);
-        FillTexts(currentPanel, false);
         currentPanel.SetActive(true);
         Pause();
         Credits.AcceptSessionCredits();
@@ -165,9 +164,24 @@ public class FinishPanel : MonoBehaviour
         var trialCompleted1 = DataLoader.LoadString("TrialCompleted", "00000000");
         var j = int.Parse(SceneManager.GetActiveScene().name.Substring(5)) - 1;
         trialCompletedList[j] = '1';
-
+        currentPanel.transform.Find("WaveCount").transform.Find("Count").GetComponent<Text>().text = waveText.text;
         if (trialCompletedList[j] != trialCompleted1[j])
+        {
             Trial.GetPrise();
+            
+            if (Trial.sPrise == Trial.Prise.credits)
+            {
+                currentPanel.transform.Find("CreditsCountTrial").transform.Find("Count").GetComponent<Text>().text = "+" + Trial.sValue;
+                currentPanel.transform.Find("CreditsCountTrial").gameObject.SetActive(true);
+            }
+            else
+            {
+                currentPanel.transform.Find("BaseCount").transform.Find("BaseIndex").GetComponent<Text>().text = "¹" + Trial.sValue;
+                currentPanel.transform.Find("BaseCount").transform.Find("Image").GetComponent<Image>().sprite = TrialManager.Instance.spritesBase[Trial.sValue];
+                currentPanel.transform.Find("BaseCount").gameObject.SetActive(true);
+            }
+        }
+            
 
         DataLoader.SaveString("TrialCompleted", string.Join("", trialCompletedList));
     }
