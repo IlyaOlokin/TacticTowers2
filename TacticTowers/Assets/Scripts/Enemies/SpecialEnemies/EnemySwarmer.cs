@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EnemySwarmer : Enemy
 {
-    [Header("Swarmer")] 
+    [Header("Swarmer")]
     [SerializeField] private GameObject spawnPoint;
     [SerializeField] private GameObject spawningEnemy;
     [SerializeField] private int spawningAmount;
@@ -14,7 +15,7 @@ public class EnemySwarmer : Enemy
 
     private List<Vector3> path;
     private float nearThreshold = 0.001f;
-    private bool hasArrivedOnPath;
+    private bool isClockwise;
     
     private void Start()
     {
@@ -32,7 +33,8 @@ public class EnemySwarmer : Enemy
             new Vector3(-2.0f, -4f, 0f),
             new Vector3(-5.0f, -2f, 0f),
         };
-        EnemyMover.ChangeTarget(path[0]);
+        isClockwise = Random.Range(0, 2) == 0;
+        EnemyMover.ChangeTarget(isClockwise ? path[0] : path[path.Count - 1]);
         StartCoroutine(nameof(SpawnEnemies));
     }
 
@@ -45,7 +47,8 @@ public class EnemySwarmer : Enemy
             if (Math.Abs(transform.position.x - path[i].x) < nearThreshold
                 && Math.Abs(transform.position.y - path[i].y) < nearThreshold)
             {
-                EnemyMover.ChangeTarget(path[(i + 1) % path.Count]);
+                EnemyMover.ChangeTarget(isClockwise ? path[(i + 1) % path.Count] : path[(i - 1) % path.Count]);
+
                 nearThreshold = 0.001f;
             }
         }
@@ -59,8 +62,8 @@ public class EnemySwarmer : Enemy
     {
         yield return new WaitForSeconds(spawningDelay);
         
+        animator.enabled = false;
         EnemyMover.StopMovement();
-
         StartCoroutine(nameof(SpawnEnemy), spawningAmount);
     }
 
@@ -68,6 +71,7 @@ public class EnemySwarmer : Enemy
     {
         if (enemiesLeft == 0)
         {
+            animator.enabled = true;
             EnemyMover.StartMovement();
             StartCoroutine(nameof(SpawnEnemies));
             yield break;
@@ -75,7 +79,7 @@ public class EnemySwarmer : Enemy
         yield return new WaitForSeconds(eachEnemySpawnDelay);
         
         var enemyParent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
-        Instantiate(spawningEnemy, spawnPoint.transform.position, Quaternion.identity, enemyParent);
+        Instantiate(spawningEnemy, spawnPoint.transform.position, transform.rotation, enemyParent);
         
         EnemySpawner.FindEnemies();
         

@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb9959c0fda648a9ac0e0af46ff933b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 0
   knockBackResist: 0
@@ -194,7 +195,6 @@ MonoBehaviour:
   spawningAmount: 1
   spawningDelay: 10
   eachEnemySpawnDelay: 0.5
-  nearThreshold: 0.001
 --- !u!1 &2239990988382782596
 GameObject:
   m_ObjectHideFlags: 0

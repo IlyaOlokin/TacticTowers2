@@ -15,7 +15,7 @@ public class EnemySlimeBig : Enemy
         
         var enemyParent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
         for (var i = 0; i < slimeAmount; i++)
-            Instantiate(slimeMedium, transform.position, Quaternion.identity, enemyParent);
+            Instantiate(slimeMedium, transform.position, transform.rotation, enemyParent);
         
         EnemySpawner.FindEnemies();
     }
