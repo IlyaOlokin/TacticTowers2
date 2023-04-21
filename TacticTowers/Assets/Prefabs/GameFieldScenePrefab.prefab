@@ -1610,7 +1610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1385707898359958030}
   m_Layer: 0
-  m_Name: GaneFieldScenePrefab
+  m_Name: GameFieldScenePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1852,6 +1852,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1385707898359958030}
     m_Modifications:
+    - target: {fileID: 716383221857798497, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: showTipDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714909841751992692, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: showTipDelay
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2534379164848940827, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Camera
       value: 

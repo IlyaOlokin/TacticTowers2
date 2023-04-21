@@ -61,7 +61,7 @@ public class DataLoader : MonoBehaviour
         sndButton.Init();
         mnMenu.InitializeLanguage();
 
-        TrialsMenuButton.isTrialsUnlocked = LoadInt("isTrialsUnlocked", 0) == 0;
+        TrialsMenuButton.isTrialsLocked = LoadInt("isTrialsLocked", 0) == 0;
         trMeButton.Init();
     }
 

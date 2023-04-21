@@ -199,7 +199,7 @@ public class FinishPanel : MonoBehaviour
         Pause();
         Credits.AcceptSessionCredits();
         isSessionEnded = true;
-        DataLoader.SaveInt("isTrialsUnlocked", 1);
+        DataLoader.SaveInt("isTrialsLocked", 1);
     }
     
     private void ShowDefeatPanel()
@@ -215,7 +215,7 @@ public class FinishPanel : MonoBehaviour
         currentPanel.SetActive(true);
         Credits.AcceptSessionCredits();
         isSessionEnded = true;
-        DataLoader.SaveInt("isTrialsUnlocked", 1);
+        DataLoader.SaveInt("isTrialsLocked", 1);
     }
 
     private void UpdateResurrectionPanel()

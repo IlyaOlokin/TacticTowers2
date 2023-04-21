@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 196254639}
   - component: {fileID: 196254638}
   - component: {fileID: 196254637}
+  - component: {fileID: 196254641}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -249,6 +250,7 @@ RectTransform:
   m_LocalScale: {x: 1.0000799, y: 1.0000799, z: 1.0000799}
   m_Children:
   - {fileID: 113453459}
+  - {fileID: 2012148859}
   m_Father: {fileID: 1282023723}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -363,6 +365,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196254635}
   m_CullTransparentMesh: 1
+--- !u!114 &196254641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196254635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf48a833444a1c749bfea2e758a1b97b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toolTipText: "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0440\u0430\u0437\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u044B\u0439
+    \u043A\u043E\u043C\u0430\u043D\u0434\u043D\u044B\u0439 \u0446\u0435\u043D\u0442\u0440."
+  textWindowPrefab: {fileID: 5700682417213451267, guid: 17e8e0aa886c42d44b5d843bc5194ab5, type: 3}
+  windowSpawnPoint: {fileID: 2012148859}
+  showTipDelay: 0.5
 --- !u!1 &229015536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3309,6 +3328,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966257927}
   m_CullTransparentMesh: 1
+--- !u!1 &2012148858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2012148859}
+  m_Layer: 5
+  m_Name: ToolTipWindowSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2012148859
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012148858}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 196254636}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -177, y: 58}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2036394213
 GameObject:
   m_ObjectHideFlags: 0
@@ -3471,6 +3525,7 @@ MonoBehaviour:
   selectIndicator: {fileID: 1595190273}
   baseDescription: {fileID: 1579798263}
   playButton: {fileID: 196254638}
+  playButtonToolTip: {fileID: 196254641}
   unlockBaseButton: {fileID: 316012799}
 --- !u!4 &2140370683
 Transform:
