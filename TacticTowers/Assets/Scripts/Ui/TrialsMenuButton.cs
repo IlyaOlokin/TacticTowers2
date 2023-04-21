@@ -7,20 +7,23 @@ public class TrialsMenuButton : MonoBehaviour
 {
     [SerializeField] private Sprite UnlockedTrials;
     [SerializeField] private Sprite BlockedTrials;
-    public static bool isTrialsUnlocked;
+    [SerializeField] private ToolTip toolTip;
+    public static bool isTrialsLocked;
 
    
     public void Init()
     {
-        if (isTrialsUnlocked)
+        if (isTrialsLocked)
         {
             GetComponent<Image>().sprite = BlockedTrials;
             GetComponent<Button>().enabled = false;
+            toolTip.enabled = true;
         }
         else
         {
             GetComponent<Image>().sprite = UnlockedTrials;
             GetComponent<Button>().enabled = true;
+            toolTip.enabled = false;
         }
     }
 }
