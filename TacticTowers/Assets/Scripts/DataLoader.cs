@@ -29,16 +29,7 @@ public class DataLoader : MonoBehaviour
 
     public static void LoadStartData()
     {
-        Technologies.BaseHpMultiplier = float.Parse(LoadString("baseHpMultiplier", "1"));
-        Technologies.DmgMultiplier = float.Parse(LoadString("dmgMultiplier", "1"));
-        Technologies.AttackSpeedMultiplier = float.Parse(LoadString("attackSpeedMultiplier", "1"));
-        Technologies.ShootAngleMultiplier = float.Parse(LoadString("shootAngleMultiplier", "1"));
-        Technologies.ShootDistanceMultiplier = float.Parse(LoadString("shootDistanceMultiplier", "1"));
-
-        Technologies.IsFrostGunUnlocked = Convert.ToBoolean(LoadInt("isFrostGunUnlocked", 0));
-        Technologies.IsFlamethrowerUnlocked = Convert.ToBoolean(LoadInt("isFlamethrowerUnlocked", 0));
-        Technologies.IsRailgunUnlocked = Convert.ToBoolean(LoadInt("isRailgunUnlocked", 0));
-        Technologies.IsTeslaUnlocked = Convert.ToBoolean(LoadInt("isTeslaUnlocked", 0));
+        Technologies.LoadData();
 
         Credits.credits = LoadInt("Credits", 0);
         Credits.CreditsInTotal = int.Parse(LoadString("CreditsInTotal", Credits.credits.ToString()));
