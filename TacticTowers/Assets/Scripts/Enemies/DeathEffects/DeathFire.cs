@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
 public class DeathFire : IDeathEffect
@@ -13,16 +14,18 @@ public class DeathFire : IDeathEffect
 
     public void PlayEffect(GameObject source, Vector3 killerPos)
     {
-        //source.GetComponent<SpriteRenderer>().material = EnemyVFXManager.Instance.GetEffect("DeathFire").material;
-        
         source.GetComponent<Collider2D>().enabled = false;
         foreach (var component in source.transform.GetComponentsInChildren(typeof(Collider2D)))
         {
             var collider = (Collider2D)component;
             collider.enabled = false;
         }
-        
-        //new MonoBehaviour().StartCoroutine("Burn", source.GetComponent<SpriteRenderer>().material);
+
+        var newImposter = Object.Instantiate(EnemyVFXManager.Instance.GetEffect("DeathFire").effect,
+            source.transform.position, source.transform.rotation);
+        newImposter.transform.localScale = source.transform.localScale;
+        newImposter.GetComponent<SpriteRenderer>().sprite = source.GetComponent<SpriteRenderer>().sprite;
+        newImposter.GetComponent<DestroyThis>().StartCoroutine(Burn(newImposter.GetComponent<SpriteRenderer>().material));
     }
 
     private IEnumerator Burn(Material material)
