@@ -16,10 +16,7 @@ public class TrialManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            return;
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
