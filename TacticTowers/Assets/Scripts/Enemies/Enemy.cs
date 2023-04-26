@@ -9,6 +9,7 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] protected Animator animator;
     protected IEnemyMover EnemyMover;
     protected Rigidbody2D rb;
     
@@ -40,7 +41,7 @@ public class Enemy : MonoBehaviour
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
- 
+        animator = GetComponent<Animator>();
         RandomizeSpeed();
     }
     
@@ -114,7 +115,6 @@ public class Enemy : MonoBehaviour
 
     public bool TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos, bool isCritical = false)
     {
-        
         if (Freeze.GetActiveFrozenDamageMultiplier() && TryGetComponent<Freeze>(out var freeze))
             if (freeze.frozen)
                 dmg *= Freeze.GetGlobalFrozenMultiplier();
@@ -158,6 +158,7 @@ public class Enemy : MonoBehaviour
         
         EnemyMover.StopMovement();
         isReadyForStun = false;
+        animator.enabled = false;
         StartCoroutine(nameof(BeStunned), duration * (1 - stunResist));
         
         StartCoroutine(nameof(GetReadyForStun), stunCd);
@@ -191,6 +192,7 @@ public class Enemy : MonoBehaviour
     private IEnumerator BeStunned(float duration)
     {
         yield return new WaitForSeconds(duration);
+        animator.enabled = true;
         EnemyMover.StartMovement();
     }
     

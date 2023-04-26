@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04553e0e1fa40bb4db93fb9c70797975, type: 3}
-  m_Name: flyenemies
+  m_Name: SwarmerWave
   m_EditorClassIdentifier: 
-  Right:
-  - enemy: {fileID: 8682723920841854874, guid: c41788713e5f74e4fba9d118b0dbbb22, type: 3}
-    enemyCount: 5
-  Top:
-  - enemy: {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemyCount: 5
-  Left: []
+  Right: []
+  Top: []
+  Left:
+  - enemy: {fileID: 970157617121620856, guid: 0c38a13ae7ad0b54c809e0bc5d99e851, type: 3}
+    enemyCount: 1
   Bot: []
