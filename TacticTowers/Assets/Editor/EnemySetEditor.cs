@@ -26,7 +26,7 @@ public class EnemySetEditor : Editor
         EditorGUILayout.FloatField("Total Weight:", totalWeight);
     }
 
-    private static float CountTotalWeight(List<EnemyType> enemySet, float totalWeight)
+    private static float CountTotalWeight(List<EnemyInfo> enemySet, float totalWeight)
     {
         foreach (var enemyType in enemySet)
         {

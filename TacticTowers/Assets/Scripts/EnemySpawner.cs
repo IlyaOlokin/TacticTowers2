@@ -89,8 +89,7 @@ public class EnemySpawner : MonoBehaviour
             wave.enemySet = wave.specialEnemySet;
             waveScale = 1f;
             Timer.Stop();
-            //isBossInField = true;
-            isBossInField = FindObjectOfType<Boss>() != null;
+            isBossInField = true;
         }
         else
         {
@@ -127,7 +126,7 @@ public class EnemySpawner : MonoBehaviour
         wave.released = true;
     }
 
-    private void ReleaseWaveSide(List<EnemyType> enemyTypes, Transform spawnZone, float waveScale, float weightCost, Vector3 bossPos)
+    private void ReleaseWaveSide(List<EnemyInfo> enemyTypes, Transform spawnZone, float waveScale, float weightCost, Vector3 bossPos)
     {
         if (waveScale != 0)
             weightCost /= waveScale;
@@ -166,7 +165,7 @@ public class EnemySpawner : MonoBehaviour
         return sum;
     }
 
-    private float CountSideWeight(List<EnemyType> enemyTypes)
+    private float CountSideWeight(List<EnemyInfo> enemyTypes)
     {
         float sum = 0;
         for (int i = 0; i < enemyTypes.Count; i++)
@@ -205,7 +204,7 @@ public class Wave
 }
 
 [Serializable]
-public struct EnemyType
+public struct EnemyInfo
 {
     public GameObject enemy;
     public float enemyCount;

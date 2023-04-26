@@ -9,6 +9,8 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
+    public EnemyType enemyType;
+    
     [SerializeField] protected Animator animator;
     protected IEnemyMover EnemyMover;
     protected Rigidbody2D rb;

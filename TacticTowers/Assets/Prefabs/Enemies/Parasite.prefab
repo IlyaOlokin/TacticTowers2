@@ -262,6 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 13
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -272,7 +274,6 @@ MonoBehaviour:
   weight: 0
   initialSpeed: 0
   creditsDropChance: 0
-  isReadyForStun: 1
 --- !u!114 &6735614924725604676
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -374,6 +374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7a15000b580ea4b9482cbaf5e236b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 9
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
