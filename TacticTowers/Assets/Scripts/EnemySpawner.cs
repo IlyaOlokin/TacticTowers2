@@ -89,7 +89,7 @@ public class EnemySpawner : MonoBehaviour
             wave.enemySet = wave.specialEnemySet;
             waveScale = 1f;
             Timer.Stop();
-            isBossInField = true;
+            //isBossInField = true;
         }
         else
         {
@@ -116,6 +116,11 @@ public class EnemySpawner : MonoBehaviour
         
         
         FindEnemies();
+
+        if (wave.isSpecial)
+        {
+            isBossInField = FindObjectOfType<Boss>() != null;
+        }
 
         if (SceneManager.GetActiveScene().name != "Tutorial" && isBossInField)
         {

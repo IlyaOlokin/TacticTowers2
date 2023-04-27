@@ -27,9 +27,13 @@ public class NotificationManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
+    private void OnEnable()
     {
         OnNotificationQueueChanged += TryShowNotification;
+    }
+    private void OnDisable()
+    {
+        OnNotificationQueueChanged -= TryShowNotification;
     }
 
     /*private void Update()
