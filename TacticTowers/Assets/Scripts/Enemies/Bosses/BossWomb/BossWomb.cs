@@ -4,18 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class EnemySwarmer : Enemy
+public class BossWomb : Boss
 {
-    [Header("Swarmer")]
-    [SerializeField] private GameObject spawnPoint;
-    [SerializeField] private GameObject spawningEnemy;
-    [SerializeField] private int spawningAmount;
+    [Header("BossWomb")]
+    [SerializeField] private List<EnemyPack> enemyPacks;
+    [SerializeField] private Transform spawnZone;
     [SerializeField] private float spawningDelay;
     [SerializeField] private float eachEnemySpawnDelay;
 
     private List<Vector3> path;
-    private float nearThreshold = 0.001f;
+    [SerializeField] private float nearThreshold = 0.001f;
     private bool isClockwise;
+
+    private void Awake()
+    {
+        EnemyMover = new EnemyMoverAir(initialSpeed, GameObject.FindGameObjectWithTag("Base").transform.position);
+    }
     
     private void Start()
     {
@@ -23,7 +27,7 @@ public class EnemySwarmer : Enemy
         path = new List<Vector3>
         {
             new Vector3(-7.0f, 0.5f, 0f),
-            new Vector3(-5.0f, 2f, 0f),
+            new Vector3(-4.5f, 2.5f, 0f),
             new Vector3(-2.0f, 4f, 0f),
             new Vector3(2.0f, 4f, 0f),
             new Vector3(5.0f, 2f, 0f),
@@ -35,7 +39,7 @@ public class EnemySwarmer : Enemy
         };
         isClockwise = Random.Range(0, 2) == 0;
         EnemyMover.ChangeTarget(isClockwise ? path[0] : path[path.Count - 1]);
-        StartCoroutine(nameof(SpawnEnemies));
+        StartCoroutine(nameof(SpawnEnemyPack));
     }
 
     private void Update()
@@ -50,6 +54,7 @@ public class EnemySwarmer : Enemy
                 EnemyMover.ChangeTarget(isClockwise ? path[(i + 1) % path.Count] : path[Math.Abs((i - 1) % path.Count)]);
 
                 nearThreshold = 0.001f;
+                return;
             }
         }
 
@@ -58,33 +63,49 @@ public class EnemySwarmer : Enemy
             : nearThreshold * 2.0f;
     }
     
-    private IEnumerator SpawnEnemies()
+    private IEnumerator SpawnEnemyPack()
     {
         yield return new WaitForSeconds(spawningDelay);
-        
         animator.enabled = false;
         EnemyMover.StopMovement();
         LookAtBase();
-        StartCoroutine(nameof(SpawnEnemy), spawningAmount);
+        
+        StartCoroutine(nameof(SpawnEnemies), PickRandomPack());
     }
 
-    private IEnumerator SpawnEnemy(int enemiesLeft)
+    private void SpawnEnemies(EnemyPack enemyPack)
+    {
+        var enemyParent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
+        for (var i = 0; i < enemyPack.enemies.Count; i++)
+        {
+            for (var j = 0; j < enemyPack.enemiesCount[i]; j++)
+            {
+                Instantiate(enemyPack.enemies[i], GetRandomPointOnSpawnZone(spawnZone), transform.rotation, enemyParent);
+            }
+        }    
+        EnemySpawner.FindEnemies();
+        animator.enabled = true;
+        EnemyMover.StartMovement();
+        StartCoroutine(nameof(SpawnEnemyPack));
+    }
+    
+    private IEnumerator SpawnEnemies(int enemiesLeft)
     {
         if (enemiesLeft == 0)
         {
             animator.enabled = true;
             EnemyMover.StartMovement();
-            StartCoroutine(nameof(SpawnEnemies));
+            StartCoroutine(nameof(SpawnEnemyPack));
             yield break;
         }
         yield return new WaitForSeconds(eachEnemySpawnDelay);
         
         var enemyParent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
-        Instantiate(spawningEnemy, spawnPoint.transform.position, transform.rotation, enemyParent);
+        //Instantiate(spawningEnemy, spawnPoint.transform.position, transform.rotation, enemyParent);
         
         EnemySpawner.FindEnemies();
         
-        StartCoroutine(nameof(SpawnEnemy), enemiesLeft - 1);
+        //StartCoroutine(nameof(SpawnEnemies), enemiesLeft - 1);
     }
 
     private void LookAtBase()
@@ -93,5 +114,16 @@ public class EnemySwarmer : Enemy
         var direction = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
         var rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
         transform.eulerAngles = new Vector3(0, 0, rotation);
+    }
+    
+    private EnemyPack PickRandomPack() => enemyPacks[Random.Range(0, enemyPacks.Count)];
+    
+    private Vector2 GetRandomPointOnSpawnZone(Transform spawnZone)
+    {
+        return new Vector2(
+            Random.Range(spawnZone.position.x - spawnZone.localScale.x / 2f * transform.localScale.x,
+                spawnZone.position.x + spawnZone.localScale.x / 2f * transform.localScale.x),
+            Random.Range(spawnZone.position.y - spawnZone.localScale.y / 2f * transform.localScale.y,
+                spawnZone.position.y + spawnZone.localScale.y / 2f * transform.localScale.y));
     }
 }

@@ -534,7 +534,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350061011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 2, z: 0}
+  m_LocalPosition: {x: -4.5, y: 2.5, z: 0}
   m_LocalScale: {x: 0.03, y: 0.03, z: 1}
   m_Children: []
   m_Father: {fileID: 1412997077}
@@ -1903,7 +1903,7 @@ PrefabInstance:
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[0].bossTransform
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 231219255}
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[10].moneyForWave
       value: 2250
@@ -2011,7 +2011,7 @@ PrefabInstance:
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[0].specialEnemySet
       value: 
-      objectReference: {fileID: 11400000, guid: 2b42b265e196deb4599e11954dab1776, type: 2}
+      objectReference: {fileID: 11400000, guid: 9e661e4438df5134da6596ce1e13e8e1, type: 2}
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[4].specialEnemySet
       value: 

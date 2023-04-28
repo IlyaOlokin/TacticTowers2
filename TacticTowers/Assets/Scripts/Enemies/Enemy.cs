@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float knockBackResist = 0f;
     [SerializeField] private float stunResist = 0f;
     [SerializeField] protected bool isImmortal;
+    protected bool isInvulnerable;
     
     [Header("Stats")]
     [SerializeField] protected float hp;
@@ -56,6 +57,8 @@ public class Enemy : MonoBehaviour
     }
 
     public int GetWeight() => weight;
+
+    public bool GetInvulnerability() => isInvulnerable;
     
     public float GetHp() => hp;
 
@@ -69,7 +72,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeFire(FireStats newFire)
     {
-        if (isImmuneToFire)
+        if (isImmuneToFire || isInvulnerable)
             return;
         
         var currentFire = GetComponent<Fire>() ?? gameObject.AddComponent<Fire>();
@@ -86,7 +89,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeFreeze(FreezeStats newFreeze, bool hasSpecial)
     {
-        if (isImmuneToFreeze && !hasSpecial)
+        if (isImmuneToFreeze && !hasSpecial || isInvulnerable)
             return;
         
         var currentFreeze = GetComponent<Freeze>() ?? gameObject.AddComponent<Freeze>();
@@ -110,11 +113,17 @@ public class Enemy : MonoBehaviour
 
     public void TakeForce(float force, Vector3 dir)
     {
+        if (isInvulnerable)
+            return;
+        
         rb.AddForce(dir.normalized * (force * (1 - knockBackResist)), ForceMode2D.Impulse);
     }
 
     public bool TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos, bool isCritical = false)
     {
+        if (isInvulnerable)
+            return false;
+        
         if (Freeze.GetActiveFrozenDamageMultiplier() && TryGetComponent<Freeze>(out var freeze))
             if (freeze.frozen)
                 dmg *= Freeze.GetGlobalFrozenMultiplier();
@@ -137,6 +146,9 @@ public class Enemy : MonoBehaviour
     
     public void TakeSlow(float slowAmount, float duration)
     {
+        if (isInvulnerable)
+            return;
+        
         EnemyMover.ApplySlow(slowAmount);
         if (currentSlow != null)
             StopCoroutine(currentSlow);
@@ -145,6 +157,9 @@ public class Enemy : MonoBehaviour
 
     public void TakeSlow(Func<float, float> slowFunc, float duration)
     {
+        if (isInvulnerable)
+            return;
+        
         EnemyMover.ApplySlow(slowFunc);
         if (currentSlow != null)
             StopCoroutine(currentSlow);
@@ -153,7 +168,7 @@ public class Enemy : MonoBehaviour
     
     public void TakeStun(float duration, float stunCd)
     {
-        if (!isReadyForStun)
+        if (!isReadyForStun || isInvulnerable)
             return;
         
         EnemyMover.StopMovement();
