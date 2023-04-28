@@ -569,7 +569,7 @@ MonoBehaviour:
   - name: DeathNormal
     effect: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
   - name: DeathFire
-    effect: {fileID: 0}
+    effect: {fileID: 736782462959549611, guid: 1617917bc0437f8439d37cb846610d1a, type: 3}
   - name: FireOnEnemy
     effect: {fileID: 4128553405824924428, guid: d8432a620834e3e4b83e337c27f4bf91, type: 3}
   - name: FreezeOnEnemy
@@ -1692,7 +1692,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1385707898359958030}
   m_Layer: 0
-  m_Name: GaneFieldScenePrefab
+  m_Name: GameFieldScenePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1935,6 +1935,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1385707898359958030}
     m_Modifications:
+    - target: {fileID: 716383221857798497, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: showTipDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714909841751992692, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: showTipDelay
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2534379164848940827, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Camera
       value: 
