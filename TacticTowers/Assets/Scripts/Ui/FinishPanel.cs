@@ -34,6 +34,8 @@ public class FinishPanel : MonoBehaviour
     [SerializeField] private float timeToReact;
     [SerializeField] private AudioMixer audioMixer;
 
+    [SerializeField] private Notification notification;
+
     private float timer;
     private bool isRewarding;
 
@@ -185,7 +187,7 @@ public class FinishPanel : MonoBehaviour
         Pause();
         Credits.AcceptSessionCredits();
         isSessionEnded = true;
-        DataLoader.SaveInt("isTrialsUnlocked", 1);
+        UnlockTrials();
     }
     
     private void ShowDefeatPanel()
@@ -201,6 +203,13 @@ public class FinishPanel : MonoBehaviour
         currentPanel.SetActive(true);
         Credits.AcceptSessionCredits();
         isSessionEnded = true;
+        UnlockTrials();
+    }
+
+    private void UnlockTrials()
+    {
+        if (!Convert.ToBoolean(DataLoader.LoadInt("isTrialsUnlocked", 0)))
+            NotificationManager.Instance.GetNotification(notification);
         DataLoader.SaveInt("isTrialsUnlocked", 1);
     }
 
