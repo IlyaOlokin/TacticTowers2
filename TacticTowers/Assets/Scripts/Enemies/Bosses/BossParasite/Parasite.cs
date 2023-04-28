@@ -5,12 +5,19 @@ using UnityEngine;
 
 public class Parasite : MonoBehaviour
 {
+    public static float ParasitesLifeTime;
+    
     [NonSerialized] public GameObject tower;
     [NonSerialized] public float attackSpeedMultiplier;
     
     void Start()
     {
         AttachToTower();
+    }
+
+    private void Update()
+    {
+        ParasitesLifeTime += Time.unscaledDeltaTime;
     }
 
     private void AttachToTower()
