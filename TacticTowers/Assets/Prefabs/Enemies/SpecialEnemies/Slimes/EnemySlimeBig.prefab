@@ -261,7 +261,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 7
-  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 0
   knockBackResist: 0
@@ -269,7 +268,7 @@ MonoBehaviour:
   isImmortal: 0
   hp: 40
   dmg: 15
-  weight: 1
+  weight: 18
   initialSpeed: 0.14
   creditsDropChance: 10
   slimeMedium: {fileID: 6827577203655098640, guid: 185ee16bf6622464aac232fb4d642f88, type: 3}
