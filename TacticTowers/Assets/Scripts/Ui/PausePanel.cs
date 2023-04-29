@@ -76,7 +76,6 @@ public class PausePanel : MonoBehaviour
 
     public void OnButtonContinue()
     {
-        ShowCommonAd();
         Resume();
         AudioManager.Instance.Play("ButtonClick1");
         Credits.LoseSessionCredits();
@@ -122,18 +121,6 @@ public class PausePanel : MonoBehaviour
                 if (towers.Any(tower =>  tower.GetComponent<TowerDrag>().needToDrop) || Time.timeScale == 0) return;
                 Pause();
             }
-        }
-    }
-    
-    private void ShowCommonAd()
-    {
-        try
-        {
-            YandexSDK.Instance.ShowCommonAdvertisment();
-        }
-        catch 
-        {
-            Console.WriteLine("add");
         }
     }
 }

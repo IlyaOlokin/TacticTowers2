@@ -2331,6 +2331,8 @@ MonoBehaviour:
   soundButton: {fileID: 423226808}
   mainMenu: {fileID: 1788173293}
   trialsMenuButton: {fileID: 799995208}
+  fileName: data.game
+  useEncryption: 0
 --- !u!4 &1426094669
 Transform:
   m_ObjectHideFlags: 0
