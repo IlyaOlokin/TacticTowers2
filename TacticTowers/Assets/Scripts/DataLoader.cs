@@ -151,6 +151,6 @@ public class DataLoader : MonoBehaviour
 [Serializable]
 public class GameData
 {
-    public Dictionary<string, string> stringData = new Dictionary<string, string>();
-    public Dictionary<string, int> intData = new Dictionary<string, int>();
+    public SerializableDictionary<string, string> stringData = new SerializableDictionary<string, string>();
+    public SerializableDictionary<string, int> intData = new SerializableDictionary<string, int>();
 }
