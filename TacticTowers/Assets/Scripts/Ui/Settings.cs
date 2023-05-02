@@ -30,7 +30,7 @@ public class Settings : MonoBehaviour
 
         for (var i = 0; i < resolutions.Length; i++)
         {
-            if (Math.Abs(((float)resolutions[i].width / (float)resolutions[i].height) - (16f / 9f)) < 0.0001f && resolutions[i].refreshRate == 60)
+            if (Math.Abs(((float)resolutions[i].width / (float)resolutions[i].height) - (16f / 9f)) < 0.0001f && resolutions[i].refreshRate == Screen.currentResolution.refreshRate)
             {
                 var option = $"{resolutions[i].width}x{resolutions[i].height}";
                 optipns.Add(option);
