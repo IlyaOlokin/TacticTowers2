@@ -30,7 +30,13 @@ public class Laser : Tower
 
     [NonSerialized] public bool hasSecondBeamUpgrade;
     
+    [NonSerialized] public bool hasSlowUpgrade;
+    [Header("Slow Upgrade")] 
+    [SerializeField] private float slowAmount;
+    [SerializeField] private float slowDuration;
+
     [NonSerialized] public bool hasBranchingBeamUpgrade;
+    [Header("Branching Beam Upgrade")]
     [SerializeField] private int extraLaserCount = 2;
     [SerializeField] private float extraLaserDamageMultiplier;
 
@@ -166,6 +172,7 @@ public class Laser : Tower
                     Destroy(lasers[i]);
                     shooting = false;
                 }
+                if (hasSlowUpgrade) enemies[i].GetComponent<Enemy>().TakeSlow(slowAmount, slowDuration);
             }
         }
     }

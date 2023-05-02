@@ -220,12 +220,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsImmuneToFire: 0
-  IsImmuneToFreeze: 0
-  KnockBackResist: 0
+  enemyType: 2
+  animator: {fileID: 0}
+  isImmuneToFire: 0
+  isImmuneToFreeze: 0
+  knockBackResist: 0
+  stunResist: 0
+  isImmortal: 0
   hp: 80
   dmg: 15
   weight: 6
+  initialSpeed: 0.4
+  creditsDropChance: 10
 --- !u!95 &6001877397998673602
 Animator:
   serializedVersion: 3

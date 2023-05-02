@@ -14,6 +14,14 @@ public class DataLoader : MonoBehaviour
     private static SoundButton sndButton;
     private static MainMenu mnMenu;
     private static TrialsMenuButton trMeButton;
+    
+    public static GameData gameData;
+    
+    [Header("File Storage Config")] 
+    [SerializeField] private string fileName;
+    [SerializeField] private bool useEncryption;
+    
+    private static FileDataHandler dataHandler;
 
     void Start()
     {
@@ -22,23 +30,16 @@ public class DataLoader : MonoBehaviour
         mnMenu = mainMenu;
         trMeButton = trialsMenuButton;
 
-
-        YandexSDK.Instance.GettingData();
+        dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
+        
         LoadStartData();
     }
 
     public static void LoadStartData()
     {
-        Technologies.BaseHpMultiplier = float.Parse(LoadString("baseHpMultiplier", "1"));
-        Technologies.DmgMultiplier = float.Parse(LoadString("dmgMultiplier", "1"));
-        Technologies.AttackSpeedMultiplier = float.Parse(LoadString("attackSpeedMultiplier", "1"));
-        Technologies.ShootAngleMultiplier = float.Parse(LoadString("shootAngleMultiplier", "1"));
-        Technologies.ShootDistanceMultiplier = float.Parse(LoadString("shootDistanceMultiplier", "1"));
-
-        Technologies.IsFrostGunUnlocked = Convert.ToBoolean(LoadInt("isFrostGunUnlocked", 0));
-        Technologies.IsFlamethrowerUnlocked = Convert.ToBoolean(LoadInt("isFlamethrowerUnlocked", 0));
-        Technologies.IsRailgunUnlocked = Convert.ToBoolean(LoadInt("isRailgunUnlocked", 0));
-        Technologies.IsTeslaUnlocked = Convert.ToBoolean(LoadInt("isTeslaUnlocked", 0));
+        LoadGame();
+        
+        Technologies.LoadData();
 
         Credits.credits = LoadInt("Credits", 0);
         Credits.CreditsInTotal = int.Parse(LoadString("CreditsInTotal", Credits.credits.ToString()));
@@ -61,8 +62,28 @@ public class DataLoader : MonoBehaviour
         sndButton.Init();
         mnMenu.InitializeLanguage();
 
-        TrialsMenuButton.isTrialsUnlocked = LoadInt("isTrialsUnlocked", 0) == 0;
+        TrialsMenuButton.isTrialsLocked = LoadInt("isTrialsLocked", 0) == 0;
         trMeButton.Init();
+    }
+
+    private static void NewGame()
+    {
+        gameData = new GameData();
+    }
+
+    private static void LoadGame()
+    {
+        gameData = dataHandler.Load();
+
+        if (gameData == null)
+        {
+            NewGame();
+        }
+    }
+
+    private static void SaveGame()
+    {
+        dataHandler.Save(gameData);
     }
 
     private void Update()
@@ -74,32 +95,62 @@ public class DataLoader : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.U))
         {
-            PlayerPrefs.DeleteAll();
+            NewGame();
+            SaveGame();
+            LoadStartData();
         }
     }
 
-    public static void SaveInt(string variableName, int value)
+    public static void SaveInt(string variableName, int isUnlocked)
     {
-        PlayerPrefs.SetInt(variableName, Convert.ToInt16(value));
+        if (!gameData.intData.ContainsKey(variableName))
+            gameData.intData.Add(variableName, isUnlocked);
+        else
+            gameData.intData[variableName] = isUnlocked;
+        
+        SaveGame();
     }
 
     public static void SaveInt(string variableName, bool isUnlocked)
     {
-        PlayerPrefs.SetInt(variableName, Convert.ToInt16(isUnlocked));
+        if (!gameData.intData.ContainsKey(variableName))
+            gameData.intData.Add(variableName, Convert.ToInt16(isUnlocked));
+        else
+            gameData.intData[variableName] = Convert.ToInt16(isUnlocked);
+        
+        SaveGame();
     }
 
     public static void SaveString(string variableName, string value)
     {
-        PlayerPrefs.SetString(variableName, value);
+        if (!gameData.stringData.ContainsKey(variableName))
+            gameData.stringData.Add(variableName, value);
+        else
+            gameData.stringData[variableName] = value;
+        
+        SaveGame();
     }
 
     public static string LoadString(string variableName, string defaultValue)
     {
-        return PlayerPrefs.GetString(variableName, defaultValue);
+        if (!gameData.stringData.ContainsKey(variableName))
+            return defaultValue;
+       
+        return gameData.stringData[variableName];
     }
     
     public static int LoadInt(string variableName, int defaultValue)
     {
-        return PlayerPrefs.GetInt(variableName, defaultValue);
+        if (!gameData.intData.ContainsKey(variableName))
+            return defaultValue;
+       
+        return gameData.intData[variableName];
     }
+}
+
+[Serializable]
+public class GameData
+{
+    public SerializableDictionary<string, string> stringData = new SerializableDictionary<string, string>();
+    public SerializableDictionary<string, int> intData = new SerializableDictionary<string, int>();
 }

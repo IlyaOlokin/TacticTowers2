@@ -6,8 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Enemy Set", menuName = "EnemySet")]
 public class EnemySet : ScriptableObject
 {
-    public List<EnemyType> Right = new List<EnemyType>();
-    public List<EnemyType> Top = new List<EnemyType>();
-    public List<EnemyType> Left = new List<EnemyType>();
-    public List<EnemyType> Bot = new List<EnemyType>();
+    public List<EnemyInfo> Right = new List<EnemyInfo>();
+    public List<EnemyInfo> Top = new List<EnemyInfo>();
+    public List<EnemyInfo> Left = new List<EnemyInfo>();
+    public List<EnemyInfo> Bot = new List<EnemyInfo>();
 }

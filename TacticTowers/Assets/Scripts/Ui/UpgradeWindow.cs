@@ -105,7 +105,7 @@ public class UpgradeWindow : MonoBehaviour
         var upgrade = tower.upgrades[upgradeIndex];
         
         float chanceToSuper = Random.Range(0f, 1f);
-        bool isSuper = chanceToSuper < superUpgradeChance;
+        bool isSuper = chanceToSuper < GetX2UpgradeChance();
         upgrade.ApplyBonusIncrement(isSuper);
         button.GetComponent<UpgradeButton>().ActivateSuperCardEffects(isSuper);
         
@@ -258,6 +258,11 @@ public class UpgradeWindow : MonoBehaviour
         }
         
         return result + 1;
+    }
+    
+    private float GetX2UpgradeChance()
+    {
+        return superUpgradeChance * Technologies.X2UpgradeChanceMultiplier;
     }
 
     private void CreateNewTower(GameObject towerType, Tower tower)

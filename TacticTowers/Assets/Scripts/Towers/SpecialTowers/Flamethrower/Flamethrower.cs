@@ -17,15 +17,14 @@ public class Flamethrower : Tower
     private float defaultFlameBoxWidth;
     
     [NonSerialized] public bool hasWidthUpgrade;
-
     [Header("Width Upgrade")] 
     [SerializeField] private float widthMultiplier;
     
     [NonSerialized] public bool hasCloseDamageUpgrade;
-
     [Header("Width Upgrade")] 
     [SerializeField] private float closeDamageMultiplier;
-
+    
+    [NonSerialized] public bool hasGlobalBurnUpgrade;
 
     private void Start()
     {

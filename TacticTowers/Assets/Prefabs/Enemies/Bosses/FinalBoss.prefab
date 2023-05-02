@@ -259,13 +259,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsImmuneToFire: 0
-  IsImmuneToFreeze: 0
-  KnockBackResist: 0
+  enemyType: 0
+  animator: {fileID: 0}
+  isImmuneToFire: 0
+  isImmuneToFreeze: 1
+  knockBackResist: 1
+  stunResist: 0
   isImmortal: 0
   hp: 0
   dmg: 100
   weight: 1000
+  initialSpeed: 0
   creditsDropChance: 0
 --- !u!114 &120221017296783122
 MonoBehaviour:
@@ -289,10 +293,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4937924204824667844}
-  - component: {fileID: 6886061630008498143}
-  - component: {fileID: 6446521071913530625}
   - component: {fileID: 3190797490539967590}
   - component: {fileID: 4924631018447108676}
+  - component: {fileID: 6886061630008498143}
+  - component: {fileID: 6446521071913530625}
   m_Layer: 0
   m_Name: FinalBoss
   m_TagString: Enemy
@@ -318,66 +322,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!195 &6886061630008498143
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2961055341434008806}
-  m_Enabled: 0
-  m_AgentTypeID: 0
-  m_Radius: 0.1
-  m_Speed: 0
-  m_Acceleration: 8
-  avoidancePriority: 0
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.1
-  m_BaseOffset: 0.05
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 1
---- !u!114 &6446521071913530625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2961055341434008806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f18d2e71ef112ce43b39da27e733f22d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsImmuneToFire: 0
-  IsImmuneToFreeze: 1
-  KnockBackResist: 1
-  isImmortal: 0
-  hp: 0
-  dmg: 100
-  weight: 750
-  creditsDropChance: 1
-  icon: {fileID: -7445606136193012617, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
-  maxHp: 20000
-  bossParts:
-  - {fileID: 3558987875503934382}
-  - {fileID: 3289408514062954294}
-  - {fileID: 2637137269561843709}
-  - {fileID: 3095646540599923471}
-  - {fileID: 4280467384098245084}
-  bossFunctionality:
-  - {fileID: 3289408514062954294}
-  - {fileID: 2637137269561843709}
-  - {fileID: 2920087505124393315}
-  - {fileID: 4113062262251281328}
-  thresholds:
-  - hpThreshold: 0.75
-  - hpThreshold: 0.5
-  - hpThreshold: 0.25
-  changePositionDelay: 30
 --- !u!95 &3190797490539967590
 Animator:
   serializedVersion: 3
@@ -418,6 +362,70 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!195 &6886061630008498143
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2961055341434008806}
+  m_Enabled: 0
+  m_AgentTypeID: 0
+  m_Radius: 0.1
+  m_Speed: 0
+  m_Acceleration: 8
+  avoidancePriority: 0
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.1
+  m_BaseOffset: 0.05
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 1
+--- !u!114 &6446521071913530625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2961055341434008806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f18d2e71ef112ce43b39da27e733f22d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 12
+  animator: {fileID: 0}
+  isImmuneToFire: 0
+  isImmuneToFreeze: 1
+  knockBackResist: 1
+  stunResist: 0
+  isImmortal: 0
+  hp: 0
+  dmg: 100
+  weight: 750
+  initialSpeed: 0
+  creditsDropChance: 1
+  icon: {fileID: -7445606136193012617, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
+  maxHp: 20000
+  bossParts:
+  - {fileID: 3558987875503934382}
+  - {fileID: 3289408514062954294}
+  - {fileID: 2637137269561843709}
+  - {fileID: 3095646540599923471}
+  - {fileID: 4280467384098245084}
+  bossFunctionality:
+  - {fileID: 3289408514062954294}
+  - {fileID: 2637137269561843709}
+  - {fileID: 2920087505124393315}
+  - {fileID: 4113062262251281328}
+  thresholds:
+  - hpThreshold: 0.75
+  - hpThreshold: 0.5
+  - hpThreshold: 0.25
+  changePositionDelay: 30
 --- !u!1 &4588691749895395681
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,13 +572,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsImmuneToFire: 0
-  IsImmuneToFreeze: 0
-  KnockBackResist: 0
+  enemyType: 0
+  animator: {fileID: 0}
+  isImmuneToFire: 0
+  isImmuneToFreeze: 1
+  knockBackResist: 1
+  stunResist: 0
   isImmortal: 0
   hp: 0
   dmg: 100
   weight: 1000
+  initialSpeed: 0
   creditsDropChance: 0
 --- !u!114 &8028479673118369190
 MonoBehaviour:
@@ -731,13 +743,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsImmuneToFire: 0
-  IsImmuneToFreeze: 0
-  KnockBackResist: 0
+  enemyType: 0
+  animator: {fileID: 0}
+  isImmuneToFire: 0
+  isImmuneToFreeze: 1
+  knockBackResist: 1
+  stunResist: 0
   isImmortal: 0
   hp: 0
   dmg: 100
   weight: 1000
+  initialSpeed: 0
   creditsDropChance: 0
 --- !u!114 &1289420881266966757
 MonoBehaviour:
@@ -898,13 +914,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsImmuneToFire: 0
-  IsImmuneToFreeze: 0
-  KnockBackResist: 0
+  enemyType: 0
+  animator: {fileID: 0}
+  isImmuneToFire: 0
+  isImmuneToFreeze: 1
+  knockBackResist: 1
+  stunResist: 0
   isImmortal: 0
   hp: 0
   dmg: 100
   weight: 1000
+  initialSpeed: 0
   creditsDropChance: 0
 --- !u!114 &6503018593721682127
 MonoBehaviour:
@@ -1012,10 +1032,10 @@ GameObject:
   - component: {fileID: 6446521072730810910}
   - component: {fileID: 6446521072730810911}
   - component: {fileID: 826892000}
+  - component: {fileID: 4798513114474419342}
   - component: {fileID: 6334470619421550813}
   - component: {fileID: 3558987875503934382}
   - component: {fileID: 8033207782579975124}
-  - component: {fileID: 4798513114474419342}
   m_Layer: 0
   m_Name: Head
   m_TagString: Enemy
@@ -1118,6 +1138,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.18, y: 3.23}
   m_EdgeRadius: 0
+--- !u!58 &4798513114474419342
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6446521072730810912}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 2.08}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!195 &6334470619421550813
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1152,13 +1188,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsImmuneToFire: 0
-  IsImmuneToFreeze: 1
-  KnockBackResist: 1
+  enemyType: 14
+  animator: {fileID: 0}
+  isImmuneToFire: 0
+  isImmuneToFreeze: 1
+  knockBackResist: 1
+  stunResist: 0
   isImmortal: 1
   hp: 0
   dmg: 100
   weight: 1000
+  initialSpeed: 0
   creditsDropChance: 0
 --- !u!114 &8033207782579975124
 MonoBehaviour:
@@ -1173,22 +1213,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossPartHp: 0
---- !u!58 &4798513114474419342
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6446521072730810912}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 2.08}
-  serializedVersion: 2
-  m_Radius: 2
 --- !u!1 &6446521073158308828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,19 +1348,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206918b2fa1b04948851d12df340955d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsImmuneToFire: 0
-  IsImmuneToFreeze: 1
-  KnockBackResist: 1
+  enemyType: 14
+  animator: {fileID: 0}
+  isImmuneToFire: 0
+  isImmuneToFreeze: 1
+  knockBackResist: 1
+  stunResist: 0
   isImmortal: 1
   hp: 0
   dmg: 100
   weight: 100
+  initialSpeed: 0
   creditsDropChance: 0
   icon: {fileID: 0}
   maxHp: 0
   shootDelay: 30
-  parasiteLine: {fileID: 5601598668952223541, guid: 0a488da11f45e7141b27f14b66d4c78e, type: 3}
   parasite: {fileID: 5937050097135992818, guid: 9280c800eaefa714cbdc531f01fed1a5, type: 3}
+  parasiteLine: {fileID: 5601598668952223541, guid: 0a488da11f45e7141b27f14b66d4c78e, type: 3}
   attackSpeedMultiplier: 0.6
 --- !u!58 &3851931158092589873
 CircleCollider2D:
@@ -1516,20 +1544,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7a15000b580ea4b9482cbaf5e236b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsImmuneToFire: 0
-  IsImmuneToFreeze: 1
-  KnockBackResist: 1
+  enemyType: 14
+  animator: {fileID: 0}
+  isImmuneToFire: 0
+  isImmuneToFreeze: 1
+  knockBackResist: 1
+  stunResist: 0
   isImmortal: 1
   hp: 0
   dmg: 100
   weight: 1000
+  initialSpeed: 0
   creditsDropChance: 0
   icon: {fileID: 0}
   maxHp: 0
+  gun: {fileID: 1879814015903614951}
   shootDelay: 20
   shootDistance: 10
   web: {fileID: 1680028144157980390, guid: 5583ead9fa595934dbd9cdc811d3a5e5, type: 3}
-  gun: {fileID: 1879814015903614951}
 --- !u!1 &7602535456070504742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1676,13 +1708,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsImmuneToFire: 0
-  IsImmuneToFreeze: 0
-  KnockBackResist: 0
+  enemyType: 0
+  animator: {fileID: 0}
+  isImmuneToFire: 0
+  isImmuneToFreeze: 1
+  knockBackResist: 1
+  stunResist: 0
   isImmortal: 0
   hp: 0
   dmg: 100
   weight: 1000
+  initialSpeed: 0
   creditsDropChance: 0
 --- !u!114 &34895520525691741
 MonoBehaviour:
@@ -1874,13 +1910,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsImmuneToFire: 0
-  IsImmuneToFreeze: 0
-  KnockBackResist: 0
+  enemyType: 0
+  animator: {fileID: 0}
+  isImmuneToFire: 0
+  isImmuneToFreeze: 1
+  knockBackResist: 1
+  stunResist: 0
   isImmortal: 0
   hp: 0
   dmg: 100
   weight: 1000
+  initialSpeed: 0
   creditsDropChance: 0
 --- !u!114 &1557768127679278906
 MonoBehaviour:
@@ -2041,13 +2081,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsImmuneToFire: 0
-  IsImmuneToFreeze: 0
-  KnockBackResist: 0
+  enemyType: 0
+  animator: {fileID: 0}
+  isImmuneToFire: 0
+  isImmuneToFreeze: 1
+  knockBackResist: 1
+  stunResist: 0
   isImmortal: 0
   hp: 0
   dmg: 100
   weight: 1000
+  initialSpeed: 0
   creditsDropChance: 0
 --- !u!114 &8174093012485467882
 MonoBehaviour:
@@ -2077,6 +2121,14 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -1.54
       objectReference: {fileID: 0}
+    - target: {fileID: 983975984874729764, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: knockBackResist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 983975984874729764, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: isImmuneToFreeze
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2684442192003813592, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.25
@@ -2095,6 +2147,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: IsImmuneToFreeze
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: isImmuneToFreeze
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: knockBackResist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: isImmuneToFreeze
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6634871045546908824, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
@@ -2155,22 +2219,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
---- !u!114 &2920087505124393315 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3306579803053730712, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
-  m_PrefabInstance: {fileID: 388832196162530043}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72bbccb6a6b4a234cbe217a57458a58d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &6446521072339236449 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6634871045546908826, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
-  m_PrefabInstance: {fileID: 388832196162530043}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3095646540599923471 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
@@ -2180,6 +2228,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &6446521072339236449 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6634871045546908826, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+  m_PrefabInstance: {fileID: 388832196162530043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2920087505124393315 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3306579803053730712, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+  m_PrefabInstance: {fileID: 388832196162530043}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bbccb6a6b4a234cbe217a57458a58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1510918755045273640
@@ -2260,17 +2324,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6634871045546908826, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
   m_PrefabInstance: {fileID: 1510918755045273640}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4113062262251281328 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3306579803053730712, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
-  m_PrefabInstance: {fileID: 1510918755045273640}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72bbccb6a6b4a234cbe217a57458a58d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4280467384098245084 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
@@ -2280,5 +2333,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4113062262251281328 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3306579803053730712, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+  m_PrefabInstance: {fileID: 1510918755045273640}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bbccb6a6b4a234cbe217a57458a58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

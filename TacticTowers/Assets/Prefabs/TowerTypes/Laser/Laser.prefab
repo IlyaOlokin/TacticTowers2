@@ -260,7 +260,7 @@ MonoBehaviour:
   specialUpgrades:
   - {fileID: -4772870071425929792, guid: 4bc02f21b93f50742abed67349280440, type: 3}
   - {fileID: 4775017974191420747, guid: 520cad066d40c414f8b33554a692b177, type: 3}
-  - {fileID: -4772870071425929792, guid: 4bc02f21b93f50742abed67349280440, type: 3}
+  - {fileID: 2756367338058314219, guid: 3a29c3d65a5979c44b09f8194e7f2db0, type: 3}
   towerCanon: {fileID: 4597013019795596408}
   shootZone: {fileID: 0}
   shootAngle: 35
@@ -289,6 +289,8 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  slowAmount: 0.5
+  slowDuration: 0.35
   extraLaserCount: 2
   extraLaserDamageMultiplier: 0.25
 --- !u!82 &-7971934188379434946

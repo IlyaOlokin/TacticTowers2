@@ -7,24 +7,25 @@ using Random = UnityEngine.Random;
 
 public class BossParasite : Boss
 {
+    [Header("BossParasite")]
     [SerializeField] private float shootDelay; 
     private float shootTimer = 0f;
-    private int parasiteCount = 2;
     
-    [SerializeField] private GameObject parasiteLine;
+    [Header("Parasite")]
     [SerializeField] private GameObject parasite;
+    [SerializeField] private GameObject parasiteLine;
     [SerializeField] private float attackSpeedMultiplier;
+    private int parasiteCount = 2;
 
-    void Update()
+    private void Update()
     {
         base.Update();
         TryToShoot();
         UpdateHp();
         shootTimer += Time.deltaTime;
+        
         if (Input.GetKeyDown(KeyCode.A))
-        {
             Shoot(GameObject.FindGameObjectsWithTag("Tower").ToList());
-        }
     }
     
     private void TryToShoot()

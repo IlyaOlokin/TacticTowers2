@@ -16,6 +16,8 @@ public class Base : MonoBehaviour
     [NonSerialized] public Image coolDownImage;
     [NonSerialized] public Text coolDownText;
     public int unlockCost;
+    public bool isUnlockableFromTrial;
+    public int trialToUnlockIndex;
     
     private float abilityTimer = 0;
     private BaseActive ability;

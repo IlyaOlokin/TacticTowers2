@@ -5,12 +5,9 @@ using UnityEngine;
 
 public class Boss : Enemy
 {
+    [Header("Boss")]
     [SerializeField] protected Sprite icon;
     [SerializeField] protected float maxHp;
-    
-    //[NonSerialized]public float hp;
-    //[SerializeField] protected Enemy enemyComp;
-    //protected bool isDead;
 
     public float GetMaxHp() => maxHp;
     public Sprite GetIcon() => icon;

@@ -34,6 +34,12 @@ public class Minigun : Tower
     [SerializeField] private int maxDamageStacksCount;
     private int damageStacksCount;
     
+    [NonSerialized] public bool hasCriticalUpgrade;
+
+    [Header("Critical Upgrade")]
+    [SerializeField] private float critChance;
+
+    
     private void Start() => audioSrc = GetComponent<AudioSource>();
     
     private new void Update()
@@ -71,11 +77,19 @@ public class Minigun : Tower
         {
             heatCount = Mathf.Ceil(heatCount);
             shootDelayTimer = 1f / (GetAttackSpeed() + heatCount * bonusAttackSpeedPerHeat * bonusAttackSpeedPerHeatMultiplier);
-            if (heatCount < maxHeat * maxHeatMultiplier) heatCount += 1;
+            if (heatCount < GetMaxHeat()) heatCount += 1;
             coolTimer = coolDelay * coolDelayMultiplier;
             var newBullet = Instantiate(bullet, transform.position, towerCanon.transform.rotation);
             var bulletComponent = newBullet.GetComponent<Bullet>();
-            bulletComponent.Dmg = GetDmg();
+            
+            if (hasCriticalUpgrade && heatCount >= GetMaxHeat() && IsCriticalShot(critChance))
+            {
+                bulletComponent.ActivateVisualEffect();
+                bulletComponent.Dmg = GetDmg() * 2f;
+                bulletComponent.isCritical = true;
+            }
+            else bulletComponent.Dmg = GetDmg();
+            
             bulletComponent.Speed = bulletSpeed;
             bulletComponent.enemiesToIgnore = enemiesToIgnore;
             bulletComponent.departurePos = transform.position;
@@ -91,6 +105,8 @@ public class Minigun : Tower
     }
 
     public float GetBonusStackDamageMultiplier() => 1 + bonusMultiplierForStack * damageStacksCount;
+
+    public float GetMaxHeat() => maxHeat * maxHeatMultiplier;
 
     public void IncrementStacksCount()
     {

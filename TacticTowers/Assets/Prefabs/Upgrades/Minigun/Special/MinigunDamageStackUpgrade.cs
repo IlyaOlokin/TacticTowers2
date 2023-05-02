@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinigunDamageStackUpgrade: SpecialUpgrade
+public class MinigunDamageStackUpgrade : SpecialUpgrade
 {
     public override void Execute(Tower tower)
     {
