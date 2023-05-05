@@ -78,11 +78,11 @@ public class TutorialPanelManager : MonoBehaviour
 
     private void Awake()
     {
-        _base.ExecuteBasePassiveEffect();
+        /*_base.ExecuteBasePassiveEffect();
         _base.baseAbilityMenu = baseAbilityMenu;
         _base.abilityButton = baseAbilityButton;
         _base.coolDownImage = baseAbilityCoolDownImage;
-        _base.coolDownText = baseCoolDownText;
+        _base.coolDownText = baseCoolDownText;*/
         CurrentPanel = 1;
     }
 }
