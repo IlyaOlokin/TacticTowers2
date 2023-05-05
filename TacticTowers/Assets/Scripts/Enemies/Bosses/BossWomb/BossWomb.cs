@@ -7,13 +7,17 @@ using Random = UnityEngine.Random;
 public class BossWomb : Boss
 {
     [Header("BossWomb")]
-    [SerializeField] private List<EnemyPack> enemyPacks;
     [SerializeField] private Transform spawnZone;
+    //[SerializeField] private List<EnemyPack> enemyPacks;
+    //[SerializeField] private float spawningDelay;
+    //[SerializeField] private float eachEnemySpawnDelay;
+    [SerializeField] private GameObject spawningEnemy;
+    [SerializeField] private int spawningAmount;
     [SerializeField] private float spawningDelay;
     [SerializeField] private float eachEnemySpawnDelay;
-
+    
     private List<Vector3> path;
-    [SerializeField] private float nearThreshold = 0.001f;
+    private float nearThreshold = 0.001f;
     private bool isClockwise;
 
     private void Awake()
@@ -26,7 +30,7 @@ public class BossWomb : Boss
         base.Start();
         path = new List<Vector3>
         {
-            new Vector3(-7.0f, 0.5f, 0f),
+            new Vector3(-7.0f, -0.5f, 0f),
             new Vector3(-4.5f, 2.5f, 0f),
             new Vector3(-2.0f, 4f, 0f),
             new Vector3(2.0f, 4f, 0f),
@@ -39,7 +43,7 @@ public class BossWomb : Boss
         };
         isClockwise = Random.Range(0, 2) == 0;
         EnemyMover.ChangeTarget(isClockwise ? path[0] : path[path.Count - 1]);
-        StartCoroutine(nameof(SpawnEnemyPack));
+        StartCoroutine(nameof(SpawnEnemies));
     }
 
     private void Update()
@@ -51,61 +55,47 @@ public class BossWomb : Boss
             if (Math.Abs(transform.position.x - path[i].x) < nearThreshold
                 && Math.Abs(transform.position.y - path[i].y) < nearThreshold)
             {
-                EnemyMover.ChangeTarget(isClockwise ? path[(i + 1) % path.Count] : path[Math.Abs((i - 1) % path.Count)]);
+                if (i == 0 && !isClockwise)
+                    EnemyMover.ChangeTarget(path[path.Count - 1]);
+                else
+                    EnemyMover.ChangeTarget(isClockwise ? path[(i + 1) % path.Count] : path[Math.Abs((i - 1) % path.Count)]);
 
                 nearThreshold = 0.001f;
-                return;
             }
         }
 
-        nearThreshold = nearThreshold > 2
+        nearThreshold = nearThreshold > 1
             ? 0.001f
-            : nearThreshold * 2.0f;
+            : nearThreshold * 1.5f;
     }
     
-    private IEnumerator SpawnEnemyPack()
+    private IEnumerator SpawnEnemies()
     {
         yield return new WaitForSeconds(spawningDelay);
+        
         animator.enabled = false;
         EnemyMover.StopMovement();
         LookAtBase();
-        
-        StartCoroutine(nameof(SpawnEnemies), PickRandomPack());
+        StartCoroutine(nameof(SpawnEnemy), spawningAmount);
     }
 
-    private void SpawnEnemies(EnemyPack enemyPack)
-    {
-        var enemyParent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
-        for (var i = 0; i < enemyPack.enemies.Count; i++)
-        {
-            for (var j = 0; j < enemyPack.enemiesCount[i]; j++)
-            {
-                Instantiate(enemyPack.enemies[i], GetRandomPointOnSpawnZone(spawnZone), transform.rotation, enemyParent);
-            }
-        }    
-        EnemySpawner.FindEnemies();
-        animator.enabled = true;
-        EnemyMover.StartMovement();
-        StartCoroutine(nameof(SpawnEnemyPack));
-    }
-    
-    private IEnumerator SpawnEnemies(int enemiesLeft)
+    private IEnumerator SpawnEnemy(int enemiesLeft)
     {
         if (enemiesLeft == 0)
         {
             animator.enabled = true;
             EnemyMover.StartMovement();
-            StartCoroutine(nameof(SpawnEnemyPack));
+            StartCoroutine(nameof(SpawnEnemies));
             yield break;
         }
         yield return new WaitForSeconds(eachEnemySpawnDelay);
         
         var enemyParent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
-        //Instantiate(spawningEnemy, spawnPoint.transform.position, transform.rotation, enemyParent);
+        Instantiate(spawningEnemy, GetRandomPointOnSpawnZone(spawnZone.transform), transform.rotation, enemyParent);
         
         EnemySpawner.FindEnemies();
         
-        //StartCoroutine(nameof(SpawnEnemies), enemiesLeft - 1);
+        StartCoroutine(nameof(SpawnEnemy), enemiesLeft - 1);
     }
 
     private void LookAtBase()
@@ -116,7 +106,7 @@ public class BossWomb : Boss
         transform.eulerAngles = new Vector3(0, 0, rotation);
     }
     
-    private EnemyPack PickRandomPack() => enemyPacks[Random.Range(0, enemyPacks.Count)];
+   // private EnemyPack PickRandomPack() => enemyPacks[Random.Range(0, enemyPacks.Count)];
     
     private Vector2 GetRandomPointOnSpawnZone(Transform spawnZone)
     {

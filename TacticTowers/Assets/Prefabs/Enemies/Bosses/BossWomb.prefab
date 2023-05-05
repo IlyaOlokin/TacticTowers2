@@ -165,17 +165,15 @@ MonoBehaviour:
   hp: 15000
   dmg: 200
   weight: 330
-  initialSpeed: 0.2
+  initialSpeed: 0.5
   creditsDropChance: 100
   icon: {fileID: -6146046791161707374, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
   maxHp: 15000
-  enemyPacks:
-  - enemies:
-    - {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemiesCount: 05000000
   spawnZone: {fileID: 4705687547898389697}
+  spawningEnemy: {fileID: 8682723920841854874, guid: c41788713e5f74e4fba9d118b0dbbb22, type: 3}
+  spawningAmount: 5
   spawningDelay: 5
-  eachEnemySpawnDelay: 0
+  eachEnemySpawnDelay: 0.3
 --- !u!1 &5021517520521681718
 GameObject:
   m_ObjectHideFlags: 0

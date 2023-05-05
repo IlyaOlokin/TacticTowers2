@@ -47,7 +47,10 @@ public class EnemySwarmer : Enemy
             if (Math.Abs(transform.position.x - path[i].x) < nearThreshold
                 && Math.Abs(transform.position.y - path[i].y) < nearThreshold)
             {
-                EnemyMover.ChangeTarget(isClockwise ? path[(i + 1) % path.Count] : path[Math.Abs((i - 1) % path.Count)]);
+                if (i == 0 && !isClockwise)
+                    EnemyMover.ChangeTarget(path[path.Count - 1]);
+                else
+                    EnemyMover.ChangeTarget(isClockwise ? path[(i + 1) % path.Count] : path[Math.Abs((i - 1) % path.Count)]);
 
                 nearThreshold = 0.001f;
             }
