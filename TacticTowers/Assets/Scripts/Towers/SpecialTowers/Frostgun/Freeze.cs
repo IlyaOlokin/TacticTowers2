@@ -102,9 +102,9 @@ public class Freeze : MonoBehaviour
     
     private void ColorEnemy()
     {
-        enemy.GetComponent<SpriteRenderer>().color = new Color(enemyColor.r,
-                                                                enemyColor.g,
-                                                                enemyColor.b + (freezeStacks / freezeStacksNeeded) * 0.3f);
+        //enemy.GetComponent<SpriteRenderer>().color = new Color(enemyColor.r,
+       //                                                         enemyColor.g,
+        //                                                        enemyColor.b + (freezeStacks / freezeStacksNeeded) * 0.3f);
     }
     
     public static void ResetGlobalFrozenDamageMultiplier()

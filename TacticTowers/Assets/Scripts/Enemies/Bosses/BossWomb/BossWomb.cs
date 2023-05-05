@@ -4,26 +4,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class EnemySwarmer : Enemy
+public class BossWomb : Boss
 {
-    [Header("Swarmer")]
-    [SerializeField] private GameObject spawnPoint;
+    [Header("BossWomb")]
+    [SerializeField] private Transform spawnZone;
+    //[SerializeField] private List<EnemyPack> enemyPacks;
+    //[SerializeField] private float spawningDelay;
+    //[SerializeField] private float eachEnemySpawnDelay;
     [SerializeField] private GameObject spawningEnemy;
     [SerializeField] private int spawningAmount;
     [SerializeField] private float spawningDelay;
     [SerializeField] private float eachEnemySpawnDelay;
-
+    
     private List<Vector3> path;
     private float nearThreshold = 0.001f;
     private bool isClockwise;
+
+    private void Awake()
+    {
+        EnemyMover = new EnemyMoverAir(initialSpeed, GameObject.FindGameObjectWithTag("Base").transform.position);
+    }
     
     private void Start()
     {
         base.Start();
         path = new List<Vector3>
         {
-            new Vector3(-7.0f, 0.5f, 0f),
-            new Vector3(-5.0f, 2f, 0f),
+            new Vector3(-7.0f, -0.5f, 0f),
+            new Vector3(-4.5f, 2.5f, 0f),
             new Vector3(-2.0f, 4f, 0f),
             new Vector3(2.0f, 4f, 0f),
             new Vector3(5.0f, 2f, 0f),
@@ -56,9 +64,9 @@ public class EnemySwarmer : Enemy
             }
         }
 
-        nearThreshold = nearThreshold > 2
+        nearThreshold = nearThreshold > 1
             ? 0.001f
-            : nearThreshold * 2.0f;
+            : nearThreshold * 1.5f;
     }
     
     private IEnumerator SpawnEnemies()
@@ -83,7 +91,7 @@ public class EnemySwarmer : Enemy
         yield return new WaitForSeconds(eachEnemySpawnDelay);
         
         var enemyParent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
-        Instantiate(spawningEnemy, spawnPoint.transform.position, transform.rotation, enemyParent);
+        Instantiate(spawningEnemy, GetRandomPointOnSpawnZone(spawnZone.transform), transform.rotation, enemyParent);
         
         EnemySpawner.FindEnemies();
         
@@ -96,5 +104,16 @@ public class EnemySwarmer : Enemy
         var direction = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
         var rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
         transform.eulerAngles = new Vector3(0, 0, rotation);
+    }
+    
+   // private EnemyPack PickRandomPack() => enemyPacks[Random.Range(0, enemyPacks.Count)];
+    
+    private Vector2 GetRandomPointOnSpawnZone(Transform spawnZone)
+    {
+        return new Vector2(
+            Random.Range(spawnZone.position.x - spawnZone.localScale.x / 2f * transform.localScale.x,
+                spawnZone.position.x + spawnZone.localScale.x / 2f * transform.localScale.x),
+            Random.Range(spawnZone.position.y - spawnZone.localScale.y / 2f * transform.localScale.y,
+                spawnZone.position.y + spawnZone.localScale.y / 2f * transform.localScale.y));
     }
 }

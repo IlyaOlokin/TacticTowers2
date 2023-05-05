@@ -83,7 +83,8 @@ public class Tower : MonoBehaviour
         foreach (var enemy in EnemySpawner.enemies)
         {
             if (enemy == null) continue;
-            if (enemiesToIgnore.Contains(enemy)) continue;
+            if (enemiesToIgnore.Contains(enemy) || enemy.GetComponent<Enemy>().GetInvulnerability()) 
+                continue;
             var distToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
             Vector3 dir = (enemy.transform.position - transform.position).normalized;
             var angle = Vector2.Angle(dir, shootDirVector);
@@ -111,7 +112,10 @@ public class Tower : MonoBehaviour
         foreach (var enemy in EnemySpawner.enemies)
         {
             if (enemy == null) continue;
-            if (enemiesToIgnore.Contains(enemy) || targetsToIgnore.Contains(enemy)) continue;
+            if (enemiesToIgnore.Contains(enemy) 
+                || targetsToIgnore.Contains(enemy) 
+                || enemy.GetComponent<Enemy>().GetInvulnerability()) 
+                continue;
             var distToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
             Vector3 dir = (enemy.transform.position - transform.position).normalized;
             var angle = Vector2.Angle(dir, shootDirVector);

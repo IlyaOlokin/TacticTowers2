@@ -18,11 +18,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text baseAbilityCoolDownText;
 
     [SerializeField] private FinishPanel finishPanel;
-
+    [SerializeField] private GameObject defaultBase;
+    
     private void Awake()
     {
         GlobalBaseEffects.SetAllToDefault();
-        var newBaseGameObject = Instantiate(BaseSelectManager.SelectedBase, baseTransform.position, Quaternion.identity, baseTransform);
+        var spawnedBase = BaseSelectManager.SelectedBase == null ? defaultBase : BaseSelectManager.SelectedBase;
+        var newBaseGameObject = Instantiate(spawnedBase, baseTransform.position, Quaternion.identity, baseTransform);
         var newBase = newBaseGameObject.GetComponent<Base>();
         newBase.ExecuteBasePassiveEffect();
         finishPanel._base = newBase;
