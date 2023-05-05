@@ -22,7 +22,7 @@ public class MenuChangeButton : MonoBehaviour
 
     public void LoadChooseBaseMenu()
     {
-        AudioManager.Instance.Play("ButtonClick1");
+        AudioManager.Instance.Play("ButtonClick2");
         DataLoader.SaveString("PlaySceneLoad", "GameField");
         SceneManager.LoadScene("BaseChooseMenu");
 
