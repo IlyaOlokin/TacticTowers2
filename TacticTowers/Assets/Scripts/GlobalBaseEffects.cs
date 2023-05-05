@@ -91,74 +91,62 @@ public class GlobalBaseEffects : MonoBehaviour
     
     public static float GetGlobalBaseDmgMultiplier(float angle)
     {
-        switch (angle)
-        {
-            case 0:
-                return DmgMultiplierRight * TempDmgMultiplierRight;
-            case 90:
-                return DmgMultiplierUp * TempDmgMultiplierUp;
-            case 180:
-                return DmgMultiplierLeft * TempDmgMultiplierLeft;
-            case 270:
-                return DmgMultiplierDown * TempDmgMultiplierDown;
-            default:
-                Debug.Log("Wrong angle");
-                return 0;
-        }
+        var multiplier = 1f;
+        
+        if (angle >= 315 || angle <= 45) multiplier *= DmgMultiplierRight * TempDmgMultiplierRight;
+
+        if (angle >= 45 && angle <= 135) multiplier *= DmgMultiplierUp * TempDmgMultiplierUp;
+
+        if (angle >= 135 && angle <= 225) multiplier *= DmgMultiplierLeft * TempDmgMultiplierLeft;
+
+        if (angle >= 225 && angle <= 315) multiplier *= DmgMultiplierDown * TempDmgMultiplierDown;
+        
+        return multiplier;
     }
     
     public static float GetGlobalBaseAttackSpeedMultiplier(float angle)
     {
-        switch (angle)
-        {
-            case 0:
-                return AttackSpeedMultiplierRight * TempAttackSpeedMultiplierRight;
-            case 90:
-                return AttackSpeedMultiplierUp * TempAttackSpeedMultiplierUp;
-            case 180:
-                return AttackSpeedMultiplierLeft * TempAttackSpeedMultiplierLeft;
-            case 270:
-                return AttackSpeedMultiplierDown * TempAttackSpeedMultiplierDown;
-            default:
-                Debug.Log("Wrong angle");
-                return 0;
-        }
+        var multiplier = 1f;
+        
+        if (angle >= 315 || angle <= 45) multiplier *= AttackSpeedMultiplierRight * TempAttackSpeedMultiplierRight;
+
+        if (angle >= 45 && angle <= 135) multiplier *= AttackSpeedMultiplierUp * TempAttackSpeedMultiplierUp;
+
+        if (angle >= 135 && angle <= 225) multiplier *= AttackSpeedMultiplierLeft * TempAttackSpeedMultiplierLeft;
+
+        if (angle >= 225 && angle <= 315) multiplier *= AttackSpeedMultiplierDown * TempAttackSpeedMultiplierDown;
+
+        return multiplier;
     }
     
     public static float GetGlobalBaseShootAngleMultiplier(float angle)
     {
-        switch (angle)
-        {
-            case 0:
-                return ShootAngleMultiplierRight * TempShootAngleMultiplierRight;
-            case 90:
-                return ShootAngleMultiplierUp * TempShootAngleMultiplierUp;
-            case 180:
-                return ShootAngleMultiplierLeft * TempShootAngleMultiplierLeft;
-            case 270:
-                return ShootAngleMultiplierDown * TempShootAngleMultiplierDown;
-            default:
-                Debug.Log("Wrong angle");
-                return 0;
-        }
+        var multiplier = 1f;
+        
+        if (angle >= 315 || angle <= 45) multiplier *= ShootAngleMultiplierRight * TempShootAngleMultiplierRight;
+
+        if (angle >= 45 && angle <= 135) multiplier *=ShootAngleMultiplierUp * TempShootAngleMultiplierUp;
+
+        if (angle >= 135 && angle <= 225) multiplier *= ShootAngleMultiplierLeft * TempShootAngleMultiplierLeft;
+
+        if (angle >= 225 && angle <= 315) multiplier *= ShootAngleMultiplierDown * TempShootAngleMultiplierDown;
+        
+        return multiplier;
     }
     
     public static float GetGlobalBaseShootDistanceMultiplier(float angle)
     {
-        switch (angle)
-        {
-            case 0:
-                return ShootDistanceMultiplierRight * TempShootDistanceMultiplierRight;
-            case 90:
-                return ShootDistanceMultiplierUp * TempShootDistanceMultiplierUp;
-            case 180:
-                return ShootDistanceMultiplierLeft * TempShootDistanceMultiplierLeft;
-            case 270:
-                return ShootDistanceMultiplierDown * TempShootDistanceMultiplierDown;
-            default:
-                Debug.Log("Wrong angle");
-                return 0;
-        }
+        var multiplier = 1f;
+        
+        if (angle >= 315 || angle <= 45) multiplier *= ShootDistanceMultiplierRight * TempShootDistanceMultiplierRight;
+
+        if (angle >= 45 && angle <= 135) multiplier *= ShootDistanceMultiplierUp * TempShootDistanceMultiplierUp;
+
+        if (angle >= 135 && angle <= 225) multiplier *= ShootDistanceMultiplierLeft * TempShootDistanceMultiplierLeft;
+
+        if (angle >= 225 && angle <= 315) multiplier *= ShootDistanceMultiplierDown * TempShootDistanceMultiplierDown;
+        
+        return multiplier;
     }
 
     public static void ApplyToAllTowers(float dmgMultiplier, float attackSpeedMultiplier, float shootAngleMultiplier, float shootDistanceMultiplier)

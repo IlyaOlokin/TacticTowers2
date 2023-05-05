@@ -6,30 +6,32 @@ using UnityEngine.AI;
 
 public class MassiveDamageBox : MonoBehaviour
 {
-    [NonSerialized] private List<Component> enemies = new List<Component>();
-
+    [NonSerialized] public float damage;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.transform.CompareTag("Enemy"))
         {
             var enemy = other.GetComponent<Enemy>();
-            if (!enemies.Contains(enemy))
-            {
-                enemies.Add(enemy);
-            }
+            DamageEnemy(enemy);
         }
     }
 
-    public void DamageEnemy(float damage)
+    private void DamageEnemy(Enemy enemy)
     {
-        foreach (var enemy in enemies)
-        {
-            if (enemy != null)
-            {
-                enemy.GetComponent<Enemy>().TakeDamage(damage, DamageType.Normal, transform.position);
-            }
-        }
-        enemies.Clear();
+        enemy.GetComponent<Enemy>().TakeDamage(damage, DamageType.Normal, transform.position);
+    }
+
+    public void Explode(float damage)
+    {
+        this.damage = damage;
+        StartCoroutine(Deactivate(1f));
+    }
+
+    private IEnumerator Deactivate(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        gameObject.SetActive(false);
     }
 
 }

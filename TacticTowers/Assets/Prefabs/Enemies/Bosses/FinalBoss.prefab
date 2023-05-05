@@ -259,6 +259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 0
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -394,6 +396,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f18d2e71ef112ce43b39da27e733f22d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 12
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -568,6 +572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 0
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -737,6 +743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 0
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -906,6 +914,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 0
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -1178,6 +1188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 14
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -1336,6 +1348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206918b2fa1b04948851d12df340955d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 14
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -1530,6 +1544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7a15000b580ea4b9482cbaf5e236b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 14
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -1692,6 +1708,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 0
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -1892,6 +1910,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 0
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -2061,6 +2081,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 0
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1

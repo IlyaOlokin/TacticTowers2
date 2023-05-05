@@ -17,6 +17,7 @@ public class BaseSelectManager : MonoBehaviour
     [SerializeField] private SelectIndicator selectIndicator;
     [SerializeField] private BaseDescriptionPanel baseDescription;
     [SerializeField] private Button playButton;
+    [SerializeField] private ToolTip playButtonToolTip;
     public GameObject unlockBaseButton;
     
     void Awake()
@@ -56,8 +57,10 @@ public class BaseSelectManager : MonoBehaviour
         DataLoader.SaveInt("selectedBaseIndex", SelectedBaseIndex);
         baseDescription.GetBaseInfo(bases[index].GetComponent<Base>());
         unlockBaseButton.SetActive(!baseUnlock[index]);
+        unlockBaseButton.GetComponent<Button>().interactable = !bases[index].GetComponent<Base>().isUnlockableFromTrial;
         selectIndicator.GetNewDestination(buttons[index].transform.position);
         playButton.interactable = baseUnlock[index];
+        playButtonToolTip.enabled = !baseUnlock[index];
     }
 
     public void OnBaseUnlock()
@@ -69,6 +72,7 @@ public class BaseSelectManager : MonoBehaviour
         baseUnlock[SelectedBaseIndex] = true;
         DataLoader.SaveString("BaseUnlocks", ConvertToSave());
         playButton.interactable = true;
+        playButtonToolTip.enabled = false;
         unlockBaseButton.SetActive(false);
         AudioManager.Instance.Play("ButtonClick1");
         InitializeButtons();

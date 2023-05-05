@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 5937050097135992821}
   - component: {fileID: 6735614924725604676}
   - component: {fileID: -7252514893401967746}
+  - component: {fileID: 5441077512903852167}
   m_Layer: 2
   m_Name: Parasite
   m_TagString: Enemy
@@ -262,6 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 13
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -272,7 +275,6 @@ MonoBehaviour:
   weight: 0
   initialSpeed: 0
   creditsDropChance: 0
-  isReadyForStun: 1
 --- !u!114 &6735614924725604676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,3 +302,20 @@ MonoBehaviour:
   targetScale: {x: 0, y: 0, z: 0}
   lerpScaleSpeed: 1
   useObjectScale: 1
+--- !u!114 &5441077512903852167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5937050097135992818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3526f75b2a96584e945bbe2b7a6baad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notification:
+    sprite: {fileID: -442251185209309557, guid: 26c6c5c61930f1c45b4ce38e214ad365, type: 3}
+    text: "\u0421\u0431\u0438\u0432\u0430\u0439\u0442\u0435 \u043F\u0430\u0440\u0430\u0437\u0438\u0442\u043E\u0432
+      \u0441\u043E \u0441\u0432\u043E\u0438\u0445 \u0431\u0430\u0448\u0435\u043D
+      \u0434\u0440\u0443\u0433\u0438\u043C\u0438 \u0431\u0430\u0448\u043D\u044F\u043C\u0438"

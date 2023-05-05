@@ -260,6 +260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec60168623eefea41aa42f5e7edbb143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 7
+  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 0
   knockBackResist: 0

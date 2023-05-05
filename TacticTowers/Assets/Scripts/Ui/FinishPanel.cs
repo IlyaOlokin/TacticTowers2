@@ -12,7 +12,6 @@ public class FinishPanel : MonoBehaviour
     [SerializeField] private GameObject victoryPanel;
     [SerializeField] private GameObject defeatPanel;
     private GameObject currentPanel;
-    [SerializeField] private List<GameObject> adButtons;
     [SerializeField] private List<GameObject> towers;
     
     [SerializeField] private GameObject enemies;
@@ -22,17 +21,11 @@ public class FinishPanel : MonoBehaviour
     [SerializeField] private Text creditsCount;
     private float savedTimeScale;
     private bool isSessionEnded;
-    private bool wasResurrectionUsed;
     private bool wasMusicStopped;
-
-    [Header("Resurrection Panel")] 
-    [SerializeField] private GameObject basePrefab;
-    private Vector3 baseTransform;
-    [SerializeField] private GameObject ResurrectionPanel;
-    [SerializeField] private Image circleTimer;
-    [SerializeField] private Text textTimer;
-    [SerializeField] private float timeToReact;
+    
     [SerializeField] private AudioMixer audioMixer;
+
+    [SerializeField] private Notification notification;
 
     private float timer;
     private bool isRewarding;
@@ -40,14 +33,12 @@ public class FinishPanel : MonoBehaviour
 
     void Start()
     {
-        baseTransform = _base.gameObject.transform.position;
         Credits.LoseSessionCredits();
     }
     
     public void OnButtonRestart()
     {
         AudioManager.Instance.Play("ButtonClick1");
-        ShowCommonAd();
         Resume(false);
         ResumeMusic();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -56,9 +47,7 @@ public class FinishPanel : MonoBehaviour
     public void OnButtonMenu()
     {
         AudioManager.Instance.Play("ButtonClick1");
-        ShowCommonAd();
         Resume(false);
-        
         ResumeMusic();
         SceneManager.LoadScene("MainMenu");
     }
@@ -66,31 +55,9 @@ public class FinishPanel : MonoBehaviour
     public void OnButtonTechs()
     {
         AudioManager.Instance.Play("ButtonClick2");
-        ShowCommonAd();
         Resume(false);
         ResumeMusic();
         SceneManager.LoadScene("TechsMenu");
-    }
-
-    private void OnButtonRewardedAd()
-    {
-        Credits.AcceptSessionCredits();
-        TechButtonHighlight.TryHighlight();
-        
-        ResumeMusic();
-        
-        FillTexts(currentPanel, true);
-        foreach (var button in adButtons)
-        {
-            button.SetActive(false);
-        }
-    }
-
-    public void OnButtonResurrectionAd()
-    {
-        isRewarding = true;
-        PauseMusic();
-        YandexSDK.Instance.ShowRewardedAdvertisment();
     }
 
     public void PauseMusic()
@@ -111,15 +78,12 @@ public class FinishPanel : MonoBehaviour
     {
         if (isSessionEnded)
         {
-            if (!wasResurrectionUsed) UpdateResurrectionPanel();
             return;
         }
         if (_base.GetHp() <= 0)
         {
             Pause();
-            
-            if(!wasResurrectionUsed) ShowResurrectionPanel();
-            else ShowDefeatPanel();
+            ShowDefeatPanel();
         }
 
         if (EnemySpawner.enemies.Count != 0) return;
@@ -147,13 +111,8 @@ public class FinishPanel : MonoBehaviour
 
     private void ShowVictoryPanelOnTrial()
     {
-        YandexSDK.Instance.ResetSubscriptions();
-        YandexSDK.Instance.RewardGet += OnButtonRewardedAd;
-        YandexSDK.Instance.RewardGet += ResumeMusic;
         currentPanel = victoryPanel;
-        adButtons[1].SetActive(true);
         //adButtons[1].GetComponent<Button>().onClick.AddListener(PauseMusik);
-        FillTexts(currentPanel, false);
         currentPanel.SetActive(true);
         Pause();
         Credits.AcceptSessionCredits();
@@ -165,93 +124,56 @@ public class FinishPanel : MonoBehaviour
         var trialCompleted1 = DataLoader.LoadString("TrialCompleted", "00000000");
         var j = int.Parse(SceneManager.GetActiveScene().name.Substring(5)) - 1;
         trialCompletedList[j] = '1';
-
+        currentPanel.transform.Find("WaveCount").transform.Find("Count").GetComponent<Text>().text = waveText.text;
         if (trialCompletedList[j] != trialCompleted1[j])
+        {
             Trial.GetPrise();
+            
+            if (Trial.sPrise == Trial.Prise.credits)
+            {
+                currentPanel.transform.Find("CreditsCountTrial").transform.Find("Count").GetComponent<Text>().text = "+" + Trial.sValue;
+                currentPanel.transform.Find("CreditsCountTrial").gameObject.SetActive(true);
+            }
+            else
+            {
+                currentPanel.transform.Find("BaseCount").transform.Find("BaseIndex").GetComponent<Text>().text = "¹" + Trial.sValue;
+                currentPanel.transform.Find("BaseCount").transform.Find("Image").GetComponent<Image>().sprite = TrialManager.Instance.spritesBase[Trial.sValue];
+                currentPanel.transform.Find("BaseCount").gameObject.SetActive(true);
+            }
+        }
+            
 
         DataLoader.SaveString("TrialCompleted", string.Join("", trialCompletedList));
     }
 
     private void ShowVictoryPanel()
     {
-        YandexSDK.Instance.ResetSubscriptions();
-        YandexSDK.Instance.RewardGet += OnButtonRewardedAd;
-        YandexSDK.Instance.RewardGet += ResumeMusic;
         currentPanel = victoryPanel;
-        adButtons[1].SetActive(true);
         //adButtons[1].GetComponent<Button>().onClick.AddListener(PauseMusik);
         FillTexts(currentPanel, false);
         currentPanel.SetActive(true);
         Pause();
         Credits.AcceptSessionCredits();
         isSessionEnded = true;
-        DataLoader.SaveInt("isTrialsUnlocked", 1);
+        UnlockTrials();
     }
     
     private void ShowDefeatPanel()
     {
-        YandexSDK.Instance.ResetSubscriptions();
-        YandexSDK.Instance.RewardGet += OnButtonRewardedAd;
-        YandexSDK.Instance.RewardGet += ResumeMusic;
         currentPanel = defeatPanel;
-        wasResurrectionUsed = true;
-        adButtons[0].SetActive(true);
-        //adButtons[1].GetComponent<Button>().onClick.AddListener(PauseMusik);
         FillTexts(currentPanel, false);
         currentPanel.SetActive(true);
         Credits.AcceptSessionCredits();
         isSessionEnded = true;
+        UnlockTrials();
+    }
+
+    private void UnlockTrials()
+    {
+        if (!Convert.ToBoolean(DataLoader.LoadInt("isTrialsUnlocked", 0)))
+            NotificationManager.Instance.GetNotification(notification);
         DataLoader.SaveInt("isTrialsUnlocked", 1);
     }
-
-    private void UpdateResurrectionPanel()
-    {
-        if (isRewarding) return;
-        timer -= Time.unscaledDeltaTime;
-        circleTimer.fillAmount = timer / timeToReact;
-        textTimer.text = Math.Ceiling(timer).ToString();
-        if (timer <= 0)
-        {
-            ResurrectionPanel.SetActive(false);
-            ShowDefeatPanel();
-        }
-    }
-    
-    private void ShowResurrectionPanel()
-    {
-        YandexSDK.Instance.ResetSubscriptions();
-        YandexSDK.Instance.RewardGet += Resurrection;
-        YandexSDK.Instance.RewardGet += ResumeMusic;
-        isSessionEnded = true;
-        ResurrectionPanel.SetActive(true);
-        timer = timeToReact;
-    }
-
-    private void Resurrection()
-    {
-        isRewarding = false;
-        //var newBase = Instantiate(basePrefab, baseTransform, Quaternion.identity);
-        //_base = newBase.GetComponent<Base>();
-        //_base.TakeDamage(_base.GetMaxHp() / 2f);
-        _base.hp = _base.maxHp / 2f;
-        _base.UpdateHpBar();
-        ResurrectionPanel.SetActive(false);
-        isSessionEnded = false;
-        Resume(true);
-        wasResurrectionUsed = true;
-        AudioManager.Instance.Play("ButtonClick2");
-        var tempEnemies = new List<Enemy>();
-        foreach (var e in EnemySpawner.enemies)
-        {
-            tempEnemies.Add(e.GetComponent<Enemy>());
-        }
-        foreach (var e in tempEnemies)
-        {
-            e.TakeDamage(20000, DamageType.Normal, new Vector3());
-        }
-    }
-
-   
 
     private void FillTexts(GameObject panel, bool isCreditsDoubled)
     {
@@ -273,8 +195,6 @@ public class FinishPanel : MonoBehaviour
     
     private void Resume(bool savePreviousTimeScale)
     {
-        //victoryPanel.SetActive(false);
-        //defeatPanel.SetActive(false);
         if (savePreviousTimeScale)
             TimeManager.Resume(audioMixer);
         else
@@ -282,17 +202,5 @@ public class FinishPanel : MonoBehaviour
         
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = true;
-    }
-    
-    private void ShowCommonAd()
-    {
-        try
-        {
-            YandexSDK.Instance.ShowCommonAdvertisment();
-        }
-        catch 
-        {
-            Console.WriteLine("add");
-        }
     }
 }
