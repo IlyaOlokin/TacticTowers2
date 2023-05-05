@@ -29,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
 
     private int currentWave = 0;
     private static bool isBossInField;
+    private static bool isCurrentWaveSpecial;
     private Boss currentBoss;
 
 
@@ -52,11 +53,12 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (isBossInField)
+        if (isCurrentWaveSpecial)
         {
             if (!IsAnyEnemyLeft())
             {
                 isBossInField = false;
+                isCurrentWaveSpecial = false;
                 Timer.Play();
             }
             return;
@@ -89,7 +91,7 @@ public class EnemySpawner : MonoBehaviour
             wave.enemySet = wave.specialEnemySet;
             waveScale = 1f;
             Timer.Stop();
-            //isBossInField = true;
+            isCurrentWaveSpecial = true;
         }
         else
         {
