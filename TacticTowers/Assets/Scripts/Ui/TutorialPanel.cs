@@ -27,7 +27,8 @@ public class TutorialPanel : MonoBehaviour
     {
         DataLoader.SaveInt("isTutorialCompleted", 1);
         AudioManager.Instance.Play("ButtonClick2");
-        SceneManager.LoadScene("BaseChooseMenu");
+        //SceneManager.LoadScene("BaseChooseMenu");
+        SceneManager.LoadScene("GameField");
     }
 
     public void OnButtonSkip()
