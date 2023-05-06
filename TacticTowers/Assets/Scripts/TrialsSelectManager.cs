@@ -16,7 +16,6 @@ public class TrialsSelectManager : MonoBehaviour
     [SerializeField] private SelectIndicator selectIndicator;
     [SerializeField] private TrialsDescriptionPanel trialDescription;
     [SerializeField] private Button playButton;
-    [SerializeField] private GameObject indicatorButton;
 
     private List<bool> trialsCompleted;
 
@@ -55,9 +54,7 @@ public class TrialsSelectManager : MonoBehaviour
         SelectedTrialIndex = index;
         DataLoader.SaveInt("selectedTrialsIndex", SelectedTrialIndex);
         trialDescription.GetTrialInfo(trials[index].GetComponent<Trial>());
-        indicatorButton.SetActive(false);
         selectIndicator.GetNewDestination(buttons[index].transform.position);
-        indicatorButton.SetActive(true);
         SelectedTrial.GetComponent<Trial>().InitPrise();
     }
 

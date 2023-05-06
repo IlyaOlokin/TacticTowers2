@@ -35,7 +35,7 @@ public class NotificationPanel : MonoBehaviour, IPointerDownHandler
     public void ShowNotification(Notification notification)
     {
         image.sprite = notification.sprite;
-        text.text = notification.text;
+        text.text = Localisation.GetLocalisedValue(notification.text);
         lifeTimer = 0;
         anim.SetTrigger("Show");
         isNotificationActive = true;

@@ -2132,6 +2132,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6371614318163740514, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: notification.text
+      value: NotificationTrials
+      objectReference: {fileID: 0}
     - target: {fileID: 6597726709909516878, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
@@ -2143,6 +2147,62 @@ PrefabInstance:
     - target: {fileID: 8346120229575089270, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_Name
       value: GaneFieldScenePrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139527658638061679, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: notifications.Array.data[0].text
+      value: NotificationEnemyCommon
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139527658638061679, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: notifications.Array.data[1].text
+      value: NotificationEnemyArmored
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139527658638061679, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: notifications.Array.data[2].text
+      value: NotificationEnemyFast
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139527658638061679, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: notifications.Array.data[3].text
+      value: NotificationEnemySlow
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139527658638061679, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: notifications.Array.data[4].text
+      value: NotificationEnemyFly
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139527658638061679, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: notifications.Array.data[5].text
+      value: NotificationEnemyCreaterCommon
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139527658638061679, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: notifications.Array.data[6].text
+      value: NotificationEnemyUnderground
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139527658638061679, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: notifications.Array.data[7].text
+      value: NotificationEnemySlime
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139527658638061679, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: notifications.Array.data[8].text
+      value: NotificationEnemyBossShield
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139527658638061679, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: notifications.Array.data[9].text
+      value: NotificationEnemyBossWeb
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139527658638061679, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: notifications.Array.data[10].text
+      value: NotificationEnemyBossParasites
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139527658638061679, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: notifications.Array.data[11].text
+      value: NotificationEnemyBossCreaterFly
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139527658638061679, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: notifications.Array.data[12].text
+      value: NotificationEnemyBossDangerous
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139527658638061679, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: notifications.Array.data[13].text
+      value: NotificationEnemyWeakenTowers
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}

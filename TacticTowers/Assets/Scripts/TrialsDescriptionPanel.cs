@@ -1,14 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TrialsDescriptionPanel : MonoBehaviour
 {
     [SerializeField] private Text description;
-    [SerializeField] private Text present;
-    [SerializeField] private Image trialImage;
     [SerializeField] private Trial defaultTrial;
+    [SerializeField] private GameObject prizeBase;
+    [SerializeField] private Image baseImage;
+    [SerializeField] private Text presentBaseDescription;
+    [SerializeField] private GameObject prizeCredits;
+    [SerializeField] private Text presentCreditsDescription;
+    [SerializeField] private GameObject trialCompleted;
+
 
     private void Start()
     {
@@ -19,18 +22,29 @@ public class TrialsDescriptionPanel : MonoBehaviour
 
     public void GetTrialInfo(Trial _trial)
     {
+        trialCompleted.SetActive(false);
+        prizeBase.SetActive(false);
+        prizeCredits.SetActive(false);
+
         var s = DataLoader.LoadString("TrialCompleted", "00000000");
-        var trialsCompleted = new List<bool>();
-        for (var i = 0; i < s.Length; i++)
-        {
-            char _char = s[i];
-            trialsCompleted.Add(_char == '1');
-        }
         description.GetComponent<TextLocaliser>().SetKey(_trial.description);
-        if ( s[_trial.index] == '1')
-            present.GetComponent<TextLocaliser>().SetKey("CompletedTrial");
+        if (s[_trial.index] == '1')
+        {
+            trialCompleted.SetActive(true);
+        }
         else
-            present.GetComponent<TextLocaliser>().SetKey(_trial.present);
-        trialImage.sprite = _trial.trialImage;
+        {
+            if (_trial.GetComponent<Trial>().prise == Trial.Prise.credits)
+            {
+                prizeCredits.SetActive(true);
+                presentCreditsDescription.text = _trial.value.ToString();
+            }
+            else
+            {
+                prizeBase.SetActive(true);
+                baseImage.sprite = TrialManager.Instance.spritesBase[_trial.value];
+                presentBaseDescription.GetComponent<TextLocaliser>().SetKey(_trial.present);
+            }
+        }
     }
 }

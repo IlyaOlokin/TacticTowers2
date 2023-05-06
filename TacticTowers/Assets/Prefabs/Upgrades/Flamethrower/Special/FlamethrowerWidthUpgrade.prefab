@@ -43,9 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9737ee84ad81110429832d1577cabfb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeLabel: "\u0428\u0438\u0440\u0438\u043D\u0430 \u043F\u043E\u0442\u043E\u043A\u0430"
-  upgradeText: "+50% \u043A \u0448\u0438\u0440\u0438\u043D\u0435 \u043F\u043E\u0442\u043E\u043A\u0430"
-  bonusForFormatting: 0
-  UpgradeSprite: {fileID: 4212499518175065928, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  bonus: 0
+  upgradeLabel: upgradeFlameWidth
+  upgradeText: upgradeFlameWidthDesc
   upgradeIndex: 0

@@ -16,12 +16,7 @@ public class Settings : MonoBehaviour
     Resolution[] resolutions;
     List<Resolution> resolutions169;
 
-    public void ChangeSoundVolume()
-    {
-        audioMixer.SetFloat("SoundVol", -80.0f + (80.0f * soundSlider.value));
-        DataLoader.SaveString("SoundVolume", soundSlider.value.ToString());
-    }
-    public void OpenSettings()
+    public void Init()
     {
         resolutionDropdown.ClearOptions();
         var optipns = new List<string>();
@@ -40,14 +35,33 @@ public class Settings : MonoBehaviour
 
         resolutionDropdown.AddOptions(optipns);
         resolutionDropdown.RefreshShownValue();
+        
+        LoadSettings(GetCurrentResolutionIndex());
+        SetResolution(GetCurrentResolutionIndex());
+        ChangeSoundVolume();
+        ChangeMusicVolume();
+        SetQuality(DataLoader.LoadInt("QualitySettingsPreference", 6));
+    }
 
+    public int GetCurrentResolutionIndex()
+    {
         var currentResolutionIndex = 0;
         for (var i = 0; i < resolutions169.Count; i++)
         {
             if (resolutions169[i].width == Screen.currentResolution.width && resolutions169[i].height == Screen.currentResolution.height)
                 currentResolutionIndex = i;
         }
-        LoadSettings(currentResolutionIndex);
+        return currentResolutionIndex;
+    }
+
+    public void ChangeSoundVolume()
+    {
+        audioMixer.SetFloat("SoundVol", -80.0f + (80.0f * soundSlider.value));
+        DataLoader.SaveString("SoundVolume", soundSlider.value.ToString());
+    }
+    public void OpenSettings()
+    {
+        LoadSettings(GetCurrentResolutionIndex());
         gameObject.SetActive(true);
     }
 

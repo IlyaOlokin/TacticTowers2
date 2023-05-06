@@ -20,7 +20,7 @@ public class ToolTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private void Start()
     {
        textWindow = Instantiate(textWindowPrefab, transform.position, Quaternion.identity, transform);
-       textWindow.GetComponent<ToolTipWindow>().text.text = toolTipText;
+       textWindow.GetComponent<TextLocaliser>().SetKey(toolTipText);
        textWindow.transform.position = windowSpawnPoint.position;
 
        HideTip();

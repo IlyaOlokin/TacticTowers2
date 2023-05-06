@@ -9,11 +9,13 @@ public class DataLoader : MonoBehaviour
     [SerializeField] private SoundButton soundButton;
     [SerializeField] private MainMenu mainMenu;
     [SerializeField] private TrialsMenuButton trialsMenuButton;
+    [SerializeField] private Settings settingsPanel;
 
     private static MusicButton mscButton;
     private static SoundButton sndButton;
     private static MainMenu mnMenu;
     private static TrialsMenuButton trMeButton;
+    private static Settings settings;
     
     public static GameData gameData;
     
@@ -29,6 +31,7 @@ public class DataLoader : MonoBehaviour
         sndButton = soundButton;
         mnMenu = mainMenu;
         trMeButton = trialsMenuButton;
+        settings = settingsPanel;
 
         dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
         
@@ -64,6 +67,8 @@ public class DataLoader : MonoBehaviour
 
         TrialsMenuButton.isTrialsLocked = LoadInt("isTrialsLocked", 0) == 0;
         trMeButton.Init();
+        settings.Init();
+        
     }
 
     private static void NewGame()

@@ -177,11 +177,10 @@ public class UpgradeWindow : MonoBehaviour
         Button.onClick.AddListener(EnableAllUpgradeButtons);
         
         button.GetComponent<UpgradeButton>().ActivateSuperCardEffects(false);
-        //upgradeButton.upgradeLabel.GetComponent<TextLocaliser>().SetKey(upgrade.upgradeLabel);
-        //upgradeButton.upgradeText.GetComponent<TextLocaliser>().SetKey(upgrade.GetUpgradeText());
+        upgradeButton.upgradeLabel.GetComponent<TextLocaliser>().SetKey(upgrade.upgradeLabel);
+        upgradeButton.upgradeText.GetComponent<TextLocaliser>().SetKey(upgrade.GetUpgradeText());
         
-        upgradeButton.upgradeLabel.text = upgrade.upgradeLabel;
-        upgradeButton.upgradeText.text = upgrade.GetUpgradeText();
+        
         upgradeButton.upgradeImage.sprite = tower.towerSprites[GetSpecialUpgradeLevel(tower)].towerSprite;
     }
 
