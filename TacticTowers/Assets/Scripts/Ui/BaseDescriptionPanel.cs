@@ -34,7 +34,7 @@ public class BaseDescriptionPanel : MonoBehaviour
         {
             trialUnlockObject.SetActive(true);
             creditsUnlockObject.SetActive(false);
-            trialText.text = Localisation.GetLocalisedValue("PassTrial") + _base.trialToUnlockIndex;
+            trialText.text = Localisation.GetLocalisedValue("PassTrial") + " " + _base.trialToUnlockIndex;
         }
         else
         {
