@@ -10,15 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04553e0e1fa40bb4db93fb9c70797975, type: 3}
-  m_Name: 7R
+  m_Name: 7L
   m_EditorClassIdentifier: 
   Right:
   - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemyCount: 55
-  Top:
-  - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemyCount: 20
+    enemyCount: 13
+  - enemy: {fileID: 8682723920841854874, guid: c41788713e5f74e4fba9d118b0dbbb22, type: 3}
+    enemyCount: 12
+  Top: []
   Left:
   - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemyCount: 25
-  Bot: []
+    enemyCount: 40
+  - enemy: {fileID: 8682723920841854874, guid: c41788713e5f74e4fba9d118b0dbbb22, type: 3}
+    enemyCount: 15
+  Bot:
+  - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    enemyCount: 20

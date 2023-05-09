@@ -10,17 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04553e0e1fa40bb4db93fb9c70797975, type: 3}
-  m_Name: 5L
+  m_Name: 4R
   m_EditorClassIdentifier: 
   Right:
   - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemyCount: 12
-  Top: []
+    enemyCount: 35
+  - enemy: {fileID: 5937050097135992818, guid: ad541c08a8426e9478506a86530c260d, type: 3}
+    enemyCount: 5
+  - enemy: {fileID: 8682723920841854874, guid: c41788713e5f74e4fba9d118b0dbbb22, type: 3}
+    enemyCount: 15
+  Top:
+  - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    enemyCount: 15
   Left:
-  - enemy: {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemyCount: 12
-  - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemyCount: 30
+  - enemy: {fileID: 6187481930817503581, guid: 48ff7a0d47fe486448b13b6d0c01a769, type: 3}
+    enemyCount: 9
   Bot:
-  - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemyCount: 25
+  - enemy: {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
+    enemyCount: 5
