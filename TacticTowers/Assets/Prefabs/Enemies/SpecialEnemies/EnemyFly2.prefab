@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8682723920841854878}
   - component: {fileID: 1399675227494105166}
   m_Layer: 7
-  m_Name: EnemyFly
+  m_Name: EnemyFly2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -243,8 +243,8 @@ MonoBehaviour:
   knockBackResist: 0
   stunResist: 0
   isImmortal: 0
-  hp: 50
+  hp: 120
   dmg: 15
-  weight: 3
+  weight: 7
   initialSpeed: 0.14
   creditsDropChance: 10

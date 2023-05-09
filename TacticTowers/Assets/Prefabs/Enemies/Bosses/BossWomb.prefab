@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d26e684fdab50e4fb7516d68604a48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 642673740280309340}
+  enemyType: 0
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -168,7 +168,7 @@ MonoBehaviour:
   initialSpeed: 0.5
   creditsDropChance: 100
   icon: {fileID: -6146046791161707374, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
-  maxHp: 15000
+  maxHp: 13000
   spawnZone: {fileID: 4705687547898389697}
   spawningEnemy: {fileID: 8682723920841854874, guid: c41788713e5f74e4fba9d118b0dbbb22, type: 3}
   spawningAmount: 5
