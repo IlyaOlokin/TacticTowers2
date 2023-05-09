@@ -9,7 +9,6 @@ public class AdButton : MonoBehaviour
     void Start()
     {
         GetComponent<Button>().onClick.RemoveAllListeners();
-        GetComponent<Button>().onClick.AddListener(YandexSDK.Instance.ShowRewardedAdvertisment);
         GetComponent<Button>().onClick.AddListener(transform.parent.parent.GetComponent<FinishPanel>().PauseMusic);
     }
 }
