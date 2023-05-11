@@ -2011,7 +2011,7 @@ PrefabInstance:
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[0].specialEnemySet
       value: 
-      objectReference: {fileID: 11400000, guid: 9e661e4438df5134da6596ce1e13e8e1, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[4].specialEnemySet
       value: 
@@ -2023,7 +2023,7 @@ PrefabInstance:
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[9].specialEnemySet
       value: 
-      objectReference: {fileID: 11400000, guid: 994e1704b258d8a4392e2f1e6df007cf, type: 2}
+      objectReference: {fileID: 11400000, guid: bd1a0c2c92283bb43aeca5a1bca0ec88, type: 2}
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[10].specialEnemySet
       value: 
@@ -2138,7 +2138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7221037311736929454, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 295.91382
+      value: 295.91376
       objectReference: {fileID: 0}
     - target: {fileID: 8346120229575089270, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_Name

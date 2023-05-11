@@ -261,10 +261,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
-  animator: {fileID: 0}
   isImmuneToFire: 0
   isImmuneToFreeze: 0
-  knockBackResist: 0
+  knockBackResist: 0.5
   stunResist: 0
   isImmortal: 0
   hp: 350
