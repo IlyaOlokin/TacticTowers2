@@ -431,6 +431,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesObject: {fileID: 1854380829}
+  enemyHpMultiplier: 1
+  enemySpeedMultiplier: 1
+  enemyCountMultiplier: 1
+  moneyMultiplier: 1
   Waves:
   - moneyForWave: 15
     seconds: 60
@@ -1862,7 +1866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[0].moneyForWave
-      value: 55
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[1].moneyForWave

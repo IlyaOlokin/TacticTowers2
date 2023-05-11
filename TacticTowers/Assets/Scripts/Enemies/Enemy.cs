@@ -219,6 +219,12 @@ public class Enemy : MonoBehaviour
         isReadyForStun = true;
     }
 
+    public void SetMultipliers(float hpMultiplier, float speedMultiplier)
+    {
+        hp *= hpMultiplier;
+        initialSpeed += speedMultiplier;
+    }
+
     private void DropCreditsByChance(int chance)
     {
         if (Random.Range(0, 100) < chance) 

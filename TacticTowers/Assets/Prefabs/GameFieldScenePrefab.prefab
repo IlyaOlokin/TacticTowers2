@@ -52,6 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesObject: {fileID: 2620037248527706206}
+  enemyHpMultiplier: 1
+  enemySpeedMultiplier: 1
+  enemyCountMultiplier: 1
+  moneyMultiplier: 1
   Waves:
   - moneyForWave: 55
     seconds: 180
