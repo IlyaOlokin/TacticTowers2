@@ -13,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private float enemyHpMultiplier = 1f;
     [SerializeField] private float enemySpeedMultiplier = 1f;
+    [SerializeField] private float creditsDropChanceMultiplier = 1f;
     [SerializeField] private float enemyCountMultiplier = 1f;
     [SerializeField] private float moneyMultiplier = 1f;
     
@@ -149,10 +150,11 @@ public class EnemySpawner : MonoBehaviour
             {
                 var newEnemy = Instantiate(enemyTypes[i].enemy, GetRandomPointOnSpawnZone(spawnZone), Quaternion.identity, enemiesObject);
                 var enemyComp = newEnemy.GetComponent<Enemy>();
-                enemyComp.SetMultipliers(enemyHpMultiplier, enemySpeedMultiplier);
+                enemyComp.SetMultipliers(enemyHpMultiplier, enemySpeedMultiplier, creditsDropChanceMultiplier);
                 enemyComp.SetCost(enemyComp.GetWeight() * weightCost);
                 if (newEnemy.TryGetComponent(out Boss boss))
                 {
+                    if (bossPos.Equals(Vector3.zero)) continue;
                     boss.transform.position = bossPos;
                     currentBoss = newEnemy.GetComponent<Boss>();
                 }
