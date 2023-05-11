@@ -370,9 +370,13 @@ PrefabInstance:
       propertyPath: enemySetGroups.Array.data[3].enemySets.Array.data[3]
       value: 
       objectReference: {fileID: 11400000, guid: 7039fcb9fbc70b8459c4558884ca2081, type: 2}
+    - target: {fileID: 3381521148132981199, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7221037311736929454, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 295.91364
+      value: 295.91367
       objectReference: {fileID: 0}
     - target: {fileID: 8346120229575089270, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_Name
