@@ -1658,7 +1658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[1].seconds
-      value: 50
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[2].seconds
@@ -1714,7 +1714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[0].isSpecial
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[0].waveScale
@@ -1903,7 +1903,7 @@ PrefabInstance:
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[0].bossTransform
       value: 
-      objectReference: {fileID: 231219255}
+      objectReference: {fileID: 0}
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[10].moneyForWave
       value: 2600
@@ -2011,7 +2011,7 @@ PrefabInstance:
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[0].specialEnemySet
       value: 
-      objectReference: {fileID: 11400000, guid: 9e661e4438df5134da6596ce1e13e8e1, type: 2}
+      objectReference: {fileID: 11400000, guid: 988a6565077a2174dbe1418477f79a0c, type: 2}
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[4].specialEnemySet
       value: 
@@ -2143,6 +2143,10 @@ PrefabInstance:
     - target: {fileID: 8346120229575089270, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_Name
       value: GaneFieldScenePrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346120229575089270, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}

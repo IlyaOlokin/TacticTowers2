@@ -638,6 +638,8 @@ MonoBehaviour:
   maxHp: 100
   canvas: {fileID: 7883339770609276406}
   unlockCost: 0
+  isUnlockableFromTrial: 0
+  trialToUnlockIndex: 0
   baseImage: {fileID: -5040041125698078803, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
 --- !u!114 &4865109854965181385
 MonoBehaviour:
