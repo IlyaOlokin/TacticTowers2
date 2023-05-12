@@ -226,7 +226,7 @@ public class Enemy : MonoBehaviour
     public void SetMultipliers(float hpMultiplier, float speedMultiplier, float creditsDropChanceMultiplier)
     {
         hp *= hpMultiplier;
-        initialSpeed *= speedMultiplier;
+        MultiplySpeed(speedMultiplier);
         creditsDropChance = (int) (creditsDropChance * creditsDropChanceMultiplier);
     }
 
