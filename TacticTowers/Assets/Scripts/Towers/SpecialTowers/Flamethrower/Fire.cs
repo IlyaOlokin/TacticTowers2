@@ -42,7 +42,7 @@ public class Fire : MonoBehaviour
         GlobalBurnMultiplier = 1;
     }
     
-    public static void MultiplyGlobalBurnMultiplier(int multiplier)
+    public static void MultiplyGlobalBurnMultiplier(float multiplier)
     {
         GlobalBurnMultiplier *= multiplier;
     }
@@ -55,7 +55,8 @@ public class Fire : MonoBehaviour
 
     private void OnDestroy()
     {
-        Destroy(newFire.gameObject);
+        if (newFire != null)
+            Destroy(newFire.gameObject);
     }
     
     

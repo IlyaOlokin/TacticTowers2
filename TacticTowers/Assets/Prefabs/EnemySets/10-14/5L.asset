@@ -17,9 +17,11 @@ MonoBehaviour:
     enemyCount: 20
   Top:
   - enemy: {fileID: 5937050097135992818, guid: 207042b642895094f99c0e7b41c829ab, type: 3}
-    enemyCount: 40
+    enemyCount: 25
   - enemy: {fileID: 5937050097135992818, guid: e29d39e670e60384d808d1de9461ef03, type: 3}
     enemyCount: 7
+  - enemy: {fileID: 8682723920841854874, guid: c41788713e5f74e4fba9d118b0dbbb22, type: 3}
+    enemyCount: 18
   Left:
   - enemy: {fileID: 5937050097135992818, guid: d6e5fdd618400b04884b37a9956bab7b, type: 3}
     enemyCount: 10

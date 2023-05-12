@@ -17,14 +17,20 @@ MonoBehaviour:
     enemyCount: 15
   - enemy: {fileID: 5937050097135992818, guid: 97cd1be57404db6448824162fd036956, type: 3}
     enemyCount: 30
+  - enemy: {fileID: 6187481930817503581, guid: 93662943365ba754d953e445d151c09b, type: 3}
+    enemyCount: 6
   Top:
   - enemy: {fileID: 5937050097135992818, guid: e29d39e670e60384d808d1de9461ef03, type: 3}
-    enemyCount: 7
+    enemyCount: 5
+  - enemy: {fileID: 970157617121620856, guid: 0c38a13ae7ad0b54c809e0bc5d99e851, type: 3}
+    enemyCount: 1
   Left:
   - enemy: {fileID: 5937050097135992818, guid: 97cd1be57404db6448824162fd036956, type: 3}
     enemyCount: 35
   Bot:
   - enemy: {fileID: 5937050097135992818, guid: 97cd1be57404db6448824162fd036956, type: 3}
-    enemyCount: 75
+    enemyCount: 65
   - enemy: {fileID: 5937050097135992818, guid: e29d39e670e60384d808d1de9461ef03, type: 3}
-    enemyCount: 13
+    enemyCount: 10
+  - enemy: {fileID: 970157617121620856, guid: 0c38a13ae7ad0b54c809e0bc5d99e851, type: 3}
+    enemyCount: 1

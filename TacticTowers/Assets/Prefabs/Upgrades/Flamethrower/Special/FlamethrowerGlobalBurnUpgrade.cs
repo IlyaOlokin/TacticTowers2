@@ -8,6 +8,6 @@ public class FlamethrowerGlobalBurnUpgrade : SpecialUpgrade
     {
         base.Execute(tower);
         tower.gameObject.GetComponent<Flamethrower>().hasGlobalBurnUpgrade = true;
-        Fire.MultiplyGlobalBurnMultiplier(2);
+        Fire.MultiplyGlobalBurnMultiplier(1.5f);
     }
 }
