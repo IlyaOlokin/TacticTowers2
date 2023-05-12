@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     protected Animator animator;
     protected IEnemyMover EnemyMover;
     protected Rigidbody2D rb;
+    protected Healthbar hpBar;
     
     [Header("Resists")]
     [SerializeField] private bool isImmuneToFire = false;
@@ -44,6 +45,8 @@ public class Enemy : MonoBehaviour
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        hpBar = GetComponentInChildren<Healthbar>();
+        hpBar.SetHealth(hp);
         animator = GetComponent<Animator>();
         RandomizeSpeed();
     }
@@ -131,6 +134,7 @@ public class Enemy : MonoBehaviour
                 dmg *= Freeze.GetGlobalFrozenMultiplier();
             
         hp -= dmg;
+        hpBar.SetHealth(hp);
         var newEffect = Instantiate(EnemyVFXManager.Instance.GetEffect("DamageNumber").effect, transform.position, Quaternion.identity);
         newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
         newEffect.GetComponent<DamageNumberEffect>().InitTargetPos(damagerPos, isCritical);
