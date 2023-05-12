@@ -12,12 +12,20 @@ public class Healthbar : MonoBehaviour
     
     public void SetHealth(float hp)
     {
-        slider.gameObject.SetActive(hp < slider.maxValue);
+        if (slider.maxValue < hp)
+            slider.maxValue = hp;
+        
         slider.value = hp;
+        slider.gameObject.SetActive(hp < slider.maxValue);
 
         slider.fillRect.GetComponentInChildren<Image>().color = Color.Lerp(lowHpColor, highHpColor, slider.normalizedValue);
     }
 
+    public void ChangeBarVisibility(bool isVisible)
+    {
+        slider.gameObject.SetActive(isVisible);
+    }
+    
     private void Start()
     {
         canvas.worldCamera = Camera.main;
@@ -25,10 +33,6 @@ public class Healthbar : MonoBehaviour
     
     private void Update()
     {
-        if (slider.maxValue < enemy.GetHp())
-            slider.maxValue = enemy.GetHp();
-
-        //slider.gameObject.SetActive(enemy.GetHp() < slider.maxValue);
         slider.transform.position = transform.parent.transform.position + offset;
     }
 }

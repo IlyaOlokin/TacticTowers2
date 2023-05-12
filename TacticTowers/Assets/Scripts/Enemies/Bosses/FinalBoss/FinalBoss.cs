@@ -15,8 +15,14 @@ public class FinalBoss : Boss
     private Animator anim;
     private float changePositionTimer;
 
+    private void Awake()
+    {
+        EnemyMover = new EnemyMoverAir(0.0f, GameObject.FindGameObjectWithTag("Base").transform.position);
+    }
+    
     private void Start()
     {
+        base.Start();
         anim = GetComponent<Animator>();
         foreach (var pos in GameObject.FindGameObjectsWithTag("BossSpawnPoint"))
         {

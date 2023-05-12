@@ -23,6 +23,7 @@ public class EnemyWorm : Enemy
         GetComponent<SpriteRenderer>().color = Color.blue;
         gameObject.layer = LayerMask.NameToLayer("Underground");
         isInvulnerable = true;
+        GetComponentInChildren<Healthbar>().ChangeBarVisibility(false);
         EnemyMover.StartMovement();
         
         if (TryGetComponent<Fire>(out var fire))
@@ -44,6 +45,7 @@ public class EnemyWorm : Enemy
         GetComponent<SpriteRenderer>().color = Color.red;
         gameObject.layer = LayerMask.NameToLayer("Enemy");
         isInvulnerable = false;
+        GetComponentInChildren<Healthbar>().ChangeBarVisibility(true);
         EnemyMover.StopMovement();
         
         yield return new WaitForSeconds(abilityCd);

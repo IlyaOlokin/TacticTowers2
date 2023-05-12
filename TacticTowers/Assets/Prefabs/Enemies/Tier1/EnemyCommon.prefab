@@ -211,7 +211,7 @@ NavMeshAgent:
   m_Height: 0.4
   m_BaseOffset: 0.2
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!50 &9175817610715531096
 Rigidbody2D:
   serializedVersion: 4
@@ -267,7 +267,7 @@ MonoBehaviour:
   knockBackResist: 0
   stunResist: 0
   isImmortal: 0
-  hp: 1000
+  hp: 40
   dmg: 15
   weight: 1
   initialSpeed: 0.14

@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 14
+  isHpHidden: 1
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -448,6 +449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  isHpHidden: 0
   isImmuneToFire: 0
   isImmuneToFreeze: 0
   knockBackResist: 0
@@ -618,6 +620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  isHpHidden: 0
   isImmuneToFire: 0
   isImmuneToFreeze: 0
   knockBackResist: 0

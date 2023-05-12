@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  isHpHidden: 0
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -396,6 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 12
+  isHpHidden: 1
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -571,6 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  isHpHidden: 0
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -741,6 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  isHpHidden: 0
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -911,6 +915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  isHpHidden: 1
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -1184,6 +1189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 14
+  isHpHidden: 1
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -1343,6 +1349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 14
+  isHpHidden: 1
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -1538,6 +1545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 14
+  isHpHidden: 1
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -1701,6 +1709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  isHpHidden: 1
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -1902,6 +1911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  isHpHidden: 0
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -2072,6 +2082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
+  isHpHidden: 1
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -2102,6 +2113,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4937924204824667844}
     m_Modifications:
+    - target: {fileID: 37270883859652718, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 154426742179074188, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: m_Offset.x
       value: -3.32
@@ -2109,6 +2124,14 @@ PrefabInstance:
     - target: {fileID: 154426742179074188, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: m_Offset.y
       value: -1.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 961374556149252569, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 983975984874729764, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: isHpHidden
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 983975984874729764, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: knockBackResist
@@ -2140,6 +2163,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: isImmuneToFreeze
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: isHpHidden
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
@@ -2242,6 +2269,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4937924204824667844}
     m_Modifications:
+    - target: {fileID: 37270883859652718, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 983975984874729764, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: isHpHidden
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: isImmortal
       value: 1
@@ -2257,6 +2292,10 @@ PrefabInstance:
     - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: creditsDropChance
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: isHpHidden
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6634871045546908824, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: m_Name
