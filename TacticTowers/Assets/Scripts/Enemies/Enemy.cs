@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     protected Animator animator;
     protected IEnemyMover EnemyMover;
     protected Rigidbody2D rb;
+    protected Healthbar hpBar;
+    [SerializeField] protected bool isHpHidden;
     
     [Header("Resists")]
     [SerializeField] private bool isImmuneToFire = false;
@@ -21,6 +23,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float knockBackResist = 0f;
     [SerializeField] private float stunResist = 0f;
     [SerializeField] protected bool isImmortal;
+    protected bool isInvulnerable;
     
     [Header("Stats")]
     [SerializeField] protected float hp;
@@ -43,6 +46,10 @@ public class Enemy : MonoBehaviour
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        hpBar = GetComponentInChildren<Healthbar>();
+        if (hpBar != null)
+            hpBar.SetHealth(hp);
+        
         animator = GetComponent<Animator>();
         RandomizeSpeed();
     }
@@ -58,6 +65,8 @@ public class Enemy : MonoBehaviour
     }
 
     public int GetWeight() => weight;
+
+    public bool GetInvulnerability() => isInvulnerable;
     
     public float GetHp() => hp;
 
@@ -65,13 +74,15 @@ public class Enemy : MonoBehaviour
     
     public void SetCost(float newCost) => cost = newCost;
 
+    public void SetHpHidden(bool isHidden) => isHpHidden = isHidden;
+
     public void MultiplySpeed(float multiplier) => EnemyMover.MultiplySpeed(multiplier);
 
     public virtual void ExecuteAbility() { }
 
     public void TakeFire(FireStats newFire)
     {
-        if (isImmuneToFire)
+        if (isImmuneToFire || isInvulnerable)
             return;
         
         var currentFire = GetComponent<Fire>() ?? gameObject.AddComponent<Fire>();
@@ -88,7 +99,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeFreeze(FreezeStats newFreeze, bool hasSpecial)
     {
-        if (isImmuneToFreeze && !hasSpecial)
+        if (isImmuneToFreeze && !hasSpecial || isInvulnerable)
             return;
         
         var currentFreeze = GetComponent<Freeze>() ?? gameObject.AddComponent<Freeze>();
@@ -112,16 +123,25 @@ public class Enemy : MonoBehaviour
 
     public void TakeForce(float force, Vector3 dir)
     {
+        if (isInvulnerable)
+            return;
+        
         rb.AddForce(dir.normalized * (force * (1 - knockBackResist)), ForceMode2D.Impulse);
     }
 
     public bool TakeDamage(float dmg, DamageType damageType, Vector3 damagerPos, bool isCritical = false)
     {
+        if (isInvulnerable)
+            return false;
+        
         if (Freeze.GetActiveFrozenDamageMultiplier() && TryGetComponent<Freeze>(out var freeze))
             if (freeze.frozen)
                 dmg *= Freeze.GetGlobalFrozenMultiplier();
             
         hp -= dmg;
+        if (!isHpHidden || hpBar != null)
+            hpBar.SetHealth(hp);
+        
         var newEffect = Instantiate(EnemyVFXManager.Instance.GetEffect("DamageNumber").effect, transform.position, Quaternion.identity);
         newEffect.GetComponent<DamageNumberEffect>().WriteDamage(dmg);
         newEffect.GetComponent<DamageNumberEffect>().InitTargetPos(damagerPos, isCritical);
@@ -139,6 +159,9 @@ public class Enemy : MonoBehaviour
     
     public void TakeSlow(float slowAmount, float duration)
     {
+        if (isInvulnerable)
+            return;
+        
         EnemyMover.ApplySlow(slowAmount);
         if (currentSlow != null)
             StopCoroutine(currentSlow);
@@ -147,6 +170,9 @@ public class Enemy : MonoBehaviour
 
     public void TakeSlow(Func<float, float> slowFunc, float duration)
     {
+        if (isInvulnerable)
+            return;
+        
         EnemyMover.ApplySlow(slowFunc);
         if (currentSlow != null)
             StopCoroutine(currentSlow);
@@ -155,7 +181,7 @@ public class Enemy : MonoBehaviour
     
     public void TakeStun(float duration, float stunCd)
     {
-        if (!isReadyForStun)
+        if (!isReadyForStun || isInvulnerable)
             return;
         
         EnemyMover.StopMovement();
@@ -202,6 +228,13 @@ public class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(stunCd);
         isReadyForStun = true;
+    }
+
+    public void SetMultipliers(float hpMultiplier, float speedMultiplier, float creditsDropChanceMultiplier)
+    {
+        hp *= hpMultiplier;
+        MultiplySpeed(speedMultiplier);
+        creditsDropChance = (int) (creditsDropChance * creditsDropChanceMultiplier);
     }
 
     private void DropCreditsByChance(int chance)

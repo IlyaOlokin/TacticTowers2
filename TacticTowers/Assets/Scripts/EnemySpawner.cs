@@ -10,6 +10,12 @@ public class EnemySpawner : MonoBehaviour
 {
     [Header("Waves")]
     [SerializeField] private Transform enemiesObject;
+
+    [SerializeField] private float enemyHpMultiplier = 1f;
+    [SerializeField] private float enemySpeedMultiplier = 1f;
+    [SerializeField] private float creditsDropChanceMultiplier = 1f;
+    [SerializeField] private float enemyCountMultiplier = 1f;
+    [SerializeField] private float moneyMultiplier = 1f;
     
     public static List<GameObject> enemies;
     [SerializeField] private List<Wave> Waves = new List<Wave>();
@@ -29,6 +35,7 @@ public class EnemySpawner : MonoBehaviour
 
     private int currentWave = 0;
     private static bool isBossInField;
+    private static bool isCurrentWaveSpecial;
     private Boss currentBoss;
 
 
@@ -52,11 +59,12 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (isBossInField)
+        if (isCurrentWaveSpecial)
         {
             if (!IsAnyEnemyLeft())
             {
                 isBossInField = false;
+                isCurrentWaveSpecial = false;
                 Timer.Play();
             }
             return;
@@ -89,7 +97,7 @@ public class EnemySpawner : MonoBehaviour
             wave.enemySet = wave.specialEnemySet;
             waveScale = 1f;
             Timer.Stop();
-            //isBossInField = true;
+            isCurrentWaveSpecial = true;
         }
         else
         {
@@ -109,10 +117,10 @@ public class EnemySpawner : MonoBehaviour
         if (wave.bossTransform != null)
             bossPosition = wave.bossTransform.position;
 
-        ReleaseWaveSide(wave.enemySet.Right, spawnZoneRight, waveScale, weightCost, bossPosition);
-        ReleaseWaveSide(wave.enemySet.Top, spawnZoneTop, waveScale, weightCost, bossPosition);
-        ReleaseWaveSide(wave.enemySet.Left, spawnZoneLeft, waveScale, weightCost, bossPosition);
-        ReleaseWaveSide(wave.enemySet.Bot, spawnZoneBot, waveScale, weightCost, bossPosition);
+        ReleaseWaveSide(wave.enemySet.Right, spawnZoneRight, waveScale * enemyCountMultiplier, weightCost * moneyMultiplier, bossPosition);
+        ReleaseWaveSide(wave.enemySet.Top, spawnZoneTop, waveScale * enemyCountMultiplier, weightCost * moneyMultiplier, bossPosition);
+        ReleaseWaveSide(wave.enemySet.Left, spawnZoneLeft, waveScale * enemyCountMultiplier, weightCost * moneyMultiplier, bossPosition);
+        ReleaseWaveSide(wave.enemySet.Bot, spawnZoneBot, waveScale * enemyCountMultiplier, weightCost * moneyMultiplier, bossPosition);
         
         
         FindEnemies();
@@ -142,9 +150,11 @@ public class EnemySpawner : MonoBehaviour
             {
                 var newEnemy = Instantiate(enemyTypes[i].enemy, GetRandomPointOnSpawnZone(spawnZone), Quaternion.identity, enemiesObject);
                 var enemyComp = newEnemy.GetComponent<Enemy>();
+                enemyComp.SetMultipliers(enemyHpMultiplier, enemySpeedMultiplier, creditsDropChanceMultiplier);
                 enemyComp.SetCost(enemyComp.GetWeight() * weightCost);
                 if (newEnemy.TryGetComponent(out Boss boss))
                 {
+                    if (bossPos.Equals(Vector3.zero)) continue;
                     boss.transform.position = bossPos;
                     currentBoss = newEnemy.GetComponent<Boss>();
                 }

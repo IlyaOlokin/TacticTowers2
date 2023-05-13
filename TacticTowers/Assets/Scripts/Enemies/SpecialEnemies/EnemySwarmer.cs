@@ -47,7 +47,10 @@ public class EnemySwarmer : Enemy
             if (Math.Abs(transform.position.x - path[i].x) < nearThreshold
                 && Math.Abs(transform.position.y - path[i].y) < nearThreshold)
             {
-                EnemyMover.ChangeTarget(isClockwise ? path[(i + 1) % path.Count] : path[(i - 1) % path.Count]);
+                if (i == 0 && !isClockwise)
+                    EnemyMover.ChangeTarget(path[path.Count - 1]);
+                else
+                    EnemyMover.ChangeTarget(isClockwise ? path[(i + 1) % path.Count] : path[Math.Abs((i - 1) % path.Count)]);
 
                 nearThreshold = 0.001f;
             }
@@ -64,6 +67,7 @@ public class EnemySwarmer : Enemy
         
         animator.enabled = false;
         EnemyMover.StopMovement();
+        LookAtBase();
         StartCoroutine(nameof(SpawnEnemy), spawningAmount);
     }
 
@@ -84,5 +88,13 @@ public class EnemySwarmer : Enemy
         EnemySpawner.FindEnemies();
         
         StartCoroutine(nameof(SpawnEnemy), enemiesLeft - 1);
+    }
+
+    private void LookAtBase()
+    {
+        var target = GameObject.FindGameObjectWithTag("Base").transform;
+        var direction = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
+        var rotation = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
+        transform.eulerAngles = new Vector3(0, 0, rotation);
     }
 }

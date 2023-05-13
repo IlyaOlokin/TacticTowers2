@@ -232,7 +232,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2735452914469190424}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.00001
   m_Speed: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  animator: {fileID: 0}
+  isHpHidden: 0
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -397,11 +397,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 12
-  animator: {fileID: 0}
+  isHpHidden: 1
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
-  stunResist: 0
+  stunResist: 1
   isImmortal: 0
   hp: 0
   dmg: 100
@@ -545,7 +545,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4588691749895395681}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.00001
   m_Speed: 0
@@ -573,7 +573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  animator: {fileID: 0}
+  isHpHidden: 0
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -716,7 +716,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5037544758763912066}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.00001
   m_Speed: 0
@@ -744,7 +744,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  animator: {fileID: 0}
+  isHpHidden: 0
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -887,7 +887,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5673423712265228753}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.00001
   m_Speed: 0
@@ -915,7 +915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  animator: {fileID: 0}
+  isHpHidden: 1
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -1161,7 +1161,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6446521072730810912}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.00001
   m_Speed: 0
@@ -1189,7 +1189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 14
-  animator: {fileID: 0}
+  isHpHidden: 1
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -1321,7 +1321,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6446521073158308828}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.00001
   m_Speed: 0
@@ -1349,7 +1349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 14
-  animator: {fileID: 0}
+  isHpHidden: 1
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -1517,7 +1517,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6446521073249150056}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.00001
   m_Speed: 0
@@ -1545,7 +1545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 14
-  animator: {fileID: 0}
+  isHpHidden: 1
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -1681,7 +1681,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7602535456070504742}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.00001
   m_Speed: 0
@@ -1709,7 +1709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  animator: {fileID: 0}
+  isHpHidden: 1
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -1883,7 +1883,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8067839417981041009}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.00001
   m_Speed: 0
@@ -1911,7 +1911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  animator: {fileID: 0}
+  isHpHidden: 0
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -2054,7 +2054,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8874199289828089985}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.00001
   m_Speed: 0
@@ -2082,7 +2082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 0
-  animator: {fileID: 0}
+  isHpHidden: 1
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
@@ -2113,6 +2113,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4937924204824667844}
     m_Modifications:
+    - target: {fileID: 37270883859652718, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 154426742179074188, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: m_Offset.x
       value: -3.32
@@ -2120,6 +2124,14 @@ PrefabInstance:
     - target: {fileID: 154426742179074188, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: m_Offset.y
       value: -1.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 961374556149252569, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 983975984874729764, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: isHpHidden
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 983975984874729764, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: knockBackResist
@@ -2151,6 +2163,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: isImmuneToFreeze
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600973502423101069, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504339329134795714, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6359224592557924874, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: isHpHidden
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
@@ -2253,6 +2281,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4937924204824667844}
     m_Modifications:
+    - target: {fileID: 37270883859652718, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 983975984874729764, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: isHpHidden
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: isImmortal
       value: 1
@@ -2268,6 +2304,22 @@ PrefabInstance:
     - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: creditsDropChance
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3600973502423101069, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504339329134795714, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6359224592557924874, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: isHpHidden
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6634871045546908824, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: m_Name

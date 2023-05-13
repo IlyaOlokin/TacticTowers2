@@ -24,8 +24,18 @@ public class EnemyMoverGround : IEnemyMover
     
     public void Move(Transform transform)
     {
+        //Debug.Log(agent.transform.name);
         if (agent.enabled)
-            agent.SetDestination(target);
+        {
+            try
+            {
+                agent.SetDestination(target);
+            }
+            catch (Exception e)
+            {
+                Debug.Log(agent.transform.name);
+            }
+        }
     }
     
     public void StartMovement()
