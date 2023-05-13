@@ -1961,7 +1961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4641657415697292076, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 295.9135
+      value: 295.91345
       objectReference: {fileID: 0}
     - target: {fileID: 6320360387982982927, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Camera
@@ -1991,6 +1991,10 @@ PrefabInstance:
       propertyPath: towers.Array.data[3]
       value: 
       objectReference: {fileID: 2434650150811475836}
+    - target: {fileID: 8948855353968924676, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8948855355378188512, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: enemies
       value: 
@@ -2011,6 +2015,10 @@ PrefabInstance:
       propertyPath: towers.Array.data[3]
       value: 
       objectReference: {fileID: 2434650150811475836}
+    - target: {fileID: 8948855355771392192, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9210961308233070028, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

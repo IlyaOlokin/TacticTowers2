@@ -69,7 +69,7 @@ public class Settings : MonoBehaviour
 
     public void ChangeMusicVolume()
     {
-        audioMixer.SetFloat("SoundVol", -80.0f + (80.0f * musicSlider.value));
+        audioMixer.SetFloat("MusicVol", -80.0f + (80.0f * musicSlider.value));
         DataLoader.SaveString("MusicVolume", musicSlider.value.ToString());
     }
     public void SetResolution(int resolutionIndex)
