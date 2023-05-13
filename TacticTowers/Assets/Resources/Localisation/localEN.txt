@@ -130,10 +130,10 @@ ressurectButton:Continue
 upgradeFlameCloseDmg:Damage close
 upgradeFlameCloseDmgDesc:The closer the enemy is, the more damage up to +50%
 upgradeFlameGlobalBurn:Global burn damage
-upgradeFlameGlobalBurnDesc:Doubles the damage from any burn
+upgradeFlameGlobalBurnDesc:Increases all burning damage by 50%
 upgradeFlameWidth:Width of the stream
 upgradeFlameWidthDesc:+50% to the width of the stream
-upgradeFrostFrozenDmg:Damage on frozen
+upgradeFrostFrozenDmg:Frozen damage
 upgradeFrostFrozenDmgDesc:Frozen enemies receive increased damage
 upgradeFrostImmuneIgnore:Mega freeze
 upgradeFrostImmuneIgnoreDesc:Ability to freeze all enemies
@@ -151,12 +151,12 @@ upgradeMinigunDmgStack:Increased damage
 upgradeMinigunDmgStackDesc:Increases damage by 5% with each hit on an enemy
 upgradeMinigunPenetration:Penetration
 upgradeMinigunPenetrationDesc:The projectile passes through the first target, reducing its damage by 50%
-upgradeMortarFireChance:A chance to set fire
+upgradeMortarFireChance:Chance to set fire
 upgradeMortarFireChanceDesc:25% chance to set fire to the enemy
 upgradeMortarFlameField:Burning earth
 upgradeMortarFlameFieldDesc:After the explosion, the core leaves the burning earth
 upgradeMortarScatter:Core expansion
-upgradeMortarScatterDesc:The core after the explosion splits into several small cores
+upgradeMortarScatterDesc:A core splits after the explosion into several small cores
 upgradeRailDmgOverDist:Damage with distance
 upgradeRailDmgOverDistDesc:Increases the damage from the distance to the target
 upgradeRailDoubleShot:Double shot
@@ -169,40 +169,40 @@ upgradeShotgunDoubleShot:Double shot
 upgradeShotgunDoubleShotDesc:+20% chance of a double shot
 upgradeShotgunKnockBack:Knock back
 upgradeShotgunKnockBackDesc:When hit, pushes the enemy back
-upgradeTeslaBranching:A chance to split the lightning
+upgradeTeslaBranching:Chance to split the lightning
 upgradeTeslaBranchingDesc:25% chance to split lightning
-upgradeTeslaFireChance:A chance to set fire
+upgradeTeslaFireChance:Chance to set fire
 upgradeTeslaFireChanceDesc:25% chance to set the enemy on fire when hit
 upgradeTeslaMicroStun:Shock
 upgradeTeslaMicroStunDesc:When hit, it forces the enemy to stop for a short time
-NotificationEnemyCommon:An ordinary enemy
+NotificationEnemyCommon:Common enemy
 NotificationEnemyArmored:Armored enemy
-NotificationEnemyFast:A fast enemy
+NotificationEnemyFast:Fast enemy
 NotificationEnemySlow:Slow, but tenacious of life
 NotificationEnemyFly:Flies straight to the target
-NotificationEnemyCreaterCommon:Creates ordinary enemies
+NotificationEnemyCreaterCommon:Creates common enemies
 NotificationEnemyUnderground:Vulnerable when it comes to the surface
-NotificationEnemySlime:After death, it is bifurcated
+NotificationEnemySlime:After death, it splits
 NotificationEnemyBossShield:Shields block most attacks
-NotificationEnemyBossWeb:Shoots cobwebs at your towers
+NotificationEnemyBossWeb:Shoots webs at your towers
 NotificationEnemyBossParasites:Lets parasites on your towers
 NotificationEnemyBossCreaterFly:Spawns strong, flying enemies
 NotificationEnemyBossDangerous:The most dangerous and powerful opponent
-NotificationEnemyWeakenTowers:Weaken your towers
-NotificationWeb:
-NotificationParasites:
+NotificationEnemyWeakenTowers:Weakens your towers
+NotificationWeb:Move towers to avoid  a web
+NotificationParasites:Shoot parasites off your towers with other towers
 NotificationTrials:You have opened the test section in the main menu
-TooltipTrials:To open the trials, complete the normal game at least once.
+TooltipTrials:To unlock the trials, complete the normal gamemode at least once.
 TooltipChooseBase:Select the unlocked command center.
-TrialDesc1:The choice of towers has been reduced to a flamethrower. Only weak enemies come out in large numbers. The test consists of 20 waves.
-TrialDesc2:All towers are directed to one side. The test consists of 20 waves.
-TrialDesc3:All towers are rotated 45 degrees counterclockwise. The test consists of 20 waves.
-TrialDesc4:A boss will appear on each wave. The test consists of 10 waves.
+TrialDesc1:The choice of towers has been reduced to a flamethrower. Only weak enemies come out in large numbers.
+TrialDesc2:All towers are directed to one side.
+TrialDesc3:All towers are rotated 45 degrees counterclockwise.
+TrialDesc4:A boss will appear on each wave.
 TrialDesc5:One big wave with slow opponents.
-TrialDesc6:One less tower. The test consists of 20 waves.
-TrialDesc7:100% chance of X2 while upgrading towers. The test consists of 15 waves.
-TrialDesc8:Hardmode - enemies are stronger, there are more of them, there is less money. The test consists of 20 waves.
-TitleTrialsScene:Trials
+TrialDesc6:One less tower.
+TrialDesc7:100% chance of X2 while upgrading towers.
+TrialDesc8:Hardmode - enemies are stronger, there are more of them, there is less money.
+TitleTrialsScene:Chose a trial
 TrialsDescTitle:Condition
 TrialsPrizeTitle:Reward
 TrialDescCompleted:The reward has already been received
@@ -211,3 +211,4 @@ PriseBase6Trial:Command Center ¹6
 PriseBase7Trial:Command Center ¹7
 PassTrial:Pass the trial
 menuSettingsButton:Settings
+TechUpX2Chance:X2 upgrade chance

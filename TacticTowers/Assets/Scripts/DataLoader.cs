@@ -11,8 +11,6 @@ public class DataLoader : MonoBehaviour
     [SerializeField] private TrialsMenuButton trialsMenuButton;
     [SerializeField] private Settings settingsPanel;
 
-    private static MusicButton mscButton;
-    private static SoundButton sndButton;
     private static MainMenu mnMenu;
     private static TrialsMenuButton trMeButton;
     private static Settings settings;
@@ -27,8 +25,6 @@ public class DataLoader : MonoBehaviour
 
     void Start()
     {
-        mscButton = musicButton;
-        sndButton = soundButton;
         mnMenu = mainMenu;
         trMeButton = trialsMenuButton;
         settings = settingsPanel;
@@ -61,8 +57,6 @@ public class DataLoader : MonoBehaviour
         if (Convert.ToBoolean(LoadInt("isMusicOn", 1)))
             AudioManager.Instance.PlayMusic();
         
-        mscButton.Init();
-        sndButton.Init();
         mnMenu.InitializeLanguage();
 
         TrialsMenuButton.isTrialsLocked = LoadInt("isTrialsLocked", 0) == 0;

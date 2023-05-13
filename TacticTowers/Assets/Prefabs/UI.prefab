@@ -7790,6 +7790,8 @@ MonoBehaviour:
   musicButton: {fileID: 8948855355771392192}
   confirmButton: {fileID: 8948855354999596382}
   audioMixer: {fileID: 24100000, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
+  soundSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
 --- !u!1 &1345688627902919014
 GameObject:
   m_ObjectHideFlags: 0
@@ -7822,7 +7824,7 @@ RectTransform:
   - {fileID: 4162205518916377876}
   - {fileID: 7278976031788895529}
   m_Father: {fileID: 6237128893573217217}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14374,9 +14376,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryPanel: {fileID: 5343718949041137977}
   defeatPanel: {fileID: 5366150146660423103}
-  adButtons:
-  - {fileID: 0}
-  - {fileID: 0}
   towers:
   - {fileID: 0}
   - {fileID: 0}
@@ -14386,11 +14385,6 @@ MonoBehaviour:
   waveText: {fileID: 8948855354492135487}
   _base: {fileID: 0}
   creditsCount: {fileID: 8948855355133647591}
-  basePrefab: {fileID: 7883339769755823028, guid: 6a6af31d501c34c4e8a23bb1c1feed9d, type: 3}
-  ResurrectionPanel: {fileID: 0}
-  circleTimer: {fileID: 0}
-  textTimer: {fileID: 0}
-  timeToReact: 5
   audioMixer: {fileID: 24100000, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
   notification:
     sprite: {fileID: 3874509596741013250, guid: 26c6c5c61930f1c45b4ce38e214ad365, type: 3}
@@ -26048,7 +26042,6 @@ RectTransform:
   - {fileID: 5231022512413052198}
   - {fileID: 5669580923295920998}
   - {fileID: 8133616669958631723}
-  - {fileID: 1008862436976295953}
   - {fileID: 4247271050338057371}
   - {fileID: 6884174907812398538}
   m_Father: {fileID: 1566719705470240114}
@@ -31434,7 +31427,7 @@ RectTransform:
   - {fileID: 3352432386345340248}
   - {fileID: 1747520108184544774}
   m_Father: {fileID: 6237128893573217217}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

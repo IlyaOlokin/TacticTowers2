@@ -15,9 +15,11 @@ public class Settings : MonoBehaviour
 
     Resolution[] resolutions;
     List<Resolution> resolutions169;
+    Settings Instance;
 
     public void Init()
     {
+        Instance = this;
         resolutionDropdown.ClearOptions();
         var optipns = new List<string>();
         resolutions = Screen.resolutions;
@@ -67,10 +69,7 @@ public class Settings : MonoBehaviour
 
     public void ChangeMusicVolume()
     {
-        foreach (var music in AudioManager.Instance.Music)
-        {
-            music.source.volume = musicSlider.value;
-        }
+        audioMixer.SetFloat("SoundVol", -80.0f + (80.0f * musicSlider.value));
         DataLoader.SaveString("MusicVolume", musicSlider.value.ToString());
     }
     public void SetResolution(int resolutionIndex)

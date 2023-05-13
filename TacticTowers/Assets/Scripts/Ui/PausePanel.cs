@@ -18,6 +18,8 @@ public class PausePanel : MonoBehaviour
     [SerializeField] private GameObject confirmButton;
     [SerializeField] private AudioMixer audioMixer;
     private bool isForRestart;
+    public Slider soundSlider;
+    public Slider musicSlider;
 
     public void OnButtonRestart()
     {
@@ -106,6 +108,8 @@ public class PausePanel : MonoBehaviour
     {
         musicButton.GetComponent<MusicButton>().Init();
         soundButton.GetComponent<SoundButton>().Init();
+        soundSlider.value = float.Parse(DataLoader.LoadString("SoundVolume", "1"));
+        musicSlider.value = float.Parse(DataLoader.LoadString("MusicVolume", "1"));
     }
 
     private void Update()
@@ -122,5 +126,17 @@ public class PausePanel : MonoBehaviour
                 Pause();
             }
         }
+    }
+
+    public void ChangeMusicVolume()
+    {
+        audioMixer.SetFloat("SoundVol", -80.0f + (80.0f * musicSlider.value));
+        DataLoader.SaveString("MusicVolume", musicSlider.value.ToString());
+    }
+
+    public void ChangeSoundVolume()
+    {
+        audioMixer.SetFloat("SoundVol", -80.0f + (80.0f * soundSlider.value));
+        DataLoader.SaveString("SoundVolume", soundSlider.value.ToString());
     }
 }
