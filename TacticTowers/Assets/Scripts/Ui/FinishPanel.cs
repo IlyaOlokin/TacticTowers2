@@ -170,9 +170,9 @@ public class FinishPanel : MonoBehaviour
 
     private void UnlockTrials()
     {
-        if (!Convert.ToBoolean(DataLoader.LoadInt("isTrialsUnlocked", 0)))
+        if (!Convert.ToBoolean(DataLoader.LoadInt("isTrialsLocked", 0)))
             NotificationManager.Instance.GetNotification(notification);
-        DataLoader.SaveInt("isTrialsUnlocked", 1);
+        DataLoader.SaveInt("isTrialsLocked", 1);
     }
 
     private void FillTexts(GameObject panel, bool isCreditsDoubled)

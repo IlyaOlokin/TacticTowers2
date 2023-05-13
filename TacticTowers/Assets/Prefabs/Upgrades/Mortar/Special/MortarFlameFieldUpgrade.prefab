@@ -43,8 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d869d9a36ec06f54dbf107c284528907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeLabel: "\u0413\u043E\u0440\u044F\u0449\u0430\u044F \u0437\u0435\u043C\u043B\u044F"
-  upgradeText: "\u041F\u043E\u0441\u043B\u0435 \u0432\u0437\u0440\u044B\u0432\u0430
-    \u044F\u0434\u0440\u043E \u043E\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0442
-    \u0433\u043E\u0440\u044F\u0449\u0443\u044E \u0437\u0435\u043C\u043B\u044E"
+  upgradeLabel: upgradeMortarFlameField
+  upgradeText: upgradeMortarFlameFieldDesc
   upgradeIndex: 0

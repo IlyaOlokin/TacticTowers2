@@ -43,8 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dede83ede84b9a4797b04227e61c5e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeLabel: "\u0428\u0430\u043D\u0441 \u0440\u0430\u0437\u0434\u0432\u043E\u0438\u0442\u044C
-    \u043C\u043E\u043B\u043D\u0438\u044E"
-  upgradeText: "25% \u0448\u0430\u043D\u0441 \u0440\u0430\u0437\u0434\u0432\u043E\u0438\u0442\u044C
-    \u043C\u043E\u043B\u043D\u0438\u044E"
+  upgradeLabel: upgradeTeslaBranching
+  upgradeText: upgradeTeslaBranchingDesc
   upgradeIndex: 2

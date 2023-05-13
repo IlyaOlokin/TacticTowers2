@@ -43,8 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9268b838390d9244b8a1b58267f7351c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeLabel: "\u041A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439
-    \u0443\u0440\u043E\u043D"
-  upgradeText: "+20% \u0448\u0430\u043D\u0441 \u043D\u0430\u043D\u0435\u0441\u0442\u0438
-    \u043A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u0443\u0440\u043E\u043D"
+  upgradeLabel: upgradeShotgunDoubleDmg
+  upgradeText: upgradeShotgunDoubleDmgDesc
   upgradeIndex: 0

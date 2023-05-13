@@ -43,11 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d758703c48fda904dbd040d43ce258e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeLabel: "\u0423\u0440\u043E\u043D \u0441 \u0440\u0430\u0441\u0441\u0442\u043E\u044F\u043D\u0438\u0435\u043C"
-  upgradeText: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442
-    \u0443\u0440\u043E\u043D \u043E\u0442 \u0440\u0430\u0441\u0441\u0442\u043E\u044F\u043D\u0438\u044F
-    \u0434\u043E \u0446\u0435\u043B\u0438"
-  bonusForFormatting: 0
-  UpgradeSprite: {fileID: 4024885317370060812, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
-  bonus: 0
+  upgradeLabel: upgradeRailDmgOverDist
+  upgradeText: upgradeRailDmgOverDistDesc
   upgradeIndex: 0

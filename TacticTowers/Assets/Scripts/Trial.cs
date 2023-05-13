@@ -9,8 +9,8 @@ public class Trial : MonoBehaviour
     public int index;
     [SerializeField] public string description;
     [SerializeField] public string present;
-    [SerializeField] private Prise prise;
-    [SerializeField] private int value;
+    [SerializeField] public Prise prise;
+    [SerializeField] public int value;
 
     public enum Prise
     {
