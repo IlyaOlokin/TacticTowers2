@@ -40,20 +40,27 @@ public class Enemy : MonoBehaviour
     
     public void Awake()
     {
-        EnemyMover = new EnemyMoverGround(GetComponent<NavMeshAgent>(), initialSpeed, GameObject.FindGameObjectWithTag("Base").transform.position);
-    }
-
-    public void Start()
-    {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+
         hpBar = GetComponentInChildren<Healthbar>();
         if (hpBar != null)
             hpBar.SetHealth(hp);
-        
-        animator = GetComponent<Animator>();
+
+        var navMeshAgent = GetComponent<NavMeshAgent>();
+        if (navMeshAgent != null)
+            EnemyMover = new EnemyMoverGround(GetComponent<NavMeshAgent>(), initialSpeed,
+                GameObject.FindGameObjectWithTag("Base").transform.position);
+        else
+            EnemyMover = new EnemyMoverAir(initialSpeed, GameObject.FindGameObjectWithTag("Base").transform.position);
+
         RandomizeSpeed();
     }
-    
+
+    public void Start() 
+    {
+    }
+
     public void Update()
     {
         RotateByVelocity();
@@ -76,7 +83,11 @@ public class Enemy : MonoBehaviour
 
     public void SetHpHidden(bool isHidden) => isHpHidden = isHidden;
 
-    public void MultiplySpeed(float multiplier) => EnemyMover.MultiplySpeed(multiplier);
+    public void MultiplySpeed(float multiplier)
+    {
+        
+        EnemyMover.MultiplySpeed(multiplier);
+    }
 
     public virtual void ExecuteAbility() { }
 
@@ -139,7 +150,7 @@ public class Enemy : MonoBehaviour
                 dmg *= Freeze.GetGlobalFrozenMultiplier();
             
         hp -= dmg;
-        if (!isHpHidden || hpBar != null)
+        if(hpBar != null && !isHpHidden)
             hpBar.SetHealth(hp);
         
         var newEffect = Instantiate(EnemyVFXManager.Instance.GetEffect("DamageNumber").effect, transform.position, Quaternion.identity);

@@ -2,14 +2,9 @@
 
 public class EnemyFlying : Enemy
 {
-    public void Awake()
+    /*
+    public void Start()
     {
-        EnemyMover = new EnemyMoverAir(initialSpeed, GameObject.FindGameObjectWithTag("Base").transform.position);
-        //ExecuteAbility();
-    }
-
-    public override void ExecuteAbility()
-    {
-        EnemyMover = new EnemyMoverAir(initialSpeed, GameObject.FindGameObjectWithTag("Base").transform.position);
-    }
+        base.Start();
+    }*/
 }

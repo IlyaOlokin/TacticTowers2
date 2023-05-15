@@ -325,7 +325,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 1
+  m_ObstacleAvoidanceType: 2
 --- !u!50 &-6096209314608355814
 Rigidbody2D:
   serializedVersion: 4

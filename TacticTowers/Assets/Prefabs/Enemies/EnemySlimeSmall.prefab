@@ -211,7 +211,7 @@ NavMeshAgent:
   m_Height: 0.4
   m_BaseOffset: 0.2
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!50 &6502101167289730390
 Rigidbody2D:
   serializedVersion: 4
@@ -261,7 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17cebf15ffe14dee8d83c3fd29c50e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyType: 14
+  enemyType: 7
+  isHpHidden: 0
   isImmuneToFire: 0
   isImmuneToFreeze: 0
   knockBackResist: 0

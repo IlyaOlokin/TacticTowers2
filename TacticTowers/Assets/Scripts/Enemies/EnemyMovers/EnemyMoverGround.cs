@@ -20,22 +20,12 @@ public class EnemyMoverGround : IEnemyMover
             return;
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+        RandomizeSpeed();
     }
     
     public void Move(Transform transform)
     {
-        //Debug.Log(agent.transform.name);
-        if (agent.enabled)
-        {
-            try
-            {
-                agent.SetDestination(target);
-            }
-            catch (Exception e)
-            {
-                Debug.Log(agent.transform.name);
-            }
-        }
+        agent.SetDestination(target);
     }
     
     public void StartMovement()

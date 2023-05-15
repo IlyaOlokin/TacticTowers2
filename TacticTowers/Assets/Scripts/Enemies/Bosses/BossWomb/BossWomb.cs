@@ -20,11 +20,6 @@ public class BossWomb : Boss
     private float nearThreshold = 0.001f;
     private bool isClockwise;
 
-    private void Awake()
-    {
-        EnemyMover = new EnemyMoverAir(initialSpeed, GameObject.FindGameObjectWithTag("Base").transform.position);
-    }
-    
     private void Start()
     {
         base.Start();
