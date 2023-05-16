@@ -25,7 +25,8 @@ public class EnemyMoverGround : IEnemyMover
     
     public void Move(Transform transform)
     {
-        agent.SetDestination(target);
+        if (agent.enabled)
+            agent.SetDestination(target);
     }
     
     public void StartMovement()
