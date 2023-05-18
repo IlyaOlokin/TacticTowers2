@@ -16,11 +16,16 @@ public class EnemyMoverAir : IEnemyMover
         target = initialTarget;
     }
 
-    public void Move(Transform transform)
+    public void Move(Transform transform, float deltaTime)
     {
         const float fixedUpdateFreq = 50f;
         var currentPos = transform.position;
         transform.position = Vector3.MoveTowards(currentPos, target, currentSpeed / fixedUpdateFreq);
+    }
+
+    public void ForceMove(Transform transform, float deltaTime)
+    {
+        return;
     }
 
     public void StartMovement()
@@ -47,6 +52,11 @@ public class EnemyMoverAir : IEnemyMover
     public bool IsStopped()
     {
         return currentSpeed == 0;
+    }
+
+    public bool IsBuildingPath()
+    {
+        return false;
     }
 
     public void RandomizeSpeed()

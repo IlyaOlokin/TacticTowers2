@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
     
     private bool isReadyForStun = true;
     private Coroutine currentSlow;
+    private bool isGround;
     
     public void Awake()
     {
@@ -49,8 +50,12 @@ public class Enemy : MonoBehaviour
 
         var navMeshAgent = GetComponent<NavMeshAgent>();
         if (navMeshAgent != null)
+        {
             EnemyMover = new EnemyMoverGround(GetComponent<NavMeshAgent>(), initialSpeed,
                 GameObject.FindGameObjectWithTag("Base").transform.position);
+            isGround = true;
+            EnemyMover.Move(transform, Time.deltaTime);
+        }
         else
             EnemyMover = new EnemyMoverAir(initialSpeed, GameObject.FindGameObjectWithTag("Base").transform.position);
 
@@ -68,7 +73,12 @@ public class Enemy : MonoBehaviour
 
     public void FixedUpdate()
     {
-        EnemyMover.Move(transform);
+        if (isGround && EnemyMover.IsBuildingPath())
+        {
+            EnemyMover.ForceMove(transform, Time.deltaTime);
+            return;
+        }
+        EnemyMover.Move(transform, Time.deltaTime);
     }
 
     public int GetWeight() => weight;
@@ -205,7 +215,7 @@ public class Enemy : MonoBehaviour
     
     protected void RotateByVelocity()
     {
-        if (EnemyMover.IsStopped()) 
+        if (EnemyMover.IsStopped() || EnemyMover.IsBuildingPath()) 
             return;
         
         var angle = EnemyMover.GetRotationAngle(transform.position);

@@ -23,11 +23,19 @@ public class EnemyMoverGround : IEnemyMover
         RandomizeSpeed();
     }
     
-    public void Move(Transform transform)
+    public void Move(Transform transform, float deltaTime)
     {
+        if (agent.hasPath || !agent.enabled) return;
+        ForceMove(transform, deltaTime);
         agent.SetDestination(target);
     }
-    
+
+    public void ForceMove(Transform transform, float deltaTime)
+    {
+        var currentPos = transform.position;
+        transform.position = Vector3.MoveTowards(currentPos, currentPos + transform.up, agent.speed * deltaTime);
+    }
+
     public void StartMovement()
     {
         agent.enabled = true;
@@ -48,7 +56,8 @@ public class EnemyMoverGround : IEnemyMover
         return Mathf.Atan2(agent.desiredVelocity.y, agent.desiredVelocity.x) * Mathf.Rad2Deg;
     }
 
-    public bool IsStopped() => !agent.enabled || agent.speed == 0 || agent.pathPending;
+    public bool IsStopped() => !agent.enabled || agent.speed == 0;
+    public bool IsBuildingPath() => agent.pathPending || !agent.hasPath;
 
     public void RandomizeSpeed()
     {
