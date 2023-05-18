@@ -48,7 +48,7 @@ public class EnemyMoverGround : IEnemyMover
         return Mathf.Atan2(agent.desiredVelocity.y, agent.desiredVelocity.x) * Mathf.Rad2Deg;
     }
 
-    public bool IsStopped() => !agent.enabled || agent.speed == 0;
+    public bool IsStopped() => !agent.enabled || agent.speed == 0 || agent.pathPending;
 
     public void RandomizeSpeed()
     {
