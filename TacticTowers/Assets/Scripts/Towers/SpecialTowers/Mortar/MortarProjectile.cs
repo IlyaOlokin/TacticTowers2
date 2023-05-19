@@ -28,6 +28,7 @@ public class MortarProjectile : MonoBehaviour
     [NonSerialized] public float subProjectilesDamageMultiplier;
     [NonSerialized] public float subProjectilesSpeedMultiplier;
     [NonSerialized] public float subProjectilesRadiusMultiplier;
+    [NonSerialized] public bool needSound;
     
     [NonSerialized] public bool hasFireChanceUpgrade;
     [NonSerialized] public float chanceToSetOnFire;
@@ -48,6 +49,7 @@ public class MortarProjectile : MonoBehaviour
     {
         var newExplosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
         newExplosion.transform.localScale = new Vector3(radius, radius, radius) * 0.9f;
+        newExplosion.GetComponent<Explosion>().needSound = needSound;
         if (hasFlameFieldUpgrade) CreateFlameField();
         if (hasScatterUpgrade) CreateScatterProjectilesField();
         DealDamage();
@@ -94,6 +96,7 @@ public class MortarProjectile : MonoBehaviour
             mortarProjectile.hasFlameFieldUpgrade = hasFlameFieldUpgrade;
             mortarProjectile.hasScatterUpgrade = false;
             mortarProjectile.senderPosition = transform.position;
+            mortarProjectile.needSound = i == 2;
             
             mortarProjectile.hasFireChanceUpgrade = hasFireChanceUpgrade;
             mortarProjectile.chanceToSetOnFire = chanceToSetOnFire;

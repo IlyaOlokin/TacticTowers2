@@ -57,6 +57,7 @@ public class Mortar : Tower
             mortarProjectile.subProjectilesSpeedMultiplier = subProjectilesSpeedMultiplier;
             mortarProjectile.subProjectilesRadiusMultiplier = subProjectilesRadiusMultiplier;
             mortarProjectile.flameFieldDamageMultiplier = flameFieldDamageMultiplier;
+            mortarProjectile.needSound = true;
             
             mortarProjectile.hasFireChanceUpgrade = hasFireChanceUpgrade;
             mortarProjectile.chanceToSetOnFire = chanceToSetOnFire;
