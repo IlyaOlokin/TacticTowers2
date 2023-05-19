@@ -57,7 +57,7 @@ public class EnemyMoverGround : IEnemyMover
     }
 
     public bool IsStopped() => !agent.enabled || agent.speed == 0;
-    public bool IsBuildingPath() => agent.pathPending || !agent.hasPath;
+    public bool IsBuildingPath() => agent.pathPending && agent.enabled;
 
     public void RandomizeSpeed()
     {
