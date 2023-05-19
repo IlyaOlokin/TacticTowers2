@@ -67,7 +67,7 @@ public class TechnologyUnlock : MonoBehaviour
     
     private void UpdateTexts()
     {
-        priceText.text = isUnlocked ? "Unlocked!" : price.ToString();
+        priceText.text = isUnlocked ? Localisation.GetLocalisedValue("Unlocked") : price.ToString();
     }
 
     private void SetUpgradeVisuals(bool unlocked)
