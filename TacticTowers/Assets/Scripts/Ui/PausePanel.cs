@@ -13,8 +13,6 @@ public class PausePanel : MonoBehaviour
     [SerializeField] private GameObject confirmPanel;
     [SerializeField] private List<GameObject> towers;
     [SerializeField] private Text creditsCount;
-    [SerializeField] private GameObject soundButton;
-    [SerializeField] private GameObject musicButton;
     [SerializeField] private GameObject confirmButton;
     [SerializeField] private AudioMixer audioMixer;
     private bool isForRestart;
@@ -49,18 +47,6 @@ public class PausePanel : MonoBehaviour
     {
         Resume();
         AudioManager.Instance.Play("ButtonClick1");
-    }
-
-    public void OnButtonSound()
-    {
-        AudioManager.Instance.Play("ButtonClick1");
-        soundButton.GetComponent<SoundButton>().Switch();
-    }
-
-    public void OnButtonMusic()
-    {
-        AudioManager.Instance.Play("ButtonClick1");
-        musicButton.GetComponent<MusicButton>().Switch();
     }
 
     public void OnButtonCancel()
@@ -106,8 +92,6 @@ public class PausePanel : MonoBehaviour
 
     private void OnEnable()
     {
-        musicButton.GetComponent<MusicButton>().Init();
-        soundButton.GetComponent<SoundButton>().Init();
         soundSlider.value = float.Parse(DataLoader.LoadString("SoundVolume", "1"));
         musicSlider.value = float.Parse(DataLoader.LoadString("MusicVolume", "1"));
     }
@@ -130,13 +114,15 @@ public class PausePanel : MonoBehaviour
 
     public void ChangeMusicVolume()
     {
-        audioMixer.SetFloat("MusicVol", -80.0f + (80.0f * musicSlider.value));
+        if (musicSlider.value == 0) audioMixer.SetFloat("MusicVol", -80.0f);
+        else audioMixer.SetFloat("MusicVol", -20.0f + (20.0f * musicSlider.value));
         DataLoader.SaveString("MusicVolume", musicSlider.value.ToString());
     }
 
     public void ChangeSoundVolume()
     {
-        audioMixer.SetFloat("SoundVol", -80.0f + (80.0f * soundSlider.value));
+        if (soundSlider.value == 0) audioMixer.SetFloat("SoundVol", -80.0f);
+        else audioMixer.SetFloat("SoundVol", -20.0f + (20.0f * soundSlider.value));
         DataLoader.SaveString("SoundVolume", soundSlider.value.ToString());
     }
 }

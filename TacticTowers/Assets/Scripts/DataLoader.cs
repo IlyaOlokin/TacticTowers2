@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class DataLoader : MonoBehaviour
 {
-    [SerializeField] private MusicButton musicButton;
-    [SerializeField] private SoundButton soundButton;
     [SerializeField] private MainMenu mainMenu;
     [SerializeField] private TrialsMenuButton trialsMenuButton;
     [SerializeField] private Settings settingsPanel;
