@@ -7972,8 +7972,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   creditsCount: {fileID: 8948855355133647591}
-  soundButton: {fileID: 8948855353968924676}
-  musicButton: {fileID: 8948855355771392192}
   confirmButton: {fileID: 8948855354999596382}
   audioMixer: {fileID: 24100000, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
   soundSlider: {fileID: 6781570332380874778}
@@ -50970,7 +50968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5669580923295920998
 RectTransform:
   m_ObjectHideFlags: 0

@@ -264,7 +264,7 @@ MonoBehaviour:
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
-  stunResist: 0
+  stunResist: 1
   isImmortal: 0
   hp: 0
   dmg: 100
@@ -577,7 +577,7 @@ MonoBehaviour:
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
-  stunResist: 0
+  stunResist: 1
   isImmortal: 0
   hp: 0
   dmg: 100
@@ -748,7 +748,7 @@ MonoBehaviour:
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
-  stunResist: 0
+  stunResist: 1
   isImmortal: 0
   hp: 0
   dmg: 100
@@ -919,7 +919,7 @@ MonoBehaviour:
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
-  stunResist: 0
+  stunResist: 1
   isImmortal: 0
   hp: 0
   dmg: 100
@@ -1193,7 +1193,7 @@ MonoBehaviour:
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
-  stunResist: 0
+  stunResist: 1
   isImmortal: 1
   hp: 0
   dmg: 100
@@ -1353,7 +1353,7 @@ MonoBehaviour:
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
-  stunResist: 0
+  stunResist: 1
   isImmortal: 1
   hp: 0
   dmg: 100
@@ -1549,7 +1549,7 @@ MonoBehaviour:
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
-  stunResist: 0
+  stunResist: 1
   isImmortal: 1
   hp: 0
   dmg: 100
@@ -1713,7 +1713,7 @@ MonoBehaviour:
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
-  stunResist: 0
+  stunResist: 1
   isImmortal: 0
   hp: 0
   dmg: 100
@@ -1915,7 +1915,7 @@ MonoBehaviour:
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
-  stunResist: 0
+  stunResist: 1
   isImmortal: 0
   hp: 0
   dmg: 100
@@ -2086,7 +2086,7 @@ MonoBehaviour:
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
-  stunResist: 0
+  stunResist: 1
   isImmortal: 0
   hp: 0
   dmg: 100
@@ -2133,14 +2133,6 @@ PrefabInstance:
       propertyPath: isHpHidden
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 983975984874729764, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
-      propertyPath: knockBackResist
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 983975984874729764, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
-      propertyPath: isImmuneToFreeze
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2684442192003813592, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.25
@@ -2179,14 +2171,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: isHpHidden
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
-      propertyPath: knockBackResist
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
-      propertyPath: isImmuneToFreeze
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6634871045546908824, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}

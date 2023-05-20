@@ -144,7 +144,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeForce(float force, Vector3 dir)
     {
-        if (isInvulnerable)
+        if (isInvulnerable || knockBackResist >= 1)
             return;
         
         rb.AddForce(dir.normalized * (force * (1 - knockBackResist)), ForceMode2D.Impulse);
@@ -202,7 +202,7 @@ public class Enemy : MonoBehaviour
     
     public void TakeStun(float duration, float stunCd)
     {
-        if (!isReadyForStun || isInvulnerable)
+        if (!isReadyForStun || isInvulnerable || stunResist >= 1)
             return;
         
         EnemyMover.StopMovement();
