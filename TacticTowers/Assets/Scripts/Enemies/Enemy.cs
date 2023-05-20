@@ -131,12 +131,10 @@ public class Enemy : MonoBehaviour
             {
                 currentFreeze.UnfreezeInstantly();
             }
-            else
-            {
-                currentFreeze.freezeTime = newFreeze.FreezeTime;
-                currentFreeze.freezeStacksNeeded = newFreeze.FreezeStacksNeeded;
-                currentFreeze.freezeStacksPerHt = newFreeze.FreezeStacksPerHit;
-            }
+            
+            currentFreeze.freezeTime = newFreeze.FreezeTime;
+            currentFreeze.freezeStacksNeeded = newFreeze.FreezeStacksNeeded;
+            currentFreeze.freezeStacksPerHt = newFreeze.FreezeStacksPerHit;
         }
         if (!currentFreeze.frozen) 
             currentFreeze.GetFreezeStack();
@@ -202,12 +200,13 @@ public class Enemy : MonoBehaviour
     
     public void TakeStun(float duration, float stunCd)
     {
-        if (!isReadyForStun || isInvulnerable || stunResist >= 1)
+        if (!isReadyForStun && stunCd != 0 || isInvulnerable || stunResist >= 1)
             return;
         
         EnemyMover.StopMovement();
         isReadyForStun = false;
         animator.enabled = false;
+        StopCoroutine(nameof(BeStunned));
         StartCoroutine(nameof(BeStunned), duration * (1 - stunResist));
         
         StartCoroutine(nameof(GetReadyForStun), stunCd);
@@ -244,7 +243,7 @@ public class Enemy : MonoBehaviour
         animator.enabled = true;
         EnemyMover.StartMovement();
     }
-    
+
     private IEnumerator GetReadyForStun(float stunCd)
     {
         yield return new WaitForSeconds(stunCd);

@@ -62,7 +62,7 @@ public class Freeze : MonoBehaviour
         //!!!!!!!!!!enemy.GetComponent<NavMeshAgent>().speed = 0;
         frozen = true;
         StopAllCoroutines();
-        enemy.TakeStun(freezeTime, 2f);
+        enemy.TakeStun(freezeTime, 0);
         
         newFreezeEffect = Instantiate(EnemyVFXManager.Instance.GetEffect("FreezeOnEnemy").effect, transform.position, Quaternion.identity, enemy.transform);
         StartCoroutine(Unfreeze(freezeTime));
@@ -86,6 +86,7 @@ public class Freeze : MonoBehaviour
         Destroy(newFreezeEffect.gameObject);
         StopAllCoroutines();
         freezeStacks = 0;
+        frozen = false;
         ColorEnemy();
     }
 
@@ -97,6 +98,7 @@ public class Freeze : MonoBehaviour
         Destroy(newFreezeEffect?.gameObject);
         StopAllCoroutines();
         freezeStacks = 0;
+        frozen = false;
         ColorEnemy();
     }
     
