@@ -14,34 +14,22 @@ public class FreezeEnemyTemporareBox : MonoBehaviour
     [SerializeField] private GameObject freezeEffect;
     [NonSerialized] public int freezeStacksNeeded;
 
+    private void Start()
+    {
+        StartCoroutine(Deactivate(1f));
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.transform.CompareTag("Enemy"))
         {
-            var enemy = other.GetComponent<Enemy>();
-            if (!enemiesInside.Contains(enemy))
-            {
-                enemiesInside.Add(enemy);
-            }
+            Freeze(other.gameObject.GetComponent<Enemy>());
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void Freeze(Enemy enemy)
     {
-        if (other.transform.CompareTag("Enemy"))
-        {
-            var enemy = other.GetComponent<Enemy>();
-            if (enemiesInside.Contains(enemy))
-            {
-                enemiesInside.Remove(enemy);
-            }
-
-        }
-    }
-
-    private void Freeze(GameObject enemy)
-    {
-        if (enemy.GetComponent<Freeze>())
+        /*if (enemy.GetComponent<Freeze>())
         {
             enemy.GetComponent<Freeze>().UnfreezeInstantly();
             Destroy(enemy.GetComponent<Freeze>());
@@ -54,14 +42,13 @@ public class FreezeEnemyTemporareBox : MonoBehaviour
         //componentFreeze.freezeEffect = freezeEffect;
         componentFreeze.freezeStacksPerHt = freezeStacksPerHit;
         
-        componentFreeze.GetFreezeStack();
+        componentFreeze.GetFreezeStack();*/
+        enemy.TakeFreeze(new FreezeStats(freezeStacksNeeded, freezeTime, freezeStacksPerHit), true);
     }
-
-    public void FreezeEnemy()
+    
+    private IEnumerator Deactivate(float delay)
     {
-        foreach (var enemy in enemiesInside)
-        {
-            Freeze(enemy.gameObject);
-        }
+        yield return new WaitForSeconds(delay);
+        gameObject.SetActive(false);
     }
 }

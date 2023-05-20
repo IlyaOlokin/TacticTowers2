@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
     
     private bool isReadyForStun = true;
     private Coroutine currentSlow;
+    private bool isGround;
     
     public void Awake()
     {
@@ -49,8 +50,12 @@ public class Enemy : MonoBehaviour
 
         var navMeshAgent = GetComponent<NavMeshAgent>();
         if (navMeshAgent != null)
+        {
             EnemyMover = new EnemyMoverGround(GetComponent<NavMeshAgent>(), initialSpeed,
                 GameObject.FindGameObjectWithTag("Base").transform.position);
+            isGround = true;
+            EnemyMover.Move(transform, Time.deltaTime);
+        }
         else
             EnemyMover = new EnemyMoverAir(initialSpeed, GameObject.FindGameObjectWithTag("Base").transform.position);
 
@@ -68,7 +73,12 @@ public class Enemy : MonoBehaviour
 
     public void FixedUpdate()
     {
-        EnemyMover.Move(transform);
+        if (isGround && EnemyMover.IsBuildingPath())
+        {
+            EnemyMover.ForceMove(transform, Time.deltaTime);
+            return;
+        }
+        EnemyMover.Move(transform, Time.deltaTime);
     }
 
     public int GetWeight() => weight;
@@ -121,12 +131,10 @@ public class Enemy : MonoBehaviour
             {
                 currentFreeze.UnfreezeInstantly();
             }
-            else
-            {
-                currentFreeze.freezeTime = newFreeze.FreezeTime;
-                currentFreeze.freezeStacksNeeded = newFreeze.FreezeStacksNeeded;
-                currentFreeze.freezeStacksPerHt = newFreeze.FreezeStacksPerHit;
-            }
+            
+            currentFreeze.freezeTime = newFreeze.FreezeTime;
+            currentFreeze.freezeStacksNeeded = newFreeze.FreezeStacksNeeded;
+            currentFreeze.freezeStacksPerHt = newFreeze.FreezeStacksPerHit;
         }
         if (!currentFreeze.frozen) 
             currentFreeze.GetFreezeStack();
@@ -134,7 +142,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeForce(float force, Vector3 dir)
     {
-        if (isInvulnerable)
+        if (isInvulnerable || knockBackResist >= 1)
             return;
         
         rb.AddForce(dir.normalized * (force * (1 - knockBackResist)), ForceMode2D.Impulse);
@@ -192,12 +200,13 @@ public class Enemy : MonoBehaviour
     
     public void TakeStun(float duration, float stunCd)
     {
-        if (!isReadyForStun || isInvulnerable)
+        if (!isReadyForStun && stunCd != 0 || isInvulnerable || stunResist >= 1)
             return;
         
         EnemyMover.StopMovement();
         isReadyForStun = false;
         animator.enabled = false;
+        StopCoroutine(nameof(BeStunned));
         StartCoroutine(nameof(BeStunned), duration * (1 - stunResist));
         
         StartCoroutine(nameof(GetReadyForStun), stunCd);
@@ -205,7 +214,7 @@ public class Enemy : MonoBehaviour
     
     protected void RotateByVelocity()
     {
-        if (EnemyMover.IsStopped()) 
+        if (EnemyMover.IsStopped() || EnemyMover.IsBuildingPath()) 
             return;
         
         var angle = EnemyMover.GetRotationAngle(transform.position);
@@ -234,7 +243,7 @@ public class Enemy : MonoBehaviour
         animator.enabled = true;
         EnemyMover.StartMovement();
     }
-    
+
     private IEnumerator GetReadyForStun(float stunCd)
     {
         yield return new WaitForSeconds(stunCd);

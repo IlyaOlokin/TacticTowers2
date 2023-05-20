@@ -112,6 +112,7 @@ public class FinishPanel : MonoBehaviour
     private void ShowVictoryPanelOnTrial()
     {
         currentPanel = victoryPanel;
+        currentPanel.transform.Find("CreditsCount").gameObject.SetActive(false);
         //adButtons[1].GetComponent<Button>().onClick.AddListener(PauseMusik);
         currentPanel.SetActive(true);
         Pause();
@@ -170,6 +171,7 @@ public class FinishPanel : MonoBehaviour
 
     private void UnlockTrials()
     {
+        if (SceneManager.GetActiveScene().name != "GameField") return;
         if (!Convert.ToBoolean(DataLoader.LoadInt("isTrialsLocked", 0)))
             NotificationManager.Instance.GetNotification(notification);
         DataLoader.SaveInt("isTrialsLocked", 1);
