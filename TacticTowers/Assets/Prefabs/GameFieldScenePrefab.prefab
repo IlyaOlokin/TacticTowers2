@@ -90,25 +90,25 @@ MonoBehaviour:
   Waves:
   - moneyForWave: 55
     seconds: 180
-    waveScale: 0.9
+    waveScale: 0.8
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 100
     seconds: 50
-    waveScale: 1.1
+    waveScale: 1
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 170
-    seconds: 45
-    waveScale: 1.5
+    seconds: 50
+    waveScale: 1.4
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}
   - moneyForWave: 250
     seconds: 50
-    waveScale: 1.9
+    waveScale: 1.7
     isSpecial: 0
     specialEnemySet: {fileID: 0}
     bossTransform: {fileID: 0}

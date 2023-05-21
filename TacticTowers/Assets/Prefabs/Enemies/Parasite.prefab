@@ -265,12 +265,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 13
+  isHpHidden: 0
   isImmuneToFire: 0
   isImmuneToFreeze: 1
   knockBackResist: 1
   stunResist: 0
   isImmortal: 0
-  hp: 80
+  hp: 150
   dmg: 0
   weight: 0
   initialSpeed: 0

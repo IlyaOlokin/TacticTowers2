@@ -1690,28 +1690,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
-      propertyPath: Waves.Array.data[2].seconds
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: creditsDropChanceMultiplier
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
-      propertyPath: Waves.Array.data[0].waveScale
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
-      propertyPath: Waves.Array.data[1].waveScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
-      propertyPath: Waves.Array.data[2].waveScale
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
-      propertyPath: Waves.Array.data[3].waveScale
-      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 2620037246647733187, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_LocalPosition.y

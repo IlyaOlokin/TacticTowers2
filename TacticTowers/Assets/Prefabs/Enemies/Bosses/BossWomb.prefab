@@ -164,13 +164,13 @@ MonoBehaviour:
   knockBackResist: 1
   stunResist: 0.5
   isImmortal: 0
-  hp: 15000
+  hp: 20000
   dmg: 200
   weight: 330
   initialSpeed: 0.5
   creditsDropChance: 100
   icon: {fileID: -6146046791161707374, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
-  maxHp: 13000
+  maxHp: 20000
   spawnZone: {fileID: 4705687547898389697}
   spawningEnemy: {fileID: 8682723920841854874, guid: c41788713e5f74e4fba9d118b0dbbb22, type: 3}
   spawningAmount: 5

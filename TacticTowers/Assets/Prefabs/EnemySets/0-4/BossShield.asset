@@ -16,11 +16,11 @@ MonoBehaviour:
   - enemy: {fileID: 753058034755746032, guid: 855fb5827b87a834d9f0ea917178d980, type: 3}
     enemyCount: 1
   - enemy: {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemyCount: 80
+    enemyCount: 55
   - enemy: {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemyCount: 15
+    enemyCount: 10
   Top: []
   Left: []
   Bot:
   - enemy: {fileID: 5937050097135992818, guid: 5f28c0e84102f7d4d8c293f511b66bfd, type: 3}
-    enemyCount: 40
+    enemyCount: 30

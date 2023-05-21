@@ -409,7 +409,7 @@ MonoBehaviour:
   initialSpeed: 0
   creditsDropChance: 1
   icon: {fileID: -7445606136193012617, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
-  maxHp: 20000
+  maxHp: 40000
   bossParts:
   - {fileID: 3558987875503934382}
   - {fileID: 3289408514062954294}
@@ -1313,7 +1313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3feb4145f57525d4da633942f984426b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossPartHp: 5000
+  bossPartHp: 7500
 --- !u!195 &5691467204908381584
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1483,7 +1483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3feb4145f57525d4da633942f984426b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossPartHp: 5000
+  bossPartHp: 7500
 --- !u!61 &1349259417
 BoxCollider2D:
   m_ObjectHideFlags: 0

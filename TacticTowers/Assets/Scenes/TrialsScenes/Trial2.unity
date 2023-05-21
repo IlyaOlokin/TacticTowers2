@@ -219,6 +219,10 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: Waves.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: enemyHpMultiplier
       value: 1.1
       objectReference: {fileID: 0}
@@ -232,7 +236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7221037311736929454, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 295.91357
+      value: 295.9136
       objectReference: {fileID: 0}
     - target: {fileID: 7524170918162764957, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_IsActive
