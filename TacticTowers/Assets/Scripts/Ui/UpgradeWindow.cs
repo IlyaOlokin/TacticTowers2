@@ -170,10 +170,11 @@ public class UpgradeWindow : MonoBehaviour
         var upgradeButton = button.GetComponent<UpgradeButton>();
         var upgrade = GetNextSpecialUpgrade(tower, upgradeIndex);
 
+        tower.currentVisualSpriteIndex = GetSpecialUpgradeLevel(tower);
         Button.onClick.AddListener(() => upgrade.Execute(tower));
         Button.onClick.AddListener(() => gameObject.SetActive(false));
         Button.onClick.AddListener(() => FindObjectOfType<AudioManager>().Play("ButtonClick1"));
-        Button.onClick.AddListener(() => tower.currentVisualSpriteIndex = GetSpecialUpgradeLevel(tower));
+        //Button.onClick.AddListener(() => tower.currentVisualSpriteIndex = GetSpecialUpgradeLevel(tower));
         Button.onClick.AddListener(EnableAllUpgradeButtons);
         
         button.GetComponent<UpgradeButton>().ActivateSuperCardEffects(false);

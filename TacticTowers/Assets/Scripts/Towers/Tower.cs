@@ -21,6 +21,8 @@ public class Tower : MonoBehaviour
     
     [Header("Visual")]
     public TowerSprites[] towerSprites;
+    [SerializeField] private SpriteRenderer basementSprite;
+    [SerializeField] private SpriteRenderer cannonSprite;
     [NonSerialized] public int currentVisualSpriteIndex;
     
     [Header("Upgrades")]
@@ -272,5 +274,12 @@ public class Tower : MonoBehaviour
     {
         hasParasite = false;
         parasiteAttackSpeedMultiplier = 1;
+    }
+
+    public void UpgradeVisual()
+    {
+        basementSprite.sprite = towerSprites[currentVisualSpriteIndex].basementSprite;
+        if (cannonSprite != null)
+            cannonSprite.sprite = towerSprites[currentVisualSpriteIndex].cannonSprite;
     }
 }

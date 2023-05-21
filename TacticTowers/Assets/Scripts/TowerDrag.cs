@@ -58,7 +58,7 @@ public class TowerDrag : MonoBehaviour
 
     private void CheckForConflicts()
     {
-        Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, tower.transform.localScale.x * 2.5f);
+        Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, 0.275f);
         bool _hasConflicts = false;
         foreach (var hitObject in hitObjects)
         {
