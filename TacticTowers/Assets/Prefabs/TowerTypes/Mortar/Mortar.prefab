@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 715245652648313394}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1419, y: 0.1419, z: 0.68805}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.68805}
   m_Children:
   - {fileID: 7631030621158710253}
   m_Father: {fileID: 0}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -7104512061128346052, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  m_Sprite: {fileID: -6898596411823988649, guid: 524925d19be4028419f9604b5a40d459, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,6 +105,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0b6d6cb2697a8254ba55633c05adc221, type: 2}
   - {fileID: 11400000, guid: 14b4af06f56cb9541816dabf6bd4642c, type: 2}
   - {fileID: 11400000, guid: 6e725c8ec33c1bb458fa20662bca904f, type: 2}
+  basementSprite: {fileID: 715245652648313396}
+  cannonSprite: {fileID: 4510603379544590461}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
   - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
@@ -254,8 +256,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266804234424866392}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.62, z: 0}
-  m_LocalScale: {x: 0.861, y: 0.861, z: 0.8612}
+  m_LocalPosition: {x: -0, y: 0.278, z: 0}
+  m_LocalScale: {x: 0.95571, y: 0.95571, z: 0.95593196}
   m_Children: []
   m_Father: {fileID: 7631030621158710253}
   m_RootOrder: 0
@@ -300,7 +302,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: -381807920521745890, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  m_Sprite: {fileID: 5931476866740355920, guid: 524925d19be4028419f9604b5a40d459, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

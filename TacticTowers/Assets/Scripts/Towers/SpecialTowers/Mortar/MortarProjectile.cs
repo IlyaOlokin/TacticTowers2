@@ -88,6 +88,7 @@ public class MortarProjectile : MonoBehaviour
         for (int i = 1; i <= subProjCount; i++)
         {
             var newBullet = Instantiate(gameObject, transform.position, Quaternion.identity);
+            newBullet.transform.localScale *= subProjectilesRadiusMultiplier;
             MortarProjectile mortarProjectile = newBullet.GetComponent<MortarProjectile>();
             mortarProjectile.dmg = dmg * subProjectilesDamageMultiplier;
             mortarProjectile.speed = speed * subProjectilesSpeedMultiplier;
