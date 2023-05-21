@@ -200,7 +200,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 0.14
+  m_Speed: 0.2
   m_Acceleration: 2
   avoidancePriority: 75
   m_AngularSpeed: 120
@@ -268,10 +268,10 @@ MonoBehaviour:
   knockBackResist: 0
   stunResist: 1
   isImmortal: 0
-  hp: 200
+  hp: 300
   dmg: 15
   weight: 13
-  initialSpeed: 0.14
+  initialSpeed: 0.2
   creditsDropChance: 10
   abilityCd: 4
   abilityDuration: 3

@@ -119,7 +119,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 0.14
+  m_Speed: 0.25
   m_Acceleration: 2
   avoidancePriority: 75
   m_AngularSpeed: 120
@@ -187,10 +187,10 @@ MonoBehaviour:
   knockBackResist: 0.7
   stunResist: 0
   isImmortal: 0
-  hp: 1000
+  hp: 1300
   dmg: 15
   weight: 45
-  initialSpeed: 0.14
+  initialSpeed: 0.25
   creditsDropChance: 10
   spawnPoint: {fileID: 2239990988382782596}
   spawningEnemy: {fileID: 5937050097135992818, guid: 207042b642895094f99c0e7b41c829ab, type: 3}

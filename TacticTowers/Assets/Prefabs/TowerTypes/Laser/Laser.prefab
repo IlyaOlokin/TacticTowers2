@@ -289,10 +289,10 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
-  slowAmount: 0.5
+  slowAmount: 0.4
   slowDuration: 0.35
   extraLaserCount: 2
-  extraLaserDamageMultiplier: 0.25
+  extraLaserDamageMultiplier: 0.2
 --- !u!82 &-7971934188379434946
 AudioSource:
   m_ObjectHideFlags: 0

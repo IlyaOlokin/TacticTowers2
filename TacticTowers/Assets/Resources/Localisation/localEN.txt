@@ -27,7 +27,7 @@ baseATempBuffMoney:Increases the amount of $ received from enemies by 1.5 times 
 baseATempBuffOne:Buffs the selected tower for 15 seconds.
 baseAPeriodDamage:Creates a storm field in the selected area, dealing 150 damage per second.
 basePassiveText:Passive ability
-basePRegen:Regenerates 1 HP per second.
+basePRegen:Regenerates 0.5 HP per second.
 basePBuffAngle:Increases shoot angle of all towers by 50%, but reduces fire rate  by 10%.
 basePBuffHorizontal:Strengthens the right and left towers, but weakens the top and bottom ones.
 basePSlowDown:Slows enemies by 30%, but increases their HP by 30%.
@@ -141,17 +141,17 @@ upgradeFrostImmuneIgnoreDesc:Ability to freeze all enemies
 upgradeFrostWidth:Width of the stream
 upgradeFrostWidthDesc:+50% to the width of the stream
 upgradeLaserBranchingBeam:Bifurcation of the beam
-upgradeLaserBranchingBeamDesc:After being hit, the beam splits into two additional targets, dealing 25% damage
+upgradeLaserBranchingBeamDesc:After being hit, the beam splits into two additional targets, dealing 20% damage
 upgradeLaserSecondBeam:Second beam
 upgradeLaserSecondBeamDesc:The laser shoots a second beam if fully heated
 upgradeLaserSlow:Slowing down
 upgradeLaserSlowDesc:Slows down the enemy
 upgradeMinigunCritical:Critical damage
-upgradeMinigunCriticalDesc:+50% chance to deal critical damage if fully heated
+upgradeMinigunCriticalDesc:+40% chance to deal critical damage if fully heated
 upgradeMinigunDmgStack:Increased damage
 upgradeMinigunDmgStackDesc:Increases damage by 5% with each hit on an enemy
 upgradeMinigunPenetration:Penetration
-upgradeMinigunPenetrationDesc:The projectile passes through the first target, reducing its damage by 50%
+upgradeMinigunPenetrationDesc:The projectile passes through the first target, reducing its damage by 60%
 upgradeMortarFireChance:Chance to set fire
 upgradeMortarFireChanceDesc:25% chance to set fire to the enemy
 upgradeMortarFlameField:Burning earth

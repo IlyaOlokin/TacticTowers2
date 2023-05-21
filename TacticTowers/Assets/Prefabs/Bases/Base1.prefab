@@ -675,7 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: basePRegen
-  regenAmount: 1
+  regenAmount: 0.5
 --- !u!50 &7883339769755823019
 Rigidbody2D:
   serializedVersion: 4

@@ -99,7 +99,7 @@ public class Laser : Tower
         {
             var enemyToIgnore = currentEnemies.Union(extraCurrentEnemies).ToList();
             enemyToIgnore.Remove(extraCurrentEnemies[i * 2 + j]);
-            var closetEnemy = FindClosetEnemy(target.transform.position, enemyToIgnore, 1f);
+            var closetEnemy = FindClosetEnemy(target.transform.position, enemyToIgnore, 1.5f);
 
             if (CheckWallCollision(transform.position, target.transform.position, GetShootDistance(), false) is
                 null)

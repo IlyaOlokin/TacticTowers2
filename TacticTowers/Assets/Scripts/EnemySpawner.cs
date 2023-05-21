@@ -152,7 +152,7 @@ public class EnemySpawner : MonoBehaviour
                 var enemyComp = newEnemy.GetComponent<Enemy>();
                 enemyComp.SetMultipliers(enemyHpMultiplier, enemySpeedMultiplier, creditsDropChanceMultiplier);
                 enemyComp.SetCost(enemyComp.GetWeight() * weightCost);
-                if (newEnemy.TryGetComponent(out Boss boss))
+                if (isCurrentWaveSpecial && newEnemy.TryGetComponent(out Boss boss))
                 {
                     if (bossPos.Equals(Vector3.zero)) continue;
                     boss.transform.position = bossPos;
