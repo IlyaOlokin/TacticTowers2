@@ -132,11 +132,11 @@ MonoBehaviour:
   bonusAttackSpeedPerHeatMultiplier: 1
   coolDelay: 5
   coolDelayMultiplier: 1
-  penetrationDamageMultiplier: 0.5
+  penetrationDamageMultiplier: 0.4
   penetrationsCount: 1
   bonusMultiplierForStack: 0.05
-  maxDamageStacksCount: 10
-  critChance: 0.5
+  maxDamageStacksCount: 8
+  critChance: 0.4
 --- !u!82 &-5942364998071044418
 AudioSource:
   m_ObjectHideFlags: 0
