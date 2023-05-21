@@ -119,20 +119,20 @@ MonoBehaviour:
   shootZone: {fileID: 0}
   shootAngle: 45
   shootDistance: 3.5
-  Dmg: 30
+  Dmg: 35
   attackSpeed: 0.4
   bullet: {fileID: 1680028144157980390, guid: 7f81e7ce6b482e5488e5f9452d0d39dc, type: 3}
   bulletSpeed: 4
-  explosionRadius: 0.5
+  explosionRadius: 0.6
   explosionRadiusMultiplier: 1
-  flameFieldDamageMultiplier: 0.1
+  flameFieldDamageMultiplier: 0.2
   angleBetweenSubProjectiles: 30
-  subProjectilesDamageMultiplier: 0.2
+  subProjectilesDamageMultiplier: 0.5
   subProjectilesSpeedMultiplier: 0.5
   subProjectilesRadiusMultiplier: 0.5
   chanceToSetOnFire: 0.25
-  burnTime: 3
-  burnDamageMultiplier: 0.2
+  burnTime: 2
+  burnDamageMultiplier: 0.3
 --- !u!82 &1871518985860457926
 AudioSource:
   m_ObjectHideFlags: 0
