@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812254569017069176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.45, z: 0}
+  m_LocalPosition: {x: -0, y: 1.866, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 670691875950612501}
@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3337541470469371518}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.663, z: 0}
   m_LocalScale: {x: 0.8813534, y: 0.8813534, z: 0.8812608}
   m_Children: []
   m_Father: {fileID: 670691875950612501}
@@ -101,7 +101,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: -7701165251298167418, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  m_Sprite: {fileID: 1177913442774153510, guid: 524925d19be4028419f9604b5a40d459, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -140,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 4761622032506297042}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.11, y: 0.11, z: 0.5}
+  m_LocalScale: {x: 0.23, y: 0.23, z: 0.5}
   m_Children:
   - {fileID: 670691875950612501}
   m_Father: {fileID: 0}
@@ -186,7 +186,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -1334254190172286965, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  m_Sprite: {fileID: 3508741229219472059, guid: 524925d19be4028419f9604b5a40d459, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -217,6 +217,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bfb218a328ceeac4083a31ae8ae21d0f, type: 2}
   - {fileID: 11400000, guid: cc9b5b8417f21e44a80efe30116fab9c, type: 2}
   - {fileID: 11400000, guid: 2973e43c8d7fd6846a472a97ed6a4669, type: 2}
+  basementSprite: {fileID: 4761622032506297044}
+  cannonSprite: {fileID: 936432552623796822}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
   - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}
