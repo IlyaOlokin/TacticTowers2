@@ -565,7 +565,7 @@ PrefabInstance:
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[2].bossTransform
       value: 
-      objectReference: {fileID: 661563571}
+      objectReference: {fileID: 0}
     - target: {fileID: 2620037246568358059, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[3].bossTransform
       value: 
@@ -872,7 +872,7 @@ PrefabInstance:
       objectReference: {fileID: 409469162}
     - target: {fileID: 7221037311736929454, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 295.91357
+      value: 295.91376
       objectReference: {fileID: 0}
     - target: {fileID: 7425110555060691709, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_RootOrder
@@ -7673,11 +7673,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!4 &661563571 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2620037247312723173, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
-  m_PrefabInstance: {fileID: 5051791}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &662110402
 GameObject:
   m_ObjectHideFlags: 0
