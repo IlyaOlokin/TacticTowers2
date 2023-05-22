@@ -10,5 +10,6 @@ public class SpecialUpgrade : Upgrade
     public override void Execute(Tower tower)
     {
         tower.transform.GetComponent<Tower>().upgradedSpecilaUpgrades[upgradeIndex] = true;
+        tower.UpgradeVisual();
     }
 }

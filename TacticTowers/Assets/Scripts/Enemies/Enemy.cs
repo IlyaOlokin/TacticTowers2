@@ -44,9 +44,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        hpBar = GetComponentInChildren<Healthbar>();
-        if (hpBar != null)
-            hpBar.SetHealth(hp);
+        InitHPBar();
 
         var navMeshAgent = GetComponent<NavMeshAgent>();
         if (navMeshAgent != null)
@@ -253,6 +251,7 @@ public class Enemy : MonoBehaviour
     public void SetMultipliers(float hpMultiplier, float speedMultiplier, float creditsDropChanceMultiplier)
     {
         hp *= hpMultiplier;
+        InitHPBar();
         MultiplySpeed(speedMultiplier);
         creditsDropChance = (int) (creditsDropChance * creditsDropChanceMultiplier);
     }
@@ -261,6 +260,13 @@ public class Enemy : MonoBehaviour
     {
         if (Random.Range(0, 100) < chance) 
             Credits.AddSessionCredits(weight);
+    }
+    
+    private void InitHPBar()
+    {
+        hpBar = GetComponentInChildren<Healthbar>();
+        if (hpBar != null)
+            hpBar.SetHealth(hp);
     }
     
     private void OnDeath(DamageType damageType, Vector3 killerPos)
