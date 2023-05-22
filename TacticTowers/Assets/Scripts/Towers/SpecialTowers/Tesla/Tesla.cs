@@ -92,7 +92,7 @@ public class Tesla : Tower
         }
         for (int i = 0; i < branches; i++)
         {
-            var newEnemy = FindClosetEnemy(endPos, pickedEnemies, lightningJumpDistance * lightningJumpDistanceMultiplier);
+            var newEnemy = FindClosestEnemy(endPos, pickedEnemies, lightningJumpDistance * lightningJumpDistanceMultiplier);
 
             if (newEnemy == null) yield break;
             parms = new object[] {dmg * dmgDecrease * dmgDecreaseMultiplier, endPos, newEnemy, lightningLeft - 1, pickedEnemies, i == 0};
