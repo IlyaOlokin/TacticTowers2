@@ -214,7 +214,7 @@ public class Tower : MonoBehaviour
         return target;
     }
     
-    protected GameObject FindClosetEnemy(Vector3 endPos, IEnumerable<GameObject> pickedEnemies, float searchDist)
+    protected GameObject FindClosestEnemy(Vector3 endPos, IEnumerable<GameObject> pickedEnemies, float searchDist)
     {
         GameObject newEnemy = null;
         var minDist = float.MaxValue;
@@ -222,7 +222,7 @@ public class Tower : MonoBehaviour
         {
             var distance = Vector3.Distance(endPos, e.transform.position);
             if (distance <= searchDist && distance < minDist &&
-                !pickedEnemies.Contains(e))
+                !pickedEnemies.Contains(e) && !e.GetComponent<Enemy>().GetInvulnerability())
             {
                 newEnemy = e;
                 minDist = distance;
