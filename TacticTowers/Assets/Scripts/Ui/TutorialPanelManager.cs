@@ -69,6 +69,7 @@ public class TutorialPanelManager : MonoBehaviour
                         tower.SetActive(false);
                     foreach (var tower in upgradedTowers)
                     {
+                        tower.currentVisualSpriteIndex = 3;
                         foreach (var specialUpgrade in tower.specialUpgrades)
                             specialUpgrade.Execute(tower);
                         tower.upgradeLevel = 20;
