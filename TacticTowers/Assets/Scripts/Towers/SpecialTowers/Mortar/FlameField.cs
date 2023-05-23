@@ -7,7 +7,7 @@ public class FlameField : MonoBehaviour
 {
     [SerializeField] private Material material;
     
-    private SpriteRenderer sr;
+    [SerializeField] private SpriteRenderer sr;
     private DamageZoneBox damageZoneBox;
     private float totalDuration;
     
@@ -15,7 +15,7 @@ public class FlameField : MonoBehaviour
 
     private void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        //sr = GetComponent<SpriteRenderer>();
         sr.material = new Material(material);
         damageZoneBox = GetComponent<DamageZoneBox>();
         totalDuration = damageZoneBox.duration;
