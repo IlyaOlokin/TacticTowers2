@@ -85,7 +85,7 @@ public class Laser : Tower
             activeLasers[i] = Instantiate(laserBim, transform.position, towerCanon.transform.rotation);
             var laserBeamComp = activeLasers[i].GetComponent<LaserBeam>();
             laserBeamComp.target = target;
-            laserBeamComp.origin = gameObject;
+            laserBeamComp.origin = shootPoint;
             currentEnemies[i] = target;
             ActivateLaserSound(i);
         }
@@ -99,12 +99,12 @@ public class Laser : Tower
         {
             var enemyToIgnore = currentEnemies.Union(extraCurrentEnemies).ToList();
             enemyToIgnore.Remove(extraCurrentEnemies[i * 2 + j]);
-            var closetEnemy = FindClosetEnemy(target.transform.position, enemyToIgnore, 1.5f);
+            var closestEnemy = FindClosestEnemy(target.transform.position, enemyToIgnore, 1.5f);
 
             if (CheckWallCollision(transform.position, target.transform.position, GetShootDistance(), false) is
                 null)
             {
-                ExtraLaserShoot(target, closetEnemy, i, j);
+                ExtraLaserShoot(target, closestEnemy, i, j);
             }
         }
     }

@@ -138,7 +138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4946474536978119602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.93, z: 0}
+  m_LocalPosition: {x: -0, y: 1.769, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3932381216777760860}
@@ -251,6 +251,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 47f93af215ce6764d81a322b70a8e7a5, type: 2}
   basementSprite: {fileID: 6728170449799749958}
   cannonSprite: {fileID: 5827351602573023464}
+  additionalSprites: {fileID: 0}
   upgrades:
   - {fileID: -2356611164890920582, guid: b65dd1076eb7a3946bbf818357630c59, type: 3}
   - {fileID: -432583151589040774, guid: 19d22cfb3f61730458f6ee905ad8b4b0, type: 3}

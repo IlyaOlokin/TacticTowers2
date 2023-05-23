@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1680028144157980390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.17, y: 0.17, z: 0.17}
+  m_LocalScale: {x: 0.16, y: 0.16, z: 0.16}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -3249053152923679953, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  m_Sprite: {fileID: -3564171124204314377, guid: 524925d19be4028419f9604b5a40d459, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 10
+  releaseChildren: 0
 --- !u!114 &594237292206792800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba9ab3e0be2aab46a90833d7e10c339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualEffect: {fileID: 0}
 --- !u!96 &4135397011069964203
 TrailRenderer:
   serializedVersion: 2
