@@ -388,6 +388,7 @@ MonoBehaviour:
   towerLevel: {fileID: 6798693770857269415}
   towerLevelConst: {fileID: 6798693772070930151}
   nextUpgradeCost: {fileID: 6798693771448709516}
+  upgradeButton: {fileID: 6798693772256231365}
 --- !u!61 &6798693771432964557
 BoxCollider2D:
   m_ObjectHideFlags: 0
