@@ -35,7 +35,7 @@ public class UpgradeMenu : MonoBehaviour
 
     public void UpdateTexts(int level, int cost)
     {
-        towerLevel.text = level.ToString();
+        towerLevel.text = level.ToString() + " lvl";
         towerLevelConst.text = level.ToString();
         if (cost == 0) 
             nextUpgradeCost.text = "MAX!";
