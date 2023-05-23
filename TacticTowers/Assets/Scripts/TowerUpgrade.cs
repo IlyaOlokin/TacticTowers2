@@ -99,11 +99,11 @@ public class TowerUpgrade : MonoBehaviour
     {
         if (IsTowerMaxLevel())
             return 0;
-        return tower.upgradePrices[tower.upgradeLevel - 1];
+        return Tower.upgradePrices[tower.upgradeLevel - 1];
     }
 
     private bool IsTowerMaxLevel()
     {
-        return tower.upgradeLevel == tower.upgradePrices.Length + 1;
+        return tower.upgradeLevel == Tower.upgradePrices.Length + 1;
     }
 }

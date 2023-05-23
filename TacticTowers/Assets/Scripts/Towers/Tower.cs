@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Tower : MonoBehaviour
 {
-    [NonSerialized] public readonly int[] upgradePrices = {10, 25, 50, 100, 150, 225, 325, 475, 700, 1000, 1400, 2000, 2750, 3750, 5000, 6500, 8250, 10000, 12000};
+    [NonSerialized] public static readonly int[] upgradePrices = {10, 25, 50, 100, 150, 225, 325, 475, 700, 1000, 1400, 2000, 2750, 3750, 5000, 6500, 8250, 10000, 12000};
     [NonSerialized] public int upgradeLevel = 1;
 
     [NonSerialized] public List<GameObject> enemiesToIgnore = new List<GameObject>();
