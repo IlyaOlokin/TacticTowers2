@@ -86,7 +86,8 @@ public class BossWomb : Boss
         yield return new WaitForSeconds(eachEnemySpawnDelay);
         
         var enemyParent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
-        Instantiate(spawningEnemy, GetRandomPointOnSpawnZone(spawnZone.transform), transform.rotation, enemyParent);
+        var spawnedEnemy = Instantiate(spawningEnemy, GetRandomPointOnSpawnZone(spawnZone.transform), transform.rotation, enemyParent);
+        spawnedEnemy.GetComponent<Enemy>().SetCreditsDropChance(creditsDropChance);
         
         EnemySpawner.FindEnemies();
         

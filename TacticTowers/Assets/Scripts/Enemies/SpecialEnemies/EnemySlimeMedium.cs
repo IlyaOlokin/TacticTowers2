@@ -15,7 +15,10 @@ public class EnemySlimeMedium : Enemy
         
         var enemyParent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
         for (var i = 0; i < slimeAmount; i++)
-            Instantiate(slimeSmall, transform.position, transform.rotation, enemyParent);
+        {
+            var spawnedEnemy = Instantiate(slimeSmall, transform.position, transform.rotation, enemyParent);
+            spawnedEnemy.GetComponent<Enemy>().SetCreditsDropChance(creditsDropChance);
+        }
         
         EnemySpawner.FindEnemies();
     }

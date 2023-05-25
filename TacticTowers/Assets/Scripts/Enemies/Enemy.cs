@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float dmg;
     [SerializeField] protected int weight;
     [SerializeField] protected float initialSpeed;
-    [SerializeField] private int creditsDropChance;
+    [SerializeField] protected int creditsDropChance;
     protected float cost;
     protected float rotationSpeed = 160f;
     protected bool isDead;
@@ -89,6 +89,8 @@ public class Enemy : MonoBehaviour
     
     public void SetCost(float newCost) => cost = newCost;
 
+    public void SetCreditsDropChance(int newDropChance) => creditsDropChance = newDropChance;
+    
     public void SetHpHidden(bool isHidden) => isHpHidden = isHidden;
 
     public void MultiplySpeed(float multiplier)

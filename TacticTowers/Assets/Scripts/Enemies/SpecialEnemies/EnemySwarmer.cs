@@ -83,7 +83,8 @@ public class EnemySwarmer : Enemy
         yield return new WaitForSeconds(eachEnemySpawnDelay);
         
         var enemyParent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
-        Instantiate(spawningEnemy, spawnPoint.transform.position, transform.rotation, enemyParent);
+        var spawnedEnemy = Instantiate(spawningEnemy, spawnPoint.transform.position, transform.rotation, enemyParent);
+        spawnedEnemy.GetComponent<Enemy>().SetCreditsDropChance(creditsDropChance);
         
         EnemySpawner.FindEnemies();
         
