@@ -67,7 +67,7 @@ public class EnemySwarmer : Enemy
         
         animator.enabled = false;
         EnemyMover.StopMovement();
-        LookAtBase();
+        //LookAtBase();
         StartCoroutine(nameof(SpawnEnemy), spawningAmount);
     }
 
