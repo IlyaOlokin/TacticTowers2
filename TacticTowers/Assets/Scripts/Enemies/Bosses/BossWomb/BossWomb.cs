@@ -87,7 +87,7 @@ public class BossWomb : Boss
         
         var enemyParent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
         var spawnedEnemy = Instantiate(spawningEnemy, GetRandomPointOnSpawnZone(spawnZone.transform), transform.rotation, enemyParent);
-        spawnedEnemy.GetComponent<Enemy>().SetCreditsDropChance(creditsDropChance);
+        spawnedEnemy.GetComponent<Enemy>().SetCreditsDropChance(0);
         
         EnemySpawner.FindEnemies();
         

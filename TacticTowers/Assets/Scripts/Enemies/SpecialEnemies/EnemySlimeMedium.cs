@@ -17,7 +17,7 @@ public class EnemySlimeMedium : Enemy
         for (var i = 0; i < slimeAmount; i++)
         {
             var spawnedEnemy = Instantiate(slimeSmall, transform.position, transform.rotation, enemyParent);
-            spawnedEnemy.GetComponent<Enemy>().SetCreditsDropChance(creditsDropChance);
+            spawnedEnemy.GetComponent<Enemy>().SetCreditsDropChance(0);
         }
         
         EnemySpawner.FindEnemies();

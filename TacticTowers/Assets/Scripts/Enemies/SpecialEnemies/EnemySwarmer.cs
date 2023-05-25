@@ -84,7 +84,7 @@ public class EnemySwarmer : Enemy
         
         var enemyParent = GameObject.FindGameObjectWithTag("EnemyParent").transform;
         var spawnedEnemy = Instantiate(spawningEnemy, spawnPoint.transform.position, transform.rotation, enemyParent);
-        spawnedEnemy.GetComponent<Enemy>().SetCreditsDropChance(creditsDropChance);
+        spawnedEnemy.GetComponent<Enemy>().SetCreditsDropChance(0);
         
         EnemySpawner.FindEnemies();
         
