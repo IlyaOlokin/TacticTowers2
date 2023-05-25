@@ -1717,21 +1717,21 @@ MonoBehaviour:
     text: NotificationEnemyArmored
   - sprite: {fileID: -6955913167327368382, guid: 26c6c5c61930f1c45b4ce38e214ad365, type: 3}
     text: NotificationEnemyFast
-  - sprite: {fileID: 1995510557509859080, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  - sprite: {fileID: 3634399603856143824, guid: e03825ed479fa1041877edc72d719359, type: 3}
     text: NotificationEnemySlow
-  - sprite: {fileID: 3874509596741013250, guid: 26c6c5c61930f1c45b4ce38e214ad365, type: 3}
+  - sprite: {fileID: -4605430620525830050, guid: e03825ed479fa1041877edc72d719359, type: 3}
     text: NotificationEnemyFly
-  - sprite: {fileID: 6774253333542597178, guid: 26c6c5c61930f1c45b4ce38e214ad365, type: 3}
+  - sprite: {fileID: 1685191804994632697, guid: e03825ed479fa1041877edc72d719359, type: 3}
     text: NotificationEnemyCreaterCommon
-  - sprite: {fileID: -1667730878349499722, guid: a7039526883d88e4896f87f90c4cf963, type: 3}
+  - sprite: {fileID: 779842317622170789, guid: e03825ed479fa1041877edc72d719359, type: 3}
     text: NotificationEnemyUnderground
-  - sprite: {fileID: -187286507941499320, guid: 26c6c5c61930f1c45b4ce38e214ad365, type: 3}
+  - sprite: {fileID: 619462211359542642, guid: e03825ed479fa1041877edc72d719359, type: 3}
     text: NotificationEnemySlime
-  - sprite: {fileID: 1080240355971404347, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
-    text: NotificationEnemyBossShield
-  - sprite: {fileID: -2805804733518999434, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
-    text: NotificationEnemyBossWeb
   - sprite: {fileID: 6493763172763167353, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
+    text: NotificationEnemyBossShield
+  - sprite: {fileID: 1080240355971404347, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
+    text: NotificationEnemyBossWeb
+  - sprite: {fileID: -6146046791161707374, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
     text: NotificationEnemyBossParasites
   - sprite: {fileID: -2805804733518999434, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
     text: NotificationEnemyBossCreaterFly
@@ -2742,6 +2742,10 @@ PrefabInstance:
       propertyPath: enemies
       value: 
       objectReference: {fileID: 2620037248527706207}
+    - target: {fileID: 8948855355378188512, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: notification.text
+      value: NotificationTrials
+      objectReference: {fileID: 0}
     - target: {fileID: 8948855355378188512, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: towers.Array.data[0]
       value: 

@@ -12,12 +12,14 @@ public class NotificationPanel : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Image image;
     [SerializeField] private Text text;
     [SerializeField] private float lifeTime;
+    private RectTransform rt;
     private float lifeTimer;
     private bool isNotificationActive;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        rt = image.transform.GetComponent<RectTransform>();
     }
 
     private void Update()
@@ -34,6 +36,16 @@ public class NotificationPanel : MonoBehaviour, IPointerDownHandler
 
     public void ShowNotification(Notification notification)
     {
+        Rect spriteRect = notification.sprite.rect;
+        float aspectRatio = spriteRect.width / spriteRect.height;
+
+        Vector2 newSizeDelta;
+        if (aspectRatio > 1)
+            newSizeDelta = new Vector2(75f, 75 / aspectRatio);
+        else
+            newSizeDelta = new Vector2(75 * aspectRatio, 75f);
+        
+        rt.sizeDelta = newSizeDelta;
         image.sprite = notification.sprite;
         text.text = Localisation.GetLocalisedValue(notification.text);
         lifeTimer = 0;
