@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2371698172123952196}
   - component: {fileID: 642673740280309340}
   - component: {fileID: 888189254397946}
-  - component: {fileID: 2371698172123952194}
+  - component: {fileID: 2631041545907772679}
   - component: {fileID: 5488706485831595549}
   m_Layer: 7
   m_Name: BossWomb
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2371698172123952198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.7}
+  m_LocalScale: {x: 0.18, y: 0.18, z: 0.18}
   m_Children:
   - {fileID: 3544685357422941329}
   - {fileID: 4705687547898389697}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 254055320786526226, guid: 26c6c5c61930f1c45b4ce38e214ad365, type: 3}
+  m_Sprite: {fileID: -4208454770974831135, guid: e03825ed479fa1041877edc72d719359, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ Animator:
   m_GameObject: {fileID: 2371698172123952198}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 35a703919c27ae9419922e28ed9546b8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0011711f6a062a54598031bad7c46fcc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -129,8 +129,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &2371698172123952194
-CircleCollider2D:
+--- !u!70 &2631041545907772679
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -142,9 +142,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.000000040978193}
-  serializedVersion: 2
-  m_Radius: 0.7
+  m_Offset: {x: 0, y: 0.58}
+  m_Size: {x: 5, y: 10}
+  m_Direction: 0
 --- !u!114 &5488706485831595549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   icon: {fileID: -6146046791161707374, guid: da479e3bbc66b644f87fd69d6ce7cf34, type: 3}
   maxHp: 20000
   spawnZone: {fileID: 4705687547898389697}
-  spawningEnemy: {fileID: 8682723920841854874, guid: c41788713e5f74e4fba9d118b0dbbb22, type: 3}
+  spawningEnemy: {fileID: 8682723920841854874, guid: d76afab4c06540d47b6934ca256d8281, type: 3}
   spawningAmount: 5
   spawningDelay: 5
   eachEnemySpawnDelay: 0.3
@@ -201,8 +201,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5021517520521681718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 1.71, z: 0}
-  m_LocalScale: {x: 1.6096705, y: 0.78840595, z: 1}
+  m_LocalPosition: {x: 0, y: -4.98, z: 0}
+  m_LocalScale: {x: 3.1259801, y: 1.5310844, z: 1.942}
   m_Children: []
   m_Father: {fileID: 2371698172123952195}
   m_RootOrder: 1

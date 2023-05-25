@@ -70,7 +70,7 @@ public class BossWomb : Boss
         
         animator.enabled = false;
         EnemyMover.StopMovement();
-        LookAtBase();
+        //LookAtBase();
         StartCoroutine(nameof(SpawnEnemy), spawningAmount);
     }
 
