@@ -501,7 +501,7 @@ TextureImporter:
         width: 146
         height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -832,9 +832,9 @@ TextureImporter:
       name: Additional UI 1_31
       rect:
         serializedVersion: 2
-        x: 984
+        x: 985
         y: 227
-        width: 57
+        width: 56
         height: 82
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
