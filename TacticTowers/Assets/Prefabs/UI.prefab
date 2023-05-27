@@ -14770,10 +14770,8 @@ MonoBehaviour:
   creditsCount: {fileID: 8948855355133647591}
   audioMixer: {fileID: 24100000, guid: 74e32eb82f5d1304783438f069bef143, type: 2}
   notification:
-    sprite: {fileID: 3874509596741013250, guid: 26c6c5c61930f1c45b4ce38e214ad365, type: 3}
-    text: "\u0412\u044B \u043E\u0442\u043A\u0440\u044B\u043B\u0438 \u0440\u0430\u0437\u0434\u0435\u043B
-      \u0438\u0441\u043F\u044B\u0442\u0430\u043D\u0438\u0439 \u0432 \u0433\u043B\u0430\u0432\u043D\u043E\u043C
-      \u043C\u0435\u043D\u044E"
+    sprite: {fileID: -3723667807925076792, guid: 2aded6306a9954d41932fb0bf688e4d8, type: 3}
+    text: NotificationTrials
 --- !u!114 &7705111475392153549
 MonoBehaviour:
   m_ObjectHideFlags: 0

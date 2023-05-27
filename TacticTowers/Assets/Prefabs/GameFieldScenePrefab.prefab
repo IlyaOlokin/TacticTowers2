@@ -2779,10 +2779,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2620037248527706207}
     - target: {fileID: 8948855355378188512, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
-      propertyPath: notification.text
-      value: NotificationTrials
-      objectReference: {fileID: 0}
-    - target: {fileID: 8948855355378188512, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: towers.Array.data[0]
       value: 
       objectReference: {fileID: 2620037248511279256}
