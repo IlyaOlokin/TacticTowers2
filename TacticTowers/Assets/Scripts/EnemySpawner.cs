@@ -8,15 +8,17 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("Waves")]
-    [SerializeField] private Transform enemiesObject;
-
+    [Header("Settings")]
     [SerializeField] private float enemyHpMultiplier = 1f;
     [SerializeField] private float enemySpeedMultiplier = 1f;
     [SerializeField] private float creditsDropChanceMultiplier = 1f;
     [SerializeField] private float enemyCountMultiplier = 1f;
     [SerializeField] private float moneyMultiplier = 1f;
+    [SerializeField] private bool showIndividualBossHPBar;
     
+    [Header("Waves")]
+    [SerializeField] private Transform enemiesObject;
+
     public static List<GameObject> enemies;
     [SerializeField] private List<Wave> Waves = new List<Wave>();
     
@@ -152,8 +154,9 @@ public class EnemySpawner : MonoBehaviour
                 var enemyComp = newEnemy.GetComponent<Enemy>();
                 enemyComp.SetMultipliers(enemyHpMultiplier, enemySpeedMultiplier, creditsDropChanceMultiplier);
                 enemyComp.SetCost(enemyComp.GetWeight() * weightCost);
-                if (isCurrentWaveSpecial && newEnemy.TryGetComponent(out Boss boss))
+                if ((isCurrentWaveSpecial || showIndividualBossHPBar) && newEnemy.TryGetComponent(out Boss boss))
                 {
+                    enemyComp.SetHpHidden(!showIndividualBossHPBar);
                     if (bossPos.Equals(Vector3.zero)) continue;
                     boss.transform.position = bossPos;
                     currentBoss = newEnemy.GetComponent<Boss>();
