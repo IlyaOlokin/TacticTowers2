@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 538129108218077337, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1669160281}
     - target: {fileID: 1385707898359958030, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -886,6 +890,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GaneFieldScenePrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8352580507954247821, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1669160281}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
 --- !u!1 &27977534
