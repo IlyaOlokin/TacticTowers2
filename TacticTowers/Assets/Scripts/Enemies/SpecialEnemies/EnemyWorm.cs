@@ -6,20 +6,23 @@ using Random = UnityEngine.Random;
 
 public class EnemyWorm : Enemy
 {
+    private SpriteRenderer spriteRenderer;
+
     [SerializeField] private float abilityCd;
     [SerializeField] private float abilityDuration;
+    [SerializeField] private Sprite defaultSprite;
 
     private void Start()
     {
         base.Start();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         
         StartCoroutine(nameof(Borrow));
     }
 
     private IEnumerator Borrow()
     {
-        // TODO: animator animation
-        GetComponent<SpriteRenderer>().color = Color.blue;
+        animator.enabled = true;
         gameObject.layer = LayerMask.NameToLayer("Underground");
         isInvulnerable = true;
         GetComponentInChildren<Healthbar>().ChangeBarVisibility(false);
@@ -40,8 +43,8 @@ public class EnemyWorm : Enemy
 
     private IEnumerator UnBorrow()
     {
-        // TODO: animator animation
-        GetComponent<SpriteRenderer>().color = Color.red;
+        animator.enabled = false;
+        spriteRenderer.sprite = defaultSprite;
         gameObject.layer = LayerMask.NameToLayer("Enemy");
         isInvulnerable = false;
         GetComponentInChildren<Healthbar>().ChangeBarVisibility(true);

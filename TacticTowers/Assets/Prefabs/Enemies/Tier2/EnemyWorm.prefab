@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 6187481930817503581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.13, y: 0.13, z: 0.13}
   m_Children:
   - {fileID: 6101576840904740762}
   - {fileID: 2885624627757704925}
@@ -160,8 +160,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 6774253333542597178, guid: 26c6c5c61930f1c45b4ce38e214ad365, type: 3}
-  m_Color: {r: 0.8962264, g: 0.054957304, b: 0.24481922, a: 1}
+  m_Sprite: {fileID: 779842317622170789, guid: e03825ed479fa1041877edc72d719359, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -181,7 +181,7 @@ Animator:
   m_GameObject: {fileID: 6187481930817503581}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2a1be46bc14f0c4449719c12f640b2ec, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3e8db703025df5e458b9483834e09725, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -199,7 +199,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6187481930817503581}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.2
+  m_Radius: 1.5
   m_Speed: 0.2
   m_Acceleration: 2
   avoidancePriority: 75
@@ -208,8 +208,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.5
-  m_BaseOffset: 0.25
+  m_Height: 3
+  m_BaseOffset: 1.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 2
 --- !u!50 &2946783247884427705
@@ -246,9 +246,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.000000040978193}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 1.6
 --- !u!114 &6264755276196470210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +275,7 @@ MonoBehaviour:
   creditsDropChance: 10
   abilityCd: 4
   abilityDuration: 3
+  defaultSprite: {fileID: 779842317622170789, guid: e03825ed479fa1041877edc72d719359, type: 3}
 --- !u!1001 &6945144320103628548
 PrefabInstance:
   m_ObjectHideFlags: 0
