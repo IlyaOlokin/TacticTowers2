@@ -2706,6 +2706,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -7.8810997
       objectReference: {fileID: 0}
+    - target: {fileID: 3589031269012592428, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: -2507267480023812246, guid: 873ff79fab61aab42b58176379134295, type: 3}
     - target: {fileID: 4468718817716760609, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -2766,10 +2770,30 @@ PrefabInstance:
       propertyPath: towers.Array.data[3]
       value: 
       objectReference: {fileID: 2434650150811475836}
+    - target: {fileID: 8948855355322525856, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8948855355378188512, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: enemies
       value: 
       objectReference: {fileID: 2620037248527706207}
+    - target: {fileID: 8948855355378188512, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: towers.Array.data[0]
+      value: 
+      objectReference: {fileID: 2620037248511279256}
+    - target: {fileID: 8948855355378188512, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: towers.Array.data[1]
+      value: 
+      objectReference: {fileID: 2434650152138400187}
+    - target: {fileID: 8948855355378188512, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: towers.Array.data[2]
+      value: 
+      objectReference: {fileID: 2434650151997257836}
+    - target: {fileID: 8948855355378188512, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: towers.Array.data[3]
+      value: 
+      objectReference: {fileID: 2434650150811475836}
     - target: {fileID: 8948855355644194104, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: m_IsActive
       value: 0
