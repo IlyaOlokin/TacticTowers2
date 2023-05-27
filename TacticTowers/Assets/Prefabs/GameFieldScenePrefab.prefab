@@ -81,12 +81,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1318e8264315e3444a8918e29e5416ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesObject: {fileID: 2620037248527706206}
   enemyHpMultiplier: 1
   enemySpeedMultiplier: 1
   creditsDropChanceMultiplier: 0
   enemyCountMultiplier: 1
   moneyMultiplier: 1
+  showIndividualBossHPBar: 0
+  enemiesObject: {fileID: 2620037248527706206}
   Waves:
   - moneyForWave: 55
     seconds: 180
@@ -1435,7 +1436,7 @@ MonoBehaviour:
   baseTransform: {fileID: 2620037248078484740}
   baseActiveAbilityMenu: {fileID: 4930095788804066377}
   basePassiveAbilityMenu: {fileID: 8443619448466472985}
-  passiveAbilitySprite: {fileID: 2131875859582438212}
+  passiveAbilitySprite: {fileID: 2676400594839609089}
   abilityButton: {fileID: 8106266865094344243}
   baseAbilityCoolDownImage: {fileID: 3430754639096335642}
   baseAbilityCoolDownText: {fileID: 8405799201927081528}
@@ -1790,12 +1791,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1318e8264315e3444a8918e29e5416ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesObject: {fileID: 2620037248527706206}
   enemyHpMultiplier: 1
   enemySpeedMultiplier: 1
   creditsDropChanceMultiplier: 1
   enemyCountMultiplier: 1
   moneyMultiplier: 1
+  showIndividualBossHPBar: 0
+  enemiesObject: {fileID: 2620037248527706206}
   Waves:
   - moneyForWave: 55
     seconds: 180
@@ -2896,9 +2898,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
---- !u!114 &2131875859582438212 stripped
+--- !u!114 &2676400594839609089 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4164083845735271622, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+  m_CorrespondingSourceObject: {fileID: 105906986009565315, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
   m_PrefabInstance: {fileID: 2620037246842701698}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
