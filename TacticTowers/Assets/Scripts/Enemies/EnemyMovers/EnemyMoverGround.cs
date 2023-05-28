@@ -49,6 +49,8 @@ public class EnemyMoverGround : IEnemyMover
     public void ChangeTarget(Vector3 newTarget)
     {
         target = newTarget;
+        if (agent.enabled)
+            agent.SetDestination(newTarget);
     }
 
     public float GetRotationAngle(Vector3 currentPos)

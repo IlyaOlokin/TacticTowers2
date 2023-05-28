@@ -1684,7 +1684,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2486499877289796868, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: enemySpeedMultiplier
-      value: 0.4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2486499877289796868, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[0].isSpecial

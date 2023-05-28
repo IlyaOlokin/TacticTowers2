@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04553e0e1fa40bb4db93fb9c70797975, type: 3}
   m_Name: hpBarTest
   m_EditorClassIdentifier: 
-  Right: []
-  Top:
-  - enemy: {fileID: 6187481930817503581, guid: 48ff7a0d47fe486448b13b6d0c01a769, type: 3}
-    enemyCount: 10
+  Right:
+  - enemy: {fileID: 2371698172123952198, guid: c84c3bd4b363f424da318ba44fc6266d, type: 3}
+    enemyCount: 1
+  Top: []
   Left: []
   Bot: []
