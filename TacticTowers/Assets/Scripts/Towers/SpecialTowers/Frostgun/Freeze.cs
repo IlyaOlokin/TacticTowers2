@@ -65,6 +65,20 @@ public class Freeze : MonoBehaviour
         enemy.TakeStun(freezeTime, 0);
         
         newFreezeEffect = Instantiate(EnemyVFXManager.Instance.GetEffect("FreezeOnEnemy").effect, transform.position, Quaternion.identity, enemy.transform);
+        var worldSize = newFreezeEffect.GetComponent<SpriteRenderer>().sprite.rect.size /
+                        newFreezeEffect.GetComponent<SpriteRenderer>().sprite.pixelsPerUnit
+                        * newFreezeEffect.transform.lossyScale;
+        
+        var screenSize = 0.5f * worldSize / Camera.main.orthographicSize;
+        screenSize.y *= Camera.main.aspect;
+ 
+        var pixelSize = 0.5f * new Vector3(screenSize.x * Camera.main.pixelWidth, screenSize.y * Camera.main.pixelHeight, 0);
+        var enemySize = newFreezeEffect.transform.parent.GetComponent<Enemy>().GetPixelSize();
+        
+        newFreezeEffect.transform.localScale = new Vector3(newFreezeEffect.transform.localScale.x * (enemySize.x / pixelSize.x), 
+            newFreezeEffect.transform.localScale.y * (enemySize.y / pixelSize.y));
+        newFreezeEffect.transform.rotation = newFreezeEffect.transform.parent.rotation;
+        
         StartCoroutine(Unfreeze(freezeTime));
     }
 

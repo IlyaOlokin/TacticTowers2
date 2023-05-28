@@ -60,8 +60,23 @@ public class Enemy : MonoBehaviour
         RandomizeSpeed();
     }
 
-    public void Start() 
+    public Vector3 GetPixelSize()
     {
+        var worldSize = GetComponent<SpriteRenderer>().sprite.rect.size /
+                        GetComponent<SpriteRenderer>().sprite.pixelsPerUnit
+                        * transform.lossyScale;
+        
+        var screenSize = 0.5f * worldSize / Camera.main.orthographicSize;
+        screenSize.y *= Camera.main.aspect;
+ 
+        var pixelSize = 0.5f * new Vector3(screenSize.x * Camera.main.pixelWidth, screenSize.y * Camera.main.pixelHeight, 0);
+ 
+        return pixelSize;
+    }
+    
+    public void Start()
+    {
+        GetPixelSize();
     }
 
     public void Update()
@@ -242,6 +257,12 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(duration);
         animator.enabled = true;
         EnemyMover.StartMovement();
+        
+        if (TryGetComponent<Freeze>(out var freeze))
+        {
+            freeze.UnfreezeInstantly();
+            Destroy(freeze);
+        }
     }
 
     private IEnumerator GetReadyForStun(float stunCd)
