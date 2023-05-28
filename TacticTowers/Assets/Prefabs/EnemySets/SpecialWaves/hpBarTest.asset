@@ -12,15 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04553e0e1fa40bb4db93fb9c70797975, type: 3}
   m_Name: hpBarTest
   m_EditorClassIdentifier: 
-  Right:
+  Right: []
+  Top:
   - enemy: {fileID: 6187481930817503581, guid: 48ff7a0d47fe486448b13b6d0c01a769, type: 3}
     enemyCount: 10
-  Top:
-  - enemy: {fileID: 6187481930817503581, guid: 93662943365ba754d953e445d151c09b, type: 3}
-    enemyCount: 10
-  Left:
-  - enemy: {fileID: 970157617121620856, guid: 0c38a13ae7ad0b54c809e0bc5d99e851, type: 3}
-    enemyCount: 1
-  Bot:
-  - enemy: {fileID: 6187481930817503581, guid: 93662943365ba754d953e445d151c09b, type: 3}
-    enemyCount: 10
+  Left: []
+  Bot: []

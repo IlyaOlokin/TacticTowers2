@@ -39,6 +39,7 @@ public class PausePanel : MonoBehaviour
     {
         pausePanel.SetActive(false);
         confirmPanel.transform.Find("CreditsCount").transform.Find("Count").GetComponent<Text>().text = creditsCount.text;
+        //confirmButton.transform.Find("Header").GetComponent<TextLocaliser>().SetKey(isForRestart ? "menuRestartButton" : "menuMenuButton"); 
         confirmButton.transform.Find("Text").GetComponent<TextLocaliser>().SetKey(isForRestart ? "menuRestartButton" : "menuMenuButton"); 
         confirmPanel.SetActive(true);
     }

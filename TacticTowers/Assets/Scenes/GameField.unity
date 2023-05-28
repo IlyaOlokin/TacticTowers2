@@ -425,12 +425,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1318e8264315e3444a8918e29e5416ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesObject: {fileID: 1854380829}
   enemyHpMultiplier: 1
   enemySpeedMultiplier: 1
   creditsDropChanceMultiplier: 1
   enemyCountMultiplier: 1
   moneyMultiplier: 1
+  showIndividualBossHPBar: 0
+  enemiesObject: {fileID: 1854380829}
   Waves:
   - moneyForWave: 15
     seconds: 60
@@ -1593,6 +1594,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 538129108218077337, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2620037246875513670}
     - target: {fileID: 1385707898359958030, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1645,6 +1650,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -10.0771
       objectReference: {fileID: 0}
+    - target: {fileID: 1730258427536562584, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730258427536562584, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1851238796048600064, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -1668,6 +1681,10 @@ PrefabInstance:
     - target: {fileID: 2434650152138400189, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2486499877289796868, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: enemySpeedMultiplier
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2486499877289796868, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
       propertyPath: Waves.Array.data[0].isSpecial
@@ -1817,6 +1834,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GaneFieldScenePrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8352580507954247821, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2620037246875513670}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
 --- !u!114 &2620037246875513668 stripped
@@ -1841,3 +1862,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!20 &2620037246875513670 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2620037246647733052, guid: 10b64f6a9ce7e7249b37ad02f65165ec, type: 3}
+  m_PrefabInstance: {fileID: 2620037246875513667}
+  m_PrefabAsset: {fileID: 0}
