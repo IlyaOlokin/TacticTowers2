@@ -2756,6 +2756,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 8344130361910586229, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8948855353864543786, guid: 780dba34ae785d34dbcb06bacdb63ad6, type: 3}
       propertyPath: towers.Array.data[0]
       value: 

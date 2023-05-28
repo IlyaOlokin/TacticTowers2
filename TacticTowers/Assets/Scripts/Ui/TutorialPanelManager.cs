@@ -58,6 +58,7 @@ public class TutorialPanelManager : MonoBehaviour
                 break;
             case 6 when enemies.transform.childCount == 0:
                 panels[5].SetActive(true);
+                Timer.Stop();
                 break;
             case 7:
                 if (towerLevels.Select(t => t.text).Select(int.Parse).Any(l => l > 1) &&
@@ -65,6 +66,7 @@ public class TutorialPanelManager : MonoBehaviour
                 {
                     StartCoroutine(nameof(WaitForShootZones));
                     panels[6].SetActive(true);
+                    Timer.Play();
                     foreach (var tower in normalTowers)
                         tower.SetActive(false);
                     foreach (var tower in upgradedTowers)
