@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
     private bool isReadyForStun = true;
     private Coroutine currentSlow;
     private bool isGround;
-    
+
     public void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -60,20 +60,6 @@ public class Enemy : MonoBehaviour
         RandomizeSpeed();
     }
 
-    public Vector3 GetPixelSize()
-    {
-        var worldSize = GetComponent<SpriteRenderer>().sprite.rect.size /
-                        GetComponent<SpriteRenderer>().sprite.pixelsPerUnit
-                        * transform.lossyScale;
-        
-        var screenSize = 0.5f * worldSize / Camera.main.orthographicSize;
-        screenSize.y *= Camera.main.aspect;
- 
-        var pixelSize = 0.5f * new Vector3(screenSize.x * Camera.main.pixelWidth, screenSize.y * Camera.main.pixelHeight, 0);
- 
-        return pixelSize;
-    }
-    
     public void Start()
     {
         GetPixelSize();
@@ -99,7 +85,21 @@ public class Enemy : MonoBehaviour
     public bool GetInvulnerability() => isInvulnerable;
     
     public float GetHp() => hp;
-
+    
+    public Vector3 GetPixelSize()
+    {
+        var worldSize = GetComponent<SpriteRenderer>().sprite.rect.size /
+                        GetComponent<SpriteRenderer>().sprite.pixelsPerUnit
+                        * transform.lossyScale;
+        
+        var screenSize = 0.5f * worldSize / Camera.main.orthographicSize;
+        screenSize.y *= Camera.main.aspect;
+ 
+        var pixelSize = 0.5f * new Vector3(screenSize.x * Camera.main.pixelWidth, screenSize.y * Camera.main.pixelHeight, 0);
+ 
+        return pixelSize;
+    }
+    
     public void SetHp(float newHp) => hp = newHp;
     
     public void SetCost(float newCost) => cost = newCost;
