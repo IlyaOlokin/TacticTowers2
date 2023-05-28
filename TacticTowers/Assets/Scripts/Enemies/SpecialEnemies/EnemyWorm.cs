@@ -10,12 +10,16 @@ public class EnemyWorm : Enemy
 
     [SerializeField] private float abilityCd;
     [SerializeField] private float abilityDuration;
+    [SerializeField] [Range(0.0f, 1.0f)] private float abilityDurationVariance;
     [SerializeField] private Sprite defaultSprite;
-
+    
     private void Start()
     {
         base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        var abiltyDurVarNum = abilityDuration * abilityDurationVariance;
+        abilityDuration = Random.Range(abilityDuration - abiltyDurVarNum, abilityDuration + abiltyDurVarNum);
         
         StartCoroutine(nameof(Borrow));
     }

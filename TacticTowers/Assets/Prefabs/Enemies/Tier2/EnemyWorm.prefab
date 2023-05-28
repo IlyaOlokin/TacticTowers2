@@ -275,6 +275,7 @@ MonoBehaviour:
   creditsDropChance: 10
   abilityCd: 4
   abilityDuration: 3
+  abilityDurationVariance: 0.1
   defaultSprite: {fileID: 779842317622170789, guid: e03825ed479fa1041877edc72d719359, type: 3}
 --- !u!1001 &6945144320103628548
 PrefabInstance:
