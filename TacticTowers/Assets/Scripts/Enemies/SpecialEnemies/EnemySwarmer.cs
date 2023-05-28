@@ -16,6 +16,11 @@ public class EnemySwarmer : Enemy
     private List<Vector3> path;
     private float nearThreshold = 0.001f;
     private bool isClockwise;
+
+    /*private void Awake()
+    {
+        base.Awake();
+    }*/
     
     private void Start()
     {
@@ -34,7 +39,7 @@ public class EnemySwarmer : Enemy
             new Vector3(-5.0f, -2f, 0f),
         };
         isClockwise = Random.Range(0, 2) == 0;
-        EnemyMover.ChangeTarget(isClockwise ? path[0] : path[path.Count - 1]);
+        
         StartCoroutine(nameof(SpawnEnemies));
     }
 
