@@ -1938,7 +1938,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2742325680263193800, guid: 873ff79fab61aab42b58176379134295, type: 3}
+  m_Sprite: {fileID: 313864718161858599, guid: 873ff79fab61aab42b58176379134295, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1993,7 +1993,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1644.6301, y: -389.78995}
-  m_SizeDelta: {x: 70, y: 70}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &649096991
 MonoBehaviour:
@@ -2083,7 +2083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2430863435776462803, guid: 873ff79fab61aab42b58176379134295, type: 3}
+  m_Sprite: {fileID: -195085865242347741, guid: 873ff79fab61aab42b58176379134295, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3067,7 +3067,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -859.72, y: -455.79}
-  m_SizeDelta: {x: 70, y: 70}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &977911579
 MonoBehaviour:
@@ -3110,7 +3110,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -2353716983101861007, guid: 873ff79fab61aab42b58176379134295, type: 3}
+    m_HighlightedSprite: {fileID: -1283709447420397349, guid: 873ff79fab61aab42b58176379134295, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -3157,7 +3157,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5749403585474129114, guid: 873ff79fab61aab42b58176379134295, type: 3}
+  m_Sprite: {fileID: -45891351921845105, guid: 873ff79fab61aab42b58176379134295, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4633,7 +4633,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 332757289}
         m_TargetAssemblyTypeName: Settings, Assembly-CSharp
-        m_MethodName: ChangeSoundVolume
+        m_MethodName: ChangeMusicVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6409,7 +6409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2742325680263193800, guid: 873ff79fab61aab42b58176379134295, type: 3}
+  m_Sprite: {fileID: 313864718161858599, guid: 873ff79fab61aab42b58176379134295, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
