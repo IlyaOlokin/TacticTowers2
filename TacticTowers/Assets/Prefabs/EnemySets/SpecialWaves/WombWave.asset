@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04553e0e1fa40bb4db93fb9c70797975, type: 3}
   m_Name: WombWave
   m_EditorClassIdentifier: 
-  Right: []
+  Right:
+  - enemy: {fileID: 5937050097135992818, guid: fa63f986e69091c4fad17269f75b1985, type: 3}
+    enemyCount: 1
   Top: []
   Left:
-  - enemy: {fileID: 2371698172123952198, guid: c84c3bd4b363f424da318ba44fc6266d, type: 3}
+  - enemy: {fileID: 753058034755746032, guid: 855fb5827b87a834d9f0ea917178d980, type: 3}
     enemyCount: 1
   Bot: []

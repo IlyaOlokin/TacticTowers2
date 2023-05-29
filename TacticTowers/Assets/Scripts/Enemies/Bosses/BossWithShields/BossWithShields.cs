@@ -135,9 +135,9 @@ public class BossWithShields : Boss
     private int PickNewShieldPosition()
     {
         var range = Enumerable.Range(0, shieldSides.Count).Where(i => i != currentShieldPositionIndex);
-        var rand = new System.Random();
-        var index = rand.Next(0, shieldSides.Count - 1);
-        return range.ElementAt(index);
+        //var rand = new System.Random();
+        //var index = rand.Next(0, shieldSides.Count - 1);
+        return range.ElementAt(Random.Range(0, shieldSides.Count - 1));
     }
 
     private IEnumerator RotateShields()

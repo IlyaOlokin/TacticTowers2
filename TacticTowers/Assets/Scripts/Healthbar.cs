@@ -23,7 +23,8 @@ public class Healthbar : MonoBehaviour
 
     public void ChangeBarVisibility(bool isVisible)
     {
-        slider.gameObject.SetActive(isVisible);
+        //if (slider.value < slider.maxValue)
+            slider.gameObject.SetActive(isVisible);
     }
     
     private void Start()

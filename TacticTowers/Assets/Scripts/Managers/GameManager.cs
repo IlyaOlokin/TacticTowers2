@@ -37,8 +37,7 @@ public class GameManager : MonoBehaviour
     private void InitPassiveAbilityButton(Base newBase)
     {
         basePassiveAbilityMenu.GetComponent<ToolTip>().toolTipText = newBase.GetComponent<BasePassive>().description;
-        //TODO спрайты пассивок 
-        passiveAbilitySprite.sprite = newBase.GetComponent<BaseActive>().activeAbilitySprite;
+        passiveAbilitySprite.sprite = newBase.baseImage;
     }
 
     private void InitActiveAbilityButton(Base newBase)

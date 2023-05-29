@@ -16,7 +16,7 @@ MonoBehaviour:
   Top:
   - enemy: {fileID: 5937050097135992818, guid: 870e3dddbc5d5f4439fc98de96b8efd4, type: 3}
     enemyCount: 1
-  Left: []
-  Bot:
-  - enemy: {fileID: 2371698172123952198, guid: c84c3bd4b363f424da318ba44fc6266d, type: 3}
-    enemyCount: 1
+  Left:
+  - enemy: {fileID: 753058034755746032, guid: 855fb5827b87a834d9f0ea917178d980, type: 3}
+    enemyCount: 3
+  Bot: []

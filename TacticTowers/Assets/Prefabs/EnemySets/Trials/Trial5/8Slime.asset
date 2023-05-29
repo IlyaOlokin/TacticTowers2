@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Right:
   - enemy: {fileID: 8037207851679825189, guid: dca13e3fd16bb5d4d9bd909a5b314fb5, type: 3}
-    enemyCount: 20
+    enemyCount: 18
   Top:
   - enemy: {fileID: 8037207851679825189, guid: dca13e3fd16bb5d4d9bd909a5b314fb5, type: 3}
-    enemyCount: 15
+    enemyCount: 13
   Left:
   - enemy: {fileID: 8037207851679825189, guid: dca13e3fd16bb5d4d9bd909a5b314fb5, type: 3}
-    enemyCount: 40
+    enemyCount: 30
   Bot:
   - enemy: {fileID: 8037207851679825189, guid: dca13e3fd16bb5d4d9bd909a5b314fb5, type: 3}
     enemyCount: 10

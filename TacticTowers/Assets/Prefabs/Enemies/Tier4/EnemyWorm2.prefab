@@ -265,7 +265,7 @@ MonoBehaviour:
   isHpHidden: 0
   isImmuneToFire: 0
   isImmuneToFreeze: 1
-  knockBackResist: 0
+  knockBackResist: 1
   stunResist: 1
   isImmortal: 0
   hp: 300
@@ -275,6 +275,7 @@ MonoBehaviour:
   creditsDropChance: 10
   abilityCd: 4
   abilityDuration: 3
+  abilityDurationVariance: 0.3
   defaultSprite: {fileID: 1235140732294305262, guid: e03825ed479fa1041877edc72d719359, type: 3}
 --- !u!1001 &8558717091547233236
 PrefabInstance:
@@ -285,7 +286,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 671153425865452512, guid: 184f3aae5d27d5b4eb918336bf14bdd3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 671153425865452512, guid: 184f3aae5d27d5b4eb918336bf14bdd3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5024542749497473134, guid: 184f3aae5d27d5b4eb918336bf14bdd3, type: 3}
       propertyPath: m_AnchorMax.y
@@ -341,7 +346,7 @@ PrefabInstance:
       objectReference: {fileID: 6264755276196470210}
     - target: {fileID: 5442197313133091816, guid: 184f3aae5d27d5b4eb918336bf14bdd3, type: 3}
       propertyPath: offset.y
-      value: -0.2
+      value: -0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 184f3aae5d27d5b4eb918336bf14bdd3, type: 3}
