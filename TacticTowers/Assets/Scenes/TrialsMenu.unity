@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -271,13 +271,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: c8061a3b6160847418107f072e8d8f8d, type: 3}
+    m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1169,7 +1169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3163280928925216809, guid: 9a11e41457ec573459054914e342f61d, type: 3}
       propertyPath: present
-      value: PriseBase6Trial
+      value: PriseBase4Trial
       objectReference: {fileID: 0}
     - target: {fileID: 3163280928925216809, guid: 9a11e41457ec573459054914e342f61d, type: 3}
       propertyPath: trialImage
@@ -2901,7 +2901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3163280928925216809, guid: 9a11e41457ec573459054914e342f61d, type: 3}
       propertyPath: present
-      value: PriseBase5Trial
+      value: PriseBase2Trial
       objectReference: {fileID: 0}
     - target: {fileID: 3163280928925216809, guid: 9a11e41457ec573459054914e342f61d, type: 3}
       propertyPath: trialImage
@@ -3611,7 +3611,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -3805,7 +3805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3163280928925216809, guid: 9a11e41457ec573459054914e342f61d, type: 3}
       propertyPath: present
-      value: PriseBase7Trial
+      value: PriseBase8Trial
       objectReference: {fileID: 0}
     - target: {fileID: 3163280928925216809, guid: 9a11e41457ec573459054914e342f61d, type: 3}
       propertyPath: trialImage
@@ -4136,7 +4136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3163280928925216809, guid: 9a11e41457ec573459054914e342f61d, type: 3}
       propertyPath: present
-      value: PriseBase5Trial
+      value: PriseBase6Trial
       objectReference: {fileID: 0}
     - target: {fileID: 3163280928925216809, guid: 9a11e41457ec573459054914e342f61d, type: 3}
       propertyPath: trialImage
