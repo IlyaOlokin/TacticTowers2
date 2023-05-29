@@ -69,4 +69,9 @@ public class MainMenu : MonoBehaviour
         AudioManager.Instance.Play("ButtonClick2");
         SceneManager.LoadScene("Tutorial");
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

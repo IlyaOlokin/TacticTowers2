@@ -45,6 +45,8 @@ public class Base : MonoBehaviour
         UpdateCoolUI();
         if (abilityTimer > 0)
             abilityTimer -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Space)) ExecuteBaseActiveAbility();
     }
 
     public void TakeDamage(float dmg)

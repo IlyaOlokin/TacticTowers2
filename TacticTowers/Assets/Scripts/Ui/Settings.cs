@@ -8,7 +8,6 @@ using UnityEngine.Audio;
 public class Settings : MonoBehaviour
 {
     public Dropdown resolutionDropdown;
-    public Dropdown qualityDropdown;
     [SerializeField] private AudioMixer audioMixer;
     public Slider soundSlider;
     public Slider musicSlider;
@@ -40,7 +39,6 @@ public class Settings : MonoBehaviour
         SetResolution(GetCurrentResolutionIndex());
         ChangeSoundVolume();
         ChangeMusicVolume();
-        SetQuality(DataLoader.LoadInt("QualitySettingsPreference", 6));
     }
 
     public int GetCurrentResolutionIndex()
@@ -79,15 +77,8 @@ public class Settings : MonoBehaviour
         DataLoader.SaveInt("ResolutionPreference", resolutionDropdown.value);
     }
 
-    public void SetQuality(int qualityIndex)
-    {
-        QualitySettings.SetQualityLevel(qualityIndex);
-        DataLoader.SaveInt("QualitySettingsPreference", qualityDropdown.value);
-    }
-   
     public void LoadSettings(int currentResolutionIndex)
     {
-        qualityDropdown.value = DataLoader.LoadInt("QualitySettingsPreference", 6);
         resolutionDropdown.value = DataLoader.LoadInt("ResolutionPreference", currentResolutionIndex);
         soundSlider.value = float.Parse(DataLoader.LoadString("SoundVolume", "1"));
         musicSlider.value = float.Parse(DataLoader.LoadString("MusicVolume", "1"));
