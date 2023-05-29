@@ -129,7 +129,7 @@ statHeader:Статистика
 ressurectText:Хотите продолжить?
 ressurectButton:Продолжить
 upgradeFlameCloseDmg:Урон вблизи
-upgradeFlameCloseDmgDesc:Чем ближе враг, тем больше урона вплоть до + 50%
+upgradeFlameCloseDmgDesc:Чем ближе враг, тем больше урона вплоть до +50%
 upgradeFlameGlobalBurn:Урон от горения
 upgradeFlameGlobalBurnDesc:Увеличивает урон от любого горения на 50%
 upgradeFlameWidth:Ширина потока
@@ -198,8 +198,8 @@ TooltipChooseBase:Выберите разблокированный команд
 TrialDesc1:Выбор башен уменьшен до огнемета. Выходят только слабые враги в больших количествах.
 TrialDesc2:Все башни направлены в одну из сторон.
 TrialDesc3:Все башни повернуты на 45 градусов против часовой стрелки.
-TrialDesc4:На каждой волне будет появляться босс.
-TrialDesc5:Одна большая волна с медленными противниками.
+TrialDesc4:Волны состоят только из боссов.
+TrialDesc5:Каждая волна состоит из врагов одного типа.
 TrialDesc6:На одну башню меньше.
 TrialDesc7:100% шанс на Х2 во время улучшения башен.
 TrialDesc8:Хардмод - враги сильнее, их больше, денег меньше.
@@ -207,9 +207,10 @@ TitleTrialsScene:Выбор испытания
 TrialsDescTitle:Условие
 TrialsPrizeTitle:Награда
 TrialDescCompleted:Награда уже была получена
-PriseBase5Trial:Командный центер №5
+PriseBase2Trial:Командный центер №2
+PriseBase4Trial:Командный центер №4
 PriseBase6Trial:Командный центер №6
-PriseBase7Trial:Командный центер №7
+PriseBase8Trial:Командный центер №8
 PassTrial:Пройдите испытание
 menuSettingsButton:Настройки
 TechUpX2Chance:Шанс X2 улучшения
