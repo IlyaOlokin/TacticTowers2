@@ -43,13 +43,7 @@ public class Settings : MonoBehaviour
 
     public int GetCurrentResolutionIndex()
     {
-        var currentResolutionIndex = 0;
-        for (var i = 0; i < resolutions169.Count; i++)
-        {
-            if (resolutions169[i].width == Screen.currentResolution.width && resolutions169[i].height == Screen.currentResolution.height)
-                currentResolutionIndex = i;
-        }
-        return currentResolutionIndex;
+        return resolutions169.Count - 1;
     }
 
     public void ChangeSoundVolume()
