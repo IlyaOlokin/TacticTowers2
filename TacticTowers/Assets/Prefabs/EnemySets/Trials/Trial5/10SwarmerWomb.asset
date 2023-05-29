@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Right:
   - enemy: {fileID: 970157617121620856, guid: 0c38a13ae7ad0b54c809e0bc5d99e851, type: 3}
-    enemyCount: 15
+    enemyCount: 5
   - enemy: {fileID: 2371698172123952198, guid: c84c3bd4b363f424da318ba44fc6266d, type: 3}
     enemyCount: 1
   Top:
@@ -22,7 +22,7 @@ MonoBehaviour:
     enemyCount: 5
   Left:
   - enemy: {fileID: 970157617121620856, guid: 0c38a13ae7ad0b54c809e0bc5d99e851, type: 3}
-    enemyCount: 15
+    enemyCount: 8
   Bot:
   - enemy: {fileID: 970157617121620856, guid: 0c38a13ae7ad0b54c809e0bc5d99e851, type: 3}
-    enemyCount: 15
+    enemyCount: 5
