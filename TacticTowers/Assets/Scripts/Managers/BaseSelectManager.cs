@@ -57,7 +57,9 @@ public class BaseSelectManager : MonoBehaviour
         DataLoader.SaveInt("selectedBaseIndex", SelectedBaseIndex);
         baseDescription.GetBaseInfo(bases[index].GetComponent<Base>());
         unlockBaseButton.SetActive(!baseUnlock[index]);
-        unlockBaseButton.GetComponent<Button>().interactable = !bases[index].GetComponent<Base>().isUnlockableFromTrial;
+        unlockBaseButton.GetComponent<Button>().interactable =
+            !bases[index].GetComponent<Base>().isUnlockableFromTrial &&
+            bases[index].GetComponent<Base>().unlockCost <= Credits.credits;
         selectIndicator.GetNewDestination(buttons[index].transform.position);
         playButton.interactable = baseUnlock[index];
         playButtonToolTip.enabled = !baseUnlock[index];
