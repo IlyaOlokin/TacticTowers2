@@ -60,6 +60,7 @@ public class TrialsSelectManager : MonoBehaviour
 
     public void OnPlay()
     {
+        AudioManager.Instance.Play("ButtonClick2");
         DataLoader.SaveString("PlaySceneLoad", "Trial" + (DataLoader.LoadInt("selectedTrialsIndex", 0) + 1).ToString());
         SceneManager.LoadScene("BaseChooseMenu");
     }

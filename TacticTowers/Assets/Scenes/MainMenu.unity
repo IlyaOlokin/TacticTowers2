@@ -2045,10 +2045,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1790322359}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1788173293}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: OpenSettings
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3023,7 +3023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textField: {fileID: 830281305}
-  key: menuExitButton
+  key: SettingsCloseButton
 --- !u!1 &977911577
 GameObject:
   m_ObjectHideFlags: 0
@@ -3903,7 +3903,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3014177423493089514, guid: 32b8dd8bc327a5e4ab05314e6f56db49, type: 3}
+  m_Sprite: {fileID: 3686259812047226265, guid: 2aded6306a9954d41932fb0bf688e4d8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4093,10 +4093,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1790322359}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1788173293}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: CloseSettings
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5266,6 +5266,7 @@ MonoBehaviour:
   - {fileID: 1814718240}
   - {fileID: 1954895815}
   languageSelectIndicator: {fileID: 1209868629}
+  settings: {fileID: 1790322359}
 --- !u!1 &1790322359
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,7 +30,7 @@ public class MenuChangeButton : MonoBehaviour
 
     public void LoadGameScene()
     {
-        AudioManager.Instance.Play("ButtonClick1");
+        AudioManager.Instance.Play("ButtonClick2");
         SceneManager.LoadScene("LoadScene");
     }
 }
