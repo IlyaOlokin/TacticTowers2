@@ -43,7 +43,7 @@ public class Settings : MonoBehaviour
 
     public int GetCurrentResolutionIndex()
     {
-        return resolutions169.Count - 1;
+        return DataLoader.LoadInt("ResolutionPreference", resolutions169.Count - 1);
     }
 
     public void ChangeSoundVolume()
