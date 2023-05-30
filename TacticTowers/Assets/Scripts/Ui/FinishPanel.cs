@@ -137,7 +137,7 @@ public class FinishPanel : MonoBehaviour
             }
             else
             {
-                currentPanel.transform.Find("BaseCount").transform.Find("BaseIndex").GetComponent<Text>().text = "¹" + Trial.sValue;
+                currentPanel.transform.Find("BaseCount").transform.Find("BaseIndex").GetComponent<Text>().text = "¹" + Trial.sValue + 1;
                 currentPanel.transform.Find("BaseCount").transform.Find("Image").GetComponent<Image>().sprite = TrialManager.Instance.spritesBase[Trial.sValue];
                 currentPanel.transform.Find("BaseCount").gameObject.SetActive(true);
             }

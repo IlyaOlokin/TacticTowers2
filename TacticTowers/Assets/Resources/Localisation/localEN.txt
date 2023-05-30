@@ -141,7 +141,7 @@ upgradeFrostImmuneIgnoreDesc:Ability to freeze all enemies
 upgradeFrostWidth:Width of the stream
 upgradeFrostWidthDesc:+50% to the width of the stream
 upgradeLaserBranchingBeam:Bifurcation of the beam
-upgradeLaserBranchingBeamDesc:After being hit, the beam splits into two additional targets, dealing 20% damage
+upgradeLaserBranchingBeamDesc:After hit, the beam splits, dealing 20% damage
 upgradeLaserSecondBeam:Second beam
 upgradeLaserSecondBeamDesc:The laser shoots a second beam if fully heated
 upgradeLaserSlow:Slowing down
@@ -198,8 +198,8 @@ TooltipChooseBase:Select the unlocked command center.
 TrialDesc1:The choice of towers has been reduced to a flamethrower. Only weak enemies come out in large numbers.
 TrialDesc2:All towers are directed to one side.
 TrialDesc3:All towers are rotated 45 degrees counterclockwise.
-TrialDesc4:A boss will appear on each wave.
-TrialDesc5:One big wave with slow opponents.
+TrialDesc4:Waves only consist of bosses.
+TrialDesc5:Each wave consists of enemies of the same type.
 TrialDesc6:One less tower.
 TrialDesc7:100% chance of X2 while upgrading towers.
 TrialDesc8:Hardmode - enemies are stronger, there are more of them, there is less money.
@@ -207,9 +207,10 @@ TitleTrialsScene:Chose a trial
 TrialsDescTitle:Condition
 TrialsPrizeTitle:Reward
 TrialDescCompleted:The reward has already been received
-PriseBase5Trial:Command Center №5
+PriseBase2Trial:Command Center №2
+PriseBase4Trial:Command Center №4
 PriseBase6Trial:Command Center №6
-PriseBase7Trial:Command Center №7
+PriseBase8Trial:Command Center №8
 PassTrial:Pass the trial
 menuSettingsButton:Settings
 TechUpX2Chance:X2 upgrade chance
