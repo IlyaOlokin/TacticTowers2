@@ -11,8 +11,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject playButton;
     [SerializeField] private List<GameObject> languageButtons;
     [SerializeField] private SelectIndicator languageSelectIndicator;
-    
-    
+    [SerializeField] private GameObject settings;
+
+
     public void OnButtonMusic()
     {
         AudioManager.Instance.Play("ButtonClick1");
@@ -72,6 +73,19 @@ public class MainMenu : MonoBehaviour
 
     public void ExitGame()
     {
+        AudioManager.Instance.Play("ButtonClick1");
         Application.Quit();
+    }
+
+    public void OpenSettings()
+    {
+        AudioManager.Instance.Play("ButtonClick1");
+        settings.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        AudioManager.Instance.Play("ButtonClick1");
+        settings.SetActive(false);
     }
 }
