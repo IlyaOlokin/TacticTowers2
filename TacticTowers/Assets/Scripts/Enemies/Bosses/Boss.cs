@@ -8,6 +8,7 @@ public class Boss : Enemy
     [Header("Boss")]
     [SerializeField] protected Sprite icon;
     [SerializeField] protected float maxHp;
+    protected bool isFunctional = true;
 
     public float GetMaxHp() => maxHp;
     public Sprite GetIcon() => icon;
@@ -21,5 +22,10 @@ public class Boss : Enemy
     protected virtual void BossDeath()
     {
         isDead = true;
+    }
+
+    public void SetFunctionality(bool isFunctional)
+    {
+        this.isFunctional = isFunctional;
     }
 }

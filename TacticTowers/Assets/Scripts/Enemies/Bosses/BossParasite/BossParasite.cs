@@ -19,6 +19,7 @@ public class BossParasite : Boss
 
     private void Update()
     {
+        if (!isFunctional) return;
         base.Update();
         TryToShoot();
         UpdateHp();

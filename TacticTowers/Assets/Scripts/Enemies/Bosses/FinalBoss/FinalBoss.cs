@@ -12,7 +12,7 @@ public class FinalBoss : Boss
     [SerializeField] private List<Threshold> thresholds;
     [SerializeField] private float changePositionDelay;
     [NonSerialized] public List<Transform> positions = new List<Transform>();
-    private Animator anim;
+    [SerializeField]private Animator anim;
     private float changePositionTimer;
 
     private void Awake()

@@ -265,7 +265,7 @@ MonoBehaviour:
   isImmuneToFreeze: 1
   knockBackResist: 1
   stunResist: 1
-  isImmortal: 0
+  isImmortal: 1
   hp: 0
   dmg: 100
   weight: 1000
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2735452914469190424}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3feb4145f57525d4da633942f984426b, type: 3}
   m_Name: 
@@ -416,6 +416,17 @@ MonoBehaviour:
   - {fileID: 2637137269561843709}
   - {fileID: 3095646540599923471}
   - {fileID: 4280467384098245084}
+  - {fileID: 6419268313368016189}
+  - {fileID: 3270716638307561861}
+  - {fileID: 501050901135801133}
+  - {fileID: 236246974307602141}
+  - {fileID: 4508676821348208186}
+  - {fileID: 6446058651105208809}
+  - {fileID: 631242971655281631}
+  - {fileID: 6475017511171233455}
+  - {fileID: 2898810448082291966}
+  - {fileID: 5253365919904166714}
+  - {fileID: 1823980302554087692}
   bossFunctionality:
   - {fileID: 3289408514062954294}
   - {fileID: 2637137269561843709}
@@ -426,6 +437,7 @@ MonoBehaviour:
   - hpThreshold: 0.5
   - hpThreshold: 0.25
   changePositionDelay: 30
+  anim: {fileID: 0}
 --- !u!1 &4588691749895395681
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +590,7 @@ MonoBehaviour:
   isImmuneToFreeze: 1
   knockBackResist: 1
   stunResist: 1
-  isImmortal: 0
+  isImmortal: 1
   hp: 0
   dmg: 100
   weight: 1000
@@ -591,7 +603,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4588691749895395681}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3feb4145f57525d4da633942f984426b, type: 3}
   m_Name: 
@@ -749,7 +761,7 @@ MonoBehaviour:
   isImmuneToFreeze: 1
   knockBackResist: 1
   stunResist: 1
-  isImmortal: 0
+  isImmortal: 1
   hp: 0
   dmg: 100
   weight: 1000
@@ -762,7 +774,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5037544758763912066}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3feb4145f57525d4da633942f984426b, type: 3}
   m_Name: 
@@ -920,7 +932,7 @@ MonoBehaviour:
   isImmuneToFreeze: 1
   knockBackResist: 1
   stunResist: 1
-  isImmortal: 0
+  isImmortal: 1
   hp: 0
   dmg: 100
   weight: 1000
@@ -933,7 +945,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5673423712265228753}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3feb4145f57525d4da633942f984426b, type: 3}
   m_Name: 
@@ -1207,7 +1219,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6446521072730810912}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3feb4145f57525d4da633942f984426b, type: 3}
   m_Name: 
@@ -1714,7 +1726,7 @@ MonoBehaviour:
   isImmuneToFreeze: 1
   knockBackResist: 1
   stunResist: 1
-  isImmortal: 0
+  isImmortal: 1
   hp: 0
   dmg: 100
   weight: 1000
@@ -1727,7 +1739,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7602535456070504742}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3feb4145f57525d4da633942f984426b, type: 3}
   m_Name: 
@@ -1916,7 +1928,7 @@ MonoBehaviour:
   isImmuneToFreeze: 1
   knockBackResist: 1
   stunResist: 1
-  isImmortal: 0
+  isImmortal: 1
   hp: 0
   dmg: 100
   weight: 1000
@@ -1929,7 +1941,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8067839417981041009}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3feb4145f57525d4da633942f984426b, type: 3}
   m_Name: 
@@ -2087,7 +2099,7 @@ MonoBehaviour:
   isImmuneToFreeze: 1
   knockBackResist: 1
   stunResist: 1
-  isImmortal: 0
+  isImmortal: 1
   hp: 0
   dmg: 100
   weight: 1000
@@ -2100,7 +2112,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8874199289828089985}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3feb4145f57525d4da633942f984426b, type: 3}
   m_Name: 
@@ -2133,6 +2145,18 @@ PrefabInstance:
       propertyPath: isHpHidden
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 983975984874729764, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: isImmortal
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864871392405597218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958722844271864207, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2684442192003813592, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.25
@@ -2142,19 +2166,11 @@ PrefabInstance:
       value: -2.9
       objectReference: {fileID: 0}
     - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
-      propertyPath: isImmortal
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: KnockBackResist
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: IsImmuneToFreeze
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
-      propertyPath: isImmuneToFreeze
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3600973502423101069, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
@@ -2165,12 +2181,20 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5680730120057699169, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6359224592557924874, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: isHpHidden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: isImmortal
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6634871045546908824, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
@@ -2258,6 +2282,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72bbccb6a6b4a234cbe217a57458a58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6446058651105208809 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+  m_PrefabInstance: {fileID: 388832196162530043}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &631242971655281631 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 983975984874729764, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+  m_PrefabInstance: {fileID: 388832196162530043}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1510918755045273640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2273,9 +2319,17 @@ PrefabInstance:
       propertyPath: isHpHidden
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+    - target: {fileID: 983975984874729764, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: isImmortal
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864871392405597218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958722844271864207, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3427409680922622452, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: KnockBackResist
@@ -2297,12 +2351,20 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5680730120057699169, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6359224592557924874, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
       propertyPath: isHpHidden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+      propertyPath: isImmortal
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6634871045546908824, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
@@ -2380,5 +2442,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72bbccb6a6b4a234cbe217a57458a58d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5253365919904166714 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6633917572162323218, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+  m_PrefabInstance: {fileID: 1510918755045273640}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1823980302554087692 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 983975984874729764, guid: 94ca92431e2608e4fb54757b7ffbddc9, type: 3}
+  m_PrefabInstance: {fileID: 1510918755045273640}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
