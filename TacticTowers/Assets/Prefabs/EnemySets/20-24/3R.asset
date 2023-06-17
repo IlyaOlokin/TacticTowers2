@@ -14,17 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Right:
   - enemy: {fileID: 5937050097135992818, guid: a09415d41cb7e96458b0d0ae9a5ba140, type: 3}
-    enemyCount: 60
+    enemyCount: 55
   Top:
   - enemy: {fileID: 5937050097135992818, guid: a09415d41cb7e96458b0d0ae9a5ba140, type: 3}
-    enemyCount: 45
+    enemyCount: 41
   - enemy: {fileID: 5937050097135992818, guid: 2ff29055e0d453b48a62c1e361c9c575, type: 3}
     enemyCount: 10
+  - enemy: {fileID: 6187481930817503581, guid: 93662943365ba754d953e445d151c09b, type: 3}
+    enemyCount: 5
   Left:
   - enemy: {fileID: 5937050097135992818, guid: a09415d41cb7e96458b0d0ae9a5ba140, type: 3}
-    enemyCount: 65
+    enemyCount: 50
   - enemy: {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemyCount: 3
+  - enemy: {fileID: 6187481930817503581, guid: 93662943365ba754d953e445d151c09b, type: 3}
+    enemyCount: 10
   Bot:
   - enemy: {fileID: 5937050097135992818, guid: a09415d41cb7e96458b0d0ae9a5ba140, type: 3}
-    enemyCount: 40
+    enemyCount: 35

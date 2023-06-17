@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f16bce0bfb5b45c47b1468ed53b83d05, type: 3}
+  m_Name: Mortar 2
+  m_EditorClassIdentifier: 
+  <towerSprite>k__BackingField: {fileID: -3569483570287328100, guid: 524925d19be4028419f9604b5a40d459, type: 3}
+  <cannonSprite>k__BackingField: {fileID: 1104754970020131181, guid: 524925d19be4028419f9604b5a40d459, type: 3}
+  <basementSprite>k__BackingField: {fileID: -6898596411823988649, guid: 524925d19be4028419f9604b5a40d459, type: 3}

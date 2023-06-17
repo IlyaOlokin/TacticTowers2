@@ -17,7 +17,7 @@ public class FreezeEnemyTemporary : BaseActive
         box.freezeStacksNeeded = freezeStacksNeeded;
         box.freezeStacksPerHit = freezeStacksPerHit;
         box.freezeTime = duration;
-        box.FreezeEnemy(); 
+        box.gameObject.SetActive(true);
         GetComponent<Base>().UpdateAbilityTimer();
         Instantiate(freezeExplosion, transform.position, Quaternion.identity);
         audioSrc.PlayOneShot(audioSrc.clip);

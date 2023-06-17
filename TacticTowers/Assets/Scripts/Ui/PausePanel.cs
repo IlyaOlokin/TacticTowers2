@@ -13,11 +13,11 @@ public class PausePanel : MonoBehaviour
     [SerializeField] private GameObject confirmPanel;
     [SerializeField] private List<GameObject> towers;
     [SerializeField] private Text creditsCount;
-    [SerializeField] private GameObject soundButton;
-    [SerializeField] private GameObject musicButton;
     [SerializeField] private GameObject confirmButton;
     [SerializeField] private AudioMixer audioMixer;
     private bool isForRestart;
+    public Slider soundSlider;
+    public Slider musicSlider;
 
     public void OnButtonRestart()
     {
@@ -39,6 +39,7 @@ public class PausePanel : MonoBehaviour
     {
         pausePanel.SetActive(false);
         confirmPanel.transform.Find("CreditsCount").transform.Find("Count").GetComponent<Text>().text = creditsCount.text;
+        //confirmButton.transform.Find("Header").GetComponent<TextLocaliser>().SetKey(isForRestart ? "menuRestartButton" : "menuMenuButton"); 
         confirmButton.transform.Find("Text").GetComponent<TextLocaliser>().SetKey(isForRestart ? "menuRestartButton" : "menuMenuButton"); 
         confirmPanel.SetActive(true);
     }
@@ -47,18 +48,6 @@ public class PausePanel : MonoBehaviour
     {
         Resume();
         AudioManager.Instance.Play("ButtonClick1");
-    }
-
-    public void OnButtonSound()
-    {
-        AudioManager.Instance.Play("ButtonClick1");
-        soundButton.GetComponent<SoundButton>().Switch();
-    }
-
-    public void OnButtonMusic()
-    {
-        AudioManager.Instance.Play("ButtonClick1");
-        musicButton.GetComponent<MusicButton>().Switch();
     }
 
     public void OnButtonCancel()
@@ -76,7 +65,6 @@ public class PausePanel : MonoBehaviour
 
     public void OnButtonContinue()
     {
-        ShowCommonAd();
         Resume();
         AudioManager.Instance.Play("ButtonClick1");
         Credits.LoseSessionCredits();
@@ -105,8 +93,8 @@ public class PausePanel : MonoBehaviour
 
     private void OnEnable()
     {
-        musicButton.GetComponent<MusicButton>().Init();
-        soundButton.GetComponent<SoundButton>().Init();
+        soundSlider.value = float.Parse(DataLoader.LoadString("SoundVolume", "1"));
+        musicSlider.value = float.Parse(DataLoader.LoadString("MusicVolume", "1"));
     }
 
     private void Update()
@@ -119,21 +107,23 @@ public class PausePanel : MonoBehaviour
             }
             else if (!pausePanel.activeInHierarchy)
             {
-                if (towers.Any(tower =>  tower.GetComponent<TowerDrag>().needToDrop)) return;
+                if (towers.Any(tower =>  tower.GetComponent<TowerDrag>().needToDrop) || Time.timeScale == 0) return;
                 Pause();
             }
         }
     }
-    
-    private void ShowCommonAd()
+
+    public void ChangeMusicVolume()
     {
-        try
-        {
-            YandexSDK.Instance.ShowCommonAdvertisment();
-        }
-        catch 
-        {
-            Console.WriteLine("add");
-        }
+        if (musicSlider.value == 0) audioMixer.SetFloat("MusicVol", -80.0f);
+        else audioMixer.SetFloat("MusicVol", -20.0f + (20.0f * musicSlider.value));
+        DataLoader.SaveString("MusicVolume", musicSlider.value.ToString());
+    }
+
+    public void ChangeSoundVolume()
+    {
+        if (soundSlider.value == 0) audioMixer.SetFloat("SoundVol", -80.0f);
+        else audioMixer.SetFloat("SoundVol", -20.0f + (20.0f * soundSlider.value));
+        DataLoader.SaveString("SoundVolume", soundSlider.value.ToString());
     }
 }

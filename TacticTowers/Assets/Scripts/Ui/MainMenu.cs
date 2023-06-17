@@ -11,8 +11,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject playButton;
     [SerializeField] private List<GameObject> languageButtons;
     [SerializeField] private SelectIndicator languageSelectIndicator;
-    
-    
+    [SerializeField] private GameObject settings;
+
+
     public void OnButtonMusic()
     {
         AudioManager.Instance.Play("ButtonClick1");
@@ -29,14 +30,21 @@ public class MainMenu : MonoBehaviour
     {
         var isTutorialCompleted = Convert.ToBoolean(DataLoader.LoadInt("isTutorialCompleted", 0));
         AudioManager.Instance.Play("ButtonClick2");
+        DataLoader.SaveString("PlaySceneLoad", isTutorialCompleted ? "GameField" : "Tutorial");
         //playButton.GetComponent<AudioSource>().Play();
-        SceneManager.LoadScene(isTutorialCompleted ? "BaseChooseMenu" : "Tutorial");
+        SceneManager.LoadScene(isTutorialCompleted ? "BaseChooseMenu" : "LoadScene");
     }
     
     public void OnButtonUpgrades()
     {
         AudioManager.Instance.Play("ButtonClick1");
         SceneManager.LoadScene("TechsMenu");
+    }
+
+    public void OnButtonTrials()
+    {
+        AudioManager.Instance.Play("ButtonClick1");
+        SceneManager.LoadScene("TrialsMenu");
     }
 
     public void InitializeLanguage()
@@ -61,5 +69,23 @@ public class MainMenu : MonoBehaviour
     {
         AudioManager.Instance.Play("ButtonClick2");
         SceneManager.LoadScene("Tutorial");
+    }
+
+    public void ExitGame()
+    {
+        AudioManager.Instance.Play("ButtonClick1");
+        Application.Quit();
+    }
+
+    public void OpenSettings()
+    {
+        AudioManager.Instance.Play("ButtonClick1");
+        settings.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        AudioManager.Instance.Play("ButtonClick1");
+        settings.SetActive(false);
     }
 }

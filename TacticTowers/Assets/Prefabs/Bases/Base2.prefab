@@ -29,11 +29,11 @@ RectTransform:
   m_Children:
   - {fileID: 4091392695328637915}
   m_Father: {fileID: 6648927895162747827}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -0.56599426, y: 0}
+  m_AnchoredPosition: {x: -0.56599426, y: -0.00000047683716}
   m_SizeDelta: {x: -1.133, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1232877368992187770
@@ -200,7 +200,7 @@ SpriteRenderer:
   m_Size: {x: 10, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &7975433615293021977
@@ -235,6 +235,8 @@ MonoBehaviour:
   maxHp: 100
   canvas: {fileID: 2684678455201405035}
   unlockCost: 100
+  isUnlockableFromTrial: 1
+  trialToUnlockIndex: 2
   baseImage: {fileID: 4958774466499726260, guid: 26c6c5c61930f1c45b4ce38e214ad365, type: 3}
 --- !u!114 &7699162735525945506
 MonoBehaviour:
@@ -585,9 +587,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 3569922722936731721}
   - {fileID: 180824914352308728}
   - {fileID: 4140343431050914624}
-  - {fileID: 3569922722936731721}
   m_Father: {fileID: 6644907858045858655}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -860,7 +862,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6648927895162747827}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
@@ -935,7 +937,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6648927895162747827}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}

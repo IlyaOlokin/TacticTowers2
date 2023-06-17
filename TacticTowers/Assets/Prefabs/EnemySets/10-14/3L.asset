@@ -14,21 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Right:
   - enemy: {fileID: 5937050097135992818, guid: d6e5fdd618400b04884b37a9956bab7b, type: 3}
-    enemyCount: 10
+    enemyCount: 9
   - enemy: {fileID: 5937050097135992818, guid: 6dea90941351c344e852875253aa2a49, type: 3}
     enemyCount: 1
   - enemy: {fileID: 5937050097135992818, guid: e29d39e670e60384d808d1de9461ef03, type: 3}
     enemyCount: 12
   Top:
   - enemy: {fileID: 5937050097135992818, guid: d6e5fdd618400b04884b37a9956bab7b, type: 3}
-    enemyCount: 10
+    enemyCount: 8
   - enemy: {fileID: 5937050097135992818, guid: 207042b642895094f99c0e7b41c829ab, type: 3}
     enemyCount: 15
   Left:
   - enemy: {fileID: 5937050097135992818, guid: d6e5fdd618400b04884b37a9956bab7b, type: 3}
-    enemyCount: 10
+    enemyCount: 9
   - enemy: {fileID: 5937050097135992818, guid: 207042b642895094f99c0e7b41c829ab, type: 3}
-    enemyCount: 30
+    enemyCount: 10
+  - enemy: {fileID: 6827577203655098640, guid: 185ee16bf6622464aac232fb4d642f88, type: 3}
+    enemyCount: 15
   Bot:
   - enemy: {fileID: 5937050097135992818, guid: d6e5fdd618400b04884b37a9956bab7b, type: 3}
-    enemyCount: 10
+    enemyCount: 8

@@ -22,7 +22,6 @@ public static class Credits
         CreditsInTotal += credits;
         DataLoader.SaveInt("Credits", Credits.credits);
         DataLoader.SaveInt("CreditsInTotal", CreditsInTotal);
-        YandexSDK.Instance.SetLeaderScore(CreditsInTotal);
     }
 
     public static void AddSessionCredits(int credits)

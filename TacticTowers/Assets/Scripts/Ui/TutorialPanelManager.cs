@@ -14,12 +14,8 @@ public class TutorialPanelManager : MonoBehaviour
     [SerializeField] private Text waveText;
     [SerializeField] private GameObject upgradeWindow;
     [SerializeField] private List<Text> towerLevels;
-    
-    [SerializeField] private Base _base;
-    [SerializeField] private GameObject baseAbilityMenu;
-    [SerializeField] private Button baseAbilityButton;
-    [SerializeField] private Image baseAbilityCoolDownImage;
-    [SerializeField] private Text baseCoolDownText;
+    [SerializeField] private List<GameObject> normalTowers;
+    [SerializeField] private List<Tower> upgradedTowers;
     private int collidedPanelNum;
     
     public void SetCollidedPanelNum(int panelNum)
@@ -41,12 +37,17 @@ public class TutorialPanelManager : MonoBehaviour
             case 2 when collidedPanelNum == 2:
                 panels[1].SetActive(true);
                 panelChangers[0].SetActive(false);
-                collidedPanelNum = 0;
                 break;
-            case 3 when collidedPanelNum == 3:
-                if (waveCount[0] == waveCount[1])
+            case 3:
+                if (collidedPanelNum == 2 && enemies.transform.childCount == 0)
+                {
+                    panelChangers[1].SetActive(true);
+                }
+                else if (collidedPanelNum == 3 && waveCount[0] == 2)
+                {
                     panels[2].SetActive(true);
-                panelChangers[1].SetActive(false);
+                    panelChangers[1].SetActive(false);
+                }
                 break;
             case 4:
                 panels[3].SetActive(true);
@@ -57,32 +58,39 @@ public class TutorialPanelManager : MonoBehaviour
                 break;
             case 6 when enemies.transform.childCount == 0:
                 panels[5].SetActive(true);
+                Timer.Stop();
                 break;
             case 7:
-                if (towerLevels.Select(t => t.text).Select(int.Parse).Any(l => l > 1) && !upgradeWindow.activeInHierarchy)
+                if (towerLevels.Select(t => t.text).Select(int.Parse).Any(l => l > 1) &&
+                    !upgradeWindow.activeInHierarchy)
+                {
+                    StartCoroutine(nameof(WaitForShootZones));
                     panels[6].SetActive(true);
+                    Timer.Play();
+                    foreach (var tower in normalTowers)
+                        tower.SetActive(false);
+                    foreach (var tower in upgradedTowers)
+                    {
+                        tower.currentVisualSpriteIndex = 3;
+                        foreach (var specialUpgrade in tower.specialUpgrades)
+                            specialUpgrade.Execute(tower);
+                        tower.upgradeLevel = 20;
+                        tower.transform.parent.gameObject.SetActive(true);
+                    }
+                }
                 break;
-            /*
-            case 8 when enemies.transform.childCount == 0:
-                panels[7].SetActive(true);
+            case 8:
+                //if (base)
                 break;
-            case 9 when enemies.transform.childCount == 0:
-                panels[8].SetActive(true);
-                break;
-            case 10:
-                if (towerLevels.Select(t => t.text).Select(int.Parse).Any(l => l > 1) && !upgradeWindow.activeInHierarchy)
-                    panels[9].SetActive(true);
-                break;*/
         }
     }
-
+    private IEnumerator WaitForShootZones()
+    {
+        yield return new WaitForSeconds(2.0f);
+    }
+    
     private void Awake()
     {
-        _base.ExecuteBasePassiveEffect();
-        _base.baseAbilityMenu = baseAbilityMenu;
-        _base.abilityButton = baseAbilityButton;
-        _base.coolDownImage = baseAbilityCoolDownImage;
-        _base.coolDownText = baseCoolDownText;
         CurrentPanel = 1;
     }
 }

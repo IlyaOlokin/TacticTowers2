@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class Fire : MonoBehaviour
 {
-    [NonSerialized] public float burnTime;
-    [NonSerialized] public float burnDmg;
-    [NonSerialized] public GameObject fire;
+    private static float GlobalBurnMultiplier = 1;
+    
+    public float burnTime;
+    public float burnDmg;
+    //[NonSerialized] public GameObject fire;
     private GameObject newFire;
     private Enemy enemy;
     
@@ -18,7 +21,7 @@ public class Fire : MonoBehaviour
     private void Start()
     {
         enemy = GetComponent<Enemy>();
-        newFire = Instantiate(fire, transform.position, Quaternion.identity, enemy.transform);
+        newFire = Instantiate(EnemyVFXManager.Instance.GetEffect("FireOnEnemy").effect, transform.position, Quaternion.identity, enemy.transform);
     }
 
     void Update()
@@ -26,7 +29,6 @@ public class Fire : MonoBehaviour
         burnTime -= Time.deltaTime;
         if (burnTime <= 0)
         {
-            Destroy(newFire.gameObject);
             Destroy(this);
         }
         
@@ -35,9 +37,27 @@ public class Fire : MonoBehaviour
         if (dmgDelayTimer <= 0) DealDamage();
     }
 
+    public static void ResetGlobalBurnMultiplier()
+    {
+        GlobalBurnMultiplier = 1;
+    }
+    
+    public static void MultiplyGlobalBurnMultiplier(float multiplier)
+    {
+        GlobalBurnMultiplier *= multiplier;
+    }
+
     private void DealDamage()
     {
-        enemy.TakeDamage(burnDmg, damageType, transform.position);
+        enemy.TakeDamage(burnDmg * GlobalBurnMultiplier, damageType, transform.position);
         dmgDelayTimer = dmgDelay;
     }
+
+    private void OnDestroy()
+    {
+        if (newFire != null)
+            Destroy(newFire.gameObject);
+    }
+    
+    
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,27 @@ public class Minigun : Tower
     [SerializeField] public float coolDelay;
     [SerializeField] public float coolDelayMultiplier;
 
+    [NonSerialized] public bool hasPenetrationUpgrade;
+
+    private GameObject currentEnemy;
+
+    [Header("Penetration Upgrade")] 
+    [SerializeField] private float penetrationDamageMultiplier;
+    [SerializeField] private int penetrationsCount;
+    
+    [NonSerialized] public bool hasDamageStackUpgrade;
+    
+    [Header("Damage Stack Upgrade")] 
+    [SerializeField] private float bonusMultiplierForStack;
+    [SerializeField] private int maxDamageStacksCount;
+    private int damageStacksCount;
+    
+    [NonSerialized] public bool hasCriticalUpgrade;
+
+    [Header("Critical Upgrade")]
+    [SerializeField] private float critChance;
+
+    
     private void Start() => audioSrc = GetComponent<AudioSource>();
     
     private new void Update()
@@ -45,22 +67,51 @@ public class Minigun : Tower
     {
         if (enemy == null) return;
 
-        LootAtTarget(enemy);
+        if (currentEnemy != enemy) ResetDamageStacksCount();
+
+        currentEnemy = enemy;
+
+        LootAtTarget(enemy.transform.position);
 
         if (shootDelayTimer <= 0)
         {
             heatCount = Mathf.Ceil(heatCount);
             shootDelayTimer = 1f / (GetAttackSpeed() + heatCount * bonusAttackSpeedPerHeat * bonusAttackSpeedPerHeatMultiplier);
-            if (heatCount < maxHeat * maxHeatMultiplier) heatCount += 1;
+            if (heatCount < GetMaxHeat()) heatCount += 1;
             coolTimer = coolDelay * coolDelayMultiplier;
             var newBullet = Instantiate(bullet, transform.position, towerCanon.transform.rotation);
             var bulletComponent = newBullet.GetComponent<Bullet>();
-            bulletComponent.Dmg = GetDmg();
+            
+            if (hasCriticalUpgrade && heatCount >= GetMaxHeat() && IsCriticalShot(critChance))
+            {
+                bulletComponent.ActivateVisualEffect();
+                bulletComponent.Dmg = GetDmg() * 2f;
+                bulletComponent.isCritical = true;
+            }
+            else bulletComponent.Dmg = GetDmg();
+            
             bulletComponent.Speed = bulletSpeed;
             bulletComponent.enemiesToIgnore = enemiesToIgnore;
             bulletComponent.departurePos = transform.position;
-            
+            bulletComponent.hasPenetrationUpgrade = hasPenetrationUpgrade;
+            bulletComponent.penetrationDamageMultiplier = penetrationDamageMultiplier;
+            bulletComponent.penetrationsCount = penetrationsCount;
+            var minigunBulletComponent = newBullet.GetComponent<MinigunBullet>();
+            minigunBulletComponent.sender = this;
+            minigunBulletComponent.target = enemy;
+
             audioSrc.PlayOneShot(audioSrc.clip);
         }
     }
+
+    public float GetBonusStackDamageMultiplier() => 1 + bonusMultiplierForStack * damageStacksCount;
+
+    public float GetMaxHeat() => maxHeat * maxHeatMultiplier;
+
+    public void IncrementStacksCount()
+    {
+        if (damageStacksCount < maxDamageStacksCount) damageStacksCount++;
+    }
+
+    public void ResetDamageStacksCount() => damageStacksCount = 0;
 }

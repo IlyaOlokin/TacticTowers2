@@ -6,7 +6,7 @@ using UnityEngine;
 public class DamageZoneBox : MonoBehaviour
 {
     [NonSerialized] private List<Enemy> enemies = new List<Enemy>();
-    [SerializeField] private float damage;
+    public float damage;
     [SerializeField] private float periodBetweenDmg;
     [NonSerialized] private float period;
     [SerializeField] public float duration;
@@ -16,8 +16,8 @@ public class DamageZoneBox : MonoBehaviour
     private void Start()
     {
         period = periodBetweenDmg;
-        audioSrc = GetComponent<AudioSource>();
-        audioSrc.Play();
+        if(TryGetComponent<AudioSource>(out audioSrc))
+            audioSrc.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

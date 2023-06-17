@@ -93,10 +93,11 @@ GameObject:
   - component: {fileID: 6634871045546908826}
   - component: {fileID: 6634871045546908825}
   - component: {fileID: 3600973502423101069}
-  - component: {fileID: 3306579803053730712}
+  - component: {fileID: 5871619395153293121}
+  - component: {fileID: 154426742179074188}
   - component: {fileID: 3427409680922622452}
   - component: {fileID: 1958722844271864207}
-  - component: {fileID: 154426742179074188}
+  - component: {fileID: 3306579803053730712}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Enemy
@@ -194,6 +195,80 @@ NavMeshAgent:
   m_BaseOffset: 0.05
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 1
+--- !u!50 &5871619395153293121
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6634871045546908824}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 5
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!58 &154426742179074188
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6634871045546908824}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.68
+--- !u!114 &3427409680922622452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6634871045546908824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 14
+  isHpHidden: 1
+  isImmuneToFire: 0
+  isImmuneToFreeze: 1
+  knockBackResist: 1
+  stunResist: 1
+  isImmortal: 1
+  hp: 0
+  dmg: 100
+  weight: 1000
+  initialSpeed: 0
+  creditsDropChance: 0
+--- !u!114 &1958722844271864207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6634871045546908824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3feb4145f57525d4da633942f984426b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossPartHp: 0
 --- !u!114 &3306579803053730712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,55 +302,6 @@ MonoBehaviour:
   minDelay: 20
   maxDelay: 40
   spawnZone: {fileID: 2684442192003813592}
---- !u!114 &3427409680922622452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6634871045546908824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmg: 100
-  hp: 0
-  creditsDropChance: 100
-  weight: 1000
-  isImmortal: 1
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
---- !u!114 &1958722844271864207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6634871045546908824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3feb4145f57525d4da633942f984426b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossPartHp: 0
---- !u!58 &154426742179074188
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6634871045546908824}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.68
 --- !u!1 &7682581278262256063
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,14 +448,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 100
+  enemyType: 0
+  isHpHidden: 0
+  isImmuneToFire: 0
+  isImmuneToFreeze: 1
+  knockBackResist: 1
+  stunResist: 1
+  isImmortal: 0
   hp: 0
-  creditsDropChance: 100
+  dmg: 100
   weight: 1000
-  isImmortal: 1
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
+  initialSpeed: 0
+  creditsDropChance: 0
 --- !u!114 &1864871392405597218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,14 +619,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252accf594302074f81786d3a7aa5c9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: 100
+  enemyType: 0
+  isHpHidden: 0
+  isImmuneToFire: 0
+  isImmuneToFreeze: 1
+  knockBackResist: 1
+  stunResist: 1
+  isImmortal: 0
   hp: 0
-  creditsDropChance: 100
+  dmg: 100
   weight: 1000
-  isImmortal: 1
-  damageNumberEffect: {fileID: 815261751823753823, guid: 3f3a39092df20cc449b4d4227113c0ff, type: 3}
-  deathParticles: {fileID: 4128553405824924428, guid: 15b855669ef28b84ebcb8f0cdb0879ec, type: 3}
-  burnMaterial: {fileID: 2100000, guid: 34c955d43e645e1428e7e98fbe4c3546, type: 2}
+  initialSpeed: 0
+  creditsDropChance: 0
 --- !u!114 &5680730120057699169
 MonoBehaviour:
   m_ObjectHideFlags: 0

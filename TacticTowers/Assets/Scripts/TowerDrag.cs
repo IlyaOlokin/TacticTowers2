@@ -58,13 +58,13 @@ public class TowerDrag : MonoBehaviour
 
     private void CheckForConflicts()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, tower.transform.localScale.x * 2.5f);
+        Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, 0.275f);
         bool _hasConflicts = false;
-        foreach (var hitEnemy in hitEnemies)
+        foreach (var hitObject in hitObjects)
         {
-            var otherGameObject = hitEnemy.gameObject;
+            var otherGameObject = hitObject.gameObject;
             if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") ||
-                otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall"))
+                otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall") || otherGameObject.CompareTag("Web"))
             {
                 _hasConflicts = true;
                 break;
@@ -101,6 +101,7 @@ public class TowerDrag : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (tower.IsDisarmed()) return;
         pressStartPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         triedToDrag = true;
         IgnoreEnemiesToIgnore();
@@ -177,7 +178,7 @@ public class TowerDrag : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         var otherGameObject = other.gameObject;
-        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall"))
+        if (otherGameObject.CompareTag("Enemy") || otherGameObject.CompareTag("Base") || otherGameObject.CompareTag("Tower") || otherGameObject.CompareTag("Wall") || otherGameObject.CompareTag("Web"))
         {
             IgnoreEnemiesToIgnore();
         }

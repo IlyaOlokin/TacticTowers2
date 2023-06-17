@@ -12,15 +12,22 @@ public class Flamethrower : Tower
     [SerializeField] private GameObject flameBox;
     [SerializeField] private Transform flameStartPos;
     
-    
     private GameObject currentEnemy;
     private GameObject activeFlameBox;
-    private ParticleSystem ps;
-    [NonSerialized] public bool shooting;
+    private float defaultFlameBoxWidth;
+    
+    [NonSerialized] public bool hasWidthUpgrade;
+    [Header("Width Upgrade")] 
+    [SerializeField] private float widthMultiplier;
+    
+    [NonSerialized] public bool hasCloseDamageUpgrade;
+    [Header("Width Upgrade")] 
+    [SerializeField] private float closeDamageMultiplier;
+    
+    [NonSerialized] public bool hasGlobalBurnUpgrade;
 
     private void Start()
-    { 
-        ps = GetComponent<ParticleSystem>();
+    {
         audioSrc = GetComponent<AudioSource>();
     }
 
@@ -32,17 +39,16 @@ public class Flamethrower : Tower
         {
             DestroyFlameBox();
             currentEnemy = null;
-            shooting = false;
             audioSrc.Stop();
 
             return;
         }
-        LootAtTarget(enemy);
+        LootAtTarget(enemy.transform.position);
+
 
         if (enemy != currentEnemy)
         {
             DestroyFlameBox();
-            shooting = false;
             audioSrc.Stop();
 
         }
@@ -52,19 +58,19 @@ public class Flamethrower : Tower
             if (enemy != currentEnemy)
             {
                 activeFlameBox = Instantiate(flameBox, transform.position, towerCanon.transform.rotation);
-                activeFlameBox.GetComponent<FlameBox>().dmg = GetDmg();
-                activeFlameBox.GetComponent<FlameBox>().attackSpeed = GetAttackSpeed();
-                activeFlameBox.GetComponent<FlameBox>().burnDmg = GetBurnDmg();
-                activeFlameBox.GetComponent<FlameBox>().burnTime = burnTime * burnTimeMultiplier;
+
+                FlameBox flameBoxComponent = activeFlameBox.GetComponent<FlameBox>();
+                flameBoxComponent.dmg = GetDmg();
+                flameBoxComponent.attackSpeed = GetAttackSpeed();
+                flameBoxComponent.burnDmg = GetBurnDmg();
+                flameBoxComponent.burnTime = burnTime * burnTimeMultiplier;
+                flameBoxComponent.closeDamageMultiplier = closeDamageMultiplier;
+                flameBoxComponent.sender = this;
+                flameBoxComponent.senderPos = transform.position;
                 
-                //activeFlameBox.GetComponent<FlameBox>().flameStartPos = flameStartPos.position;
-                //activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, GetShootDistance());
-                var fireDistance = GetFireDistance(enemy);
-                activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, activeFlameBox.transform.localScale.x * 2.5f * fireDistance / 3f);
-                activeFlameBox.transform.position = ((transform.up * fireDistance + transform.position) + flameStartPos.position) / 2f;
+                defaultFlameBoxWidth = activeFlameBox.transform.localScale.x ;
                 currentEnemy = enemy;
                 
-                shooting = true;
                 audioSrc.Play();
             }
             
@@ -75,7 +81,7 @@ public class Flamethrower : Tower
         {
             var fireDistance = GetFireDistance(enemy);
             activeFlameBox.transform.position = ((towerCanon.transform.up * fireDistance + flameStartPos.position) + transform.position) / 2f;
-            activeFlameBox.transform.localScale = new Vector3(activeFlameBox.transform.localScale.x, activeFlameBox.transform.localScale.x * 2.5f * fireDistance / 3f);
+            activeFlameBox.transform.localScale = new Vector3(defaultFlameBoxWidth * GetWidthMultiplier(), defaultFlameBoxWidth * 2.5f * fireDistance / 3f);
 
             activeFlameBox.transform.rotation = towerCanon.transform.rotation;
         }
@@ -99,8 +105,7 @@ public class Flamethrower : Tower
         activeFlameBox = null;
     }
 
-    private float GetBurnDmg()
-    {
-        return burnDmg * burnDmgMultiplier;
-    }
+    private float GetBurnDmg() => burnDmg * burnDmgMultiplier;
+
+    private float GetWidthMultiplier() => hasWidthUpgrade ? widthMultiplier : 1;
 }
