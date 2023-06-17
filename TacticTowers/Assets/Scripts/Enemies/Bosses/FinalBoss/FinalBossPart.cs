@@ -19,7 +19,8 @@ public class FinalBossPart : MonoBehaviour
     {
         if (bossPartHp + enemyComp.GetHp() <= 0)
         {
-            Destroy(bossAbility);
+            //Destroy(bossAbility);
+            bossAbility.SetFunctionality(false);
             Destroy(this);
         }
     }

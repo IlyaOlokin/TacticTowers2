@@ -13658,8 +13658,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.292862, y: -131.85356}
-  m_SizeDelta: {x: -44.67, y: -332.86}
+  m_AnchoredPosition: {x: 0, y: -131.85356}
+  m_SizeDelta: {x: -44.66999, y: -332.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6733212592033095640
 CanvasRenderer:
@@ -22921,8 +22921,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.4904938, y: 114.21}
-  m_SizeDelta: {x: -32.78, y: -332.61502}
+  m_AnchoredPosition: {x: 1.4600067, y: 114.21002}
+  m_SizeDelta: {x: -41.75, y: -332.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7874520700501767225
 CanvasRenderer:
@@ -22956,8 +22956,8 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: c8061a3b6160847418107f072e8d8f8d, type: 3}
     m_FontSize: 33
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
+    m_BestFit: 1
+    m_MinSize: 30
     m_MaxSize: 35
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -24276,8 +24276,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 113.23003}
-  m_SizeDelta: {x: -32.78, y: -334.58}
+  m_AnchoredPosition: {x: 1.4600067, y: 114.21002}
+  m_SizeDelta: {x: -41.75, y: -332.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7102413589485696911
 CanvasRenderer:
@@ -24311,8 +24311,8 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: c8061a3b6160847418107f072e8d8f8d, type: 3}
     m_FontSize: 33
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
+    m_BestFit: 1
+    m_MinSize: 30
     m_MaxSize: 35
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -44582,8 +44582,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.4904938, y: 114.21}
-  m_SizeDelta: {x: -32.78, y: -332.61502}
+  m_AnchoredPosition: {x: 1.4600067, y: 114.21}
+  m_SizeDelta: {x: -41.750004, y: -332.61996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1009660359359694904
 CanvasRenderer:
@@ -44617,8 +44617,8 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: c8061a3b6160847418107f072e8d8f8d, type: 3}
     m_FontSize: 33
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 1
+    m_BestFit: 1
+    m_MinSize: 30
     m_MaxSize: 35
     m_Alignment: 4
     m_AlignByGeometry: 0

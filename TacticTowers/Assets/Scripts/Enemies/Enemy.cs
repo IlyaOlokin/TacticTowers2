@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
 
     public void Start()
     {
-        GetPixelSize();
+        
     }
 
     public void Update()

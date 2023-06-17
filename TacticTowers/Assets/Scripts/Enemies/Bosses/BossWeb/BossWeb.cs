@@ -26,7 +26,7 @@ public class BossWeb : Boss
 
     private void Update()
     {
-        if (isDead) 
+        if (isDead || !isFunctional) 
 			return;
         base.Update();
         TryToShoot();
