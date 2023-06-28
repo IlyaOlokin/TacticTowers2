@@ -65,6 +65,7 @@ public class PausePanel : MonoBehaviour
 
     public void OnButtonContinue()
     {
+        ShowCommonAd();
         Resume();
         AudioManager.Instance.Play("ButtonClick1");
         Credits.LoseSessionCredits();
@@ -125,5 +126,17 @@ public class PausePanel : MonoBehaviour
         if (soundSlider.value == 0) audioMixer.SetFloat("SoundVol", -80.0f);
         else audioMixer.SetFloat("SoundVol", -20.0f + (20.0f * soundSlider.value));
         DataLoader.SaveString("SoundVolume", soundSlider.value.ToString());
+    }
+
+    private void ShowCommonAd()
+    {
+        try
+        {
+            YandexSDK.Instance.ShowCommonAdvertisment();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("add");
+        }
     }
 }

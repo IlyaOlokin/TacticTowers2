@@ -12,23 +12,16 @@ public class DataLoader : MonoBehaviour
     private static MainMenu mnMenu;
     private static TrialsMenuButton trMeButton;
     private static Settings settings;
-    
-    public static GameData gameData;
-    
+
     [Header("File Storage Config")] 
     [SerializeField] private string fileName;
     [SerializeField] private bool useEncryption;
-    
-    private static FileDataHandler dataHandler;
 
     void Start()
     {
         mnMenu = mainMenu;
         trMeButton = trialsMenuButton;
         settings = settingsPanel;
-
-        dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
-        
         
         YandexSDK.Instance.GettingData();
         //LoadStartData();
@@ -65,31 +58,11 @@ public class DataLoader : MonoBehaviour
         
     }
 
-    private static void NewGame()
-    {
-        gameData = new GameData();
-    }
-
-    private static void LoadGame()
-    {
-        gameData = dataHandler.Load();
-
-        if (gameData == null)
-        {
-            NewGame();
-        }
-    }
-
-    private static void SaveGame()
-    {
-        dataHandler.Save(gameData);
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.N))
         {
-            Credits.AddCredits(1000);
+            Credits.AddCredits(100);
         }
 
         if (Input.GetKeyDown(KeyCode.U))

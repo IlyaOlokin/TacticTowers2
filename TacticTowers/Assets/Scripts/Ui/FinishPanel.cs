@@ -39,6 +39,7 @@ public class FinishPanel : MonoBehaviour
     public void OnButtonRestart()
     {
         AudioManager.Instance.Play("ButtonClick1");
+        ShowCommonAd();
         Resume(false);
         ResumeMusic();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -47,6 +48,7 @@ public class FinishPanel : MonoBehaviour
     public void OnButtonMenu()
     {
         AudioManager.Instance.Play("ButtonClick1");
+        ShowCommonAd();
         Resume(false);
         ResumeMusic();
         SceneManager.LoadScene("MainMenu");
@@ -55,6 +57,7 @@ public class FinishPanel : MonoBehaviour
     public void OnButtonTechs()
     {
         AudioManager.Instance.Play("ButtonClick2");
+        ShowCommonAd();
         Resume(false);
         ResumeMusic();
         SceneManager.LoadScene("TechsMenu");
@@ -83,7 +86,9 @@ public class FinishPanel : MonoBehaviour
         if (_base.GetHp() <= 0)
         {
             Pause();
-            ShowDefeatPanel();
+            
+            if(!wasResurrectionUsed) ShowResurrectionPanel();
+            else ShowDefeatPanel();
         }
 
         if (EnemySpawner.enemies.Count != 0) return;
@@ -149,6 +154,9 @@ public class FinishPanel : MonoBehaviour
 
     private void ShowVictoryPanel()
     {
+        YandexSDK.Instance.ResetSubscriptions();
+        YandexSDK.Instance.RewardGet += OnButtonRewardedAd;
+        YandexSDK.Instance.RewardGet += ResumeMusic;
         currentPanel = victoryPanel;
         //adButtons[1].GetComponent<Button>().onClick.AddListener(PauseMusik);
         FillTexts(currentPanel, false);
@@ -161,6 +169,9 @@ public class FinishPanel : MonoBehaviour
     
     private void ShowDefeatPanel()
     {
+        YandexSDK.Instance.ResetSubscriptions();
+        YandexSDK.Instance.RewardGet += OnButtonRewardedAd;
+        YandexSDK.Instance.RewardGet += ResumeMusic;
         currentPanel = defeatPanel;
         FillTexts(currentPanel, false);
         currentPanel.SetActive(true);
@@ -204,5 +215,17 @@ public class FinishPanel : MonoBehaviour
         
         foreach (var tower in towers)
             tower.GetComponent<CircleCollider2D>().enabled = true;
+    }
+    
+    private void ShowCommonAd()
+    {
+        try
+        {
+            YandexSDK.Instance.ShowCommonAdvertisment();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("add");
+        }
     }
 }
