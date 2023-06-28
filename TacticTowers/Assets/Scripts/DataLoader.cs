@@ -29,8 +29,6 @@ public class DataLoader : MonoBehaviour
 
     public static void LoadStartData()
     {
-        LoadGame();
-        
         Technologies.LoadData();
 
         Credits.credits = LoadInt("Credits", 0);
@@ -67,9 +65,7 @@ public class DataLoader : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.U))
         {
-            NewGame();
-            SaveGame();
-            LoadStartData();
+            
         }
     }
 
