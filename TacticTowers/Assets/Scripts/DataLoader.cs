@@ -13,10 +13,6 @@ public class DataLoader : MonoBehaviour
     private static TrialsMenuButton trMeButton;
     private static Settings settings;
 
-    [Header("File Storage Config")] 
-    [SerializeField] private string fileName;
-    [SerializeField] private bool useEncryption;
-
     void Start()
     {
         mnMenu = mainMenu;
@@ -65,11 +61,10 @@ public class DataLoader : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.U))
         {
-            
         }
     }
 
-    public static void SaveInt(string variableName, int isUnlocked)
+    public static void SaveInt(string variableName, int value)
     {
         if (!YandexSDK.Instance.playerData.intData.ContainsKey(variableName))
             YandexSDK.Instance.playerData.intData.Add(variableName, isUnlocked);

@@ -134,7 +134,7 @@ public class PausePanel : MonoBehaviour
         {
             YandexSDK.Instance.ShowCommonAdvertisment();
         }
-        catch (Exception e)
+        catch 
         {
             Console.WriteLine("add");
         }

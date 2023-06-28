@@ -120,4 +120,16 @@ public class TowerUpgrade : MonoBehaviour
             Console.WriteLine("add");
         }
     }
+    
+    private void ShowCommonAd()
+    {
+        try
+        {
+            YandexSDK.Instance.ShowCommonAdvertisment();
+        }
+        catch 
+        {
+            Console.WriteLine("add");
+        }
+    }
 }
