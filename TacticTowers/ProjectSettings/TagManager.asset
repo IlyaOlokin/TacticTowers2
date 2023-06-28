@@ -16,6 +16,7 @@ TagManager:
   - BossPart
   - EnemyParent
   - BossSpawnPoint
+  - EffectZone
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Wall
   - TowerInstance
   - Pit
-  - 
+  - Underground
   - 
   - 
   - 

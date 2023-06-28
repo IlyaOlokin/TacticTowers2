@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class TeslaLightning : MonoBehaviour
 {
+    public bool needSound;
     private AudioSource audioSrc;
     
     void Start()
     {
         audioSrc = GetComponent<AudioSource>();
-        audioSrc.PlayOneShot(audioSrc.clip);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (needSound) audioSrc.PlayOneShot(audioSrc.clip);
     }
 }

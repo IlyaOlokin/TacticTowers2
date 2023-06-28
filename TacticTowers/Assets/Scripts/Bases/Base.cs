@@ -16,6 +16,8 @@ public class Base : MonoBehaviour
     [NonSerialized] public Image coolDownImage;
     [NonSerialized] public Text coolDownText;
     public int unlockCost;
+    public bool isUnlockableFromTrial;
+    public int trialToUnlockIndex;
     
     private float abilityTimer = 0;
     private BaseActive ability;
@@ -43,6 +45,8 @@ public class Base : MonoBehaviour
         UpdateCoolUI();
         if (abilityTimer > 0)
             abilityTimer -= Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Space)) ExecuteBaseActiveAbility();
     }
 
     public void TakeDamage(float dmg)
@@ -68,7 +72,12 @@ public class Base : MonoBehaviour
     private void ExecuteBaseActiveAbility()
     {
         if (abilityTimer > 0) return;
-        
+        if (ability.isAiming)
+        {
+            ability.CancelAiming();
+            return;
+        }
+            
         ability.ExecuteActiveAbility();
     }
 

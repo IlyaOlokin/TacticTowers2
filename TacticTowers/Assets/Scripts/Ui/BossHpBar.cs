@@ -35,8 +35,16 @@ public class BossHpBar : MonoBehaviour
             Enable();
             return;
         }
-        if (isBossAlive) UpdateSlider();
-        if (boss == null) DisableThis();
+
+        if (isBossAlive)
+        {
+            if (slider.maxValue < boss.GetHp())
+                slider.maxValue = boss.GetHp();
+            UpdateSlider();
+        }
+        
+        if (boss == null) 
+            DisableThis();
     }
 
     private void Enable()
@@ -50,12 +58,10 @@ public class BossHpBar : MonoBehaviour
             isEnabling = false;
     }
     
-    
-
     private void UpdateSlider()
     {
-        slider.value = boss.hp;
-        if (boss.hp <= 0)
+        slider.value = boss.GetHp();
+        if (boss.GetHp() <= 0)
         {
             DisableThis();
         }
@@ -77,7 +83,10 @@ public class BossHpBar : MonoBehaviour
     public void InitializeBoss(Boss boss)
     {
         this.boss = boss;
-        slider.maxValue = this.boss.maxHp;
-        bossIcon.sprite = boss.transform.GetComponent<Boss>().icon;
+        slider.maxValue = Math.Max(this.boss.GetHp(), this.boss.GetMaxHp());
+        /*slider.maxValue = this.boss.GetHp() > this.boss.GetMaxHp() 
+                                ? this.boss.GetHp()
+                                : this.boss.GetMaxHp();*/
+        bossIcon.sprite = boss.transform.GetComponent<Boss>().GetIcon();
     }
 }

@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
+    [NonSerialized] public bool needSound;
+
     private Vector3 radius;
     
     [SerializeField] private float explosionDuration;
@@ -21,7 +24,7 @@ public class Explosion : MonoBehaviour
             ps.transform.localScale = radius * scaleMultiplier;
         }
         audioSrc = GetComponent<AudioSource>();
-        audioSrc.PlayOneShot(audioSrc.clip);
+        if (needSound) audioSrc.PlayOneShot(audioSrc.clip);
         Destroy(gameObject, explosionDuration);
         //AudioManager.Instance.Play("MortarExplosion");
     }

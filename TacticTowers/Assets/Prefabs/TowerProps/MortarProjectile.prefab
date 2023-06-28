@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1680028144157980390}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0006, y: 0.0017, z: 0}
-  m_LocalScale: {x: 0.3317279, y: 0.3317279, z: 0.3317279}
+  m_LocalScale: {x: 0.42, y: 0.42, z: 0.42}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -7082869880217419004, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  m_Sprite: {fileID: -3564171124204314377, guid: 524925d19be4028419f9604b5a40d459, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionEffect: {fileID: 7143900964320028573, guid: c18bc23ced74f3942aa8f1c63a230fa5, type: 3}
+  flameField: {fileID: 9056452053183663675, guid: bc78c584866c51d4cabadad841b8961a, type: 3}
 --- !u!114 &-1656922614618167620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,3 +111,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 10
+  releaseChildren: 0

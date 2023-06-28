@@ -20,5 +20,7 @@ MonoBehaviour:
     enemyCount: 30
   Left:
   - enemy: {fileID: 5937050097135992818, guid: c8431b8e1d4ca35439c4b90823601262, type: 3}
-    enemyCount: 25
+    enemyCount: 20
+  - enemy: {fileID: 8037207851679825189, guid: dca13e3fd16bb5d4d9bd909a5b314fb5, type: 3}
+    enemyCount: 12
   Bot: []

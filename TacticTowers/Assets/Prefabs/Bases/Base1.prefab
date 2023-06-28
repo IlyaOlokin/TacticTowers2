@@ -180,7 +180,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7883339769136606292}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
@@ -253,9 +253,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 7883339769341338125}
   - {fileID: 7883339769847320195}
   - {fileID: 7883339769048979318}
-  - {fileID: 7883339769341338125}
   m_Father: {fileID: 7883339770609276405}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -426,11 +426,11 @@ RectTransform:
   m_Children:
   - {fileID: 7883339768930066147}
   m_Father: {fileID: 7883339769136606292}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -0.56599426, y: 0}
+  m_AnchoredPosition: {x: -0.56599426, y: -0.00000047683716}
   m_SizeDelta: {x: -1.133, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7883339769355186057
@@ -459,7 +459,7 @@ Transform:
   m_GameObject: {fileID: 7883339769355186057}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2600316, y: 0.2600316, z: 0.2600316}
+  m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_Children: []
   m_Father: {fileID: 7883339769755823017}
   m_RootOrder: 1
@@ -504,7 +504,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5040041125698078803, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  m_Sprite: {fileID: 7261923141285490283, guid: 524925d19be4028419f9604b5a40d459, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -638,7 +638,9 @@ MonoBehaviour:
   maxHp: 100
   canvas: {fileID: 7883339770609276406}
   unlockCost: 0
-  baseImage: {fileID: -5040041125698078803, guid: 8042fa188991b254799febb6b2aec82a, type: 3}
+  isUnlockableFromTrial: 0
+  trialToUnlockIndex: 0
+  baseImage: {fileID: 7261923141285490283, guid: 524925d19be4028419f9604b5a40d459, type: 3}
 --- !u!114 &4865109854965181385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,7 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: basePRegen
-  regenAmount: 1
+  regenAmount: 0.5
 --- !u!50 &7883339769755823019
 Rigidbody2D:
   serializedVersion: 4
@@ -821,7 +823,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7883339769136606292}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}

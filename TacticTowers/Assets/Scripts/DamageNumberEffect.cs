@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
@@ -8,11 +9,14 @@ using Random = UnityEngine.Random;
 
 public class DamageNumberEffect : MonoBehaviour
 {
+    [SerializeField] private Transform criticalEffect;
+    [SerializeField] private Transform objectToMove;
     [SerializeField] private Text text;
     [SerializeField] private float lifeTime;
     [SerializeField] private float effectDuration;
     [SerializeField] private float scaleMultiplier;
-    [SerializeField] private float moveUpDistance;
+    [SerializeField] private float moveDistance;
+    [SerializeField] private float lerpSpeed;
     private float timer;
     private Vector3 targetScale;
     private Vector3 startScale;
@@ -25,15 +29,13 @@ public class DamageNumberEffect : MonoBehaviour
 
     void Start()
     {
-        transform.position += new Vector3(Random.Range(-posSpreading, posSpreading),
+        objectToMove.position += new Vector3(Random.Range(-posSpreading, posSpreading),
             Random.Range(-posSpreading, posSpreading));
         GetComponent<Canvas>().worldCamera = Camera.main;
         Destroy(gameObject, lifeTime);
-        startScale = transform.localScale;
+        startScale = objectToMove.localScale;
         targetScale = startScale * scaleMultiplier;
-        startPos = transform.position;
-        targetPos = startPos + new Vector3(0, moveUpDistance);
-
+        startPos = objectToMove.position;
     }
 
     private void Update()
@@ -41,12 +43,12 @@ public class DamageNumberEffect : MonoBehaviour
         timer += Time.deltaTime;
         if (timer <= effectDuration)
         {
-            transform.localScale = Vector2.Lerp(startScale, targetScale, timer / effectDuration);
-            transform.position = Vector2.Lerp(startPos, targetPos, timer / effectDuration);
+            objectToMove.localScale = Vector2.Lerp(startScale, targetScale, timer / effectDuration);
+            objectToMove.position = Vector2.Lerp(objectToMove.position, targetPos, lerpSpeed);
         }
         else
         {
-            transform.localScale = Vector2.Lerp(targetScale, startScale,
+            objectToMove.localScale = Vector2.Lerp(targetScale, startScale,
                 (timer - effectDuration) / (lifeTime - effectDuration));
         }
     }
@@ -61,6 +63,22 @@ public class DamageNumberEffect : MonoBehaviour
         }
         
         text.text = (Math.Round(dmg)).ToString();
+    }
+
+    public void InitTargetPos(Vector3 damagerPos, bool isCritical)
+    {
+        if ((damagerPos - objectToMove.position).magnitude < posSpreading)
+        {
+            targetPos = objectToMove.position + new Vector3(0, moveDistance);
+            return;
+        }
+        var dir = (objectToMove.position - damagerPos).normalized;
+        targetPos = objectToMove.position + dir * moveDistance;
+
+        if (!isCritical) return;
+        criticalEffect.gameObject.SetActive(true);
+        float angle = Mathf.Atan2(dir.y, dir.x) * 180 / Mathf.PI;
+        criticalEffect.eulerAngles = new Vector3(0, 0, angle - 90);
     }
 
     private void GetInnerColor(float dmg)

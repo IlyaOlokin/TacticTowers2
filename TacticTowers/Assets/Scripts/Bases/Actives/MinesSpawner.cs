@@ -10,18 +10,15 @@ public class MinesSpawner : MonoBehaviour
     [NonSerialized] public GameObject Mine;
     [NonSerialized] public int countMines;
     public AudioSource audioSrc;
+    [NonSerialized] public BaseActive baseActive;
 
     private void Update()
     {
         if (Input.GetMouseButton(1))
         {
-            gameObject.SetActive(false);
+            baseActive.CancelAiming();
         }
 
-        if (Input.GetMouseButton(0))
-        {
-            isActive = true;
-        }
         if (!isActive)
         {
             transform.position = Vector3.MoveTowards(transform.position, GetMousePosition(), 100f);
@@ -32,10 +29,16 @@ public class MinesSpawner : MonoBehaviour
             isActive = false;
             gameObject.SetActive(false);
         }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            isActive = true;
+        }
     }
 
     private void SpawnMines()
     {
+        baseActive.isAiming = false;
         var rnd = new Random();
         audioSrc.PlayOneShot(audioSrc.clip);
         for (var i = 0; i < countMines; i++)

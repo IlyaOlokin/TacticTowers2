@@ -18,9 +18,13 @@ MonoBehaviour:
   Top: []
   Left:
   - enemy: {fileID: 5937050097135992818, guid: 9cfe49d5d6ae250498d256e562d981dc, type: 3}
-    enemyCount: 12
-  - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
-    enemyCount: 30
-  Bot:
+    enemyCount: 8
   - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
     enemyCount: 25
+  - enemy: {fileID: 6827577203655098640, guid: 185ee16bf6622464aac232fb4d642f88, type: 3}
+    enemyCount: 10
+  Bot:
+  - enemy: {fileID: 5937050097135992818, guid: 101bb167720e4004dab30633b7d0c565, type: 3}
+    enemyCount: 17
+  - enemy: {fileID: 6187481930817503581, guid: 48ff7a0d47fe486448b13b6d0c01a769, type: 3}
+    enemyCount: 5

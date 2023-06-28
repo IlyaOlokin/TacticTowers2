@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5481057969379534988}
   - component: {fileID: 7526887423372258735}
   - component: {fileID: 8648742364609233478}
-  m_Layer: 2
+  - component: {fileID: -6979786790801646813}
+  m_Layer: 9
   m_Name: Web
-  m_TagString: Wall
+  m_TagString: Web
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,6 +117,22 @@ MonoBehaviour:
   speed: 2
   disarmDuration: 5
   webSprite: {fileID: 679031724053545157, guid: 26c6c5c61930f1c45b4ce38e214ad365, type: 3}
+--- !u!114 &-6979786790801646813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680028144157980390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dd58a92970269948b68c9ea95eedd8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notification:
+    sprite: {fileID: 679031724053545157, guid: 26c6c5c61930f1c45b4ce38e214ad365, type: 3}
+    text: NotificationWeb
+  web: {fileID: 8648742364609233478}
 --- !u!1 &1947193100560463588
 GameObject:
   m_ObjectHideFlags: 0

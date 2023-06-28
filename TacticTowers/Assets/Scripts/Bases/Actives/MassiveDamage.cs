@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MassiveDamage : BaseActive
 {
-    [SerializeField] private MassiveDamageBox box;
+    [SerializeField] private GameObject box;
     [SerializeField] private float damage;
     [SerializeField] private GameObject explosion;
 
@@ -21,7 +21,8 @@ public class MassiveDamage : BaseActive
     private IEnumerator DealDamage(float delay)
     {
         yield return new WaitForSeconds(delay);
-        box.DamageEnemy(damage);
+        box.SetActive(true);
+        box.GetComponent<MassiveDamageBox>().Explode(damage);
     }
 }
 

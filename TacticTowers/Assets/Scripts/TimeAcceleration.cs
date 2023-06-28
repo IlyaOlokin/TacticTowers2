@@ -9,7 +9,7 @@ public class TimeAcceleration : MonoBehaviour
     [SerializeField] private List<GameObject> arrows;
     [SerializeField] private Color arrowSelectedColor;
     [SerializeField] private Color arrowDefaultColor;
-    private readonly List<int> timeScales = new List<int>() {1, 2, 4};
+    private readonly List<float> timeScales = new List<float>() {1f, 1.5f, 2f};
     private static int currentTimeScaleIndex = 0;
 
     private void Start()
@@ -49,7 +49,7 @@ public class TimeAcceleration : MonoBehaviour
     private void ChangeTimeScale(int timeScaleIndex)
     {
         currentTimeScaleIndex = timeScaleIndex % timeScales.Count;
-        int newTimeScale = timeScales[currentTimeScaleIndex];
+        float newTimeScale = timeScales[currentTimeScaleIndex];
         TimeManager.SetTimeScale(newTimeScale);
         ColorArrows(currentTimeScaleIndex);
     }

@@ -3,22 +3,38 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Tower : MonoBehaviour
 {
-    [NonSerialized] public readonly int[] upgradePrices = {10, 25, 50, 100, 150, 225, 325, 475, 700, 1000, 1400, 2000, 2750, 3750, 5000, 6500, 8250, 10000, 12000};
+    [NonSerialized] public static readonly int[] upgradePrices = {10, 25, 50, 100, 150, 225, 325, 475, 700, 1000, 1400, 2000, 2750, 3750, 5000, 6500, 8250, 10000, 12000};
     [NonSerialized] public int upgradeLevel = 1;
 
     [NonSerialized] public List<GameObject> enemiesToIgnore = new List<GameObject>();
 
     public float shootDirection;
+    private Vector2 shootDirVector;
 
+    [Header("Description")]
     public string towerName; 
     [Multiline]public string towerDescription;
-    public Sprite towerSprite;
+    
+    [Header("Visual")]
+    public TowerSprites[] towerSprites;
+    [SerializeField] private SpriteRenderer basementSprite;
+    [SerializeField] private SpriteRenderer cannonSprite;
+    [SerializeField] private SpriteRenderer additionalSprites;
+    [NonSerialized] public int currentVisualSpriteIndex;
+    
+    [Header("Upgrades")]
+    public List<CommonUpgrade> upgrades;
+    public List<SpecialUpgrade> specialUpgrades;
 
+    [Header("References")]
     [SerializeField] protected GameObject towerCanon;
+    public ShootZone shootZone;
 
+    [Header("Stats")]
     public float shootAngle;
     [NonSerialized] public float multiplierShootAngle = 1;
     
@@ -38,41 +54,49 @@ public class Tower : MonoBehaviour
     [NonSerialized] private bool hasParasite = false;
     private float parasiteAttackSpeedMultiplier = 1;
 
-    public ShootZone shootZone;
 
-    public List<Upgrade> upgrades;
     
+    [NonSerialized] public List<bool> upgradedSpecilaUpgrades = new List<bool> {false, false, false};
+
     protected AudioSource audioSrc;
-    
+
+    private void Awake()
+    {
+        shootDirVector = GetShootDirInVector(shootDirection);
+    }
+
+    private static Vector2 GetShootDirInVector(float shootDir)
+    {
+        return new Vector2((float) Math.Cos(shootDir / 180f * Math.PI),
+            (float) Math.Sin(shootDir / 180f * Math.PI)).normalized;
+    }
+
     protected void Update()
     {
-        FindTarget();
-        
+        Shoot(FindTarget());
+
         if (shootDelayTimer > 0) shootDelayTimer -= Time.deltaTime;
     }
 
-    private void FindTarget()
+    private GameObject FindTarget()
     {
+        if (!CanShoot() || EnemySpawner.enemies.Count == 0) return null;
         GameObject target = null;
         float distToTarget = float.MaxValue;
-        if (EnemySpawner.enemies.Count == 0)
-        {
-            Shoot(null);
-            return;
-        }
         foreach (var enemy in EnemySpawner.enemies)
         {
             if (enemy == null) continue;
-            if (enemiesToIgnore.Contains(enemy)) continue;
+            if (enemiesToIgnore.Contains(enemy) || enemy.GetComponent<Enemy>().GetInvulnerability()) 
+                continue;
             var distToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
-            Vector3 dir = transform.position - enemy.transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + 180;
+            Vector3 dir = (enemy.transform.position - transform.position).normalized;
+            var angle = Vector2.Angle(dir, shootDirVector);
+
             if (distToEnemy <= GetShootDistance())
             {
                 if (target == null || distToEnemy < distToTarget)
                 {
-                    if (Math.Abs(shootDirection - angle) <= GetShootAngle() / 2f
-                    || shootDirection == 0 && Math.Abs(360 - angle) <= GetShootAngle() / 2f) // костыль
+                    if (angle <= GetShootAngle() / 2f) 
                     {
                         distToTarget = distToEnemy;
                         target = enemy;
@@ -80,9 +104,39 @@ public class Tower : MonoBehaviour
                 }
             }
         }
-        
-        if (CanShoot()) Shoot(target);
-        else Shoot(null);
+
+        return target;
+    }
+    protected GameObject FindTarget(IEnumerable<GameObject> targetsToIgnore)
+    {
+        if (!CanShoot() || EnemySpawner.enemies.Count == 0) return null;
+        GameObject target = null;
+        float distToTarget = float.MaxValue;
+        foreach (var enemy in EnemySpawner.enemies)
+        {
+            if (enemy == null) continue;
+            if (enemiesToIgnore.Contains(enemy) 
+                || targetsToIgnore.Contains(enemy) 
+                || enemy.GetComponent<Enemy>().GetInvulnerability()) 
+                continue;
+            var distToEnemy = Vector2.Distance(transform.position, enemy.transform.position);
+            Vector3 dir = (enemy.transform.position - transform.position).normalized;
+            var angle = Vector2.Angle(dir, shootDirVector);
+            
+            if (distToEnemy <= GetShootDistance())
+            {
+                if (target == null || distToEnemy < distToTarget)
+                {
+                    if (angle <= GetShootAngle() / 2f) 
+                    {
+                        distToTarget = distToEnemy;
+                        target = enemy;
+                    }
+                }
+            }
+        }
+
+        return target;
     }
 
     protected virtual void Shoot(GameObject enemy)
@@ -90,9 +144,9 @@ public class Tower : MonoBehaviour
         
     }
 
-    protected void LootAtTarget(GameObject target)
+    protected void LootAtTarget(Vector3 target)
     {
-        Vector3 dir = transform.position - target.transform.position;
+        Vector3 dir = transform.position - target;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         towerCanon.transform.eulerAngles = new Vector3(0, 0, angle + 90);
     }
@@ -129,6 +183,7 @@ public class Tower : MonoBehaviour
     {
         transform.parent = tower.transform.parent;
         shootDirection = tower.shootDirection;
+        shootDirVector = GetShootDirInVector(shootDirection);
         transform.rotation = tower.transform.rotation;
         shootZone = tower.shootZone;
         shootZone.tower = this;
@@ -158,6 +213,32 @@ public class Tower : MonoBehaviour
 
         return target;
     }
+    
+    protected GameObject FindClosestEnemy(Vector3 endPos, IEnumerable<GameObject> pickedEnemies, float searchDist)
+    {
+        GameObject newEnemy = null;
+        var minDist = float.MaxValue;
+        foreach (var e in EnemySpawner.enemies)
+        {
+            var distance = Vector3.Distance(endPos, e.transform.position);
+            if (distance <= searchDist && distance < minDist &&
+                !pickedEnemies.Contains(e) && !e.GetComponent<Enemy>().GetInvulnerability())
+            {
+                newEnemy = e;
+                minDist = distance;
+            }
+        }
+
+        return newEnemy;
+    }
+    
+    protected bool IsCriticalShot(float critChance)
+    {
+        if (Random.Range(0f, 1f) < critChance)
+            return true;
+        
+        return false;
+    }
 
     public bool CanShoot()
     {
@@ -169,6 +250,11 @@ public class Tower : MonoBehaviour
         isDisarmed = true;
         StopCoroutine("LostDisarm");
         StartCoroutine("LostDisarm", duration);
+    }
+
+    public bool IsDisarmed()
+    {
+        return isDisarmed;
     }
 
     private IEnumerator LostDisarm(float delay)
@@ -189,5 +275,14 @@ public class Tower : MonoBehaviour
     {
         hasParasite = false;
         parasiteAttackSpeedMultiplier = 1;
+    }
+
+    public void UpgradeVisual()
+    {
+        basementSprite.sprite = towerSprites[currentVisualSpriteIndex].basementSprite;
+        if (cannonSprite != null)
+            cannonSprite.sprite = towerSprites[currentVisualSpriteIndex].cannonSprite;
+        if (additionalSprites != null)
+            additionalSprites.sprite = towerSprites[currentVisualSpriteIndex].additionalSprite;
     }
 }

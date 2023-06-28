@@ -20,7 +20,6 @@ public class Mine : MonoBehaviour
     private void Start()
     {
         speed *= Random.Range(0.95f, 1.05f);
-        audioSrc = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -59,7 +58,6 @@ public class Mine : MonoBehaviour
             {
                 needActivate = true;
                 beenActivated = true;
-                //audioSrc.PlayOneShot(audioSrc.clip);
             }
         }
         
@@ -89,6 +87,7 @@ public class Mine : MonoBehaviour
         }
         var newExplosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
         newExplosion.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        newExplosion.GetComponent<Explosion>().needSound = true;
         Destroy(gameObject);
     }
 }

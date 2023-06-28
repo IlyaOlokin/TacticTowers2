@@ -1,5 +1,6 @@
 menuPlayButton:Play
 menuTechButton:Technologies
+menuTrialButton:Trials
 menuMenuButton:Menu
 menuRestartButton:Restart
 menuCancelButton:Cancel
@@ -26,7 +27,7 @@ baseATempBuffMoney:Increases the amount of $ received from enemies by 1.5 times 
 baseATempBuffOne:Buffs the selected tower for 15 seconds.
 baseAPeriodDamage:Creates a storm field in the selected area, dealing 150 damage per second.
 basePassiveText:Passive ability
-basePRegen:Regenerates 1 HP per second.
+basePRegen:Regenerates 0.5 HP per second.
 basePBuffAngle:Increases shoot angle of all towers by 50%, but reduces fire rate  by 10%.
 basePBuffHorizontal:Strengthens the right and left towers, but weakens the top and bottom ones.
 basePSlowDown:Slows enemies by 30%, but increases their HP by 30%.
@@ -110,6 +111,7 @@ tutorialPanel3:All four of you your can be moved by holding <b>LMB</b>. Help the
 tutorialPanel4:Every command center has an special ability. To use it press on the ability button
 tutorialPanel5:As you gather more resources an arrow near the tower level will appear. That means that the turret can be upgraded
 tutorialPanel6:Press <b>LMB</b> on the tower to upgrade it, then click <b>UPGRADE</b> and choose the upgrade. At level 5 a choice of tower type is given
+tutorialPanel7:Good Luck!
 tutorialPanel1old:These are the resources you have accumulated. You can upgrade tower levels with dollars and buy new technologies with <color=#E37F4D>credits</color>
 tutorialPanel2old:You can the wave counter and a timer before the next wave here
 tutorialPanel3old:This is your command center. It needs to be defended from the enemies
@@ -126,3 +128,98 @@ tutorialSkipText:Are you sure you want to skip the tutorial?
 statHeader:Statistics
 ressurectText:Do you want to continue?
 ressurectButton:Continue
+upgradeFlameCloseDmg:Damage close
+upgradeFlameCloseDmgDesc:The closer the enemy is, the more damage up to +50%
+upgradeFlameGlobalBurn:Global burn damage
+upgradeFlameGlobalBurnDesc:Increases all burning damage by 50%
+upgradeFlameWidth:Width of the stream
+upgradeFlameWidthDesc:+50% to the width of the stream
+upgradeFrostFrozenDmg:Frozen damage
+upgradeFrostFrozenDmgDesc:Frozen enemies receive increased damage
+upgradeFrostImmuneIgnore:Mega freeze
+upgradeFrostImmuneIgnoreDesc:Ability to freeze all enemies
+upgradeFrostWidth:Width of the stream
+upgradeFrostWidthDesc:+50% to the width of the stream
+upgradeLaserBranchingBeam:Bifurcation of the beam
+upgradeLaserBranchingBeamDesc:After hit, the beam splits, dealing 20% damage
+upgradeLaserSecondBeam:Second beam
+upgradeLaserSecondBeamDesc:The laser shoots a second beam if fully heated
+upgradeLaserSlow:Slowing down
+upgradeLaserSlowDesc:Slows down the enemy
+upgradeMinigunCritical:Critical damage
+upgradeMinigunCriticalDesc:+40% chance to deal critical damage if fully heated
+upgradeMinigunDmgStack:Increased damage
+upgradeMinigunDmgStackDesc:Increases damage by 5% with each hit on an enemy
+upgradeMinigunPenetration:Penetration
+upgradeMinigunPenetrationDesc:The projectile passes through the first target, reducing its damage by 60%
+upgradeMortarFireChance:Chance to set fire
+upgradeMortarFireChanceDesc:25% chance to set fire to the enemy
+upgradeMortarFlameField:Burning earth
+upgradeMortarFlameFieldDesc:After the explosion, the cannonball leaves the burning earth
+upgradeMortarScatter:Cannonball expansion
+upgradeMortarScatterDesc:A cannonball splits after the explosion into several small cannonball
+upgradeRailDmgOverDist:Damage with distance
+upgradeRailDmgOverDistDesc:Increases the damage from the distance to the target
+upgradeRailDoubleShot:Double shot
+upgradeRailDoubleShotDesc:+20% chance of a double shot
+upgradeRailKnockBack:Knock back
+upgradeRailKnockBackDesc:When hit, pushes the enemy back
+upgradeShotgunDoubleDmg:Critical Damage
+upgradeShotgunDoubleDmgDesc:+20% chance to deal critical damage
+upgradeShotgunDoubleShot:Double shot
+upgradeShotgunDoubleShotDesc:+20% chance of a double shot
+upgradeShotgunKnockBack:Knock back
+upgradeShotgunKnockBackDesc:When hit, pushes the enemy back
+upgradeTeslaBranching:Chance to split the lightning
+upgradeTeslaBranchingDesc:25% chance to split lightning
+upgradeTeslaFireChance:Chance to set fire
+upgradeTeslaFireChanceDesc:25% chance to set the enemy on fire when hit
+upgradeTeslaMicroStun:Shock
+upgradeTeslaMicroStunDesc:When hit, it forces the enemy to stop for a short time
+NotificationEnemyCommon:Common enemy
+NotificationEnemyArmored:Armored enemy
+NotificationEnemyFast:Fast enemy
+NotificationEnemySlow:Slow, but tenacious of life
+NotificationEnemyFly:Flies straight to the target
+NotificationEnemyCreaterCommon:Creates common enemies
+NotificationEnemyUnderground:Vulnerable when it comes to the surface
+NotificationEnemySlime:After death, it splits
+NotificationEnemyBossShield:Shields block most attacks
+NotificationEnemyBossWeb:Shoots webs at your towers
+NotificationEnemyBossParasites:Lets parasites on your towers
+NotificationEnemyBossCreaterFly:Spawns strong, flying enemies
+NotificationEnemyBossDangerous:The most dangerous and powerful opponent
+NotificationEnemyWeakenTowers:Weakens your towers
+NotificationWeb:Move towers to avoid  a web
+NotificationParasites:Shoot parasites off your towers with other towers
+NotificationTrials:You have opened the test section in the main menu
+TooltipTrials:To unlock the trials, play the normal gamemode at least once.
+TooltipChooseBase:Select the unlocked command center.
+TrialDesc1:The choice of towers has been reduced to a flamethrower. Only weak enemies come out in large numbers.
+TrialDesc2:All towers are directed to one side.
+TrialDesc3:All towers are rotated 45 degrees counterclockwise.
+TrialDesc4:Waves only consist of bosses.
+TrialDesc5:Each wave consists of enemies of the same type.
+TrialDesc6:One less tower.
+TrialDesc7:100% chance of X2 while upgrading towers.
+TrialDesc8:Hardmode - enemies are stronger, there are more of them, there is less money.
+TitleTrialsScene:Chose a trial
+TrialsDescTitle:Condition
+TrialsPrizeTitle:Reward
+TrialDescCompleted:The reward has already been received
+PriseBase2Trial:Command Center №2
+PriseBase4Trial:Command Center №4
+PriseBase6Trial:Command Center №6
+PriseBase8Trial:Command Center №8
+PassTrial:Pass the trial
+menuSettingsButton:Settings
+TechUpX2Chance:X2 upgrade chance
+Unlocked:Unlocked!
+pauseMusic:Music
+pauseSound:Sound
+menuExitButton:Exit
+Language:Language:
+Resolution:Resolution:
+SettingsCloseButton:Close
+SettingsLabel:Settings
+trialBase:Base

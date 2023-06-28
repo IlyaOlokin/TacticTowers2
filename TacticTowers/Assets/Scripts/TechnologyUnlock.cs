@@ -12,9 +12,7 @@ public class TechnologyUnlock : MonoBehaviour
     public int price;
     [SerializeField] private Text priceText;
     [SerializeField] private GameObject button;
-    [SerializeField] private Sprite enoughMoneyButton;
-    [SerializeField] private Sprite notEnoughMoneyButton;
-    
+
     [SerializeField] private UnlockableTowers unlockableTower;
     [NonSerialized] public bool isUnlocked;
 
@@ -67,7 +65,7 @@ public class TechnologyUnlock : MonoBehaviour
     
     private void UpdateTexts()
     {
-        priceText.text = isUnlocked ? "Unlocked!" : price.ToString();
+        priceText.text = isUnlocked ? Localisation.GetLocalisedValue("Unlocked") : price.ToString();
     }
 
     private void SetUpgradeVisuals(bool unlocked)
@@ -105,13 +103,11 @@ public class TechnologyUnlock : MonoBehaviour
     {
         if (!HaveEnoughMoney() || isUnlocked)
         {
-            button.GetComponent<Image>().sprite = notEnoughMoneyButton;
-            button.GetComponent<Button>().enabled = false;
+            button.GetComponent<Button>().interactable = false;
         }
         else
         {
-            button.GetComponent<Image>().sprite = enoughMoneyButton;
-            button.GetComponent<Button>().enabled = true;
+            button.GetComponent<Button>().interactable = true;
         }
     }
 }

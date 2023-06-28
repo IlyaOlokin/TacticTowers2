@@ -65,8 +65,6 @@ public class TowerUpgrade : MonoBehaviour
     {
         if (td.dragging) return;
         upgradeMenu.SetActive(true);
-        upgradeMenu.GetComponent<UpgradeMenu>().mouseOn = false;
-        //upgradeMenu.GetComponent<UpgradeMenu>().ActivateMenu();
     }
 
     public void OpenUpgradeWindow()
@@ -87,8 +85,6 @@ public class TowerUpgrade : MonoBehaviour
             
             FindObjectOfType<AudioManager>().Play("ButtonClick1");
         }
-
-        ShowCommonAd();
     }
     public void OpenTowerStatWindow()
     {
@@ -103,23 +99,11 @@ public class TowerUpgrade : MonoBehaviour
     {
         if (IsTowerMaxLevel())
             return 0;
-        return tower.upgradePrices[tower.upgradeLevel - 1];
+        return Tower.upgradePrices[tower.upgradeLevel - 1];
     }
 
     private bool IsTowerMaxLevel()
     {
-        return tower.upgradeLevel == tower.upgradePrices.Length + 1;
-    }
-    
-    private void ShowCommonAd()
-    {
-        try
-        {
-            YandexSDK.Instance.ShowCommonAdvertisment();
-        }
-        catch 
-        {
-            Console.WriteLine("add");
-        }
+        return tower.upgradeLevel == Tower.upgradePrices.Length + 1;
     }
 }
