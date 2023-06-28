@@ -61,25 +61,27 @@ public class DataLoader : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.U))
         {
+            YandexSDK.Instance.playerData = new PlayerData();
+            YandexSDK.Instance.SettingData();
         }
     }
 
     public static void SaveInt(string variableName, int value)
     {
         if (!YandexSDK.Instance.playerData.intData.ContainsKey(variableName))
-            YandexSDK.Instance.playerData.intData.Add(variableName, isUnlocked);
+            YandexSDK.Instance.playerData.intData.Add(variableName, value);
         else
-            YandexSDK.Instance.playerData.intData[variableName] = isUnlocked;
+            YandexSDK.Instance.playerData.intData[variableName] = value;
         
         YandexSDK.Instance.SettingData();
     }
 
-    public static void SaveInt(string variableName, bool isUnlocked)
+    public static void SaveInt(string variableName, bool value)
     {
         if (!YandexSDK.Instance.playerData.intData.ContainsKey(variableName))
-            YandexSDK.Instance.playerData.intData.Add(variableName, Convert.ToInt16(isUnlocked));
+            YandexSDK.Instance.playerData.intData.Add(variableName, Convert.ToInt16(value));
         else
-            YandexSDK.Instance.playerData.intData[variableName] = Convert.ToInt16(isUnlocked);
+            YandexSDK.Instance.playerData.intData[variableName] = Convert.ToInt16(value);
         YandexSDK.Instance.SettingData();
     }
 

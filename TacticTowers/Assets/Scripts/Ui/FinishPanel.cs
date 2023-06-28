@@ -12,6 +12,7 @@ public class FinishPanel : MonoBehaviour
     [SerializeField] private GameObject victoryPanel;
     [SerializeField] private GameObject defeatPanel;
     private GameObject currentPanel;
+    [SerializeField] private List<GameObject> adButtons;
     [SerializeField] private List<GameObject> towers;
     
     [SerializeField] private GameObject enemies;
@@ -86,9 +87,7 @@ public class FinishPanel : MonoBehaviour
         if (_base.GetHp() <= 0)
         {
             Pause();
-            
-            if(!wasResurrectionUsed) ShowResurrectionPanel();
-            else ShowDefeatPanel();
+            ShowDefeatPanel();
         }
 
         if (EnemySpawner.enemies.Count != 0) return;
@@ -226,6 +225,20 @@ public class FinishPanel : MonoBehaviour
         catch (Exception e)
         {
             Console.WriteLine("add");
+        }
+    }
+    
+    private void OnButtonRewardedAd()
+    {
+        Credits.AcceptSessionCredits();
+        TechButtonHighlight.TryHighlight();
+        
+        ResumeMusic();
+        
+        FillTexts(currentPanel, true);
+        foreach (var button in adButtons)
+        {
+            button.SetActive(false);
         }
     }
 }
