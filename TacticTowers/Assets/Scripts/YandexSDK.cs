@@ -34,7 +34,7 @@ public class YandexSDK : MonoBehaviour
         adTimer = adCodldown;
         DontDestroyOnLoad(gameObject);
         
-        //Instance.Authenticate();
+        Instance.Authenticate();
     }
 
     //
